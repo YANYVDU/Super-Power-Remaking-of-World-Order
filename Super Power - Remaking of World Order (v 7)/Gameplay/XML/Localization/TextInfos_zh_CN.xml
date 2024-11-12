@@ -16431,5 +16431,8 @@
 		<Replace Tag="TXT_KEY_PLOTROLL_OCEAN">
 			<Text>海洋</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_RANGE_SUPPRESS_MODIFIER">
+			<Text>航程压制</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

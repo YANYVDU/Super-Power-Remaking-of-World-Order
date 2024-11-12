@@ -1889,6 +1889,21 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true));
 			end
 
+			--Bonus from Range Suppress
+			if (bRanged) then
+				iModifier = pMyUnit:GetUnitRangeSuppressModifier();
+				if (iModifier ~= 0 and pMyUnit:GetDomainType() == pTheirUnit:GetDomainType()) then
+					local iRange = pMyUnit:GetRange()
+					local pRange = pTheirUnit:GetRange()
+					if pRange>0 and iRange > pRange then
+						iModifier = iModifier * (iRange - pRange)
+						controlTable = g_MyCombatDataIM:GetInstance();
+						controlTable.Text:LocalizeAndSetText( "TXT_KEY_RANGE_SUPPRESS_MODIFIER" );
+						controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+					end
+				end
+			end
+
 			----------------------------------------------------------------------------
 			-- BONUSES THEIR UNIT GETS
 			----------------------------------------------------------------------------
@@ -2460,6 +2475,20 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 					controlTable.Value:SetText(GetFormattedText(strText, iModifier, false, true));
 				end
 
+				--Bonus from Range Suppress
+				if (bRanged) then
+					iModifier = pTheirUnit:GetUnitRangeSuppressModifier();
+					if (iModifier ~= 0 and pMyUnit:GetDomainType() == pTheirUnit:GetDomainType()) then
+						local iRange = pTheirUnit:GetRange()
+						local pRange = pMyUnit:GetRange()
+						if pRange>0 and iRange > pRange then
+							iModifier = iModifier * (iRange - pRange)
+							controlTable = g_TheirCombatDataIM:GetInstance();
+							controlTable.Text:LocalizeAndSetText( "TXT_KEY_RANGE_SUPPRESS_MODIFIER" );
+							controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+						end
+					end
+				end
 			end
 
 			--------------------------

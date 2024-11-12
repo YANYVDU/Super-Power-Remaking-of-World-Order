@@ -18095,5 +18095,8 @@
 		<Replace Tag="TXT_KEY_PLOTROLL_OCEAN">
 			<Text>Coast and Ocean</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_RANGE_SUPPRESS_MODIFIER">
+			<Text>Range Suppress</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

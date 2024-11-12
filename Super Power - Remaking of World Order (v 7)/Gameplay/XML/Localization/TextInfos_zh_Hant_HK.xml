@@ -16238,5 +16238,8 @@
 				[NEWLINE][ICON_BULLET]城市將進入一定回合的審判狂熱狀態，該狀態下城市[COLOR_NEGATIVE_TEXT]無法被傳教[ENDCOLOR]（基礎回合數為城市[ICON_CITIZEN]人口的5%）。
 			</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_RANGE_SUPPRESS_MODIFIER">
+			<Text>航程壓制</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
