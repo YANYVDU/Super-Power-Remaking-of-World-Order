@@ -5874,7 +5874,7 @@
 
 		<Replace Tag="TXT_KEY_TRAIT_CAPITAL_BUILDINGS_CHEAPER">
 			<Text>
-				[ICON_BULLET]所有城市+2[ICON_PRODUCTION]产能。
+				[ICON_BULLET]所有城市+2[ICON_PRODUCTION]产能（随时代增加）。
 				[NEWLINE][ICON_BULLET]城市建造建筑时+15%[ICON_PRODUCTION]产能。
 			</Text>
 		</Replace>
@@ -16470,6 +16470,10 @@
 				[NEWLINE][ICON_BULLET]城市将进入一定回合的审判狂热状态，该状态下城市[COLOR_NEGATIVE_TEXT]无法被传教[ENDCOLOR]（基础回合数为城市[ICON_CITIZEN]人口的5%）。
 			</Text>
 		</Replace>
+
+		<Row Tag="TXT_KEY_BUILD_BLOCKED_MAX_BUILD_NUM">
+			<Text>地块超出本回合最大可改良次数。</Text>
+		</Row>
 
 		<Replace Tag="TXT_KEY_PLOTROLL_OCEAN">
 			<Text>海洋</Text>

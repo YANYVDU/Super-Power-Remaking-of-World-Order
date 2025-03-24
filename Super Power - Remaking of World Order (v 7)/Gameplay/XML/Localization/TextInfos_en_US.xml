@@ -10425,7 +10425,7 @@
 			<Text>
 				[ICON_BULLET]+3 [ICON_CULTURE] Culture for all cities and it never expires.
 				[NEWLINE][ICON_BULLET]+1 [ICON_TOURISM] Tourism output for all Great Works.
-        [NEWLINE][ICON_BULLET]Earns a free [ICON_CULTURE] social policy upon first conquering the original capital of a major civ and spreads a one-time [ICON_TOURISM] tourism yield to all civs they have met.
+				[NEWLINE][ICON_BULLET]Earns a free [ICON_CULTURE] social policy upon first conquering the original capital of a major civ and spreads a one-time [ICON_TOURISM] tourism yield to all civs they have met.
 			</Text>
 		</Replace>
 
@@ -10440,7 +10440,7 @@
 
 		<Replace Tag="TXT_KEY_TRAIT_CAPITAL_BUILDINGS_CHEAPER">
 			<Text>
-				[ICON_BULLET]+2 [ICON_PRODUCTION] Production for all cities and it never expires. 
+				[ICON_BULLET]+2 [ICON_PRODUCTION] Production for all cities(increase with Era). 
 				[NEWLINE][ICON_BULLET]+15% [ICON_PRODUCTION] Production towards any buildings in all cities.
 			</Text>
 		</Replace>
@@ -18131,6 +18131,10 @@
 				[NEWLINE][ICON_BULLET]City will enter a state of Inquisition fervor and [COLOR_NEGATIVE_TEXT] it is impossible to Spread Religion here [ENDCOLOR] (The base time equals 5% of City's [ICON_CITIZEN] Population).
 			</Text>
 		</Replace>
+
+		<Row Tag="TXT_KEY_BUILD_BLOCKED_MAX_BUILD_NUM">
+			<Text>The Plot exceeds the max number of builds allowed in this turn.</Text>
+		</Row>
 
 		<Replace Tag="TXT_KEY_PLOTROLL_OCEAN">
 			<Text>Coast and Ocean</Text>
