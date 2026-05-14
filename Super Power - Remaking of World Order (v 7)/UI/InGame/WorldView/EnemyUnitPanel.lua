@@ -553,6 +553,25 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_UNIT_PROMOTION_NEAR_SP" );
 				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
 			end
+			--Gold/Culture/Faith Bonus
+			iModifier = pMyUnit:GetGoldAttackBonus();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_GOLD_ATTACK_BONUS");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
+			iModifier = pMyUnit:GetCultureAttackBonus();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_CULTURE_ATTACK_BONUS");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
+			iModifier = pMyUnit:GetFaithAttackBonus();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FAITH_ATTACK_BONUS");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
 
 			--Num Of Origin City
 			iModifier = pMyUnit:GetNumOriginalCapitalAttackMod();
@@ -1552,6 +1571,25 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_UNIT_PROMOTION_NEAR_SP" );
 				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
 			end
+			--Gold/Culture/Faith Bonus
+			iModifier = pMyUnit:GetGoldAttackBonus();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_GOLD_ATTACK_BONUS");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
+			iModifier = pMyUnit:GetCultureAttackBonus();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_CULTURE_ATTACK_BONUS");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
+			iModifier = pMyUnit:GetFaithAttackBonus();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FAITH_ATTACK_BONUS");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
 
 			-- Multiple Attack Bonus
 			iModifier = pMyUnit:GetMultiAttackBonus(pTheirUnit);
@@ -2031,6 +2069,26 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
                     controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_UNIT_PROMOTION_NEAR_SP");
                     controlTable.Value:SetText(GetFormattedText(strText, iModifier, false, true));
                 end
+
+				--Gold/Culture/Faith Bonus
+				iModifier = pTheirUnit:GetGoldDefenseBonus();
+				if (iModifier ~= 0) then
+					controlTable = g_TheirCombatDataIM:GetInstance();		
+					controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_GOLD_DEFENSE_BONUS");
+					controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+				end
+				iModifier = pTheirUnit:GetCultureDefenseBonus();
+				if (iModifier ~= 0) then
+					controlTable = g_TheirCombatDataIM:GetInstance();		
+					controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_CULTURE_DEFENSE_BONUS");
+					controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+				end
+				iModifier = pTheirUnit:GetFaithDefenseBonus();
+				if (iModifier ~= 0) then
+					controlTable = g_TheirCombatDataIM:GetInstance();		
+					controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FAITH_DEFENSE_BONUS");
+					controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+				end
 
 				--Num Of Origin City
 				iModifier = pTheirUnit:GetNumOriginalCapitalAttackMod();
@@ -2658,6 +2716,25 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 			controlTable.Value:SetText(GetFormattedText(strText, iModifier, false, true));
 		end
 
+		--Gold/Culture/Faith Bonus
+		iModifier = pTheirUnit:GetGoldDefenseBonus();
+		if (iModifier ~= 0) then
+			controlTable = g_TheirCombatDataIM:GetInstance();		
+			controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_GOLD_DEFENSE_BONUS");
+			controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+		end
+		iModifier = pTheirUnit:GetCultureDefenseBonus();
+		if (iModifier ~= 0) then
+			controlTable = g_TheirCombatDataIM:GetInstance();		
+			controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_CULTURE_DEFENSE_BONUS");
+			controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+		end
+		iModifier = pTheirUnit:GetFaithDefenseBonus();
+		if (iModifier ~= 0) then
+			controlTable = g_TheirCombatDataIM:GetInstance();		
+			controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FAITH_DEFENSE_BONUS");
+			controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+		end
 		--Num Of Origin City
 		local iModifier = theirUnit:GetNumOriginalCapitalDefenseMod();
 		if (iModifier ~= 0 and pTheirPlayer:GetNumOriginalCapital() > 1) then

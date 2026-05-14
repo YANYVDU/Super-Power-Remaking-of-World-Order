@@ -18416,5 +18416,23 @@
 		<Row Tag="TXT_KEY_PEDIA_FREE_FROM_PROJECT_LABEL">
 			<Text>Free From Project:</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLD_ATTACK_BONUS">
+			<Text>[ICON_GOLD]Treasury Bounty</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLD_DEFENSE_BONUS">
+			<Text>[ICON_GOLD]Treasury Bounty</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CULTURE_ATTACK_BONUS">
+			<Text>[ICON_CULTURE]Cultural Resolve</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CULTURE_DEFENSE_BONUS">
+			<Text>[ICON_CULTURE]Cultural Resolve</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FAITH_ATTACK_BONUS">
+			<Text>[ICON_PEACE]Divine Strength</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FAITH_DEFENSE_BONUS">
+			<Text>[ICON_PEACE]Divine Strength</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

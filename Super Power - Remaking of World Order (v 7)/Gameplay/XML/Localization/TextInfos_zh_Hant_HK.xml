@@ -16686,5 +16686,23 @@
 		<Row Tag="TXT_KEY_PEDIA_FREE_FROM_PROJECT_LABEL">
 			<Text>獲得自項目:</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLD_ATTACK_BONUS">
+			<Text>[ICON_GOLD]國庫充盈</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLD_DEFENSE_BONUS">
+			<Text>[ICON_GOLD]國庫充盈</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CULTURE_ATTACK_BONUS">
+			<Text>[ICON_CULTURE]文化自信</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CULTURE_DEFENSE_BONUS">
+			<Text>[ICON_CULTURE]文化自信</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FAITH_ATTACK_BONUS">
+			<Text>[ICON_PEACE]信仰狂熱</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FAITH_DEFENSE_BONUS">
+			<Text>[ICON_PEACE]信仰狂熱</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
