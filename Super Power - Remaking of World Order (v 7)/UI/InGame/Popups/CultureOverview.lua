@@ -2045,6 +2045,7 @@ function RefreshCultureVictory()
 
             ---------------------------- SP International Immigration (replace the old "excesshappiness")----------------
 			local iImmigrationRegressand = Game.GetImmigrationRegressand();
+            local ImmigrationRegressandModifier = activePlayer:GetImmigrationRegressandModifier();
             if pPlayer ~= activePlayer and iImmigrationRegressand > 0 then
                 local AITeam = Teams[pPlayer:GetTeam()];
                 local PlayerTeam = Teams[activePlayer:GetTeam()];
@@ -2066,6 +2067,14 @@ function RefreshCultureVictory()
 				row.iExcessHappiness = ImmigrationRate;
                 row.strExcessHappiness = format("%s ([COLOR_NEGATIVE_TEXT]0[ENDCOLOR]|%i|[COLOR_POSITIVE_TEXT]%i[ENDCOLOR])", strImmigrationRate, iImmigrationCounter, iImmigrationRegressand * 2);
 				strInternationalImmigrationToolTip = Locale.ConvertTextKey("TXT_KEY_CO_SP_IMMIGRATION_RATE_BASE", activePlayer:GetInfluenceLevel(iPlayer) - pPlayer:GetInfluenceLevel(Game.GetActivePlayer()), strImmigrationIcon)
+                if ImmigrationRegressandModifier ~= 0 then
+                    if ImmigrationRegressandModifier < 0 then
+                        ImmigrationRegressandModifier = " [COLOR_POSITIVE_TEXT]" .. ImmigrationRegressandModifier .. "[ENDCOLOR]";
+                    else                        
+                        ImmigrationRegressandModifier = " [COLOR_NEGATIVE_TEXT]+" .. ImmigrationRegressandModifier .. "[ENDCOLOR]";
+                    end
+                    strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_CO_SP_IMMIGRATION_REGRESSAND_MODIFIER", ImmigrationRegressandModifier)
+                end
 
 				if PlayerTeam:IsAllowsOpenBordersToTeam(pPlayer:GetTeam()) then
 					strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_IN_OPENBORDER")

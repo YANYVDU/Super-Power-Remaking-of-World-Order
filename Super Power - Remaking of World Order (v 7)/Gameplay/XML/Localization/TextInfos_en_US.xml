@@ -3979,7 +3979,7 @@
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP" />
 			<Set
-				Text="All missionaries from this city may spread a religion 3 times instead of 2. Missionaries and great prophets have the ability of +1 [ICON_MOVES] movement, and gaining [ICON_PEACE] faith and [ICON_GOLDEN_AGE] golden age points when spreading religion. Provides a free Mosque in the city in which it was built. [NEWLINE][NEWLINE]+4 [ICON_TOURISM] Tourism when Scientific Theory is discovered. " />
+				Text="All missionaries may spread a religion 3 times instead of 2. Missionaries and great prophets have the ability of +1 [ICON_MOVES] movement, and gaining [ICON_PEACE] faith and [ICON_GOLDEN_AGE] golden age points when spreading religion. Provides a free Mosque in the city in which it was built. [NEWLINE][NEWLINE]+4 [ICON_TOURISM] Tourism when Scientific Theory is discovered. " />
 		</Update>
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_PARTHENON_HELP" />
@@ -9115,7 +9115,7 @@
 			<Text>+1 [ICON_PEACE] Faith and +1 [ICON_CULTURE] Culture for each [ICON_RES_GOLD]Gold, [ICON_RES_SILVER]Silver, [ICON_RES_COPPER]Copper, [ICON_RES_IRON]Iron and [ICON_RES_SALT]Salt</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_GOD_FESTIVALS">
-			<Text>+2 [ICON_PEACE] Faith and +2 [ICON_CULTURE] Culture for each Wine and Incense</Text>
+			<Text>+2 [ICON_PEACE] Faith and +2 [ICON_CULTURE] Culture for each [ICON_RES_WINE]Wine and [ICON_RES_INCENSE]Incense</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_ONE_WITH_NATURE">
 			<Text>+8 [ICON_PEACE] Faith for each Natural Wonder</Text>
@@ -18433,6 +18433,11 @@
 		</Row>
 		<Row Tag="TXT_KEY_EUPANEL_FAITH_DEFENSE_BONUS">
 			<Text>[ICON_PEACE]Divine Strength</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_REGRESSAND_MODIFIER">
+			<Text>
+				[ICON_TEAM_4] International Immigration Move-in Threshold Modifier:{1_Num}%
+			</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

@@ -2717,19 +2717,19 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 		end
 
 		--Gold/Culture/Faith Bonus
-		iModifier = pTheirUnit:GetGoldDefenseBonus();
+		iModifier = theirUnit:GetGoldDefenseBonus();
 		if (iModifier ~= 0) then
 			controlTable = g_TheirCombatDataIM:GetInstance();		
 			controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_GOLD_DEFENSE_BONUS");
 			controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
 		end
-		iModifier = pTheirUnit:GetCultureDefenseBonus();
+		iModifier = theirUnit:GetCultureDefenseBonus();
 		if (iModifier ~= 0) then
 			controlTable = g_TheirCombatDataIM:GetInstance();		
 			controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_CULTURE_DEFENSE_BONUS");
 			controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
 		end
-		iModifier = pTheirUnit:GetFaithDefenseBonus();
+		iModifier = theirUnit:GetFaithDefenseBonus();
 		if (iModifier ~= 0) then
 			controlTable = g_TheirCombatDataIM:GetInstance();		
 			controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FAITH_DEFENSE_BONUS");

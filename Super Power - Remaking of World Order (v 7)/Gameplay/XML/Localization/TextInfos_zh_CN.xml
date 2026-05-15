@@ -1465,7 +1465,7 @@
 
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP" />
-			<Set Text="所在城市诞生的传教士能有三次传教机会。传教士和大先知+1[ICON_MOVES]移动力，传播宗教时可获得[ICON_PEACE]信仰和[ICON_GOLDEN_AGE]黄金时代点数。向所在城市赠送一个清真寺。研究科学理论后+4[ICON_TOURISM]魅力产出。" />
+			<Set Text="你的传教士能有三次传教机会。传教士和大先知+1[ICON_MOVES]移动力，传播宗教时可获得[ICON_PEACE]信仰和[ICON_GOLDEN_AGE]黄金时代点数。向所在城市赠送一个清真寺。研究科学理论后+4[ICON_TOURISM]魅力产出。" />
 		</Update>
 
 		<Update>
@@ -8297,7 +8297,7 @@
 			<Text>每一处[ICON_RES_GOLD]黄金、[ICON_RES_SILVER]白银、[ICON_RES_COPPER]赤铜、[ICON_RES_IRON]铁矿、[ICON_RES_SALT]盐资源+1[ICON_PEACE]信仰、+1[ICON_CULTURE]文化</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_GOD_FESTIVALS">
-			<Text>每一处红酒和熏香+2[ICON_PEACE]信仰、+2[ICON_CULTURE]文化</Text>
+			<Text>每一处[ICON_RES_WINE]红酒和[ICON_RES_INCENSE]熏香+2[ICON_PEACE]信仰、+2[ICON_CULTURE]文化</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_ONE_WITH_NATURE">
 			<Text>自然奇观+8[ICON_PEACE]信仰</Text>
@@ -16892,6 +16892,11 @@
 		</Row>
 		<Row Tag="TXT_KEY_EUPANEL_FAITH_DEFENSE_BONUS">
 			<Text>[ICON_PEACE]信仰狂热</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_REGRESSAND_MODIFIER">
+			<Text>
+				移民[ICON_TEAM_4]迁入阈值修正:{1_Num}%
+			</Text>
 		</Row>
 	</Language_zh_CN>
 </GameData>
