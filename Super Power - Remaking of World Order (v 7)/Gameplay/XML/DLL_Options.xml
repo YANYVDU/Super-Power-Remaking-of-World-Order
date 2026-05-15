@@ -430,6 +430,11 @@
 			<Set Value="0"/>
 			<!-- Default is OFF -->
 		</Update>
+	<!--*********************Faith Keep ********************* -->
+		<Update>
+			<Where Name="RELIGION_KEEP_PROPHET_OVERFLOW"/>
+			<Set Value="1"/>
+		</Update>
 	</CustomModOptions>
 
 	<Improvements>
