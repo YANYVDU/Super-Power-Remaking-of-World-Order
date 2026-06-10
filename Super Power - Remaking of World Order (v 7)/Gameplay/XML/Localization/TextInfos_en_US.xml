@@ -5960,8 +5960,9 @@
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_DANISH_WIND_TURBINE_HELP">
-			<Text>[COLOR_POSITIVE_TEXT]No Pollution[ENDCOLOR]
-			[NEWLINE][NEWLINE]Every 5[ICON_CITIZEN] citizens in this city + 1[ICON_GOLD]</Text>
+			<Text>+15 [ICON_RES_ELECTRICITY] Electricity.
+			[NEWLINE][NEWLINE]Every 5[ICON_CITIZEN] citizens in this city + 1[ICON_GOLD]
+			[NEWLINE][NEWLINE][COLOR_POSITIVE_TEXT]No Pollution[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_DANISH_WIND_TURBINE_TEXT">
 			<Text>Denmark was a pioneer in developing commercial wind power during the 1970s, and today a substantial share of the wind turbines around the world are produced by Danish manufacturers such as Vestas and Siemens Wind Power along with many component suppliers.</Text>
@@ -15450,7 +15451,7 @@
 			<Text>Supply I</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_SUPPLY_1_HELP">
-			<Text>[ICON_BULLET]All units in adjacent tiles or in the same tile Heal +15 HP per turn. [NEWLINE][ICON_BULLET]This unit Heals +15 HP per turn.</Text>
+			<Text>[ICON_BULLET]All units in adjacent tiles or in the same tile Heal +15 HP per turn. [NEWLINE][ICON_BULLET]This unit Heals +15 HP per turn. [NEWLINE][ICON_BULLET]Cost of purchasing Aircrafts for this Carrier reduced by 20%.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_SUPPLY_2">
 			<Text>Supply II</Text>
@@ -15924,7 +15925,7 @@
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_HELICOPTER_HELP">
 			<Text>
 				[ICON_BULLET]+200% [ICON_STRENGTH] Combat Strength vs [COLOR_POSITIVE_TEXT]Helicopters[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Aircrafts[ENDCOLOR].
-				[NEWLINE][ICON_BULLET]Can intercept enemy aircrafts once per turn within 2 Hex Range.
+				[NEWLINE][ICON_BULLET]Can intercept enemy aircrafts once per turn.
 				[NEWLINE][ICON_BULLET]No Damage received encountering enemy fighters' air-sweeps.
 			</Text>
 		</Row>
