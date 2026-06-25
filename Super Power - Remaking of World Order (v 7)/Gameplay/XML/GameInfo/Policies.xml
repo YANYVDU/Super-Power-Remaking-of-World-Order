@@ -469,6 +469,10 @@
 			<Where Type="POLICY_FREE_THOUGHT"/>
 		</Update>
 		<Update>
+			<Set LocalHappinessCorruptionScoreMod="-1000"/>
+			<Where Type="POLICY_FREE_THOUGHT"/>
+		</Update>
+		<Update>
 			<Set GridX="4" GridY="3"/>
 			<Where Type="POLICY_SOVEREIGNTY"/>
 		</Update>
