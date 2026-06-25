@@ -8147,6 +8147,12 @@
 		<Replace Tag="TXT_KEY_BELIEF_GURUSHIP">
 			<Text>城市有專業人員時+2[ICON_PEACE]信仰、[ICON_CULTURE]文化，+1[ICON_PRODUCTION]產能、[ICON_RESEARCH]科研</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_BELIEF_SERENS_GOVERNANCE_SHORT">
+			<Text>清心養性</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SERENS_GOVERNANCE">
+			<Text>城市管理成本-200，城市每100管理成本產出1[ICON_PEACE]信仰</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_BELIEF_PILGRIMAGE">
 			<Text>為聖城提供其他文明本宗教信徒數量20%的[ICON_PEACE]信仰，其他文明每個信仰該宗教的城市為此宗教+3[ICON_PEACE]信仰</Text>
 		</Replace>
@@ -8352,6 +8358,12 @@
 		</Row>
 		<Row Tag="TXT_KEY_BELIEF_SCIENCE_RELIGION">
 			<Text>每個信徒增加本城+2%[ICON_RESEARCH]科研產出(最大+30%)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SAGES_LEGACY_SHORT">
+			<Text>聖賢遺澤</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SAGES_LEGACY">
+			<Text>海關、學園、製造中心、宗教聖地為鄰近改良設施提供的加成翻倍</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_EXTRA_RELIGION_SPREADS_2">
