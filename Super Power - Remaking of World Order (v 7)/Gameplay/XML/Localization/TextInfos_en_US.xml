@@ -9062,6 +9062,12 @@
 		<Replace Tag="TXT_KEY_BELIEF_RELIGIOUS_SETTLEMENTS">
 			<Text>+2 [ICON_CULTURE] Culture in cities, +50% faster border growth</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_BELIEF_SERENS_GOVERNANCE_SHORT">
+			<Text>Seren's Governance</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SERENS_GOVERNANCE">
+			<Text>City Corruption Score -200. City produces 1 [ICON_PEACE] Faith per 100 Corruption Score</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_BELIEF_PILGRIMAGE">
 			<Text>+20% num of followers for this Religion in other civilizations [ICON_PEACE] Faith in HolyCity, +3 [ICON_PEACE] Faith for each foreign city following this religion</Text>
 		</Replace>
@@ -9299,6 +9305,12 @@
 		</Row>
 		<Row Tag="TXT_KEY_BELIEF_SCIENCE_RELIGION">
 			<Text>+2% [ICON_RESEARCH] Science for each follower (max +30%)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SAGES_LEGACY_SHORT">
+			<Text>Sages' Legacy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SAGES_LEGACY">
+			<Text>Adjacency bonuses from Customs Houses, Academies, Manufactories, and Holy Sites to adjacent Improvements are doubled</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_EXTRA_RELIGION_SPREADS_2">
