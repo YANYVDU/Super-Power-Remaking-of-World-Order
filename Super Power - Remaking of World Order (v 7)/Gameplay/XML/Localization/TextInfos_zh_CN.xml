@@ -7359,6 +7359,7 @@
 				[COLOR_POSITIVE_TEXT]思想自由[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]每处贸易站+1[ICON_RESEARCH]科研。
 				[NEWLINE][ICON_BULLET]每处学园+6[ICON_RESEARCH]科研。
+				[NEWLINE][ICON_BULLET]每点[ICON_HAPPINESS_1]本地快乐降低城市10点管理成本。
 			</Text>
 		</Replace>
 

@@ -8153,7 +8153,8 @@
 			<Text>
 				[COLOR_POSITIVE_TEXT]Free Thought[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH] Science from every Trading Post.
-				[NEWLINE][ICON_BULLET]+6 [ICON_RESEARCH] Science from every Research Center built by Great Scientists.</Text>
+				[NEWLINE][ICON_BULLET]+6 [ICON_RESEARCH] Science from every Research Center built by Great Scientists.
+				[NEWLINE][ICON_BULLET]Each point of [ICON_HAPPINESS_1] Local Happiness reduces city Corruption Score by 10.</Text>
 		</Replace>
 
 		<Replace Tag="TXT_KEY_POLICY_HUMANISM_HELP" >
