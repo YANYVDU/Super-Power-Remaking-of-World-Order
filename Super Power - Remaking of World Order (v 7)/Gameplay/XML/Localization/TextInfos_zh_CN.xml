@@ -16929,5 +16929,9 @@
 				移民[ICON_TEAM_4]迁入阈值修正:{1_Num}%
 			</Text>
 		</Row>
+		<Replace Tag="TXT_KEY_WORKERS_SPECIALFORT_HEADING3_BODY">
+			<Text>堡垒是一种特殊的设施。在SP中，它由非正规军建造，为军事部队在本国领土内提供保护。堡垒可以被建造在本国或者中立地块。在区域设施上修建堡垒会将该区域设施摧毁。
+				[NEWLINE]堡垒提供的防御加成：50%</Text>
+		</Replace>
 	</Language_zh_CN>
 </GameData>
