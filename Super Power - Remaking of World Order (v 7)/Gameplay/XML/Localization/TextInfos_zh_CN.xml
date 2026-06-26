@@ -16135,6 +16135,18 @@
 		<Row Tag="TXT_KEY_UNITCOMBAT_DAMAGE_MODIFIER_SP">
 			<Text>单位生命值</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_DIFFERENT_RELIGION_MODIFIER">
+			<Text>异教徒加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLDEN_AGE_TURN_MODIFIER">
+			<Text>黄金时代回合加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FOLLOWER_COUNT_MODIFIER">
+			<Text>全球信众加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FOLLOWING_CITY_COUNT_MODIFIER">
+			<Text>信教城市加成</Text>
+		</Row>
 		<Row Tag="TXT_KEY_EUPANEL_RESOURCE_MODIFIER">
 			<Text>额外资源加成</Text>
 		</Row>

@@ -17679,6 +17679,18 @@
 		<Row Tag="TXT_KEY_UNITCOMBAT_DAMAGE_MODIFIER_SP">
 			<Text>Hit Points Modify</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_DIFFERENT_RELIGION_MODIFIER">
+			<Text>Different Religion Bonus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLDEN_AGE_TURN_MODIFIER">
+			<Text>Golden Age Turns Bonus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FOLLOWER_COUNT_MODIFIER">
+			<Text>Follower Count Bonus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FOLLOWING_CITY_COUNT_MODIFIER">
+			<Text>Following Cities Bonus</Text>
+		</Row>
 		<Row Tag="TXT_KEY_EUPANEL_RESOURCE_MODIFIER">
 			<Text>Extra Resouces Bonus</Text>
 		</Row>
