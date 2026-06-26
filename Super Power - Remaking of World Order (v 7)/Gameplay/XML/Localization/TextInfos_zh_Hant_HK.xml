@@ -16740,5 +16740,9 @@
 				移民[ICON_TEAM_4]遷入阈值修正:{1_Num}%
 			</Text>
 		</Row>
+		<Replace Tag="TXT_KEY_WORKERS_SPECIALFORT_HEADING3_BODY">
+			<Text>在SP中，堡壘是由非正規軍建造的特殊改良設施，可為在友方領土上的軍事單位提供保護。堡壘可建在友方或中立方的單元格上。在原有改良設施上建造堡壘會摧毀該設施。
+				[NEWLINE]堡壘防禦加成：50%</Text>
+		</Replace>
 	</Language_zh_Hant_HK>
 </GameData>

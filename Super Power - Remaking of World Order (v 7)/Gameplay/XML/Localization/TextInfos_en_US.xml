@@ -18471,5 +18471,9 @@
 				[ICON_TEAM_4] International Immigration Move-in Threshold Modifier:{1_Num}%
 			</Text>
 		</Row>
+		<Replace Tag="TXT_KEY_WORKERS_SPECIALFORT_HEADING3_BODY">
+			<Text>In SuperPower Games,the fort improvement is a special improvement that is constructed by militia units and provides protection to military units in friendly territory. The fort may be constructed in a friendly or neutral tile. Constructing a fort atop an existing improvement will destroy the previous improvement.
+				[NEWLINE]Defensive Bonus of the Fort: 50%</Text>
+		</Replace>
 	</Language_en_US>
 </GameData>
