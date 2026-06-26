@@ -8414,6 +8414,12 @@
 		<Row Tag="TXT_KEY_BELIEF_CURSADER">
 			<Text>在聖城征召6名擁有60點經驗的聖殿騎士</Text>
 		</Row>
+		<Row Tag="TXT_KEY_BELIEF_HOLY_PROPAGATION_SHORT">
+			<Text>聖邑繁衍</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_HOLY_PROPAGATION">
+			<Text>農田+1[ICON_PEACE]信仰，每有3座城市首次皈依時，聖城獲得1[ICON_CITIZEN]人口</Text>
+		</Row>
 
 
 		<!--Resources-->

@@ -8519,6 +8519,12 @@
 		<Row Tag="TXT_KEY_BELIEF_CURSADER">
 			<Text>在圣城征召6名拥有60点经验的圣殿骑士</Text>
 		</Row>
+		<Row Tag="TXT_KEY_BELIEF_HOLY_PROPAGATION_SHORT">
+			<Text>圣邑繁衍</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_HOLY_PROPAGATION">
+			<Text>农田+1[ICON_PEACE]信仰，每有3座城市首次皈依时，圣城获得1[ICON_CITIZEN]人口</Text>
+		</Row>
 
 
 		<!--Resources-->
