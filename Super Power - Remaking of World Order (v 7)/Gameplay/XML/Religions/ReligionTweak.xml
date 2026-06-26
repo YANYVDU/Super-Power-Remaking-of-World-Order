@@ -95,6 +95,14 @@
 		</Row>
 		
 		<Row>
+			<Type>BELIEF_HOLY_PROPAGATION</Type>
+			<Description>TXT_KEY_BELIEF_HOLY_PROPAGATION</Description>
+			<ShortDescription>TXT_KEY_BELIEF_HOLY_PROPAGATION_SHORT</ShortDescription>
+			<FirstConversionCitiesPerPop>3</FirstConversionCitiesPerPop>
+			<Founder>true</Founder>
+		</Row>
+
+		<Row>
 			<Type>BELIEF_RIVER_CRAFTSMAN</Type>
 			<Description>TXT_KEY_BELIEF_RIVER_CRAFTSMAN</Description>
 			<ShortDescription>TXT_KEY_BELIEF_RIVER_CRAFTSMAN_SHORT</ShortDescription>

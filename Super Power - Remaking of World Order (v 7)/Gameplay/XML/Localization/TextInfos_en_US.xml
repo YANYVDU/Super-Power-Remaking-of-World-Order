@@ -9364,6 +9364,12 @@
 		<Row Tag="TXT_KEY_BELIEF_CURSADER">
 			<Text>Recruits 6 Knights Templar with 60 experience in the Holy City</Text>
 		</Row>
+		<Row Tag="TXT_KEY_BELIEF_HOLY_PROPAGATION_SHORT">
+			<Text>Holy Propagation</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_HOLY_PROPAGATION">
+			<Text>Farms +1 [ICON_PEACE] Faith and Every 3 cities first converting to this religion grants 1 [ICON_CITIZEN] Population in the Holy City</Text>
+		</Row>
 
 
 
