@@ -546,6 +546,34 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_EXCESS_HAPINESS_MODIFIER");
 				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
 			end
+			--Different Religion Bonus (Attack)
+			iModifier = pMyUnit:GetDifferentReligionAttackModifier();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_DIFFERENT_RELIGION_MODIFIER");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
+			--Golden Age Turn Bonus (Attack)
+			iModifier = pMyUnit:GetGoldenAgeTurnAttackModifier();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_GOLDEN_AGE_TURN_MODIFIER");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
+			--Follower Count Bonus
+			iModifier = pMyUnit:GetFollowerCountCombatModifier();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FOLLOWER_COUNT_MODIFIER");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
+			--Following City Count Bonus
+			iModifier = pMyUnit:GetFollowingCityCountCombatModifier();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FOLLOWING_CITY_COUNT_MODIFIER");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
 			-- Nearby Unit Promotion modifier
 			iModifier = pMyUnit:GetNearbyUnitPromotionBonus()
 			if (iModifier ~= 0) then
@@ -1564,6 +1592,34 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_EXCESS_HAPINESS_MODIFIER");
 				controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true));
 			end
+			--Different Religion Bonus (Attack)
+			iModifier = pMyUnit:GetDifferentReligionAttackModifier();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_DIFFERENT_RELIGION_MODIFIER");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
+			--Golden Age Turn Bonus (Attack)
+			iModifier = pMyUnit:GetGoldenAgeTurnAttackModifier();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_GOLDEN_AGE_TURN_MODIFIER");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
+			--Follower Count Bonus
+			iModifier = pMyUnit:GetFollowerCountCombatModifier();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FOLLOWER_COUNT_MODIFIER");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
+			--Following City Count Bonus
+			iModifier = pMyUnit:GetFollowingCityCountCombatModifier();
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();		
+				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FOLLOWING_CITY_COUNT_MODIFIER");
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+			end
 			-- Nearby Unit Promotion modifier
 			iModifier = pMyUnit:GetNearbyUnitPromotionBonus()
 			if (iModifier ~= 0) then
@@ -2063,6 +2119,34 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 					controlTable.Value:SetText(GetFormattedText(strText, iModifier, false, true));
 				end
 				-- Nearby Unit Promotion modifier
+				--Different Religion Bonus (Attack)
+				iModifier = pTheirUnit:GetDifferentReligionAttackModifier();
+				if (iModifier ~= 0) then
+					controlTable = g_TheirCombatDataIM:GetInstance();		
+					controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_DIFFERENT_RELIGION_MODIFIER");
+					controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+				end
+				--Golden Age Turn Bonus (Attack)
+				iModifier = pTheirUnit:GetGoldenAgeTurnAttackModifier();
+				if (iModifier ~= 0) then
+					controlTable = g_TheirCombatDataIM:GetInstance();		
+					controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_GOLDEN_AGE_TURN_MODIFIER");
+					controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+				end
+				--Follower Count Bonus
+				iModifier = pTheirUnit:GetFollowerCountCombatModifier();
+				if (iModifier ~= 0) then
+					controlTable = g_TheirCombatDataIM:GetInstance();		
+					controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FOLLOWER_COUNT_MODIFIER");
+					controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+				end
+				--Following City Count Bonus
+				iModifier = pTheirUnit:GetFollowingCityCountCombatModifier();
+				if (iModifier ~= 0) then
+					controlTable = g_TheirCombatDataIM:GetInstance();		
+					controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FOLLOWING_CITY_COUNT_MODIFIER");
+					controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+				end
 				iModifier = pTheirUnit:GetNearbyUnitPromotionBonus();
                 if (iModifier ~= 0) then
                     controlTable = g_TheirCombatDataIM:GetInstance();
@@ -2707,6 +2791,34 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 			controlTable = g_TheirCombatDataIM:GetInstance();		
 			controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_EXCESS_HAPINESS_MODIFIER");
 			controlTable.Value:SetText(GetFormattedText(strText, iModifier, false, true));
+		end
+		--Different Religion Bonus (Attack)
+		iModifier = theirUnit:GetDifferentReligionAttackModifier();
+		if (iModifier ~= 0) then
+			controlTable = g_TheirCombatDataIM:GetInstance();		
+			controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_DIFFERENT_RELIGION_MODIFIER");
+			controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+		end
+		--Golden Age Turn Bonus (Attack)
+		iModifier = theirUnit:GetGoldenAgeTurnAttackModifier();
+		if (iModifier ~= 0) then
+			controlTable = g_TheirCombatDataIM:GetInstance();		
+			controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_GOLDEN_AGE_TURN_MODIFIER");
+			controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+		end
+		--Follower Count Bonus
+		iModifier = theirUnit:GetFollowerCountCombatModifier();
+		if (iModifier ~= 0) then
+			controlTable = g_TheirCombatDataIM:GetInstance();		
+			controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FOLLOWER_COUNT_MODIFIER");
+			controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+		end
+		--Following City Count Bonus
+		iModifier = theirUnit:GetFollowingCityCountCombatModifier();
+		if (iModifier ~= 0) then
+			controlTable = g_TheirCombatDataIM:GetInstance();		
+			controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FOLLOWING_CITY_COUNT_MODIFIER");
+			controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
 		end
 		-- Nearby Unit Promotion modifier
 		iModifier = theirUnit:GetNearbyUnitPromotionBonus();
