@@ -16815,6 +16815,15 @@
 		<Row Tag="TXT_KEY_Building_PER_ERA">
 			<Text>/每个时代</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_HOLY_CITY">
+			<Text>信条：通往圣城{1_String}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_HOLY_CITY_DEST">
+			<Text>信条：圣城获得{1_String}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_SAME_RELIGION">
+			<Text>信条：同宗教{1_String}</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_ERA">
 			<Text>从{1_CityName}得到的时代金钱奖励: {2_Num}</Text>
 		</Row>

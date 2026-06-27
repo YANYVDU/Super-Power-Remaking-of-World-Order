@@ -195,15 +195,57 @@ function BuildTradeRouteGoldToolTipString (pOriginCity, pTargetCity, eDomain)
 		strResult = strResult .. strYourEraValue;
 	end
 
+	-- Belief: Trade Route bonuses for all yields (concatenated per belief type)
+	local beliefYields = {YieldTypes.YIELD_FOOD, YieldTypes.YIELD_PRODUCTION, YieldTypes.YIELD_GOLD, YieldTypes.YIELD_SCIENCE, YieldTypes.YIELD_CULTURE, YieldTypes.YIELD_FAITH, YieldTypes.YIELD_TOURISM, YieldTypes.YIELD_GOLDEN_AGE_POINTS};
+	local iconMap = {[YieldTypes.YIELD_FOOD] = "[ICON_FOOD]", [YieldTypes.YIELD_PRODUCTION] = "[ICON_PRODUCTION]", [YieldTypes.YIELD_GOLD] = "[ICON_GOLD]", [YieldTypes.YIELD_SCIENCE] = "[ICON_RESEARCH]", [YieldTypes.YIELD_CULTURE] = "[ICON_CULTURE]", [YieldTypes.YIELD_FAITH] = "[ICON_PEACE]", [YieldTypes.YIELD_TOURISM] = "[ICON_TOURISM]", [YieldTypes.YIELD_GOLDEN_AGE_POINTS] = "[ICON_GOLDEN_AGE]"};
+
+	-- Holy City origin bonus
+	local holyCityStr = "";
+	for _, y in ipairs(beliefYields) do
+		local v = pOriginCity:GetReligionTradeRouteHolyCityYield(pTargetCity, y);
+		if (v ~= 0) then
+			holyCityStr = holyCityStr .. " +" .. v .. iconMap[y];
+		end
+	end
+	if (holyCityStr ~= "") then
+		strResult = strResult .. "[NEWLINE]";
+		strResult = strResult .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_HOLY_CITY", holyCityStr);
+	end
+
+	-- Same Religion modifier
+	local sameReligionStr = "";
+	for _, y in ipairs(beliefYields) do
+		local v = pOriginCity:GetReligionTradeRouteSameReligionModifier(pTargetCity, y);
+		if (v ~= 0) then
+			sameReligionStr = sameReligionStr .. " +" .. v .. "%" .. iconMap[y];
+		end
+	end
+	if (sameReligionStr ~= "") then
+		strResult = strResult .. "[NEWLINE]";
+		strResult = strResult .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_SAME_RELIGION", sameReligionStr);
+	end
+
 	strResult = strResult .. "[NEWLINE]";
 	strResult = strResult .. strTotal;
 	strResult = strResult .. "[NEWLINE]";
-	
+
 	if (strOtherTotal ~= "") then
 		strResult = strResult .. "[NEWLINE]";
 		strResult = strResult .. strOtherTotal;
 	end
-	
+
+	-- Holy City dest bonus (shown in their revenue section)
+	local holyCityDestStr = "";
+	for _, y in ipairs(beliefYields) do
+		local v = pOriginCity:GetReligionTradeRouteHolyCityDestYield(pTargetCity, y);
+		if (v ~= 0) then
+			holyCityDestStr = holyCityDestStr .. " +" .. v .. iconMap[y];
+		end
+	end
+	if (holyCityDestStr ~= "") then
+		strResult = strResult .. "[NEWLINE]";
+		strResult = strResult .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_HOLY_CITY_DEST", holyCityDestStr);
+	end
 	return strResult;
 end
 
@@ -275,6 +317,22 @@ function BuildTradeRouteScienceToolTipString (pOriginCity, pTargetCity, eDomain)
 
 	end
 
+
+	-- Belief: Trade Route to Holy City origin bonus (concatenated)
+	local beliefYields = {YieldTypes.YIELD_FOOD, YieldTypes.YIELD_PRODUCTION, YieldTypes.YIELD_GOLD, YieldTypes.YIELD_SCIENCE, YieldTypes.YIELD_CULTURE, YieldTypes.YIELD_FAITH, YieldTypes.YIELD_TOURISM, YieldTypes.YIELD_GOLDEN_AGE_POINTS};
+	local iconMap = {[YieldTypes.YIELD_FOOD] = "[ICON_FOOD]", [YieldTypes.YIELD_PRODUCTION] = "[ICON_PRODUCTION]", [YieldTypes.YIELD_GOLD] = "[ICON_GOLD]", [YieldTypes.YIELD_SCIENCE] = "[ICON_RESEARCH]", [YieldTypes.YIELD_CULTURE] = "[ICON_CULTURE]", [YieldTypes.YIELD_FAITH] = "[ICON_PEACE]", [YieldTypes.YIELD_TOURISM] = "[ICON_TOURISM]", [YieldTypes.YIELD_GOLDEN_AGE_POINTS] = "[ICON_GOLDEN_AGE]"};
+
+	local holyCityStr = "";
+	for _, y in ipairs(beliefYields) do
+		local v = pOriginCity:GetReligionTradeRouteHolyCityYield(pTargetCity, y);
+		if (v ~= 0) then
+			holyCityStr = holyCityStr .. " +" .. v .. iconMap[y];
+		end
+	end
+	if (holyCityStr ~= "") then
+		strResult = strResult .. "[NEWLINE]";
+		strResult = strResult .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_HOLY_CITY", holyCityStr);
+	end
 	return strResult;
 end
 
@@ -286,14 +344,16 @@ function BuildTradeRouteToolTipString (pPlayer, pOriginCity, pTargetCity, eDomai
 	-- shortcut for using gold currently
 	if (pPlayer:GetInternationalTradeRouteTotal(pOriginCity, pTargetCity, true, true) > 0) then
 		local strGoldToolTip = BuildTradeRouteGoldToolTipString(pOriginCity, pTargetCity, eDomain);
-		local strScienceToolTip = BuildTradeRouteScienceToolTipString(pOriginCity, pTargetCity, eDomain);
 		strResult = strGoldToolTip;
-		if (strScienceToolTip ~= "") then
-			if (strResult ~= "") then
-				strResult = strResult .. "[NEWLINE][NEWLINE]";
+		-- Science tooltip only for international trade routes
+		if (pOriginCity:GetOwner() ~= pTargetCity:GetOwner()) then
+			local strScienceToolTip = BuildTradeRouteScienceToolTipString(pOriginCity, pTargetCity, eDomain);
+			if (strScienceToolTip ~= "") then
+				if (strResult ~= "") then
+					strResult = strResult .. "[NEWLINE][NEWLINE]";
+				end
+				strResult = strResult .. strScienceToolTip;
 			end
-		
-			strResult = strResult .. strScienceToolTip;
 		end
 	end
 	
