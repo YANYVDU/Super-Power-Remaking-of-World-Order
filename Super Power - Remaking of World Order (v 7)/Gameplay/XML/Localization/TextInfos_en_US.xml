@@ -18357,7 +18357,16 @@
 		<Row Tag="TXT_KEY_Building_PER_ERA">
 			<Text>/Per Era</Text>
 		</Row>
-		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_ERA">
+				<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_HOLY_CITY">
+			<Text>Belief: Trading to Holy City{1_String}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_HOLY_CITY_DEST">
+			<Text>Belief: Holy City receives{1_String}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_SAME_RELIGION">
+			<Text>Belief: Same Religion{1_String}</Text>
+		</Row>
+<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_ERA">
 			<Text>Era gold bonus from {1_CityName}: {2_Num}</Text>
 		</Row>
 		<Row Tag="TXT_KEY_STRATEGIC_ENVIRONMENT_COMBAT_MOD">
