@@ -334,10 +334,6 @@
 			<Text>標示該城市是文明的[ICON_CAPITAL]首都。擁有一個美術傑作展位。[NEWLINE][NEWLINE]用道路將其他城市[ICON_CONNECTED]連接到[ICON_CAPITAL]首都將獲得額外的[ICON_GOLD]金幣。[NEWLINE][NEWLINE]你可以通過遷都將宮殿轉移至其他城市，但這不會影響其他文明的征服勝利進程。</Text>
 		</Replace>
 
-		<Replace Tag="TXT_KEY_BUILDING_COURTHOUSE_HELP">
-			<Text>消除因[ICON_OCCUPIED]佔領城市導致的額外[ICON_HAPPINESS_4]不滿。[NEWLINE][NEWLINE]本城市每有3位[ICON_CITIZEN]市民則增加1[ICON_GOLD] 維護費。</Text>
-		</Replace>
-
 		<Replace Tag="TXT_KEY_BUILDING_GRANARY_HELP">
 			<Text>本城市[ICON_FOOD]食物產出+5%，已開發的每處[ICON_RES_WHEAT]小麥、[ICON_RES_BANANA]香蕉、[ICON_RES_DEER]野鹿和[ICON_RES_BISON]野牛資源+1[ICON_FOOD]食物。允許在本國的商路之間輸送[ICON_FOOD]食物。[NEWLINE][NEWLINE]研發化肥之後[COLOR_NEGATIVE_TEXT]過期[ENDCOLOR]（不再提供產出且不能建造）。[NEWLINE][NEWLINE]研發大眾傳媒後+1[ICON_TOURISM]旅遊業績。</Text>
 		</Replace>
@@ -3325,7 +3321,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_BUILDING_RACECOURSE_HELP</Tag>
-			<Text>該建築提供的[ICON_HAPPINESS_1]幸福度點數以該城市的[ICON_CITIZEN]市民數量為限。[NEWLINE][NEWLINE]只能在小型城市（6人口）建造。。</Text>
+			<Text>該建築提供的[ICON_HAPPINESS_1]幸福度點數以該城市的[ICON_CITIZEN]市民數量為限。[NEWLINE][NEWLINE]只能在小型城市（6人口）建造。</Text>
 		</Row>
 
 		<Row>
@@ -12587,7 +12583,7 @@
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_HELP">
 			<Text>
 				可以攔截試圖轟炸附近單位的敵軍飛機。
-				[NEWLINE][ICON_BULLET]每回合能夠進行一次對空攔截。
+				[NEWLINE][ICON_BULLET]每回合能夠進行對空攔截。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]和[COLOR_POSITIVE_TEXT]直升機[ENDCOLOR]單位擁有戰鬥力加成。
 				[NEWLINE][ICON_BULLET]攔截[COLOR_NEGATIVE_TEXT]戰略轟炸機[ENDCOLOR]時效果不佳。
@@ -13898,7 +13894,7 @@
 		</Replace>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_HELICOPTER_HELP">
 			<Text>
-				[ICON_BULLET]對[COLOR_POSITIVE_TEXT]直升機單位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]固定翼飛機單位[ENDCOLOR]+200%[ICON_STRENGTH]戰鬥力。[NEWLINE][ICON_BULLET]能夠攔截敵方飛機，被遊獵時不會受傷。
+				[ICON_BULLET]對[COLOR_POSITIVE_TEXT]艦載機[ENDCOLOR]、[COLOR_POSITIVE_TEXT]空優單位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]+200%[ICON_STRENGTH]戰鬥力。[NEWLINE][ICON_BULLET]能夠攔截敵方飛機，被遊獵時不會受傷。
 			</Text>
 		</Row>
 
@@ -16753,6 +16749,9 @@
 			<Text>在SP中，堡壘是由非正規軍建造的特殊改良設施，可為在友方領土上的軍事單位提供保護。堡壘可建在友方或中立方的單元格上。在原有改良設施上建造堡壘會摧毀該設施。
 				[NEWLINE]堡壘防禦加成：50%</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_NO_OCCUPIED_UNHAPPINESS">
+			<Text>[ICON_BULLET]消除來自[ICON_OCCUPIED]被佔領城市的額外[ICON_HAPPINESS_4]不滿。</Text>
+		</Row>
 		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_9">
 			<Text>基礎屬性</Text>
 		</Row>
