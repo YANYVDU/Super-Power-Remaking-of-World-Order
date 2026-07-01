@@ -16753,5 +16753,23 @@
 			<Text>在SP中，堡壘是由非正規軍建造的特殊改良設施，可為在友方領土上的軍事單位提供保護。堡壘可建在友方或中立方的單元格上。在原有改良設施上建造堡壘會摧毀該設施。
 				[NEWLINE]堡壘防禦加成：50%</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_9">
+			<Text>基礎屬性</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_10">
+			<Text>[COLOR_NEGATIVE_TEXT]負面屬性[ENDCOLOR]</Text>
+		</Row>
+		<Replace Tag="TXT_KEY_PROMOTION_ANTI_AIR_III">
+			<Text>防空火力点</Text>
+		</Replace>
+		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_III_HELP">
+			<Text>
+				可以攔截試圖轟炸附近單位的敵軍飛機。
+				[NEWLINE][ICON_BULLET]每回合能夠進行對空攔截。
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]擁有戰鬥力加成。
+				[NEWLINE][ICON_BULLET]攔截[COLOR_NEGATIVE_TEXT]戰略轟炸機[ENDCOLOR]時效果不佳。
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
