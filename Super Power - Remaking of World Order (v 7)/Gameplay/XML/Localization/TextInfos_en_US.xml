@@ -2663,23 +2663,11 @@
 		<Replace Tag="TXT_KEY_POLICYSCREEN_IDEOLOGY_NOT_STARTED">
 			<Text>Ideological tenets may not be purchased until you have chosen an Ideology. This choice becomes available ONLY when you enter the Modern Era.</Text>
 		</Replace>
-		
-		
 
 		<Replace Tag="TXT_KEY_BUILDING_PALACE_HELP">
 			<Text>Indicates this City is the [ICON_CAPITAL] Capital of the empire. Contains 1 slot for a Great Work of Art.[NEWLINE][NEWLINE][ICON_CONNECTED] Connecting other Cities to the [ICON_CAPITAL] Capital by Road will produce additional [ICON_GOLD] Gold.[NEWLINE][NEWLINE]You may move your palace to another city. However this won't affect other players' Domination victory.</Text>
 		</Replace>
 		
-		<Replace Tag="TXT_KEY_BUILDING_COURTHOUSE_HELP">
-			<Text>Eliminates extra [ICON_HAPPINESS_4] Unhappiness from an [ICON_OCCUPIED] Occupied City. [NEWLINE][NEWLINE]Pay extra 1 [ICON_GOLD] Gold for every 3 [ICON_CITIZEN] Population.</Text>
-		</Replace>
-
-		
-		
-		
-		
-
-
 		<Replace Tag="TXT_KEY_BUILDING_GRANARY_HELP">
 			<Text>+5%[ICON_FOOD] Food Output for the city. [NEWLINE][NEWLINE]+1 [ICON_FOOD] Food for each [ICON_RES_WHEAT] Wheat, [ICON_RES_BANANA] Banana, [ICON_RES_DEER] Deer and [ICON_RES_BISON] Bison worked for the city. Allows [ICON_FOOD] Food to be moved from this city along trade routes inside your civilization.[NEWLINE][NEWLINE]Upon discovering Fertilizer, this kind of building becomes [COLOR_NEGATIVE_TEXT]obsolete[ENDCOLOR] (it is no longer allowed to build and its bonuses are lost). [NEWLINE][NEWLINE]+1 [ICON_TOURISM] Tourism after discovering Mass Media.</Text>
 		</Replace>
@@ -15943,7 +15931,7 @@
 		</Replace>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_HELICOPTER_HELP">
 			<Text>
-				[ICON_BULLET]+200% [ICON_STRENGTH] Combat Strength vs [COLOR_POSITIVE_TEXT]Helicopters[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Aircrafts[ENDCOLOR].
+				[ICON_BULLET]+200% [ICON_STRENGTH] Combat Strength vs [COLOR_POSITIVE_TEXT]Carrier-based Aircraft[ENDCOLOR], [COLOR_POSITIVE_TEXT]Air Superiority Units[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Attack Aircraft[ENDCOLOR].
 				[NEWLINE][ICON_BULLET]Can intercept enemy aircrafts once per turn.
 				[NEWLINE][ICON_BULLET]No Damage received encountering enemy fighters' air-sweeps.
 			</Text>
@@ -18484,6 +18472,9 @@
 			<Text>In SuperPower Games,the fort improvement is a special improvement that is constructed by militia units and provides protection to military units in friendly territory. The fort may be constructed in a friendly or neutral tile. Constructing a fort atop an existing improvement will destroy the previous improvement.
 				[NEWLINE]Defensive Bonus of the Fort: 50%</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_NO_OCCUPIED_UNHAPPINESS">
+			<Text>[ICON_BULLET]Eliminates extra [ICON_HAPPINESS_4] Unhappiness from an [ICON_OCCUPIED] Occupied City. </Text>
+		</Row>
 		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_9">
 			<Text>Basic Promotions</Text>
 		</Row>

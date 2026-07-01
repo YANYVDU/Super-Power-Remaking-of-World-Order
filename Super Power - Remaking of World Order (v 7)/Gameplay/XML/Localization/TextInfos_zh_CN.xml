@@ -336,10 +336,6 @@
 			<Text>标示该城市是文明的[ICON_CAPITAL]首都。拥有一个美术杰作展位。[NEWLINE][NEWLINE]用道路将其他城市[ICON_CONNECTED]连接到[ICON_CAPITAL]首都将获得额外的[ICON_GOLD]金钱。[NEWLINE][NEWLINE]你可以通过迁都将宫殿转移至其他城市，但这不会影响其他文明的征服胜利进程。</Text>
 		</Replace>
 
-		<Replace Tag="TXT_KEY_BUILDING_COURTHOUSE_HELP">
-			<Text>消除因[ICON_OCCUPIED]占领城市导致的额外[ICON_HAPPINESS_4]不满。[NEWLINE][NEWLINE]本城市每有3位[ICON_CITIZEN]市民则增加1[ICON_GOLD] 维护费。</Text>
-		</Replace>
-
 		<Replace Tag="TXT_KEY_BUILDING_GRANARY_HELP">
 			<Text>本城市[ICON_FOOD]食物产出+5%，已开发的每处[ICON_RES_WHEAT]小麦、[ICON_RES_BANANA]香蕉、[ICON_RES_DEER]野鹿和[ICON_RES_BISON]野牛资源+1[ICON_FOOD]食物。允许在本国的商路之间输送[ICON_FOOD]食物。[NEWLINE][NEWLINE]研发化肥之后[COLOR_NEGATIVE_TEXT]过期[ENDCOLOR]（不再提供产出且不能建造）。[NEWLINE][NEWLINE]研发大众传媒后+1[ICON_TOURISM]魅力。</Text>
 		</Replace>
@@ -3387,7 +3383,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_BUILDING_RACECOURSE_HELP</Tag>
-			<Text>该建筑提供的[ICON_HAPPINESS_1]快乐点数以该城市的[ICON_CITIZEN]市民数量为限。[NEWLINE][NEWLINE]只能在小型城市（6人口）建造。。</Text>
+			<Text>该建筑提供的[ICON_HAPPINESS_1]快乐点数以该城市的[ICON_CITIZEN]市民数量为限。[NEWLINE][NEWLINE]只能在小型城市（6人口）建造。</Text>
 		</Row>
 
 		<Row>
@@ -14068,7 +14064,7 @@
 		</Replace>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_HELICOPTER_HELP">
 			<Text>
-				[ICON_BULLET]对[COLOR_POSITIVE_TEXT]直升机单位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]固定翼飞机单位[ENDCOLOR]+200%[ICON_STRENGTH]战斗力。[NEWLINE][ICON_BULLET]能够拦截敌方飞机，被游猎时不会受伤。
+				[ICON_BULLET]对[COLOR_POSITIVE_TEXT]舰载机[ENDCOLOR]、[COLOR_POSITIVE_TEXT]空优单位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]攻击机[ENDCOLOR]+200%[ICON_STRENGTH]战斗力。[NEWLINE][ICON_BULLET]能够拦截敌方飞机，被游猎时不会受伤。
 			</Text>
 		</Row>
 
@@ -16942,6 +16938,9 @@
 			<Text>堡垒是一种特殊的设施。在SP中，它由非正规军建造，为军事部队在本国领土内提供保护。堡垒可以被建造在本国或者中立地块。在区域设施上修建堡垒会将该区域设施摧毁。
 				[NEWLINE]堡垒提供的防御加成：50%</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_NO_OCCUPIED_UNHAPPINESS">
+			<Text>[ICON_BULLET]消除来自[ICON_OCCUPIED]被占领城市的额外[ICON_HAPPINESS_4]不满。</Text>
+		</Row>
 		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_9">
 			<Text>基础晋升</Text>
 		</Row>
