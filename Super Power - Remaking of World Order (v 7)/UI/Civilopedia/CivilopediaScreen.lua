@@ -2992,7 +2992,19 @@ CivilopediaCategory[CategoryUnits].SelectArticle = function( unitID, shouldAddTo
 
 		-- update the game info
 		if thisUnit.Help then
-			UpdateTextBlock( Locale.ConvertTextKey( thisUnit.Help ), Controls.GameInfoLabel, Controls.GameInfoInnerFrame, Controls.GameInfoFrame );
+			local helpText = Locale.ConvertTextKey( thisUnit.Help )
+			for row in GameInfo.Unit_FreePromotions{ UnitType = thisUnit.Type } do
+				local promo = GameInfo.UnitPromotions[ row.PromotionType ]
+				if promo and promo.PediaType ~= "PEDIA_UNIT_CATEGORY" and promo.Help and promo.Help ~= "" then
+					local promoHelp = Locale.ConvertTextKey( promo.Help )
+					if string.match(promoHelp, "^%s*%[ICON_BULLET%]") then
+						helpText = helpText .. "[NEWLINE]" .. promoHelp
+					else
+						helpText = helpText .. "[NEWLINE][ICON_BULLET]" .. promoHelp
+					end
+				end
+			end
+			UpdateTextBlock( helpText, Controls.GameInfoLabel, Controls.GameInfoInnerFrame, Controls.GameInfoFrame );
 		end
 				
 		-- update the strategy info
@@ -8194,31 +8206,36 @@ CivilopediaCategory[CategoryPromotions].DisplayList = function()
 		otherSortedList[tostring( thisListInstance.ListItemButton )] = sortOrder;
 	end
 
-	-- for each element of the sorted list		
+	-- for each element of the sorted list (using PromotionPedias config)
 
-	for section = 1,8,1 do
-		local thisHeaderInstance = g_ListHeadingManager:GetInstance();
-		if thisHeaderInstance then
-			sortedList[CategoryPromotions][section].headingOpen = true; -- ain't lua great
-			sortOrder = sortOrder + 1;
-			local textString = "TXT_KEY_PROMOTIONS_SECTION_"..tostring( section );
-			local localizedLabel = "[ICON_MINUS] "..Locale.ConvertTextKey( textString );
-			thisHeaderInstance.ListHeadingLabel:SetText( localizedLabel );
-			thisHeaderInstance.ListHeadingButton:SetVoids( section, 0 );
-			thisHeaderInstance.ListHeadingButton:RegisterCallback( Mouse.eLClick, CivilopediaCategory[CategoryPromotions].SelectHeading );
-			otherSortedList[tostring( thisHeaderInstance.ListHeadingButton )] = sortOrder;
-		end	
-			
-		for i, v in ipairs(sortedList[CategoryPromotions][section]) do
-			-- add an entry
-			local thisListInstance = g_ListItemManager:GetInstance();
-			if thisListInstance then
+	InitPediaTypeConfig()
+	for _, config in ipairs(g_PediaTypeConfig[CategoryPromotions]) do
+		local sectionId = config.SectionId;
+		local sectionTextKey = config.SectionTextKey;
+		local sectionData = sortedList[CategoryPromotions][sectionId];
+		if sectionData then
+			local thisHeaderInstance = g_ListHeadingManager:GetInstance();
+			if thisHeaderInstance then
+				sectionData.headingOpen = true; -- ain't lua great
 				sortOrder = sortOrder + 1;
-				thisListInstance.ListItemLabel:SetText( v.entryName );
-				thisListInstance.ListItemButton:SetVoids( v.entryID, addToList );
-				thisListInstance.ListItemButton:RegisterCallback( Mouse.eLClick, CivilopediaCategory[CategoryPromotions].SelectArticle );
-				thisListInstance.ListItemButton:SetToolTipCallback( TipHandler )
-				otherSortedList[tostring( thisListInstance.ListItemButton )] = sortOrder;
+				local localizedLabel = "[ICON_MINUS] "..Locale.ConvertTextKey( sectionTextKey );
+				thisHeaderInstance.ListHeadingLabel:SetText( localizedLabel );
+				thisHeaderInstance.ListHeadingButton:SetVoids( sectionId, 0 );
+				thisHeaderInstance.ListHeadingButton:RegisterCallback( Mouse.eLClick, CivilopediaCategory[CategoryPromotions].SelectHeading );
+				otherSortedList[tostring( thisHeaderInstance.ListHeadingButton )] = sortOrder;
+			end	
+				
+			for i, v in ipairs(sectionData) do
+				-- add an entry
+				local thisListInstance = g_ListItemManager:GetInstance();
+				if thisListInstance then
+					sortOrder = sortOrder + 1;
+					thisListInstance.ListItemLabel:SetText( v.entryName );
+					thisListInstance.ListItemButton:SetVoids( v.entryID, addToList );
+					thisListInstance.ListItemButton:RegisterCallback( Mouse.eLClick, CivilopediaCategory[CategoryPromotions].SelectArticle );
+					thisListInstance.ListItemButton:SetToolTipCallback( TipHandler )
+					otherSortedList[tostring( thisListInstance.ListItemButton )] = sortOrder;
+				end
 			end
 		end
 	end

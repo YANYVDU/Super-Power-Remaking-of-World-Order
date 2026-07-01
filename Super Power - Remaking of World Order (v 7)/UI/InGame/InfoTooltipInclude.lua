@@ -385,13 +385,18 @@ local function SetKey( t, key, value )
 	end
 end
 
-local function AddPreWrittenHelpTextAndConcat( tips, row ) -- assumes tips is a table
+local function AddPreWrittenHelpTextAndConcat( tips, row, extraHelps ) -- assumes tips is a table
 	local tip = row and row.Help and L( row.Help ) or ""
 	if tip ~= "" then
 		if #tips > 2 then
 			insert( tips, "----------------" )
 		end
 		insert( tips, tip )
+	end
+	if extraHelps then
+		for _, h in ipairs(extraHelps) do
+			insert( tips, h )
+		end
 	end
 	return concat( tips, "[NEWLINE]" )
 end
@@ -473,6 +478,7 @@ function GetHelpTextForUnit( unitID ) -- isIncludeRequirementsInfo )
 
 
 	------------------------------------------------new for Promotions------------------------------------------------
+	local freePromotionHelps = {}
     for row in GameInfo.Unit_FreePromotions( thisUnitType ) do
 		item = GameInfo.UnitPromotions[ row.PromotionType ]
 		if item then
@@ -483,7 +489,19 @@ function GetHelpTextForUnit( unitID ) -- isIncludeRequirementsInfo )
                 unitRange = unitRange + (item.RangeChange or 0)
                 unitMoves = unitMoves + (item.MovesChange or 0)
                 unitSight = unitSight + (item.VisibilityChange or 0)
-            end
+			end
+			-- Collect free promotion Help texts (skip PEDIA_UNIT_CATEGORY)
+			if item.PediaType ~= "PEDIA_UNIT_CATEGORY" and item.Help and item.Help ~= "" then
+				local promoHelp = L(item.Help)
+				if promoHelp ~= "" then
+					-- Don't double-up [ICON_BULLET] prefix
+					if string.match(promoHelp, "^%s*%[ICON_BULLET%]") then
+						insert( freePromotionHelps, promoHelp )
+					else
+						insert( freePromotionHelps, "[ICON_BULLET]" .. promoHelp )
+					end
+				end
+			end
 		end
 	end
 
@@ -897,7 +915,7 @@ function GetHelpTextForUnit( unitID ) -- isIncludeRequirementsInfo )
 	end
 
 	-- Pre-written Help text
-	return AddPreWrittenHelpTextAndConcat( tips, unit )
+	return AddPreWrittenHelpTextAndConcat( tips, unit, freePromotionHelps )
 end
 
 

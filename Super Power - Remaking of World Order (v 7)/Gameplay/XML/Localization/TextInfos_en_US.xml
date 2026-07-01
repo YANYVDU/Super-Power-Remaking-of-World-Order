@@ -18484,5 +18484,22 @@
 			<Text>In SuperPower Games,the fort improvement is a special improvement that is constructed by militia units and provides protection to military units in friendly territory. The fort may be constructed in a friendly or neutral tile. Constructing a fort atop an existing improvement will destroy the previous improvement.
 				[NEWLINE]Defensive Bonus of the Fort: 50%</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_9">
+			<Text>Basic Promotions</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_10">
+			<Text>[COLOR_NEGATIVE_TEXT]Negative Promotions[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_III">
+			<Text>Anti-Air Fire Point</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_III_HELP">
+			<Text>
+				Will intercept enemy aircraft which try to bomb nearby Units.
+				[NEWLINE][ICON_BULLET]Can intercept enemy aircrafts once per turn.
+				[NEWLINE][ICON_BULLET]Strong vs [COLOR_POSITIVE_TEXT]Attack Aircrafts[ENDCOLOR].
+				[NEWLINE][ICON_BULLET]NOT effective for intercepting [COLOR_NEGATIVE_TEXT]Strategic Bombers[ENDCOLOR].
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

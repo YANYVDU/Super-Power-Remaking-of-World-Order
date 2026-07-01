@@ -16942,5 +16942,23 @@
 			<Text>堡垒是一种特殊的设施。在SP中，它由非正规军建造，为军事部队在本国领土内提供保护。堡垒可以被建造在本国或者中立地块。在区域设施上修建堡垒会将该区域设施摧毁。
 				[NEWLINE]堡垒提供的防御加成：50%</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_9">
+			<Text>基础晋升</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_10">
+			<Text>[COLOR_NEGATIVE_TEXT]负面晋升[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_III">
+			<Text>防空火力点</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_III_HELP">
+			<Text>
+				可以拦截试图轰炸附近单位的敌军飞机。
+				[NEWLINE][ICON_BULLET]每回合能够进行一次对空拦截。
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET]对[COLOR_POSITIVE_TEXT]攻击机[ENDCOLOR]单位拥有战斗力加成。
+				[NEWLINE][ICON_BULLET]拦截[COLOR_NEGATIVE_TEXT]战略轰炸机[ENDCOLOR]时效果不佳。
+			</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>
