@@ -1094,7 +1094,7 @@
 					<!-- Promotions -->
 					<Grid Anchor="L,T" Offset="0,24" Size="204,136" Padding="0,0" Style="GridBlackIndent8" Hidden="0" ID="FreePromotionsFrame">
 						<Grid Anchor="C,C" Offset="0,0" Size="208,140" Padding="0,0" Style="Grid9Frame" Hidden="0" ID="FreePromotionsInnerFrame">
-							<Label Anchor="L,T" Offset="4,-16" Anchorside="I.O" WrapWidth="600" LeadingOffset="0" Font="TwCenMT20" FontStyle="Shadow" Color0="Beige" Color1="0.0.0.160" String="TXT_KEY_PEDIA_FREEPROMOTIONS_LABEL"/>
+							<Label ID="FreePromotionsLabel" Anchor="L,T" Offset="4,-16" Anchorside="I.O" WrapWidth="600" LeadingOffset="0" Font="TwCenMT20" FontStyle="Shadow" Color0="Beige" Color1="0.0.0.160" String="TXT_KEY_PEDIA_FREEPROMOTIONS_LABEL"/>
 						</Grid>
 					</Grid>
 					<!-- Must Required Promotions -->

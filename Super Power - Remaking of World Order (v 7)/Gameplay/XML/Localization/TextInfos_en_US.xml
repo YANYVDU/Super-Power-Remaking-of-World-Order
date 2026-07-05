@@ -16415,6 +16415,15 @@
 		<Replace Tag="TXT_KEY_PEDIA_UNLOCK_PROMOTIONS_LABEL">
 			<Text>Promotions Unlocked:</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_GRANT_PROMOTIONS_NATIONAL_LABEL">
+			<Text>Granted Promotions (National):</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_GRANT_PROMOTIONS_LOCAL_LABEL">
+			<Text>Granted Promotions (Local):</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_ACQUISITION_METHODS_LABEL">
+			<Text>Free From:</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_PEDIA_MAX_INSTANCES_LABEL">
 			<Text>Max Instances:</Text>
 		</Replace>

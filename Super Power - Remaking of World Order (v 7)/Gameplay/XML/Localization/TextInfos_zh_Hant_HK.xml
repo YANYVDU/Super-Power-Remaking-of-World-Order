@@ -14673,6 +14673,15 @@
 		<Replace Tag="TXT_KEY_PEDIA_UNLOCK_PROMOTIONS_LABEL">
 			<Text>解鎖晉升:</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_GRANT_PROMOTIONS_NATIONAL_LABEL">
+			<Text>贈送晉升（全國）：</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_GRANT_PROMOTIONS_LOCAL_LABEL">
+			<Text>贈送晉升（本城）：</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_ACQUISITION_METHODS_LABEL">
+			<Text>獲贈方式</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_PEDIA_MAX_INSTANCES_LABEL">
 			<Text>保有上限:</Text>
 		</Replace>
