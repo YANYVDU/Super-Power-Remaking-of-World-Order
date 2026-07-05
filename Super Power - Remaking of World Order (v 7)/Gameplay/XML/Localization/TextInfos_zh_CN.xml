@@ -16995,5 +16995,11 @@
 		<Row Tag="TXT_KEY_PLOT_NAME_CANCEL">
 			<Text>取消</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY">
+			<Text>远征补给</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY_HELP">
+			<Text>每回合都会自动回复，所有临近和同格的单位回复时额外+15HP，本单位回复时每回合额外+15HP</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>
