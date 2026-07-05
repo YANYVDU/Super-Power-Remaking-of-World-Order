@@ -1050,6 +1050,20 @@
 			<Text>Anything new for city states in Super Power MOD?</Text>
 		</Row>
 
+		<!--************************************ Interface ********************************-->
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_TOPIC">
+			<Text>SP: Custom Plot Naming</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_DESCRIPTION">
+			<Text>{TXT_KEY_CONCEPT_PLOT_NAMING_TOPIC}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_SUMMARY">
+			<Text>This mod allows you to place custom name labels on any map plot.[NEWLINE][NEWLINE]【How to Use】[NEWLINE]Hover the mouse over the target plot and press Ctrl+N to open the naming dialog. Enter a name and click "Confirm" — a floating label will appear above the plot.[NEWLINE][NEWLINE]【Color Prefixes】[NEWLINE]Start your name with .X or .XX to color the label. 13 colors supported:[NEWLINE].R Red  .G Green  .BL Blue  .Y Yellow  .C Cyan  .M Magenta  .W White[NEWLINE].P Purple  .N Navy  .S Silver  .U Ultramarine  .F Forest  .BR Brown[NEWLINE]No prefix defaults to red.[NEWLINE][NEWLINE]【Clearing Names】[NEWLINE]Press Ctrl+N on a named plot again and click "Clear" to remove the label.[NEWLINE][NEWLINE]【Save Compatibility】[NEWLINE]Plot name data is saved with the game and restored on reload. Labels are automatically hidden when entering the city screen.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_ADVISOR_QUESTION">
+			<Text>How to name plots on the map?</Text>
+		</Row>
+
 	<!--**************************************Misc Text Changes************************************-->
 	<!--********************************************** Resoultions Info Change ********************************************** -->
 
@@ -18491,6 +18505,19 @@
 				[NEWLINE][ICON_BULLET]Strong vs [COLOR_POSITIVE_TEXT]Attack Aircrafts[ENDCOLOR].
 				[NEWLINE][ICON_BULLET]NOT effective for intercepting [COLOR_NEGATIVE_TEXT]Strategic Bombers[ENDCOLOR].
 			</Text>
+		</Row>
+		<!-- Plot Naming -->
+		<Row Tag="TXT_KEY_PLOT_NAME_TITLE">
+			<Text>Enter Place Name</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CONFIRM">
+			<Text>Confirm</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CLEAR">
+			<Text>Clear</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CANCEL">
+			<Text>Cancel</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

@@ -4696,6 +4696,20 @@
 			<Text>超级大国模组城邦有什么变化吗？</Text>
 		</Row>
 
+		<!--************************************ Interface ********************************-->
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_TOPIC">
+			<Text>SP：地块自定义命名</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_DESCRIPTION">
+			<Text>{TXT_KEY_CONCEPT_PLOT_NAMING_TOPIC}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_SUMMARY">
+			<Text>本MOD支持在地图任意地块上添加自定义地名标签。[NEWLINE][NEWLINE]【操作方式】[NEWLINE]将鼠标悬停在目标地块上，按下 Ctrl+N 快捷键，即可弹出命名对话框。输入名称后点击"确定"，该地块上方将显示浮动地名标签。[NEWLINE][NEWLINE]【颜色前缀】[NEWLINE]输入名称时以 .X 或 .XX 开头即可为标签染色。支持13种颜色：[NEWLINE].R 红色 .G 绿色 .BL 蓝色 .Y 黄色 .C 青色 .M 品红 .W 白色[NEWLINE].P 紫色 .N 藏青 .S 银色 .U 天蓝 .F 森林绿 .BR 棕色[NEWLINE]不指定前缀时默认为红色。[NEWLINE][NEWLINE]【清除命名】[NEWLINE]对已命名地块再次按 Ctrl+N，点击"清除"按钮即可删除。[NEWLINE][NEWLINE]【存档兼容】[NEWLINE]地块命名数据会随存档保存，读档后可恢复。标签在进入城市界面时自动隐藏。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_ADVISOR_QUESTION">
+			<Text>如何在地图上给地块命名？</Text>
+		</Row>
+
 		<!--**************************************Misc Text Changes************************************-->
 
 		<!--********************************************** Resoultions Info Change ********************************************** -->
@@ -16958,6 +16972,19 @@
 				[NEWLINE][ICON_BULLET]对[COLOR_POSITIVE_TEXT]攻击机[ENDCOLOR]单位拥有战斗力加成。
 				[NEWLINE][ICON_BULLET]拦截[COLOR_NEGATIVE_TEXT]战略轰炸机[ENDCOLOR]时效果不佳。
 			</Text>
+		</Row>
+		<!-- Plot Naming -->
+		<Row Tag="TXT_KEY_PLOT_NAME_TITLE">
+			<Text>输入地名</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CONFIRM">
+			<Text>确定</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CLEAR">
+			<Text>清除</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CANCEL">
+			<Text>取消</Text>
 		</Row>
 	</Language_zh_CN>
 </GameData>
