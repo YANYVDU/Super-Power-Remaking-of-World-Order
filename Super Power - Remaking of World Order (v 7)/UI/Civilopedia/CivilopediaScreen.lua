@@ -3298,7 +3298,26 @@ CivilopediaCategory[CategoryPromotions].SelectArticle = function( promotionID, s
 			
 		-- update the game info
 		if thisPromotion.Help then
-			UpdateTextBlock( Locale.ConvertTextKey( thisPromotion.Help ), Controls.GameInfoLabel, Controls.GameInfoInnerFrame, Controls.GameInfoFrame );
+			local helpText = Locale.ConvertTextKey( thisPromotion.Help )
+			-- MOD - acquisition methods (buildings that grant this promotion)
+			local acquireBuildings = {}
+			for building in GameInfo.Buildings() do
+				local matched = false
+				if building.FreePromotion == thisPromotion.Type then matched = true
+				elseif building.FreePromotion2 == thisPromotion.Type then matched = true
+				elseif building.FreePromotion3 == thisPromotion.Type then matched = true
+				elseif building.TrainedFreePromotion == thisPromotion.Type then matched = true end
+				if matched then
+					table.insert(acquireBuildings, Locale.ConvertTextKey(building.Description))
+				end
+			end
+			if #acquireBuildings > 0 then
+				helpText = helpText .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_PEDIA_ACQUISITION_METHODS_LABEL")
+				for _, bname in ipairs(acquireBuildings) do
+					helpText = helpText .. "[NEWLINE][ICON_BULLET]" .. bname
+				end
+			end
+			UpdateTextBlock( helpText, Controls.GameInfoLabel, Controls.GameInfoInnerFrame, Controls.GameInfoFrame );
 		end
 	end	
 
@@ -3902,6 +3921,64 @@ function SelectBuildingOrWonderArticle( buildingID )
 			end
 		end	
 		UpdateButtonFrame( buttonAdded, Controls.GreatWorksInnerFrame, Controls.GreatWorksFrame );
+
+			-- MOD - granted promotions (national: FreePromotion/2/3)
+			local nationalGrantPromos = {}
+			if thisBuilding.FreePromotion then
+				local promo = GameInfo.UnitPromotions[thisBuilding.FreePromotion]
+				if promo and promo.ShowInPedia ~= 0 then table.insert(nationalGrantPromos, promo) end
+			end
+			if thisBuilding.FreePromotion2 then
+				local promo = GameInfo.UnitPromotions[thisBuilding.FreePromotion2]
+				if promo and promo.ShowInPedia ~= 0 then table.insert(nationalGrantPromos, promo) end
+			end
+			if thisBuilding.FreePromotion3 then
+				local promo = GameInfo.UnitPromotions[thisBuilding.FreePromotion3]
+				if promo and promo.ShowInPedia ~= 0 then table.insert(nationalGrantPromos, promo) end
+			end
+			if #nationalGrantPromos > 0 then
+				g_PromotionsManager:ResetInstances()
+				buttonAdded = 0
+				Controls.FreePromotionsLabel:SetText(Locale.ConvertTextKey("TXT_KEY_PEDIA_GRANT_PROMOTIONS_NATIONAL_LABEL"))
+				for _, promo in ipairs(nationalGrantPromos) do
+					local thisPromotionInstance = g_PromotionsManager:GetInstance()
+					if thisPromotionInstance then
+						local textureOffset, textureSheet = IconLookup(promo.PortraitIndex, buttonSize, promo.IconAtlas)
+						if textureOffset == nil then
+							textureSheet = defaultErrorTextureSheet
+							textureOffset = nullOffset
+						end
+						UpdateSmallButton(buttonAdded, thisPromotionInstance.PromotionImage, thisPromotionInstance.PromotionButton, textureSheet, textureOffset, CategoryPromotions, Locale.ConvertTextKey(promo.Description), promo.ID)
+						buttonAdded = buttonAdded + 1
+					end
+				end
+				UpdateButtonFrame(buttonAdded, Controls.FreePromotionsInnerFrame, Controls.FreePromotionsFrame)
+			end
+
+			-- MOD - granted promotions (local: TrainedFreePromotion)
+			local localGrantPromos = {}
+			if thisBuilding.TrainedFreePromotion then
+				local promo = GameInfo.UnitPromotions[thisBuilding.TrainedFreePromotion]
+				if promo and promo.ShowInPedia ~= 0 then table.insert(localGrantPromos, promo) end
+			end
+			if #localGrantPromos > 0 then
+				g_PromotionsManager:ResetInstances()
+				buttonAdded = 0
+				Controls.FreePromotionsLabel:SetText(Locale.ConvertTextKey("TXT_KEY_PEDIA_GRANT_PROMOTIONS_LOCAL_LABEL"))
+				for _, promo in ipairs(localGrantPromos) do
+					local thisPromotionInstance = g_PromotionsManager:GetInstance()
+					if thisPromotionInstance then
+						local textureOffset, textureSheet = IconLookup(promo.PortraitIndex, buttonSize, promo.IconAtlas)
+						if textureOffset == nil then
+							textureSheet = defaultErrorTextureSheet
+							textureOffset = nullOffset
+						end
+						UpdateSmallButton(buttonAdded, thisPromotionInstance.PromotionImage, thisPromotionInstance.PromotionButton, textureSheet, textureOffset, CategoryPromotions, Locale.ConvertTextKey(promo.Description), promo.ID)
+						buttonAdded = buttonAdded + 1
+					end
+				end
+				UpdateButtonFrame(buttonAdded, Controls.FreePromotionsInnerFrame, Controls.FreePromotionsFrame)
+			end
 
 		-- update the game info
 		if thisBuilding.Help then
