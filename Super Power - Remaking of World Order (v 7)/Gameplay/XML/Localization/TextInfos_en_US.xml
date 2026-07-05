@@ -5766,7 +5766,6 @@
 		<Replace Tag="TXT_KEY_BUILDING_COURTHOUSE_HELP">
 			<Text>
 				[ICON_BULLET]Eliminates extra [ICON_HAPPINESS_4] Unhappiness from an [ICON_OCCUPIED] Occupied City. 
-				[NEWLINE][ICON_BULLET]Pay extra 1 [ICON_GOLD] Gold for every 3 [ICON_CITIZEN] Population.
 			</Text>
 		</Replace>
 
@@ -11178,7 +11177,7 @@
 			<Text>Land Ranged Units</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNITCOMBAT_BOMBER">
-			<Text>Land Special Units</Text>
+			<Text>AOE Units</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNITCOMBAT_ARCHER">
 			<Text>Aircraft Units</Text>
@@ -13054,6 +13053,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER_HEADING">
 			<Text>Saab JAS 39 Gripen</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER_HELP">
+			<Text>A versatile multirole fighter capable of both air combat and strikes against land and naval targets.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CIVILOPEDIA_UNIT_SWEDISH_JAS39_FIGHTER_TEXT">
 			<Text>The Saab JAS 39 Gripen (English: "griffin") is a light single-engine multirole fighter aircraft manufactured by the Swedish aerospace company Saab. It was designed to replace the Saab 35 Draken and 37 Viggen in the Swedish Air Force (Flygvapnet). </Text>
@@ -15484,7 +15486,7 @@
 			<Text>Supply III</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_SUPPLY_3_HELP">
-			<Text>This Aircraft Carrier [COLOR_POSITIVE_TEXT]Resupplies[ENDCOLOR] its Carrier-based Aircrafts outside friendly territory.</Text>
+			<Text>This unit [COLOR_POSITIVE_TEXT]Resupplies[ENDCOLOR] its carrier-based aircraft or missiles outside friendly territory, and purchase costs -20%.</Text>
 		</Row>
 
 
@@ -16098,7 +16100,7 @@
 		<Row Tag="TXT_KEY_PROMOTION_SP_FULL_MOON_STRIKE_HELP">
 			<Text>
 				[ICON_BULLET]+1 [ICON_MOVES] Movement (can multiply).
-				[NEWLINE][ICON_BULLET]+50% [ICON_STRENGTH] Attack vs [COLOR_POSITIVE_TEXT]Siege Units, Archery, Anti Aircraft Units and Land AOE weapons[ENDCOLOR].
+				[NEWLINE][ICON_BULLET]+50% [ICON_STRENGTH] Attack vs [COLOR_POSITIVE_TEXT]Siege Units, Archery, Anti Aircraft Units and Weapons with Area of Effect[ENDCOLOR].
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_HUSSAR">
@@ -18534,5 +18536,20 @@
 		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY_HELP">
 			<Text>Automatically restores health each turn, providing an additional +15HP to all adjacent and same-tile units when they restore health, and an additional +15HP to this unit each turn when it restores health.</Text>
 		</Row>
+		<Replace Tag="TXT_KEY_PROMOTION_HEAL_IF_DESTROY_ENEMY_HELP">
+			<Text>Heals 50 HP after destroying a non-barbarian unit</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_DEFEND_NEAR_CAPITAL_HELP">
+			<Text>+30% [ICON_STRENGTH] Combat Strength when fighting near the Capital. Bonus lost when far from the Capital.</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_INVULNERABIILITY_HELP">
+			<Text>+30% [ICON_STRENGTH] Combat Strength when defending, and +20 HP additional healing per turn.</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_HOMELAND_GUARDIAN_BOOGALOO_HELP">
+			<Text>+15% [ICON_STRENGTH] Combat Strength when fighting within friendly territory.</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_HOVERING_UNIT_HELP">
+			<Text>This unit can cross Mountains and Coast tiles directly, but takes damage if it ends its turn on a Mountain</Text>
+		</Replace>
 	</Language_en_US>
 </GameData>

@@ -1264,7 +1264,7 @@
 		<Replace Tag="TXT_KEY_BUILDING_MILITARY_BASE_HELP">
 			<Text>
 				允許你在本城市訓練或雇傭以下[COLOR_POSITIVE_TEXT]軍事單位[ENDCOLOR]。
-				[NEWLINE][ICON_BULLET][COLOR_YELLOW]固定翼飛機單位[ENDCOLOR]；
+				[NEWLINE][ICON_BULLET][COLOR_YELLOW]飛機單位[ENDCOLOR]；
 				[NEWLINE][ICON_BULLET][COLOR_YELLOW]直升機單位[ENDCOLOR]。
 				[NEWLINE][NEWLINE]允許從這個城市空運單位。
 				[NEWLINE][COLOR_POSITIVE_TEXT]城市可容納的空軍單位數量增加4單位。[ENDCOLOR]
@@ -2952,7 +2952,6 @@
 		<Replace Tag="TXT_KEY_BUILDING_COURTHOUSE_HELP">
 			<Text>
 				[ICON_BULLET]消除來自[ICON_OCCUPIED]被佔領城市的額外[ICON_HAPPINESS_4]不滿。
-				[NEWLINE][ICON_BULLET]每3[ICON_CITIZEN]人口+1[ICON_GOLD]維護費。
 			</Text>
 		</Replace>
 
@@ -9558,7 +9557,7 @@
 			<Text>陸軍遠程單位</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNITCOMBAT_BOMBER">
-			<Text>陸軍特種單位</Text>
+			<Text>覆蓋火力單位</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNITCOMBAT_ARCHER">
 			<Text>空軍單位</Text>
@@ -9652,7 +9651,7 @@
 				[NEWLINE][ICON_BULLET]兩條升級鏈各有著強大的效果，根據局勢想好晉升的選擇；
 				[NEWLINE][ICON_BULLET]兩兩一組作為敵後騷擾部隊，可以通過偷襲脆弱工人、民兵、遠程單位甚至偉人給敵人造成重大損失同時快速升級，兩兩互補也提供了持久戰鬥續航能力；
 				[NEWLINE][ICON_BULLET]高等級的特戰在正面戰場特別是野戰和防守戰鬥中有著不輸於正規軍的戰鬥力，同時可以提供視野，這在早期戰鬥中十分有用，並且阻止電腦在陰影中刷兵。
-				[NEWLINE][ICON_BULLET]建議使用改名MOD來區分你的不同定位的特戰單位。
+				[NEWLINE][ICON_BULLET]建議右鍵點擊單位名稱改名來區分你的不同定位的特戰單位。
 			</Text>
 		</Row>
 
@@ -9801,7 +9800,7 @@
 				[NEWLINE][ICON_BULLET]遊獵單位前期就可以攻擊後移動，同樣受政策無視zoc加成，這使其在早期戰爭中有著不俗的生存能力；
 				[NEWLINE][ICON_BULLET]有著光環晉升，可以用機動力在多個戰場提供光環加成，不用急著進攻；
 				[NEWLINE][ICON_BULLET]有著獵殺晉升，可以直接將目標破防，配合更強戰鬥力的兵種打出更高的傷害；
-				[NEWLINE][ICON_BULLET]建議使用改名來區分你的不同定位的遊獵單位，方便操作；
+				[NEWLINE][ICON_BULLET]建議右鍵點擊單位名稱改名來區分你的不同定位的遊獵單位，方便操作；
 				[NEWLINE][ICON_BULLET]熟稔使用它的近戰和遠程能力，它不是一個跑的快的弓箭手，也不是可以突破戰線的騎兵。
 			</Text>
 		</Row>
@@ -9952,7 +9951,7 @@
 
 				[NEWLINE][NEWLINE][COLOR_CYAN]戰術：[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]海洋中的遊獵單位，雖然戰鬥中沒有陸軍遊獵單位在正面戰鬥中的強力，但是低廉的造價和良好的輔助能力同樣受到操作者的喜愛而得以大量普及；
-				[NEWLINE][ICON_BULLET]建議使用改名來區分你的不同定位的遊獵單位，注意使用好兵種之間的克制。
+				[NEWLINE][ICON_BULLET]建議右鍵點擊單位名稱改名來區分你的不同定位的遊獵單位，注意使用好兵種之間的克制。
 			</Text>
 		</Row>
 
@@ -10921,7 +10920,7 @@
 			<Text>U型潛艇</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_HELP_GERMAN_UBOAT">
-			<Text>替代潛艇，造價更低，自帶“狼群戰術”晉升，+1射程（可以疊加為4射程），+50%远程戰鬥力。</Text>
+			<Text>替代潛艇，造價更低，自帶“狼群戰術”晉升，+1射程（可以疊加為4射程），+50%遠程戰鬥力。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_GERMAN_UBOAT_PEDIA">
 			<Text>
@@ -11259,6 +11258,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER_HEADING">
 			<Text>JAS-39鷹獅</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER_HELP">
+			<Text>可以同時進行空戰和對陸海攻擊的多功能戰鬥機。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CIVILOPEDIA_UNIT_SWEDISH_JAS39_FIGHTER_TEXT">
 			<Text>JAS 39“鷹獅”（瑞典語：JAS 39 Gripen，英文：JAS 39 Griffin 或 Gryphon，又譯作“獅鷲”）為瑞典薩博公司（SAAB）（Svenska Aeroplan AB）為中心所開發用以取代Saab-37戰鬥機，在戰機世代上屬於第四代戰鬥機。JAS-39首飛於1988年，正向全世界推銷中。現已服役於瑞典、捷克、匈牙利等國空軍，並正於南非空軍中成軍。2007年10月，泰國國會也已批准首批六架JAS-39戰機訂單。</Text>
@@ -12970,7 +12972,7 @@
 				[NEWLINE][ICON_BULLET]能夠攻擊後移動。
 				[NEWLINE][ICON_BULLET]能夠使用敵方道路。
 				[NEWLINE][ICON_BULLET]劫掠不消耗移動力。
-				[NEWLINE][ICON_BULLET]路基飛機無法發現或攻擊此類單位。
+				[NEWLINE][ICON_BULLET]陸基飛機無法發現或攻擊此類單位。
 				[NEWLINE][ICON_BULLET]不能通過[ICON_GOLD]金錢[COLOR_NEGATIVE_TEXT]購買[ENDCOLOR]。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]克制[COLOR_POSITIVE_TEXT]民兵[ENDCOLOR]單位
@@ -13522,7 +13524,7 @@
 			<Text>補給三級</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_SUPPLY_3_HELP">
-			<Text>本航母能夠在友方地域之外補充艦載機。购买舰载机费用减20%</Text>
+			<Text>本單位能夠在友方地域之外補充艦載機或導彈，且購買費用-20%</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_FIGHTER">
@@ -14038,7 +14040,7 @@
 		<Row Tag="TXT_KEY_PROMOTION_SP_FULL_MOON_STRIKE_HELP">
 			<Text>
 				[ICON_BULLET]+1[ICON_MOVES]移動力（可疊加）。
-				[NEWLINE][ICON_BULLET]對陸軍遠程，防空單位，攻城單位和陸地AOE武器+50%[ICON_STRENGTH]攻擊力。
+				[NEWLINE][ICON_BULLET]對陸軍遠程，防空單位，攻城單位和覆蓋火力+50%[ICON_STRENGTH]攻擊力。
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_HUSSAR">
@@ -14231,7 +14233,7 @@
 			<Text>濺射免疫</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_SPLASH_HELP">
-			<Text>免疫來自陸軍特種單位和海軍旗艦等的濺射傷害。</Text>
+			<Text>免疫來自覆蓋火力單位和海軍旗艦等的濺射傷害。</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_PROMOTION_NUCLEAR_ARTILLERY">
@@ -14279,10 +14281,10 @@
 			<Text>在丘陵地塊戰鬥力加25%。</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_NAVAL_BONUS_HELP">
-			<Text>對海軍加成33%。</Text>
+			<Text>與海軍單位作戰時提高33%[ICON_STRENGTH]戰鬥力</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_NAVAL_BONUS_STRONG_HELP">
-			<Text>對海軍加成100%。</Text>
+			<Text>與海軍單位作戰時提高100%[ICON_STRENGTH]戰鬥力</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_PRIZE_SHIPS_HELP">
 			<Text>[ICON_BULLET]有一定概率[COLOR_POSITIVE_TEXT]俘獲[ENDCOLOR]消滅的敵軍。
@@ -16812,5 +16814,20 @@
 		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY_HELP">
 			<Text>每回合都會自動回復，所有臨近和同格的單位回復時額外+15HP，本單位回復時每回合額外+15HP</Text>
 		</Row>
+		<Replace Tag="TXT_KEY_PROMOTION_HEAL_IF_DESTROY_ENEMY_HELP">
+			<Text>消滅非蠻族單位後回復50HP</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_DEFEND_NEAR_CAPITAL_HELP">
+			<Text>在首都附近作戰時提高30%[ICON_STRENGTH]戰鬥力，遠離首都後失效</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_INVULNERABIILITY_HELP">
+			<Text>防禦時提高30%[ICON_STRENGTH]戰鬥力，回復時每回合額外+20HP</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_HOMELAND_GUARDIAN_BOOGALOO_HELP">
+			<Text>境內作戰時提高15%[ICON_STRENGTH]戰鬥力</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_HOVERING_UNIT_HELP">
+			<Text>該單位可以直接跨越山脈和海濱，但在山脈上時結束回合會受到傷害</Text>
+		</Replace>
 	</Language_zh_Hant_HK>
 </GameData>
