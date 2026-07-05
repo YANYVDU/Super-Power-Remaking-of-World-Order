@@ -3554,11 +3554,15 @@ function SelectBuildingOrWonderArticle( buildingID )
 		local bRestriction = false;
 		local strRestriction = "";
 		if thisBuilding.Water then
+			local waterText = Locale.ConvertTextKey( "TXT_KEY_CIVILOPEDIA_CONSTRUCTION_WATER" );
+			if thisBuilding.MinAreaSize and thisBuilding.MinAreaSize > 0 then
+				waterText = waterText .. "(" .. thisBuilding.MinAreaSize .. ")";
+			end
 			if (not bRestriction) then
 				bRestriction = true;
-				strRestriction = Locale.ConvertTextKey( "TXT_KEY_CIVILOPEDIA_CONSTRUCTION_WATER" );
+				strRestriction = waterText;
 			else
-				strRestriction = strRestriction .. "[NEWLINE]" .. Locale.ConvertTextKey( "TXT_KEY_CIVILOPEDIA_CONSTRUCTION_WATER" );
+				strRestriction = strRestriction .. "[NEWLINE]" .. waterText;
 			end
 		end
 		if thisBuilding.River then
