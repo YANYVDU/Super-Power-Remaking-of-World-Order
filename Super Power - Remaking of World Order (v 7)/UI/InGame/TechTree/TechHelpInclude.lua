@@ -115,6 +115,16 @@ function GetBaseHelpTextForTech( iTechID )
 			end
 			numProjects = numProjects + 1;
 			ProjectString = ProjectString .. " [ICON_BULLET] " .. Locale.ConvertTextKey(thisProjectInfo.Description);
+			-- Show first completer for global-once projects (like wonder builder display)
+			if thisProjectInfo.MaxGlobalInstances > 0 then
+				local firstData = Game.GetProjectFirstData(thisProjectInfo.ID);
+				if firstData then
+					local firstPlayer = Players[firstData.playerID];
+					if firstPlayer then
+						ProjectString = ProjectString .. " [COLOR_POSITIVE_TEXT](" .. Locale.ConvertTextKey(firstPlayer:GetCivilizationShortDescriptionKey()) .. ", " .. firstData.cityName .. ")[ENDCOLOR]";
+					end
+				end
+			end
 		end
 	end
 	if numProjects > 0 then
