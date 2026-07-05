@@ -18528,5 +18528,11 @@
 		<Row Tag="TXT_KEY_PLOT_NAME_CANCEL">
 			<Text>Cancel</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY">
+			<Text>Expedition Supply</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY_HELP">
+			<Text>Automatically restores health each turn, providing an additional +15HP to all adjacent and same-tile units when they restore health, and an additional +15HP to this unit each turn when it restores health.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

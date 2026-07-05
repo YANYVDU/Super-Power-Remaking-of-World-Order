@@ -16806,5 +16806,11 @@
 		<Row Tag="TXT_KEY_PLOT_NAME_CANCEL">
 			<Text>取消</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY">
+			<Text>遠征補給</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY_HELP">
+			<Text>每回合都會自動回復，所有臨近和同格的單位回復時額外+15HP，本單位回復時每回合額外+15HP</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

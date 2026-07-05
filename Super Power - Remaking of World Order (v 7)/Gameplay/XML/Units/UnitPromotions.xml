@@ -281,6 +281,24 @@
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_WAR_FAITH</PediaEntry>
 		</Row>
+
+		<Row>
+			<Type>PROMOTION_EXPEDITION_SUPPLY</Type>
+			<Description>TXT_KEY_PROMOTION_EXPEDITION_SUPPLY</Description>
+			<Help>TXT_KEY_PROMOTION_EXPEDITION_SUPPLY_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<AdjacentTileHealChange>15</AdjacentTileHealChange>
+			<SameTileHealChange>15</SameTileHealChange>
+			<EnemyHealChange>15</EnemyHealChange>
+			<NeutralHealChange>15</NeutralHealChange>
+			<FriendlyHealChange>15</FriendlyHealChange>
+			<AlwaysHeal>true</AlwaysHeal>
+			<PortraitIndex>25</PortraitIndex>
+			<CannotBeChosen>true</CannotBeChosen>
+			<IconAtlas>SP_PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_EXPEDITION_SUPPLY</PediaEntry>
+		</Row>
 	</UnitPromotions>
 
 	<!--*****************************Quick Speed*******************************************-->

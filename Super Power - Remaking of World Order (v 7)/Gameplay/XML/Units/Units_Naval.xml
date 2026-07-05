@@ -2543,11 +2543,7 @@
 		</Row>
 		<Row>
 			<UnitType>UNIT_SONGHAI_EXPEDITION_FLEET</UnitType>
-			<PromotionType>PROMOTION_CARRIER_SUPPLY_1</PromotionType>
-		</Row>
-		<Row>
-			<UnitType>UNIT_SONGHAI_EXPEDITION_FLEET</UnitType>
-			<PromotionType>PROMOTION_CARRIER_SUPPLY_2</PromotionType>
+			<PromotionType>PROMOTION_EXPEDITION_SUPPLY</PromotionType>
 		</Row>
 		
 		
