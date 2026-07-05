@@ -1299,7 +1299,7 @@
 		<Replace Tag="TXT_KEY_BUILDING_MILITARY_BASE_HELP">
 			<Text>
 				允许你在本城市训练或雇佣以下[COLOR_POSITIVE_TEXT]军事单位[ENDCOLOR]。
-				[NEWLINE][ICON_BULLET][COLOR_YELLOW]固定翼飞机单位[ENDCOLOR]；
+				[NEWLINE][ICON_BULLET][COLOR_YELLOW]飞机单位[ENDCOLOR]；
 				[NEWLINE][ICON_BULLET][COLOR_YELLOW]直升机单位[ENDCOLOR]。
 				[NEWLINE][NEWLINE]允许从这个城市空运单位。
 				[NEWLINE][COLOR_POSITIVE_TEXT]城市可容纳的空军单位数量增加4单位。[ENDCOLOR]
@@ -3007,7 +3007,6 @@
 		<Replace Tag="TXT_KEY_BUILDING_COURTHOUSE_HELP">
 			<Text>
 				[ICON_BULLET]消除来自[ICON_OCCUPIED]被占领城市的额外[ICON_HAPPINESS_4]不满。
-				[NEWLINE][ICON_BULLET]每3[ICON_CITIZEN]人口+1[ICON_GOLD]维护费。
 			</Text>
 		</Replace>
 
@@ -9670,7 +9669,7 @@
 			<Text>陆军远程单位</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNITCOMBAT_BOMBER">
-			<Text>陆军特种单位</Text>
+			<Text>覆盖火力单位</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNITCOMBAT_ARCHER">
 			<Text>空军单位</Text>
@@ -9766,7 +9765,7 @@
 				[NEWLINE][ICON_BULLET]两条升级链各有着强大的效果，根据局势想好晋升的选择；
 				[NEWLINE][ICON_BULLET]两两一组作为敌后骚扰部队，可以通过偷袭脆弱工人、民兵、远程单位甚至伟人给敌人造成重大损失同时快速升级，两两互补也提供了持久战斗续航能力；
 				[NEWLINE][ICON_BULLET]高等级的特战在正面战场特别是野战和防守战斗中有着不输于正规军的战斗力，同时可以提供视野，这在早期战斗中十分有用，并且阻止电脑在阴影中刷兵。
-				[NEWLINE][ICON_BULLET]建议使用改名MOD来区分你的不同定位的特战单位。
+				[NEWLINE][ICON_BULLET]建议右键点击单位名称改名来区分你的不同定位的特战单位。
 			</Text>
 		</Row>
 
@@ -9919,7 +9918,7 @@
 				[NEWLINE][ICON_BULLET]游猎单位前期就可以攻击后移动，同样受政策无视zoc加成，这使其在早期战争中有着不俗的生存能力；
 				[NEWLINE][ICON_BULLET]有着光环晋升，可以用机动力在多个战场提供光环加成，不用急着进攻；
 				[NEWLINE][ICON_BULLET]有着猎杀晋升，可以直接将目标破防，配合更强战斗力的兵种打出更高的伤害；
-				[NEWLINE][ICON_BULLET]建议使用改名来区分你的不同定位的游猎单位，方便操作；
+				[NEWLINE][ICON_BULLET]建议右键点击单位名称改名来区分你的不同定位的单位，方便操作；
 				[NEWLINE][ICON_BULLET]熟稔使用它的近战和远程能力，它不是一个跑的快的弓箭手，也不是可以突破战线的骑兵。
 			</Text>
 		</Row>
@@ -10075,7 +10074,7 @@
 
 				[NEWLINE][NEWLINE][COLOR_CYAN]战术：[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]海洋中的游猎单位，虽然战斗中没有陆军游猎单位在正面战斗中的强力，但是低廉的造价和良好的辅助能力同样受到操作者的喜爱而得以大量普及；
-				[NEWLINE][ICON_BULLET]建议使用改名来区分你的不同定位的游猎单位，注意使用好兵种之间的克制。
+				[NEWLINE][ICON_BULLET]建议右键点击单位名称改名来区分你的不同定位的游猎单位，注意使用好兵种之间的克制。
 			</Text>
 		</Row>
 
@@ -11409,6 +11408,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER_HEADING">
 			<Text>JAS-39鹰狮</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER_HELP">
+			<Text>可以同时进行空战和对陆海攻击的多功能战斗机。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CIVILOPEDIA_UNIT_SWEDISH_JAS39_FIGHTER_TEXT">
 			<Text>JAS 39“鹰狮”（瑞典语：JAS 39 Gripen，英文：JAS 39 Griffin 或 Gryphon，又译作“狮鹫”）为瑞典萨博公司（SAAB）（Svenska Aeroplan AB）为中心所开发用以取代Saab-37战斗机，在战机世代上属于第四代战斗机。JAS-39首飞于1988年，正向全世界推销中。现已服役于瑞典、捷克、匈牙利等国空军，并正于南非空军中成军。2007年10月，泰国国会也已批准首批六架JAS-39战机订单。</Text>
@@ -13135,7 +13137,7 @@
 				[NEWLINE][ICON_BULLET]能够攻击后移动。
 				[NEWLINE][ICON_BULLET]能够使用敌方道路。
 				[NEWLINE][ICON_BULLET]劫掠不消耗移动力。
-				[NEWLINE][ICON_BULLET]路基飞机无法发现或攻击此类单位。
+				[NEWLINE][ICON_BULLET]陆基飞机无法发现或攻击此类单位。
 				[NEWLINE][ICON_BULLET]不能通过[ICON_GOLD]金钱[COLOR_NEGATIVE_TEXT]购买[ENDCOLOR]。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]克制[COLOR_POSITIVE_TEXT]民兵[ENDCOLOR]单位
@@ -13692,7 +13694,7 @@
 			<Text>补给三级</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_SUPPLY_3_HELP">
-			<Text>本航母能够在友方地域之外补充舰载机。购买舰载机费用减20%</Text>
+			<Text>本单位能够在友方地域之外补充舰载机或导弹，且购买费用-20%</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_FIGHTER">
@@ -14209,7 +14211,7 @@
 		<Row Tag="TXT_KEY_PROMOTION_SP_FULL_MOON_STRIKE_HELP">
 			<Text>
 				[ICON_BULLET]+1[ICON_MOVES]移动力（可叠加）。
-				[NEWLINE][ICON_BULLET]对陆军远程，防空单位，攻城单位和陆地AOE武器+50%[ICON_STRENGTH]攻击力。
+				[NEWLINE][ICON_BULLET]对陆军远程，防空单位，攻城单位和覆盖火力+50%[ICON_STRENGTH]攻击力。
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_HUSSAR">
@@ -14405,7 +14407,7 @@
 			<Text>溅射免疫</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_SPLASH_HELP">
-			<Text>免疫来自陆军特种单位和海军旗舰等的溅射伤害。</Text>
+			<Text>免疫来自覆盖火力单位和海军旗舰等的溅射伤害。</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_PROMOTION_NUCLEAR_ARTILLERY">
@@ -14453,10 +14455,10 @@
 			<Text>在丘陵地块战斗力加25%。</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_NAVAL_BONUS_HELP">
-			<Text>对海军加成33%。</Text>
+			<Text>与海军单位作战时提高33%[ICON_STRENGTH]战斗力</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_NAVAL_BONUS_STRONG_HELP">
-			<Text>对海军加成100%。</Text>
+			<Text>与海军单位作战时提高100%[ICON_STRENGTH]战斗力</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_PRIZE_SHIPS_HELP">
 			<Text>
@@ -17001,5 +17003,20 @@
 		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY_HELP">
 			<Text>每回合都会自动回复，所有临近和同格的单位回复时额外+15HP，本单位回复时每回合额外+15HP</Text>
 		</Row>
+		<Replace Tag="TXT_KEY_PROMOTION_HEAL_IF_DESTROY_ENEMY_HELP">
+			<Text>消灭非蛮族单位后回复50生命值</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_DEFEND_NEAR_CAPITAL_HELP">
+			<Text>在首都附近作战时提高30%[ICON_STRENGTH]战斗力，远离首都后失效</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_INVULNERABIILITY_HELP">
+			<Text>防御时提高30%[ICON_STRENGTH]战斗力，回复时每回合额外+20HP</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_HOMELAND_GUARDIAN_BOOGALOO_HELP">
+			<Text>境内作战时提高15%[ICON_STRENGTH]战斗力</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_HOVERING_UNIT_HELP">
+			<Text>该单位可以直接跨越山脉和海滨，但在山脉上时结束回合会受到伤害</Text>
+		</Replace>
 	</Language_zh_CN>
 </GameData>
