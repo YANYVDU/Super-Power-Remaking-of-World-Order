@@ -4612,6 +4612,20 @@
 			<Text>超級大國模組城邦有什麼變化嗎？</Text>
 		</Row>
 
+		<!--************************************ Interface ********************************-->
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_TOPIC">
+			<Text>SP：地塊自定義命名</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_DESCRIPTION">
+			<Text>{TXT_KEY_CONCEPT_PLOT_NAMING_TOPIC}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_SUMMARY">
+			<Text>本MOD支持在地圖任意地塊上添加自定義地名標籤。[NEWLINE][NEWLINE]【操作方式】[NEWLINE]將鼠標懸停在目標地塊上，按下 Ctrl+N 快捷鍵，即可彈出命名對話框。輸入名稱後點擊「確定」，該地塊上方將顯示浮動地名標籤。[NEWLINE][NEWLINE]【顏色前綴】[NEWLINE]輸入名稱時以 .X 或 .XX 開頭即可為標籤染色。支持13種顏色：[NEWLINE].R 紅色 .G 綠色 .BL 藍色 .Y 黃色 .C 青色 .M 品紅 .W 白色[NEWLINE].P 紫色 .N 藏青 .S 銀色 .U 天藍 .F 森林綠 .BR 棕色[NEWLINE]不指定前綴時默認為紅色。[NEWLINE][NEWLINE]【清除命名】[NEWLINE]對已命名地塊再次按 Ctrl+N，點擊「清除」按鈕即可刪除。[NEWLINE][NEWLINE]【存檔兼容】[NEWLINE]地塊命名數據會隨存檔保存，讀檔後可恢復。標籤在進入城市界面時自動隱藏。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_ADVISOR_QUESTION">
+			<Text>如何在地圖上給地塊命名？</Text>
+		</Row>
+
 		<!--**************************************Misc Text Changes************************************-->
 
 		<!--********************************************** Resoultions Info Change ********************************************** -->
@@ -16769,6 +16783,19 @@
 				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]擁有戰鬥力加成。
 				[NEWLINE][ICON_BULLET]攔截[COLOR_NEGATIVE_TEXT]戰略轟炸機[ENDCOLOR]時效果不佳。
 			</Text>
+		</Row>
+		<!-- Plot Naming -->
+		<Row Tag="TXT_KEY_PLOT_NAME_TITLE">
+			<Text>輸入地名</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CONFIRM">
+			<Text>確定</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CLEAR">
+			<Text>清除</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CANCEL">
+			<Text>取消</Text>
 		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
