@@ -564,7 +564,7 @@ function AdjustArtOnGrantedUnitButton( thisButton, thisUnitInfo, textureSize )
 		thisButton:SetTexture( textureSheet );
 		thisButton:SetTextureOffset( textureOffset );
 		thisButton:SetHide( false );
-		techPediaSearchStrings[tostring(thisButton)] = Locale.ConvertTextKey(thisUnitInfo.Description);
+		techPediaSearchStrings[tostring(thisButton)] = thisUnitInfo.Description;
 		thisButton:RegisterCallback( Mouse.eRClick, GetTechPedia );
 	end
 end
@@ -587,7 +587,7 @@ function AdjustArtOnGrantedBuildingButton( thisButton, thisBuildingInfo, texture
 		thisButton:SetTexture( textureSheet );
 		thisButton:SetTextureOffset( textureOffset );
 		thisButton:SetHide( false );
-		techPediaSearchStrings[tostring(thisButton)] = Locale.ConvertTextKey(thisBuildingInfo.Description);
+		techPediaSearchStrings[tostring(thisButton)] = thisBuildingInfo.Description;
 		thisButton:RegisterCallback( Mouse.eRClick, GetTechPedia );
 	end
 end
@@ -609,7 +609,7 @@ function AdjustArtOnGrantedProjectButton( thisButton, thisProjectInfo, textureSi
 		thisButton:SetTexture( textureSheet );
 		thisButton:SetTextureOffset( textureOffset );
 		thisButton:SetHide( false );
-		techPediaSearchStrings[tostring(thisButton)] = Locale.ConvertTextKey(thisProjectInfo.Description);
+		techPediaSearchStrings[tostring(thisButton)] = thisProjectInfo.Description;
 		thisButton:RegisterCallback( Mouse.eRClick, GetTechPedia );
 	end
 end
@@ -627,7 +627,7 @@ function AdjustArtOnGrantedResourceButton( thisButton, thisResourceInfo, texture
 		thisButton:SetTexture( textureSheet );
 		thisButton:SetTextureOffset( textureOffset );
 		thisButton:SetHide( false );
-		techPediaSearchStrings[tostring(thisButton)] =  Locale.Lookup(thisResourceInfo.Description);
+		techPediaSearchStrings[tostring(thisButton)] = thisResourceInfo.Description;
 		thisButton:RegisterCallback( Mouse.eRClick, GetTechPedia );
 	end
 end
@@ -651,7 +651,7 @@ function AdjustArtOnGrantedActionButton( thisButton, thisBuildInfo, textureSize 
 		if thisBuildInfo.RouteType then
 			techPediaSearchStrings[tostring(thisButton)] = Locale.ConvertTextKey( GameInfo.Routes[thisBuildInfo.RouteType].Description );
 		elseif thisBuildInfo.ImprovementType then
-			techPediaSearchStrings[tostring(thisButton)] = Locale.ConvertTextKey( GameInfo.Improvements[thisBuildInfo.ImprovementType].Description );
+			techPediaSearchStrings[tostring(thisButton)] = GameInfo.Improvements[thisBuildInfo.ImprovementType].Description;
 		else -- we are a choppy thing
 			techPediaSearchStrings[tostring(thisButton)] = Locale.ConvertTextKey( GameInfo.Concepts["CONCEPT_WORKERS_CLEARINGLAND"].Description );
 		end
