@@ -16817,6 +16817,12 @@
 		<Replace Tag="TXT_KEY_RO_STATUS_FOUNDER">
 			<Text>{1_ReligionName}宗教领袖</Text>
 		</Replace>
+	<Row Tag="TXT_KEY_RO_YOUR_FOLLOWERS">
+		<Text>全图信众: {1_Num}</Text>
+	</Row>
+	<Row Tag="TXT_KEY_RO_YOUR_CITIES">
+		<Text>信教城市: {1_Num}</Text>
+	</Row>
 
 		<Row Tag="TXT_KEY_EUPANEL_CAPTURE_CHANCE_SP">
 			<Text>[COLOR_CYAN]战胜时俘获敌军的几率[ENDCOLOR]</Text>

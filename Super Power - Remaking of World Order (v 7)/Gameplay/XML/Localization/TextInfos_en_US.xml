@@ -18352,6 +18352,12 @@
 		<Replace Tag="TXT_KEY_RO_STATUS_FOUNDER">
 			<Text>Religion Leader of {1_ReligionName}</Text>
 		</Replace>
+	<Row Tag="TXT_KEY_RO_YOUR_FOLLOWERS">
+		<Text>Followers: {1_Num}</Text>
+	</Row>
+	<Row Tag="TXT_KEY_RO_YOUR_CITIES">
+		<Text>Cities following: {1_Num}</Text>
+	</Row>
 		<Row Tag="TXT_KEY_EUPANEL_CAPTURE_CHANCE_SP">
 			<Text>[COLOR_CYAN]Capture Chance if Sunk[ENDCOLOR]</Text>
 		</Row>
