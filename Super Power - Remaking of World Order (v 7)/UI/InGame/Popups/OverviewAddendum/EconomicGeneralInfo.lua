@@ -953,7 +953,7 @@ function ProductionDetails( city, instance )
 	
 	-- hookup pedia and production popup to production button
 	instance.ProdButton:RegisterCallback( Mouse.eLClick, OnProdClick );
-	pediaSearchStrings[tostring(instance.ProdButton)] = Locale.ConvertTextKey(cityProductionName);
+	pediaSearchStrings[tostring(instance.ProdButton)] = cityProductionName;
 	instance.ProdButton:RegisterCallback( Mouse.eRClick, OnProdRClick );
 	instance.ProdButton:SetVoids( city:GetID(), nil );
 
