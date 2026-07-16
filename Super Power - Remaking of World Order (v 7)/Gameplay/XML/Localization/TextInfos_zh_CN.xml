@@ -14866,6 +14866,9 @@
 		<Replace Tag="TXT_KEY_PEDIA_MAX_INSTANCES_LABEL">
 			<Text>保有上限:</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_PROJECT_COMPLETED_BY">
+			<Text>已完成: {1_Player}, {2_City}</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_PEDIA_MAX_PLAYER_INSTANCES">
 			<Text>[ICON_BULLET]每位玩家{1_Num}</Text>
 		</Replace>
