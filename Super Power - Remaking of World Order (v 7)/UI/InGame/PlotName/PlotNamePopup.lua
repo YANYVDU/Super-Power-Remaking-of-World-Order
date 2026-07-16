@@ -7,6 +7,7 @@ include("InstanceManager")
 local g_bVisible = false
 local g_iTargetX = -1
 local g_iTargetY = -1
+local g_bLabelsVisible = true  -- global toggle for plot name label visibility
 
 -- One InstanceManager per color (13 color codes)
 local g_LabelIMs = {
@@ -28,6 +29,7 @@ local g_LabelIMs = {
 
 local function SyncLabels()
 	for _, im in pairs(g_LabelIMs) do im:ResetInstances() end
+	if not g_bLabelsVisible then return end
 	if not Game.GetAllPlotNames then return end
 	for _, entry in ipairs(Game.GetAllPlotNames()) do
 		local displayName = entry.name
@@ -59,6 +61,36 @@ local function SyncLabels()
 		end
 	end
 end
+
+-------------------------------------------------
+-- Plot Name Label Visibility Toggle (called from MiniMapPanel)
+-------------------------------------------------
+function SetLabelsVisible(bVisible)
+	g_bLabelsVisible = bVisible
+	if bVisible then
+		SyncLabels()
+	else
+		for _, im in pairs(g_LabelIMs) do im:ResetInstances() end
+	end
+	-- Persist setting across game sessions
+	local userData = Modding.OpenUserData("SP_UserInterfaceOptions", 2)
+	if userData then
+		userData.SetValue("ShowPlotNames", bVisible and 1 or 0)
+	end
+end
+
+function LoadPlotNameSettings()
+	local userData = Modding.OpenUserData("SP_UserInterfaceOptions", 2)
+	if userData then
+		local saved = userData.GetValue("ShowPlotNames")
+		-- Only disable if explicitly set to 0; missing key defaults to ON
+		if saved == 0 then
+			g_bLabelsVisible = false
+		end
+	end
+end
+
+LuaEvents.PlotNameToggleLabels.Add(SetLabelsVisible)
 
 local function Show(iX, iY)
 	if g_bVisible then return end
@@ -107,5 +139,5 @@ Controls.CancelBtn:RegisterCallback(Mouse.eLClick, Hide)
 ContextPtr:SetInputHandler(OnPopupInput)
 Events.SerialEventEnterCityScreen.Add(function() Controls.WorldLabelStack:SetHide(true) end)
 Events.SerialEventExitCityScreen.Add(function() Controls.WorldLabelStack:SetHide(false) end)
-SyncLabels()
+LoadPlotNameSettings()
 SyncLabels()

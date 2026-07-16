@@ -16814,6 +16814,12 @@
 		<Row Tag="TXT_KEY_PLOT_NAME_CANCEL">
 			<Text>取消</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SP_SHOW_PLOT_NAMES">
+			<Text>顯示地塊名稱</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SHOW_PLOT_NAMES_TT">
+			<Text>切換地圖上自定義地塊名稱標籤的顯示</Text>
+		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY">
 			<Text>遠征補給</Text>
 		</Row>

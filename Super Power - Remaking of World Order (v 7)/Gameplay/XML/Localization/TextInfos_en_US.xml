@@ -18536,6 +18536,12 @@
 		<Row Tag="TXT_KEY_PLOT_NAME_CANCEL">
 			<Text>Cancel</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SP_SHOW_PLOT_NAMES">
+			<Text>Show Plot Names</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SHOW_PLOT_NAMES_TT">
+			<Text>Toggle display of custom plot name labels on the map</Text>
+		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY">
 			<Text>Expedition Supply</Text>
 		</Row>

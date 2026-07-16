@@ -17003,6 +17003,12 @@
 		<Row Tag="TXT_KEY_PLOT_NAME_CANCEL">
 			<Text>取消</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SP_SHOW_PLOT_NAMES">
+			<Text>显示地块名称</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SHOW_PLOT_NAMES_TT">
+			<Text>切换地图上自定义地块名称标签的显示</Text>
+		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY">
 			<Text>远征补给</Text>
 		</Row>
