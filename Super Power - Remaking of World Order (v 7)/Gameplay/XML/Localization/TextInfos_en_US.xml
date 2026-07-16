@@ -16429,6 +16429,9 @@
 		<Replace Tag="TXT_KEY_PEDIA_MAX_INSTANCES_LABEL">
 			<Text>Max Instances:</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_PROJECT_COMPLETED_BY">
+			<Text>Completed by: {1_Player}, {2_City}</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_PEDIA_MAX_PLAYER_INSTANCES">
 			<Text>[ICON_BULLET]{1_Num} Per Player</Text>
 		</Replace>

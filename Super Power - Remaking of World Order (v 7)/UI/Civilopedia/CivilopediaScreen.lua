@@ -4173,7 +4173,7 @@ CivilopediaCategory[CategoryWonders].SelectArticle = function( wonderID, shouldA
 			--update the promotions unlocked
 			g_UnlockedPromotionsManager:ResetInstances();
 			buttonAdded = 0;
-			local UnlockPromotion = GameInfo.UnitPromotions[thisProject.FreePromotion]
+			local UnlockPromotion = thisProject.FreePromotion and GameInfo.UnitPromotions[thisProject.FreePromotion] or nil
 				if UnlockPromotion then
 					local thisInstance = g_UnlockedPromotionsManager:GetInstance();
 					if thisInstance then
@@ -4243,7 +4243,20 @@ CivilopediaCategory[CategoryWonders].SelectArticle = function( wonderID, shouldA
 			
 			-- update the game info
 			if thisProject.Help then
-				UpdateTextBlock( Locale.ConvertTextKey( thisProject.Help ), Controls.GameInfoLabel, Controls.GameInfoInnerFrame, Controls.GameInfoFrame );
+				local helpText = Locale.ConvertTextKey( thisProject.Help );
+				-- Show first completer for global-once projects (like wonder builder display)
+				if thisProject.MaxGlobalInstances > 0 and Game ~= nil then
+					local firstData = Game.GetProjectFirstData(thisProject.ID);
+					if firstData then
+						local firstPlayer = Players[firstData.playerID];
+						if firstPlayer then
+							helpText = helpText .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_PEDIA_PROJECT_COMPLETED_BY",
+								Locale.ConvertTextKey(firstPlayer:GetCivilizationShortDescriptionKey()),
+								firstData.cityName);
+						end
+					end
+				end
+				UpdateTextBlock( helpText, Controls.GameInfoLabel, Controls.GameInfoInnerFrame, Controls.GameInfoFrame );
 			end
 					
 			-- update the strategy info
