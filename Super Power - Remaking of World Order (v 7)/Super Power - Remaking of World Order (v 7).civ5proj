@@ -491,12 +491,6 @@ Some Imgaes and Visual Elements are from the game: ACE Combat (published by Namc
         <Description>All InGame New Effects and UI defined by lua - Init File</Description>
         <FileName>Gameplay/Lua/SPInit.lua</FileName>
       </Content>
-      <Content>
-        <Type>InGameUIAddin</Type>
-        <Name>PlotNamePopup</Name>
-        <Description>Ctrl+N to name plots on map</Description>
-        <FileName>UI/InGame/PlotName/PlotNamePopup.xml</FileName>
-      </Content>
     </ModContent>
     <HideSetupGame>true</HideSetupGame>
     <ModDependencies>
@@ -5264,6 +5258,18 @@ Some Imgaes and Visual Elements are from the game: ACE Combat (published by Namc
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="UI/InGame/WorldView/PlotHelpText.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI/InGame/WorldView/MiniMapPanel.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI/InGame/WorldView/MiniMapPanel.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI/InGame/InGame.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
