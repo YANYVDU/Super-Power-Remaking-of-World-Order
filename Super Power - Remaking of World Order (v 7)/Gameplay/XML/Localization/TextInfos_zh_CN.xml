@@ -1432,7 +1432,7 @@
 
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_HANGING_GARDEN_HELP" />
-			<Set Text="所有城市-10%[ICON_CITIZEN]人口增长阈值。向所在城市赠送一个花园。" />
+			<Set Text="所有城市-10%[ICON_CITIZEN]人口增长阈值。向所在城市赠送一个公园。" />
 		</Update>
 
 		<Replace Tag="TXT_KEY_WONDER_COLOSSUS_HELP">
