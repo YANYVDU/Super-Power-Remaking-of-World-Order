@@ -18443,10 +18443,10 @@
 			<Text>Promise withdraw Military</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_MODIFIER">
-			<Text>Corruption Unhappiness: {1_Num}%</Text>
+			<Text>Corruption Unhappiness</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CITY_COUNT">
-			<Text>From Corruption</Text>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CORRUPTION">
+			<Text>{1_num} From Corruption</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EXPANSION_PROMISE">
 			<Text>Promise not to expand</Text>
