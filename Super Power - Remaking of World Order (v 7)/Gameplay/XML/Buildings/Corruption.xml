@@ -98,7 +98,6 @@
 			<NukeImmune>true</NukeImmune>
 			<IconAtlas>SPBalance_ATLAS</IconAtlas>
 			<PortraitIndex>56</PortraitIndex>
-			<Happiness>-2</Happiness>
 			<CorruptionPolicyCostModifier>5</CorruptionPolicyCostModifier>
 			<ExtraSellRefund>-200</ExtraSellRefund>
 			<ExtraSellRefundModifierPerEra>-5</ExtraSellRefundModifierPerEra>
@@ -118,7 +117,6 @@
 			<NukeImmune>true</NukeImmune>
 			<IconAtlas>SPBalance_ATLAS</IconAtlas>
 			<PortraitIndex>57</PortraitIndex>
-			<Happiness>-4</Happiness>
 			<CorruptionPolicyCostModifier>10</CorruptionPolicyCostModifier>
 			<UnhappinessModifier>2</UnhappinessModifier>
 			<ExtraSellRefund>-500</ExtraSellRefund>
@@ -139,7 +137,6 @@
 			<NukeImmune>true</NukeImmune>
 			<IconAtlas>SPBalance_ATLAS</IconAtlas>
 			<PortraitIndex>58</PortraitIndex>
-			<Happiness>-6</Happiness>
 			<CorruptionPolicyCostModifier>20</CorruptionPolicyCostModifier>
 			<UnhappinessModifier>3</UnhappinessModifier>
 			<ExtraSellRefund>-800</ExtraSellRefund>
@@ -160,7 +157,6 @@
 			<NukeImmune>true</NukeImmune>
 			<IconAtlas>SPBalance_ATLAS</IconAtlas>
 			<PortraitIndex>59</PortraitIndex>
-			<Happiness>-8</Happiness>
 			<CorruptionPolicyCostModifier>20</CorruptionPolicyCostModifier>
 			<UnhappinessModifier>4</UnhappinessModifier>
 			<UnitMaxExperienceLocal>60</UnitMaxExperienceLocal>
@@ -182,7 +178,6 @@
 			<NukeImmune>true</NukeImmune>
 			<IconAtlas>SPBalance_ATLAS</IconAtlas>
 			<PortraitIndex>60</PortraitIndex>
-			<Happiness>-10</Happiness>
 			<CorruptionPolicyCostModifier>25</CorruptionPolicyCostModifier>
 			<UnhappinessModifier>5</UnhappinessModifier>
 			<UnitMaxExperienceLocal>30</UnitMaxExperienceLocal>

@@ -747,9 +747,7 @@ function HappinessTipHandler( control )
 		local iResourcesHappiness = pPlayer:GetHappinessFromResources();
 		local iExtraLuxuryHappiness = pPlayer:GetExtraHappinessPerLuxury();
 
-		local iCityHappinessRaw = pPlayer:GetHappinessFromCities();
-		local SPUnhappinessCityException = SPUnhappinessFromCitiesCount (pPlayer)
-		local iCityHappiness = iCityHappinessRaw + SPUnhappinessCityException
+		local iCityHappiness = pPlayer:GetHappinessFromCities();
 
 		local iBuildingHappiness = pPlayer:GetHappinessFromBuildings();
 		local iTradeRouteHappiness = pPlayer:GetHappinessFromTradeRoutes();
@@ -882,11 +880,11 @@ function HappinessTipHandler( control )
 		strText = strText .. "  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_HAPPINESS_DIFFICULTY_LEVEL", iHandicapHappiness);
 		strText = strText .. "[/COLOR]";
 
-		local iUnhappinessFromCityCount = SPUnhappinessFromCitiesCount (pPlayer)
+		local iUnhappinessFromCityCount = pPlayer:GetUnhappinessFromCorruption() / 100
 	
 		
 		-- Unhappiness
-		local iTotalUnhappiness = pPlayer:GetUnhappiness() + iUnhappinessFromCityCount
+		local iTotalUnhappiness = pPlayer:GetUnhappiness()
 		
 		
 		local iUnhappinessFromUnits = Locale.ToNumber( pPlayer:GetUnhappinessFromUnits() / 100, "#.##" );
@@ -997,7 +995,7 @@ function GoldenAgeTipHandler( control )
 		local pTeam = Teams[pPlayer:GetTeam()];
 		local pCity = UI.GetHeadSelectedCity();
 
-		local iHappiness = pPlayer:GetExcessHappiness();
+		local iHappiness = pPlayer:GetExcessHappiness() ;
 		local iGoldAgePointFromReligion = pPlayer:GetGoldenAgePointPerTurnFromReligion();
 		local iGoldAgePointFromTraits = pPlayer:GetGoldenAgePointPerTurnFromTraits();
 		local iGoldAgePointFromCitys = pPlayer:GetGoldenAgePointPerTurnFromCitys();
@@ -1555,43 +1553,3 @@ Events.SerialEventCityInfoDirty.Add(OnTopPanelDirty);
 UpdateData();
 DoInitTooltips();
 
--------------SP Unhappiness from city levels Count-------------------
-function SPUnhappinessFromCitiesCount (pPlayer)
-		local Lv1CitiesCount = pPlayer:GetBuildingClassCount(GameInfo.BuildingClasses.BUILDINGCLASS_CITY_HALL_LV1.ID)
-		local Lv2CitiesCount = pPlayer:GetBuildingClassCount(GameInfo.BuildingClasses.BUILDINGCLASS_CITY_HALL_LV2.ID)
-		local Lv3CitiesCount = pPlayer:GetBuildingClassCount(GameInfo.BuildingClasses.BUILDINGCLASS_CITY_HALL_LV3.ID)
-		local Lv4CitiesCount = pPlayer:GetBuildingClassCount(GameInfo.BuildingClasses.BUILDINGCLASS_CITY_HALL_LV4.ID)
-		local Lv5CitiesCount = pPlayer:GetBuildingClassCount(GameInfo.BuildingClasses.BUILDINGCLASS_CITY_HALL_LV5.ID)	
-
-
-		local Lv1CitiesUnhappiness = 2 * Lv1CitiesCount
-		local Lv2CitiesUnhappiness = 4 * Lv2CitiesCount
-		local Lv3CitiesUnhappiness = 6 * Lv3CitiesCount
-		local Lv4CitiesUnhappiness = 8 * Lv4CitiesCount
-		local Lv5CitiesUnhappiness = 10 * Lv5CitiesCount
-		
-		--print ("Lv1CitiesCount:"..Lv1CitiesCount)
-		--print ("Lv2CitiesCount:"..Lv2CitiesCount)
-		--print ("Lv3CitiesCount:"..Lv3CitiesCount)
-		--print ("Lv4CitiesCount:"..Lv4CitiesCount)
-		--print ("Lv5CitiesCount:"..Lv5CitiesCount)	
-			
-		local SPCitiesUnhappinessTotal = Lv1CitiesUnhappiness + Lv2CitiesUnhappiness + Lv3CitiesUnhappiness + Lv4CitiesUnhappiness + Lv5CitiesUnhappiness
-		
-		local SPCitiesUnhappinessMod = 1
-		
-		if pPlayer:HasPolicy(GameInfo.Policies["POLICY_REPRESENTATION"].ID) then
-			SPCitiesUnhappinessMod = SPCitiesUnhappinessMod - 0.5		
-		end
-		
-		if pPlayer:GetBuildingClassCount(GameInfo.BuildingClasses.BUILDINGCLASS_FORBIDDEN_PALACE.ID) >= 1 then
-			SPCitiesUnhappinessMod = SPCitiesUnhappinessMod - 0.5
-		end
-
-		--print ("CitiesUnhappinessTotal:"..SPCitiesUnhappinessTotal)
-		--print ("CitiesUnhappinessMod:"..SPCitiesUnhappinessMod)
-		
-		SPCitiesUnhappinessTotal = SPCitiesUnhappinessTotal * SPCitiesUnhappinessMod
-		
-		return SPCitiesUnhappinessTotal
-end		
