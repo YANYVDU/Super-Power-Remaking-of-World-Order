@@ -7607,7 +7607,7 @@
 			<Text>
 				[COLOR_POSITIVE_TEXT]Province[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]+1 [ICON_HAPPINESS_1] Happiness for each City you own connected to the [ICON_CAPITAL] Capital.
-				[NEWLINE][ICON_BULLET]-50% extra [ICON_HAPPINESS_4] Unhappiness in Lv1-5 Cities.
+				[NEWLINE][ICON_BULLET]-50% extra [ICON_HAPPINESS_4] Unhappiness From Corruption.
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POLICY_PROVINCE_TEXT">
