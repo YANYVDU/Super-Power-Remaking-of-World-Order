@@ -341,7 +341,7 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 		local pToPlot = pCity:Plot();
 
 		-- Ranged Unit
-		if (pMyUnit:IsRangedSupportFire() == false and pMyUnit:GetRange() > 0 and pMyUnit:GetBaseRangedCombatStrength() > 0 and melee == false) then --Modified
+		if (pMyUnit:IsRangedSupportFire() == false and pMyUnit:Range() > 0 and pMyUnit:GetBaseRangedCombatStrength() > 0 and melee == false) then --Modified
 			iMyStrength = pMyUnit:GetMaxRangedCombatStrength(nil, pCity, true, true);
 			bRanged = true;
 
@@ -1002,7 +1002,7 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 		local pToPlot = pTheirUnit:GetPlot();
 
 		-- Ranged Unit
-		if (pMyUnit:GetRange() > 0 and pMyUnit:GetBaseRangedCombatStrength() > 0 and melee == false) then
+		if (pMyUnit:Range() > 0 and pMyUnit:GetBaseRangedCombatStrength() > 0 and melee == false) then
 			iMyStrength = pMyUnit:GetMaxRangedCombatStrength(pTheirUnit, nil, true, true);
 			bRanged = true;
 
