@@ -1728,6 +1728,7 @@
 			<!--<UnhappinessModifier>-10</UnhappinessModifier>-->
 			<DisplayPosition>1</DisplayPosition>
 			<ExtraLeagueVotes>2</ExtraLeagueVotes>
+			<CorruptionUnhappinessModifier>-50</CorruptionUnhappinessModifier>
 			<IconAtlas>BW_ATLAS_2</IconAtlas>
 			<PortraitIndex>14</PortraitIndex>
 			<WonderSplashImage>WonderConceptForbiddenPalace.dds</WonderSplashImage>

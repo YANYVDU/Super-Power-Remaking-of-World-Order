@@ -105,7 +105,7 @@
 			<Where Type="POLICY_REPUBLIC"/>
 		</Update>
 		<Update>
-			<Set NumCitiesPolicyCostDiscount="0" GoldenAgeTurns="0" GridX="4" GridY="3" PortraitIndex="41"/>
+			<Set NumCitiesPolicyCostDiscount="0" GoldenAgeTurns="0" CorruptionUnhappinessModifier="-50" GridX="4" GridY="3" PortraitIndex="41"/>
 			<Where Type="POLICY_REPRESENTATION"/>
 		</Update>
 		<Update>

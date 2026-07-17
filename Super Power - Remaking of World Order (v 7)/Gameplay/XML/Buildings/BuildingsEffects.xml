@@ -1894,32 +1894,6 @@
 
 
 		<Row>
-			<BuildingType>BUILDING_FORBIDDEN_PALACE</BuildingType>
-			<BuildingClassType>BUILDINGCLASS_CITY_HALL_LV1</BuildingClassType>
-			<Happiness>1</Happiness>
-		</Row>
-		<Row>
-			<BuildingType>BUILDING_FORBIDDEN_PALACE</BuildingType>
-			<BuildingClassType>BUILDINGCLASS_CITY_HALL_LV2</BuildingClassType>
-			<Happiness>2</Happiness>
-		</Row>
-		<Row>
-			<BuildingType>BUILDING_FORBIDDEN_PALACE</BuildingType>
-			<BuildingClassType>BUILDINGCLASS_CITY_HALL_LV3</BuildingClassType>
-			<Happiness>3</Happiness>
-		</Row>
-		<Row>
-			<BuildingType>BUILDING_FORBIDDEN_PALACE</BuildingType>
-			<BuildingClassType>BUILDINGCLASS_CITY_HALL_LV4</BuildingClassType>
-			<Happiness>4</Happiness>
-		</Row>
-		<Row>
-			<BuildingType>BUILDING_FORBIDDEN_PALACE</BuildingType>
-			<BuildingClassType>BUILDINGCLASS_CITY_HALL_LV5</BuildingClassType>
-			<Happiness>5</Happiness>
-		</Row>
-
-		<Row>
 			<BuildingType>BUILDING_PEARL_TOWER</BuildingType>
 			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_MEDIUM</BuildingClassType>
 			<Happiness>1</Happiness>

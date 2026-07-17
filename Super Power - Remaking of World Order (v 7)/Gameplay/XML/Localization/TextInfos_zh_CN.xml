@@ -16908,6 +16908,12 @@
 		<Row Tag="TXT_KEY_MILITARY_PROMISE">
 			<Text>承诺撤军</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_MODIFIER">
+			<Text>全国腐败不满 {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CITY_COUNT">
+			<Text>来自腐败</Text>
+		</Row>
 
 		<Replace Tag="TXT_KEY_FOODMOD_PLAYER">
 			<Text>[NEWLINE][ICON_BULLET]全文明修正（余粮）: {1_Num}%</Text>
