@@ -16720,10 +16720,10 @@
 			<Text>承諾撤軍</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_MODIFIER">
-			<Text>全國腐敗不滿 {1_Num}%</Text>
+			<Text>全國腐敗不滿</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CITY_COUNT">
-			<Text>來自腐敗</Text>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CORRUPTION">
+			<Text>{1_num}来自腐敗</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EXPANSION_PROMISE">
 			<Text>承諾不擴張</Text>
