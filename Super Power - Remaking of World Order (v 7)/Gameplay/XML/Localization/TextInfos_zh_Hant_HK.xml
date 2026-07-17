@@ -16725,6 +16725,12 @@
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CITY_COUNT">
 			<Text>來自腐敗</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EXPANSION_PROMISE">
+			<Text>承諾不擴張</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BORDER_PROMISE">
+			<Text>承諾不侵擾邊界</Text>
+		</Row>
 
 		<Replace Tag="TXT_KEY_FOODMOD_PLAYER">
 			<Text>[NEWLINE][ICON_BULLET]帝國修正值（余糧）：{1_Num}%</Text>

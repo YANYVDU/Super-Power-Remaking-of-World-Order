@@ -16914,6 +16914,12 @@
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CITY_COUNT">
 			<Text>来自腐败</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EXPANSION_PROMISE">
+			<Text>承诺不扩张</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BORDER_PROMISE">
+			<Text>承诺不侵扰边界</Text>
+		</Row>
 
 		<Replace Tag="TXT_KEY_FOODMOD_PLAYER">
 			<Text>[NEWLINE][ICON_BULLET]全文明修正（余粮）: {1_Num}%</Text>

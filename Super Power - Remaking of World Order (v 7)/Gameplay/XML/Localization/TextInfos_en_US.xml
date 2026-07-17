@@ -18448,6 +18448,12 @@
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CITY_COUNT">
 			<Text>From Corruption</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EXPANSION_PROMISE">
+			<Text>Promise not to expand</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BORDER_PROMISE">
+			<Text>Promise not to encroach borders</Text>
+		</Row>
 
 		<Replace Tag="TXT_KEY_FOODMOD_PLAYER">
 			<Text>[NEWLINE][ICON_BULLET]Empire Modifier (Difference): {1_Num}%</Text>
