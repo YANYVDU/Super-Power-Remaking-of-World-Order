@@ -8241,7 +8241,7 @@
 			<Text>教會藝匠</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_RELIGIOUS_FERVOR">
-			<Text>允許使用[ICON_PEACE]信仰購買[COLOR_POSITIVE_TEXT]宗教藝術師[ENDCOLOR]，該單位能夠開啟黃金時代。露天劇場、畫廊和歌劇院+2[ICON_PEACE]信仰。建造奇觀時+25%[ICON_PRODUCTION]產能積累</Text>
+			<Text>允許使用[ICON_PEACE]信仰購買[COLOR_POSITIVE_TEXT]宗教藝術師[ENDCOLOR]（解鎖科技：聲學），該單位能夠開啟黃金時代。露天劇場、畫廊和歌劇院+2[ICON_PEACE]信仰。建造世界奇觀時+25%[ICON_PRODUCTION]產能積累</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_UNITY_OF_PROPHETS">
 			<Text>宗教裁判官和先知只能將此宗教的信眾減少一半（而非全部清除）。城市審判狂熱時間減半。聖城中誕生一位[ICON_PROPHET]大先知</Text>
