@@ -8346,7 +8346,7 @@
 			<Text>教会艺匠</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_RELIGIOUS_FERVOR">
-			<Text>允许使用[ICON_PEACE]信仰购买[COLOR_POSITIVE_TEXT]宗教艺术师[ENDCOLOR]，该单位能够开启黄金时代。露天剧场、画廊和歌剧院+2[ICON_PEACE]信仰。建造奇观时+25%[ICON_PRODUCTION]产能积累</Text>
+			<Text>允许使用[ICON_PEACE]信仰购买[COLOR_POSITIVE_TEXT]宗教艺术师[ENDCOLOR]（前置科技：声学），该单位能够开启黄金时代。露天剧场、画廊和歌剧院+2[ICON_PEACE]信仰。建造世界奇观时+25%[ICON_PRODUCTION]产能积累</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_UNITY_OF_PROPHETS">
 			<Text>宗教裁判官和先知只能将此宗教的信众减少一半（而非全部清除）。城市审判狂热时间减半。圣城中诞生一位[ICON_PROPHET]大先知</Text>
