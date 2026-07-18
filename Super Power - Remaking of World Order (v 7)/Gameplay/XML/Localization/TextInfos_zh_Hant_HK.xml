@@ -1508,7 +1508,7 @@
 
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP" />
-			<Set Text="一級城市不再造成額外[ICON_HAPPINESS_4]不滿，二至五級城市造成的額外[ICON_HAPPINESS_4]不滿-50%。在世界議會中獲得額外2個代表。" />
+			<Set Text="來自腐敗的[ICON_HAPPINESS_4]不滿-50%。在世界議會中獲得額外2個代表。" />
 		</Update>
 
 		<Update>
