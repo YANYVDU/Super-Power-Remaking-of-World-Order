@@ -1549,7 +1549,7 @@
 
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP" />
-			<Set Text="一级城市不再造成额外[ICON_HAPPINESS_4]不满，二至五级城市造成的额外[ICON_HAPPINESS_4]不满-50%。在世界议会中获得额外2个代表。" />
+			<Set Text="来自腐败的[ICON_HAPPINESS_4]不满-50%。在世界议会中获得额外2个代表。" />
 		</Update>
 
 		<Update>

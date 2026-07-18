@@ -4071,7 +4071,7 @@
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP" />
 			<Set
-				Text="+2 additional Delegates in the world congress. -50% extra [ICON_HAPPINESS_4] Unhappiness in Lv1-5 Cities. Lv1 Cities will create no extra [ICON_HAPPINESS_4] Unhappiness." />
+				Text="-50% extra [ICON_HAPPINESS_4] Unhappiness from Corruption. Gain 2 additional Delegates in the World Congress." />
 		</Update>
 		
 		
