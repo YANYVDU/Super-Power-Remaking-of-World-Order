@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+	<!-- City-State Unique Ability Effects (Super Power V11) -->
+	 <CityStateUAEffects>
+		<Row>
+			<Type>EFFECT_CSUA_ZURICH_ALLY</Type>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_ZURICH_FRIEND</Type>
+		</Row>
+	 </CityStateUAEffects>
+	 <!-- 提供点数的类型和数值 -->
+	 <CityStateUAEffect_GreatPersonPoints>
+		<Row>
+			<EffectType>EFFECT_CSUA_ZURICH_ALLY</EffectType>
+			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+			<Points>4</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ZURICH_FRIEND</EffectType>
+			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+			<Points>2</Points>
+		</Row>
+	 </CityStateUAEffect_GreatPersonPoints>
+	 <!-- 每诞生(100/YieldMod)个UnitClassType的单位，SpecialistType的YieldType产出+1 -->
+	 <CityStateUAEffect_BornGreatPersonSpecialistYield>
+		<Row>
+			<EffectType>EFFECT_CSUA_ZURICH_ALLY</EffectType>
+			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+			<UnitClassType>UNITCLASS_SCIENTIST</UnitClassType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>50</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ZURICH_ALLY</EffectType>
+			<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
+			<UnitClassType>UNITCLASS_ENGINEER</UnitClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>50</YieldMod>
+		</Row>
+	 </CityStateUAEffect_BornGreatPersonSpecialistYield>
+	<CityStateUAs>
+		<Row>
+			<Type>CSUA_ZURICH</Type>
+			<Description>TXT_KEY_CITYSTATE_ZURICH</Description>
+			<Help>TXT_KEY_CSUA_ZURICH_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_ZURICH_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_ZURICH_FRIEND</FriendEffectType>
+		</Row>
+	</CityStateUAs>
+</GameData>

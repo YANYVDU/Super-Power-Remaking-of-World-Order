@@ -16856,5 +16856,16 @@
 		<Replace Tag="TXT_KEY_PROMOTION_HOVERING_UNIT_HELP">
 			<Text>該單位可以直接跨越山脈和海濱，但在山脈上時結束回合會受到傷害</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_CSUA_ZURICH_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市+4[ICON_GREAT_SCIENTIST]大科學家點數
+				[NEWLINE][ICON_BULLET]盟友每誕生過2個[ICON_GREAT_PEOPLE]大科學家，[ICON_GREAT_SCIENTIST]科學家+1[ICON_RESEARCH]
+				[NEWLINE][ICON_BULLET]盟友每誕生過2個[ICON_GREAT_PEOPLE]大工程師，[ICON_GREAT_ENGINEER]工程師+1[ICON_PRODUCTION]
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的城市+2[ICON_GREAT_SCIENTIST]大科學家點數
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
