@@ -18578,5 +18578,16 @@
 		<Replace Tag="TXT_KEY_PROMOTION_HOVERING_UNIT_HELP">
 			<Text>This unit can cross Mountains and Coast tiles directly, but takes damage if it ends its turn on a Mountain</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_CSUA_ZURICH_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]All cities gain +4[ICON_GREAT_SCIENTIST]Great Scientist Points
+				[NEWLINE][ICON_BULLET]For every 2[ICON_GREAT_PEOPLE]Great Scientists born, all[ICON_GREAT_SCIENTIST]Scientists earn +1[ICON_RESEARCH]
+				[NEWLINE][ICON_BULLET]For every 2[ICON_GREAT_PEOPLE]Great Engineers born, all[ICON_GREAT_ENGINEER]Engineers earn +1[ICON_PRODUCTION]
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]All cities gain +2[ICON_GREAT_SCIENTIST]Great Scientist Points
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
