@@ -560,6 +560,18 @@ function ScienceTipHandler( control )
 		if iScienceModFromResource ~= 0 then
 			strText = strText .. Locale.ConvertTextKey("TXT_KEY_PRODMOD_YIELD_RESOURCE_BUFF", iScienceModFromResource);
 		end
+
+		-- Science from Policies (Yield per global population)
+		local iScienceFromGlobalPop = pPlayer:GetPolicyYieldPerGlobalPop(GameInfoTypes["YIELD_SCIENCE"]) * pPlayer:GetTotalPopulation();
+		if (iScienceFromGlobalPop ~= 0) then
+			if (bFirstEntry) then
+				bFirstEntry = false;
+			else
+				strText = strText .. "[NEWLINE]";
+			end
+			strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_SCIENCE_FROM_GLOBAL_POP", iScienceFromGlobalPop / 100);
+			strText = strText .. "[NEWLINE]";
+		end
 	
 		local iScienceFromRAs = pPlayer:GetScienceFromResearchAgreementsTimes100();
 		if (iScienceFromRAs ~= 0) then
