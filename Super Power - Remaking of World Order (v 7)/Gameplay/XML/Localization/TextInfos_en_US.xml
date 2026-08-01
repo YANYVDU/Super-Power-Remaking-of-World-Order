@@ -18583,16 +18583,57 @@
 		<Replace Tag="TXT_KEY_PROMOTION_HOVERING_UNIT_HELP">
 			<Text>This unit can cross Mountains and Coast tiles directly, but takes damage if it ends its turn on a Mountain</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_CSUA_HEADER">
+			<Text>Unique Ability</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_ZURICH_HELP">
 			<Text>
 				Ally Effects:
-				[NEWLINE][ICON_BULLET]All cities gain +4[ICON_GREAT_SCIENTIST]Great Scientist Points
-				[NEWLINE][ICON_BULLET]For every 2[ICON_GREAT_PEOPLE]Great Scientists born, all[ICON_GREAT_SCIENTIST]Scientists earn +1[ICON_RESEARCH]
+				[NEWLINE][ICON_BULLET]All cities gain +1[ICON_GREAT_SCIENTIST]Great Scientist Point. [ICON_RESEARCH] Academy, [ICON_RESEARCH] University, [ICON_RESEARCH] Public School and [ICON_RESEARCH] Research Lab each provide +1[ICON_GREAT_SCIENTIST]Great Scientist Point
+				[NEWLINE][ICON_BULLET]For every 3[ICON_GREAT_PEOPLE]Great Scientists born, all[ICON_GREAT_SCIENTIST]Scientists earn +1[ICON_RESEARCH]
 				[NEWLINE][ICON_BULLET]For every 2[ICON_GREAT_PEOPLE]Great Engineers born, all[ICON_GREAT_ENGINEER]Engineers earn +1[ICON_PRODUCTION]
 				[NEWLINE]
 				[NEWLINE]Friend Effects:
-				[NEWLINE][ICON_BULLET]All cities gain +2[ICON_GREAT_SCIENTIST]Great Scientist Points
+				[NEWLINE][ICON_BULLET][ICON_RESEARCH] Academy and [ICON_RESEARCH] University each provide +1[ICON_GREAT_SCIENTIST]Great Scientist Point
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ZURICH_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]All cities gain +1[ICON_GREAT_SCIENTIST]Great Scientist Point. [ICON_RESEARCH] Academy, [ICON_RESEARCH] University, [ICON_RESEARCH] Public School and [ICON_RESEARCH] Research Lab each provide +1[ICON_GREAT_SCIENTIST]Great Scientist Point
+				[NEWLINE][ICON_BULLET]For every 3[ICON_GREAT_PEOPLE]Great Scientists born, [ICON_GREAT_SCIENTIST]Scientists +1[ICON_RESEARCH]
+				[NEWLINE][ICON_BULLET]For every 2[ICON_GREAT_PEOPLE]Great Engineers born, [ICON_GREAT_ENGINEER]Engineers +1[ICON_PRODUCTION]
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ZURICH_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_RESEARCH] Academy and [ICON_RESEARCH] University provide +1[ICON_GREAT_SCIENTIST]Great Scientist Point in friend cities
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_ANTWERP_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]All cities gain +1[ICON_GREAT_MERCHANT]Great Merchant Point. [ICON_GOLD] Market, [ICON_GOLD] Bank, [ICON_GOLD] Stock Exchange and [ICON_GOLD] Finance Company each provide +1[ICON_GREAT_MERCHANT]Great Merchant Point
+				[NEWLINE][ICON_BULLET]For every 1[ICON_GREAT_PEOPLE]Great Merchant born, [ICON_GREAT_MERCHANT]Merchants +2[ICON_GOLD]Gold. Minimum [ICON_INFLUENCE] Influence required for alliance reduced by 1% (max -90%)
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_GOLD] Market and [ICON_GOLD] Bank provide +1[ICON_GREAT_MERCHANT]Great Merchant Point in friend cities
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ANTWERP_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]All cities gain +1 Great Merchant Point. [ICON_GOLD] Market, [ICON_GOLD] Bank, [ICON_GOLD] Stock Exchange and [ICON_GOLD] Finance Company each provide +1 Great Merchant Point
+				[NEWLINE][ICON_BULLET]For every 1 Great Merchant born, Merchants +2 Gold. Minimum [ICON_INFLUENCE] Influence required for alliance reduced by 1% (max -90%)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ANTWERP_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_GOLD] Market and [ICON_GOLD] Bank provide +1 Great Merchant Point in friend cities
+			</Text>
+		</Row>
+		
 	</Language_en_US>
 </GameData>

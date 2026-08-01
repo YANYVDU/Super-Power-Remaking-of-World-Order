@@ -5020,13 +5020,47 @@ CivilopediaCategory[CategoryCityStates].SelectArticle = function( cityStateID, s
  		
 		-- update the game info
 		
-		-- MOD - update Minor Civ bonuses
-		g_FreeFormTextManager:ResetInstances();
-		
-		local traitType = GameInfo.MinorCivTraits[thisCityState.MinorCivTrait];
-		local bodyString = "";
-		local headString = "";
-		if (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_CULTURED) then
+			-- MOD - update Minor Civ bonuses
+			g_FreeFormTextManager:ResetInstances();
+
+			-- MOD - City-State Unique Ability (Super Power V11)
+			if thisCityState.UAType ~= nil and thisCityState.UAType ~= "" then
+				local uaInfo = GameInfo.CityStateUAs[thisCityState.UAType];
+				if uaInfo ~= nil then
+					local strAlly = "";
+					local strFriend = "";
+					if uaInfo.AllyEffectType ~= nil and uaInfo.AllyEffectType ~= "" then
+						local allyEff = GameInfo.CityStateUAEffects[uaInfo.AllyEffectType];
+						if allyEff ~= nil and allyEff.Help ~= nil and allyEff.Help ~= "" then
+							strAlly = Locale.ConvertTextKey(allyEff.Help);
+						end
+					end
+					if uaInfo.FriendEffectType ~= nil and uaInfo.FriendEffectType ~= "" then
+						local friendEff = GameInfo.CityStateUAEffects[uaInfo.FriendEffectType];
+						if friendEff ~= nil and friendEff.Help ~= nil and friendEff.Help ~= "" then
+							strFriend = Locale.ConvertTextKey(friendEff.Help);
+						end
+					end
+					local uaBody = "";
+					if strAlly ~= "" then uaBody = strAlly; end
+					if strFriend ~= "" then
+						if uaBody ~= "" then uaBody = uaBody .. "[NEWLINE][NEWLINE]"; end
+						uaBody = uaBody .. strFriend;
+					end
+					if uaBody ~= "" then
+						local thisFreeFormTextInstance = g_FreeFormTextManager:GetInstance();
+						if thisFreeFormTextInstance then
+							thisFreeFormTextInstance.FFTextHeader:SetText(Locale.ConvertTextKey("TXT_KEY_PEDIA_CSUA_HEADER"));
+							UpdateTextBlock(uaBody, thisFreeFormTextInstance.FFTextLabel, thisFreeFormTextInstance.FFTextInnerFrame, thisFreeFormTextInstance.FFTextFrame);
+						end
+					end
+				end
+			end
+
+			local traitType = GameInfo.MinorCivTraits[thisCityState.MinorCivTrait];
+			local bodyString = "";
+			local headString = "";
+			if (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_CULTURED) then
 			headString = Locale.ConvertTextKey( "TXT_KEY_PEDIA_CONSTRUCTION_MINORBONUS_CULTURED" );
 			local nNum = {};
 			nNum[1] = GameInfo.Defines( "Name='FRIENDS_CULTURE_BONUS_AMOUNT_ANCIENT'" )().Value;
@@ -5137,50 +5171,62 @@ CivilopediaCategory[CategoryCityStates].SelectArticle = function( cityStateID, s
 			bodyString = bodyString .. "[NEWLINE]" .. Locale.ConvertTextKey( "TXT_KEY_PEDIA_CONSTRUCTION_MINORBONUS_RELIGIOUS_MEDIEVAL", nNum[3] + nNum[8] );
 			bodyString = bodyString .. "[NEWLINE]" .. Locale.ConvertTextKey( "TXT_KEY_PEDIA_CONSTRUCTION_MINORBONUS_RELIGIOUS_RENAISSANCE", nNum[4] + nNum[9] );
 			bodyString = bodyString .. "[NEWLINE]" .. Locale.ConvertTextKey( "TXT_KEY_PEDIA_CONSTRUCTION_MINORBONUS_RELIGIOUS_INDUSTRIAL", nNum[5] + nNum[10] );
-		end
-		if ( headString ~= "" ) then
-			local thisFreeFormTextInstance = g_FreeFormTextManager:GetInstance();
-			if thisFreeFormTextInstance then
-				thisFreeFormTextInstance.FFTextHeader:SetText( headString );
-				UpdateTextBlock( bodyString, thisFreeFormTextInstance.FFTextLabel, thisFreeFormTextInstance.FFTextInnerFrame, thisFreeFormTextInstance.FFTextFrame );
 			end
-		end
-		
-		-- MOD - Advanced Civilopedia
-		headString = Locale.ConvertTextKey("TXT_KEY_PEDIA_MINOR_FLAVORS");
-		bodyString = "";
-		local bNewBlock = true;
-		
-		for row in GameInfo.MinorCivilization_Flavors( condition ) do
-			local flavorTag = "TXT_KEY_PEDIA_LEADER_" .. row.FlavorType;
-			local rowID = GameInfo.Flavors[row.FlavorType].ID;
-			if (row.Flavor > 0) then
-				local rowTag = Locale.ConvertTextKey(flavorTag) .. " " .. tostring( row.Flavor );
-				if (bNewBlock) then
-					bodyString = bodyString .. rowTag;
-					bNewBlock = false;
-				else
-					bodyString = bodyString .. "[NEWLINE]" .. rowTag;
+			-- Append ally bonus from TT tooltip
+			if (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_CULTURED) then
+				bodyString = bodyString .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_CULTURED_TT");
+			elseif (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_MARITIME) then
+				bodyString = bodyString .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_MARITIME_TT");
+			elseif (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_MILITARISTIC) then
+				bodyString = bodyString .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_MILITARISTIC_NO_UU_TT");
+			elseif (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_MERCANTILE) then
+				bodyString = bodyString .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_MERCANTILE_TT");
+			elseif (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_RELIGIOUS) then
+				bodyString = bodyString .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_RELIGIOUS_TT");
+			end
+			if ( headString ~= "" ) then
+				local thisFreeFormTextInstance = g_FreeFormTextManager:GetInstance();
+				if thisFreeFormTextInstance then
+					thisFreeFormTextInstance.FFTextHeader:SetText( headString );
+					UpdateTextBlock( bodyString, thisFreeFormTextInstance.FFTextLabel, thisFreeFormTextInstance.FFTextInnerFrame, thisFreeFormTextInstance.FFTextFrame );
 				end
 			end
-		end
-		
-		if ( bodyString ~= "" ) then
-			local thisFreeFormTextInstance = g_FreeFormTextManager:GetInstance();
-			if thisFreeFormTextInstance then
-				thisFreeFormTextInstance.FFTextHeader:SetText( Locale.ConvertTextKey( headString ));
-				UpdateTextBlock( bodyString, thisFreeFormTextInstance.FFTextLabel, thisFreeFormTextInstance.FFTextInnerFrame, thisFreeFormTextInstance.FFTextFrame );
+ 
+			-- MOD - Advanced Civilopedia
+			headString = Locale.ConvertTextKey("TXT_KEY_PEDIA_MINOR_FLAVORS");
+			bodyString = "";
+			local bNewBlock = true;
+			
+			for row in GameInfo.MinorCivilization_Flavors( condition ) do
+				local flavorTag = "TXT_KEY_PEDIA_LEADER_" .. row.FlavorType;
+				local rowID = GameInfo.Flavors[row.FlavorType].ID;
+				if (row.Flavor > 0) then
+					local rowTag = Locale.ConvertTextKey(flavorTag) .. " " .. tostring( row.Flavor );
+					if (bNewBlock) then
+						bodyString = bodyString .. rowTag;
+						bNewBlock = false;
+					else
+						bodyString = bodyString .. "[NEWLINE]" .. rowTag;
+				end
 			end
-		end
-		
-		Controls.FFTextStack:SetHide( false );
-		
-		-- update the historical info
-		if (thisCityState.Civilopedia) then
+			end
+			
+			if ( bodyString ~= "" ) then
+				local thisFreeFormTextInstance = g_FreeFormTextManager:GetInstance();
+				if thisFreeFormTextInstance then
+					thisFreeFormTextInstance.FFTextHeader:SetText( Locale.ConvertTextKey( headString ));
+					UpdateTextBlock( bodyString, thisFreeFormTextInstance.FFTextLabel, thisFreeFormTextInstance.FFTextInnerFrame, thisFreeFormTextInstance.FFTextFrame );
+				end
+			end
+			
+			Controls.FFTextStack:SetHide( false );
+			
+			-- update the historical info
+			if (thisCityState.Civilopedia) then
 			UpdateTextBlock( Locale.ConvertTextKey( thisCityState.Civilopedia ), Controls.HistoryLabel, Controls.HistoryInnerFrame, Controls.HistoryFrame );
-		end
+			end
 				
-	end	
+		end	
 
 	ResizeEtc();
 

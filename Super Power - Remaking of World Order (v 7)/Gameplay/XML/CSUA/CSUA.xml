@@ -4,9 +4,19 @@
 	 <CityStateUAEffects>
 		<Row>
 			<Type>EFFECT_CSUA_ZURICH_ALLY</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_ZURICH_ALLY_HELP</Help>
 		</Row>
 		<Row>
 			<Type>EFFECT_CSUA_ZURICH_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_ZURICH_FRIEND_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_ANTWERP_ALLY</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_ANTWERP_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_ANTWERP_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_ANTWERP_FRIEND_HELP</Help>
 		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
@@ -14,12 +24,12 @@
 		<Row>
 			<EffectType>EFFECT_CSUA_ZURICH_ALLY</EffectType>
 			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-			<Points>4</Points>
+			<Points>1</Points>
 		</Row>
 		<Row>
-			<EffectType>EFFECT_CSUA_ZURICH_FRIEND</EffectType>
-			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-			<Points>2</Points>
+			<EffectType>EFFECT_CSUA_ANTWERP_ALLY</EffectType>
+			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+			<Points>1</Points>
 		</Row>
 	 </CityStateUAEffect_GreatPersonPoints>
 	 <!-- 每诞生(100/YieldMod)个UnitClassType的单位，SpecialistType的YieldType产出+1 -->
@@ -29,7 +39,7 @@
 			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
 			<UnitClassType>UNITCLASS_SCIENTIST</UnitClassType>
 			<YieldType>YIELD_SCIENCE</YieldType>
-			<YieldMod>50</YieldMod>
+			<YieldMod>34</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_ZURICH_ALLY</EffectType>
@@ -38,7 +48,97 @@
 			<YieldType>YIELD_PRODUCTION</YieldType>
 			<YieldMod>50</YieldMod>
 		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ANTWERP_ALLY</EffectType>
+			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+			<UnitClassType>UNITCLASS_MERCHANT</UnitClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>200</YieldMod>
+		</Row>
 	 </CityStateUAEffect_BornGreatPersonSpecialistYield>
+	 <!-- 安特卫普：每诞生大商业家降低盟友影响力下限 -->
+	 <CityStateUAEffect_BornGreatPersonAllyInfluenceMod>
+			<Row>
+				<EffectType>EFFECT_CSUA_ANTWERP_ALLY</EffectType>
+				<UnitClassType>UNITCLASS_MERCHANT</UnitClassType>
+				<ModPerBorn>-1</ModPerBorn>
+			</Row>
+	 </CityStateUAEffect_BornGreatPersonAllyInfluenceMod>
+	 <!-- 苏黎世：科研建筑+大科学家点数 / 安特卫普：经济建筑+大商业家点数 -->
+	 <CityStateUAEffect_BuildingGreatPersonPoints>
+		<Row>
+			<EffectType>EFFECT_CSUA_ZURICH_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_ACADEMY</BuildingClassType>
+			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ZURICH_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ZURICH_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_PUBLIC_SCHOOL</BuildingClassType>
+			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ZURICH_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_LABORATORY</BuildingClassType>
+			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ZURICH_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_ACADEMY</BuildingClassType>
+			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ZURICH_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ANTWERP_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_MARKET</BuildingClassType>
+			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ANTWERP_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
+			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ANTWERP_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_STOCK_EXCHANGE</BuildingClassType>
+			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ANTWERP_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_FINANCE_COMPANY</BuildingClassType>
+			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ANTWERP_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_MARKET</BuildingClassType>
+			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ANTWERP_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
+			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+			<Points>1</Points>
+		</Row>
+	 </CityStateUAEffect_BuildingGreatPersonPoints>
 	<CityStateUAs>
 		<Row>
 			<Type>CSUA_ZURICH</Type>
@@ -46,6 +146,13 @@
 			<Help>TXT_KEY_CSUA_ZURICH_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_ZURICH_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_ZURICH_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_ANTWERP</Type>
+			<Description>TXT_KEY_CITYSTATE_ANTWERP</Description>
+			<Help>TXT_KEY_CSUA_ANTWERP_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_ANTWERP_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_ANTWERP_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 </GameData>

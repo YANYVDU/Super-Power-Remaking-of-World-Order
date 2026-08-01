@@ -894,7 +894,7 @@ function PopulateGiftChoices()
 	
 	-- Tooltip info
 	local iFriendsAmount = GameDefines["FRIENDSHIP_THRESHOLD_FRIENDS"];
-	local iAlliesAmount = GameDefines["FRIENDSHIP_THRESHOLD_ALLIES"];
+	local iAlliesAmount = Players[iActivePlayer]:GetMinorCivAlliesThreshold();
     local iFriendship = pPlayer:GetMinorCivFriendshipWithMajor(iActivePlayer);
 	local strInfoTT = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_GOLD_STATUS_TT", iFriendsAmount, iAlliesAmount, iFriendship);
 	strInfoTT = strInfoTT .. "[NEWLINE][NEWLINE]";
