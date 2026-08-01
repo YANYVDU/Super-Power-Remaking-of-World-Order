@@ -7499,8 +7499,8 @@
 		<Row Tag="TXT_KEY_POLICY_FAMILY_REGISTER_HELP" >
 			<Text>
 				[COLOR_POSITIVE_TEXT]Imperial Examination[ENDCOLOR]
-				[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH] Science for every 5 [ICON_CITIZEN] Citizens in the city. 
-				[NEWLINE][ICON_BULLET]Add a Scientist Slot in each City.
+				[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH] Science for every 3 [ICON_CITIZEN] Citizens nationwide.
+				[NEWLINE][ICON_BULLET]+3 [ICON_GREAT_SCIENTIST] Great Scientist points in all cities, +1 [ICON_RESEARCH] Science from Academies.
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POLICY_FAMILY_REGISTER_TEXT">
@@ -17286,6 +17286,10 @@
 		</Replace>
 		<Row Tag="TXT_KEY_TP_SCIENCE_FROM_RELIGION">
 			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR] [ICON_RESEARCH] from Religion.</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_TP_SCIENCE_FROM_GLOBAL_POP">
+			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR] [ICON_RESEARCH] from Policies (Population).</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_EUPANEL_BONUS_CITY_STATE_FRENDSHIP">
