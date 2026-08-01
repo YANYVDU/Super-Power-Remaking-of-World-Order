@@ -185,3 +185,13 @@ insert into LuaFormula(Type, Formula) values
 update Policies 
 set CaptureCityResistanceTurnsChangeFormula = 'FORMULA_CAPTURE_CITY_RESISTANCE_CHANGE'
 where Type = 'POLICY_MILITARISM';
+
+INSERT INTO Policy_YieldPercentPerCityFollowingReligion (PolicyType, YieldType, Percent)
+SELECT 'POLICY_THEOCRACY','YIELD_CULTURE',2;
+
+INSERT INTO Policy_GreatPersonPoints (PolicyType, SpecialistType, Points)
+VALUES  ('POLICY_THEOCRACY','SPECIALIST_WRITER',3),
+        ('POLICY_FAMILY_REGISTER','SPECIALIST_SCIENTIST',3);
+
+INSERT INTO Policy_ImprovementHappinessWhenWorked (PolicyType, ImprovementType, Happiness)
+SELECT 'POLICY_THEOCRACY','IMPROVEMENT_HOLY_SITE',4;

@@ -2164,11 +2164,11 @@
 			<Yield>15</Yield>
 		</Row>
 		
-		<Row>
+		<!-- <Row>
 			<PolicyType>POLICY_THEOCRACY</PolicyType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>10</Yield>
-		</Row>
+		</Row> -->
 	</Policy_YieldModifiers>
 	
 	<Policy_UnitCombatFreeExperiences>
@@ -2229,20 +2229,20 @@
 
 	
 	<BuildingClasses>
-		<Row>
+		<!-- <Row>
 			<Type>BUILDINGCLASS_THEOCRACY_WRITER</Type>
 			<DefaultBuilding>BUILDING_THEOCRACY_WRITER</DefaultBuilding>
 			<Description>TXT_KEY_BUILDING_THEOCRACY_WRITER</Description>
-		</Row>
+		</Row> -->
 
-		<Row>
+		<!-- <Row>
 			<Type>BUILDINGCLASS_FAMILY_PRODUCTION</Type>
 			<DefaultBuilding>BUILDING_FAMILY_PRODUCTION</DefaultBuilding>
 			<Description>TXT_KEY_BUILDING_FAMILY_PRODUCTION</Description>
-		</Row>
+		</Row> -->
 	</BuildingClasses>
 	<Buildings>
-		<Row>
+		<!-- <Row>
 			<Type>BUILDING_THEOCRACY_WRITER</Type>
 			<BuildingClass>BUILDINGCLASS_THEOCRACY_WRITER</BuildingClass>
 			<Cost>-1</Cost>
@@ -2255,9 +2255,9 @@
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
 			<Description>TXT_KEY_BUILDING_THEOCRACY_WRITER</Description>
 			<DummyBuilding>true</DummyBuilding>
-		</Row>
+		</Row> -->
 
-		<Row>
+		<!-- <Row>
 			<Type>BUILDING_FAMILY_PRODUCTION</Type>
 			<BuildingClass>BUILDINGCLASS_FAMILY_PRODUCTION</BuildingClass>
 			<Cost>-1</Cost>
@@ -2271,14 +2271,14 @@
 			<Description>TXT_KEY_BUILDING_FAMILY_PRODUCTION</Description>
 			<Help>TXT_KEY_BUILDING_FAMILY_PRODUCTION_HELP</Help>
 			<DummyBuilding>true</DummyBuilding>
-		</Row>
+		</Row> -->
 	</Buildings>
 	<Building_YieldChangesPerPop>
-		<Row>
+		<!-- <Row>
 			<BuildingType>BUILDING_FAMILY_PRODUCTION</BuildingType>
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>20</Yield>
-		</Row>
+		</Row> -->
 	</Building_YieldChangesPerPop>
 
 	<UnitClass_PurchaseCollections>

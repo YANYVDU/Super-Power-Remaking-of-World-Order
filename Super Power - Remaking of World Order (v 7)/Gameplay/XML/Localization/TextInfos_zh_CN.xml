@@ -6985,8 +6985,9 @@
 		<Replace Tag="TXT_KEY_POLICY_THEOCRACY_HELP">
 			<Text>
 				[COLOR_POSITIVE_TEXT]神权政治[ENDCOLOR]
-				[NEWLINE][ICON_BULLET]全国+10%[ICON_CULTURE]文化。
-				[NEWLINE][ICON_BULLET]所有城市获得一个额外的文学家席位。
+				[NEWLINE][ICON_BULLET]每有一座城市信仰你为领袖的宗教，全国+2%[ICON_CULTURE]文化。
+				[NEWLINE][ICON_BULLET]所有城市+3[ICON_GREAT_WRITER]文学家点数。
+				[NEWLINE][ICON_BULLET]每处有市民工作的圣地+4[ICON_HAPPINESS_1]本地快乐
 			</Text>
 		</Replace>
 
@@ -7735,9 +7736,9 @@
 		<!--Buildings-->
 
 
-		<Row Tag="TXT_KEY_BUILDING_THEOCRACY_WRITER">
+		<!-- <Row Tag="TXT_KEY_BUILDING_THEOCRACY_WRITER">
 			<Text>[ICON_GREAT_WRITER]神权政治</Text>
-		</Row>
+		</Row> -->
 
 		<Row Tag="TXT_KEY_BUILDING_FAMILY_PRODUCTION">
 			<Text>[ICON_RESEARCH]府学</Text>

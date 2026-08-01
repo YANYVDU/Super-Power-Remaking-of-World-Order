@@ -7762,8 +7762,9 @@
 		<Replace Tag="TXT_KEY_POLICY_THEOCRACY_HELP">
 			<Text>
 				[COLOR_POSITIVE_TEXT]Theocracy[ENDCOLOR]
-				[NEWLINE][ICON_BULLET]+10% [ICON_CULTURE] Culture output in all cities.
-				[NEWLINE][ICON_BULLET]+1 Writer Slot for each city.</Text>
+				[NEWLINE][ICON_BULLET]+2% [ICON_CULTURE] Culture for each city in the world following your founder religion.
+				[NEWLINE][ICON_BULLET]+3 [ICON_GREAT_WRITER] Great Writer points in all cities.
+				[NEWLINE][ICON_BULLET]+4 [ICON_HAPPINESS_1] Local Happiness from each Holy Site worked by a citizen.</Text>
 		</Replace>
 		
 		<Replace Tag="TXT_KEY_POLICY_FREE_RELIGION_HELP">
@@ -8530,9 +8531,9 @@
 	
 	
 	<!--Buildings-->
-		<Row Tag="TXT_KEY_BUILDING_THEOCRACY_WRITER" >
+		<!-- <Row Tag="TXT_KEY_BUILDING_THEOCRACY_WRITER" >
 			<Text>[ICON_GREAT_WRITER] Theocracy</Text>
-		</Row>
+		</Row> -->
 
 		<Row Tag="TXT_KEY_BUILDING_FAMILY_PRODUCTION" >
 			<Text>[ICON_RESEARCH] Imperial Academy</Text>
