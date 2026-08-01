@@ -394,6 +394,10 @@
 			<Where Name="GLOBAL_CS_GIFTS"/>
 			<Set Value="1"/>
 		</Update>
+		<Update>
+			<Where Name="SP_UNIQUE_CITYSTATE"/>
+			<Set Value="1"/>
+		</Update>
 	</CustomModOptions>
 
 
