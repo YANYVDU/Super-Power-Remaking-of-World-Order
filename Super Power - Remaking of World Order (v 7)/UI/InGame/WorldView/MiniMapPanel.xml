@@ -35,12 +35,13 @@
 							<CheckBox Anchor="L,T" TextAnchorSide="Right" TextOffset="40,0" IsChecked="1" ID="ShowFogOfWar" String="TXT_KEY_STRAT_FOW" />
 							<Box Anchor="C,T" Offset="0,5" Size="175,1" Color="Beige,120" />
 						</Stack>
-						<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="ShowPlotNames" String="TXT_KEY_SP_SHOW_PLOT_NAMES" ToolTip="TXT_KEY_SP_SHOW_PLOT_NAMES_TT"/>
-						<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="HideRecommendation" String="TXT_KEY_MAP_OPTIONS_RECOMMENDATIONS" ToolTip="TXT_KEY_MAP_OPTIONS_RECOMMENDATIONS_TT"/>
-						<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="ShowResources" String="TXT_KEY_MAP_OPTIONS_RESOURCE_ICONS" ToolTip="TXT_KEY_MAP_OPTIONS_RESOURCE_ICONS_TT" />
-						<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="ShowYield" String="TXT_KEY_MAP_OPTIONS_YIELD_ICONS" ToolTip="TXT_KEY_MAP_OPTIONS_YIELD_ICONS_TT"/>
-						<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="ShowGrid" String="TXT_KEY_MAP_OPTIONS_HEX_GRID" ToolTip="TXT_KEY_MAP_OPTIONS_HEX_GRID_TT"/>
-						<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="ShowTrade" String="TXT_KEY_MAP_OPTIONS_TRADE_ROUTES" ToolTip="TXT_KEY_MAP_OPTIONS_TRADE_ROUTES_TT"/>
+						<CheckBox Anchor="L,T" TextAnchorSide="Right" TextOffset="40,0" ID="ShowPlotNames" String="TXT_KEY_SP_SHOW_PLOT_NAMES" ToolTip="TXT_KEY_SP_SHOW_PLOT_NAMES_TT"/>
+						<CheckBox Anchor="L,T" TextAnchorSide="Right" TextOffset="40,0" ID="HideRecommendation" String="TXT_KEY_MAP_OPTIONS_RECOMMENDATIONS" ToolTip="TXT_KEY_MAP_OPTIONS_RECOMMENDATIONS_TT"/>
+						<CheckBox Anchor="L,T" TextAnchorSide="Right" TextOffset="40,0" ID="ShowResources" String="TXT_KEY_MAP_OPTIONS_RESOURCE_ICONS" ToolTip="TXT_KEY_MAP_OPTIONS_RESOURCE_ICONS_TT" />
+						<CheckBox Anchor="L,T" TextAnchorSide="Right" TextOffset="40,0" ID="ShowYield" String="TXT_KEY_MAP_OPTIONS_YIELD_ICONS" ToolTip="TXT_KEY_MAP_OPTIONS_YIELD_ICONS_TT"/>
+						<CheckBox Anchor="L,T" TextAnchorSide="Right" TextOffset="40,0" ID="ShowGrid" String="TXT_KEY_MAP_OPTIONS_HEX_GRID" ToolTip="TXT_KEY_MAP_OPTIONS_HEX_GRID_TT"/>
+						<CheckBox Anchor="L,T" TextAnchorSide="Right" TextOffset="40,0" ID="ShowTrade" String="TXT_KEY_MAP_OPTIONS_TRADE_ROUTES" ToolTip="TXT_KEY_MAP_OPTIONS_TRADE_ROUTES_TT"/>
+						<Box Anchor="C,T" Size="210,1" Color="0,0,0,0" />
 					</Stack>
 				</Grid>
 			</Stack>
