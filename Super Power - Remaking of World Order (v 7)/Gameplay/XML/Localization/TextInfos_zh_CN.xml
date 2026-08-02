@@ -17101,6 +17101,29 @@
 				[NEWLINE][ICON_BULLET]朋友效果：朋友城市的[ICON_GOLD]市场和[ICON_GOLD]银行+1[ICON_GREAT_MERCHANT]大商业家点数
 			</Text>
 		</Row>
-		
+		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE">
+			<Text>
+				当前外交威望：{1}/{2}（{3}）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE_OVEREXTENDED">
+			<Text>
+				已超限
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE_OK">
+			<Text>
+				未超限
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_OVEREXTENSION_PENALTY">
+			<Text>
+				超限惩罚：
+				[NEWLINE][ICON_BULLET]影响力每回合衰减 +{1}%
+				[NEWLINE][ICON_BULLET]影响力增长 {2}%
+				[NEWLINE][ICON_BULLET]全国不满 +{3}%
+			</Text>
+		</Row>
+
 	</Language_zh_CN>
 </GameData>

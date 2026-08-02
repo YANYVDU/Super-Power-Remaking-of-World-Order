@@ -2,7 +2,10 @@
 -- MiniMapPanel.lua
 -- Minimap panel with map options, adapted from EUI
 -- Extended with ShowPlotNames toggle for plot name labels
+-- Strategic-view overlay/icon controls restored from vanilla (Brave New World)
 -------------------------------------------------
+
+include("InstanceManager")
 
 local pairs = pairs
 
@@ -22,6 +25,10 @@ local ToggleStrategicView = ToggleStrategicView
 local UI = UI
 local YieldDisplayTypes = YieldDisplayTypes
 
+local g_LegendIM = InstanceManager:new("LegendKey", "Item", Controls.LegendStack)
+local g_Overlays = GetStrategicViewOverlays()
+local g_IconModes = GetStrategicViewIconSettings()
+
 local g_width, g_height
 
 local g_OptionActions = {
@@ -33,6 +40,10 @@ local g_OptionActions = {
 	ShowPlotNames = function(isChecked)
 		LuaEvents.PlotNameToggleLabels(isChecked)
 	end,
+	ShowFeatures = StrategicViewShowFeatures,
+	ShowFogOfWar = StrategicViewShowFogOfWar,
+	SVOverlayMode = SetStrategicViewOverlay,
+	SVIconMode = SetStrategicViewIconSetting,
 }
 
 local g_SaveOptions = {
@@ -63,6 +74,10 @@ local g_PerPlayerMapOptions = {}
 local g_MapOptions
 local g_MapOptionDefaults = {
 	ShowPlotNames = true,
+	ShowFeatures = true,
+	ShowFogOfWar = true,
+	SVOverlayMode = 1,
+	SVIconMode = 1,
 }
 
 for k, isOption in pairs(g_GetOptions) do
@@ -100,6 +115,87 @@ Controls.Minimap:RegisterCallback(Mouse.eLClick, function(_, _, _, x, y)
 end)
 
 --==========================================================
+-- Strategic view overlay legend
+--==========================================================
+local function SetLegend(index)
+	g_LegendIM:ResetInstances()
+
+	local info = GetOverlayLegend()
+	if index ~= nil then
+		Controls.OverlayTitle:SetText(Locale.ConvertTextKey(g_Overlays[index]))
+	end
+
+	if info ~= nil and InStrategicView() then
+		for i, v in pairs(info) do
+			local controlTable = g_LegendIM:GetInstance()
+
+			local keyColor = { x = v.Color.R, y = v.Color.G, z = v.Color.B, w = 1 }
+			controlTable.KeyColor:SetColor(keyColor)
+			controlTable.KeyName:LocalizeAndSetText(v.Name)
+		end
+
+		Controls.LegendStack:CalculateSize()
+		Controls.LegendStack:ReprocessAnchoring()
+		Controls.LegendFrame:SetHide(false)
+		Controls.LegendFrame:DoAutoSize()
+		Controls.SideStack:CalculateSize()
+		Controls.SideStack:ReprocessAnchoring()
+	else
+		Controls.LegendFrame:SetHide(true)
+		Controls.SideStack:CalculateSize()
+		Controls.SideStack:ReprocessAnchoring()
+	end
+end
+
+--==========================================================
+-- Strategic view overlay / icon pulldowns
+--==========================================================
+local function OnOverlaySelected(index)
+	SetStrategicViewOverlay(index)
+	g_MapOptions.SVOverlayMode = index
+
+	Controls.OverlayDropDown:GetButton():SetText(Locale.ConvertTextKey(g_Overlays[index]))
+	SetLegend(index)
+end
+
+local function PopulateOverlayPulldown(pullDown)
+	for i, text in pairs(g_Overlays) do
+		local controlTable = {}
+		pullDown:BuildEntry("InstanceOne", controlTable)
+
+		controlTable.Button:SetVoid1(i)
+		controlTable.Button:SetText(Locale.ConvertTextKey(text))
+	end
+
+	Controls.OverlayDropDown:GetButton():SetText(Locale.ConvertTextKey(g_Overlays[1]))
+
+	pullDown:CalculateInternals()
+	pullDown:RegisterSelectionCallback(OnOverlaySelected)
+end
+
+local function OnIconModeSelected(index)
+	SetStrategicViewIconSetting(index)
+	g_MapOptions.SVIconMode = index
+
+	Controls.IconDropDown:GetButton():SetText(Locale.ConvertTextKey(g_IconModes[index]))
+end
+
+local function PopulateIconPulldown(pullDown)
+	for i, text in pairs(g_IconModes) do
+		local controlTable = {}
+		pullDown:BuildEntry("InstanceOne", controlTable)
+
+		controlTable.Button:SetVoid1(i)
+		controlTable.Button:SetText(Locale.ConvertTextKey(text))
+	end
+
+	Controls.IconDropDown:GetButton():SetText(Locale.ConvertTextKey(g_IconModes[1]))
+
+	pullDown:CalculateInternals()
+	pullDown:RegisterSelectionCallback(OnIconModeSelected)
+end
+
+--==========================================================
 -- Update options panel UI
 --==========================================================
 local function UpdateOptionsPanel()
@@ -109,6 +205,10 @@ local function UpdateOptionsPanel()
 			control:SetCheck(isChecked)
 		end
 	end
+	Controls.StrategicStack:SetHide(not InStrategicView())
+	Controls.OverlayDropDown:GetButton():SetText(Locale.ConvertTextKey(g_Overlays[g_MapOptions.SVOverlayMode]))
+	Controls.IconDropDown:GetButton():SetText(Locale.ConvertTextKey(g_IconModes[g_MapOptions.SVIconMode]))
+	SetLegend(g_MapOptions.SVOverlayMode)
 	Controls.MainStack:CalculateSize()
 	Controls.OptionsPanel:DoAutoSize()
 	Controls.SideStack:CalculateSize()
@@ -236,17 +336,22 @@ end
 --==========================================================
 -- Initialize
 --==========================================================
+PopulateOverlayPulldown(Controls.OverlayDropDown)
+PopulateIconPulldown(Controls.IconDropDown)
+
 Events.SequenceGameInitComplete.Add(function()
 	OnActivePlayerChanged(GetActivePlayer(), -1)
 	Events.GameplaySetActivePlayer.Add(OnActivePlayerChanged)
 	Events.GameOptionsChanged.Add(UpdateOptionsPanel)
 	Events.StrategicViewStateChanged.Add(function(isStrategicView)
-		Controls.NormalStack:SetHide(isStrategicView)
+		Controls.ShowResources:SetDisabled(isStrategicView)
+		Controls.ShowResources:SetAlpha(isStrategicView and 0.5 or 1.0)
 		if isStrategicView then
 			Controls.StrategicViewButton:SetTexture("MainWorldButton.dds")
 			Controls.StrategicMO:SetTexture("MainWorldButton.dds")
 			Controls.StrategicHL:SetTexture("MainWorldButtonHL.dds")
 		else
+			Controls.ShowGrid:SetCheck(OptionsManager.GetGridOn_Cached())
 			Controls.StrategicViewButton:SetTexture("MainStrategicButton.dds")
 			Controls.StrategicMO:SetTexture("MainStrategicButton.dds")
 			Controls.StrategicHL:SetTexture("MainStrategicButtonHL.dds")
