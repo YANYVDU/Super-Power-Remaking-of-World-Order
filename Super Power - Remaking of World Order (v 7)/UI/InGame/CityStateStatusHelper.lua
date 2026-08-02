@@ -470,6 +470,32 @@ function GetCityStateStatusToolTip(iMajor, iMinor, bFullInfo)
 		end
 	end
 
+	-- Diplomatic Prestige (SP)
+	local pMajorPlayer = Players[iMajor];
+	if (pMajorPlayer ~= nil) then
+		local iAllies = pMajorPlayer:GetNumCityStateAllies();
+		local iPrestige = pMajorPlayer:GetDiplomaticPrestige();
+		local bOverextended = pMajorPlayer:GetDiplomaticOverextensionCount() > 0;
+
+		local strPrestigeStatus;
+		if (bOverextended) then
+			strPrestigeStatus = "[COLOR_NEGATIVE_TEXT]" .. Locale.ConvertTextKey("TXT_KEY_SP_DIPLO_PRESTIGE_OVEREXTENDED") .. "[ENDCOLOR]";
+		else
+			strPrestigeStatus = "[COLOR_POSITIVE_TEXT]" .. Locale.ConvertTextKey("TXT_KEY_SP_DIPLO_PRESTIGE_OK") .. "[ENDCOLOR]";
+		end
+
+		strStatusTT = strStatusTT .. "[NEWLINE][NEWLINE]";
+		strStatusTT = strStatusTT .. Locale.ConvertTextKey("TXT_KEY_SP_DIPLO_PRESTIGE", iAllies, iPrestige, strPrestigeStatus);
+
+		if (bOverextended) then
+			local iDecay = pMajorPlayer:GetDiplomaticOverextensionDecayPenalty();
+			local iRise = pMajorPlayer:GetDiplomaticOverextensionRisePenalty();
+			local iUnhappiness = pMajorPlayer:GetDiplomaticOverextensionUnhappinessPercent();
+			strStatusTT = strStatusTT .. "[NEWLINE][NEWLINE]";
+			strStatusTT = strStatusTT .. Locale.ConvertTextKey("TXT_KEY_SP_DIPLO_OVEREXTENSION_PENALTY", iDecay, iRise, iUnhappiness);
+		end
+	end
+
 	return strStatusTT;
 end
 

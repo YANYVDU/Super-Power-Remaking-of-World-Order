@@ -2,22 +2,45 @@
 <Context ColorSet="Beige_Black_Alpha" Font="TwCenMT18" FontStyle="Shadow">
 	<Container ID="Scrap" Hidden="1" />
 
+	<Instance Name="LegendKey">
+		<Stack ID="Item" StackGrowth="Right">
+			<Box Size="14,14" Color="255.255.200.255">
+				<Box ID="KeyColor" Anchor="C,C" Size="12,12" Color="200,200,200,255" />
+			</Box>
+			<Label ID="KeyName" Anchor="L,T" Offset="5.0" WrapWidth="300" ColorSet="Beige_Black" LeadingOffset="-8" Font="TwCenMT18" FontStyle="Shadow" String="TXT_KEY_STRAT_ICON_MODE"/>
+		</Stack>
+	</Instance>
+
 	<Stack Anchor="R,B" Offset="-8,0" Padding="-8" StackGrowth="Right" ID="OuterStack">
 
 		<Image Anchor="R,B" Texture="BottomRight128x224.dds" Size="128.224">
 			<Stack ID="SideStack" Padding="-20" Anchor="R,B" Offset="40,-39" StackGrowth="Right">
 
+				<Grid ID="LegendFrame" Anchor="R,B" Padding="30,54" Offset="0,0" Style="Grid9DetailSix140" Hidden="1" ConsumeMouse="1">
+					<Stack ID="LegendStack" Anchor="C,C" Padding="5" Offset="0,0" StackGrowth="Bottom">
+						<Label ID="OverlayTitle" Anchor="C,T" Offset="0,0" ColorSet="Beige_Black" Font="TwCenMT18" FontStyle="Shadow" String="TXT_KEY_STRAT_ICON_MODE"/>
+						<Box Size="200,1" Color="0,0,0,0" />
+						<Image Anchor="C,T" Offset="0,0" Texture="bar300x2.dds" TextureOffset="100,0" Size="140.1" />
+					</Stack>
+				</Grid>
+
 				<Grid ID="OptionsPanel" Anchor="R,B" Size="300,300" Color="White.256" Style="Grid9DetailSix140" Padding="30,46" Hidden="true" ConsumeMouse="1">
 					<Stack Anchor="C,C" Offset="0,5" StackGrowth="Bottom" ID="MainStack">
-						<Stack StackGrowth="Bottom" ID="NormalStack">
-							<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="ShowResources" String="TXT_KEY_MAP_OPTIONS_RESOURCE_ICONS" ToolTip="TXT_KEY_MAP_OPTIONS_RESOURCE_ICONS_TT" />
-							<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="ShowPlotNames" String="TXT_KEY_SP_SHOW_PLOT_NAMES" ToolTip="TXT_KEY_SP_SHOW_PLOT_NAMES_TT"/>
+						<Stack StackGrowth="Bottom" ID="StrategicStack">
+							<Label Anchor="L,T" ColorSet="Beige_Black" Font="TwCenMT18" Offset="0,5" FontStyle="Shadow" ID="OverlayName" String="TXT_KEY_STRAT_OVERLAY"/>
+							<PullDown Style="GenericPullDown" ScrollThreshold="256" Offset="0,5" Size="210,27" SpaceForScroll="0" ID="OverlayDropDown"/>
+							<Label Anchor="L,T" ColorSet="Beige_Black" Font="TwCenMT18" Offset="0,5" FontStyle="Shadow" ID="IconName" String="TXT_KEY_STRAT_ICON_MODE"/>
+							<PullDown Style="GenericPullDown" ScrollThreshold="256" Offset="0,5" Size="210,27" SpaceForScroll="0" ID="IconDropDown"/>
+							<CheckBox Anchor="L,T" TextAnchorSide="Right" TextOffset="40,0" IsChecked="1" ID="ShowFeatures" String="TXT_KEY_STRAT_FEATURES" />
+							<CheckBox Anchor="L,T" TextAnchorSide="Right" TextOffset="40,0" IsChecked="1" ID="ShowFogOfWar" String="TXT_KEY_STRAT_FOW" />
+							<Box Anchor="C,T" Offset="0,5" Size="175,1" Color="Beige,120" />
 						</Stack>
-						<Box Anchor="C,T" Offset="0,5" Size="175,1" Color="Beige,120" />
+						<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="ShowPlotNames" String="TXT_KEY_SP_SHOW_PLOT_NAMES" ToolTip="TXT_KEY_SP_SHOW_PLOT_NAMES_TT"/>
+						<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="HideRecommendation" String="TXT_KEY_MAP_OPTIONS_RECOMMENDATIONS" ToolTip="TXT_KEY_MAP_OPTIONS_RECOMMENDATIONS_TT"/>
+						<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="ShowResources" String="TXT_KEY_MAP_OPTIONS_RESOURCE_ICONS" ToolTip="TXT_KEY_MAP_OPTIONS_RESOURCE_ICONS_TT" />
 						<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="ShowYield" String="TXT_KEY_MAP_OPTIONS_YIELD_ICONS" ToolTip="TXT_KEY_MAP_OPTIONS_YIELD_ICONS_TT"/>
 						<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="ShowGrid" String="TXT_KEY_MAP_OPTIONS_HEX_GRID" ToolTip="TXT_KEY_MAP_OPTIONS_HEX_GRID_TT"/>
 						<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="ShowTrade" String="TXT_KEY_MAP_OPTIONS_TRADE_ROUTES" ToolTip="TXT_KEY_MAP_OPTIONS_TRADE_ROUTES_TT"/>
-						<CheckBox TextAnchorSide="Right" TextOffset="40,0" ID="HideRecommendation" String="TXT_KEY_MAP_OPTIONS_RECOMMENDATIONS" ToolTip="TXT_KEY_MAP_OPTIONS_RECOMMENDATIONS_TT"/>
 					</Stack>
 				</Grid>
 			</Stack>
