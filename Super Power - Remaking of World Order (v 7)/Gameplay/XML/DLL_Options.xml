@@ -398,6 +398,10 @@
 			<Where Name="SP_UNIQUE_CITYSTATE"/>
 			<Set Value="0"/>
 		</Update>
+		<Update>
+			<Where Name="SP_CITYSTATE_BASIC"/>
+			<Set Value="1"/>
+		</Update>
 	</CustomModOptions>
 
 
