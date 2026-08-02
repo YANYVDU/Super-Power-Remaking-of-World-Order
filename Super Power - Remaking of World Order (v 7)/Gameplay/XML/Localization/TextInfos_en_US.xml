@@ -2012,7 +2012,7 @@
 			<Text>
 				Build a Dojo in this city.
 				[NEWLINE][NEWLINE]All new units built or purchased in this city +15 XP.
-				[NEWLINE][NEWLINE]+2 [ICON_HAPPINESS_1] Happiness.
+				[NEWLINE][NEWLINE]+2 [ICON_HAPPINESS_1] Local Happiness.
 				[NEWLINE][NEWLINE]+5 [ICON_RES_MANPOWER] Manpower.
 				[NEWLINE][NEWLINE]This order will consume the Samurai.
 				[NEWLINE][NEWLINE]One city can ONLY have ONE Dojo building.
@@ -3884,7 +3884,11 @@
 			<Tag>TXT_KEY_BUILDING_JAPANESE_DOJO</Tag>
 			<Text>[ICON_HAPPINESS_1][ICON_RES_MANPOWER] Dojo</Text>
 		</Row>
-		
+		<Row>
+			<Tag>TXT_KEY_BUILDING_JAPANESE_DOJO_HELP</Tag>
+			<Text>All new units built or purchased in this city +15 XP.[NEWLINE][NEWLINE]+5 [ICON_RES_MANPOWER] Manpower, +2 [ICON_HAPPINESS_1] Local Happiness.[NEWLINE][NEWLINE]Can only be built by a Japanese Samurai, which is consumed after construction.</Text>
+		</Row>
+
 
 
 

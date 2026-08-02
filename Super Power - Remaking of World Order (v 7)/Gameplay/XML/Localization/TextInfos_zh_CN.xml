@@ -1317,7 +1317,6 @@
 				[NEWLINE][NEWLINE]只能由陆军统帅或海军统帅建立。
 			</Text>
 		</Replace>
-
 		<Row>
 			<Tag>TXT_KEY_BUILDING_WOOD_DOCK</Tag>
 			<Text>[ICON_WAR]码头</Text>
@@ -1372,7 +1371,10 @@
 
 		<Row>
 			<Tag>TXT_KEY_BUILDING_JAPANESE_DOJO_HELP</Tag>
-			<Text>该城市所有建造和购买的军事单位+15经验值。[NEWLINE][NEWLINE]+5[ICON_RES_MANPOWER]人力,+2[ICON_HAPPINESS_1]本地快乐。[NEWLINE][NEWLINE]只能由日本武士建造，且建造完成后单位被消耗。</Text>
+			<Text>该城市所有建造和购买的军事单位+15经验值。
+				[NEWLINE]
+				[NEWLINE]+5[ICON_RES_MANPOWER]人力,+2[ICON_HAPPINESS_1]本地快乐。
+				[NEWLINE][NEWLINE]只能由日本武士建造，且建造完成后单位被消耗。</Text>
 		</Row>
 
 		<Replace Tag="TXT_KEY_BUILDING_CIRCUS_HELP">
@@ -5451,7 +5453,13 @@
 			<Text>[COLOR_POSITIVE_TEXT]建立道场[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_BTNNOTE_BUILDING_JAPANESE_DOJO">
-			<Text>在本城市建立一座道场。该城市所有建造和购买的军事单位+15经验值且允许在本城市组建特战单位和精英单位。[NEWLINE][NEWLINE]+3[ICON_RES_MANPOWER]人力。[NEWLINE][NEWLINE]该指令会消耗你的日本武士，每座城市只能建造一座道场。</Text>
+			<Text>在本城市建立一座道场。该城市所有建造和购买的军事单位+15经验值。
+				[NEWLINE]
+				[NEWLINE]+2[ICON_HAPPINESS_1]本地快乐。
+				[NEWLINE]
+				[NEWLINE]+5[ICON_RES_MANPOWER]人力。
+				[NEWLINE]
+				[NEWLINE]该指令会消耗你的日本武士，每座城市只能建造一座道场。</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_SP_BTNNOTE_UNIT_RECON_TARGET_GUIDE_SHORT">
