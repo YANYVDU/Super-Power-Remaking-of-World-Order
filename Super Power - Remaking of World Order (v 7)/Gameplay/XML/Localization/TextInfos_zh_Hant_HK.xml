@@ -16936,5 +16936,12 @@
 			</Text>
 		</Row>
 
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_CITY_STATE">
+			<Text>城邦盟友商路加成：{1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_CITY_STATE_LUXURY">
+			<Text>{2_Num}由於城邦盟友（{1_Num}%）</Text>
+		</Row>
+
 	</Language_zh_Hant_HK>
 </GameData>

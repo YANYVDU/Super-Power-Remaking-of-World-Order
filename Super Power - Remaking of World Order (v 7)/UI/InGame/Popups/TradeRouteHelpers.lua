@@ -24,6 +24,12 @@ function BuildTradeRouteGoldToolTipString (pOriginCity, pTargetCity, eDomain)
 		strPolicyValue = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_POLICIES", iPolicyBonus / 100);
 	end
 
+	local iCityStateBonus = pPlayer:GetInternationalTradeRouteCityStateBonus(pOriginCity, pTargetCity, eDomain);
+	local strCityStateValue = "";
+	if (iCityStateBonus ~= 0) then
+		strCityStateValue = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_CITY_STATE", iCityStateBonus / 100);
+	end
+
 	local iYourBuildingBonus = pPlayer:GetInternationalTradeRouteYourBuildingBonus(pOriginCity, pTargetCity, eDomain, true);
 	local strYourBuildingValue = "";
 	if (iYourBuildingBonus ~= 0) then
@@ -152,7 +158,12 @@ function BuildTradeRouteGoldToolTipString (pOriginCity, pTargetCity, eDomain)
 		strResult = strResult .. strPolicyValue;
 		strResult = strResult .. "[NEWLINE]";
 	end
-	
+
+	if (strCityStateValue ~= "") then
+		strResult = strResult .. strCityStateValue;
+		strResult = strResult .. "[NEWLINE]";
+	end
+
 	if (strYourBuildingValue ~= "") then
 		strResult = strResult .. strYourBuildingValue;
 		strResult = strResult .. "[NEWLINE]";
