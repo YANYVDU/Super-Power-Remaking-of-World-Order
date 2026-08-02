@@ -5357,7 +5357,7 @@
 			<Text>[COLOR_POSITIVE_TEXT]建立道場[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_BTNNOTE_BUILDING_JAPANESE_DOJO">
-			<Text>在本城市建立一座道場。該城市所有建造和購買的軍事單位+15經驗值且允許在本城市組建特戰單位和精英單位。[NEWLINE][NEWLINE]+3[ICON_RES_MANPOWER]人力。[NEWLINE][NEWLINE]該指令會消耗你的日本武士，每座城市只能建造一座道場。</Text>
+			<Text>在本城市建立一座道場。該城市所有建造和購買的軍事單位+15經驗值。[NEWLINE][NEWLINE]+2[ICON_HAPPINESS_1]本地幸福度。[NEWLINE][NEWLINE]+5[ICON_RES_MANPOWER]人力。[NEWLINE][NEWLINE]該指令會消耗你的日本武士，每座城市只能建造一座道場。</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_SP_BTNNOTE_UNIT_RECON_TARGET_GUIDE_SHORT">
