@@ -238,8 +238,8 @@ end)
 -- Map Options open / close
 --==========================================================
 local function OpenMapOptions()
-	UpdateOptionsPanel()
 	Controls.OptionsPanel:SetHide(false)
+	UpdateOptionsPanel()
 	Controls.SideStack:CalculateSize()
 	Controls.SideStack:ReprocessAnchoring()
 end
