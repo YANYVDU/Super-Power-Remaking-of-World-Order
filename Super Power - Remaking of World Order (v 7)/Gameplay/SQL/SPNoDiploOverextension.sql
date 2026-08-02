@@ -1,0 +1,5 @@
+-- release-no-csua: temporarily disable diplomatic overextension penalties
+-- Overrides CIV5MPDLL UNIQUE_CITYSTATES.sql defaults (DECAY=10/RISE=-10/UNHAPPINESS=3)
+UPDATE Defines SET Value = 0 WHERE Name = 'DIPLOMATIC_OVEREXTENSION_DECAY_MODIFIER';
+UPDATE Defines SET Value = 0 WHERE Name = 'DIPLOMATIC_OVEREXTENSION_RISE_MODIFIER';
+UPDATE Defines SET Value = 0 WHERE Name = 'DIPLOMATIC_OVEREXTENSION_UNHAPPINESS_MODIFIER';
