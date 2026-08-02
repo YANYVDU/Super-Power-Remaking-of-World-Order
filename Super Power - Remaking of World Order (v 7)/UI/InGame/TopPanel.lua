@@ -841,11 +841,20 @@ function HappinessTipHandler( control )
 			strText = strText .. "          " .. Locale.ConvertTextKey("TXT_KEY_TP_HAPPINESS_EXTRA_PER_RESOURCE", iExtraLuxuryHappiness, iNumHappinessResources * iExtraLuxuryHappiness);
 		end
 	
-		-- Misc Happiness from Resources
-		local iMiscHappiness = iResourcesHappiness - iBaseHappinessFromResources - iHappinessFromExtraResources - (iExtraLuxuryHappiness * iNumHappinessResources);
+		-- City-State ally luxury happiness bonus (Mercantile CS), shown as its own line
+		local iCSLuxuryMod = pPlayer:GetCSLuxuryHappinessModifier();
+		local iCSLuxuryValue = pPlayer:GetCSLuxuryHappinessValue();
+
+		-- Misc Happiness from Resources (excluding the CS bonus which is listed separately)
+		local iMiscHappiness = iResourcesHappiness - iBaseHappinessFromResources - iHappinessFromExtraResources - (iExtraLuxuryHappiness * iNumHappinessResources) - iCSLuxuryValue;
 		if (iMiscHappiness > 0) then
 			strText = strText .. "[NEWLINE]";
 			strText = strText .. "          +" .. Locale.ConvertTextKey("TXT_KEY_TP_HAPPINESS_OTHER_SOURCES", iMiscHappiness);
+		end
+
+		if (iCSLuxuryMod > 0 and iCSLuxuryValue > 0) then
+			strText = strText .. "[NEWLINE]";
+			strText = strText .. "          +" .. Locale.ConvertTextKey("TXT_KEY_TP_HAPPINESS_CITY_STATE_LUXURY", iCSLuxuryMod, iCSLuxuryValue);
 		end
 		
 		

@@ -18662,5 +18662,12 @@
 			</Text>
 		</Row>
 
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_CITY_STATE">
+			<Text>Bonus from City-State Allies: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_CITY_STATE_LUXURY">
+			<Text>{2_Num} from City-State Allies ({1_Num}%)</Text>
+		</Row>
+
 	</Language_en_US>
 </GameData>
