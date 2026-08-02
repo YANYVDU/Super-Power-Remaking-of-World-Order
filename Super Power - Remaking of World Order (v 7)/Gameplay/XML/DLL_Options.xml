@@ -396,7 +396,7 @@
 		</Update>
 		<Update>
 			<Where Name="SP_UNIQUE_CITYSTATE"/>
-			<Set Value="1"/>
+			<Set Value="0"/>
 		</Update>
 	</CustomModOptions>
 

@@ -476,6 +476,7 @@ Some Imgaes and Visual Elements are from the game: ACE Combat (published by Namc
         <Type>UpdateDatabase</Type>
         <FileName>Gameplay/SQL/CityStatesAndBarbarianOverrides.sql</FileName>
       </Action>
+      <!-- CSUA disabled in release-no-csua build
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
@@ -486,6 +487,7 @@ Some Imgaes and Visual Elements are from the game: ACE Combat (published by Namc
         <Type>UpdateDatabase</Type>
         <FileName>Gameplay/XML/CSUA/CSUA.sql</FileName>
       </Action>
+      -->
     </ModActions>
     <ModProperties />
     <ModContent>
@@ -991,10 +993,12 @@ Some Imgaes and Visual Elements are from the game: ACE Combat (published by Namc
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <!-- CSUA disabled in release-no-csua build
     <Content Include="Gameplay/XML/CSUA/CSUA.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    -->
     <Content Include="Gameplay/SQL/Policies/PoliciesEffect.sql">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -1003,10 +1007,12 @@ Some Imgaes and Visual Elements are from the game: ACE Combat (published by Namc
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <!-- CSUA disabled in release-no-csua build
     <Content Include="Gameplay/XML/CSUA/CSUA.sql">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    -->
     <Content Include="Gameplay\Lua\Combat\NewBattleCustomDamage.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
