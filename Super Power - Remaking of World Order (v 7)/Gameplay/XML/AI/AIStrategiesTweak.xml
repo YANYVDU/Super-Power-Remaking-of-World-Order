@@ -433,6 +433,9 @@
 
 		
 		
+		<Row Name="MINOR_GOLD_GIFT_HUGE">
+			<Value>5000</Value>
+		</Row>
 		<Update>
 			<Set Value="-400"/>
 			<Where Name="MINOR_FRIENDSHIP_DROP_PER_TURN_AGGRESSOR" />
