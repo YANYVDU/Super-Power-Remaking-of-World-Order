@@ -1174,6 +1174,12 @@
 			<Description>TXT_KEY_BUILDING_NATIONAL_FREEDOM</Description>
 			<MaxPlayerInstances>1</MaxPlayerInstances>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_PLACE_OF_NATIONS</Type>
+			<DefaultBuilding>BUILDING_PLACE_OF_NATIONS</DefaultBuilding>
+			<Description>TXT_KEY_WONDER_PLACE_OF_NATIONS</Description>
+			<MaxGlobalInstances>1</MaxGlobalInstances>
+		</Row>
 
 
 	</BuildingClasses>
