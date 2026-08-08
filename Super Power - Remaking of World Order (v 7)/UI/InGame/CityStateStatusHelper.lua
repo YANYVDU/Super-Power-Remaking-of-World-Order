@@ -58,7 +58,7 @@ end
 -- SP: 获取城邦 UA Help 文本（基于 MinorCivilizations.UAType -> CityStateUAs 拆分 Ally/Friend Help）
 -- 查询当前影响力等级，将当前关系对应的 effect help 用 [COLOR_POSITIVE_TEXT] 包裹
 -- 无 UA / 表未加载 / 任何异常均返回空字符串
-local function GetCityStateUAHelpText(iMajor, iMinor)
+function GetCityStateUAHelpText(iMajor, iMinor)
 	local pMinor = Players[iMinor];
 	if pMinor == nil or not pMinor:IsMinorCiv() then
 		return "";
