@@ -17137,9 +17137,12 @@
 				[NEWLINE][ICON_BULLET]朋友效果：朋友城市的[ICON_GOLD]市场和[ICON_GOLD]银行+1[ICON_GREAT_MERCHANT]大商业家点数
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_GOLD_DONATION">
+			<Text>{1_Num} 来自金币捐赠</Text>
+		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE">
 			<Text>
-				当前外交威望：{1}/{2}（{3}）
+				当前[ICON_DIPLOMATIC_PRESTIGE]外交威望：{1}/{2}（{3}）
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE_OVEREXTENDED">
@@ -17154,10 +17157,10 @@
 		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_OVEREXTENSION_PENALTY">
 			<Text>
-				超限惩罚：
-				[NEWLINE][ICON_BULLET]影响力每回合衰减 +{1}%
-				[NEWLINE][ICON_BULLET]影响力增长 {2}%
-				[NEWLINE][ICON_BULLET]全国不满 +{3}%
+				[ICON_DIPLOMATIC_PRESTIGE]超限惩罚：
+				[NEWLINE][ICON_BULLET][ICON_INFLUENCE]影响力每回合衰减 +{1}%
+				[NEWLINE][ICON_BULLET][ICON_INFLUENCE]影响力增长 {2}%
+				[NEWLINE][ICON_BULLET][ICON_UNHAPPINESS]全国不满 +{3}%
 			</Text>
 		</Row>
 
@@ -17167,6 +17170,29 @@
 		<Row Tag="TXT_KEY_TP_HAPPINESS_CITY_STATE_LUXURY">
 			<Text>{2_Num}由于城邦盟友（{1_Num}%）</Text>
 		</Row>
-
+		<Row Tag="TXT_KEY_TP_HAPPINESS_LUXURY_MOD">
+			<Text>{2_Num}奢侈快乐加成（{1_Num}%）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_TITLE">
+			<Text>人口不满修正</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_TRAIT">
+			<Text>领袖特性：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_HANDICAP">
+			<Text>难度：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_OVEREXTENSION">
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]外交威望超限：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_CITY_STATE">
+			<Text>城邦盟友：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_ALMATY_HELP">
+			<Text>额外提供15[ICON_RES_HORSE]马匹</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_GP_MOD">
+			<Text>[ICON_BULLET]盟邦UA加成: +{1_num}%</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

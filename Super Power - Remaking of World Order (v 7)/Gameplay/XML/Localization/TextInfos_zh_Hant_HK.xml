@@ -16943,6 +16943,9 @@
 				[NEWLINE][ICON_BULLET]朋友效果：朋友城市的[ICON_GOLD]市場和[ICON_GOLD]銀行+1[ICON_GREAT_MERCHANT]大商業家點數
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_GOLD_DONATION">
+			<Text>{1_Num} 來自金幣捐贈</Text>
+		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE">
 			<Text>
 				當前外交威望：{1}/{2}（{3}）
@@ -16972,6 +16975,27 @@
 		</Row>
 		<Row Tag="TXT_KEY_TP_HAPPINESS_CITY_STATE_LUXURY">
 			<Text>{2_Num}由於城邦盟友（{1_Num}%）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_LUXURY_MOD">
+			<Text>{2_Num}奢侈快樂加成（{1_Num}%）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_TITLE">
+			<Text>人口不滿修正</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_TRAIT">
+			<Text>領袖特性：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_HANDICAP">
+			<Text>難度：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_OVEREXTENSION">
+			<Text>外交威望超限：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_CITY_STATE">
+			<Text>城邦盟友：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_ALMATY_HELP">
+			<Text>额外提供15[ICON_RES_HORSE]馬</Text>
 		</Row>
 
 	</Language_zh_Hant_HK>
