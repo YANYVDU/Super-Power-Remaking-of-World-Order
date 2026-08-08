@@ -1149,6 +1149,8 @@ function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader, bNoMa
 	--y	HappinessPerXPolicies = "",
 	--	CityCountUnhappinessMod = L"TXT_KEY_CITY_COUNT_UNHAPPINESS_MOD111",	-- TOTO
 		CorruptionUnhappinessModifier = L"TXT_KEY_CORRUPTION_UNHAPPINESS_MODIFIER" .. "%+i%%",
+		CorruptionUnhappinessChange = L"TXT_KEY_CORRUPTION_UNHAPPINESS_CHANGE" .. "%+i[ICON_HAPPINESS_4]",
+		DiplomaticPrestige = L"TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL" .. "%+i[ICON_DIPLOMATIC_PRESTIGE]",
 		WorkerSpeedModifier = L"TXT_KEY_WORKER_SPEED_MODIFIER111" .. "%+i%%",	-- TOTO
 		MilitaryProductionModifier = L"TXT_KEY_MILITARY_PRODUCTION_MODIFIER111" .. "%+i%%[ICON_PRODUCTION]",-- TOTO
 		SpaceProductionModifier = L"TXT_KEY_SPACE_PRODUCTION_MODIFIER11" .. "%+i%%[ICON_PRODUCTION]",	-- TOTO
