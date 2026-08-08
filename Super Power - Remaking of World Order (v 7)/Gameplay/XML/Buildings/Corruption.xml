@@ -76,6 +76,7 @@
 			<MinAreaSize>-1</MinAreaSize>
 			<NeverCapture>true</NeverCapture>
 			<UnmoddedHappiness>2</UnmoddedHappiness>
+			<CorruptionUnhappinessChange>-2</CorruptionUnhappinessChange>
 			<HurryCostModifier>-1</HurryCostModifier>
 			<IconAtlas>BW_ATLAS_1</IconAtlas>
 			<GoldenAgeModifier>4</GoldenAgeModifier>
