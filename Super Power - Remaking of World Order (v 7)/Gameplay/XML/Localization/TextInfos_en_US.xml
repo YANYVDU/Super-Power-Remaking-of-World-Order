@@ -18667,6 +18667,9 @@
 				[NEWLINE][ICON_BULLET][ICON_GOLD] Market and [ICON_GOLD] Bank provide +1 Great Merchant Point in friend cities
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_GOLD_DONATION">
+			<Text>{1_Num} from Gold Donations</Text>
+		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE">
 			<Text>
 				Current Diplomatic Prestige: {1}/{2} ({3})
@@ -18696,6 +18699,27 @@
 		</Row>
 		<Row Tag="TXT_KEY_TP_HAPPINESS_CITY_STATE_LUXURY">
 			<Text>{2_Num} from City-State Allies ({1_Num}%)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_LUXURY_MOD">
+			<Text>{2_Num} from Luxury Happiness Modifier ({1_Num}%)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_TITLE">
+			<Text>Population Unhappiness Modifiers</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_TRAIT">
+			<Text>Trait: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_HANDICAP">
+			<Text>Difficulty: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_OVEREXTENSION">
+			<Text>Diplomatic Overextension: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_CITY_STATE">
+			<Text>City-State Ally: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_ALMATY_HELP">
+			<Text>Provides additional 15 [ICON_RES_HORSE]Horses</Text>
 		</Row>
 
 	</Language_en_US>
