@@ -18475,7 +18475,13 @@
 			<Text>Promise withdraw Military</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_MODIFIER">
+<Text>National Corruption [ICON_HAPPINESS_4]Unhappiness</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_CHANGE">
 			<Text>Corruption Unhappiness</Text>
+		</Row>
+<Row Tag="TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL">
+			<Text>Diplomatic Prestige:</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CORRUPTION">
 			<Text>{1_num} From Corruption</Text>
