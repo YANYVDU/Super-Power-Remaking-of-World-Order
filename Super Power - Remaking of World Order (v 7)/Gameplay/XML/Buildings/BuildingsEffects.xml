@@ -1716,6 +1716,12 @@
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>1</Yield>
 		</Row>
+
+		<Row>
+			<BuildingType>BUILDING_PLACE_OF_NATIONS</BuildingType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>8</Yield>
+		</Row>
 	</Building_YieldChanges>
 
 
@@ -7476,6 +7482,11 @@
 			<BuildingType>BUILDING_ELECTRICITY_TO_ALUMINUM</BuildingType>
 			<FlavorType>FLAVOR_SPACESHIP</FlavorType>
 			<Flavor>40</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_PLACE_OF_NATIONS</BuildingType>
+			<FlavorType>FLAVOR_HAPPINESS</FlavorType>
+			<Flavor>5</Flavor>
 		</Row>
 	</Building_Flavors>
 

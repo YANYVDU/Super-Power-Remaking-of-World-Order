@@ -4547,6 +4547,29 @@
 			<Text>The Shimizu TRY 2004 Mega-City Pyramid is a proposed Shimizu Corporation project for the construction of a massive pyramid over Tokyo Bay in Japan. The structure would be more than 14 times as high as the Great Pyramid of Giza (139 metres, 456.04 feet), and would house 1,000,000 people. The structure would be 2,000 meters (6,561 feet) tall measured from mean sea level, including 5 stacked trusses, each with similar dimensions to that of the Great Pyramid of Giza. This pyramid would help answer Tokyo's increasing lack of space, although the project would only handle a small fraction of the population of the Greater Tokyo Area. </Text>
 		</Row>
 		
+
+		<!--****************************Place of Nations*************************************-->
+
+		<!-- Description tags -->
+		<Row Tag="TXT_KEY_WONDER_PLACE_OF_NATIONS">
+			<Text>Palace of Nations</Text>
+		</Row>
+		<!-- Help tags -->
+		<Row Tag="TXT_KEY_BUILDING_PLACE_OF_NATIONS_HELP">
+			<Text>
+				[ICON_BULLET]+2 [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige.
+				[NEWLINE][ICON_BULLET]+25% [ICON_INFLUENCE] Influence with all known City-States upon completion.
+			</Text>
+		</Row>
+		<!-- Quote tags -->
+		<Row Tag="TXT_KEY_WONDER_PLACE_OF_NATIONS_QUOTE">
+			<Text>[NEWLINE]"We the peoples of the United Nations, determined to save succeeding generations from the scourge of war."[NEWLINE] — Charter of the United Nations[NEWLINE]</Text>
+		</Row>
+		<!-- Pedia tags -->
+		<Row Tag="TXT_KEY_WONDER_PLACE_OF_NATIONS_PEDIA">
+			<Text>The Palace of Nations, located in Geneva, Switzerland, was initially built between 1929 and 1938 to serve as the headquarters of the League of Nations. The League of Nations was the first worldwide intergovernmental organization founded after World War I, with the principal mission of maintaining world peace through diplomacy. Although the League ultimately failed to prevent the outbreak of World War II, it laid the groundwork for the establishment of the United Nations.[NEWLINE][NEWLINE]Situated in Ariana Park on the shores of Lake Geneva, the Palace of Nations is an architectural masterpiece blending Neoclassical and Modernist styles. Its main Assembly Hall, capable of seating 2,000 delegates, has witnessed countless diplomatic negotiations that shaped the course of world history. Following World War II, the Palace became the United Nations Office at Geneva, the second-largest UN center after the headquarters in New York.[NEWLINE][NEWLINE]Today, the Palace of Nations hosts over 8,000 international meetings each year and serves as a vital hub for global discussions on human rights, disarmament, trade, and humanitarian affairs. It stands as an enduring symbol of humanity’s quest for peace and cooperation.</Text>
+		</Row>
+
 	<!--****************************National Wonders*************************************-->
 
 		<Replace Tag="TXT_KEY_BUILDING_HEROIC_EPIC_HELP">

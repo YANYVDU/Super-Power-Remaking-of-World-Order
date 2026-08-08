@@ -1842,7 +1842,11 @@
 			<IconFontTexture>ICON_FONT_TEXTURE_SPCITYBANNERS</IconFontTexture>
 			<IconMapping>9</IconMapping>
 		</Row>
-		
+		<Row>
+			<IconName>ICON_DIPLOMATIC_PRESTIGE</IconName>
+			<IconFontTexture>ICON_FONT_TEXTURE_SPCITYBANNERS</IconFontTexture>
+			<IconMapping>10</IconMapping>
+		</Row>
 		<Row>
 			<IconName>ICON_CITYBANNER_CITY_TOWN</IconName>
 			<IconFontTexture>ICON_FONT_TEXTURE_SPCITYBANNERS</IconFontTexture>
