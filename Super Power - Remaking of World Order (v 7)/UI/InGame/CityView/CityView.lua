@@ -1210,6 +1210,7 @@ function OnCityViewUpdate()
 					iGPPChange = iGPPChange + pCity:GetGreatPersonPointsFromPolicies(iSpecialistIndex) * 100;
 					iGPPChange = iGPPChange + pCity:GetGreatPersonPointsFromUA(iSpecialistIndex) * 100;
 					iGPPChange = iGPPChange + pCity:GetGreatPersonPointsFromUA_Building(iSpecialistIndex) * 100;
+					iGPPChange = iGPPChange + pCity:GetGreatPersonPointsFromUA_GreatWork(iSpecialistIndex);
 					if iGPPChange > 0 then
 						-- Generic GP mods
 						local iPlayerMod = pPlayer:GetGreatPeopleRateModifier();
@@ -1297,6 +1298,9 @@ function OnCityViewUpdate()
 							else
 								strToolTipText = strToolTipText .. "[NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_WORLD_CONGRESS_POSITIVE_GP_MOD", iWorldCongressMod);
 							end
+						end
+						if (iCityStateMod > 0) then
+							strToolTipText = strToolTipText .. "[NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_GP_MOD", iCityStateMod);
 						end
 					end
 					controlTable.GPBox:SetToolTipString(strToolTipText);
