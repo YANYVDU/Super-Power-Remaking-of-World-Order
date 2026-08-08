@@ -427,6 +427,11 @@
 			<Where Name="SP_FASTER_AI"/>
 			<Set Value="1"/>
 		</Update>
+<!-- AI_PERF performance logging (0=off, 1=on). When enabled, writes per-AI-function timing to logs/ -->
+		<Update>
+			<Where Name="GLOBAL_AI_PERF_LOGGING"/>
+			<Set Value="0"/>
+		</Update>
 		
 	<!--********************************* Passable Forts *****************************-->
 		<Update>
