@@ -16973,7 +16973,6 @@
 		<Row Tag="TXT_KEY_TP_HAPPINESS_CITY_STATE_LUXURY">
 			<Text>{2_Num}由於城邦盟友（{1_Num}%）</Text>
 		</Row>
-
 		<Row Tag="TXT_KEY_GOLDENAGE_GP_MOD">
 			<Text>[ICON_BULLET]黃金時代加成: +{1_num}%</Text>
 		</Row>

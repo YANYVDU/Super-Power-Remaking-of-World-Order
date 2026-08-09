@@ -18697,7 +18697,6 @@
 		<Row Tag="TXT_KEY_TP_HAPPINESS_CITY_STATE_LUXURY">
 			<Text>{2_Num} from City-State Allies ({1_Num}%)</Text>
 		</Row>
-
 		<Row Tag="TXT_KEY_GOLDENAGE_GP_MOD">
 			<Text>[ICON_BULLET]Golden Age Bonus: +{1_num}%</Text>
 		</Row>
