@@ -16950,7 +16950,7 @@
 			<Text>腐败不满：</Text>
 		</Row>
 		<Row Tag="TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL">
-			<Text>外交威望：</Text>
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]外交威望：</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CORRUPTION">
 			<Text>{1_num}来自腐败</Text>

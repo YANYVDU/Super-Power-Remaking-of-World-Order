@@ -16756,7 +16756,7 @@
 			<Text>腐敗不滿</Text>
 		</Row>
 		<Row Tag="TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL">
-			<Text>外交威望 ：</Text>
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]外交威望 ：</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CORRUPTION">
 			<Text>{1_num}来自腐敗</Text>
@@ -16948,7 +16948,7 @@
 		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE">
 			<Text>
-				當前外交威望：{1}/{2}（{3}）
+				當前[ICON_DIPLOMATIC_PRESTIGE]外交威望：{1}/{2}（{3}）
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE_OVEREXTENDED">
@@ -16989,7 +16989,7 @@
 			<Text>難度：{1_Num}%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_OVEREXTENSION">
-			<Text>外交威望超限：{1_Num}%</Text>
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]外交威望超限：{1_Num}%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_CITY_STATE">
 			<Text>城邦盟友：{1_Num}%</Text>

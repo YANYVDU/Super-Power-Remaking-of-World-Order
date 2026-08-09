@@ -18475,13 +18475,13 @@
 			<Text>Promise withdraw Military</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_MODIFIER">
-<Text>National Corruption [ICON_HAPPINESS_4]Unhappiness</Text>
+			<Text>National Corruption [ICON_HAPPINESS_4]Unhappiness</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_CHANGE">
 			<Text>Corruption Unhappiness</Text>
 		</Row>
-<Row Tag="TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL">
-			<Text>Diplomatic Prestige:</Text>
+		<Row Tag="TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL">
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]Diplomatic Prestige:</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CORRUPTION">
 			<Text>{1_num} From Corruption</Text>
@@ -18672,7 +18672,7 @@
 		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE">
 			<Text>
-				Current Diplomatic Prestige: {1}/{2} ({3})
+				Current [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige: {1}/{2} ({3})
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE_OVEREXTENDED">
@@ -18687,7 +18687,7 @@
 		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_OVEREXTENSION_PENALTY">
 			<Text>
-				Overextension Penalties:
+				[ICON_DIPLOMATIC_PRESTIGE]Overextension Penalties:
 				[NEWLINE][ICON_BULLET]Influence decays +{1}% per turn
 				[NEWLINE][ICON_BULLET]Influence gain {2}%
 				[NEWLINE][ICON_BULLET]Unhappiness +{3}%
@@ -18713,7 +18713,7 @@
 			<Text>Difficulty: {1_Num}%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_OVEREXTENSION">
-			<Text>Diplomatic Overextension: {1_Num}%</Text>
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]Diplomatic Overextension: {1_Num}%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_CITY_STATE">
 			<Text>City-State Ally: {1_Num}%</Text>
