@@ -1960,7 +1960,7 @@
 				如今，萬國宮每年舉辦超過8000場國際會議，是人權、裁軍、貿易和人道主義事務等全球議題的核心舞台。它象徵著人類對和平與合作的永恆追求。</Text>
 		</Row>
 
-		<!--****************************National Wonders*************************************-->
+	<!--****************************National Wonders*************************************-->
 
 		<Replace Tag="TXT_KEY_BUILDING_HEROIC_EPIC_HELP">
 			<Text>
@@ -16998,5 +16998,8 @@
 			<Text>额外提供15[ICON_RES_HORSE]馬</Text>
 		</Row>
 
+		<Row Tag="TXT_KEY_GOLDENAGE_GP_MOD">
+			<Text>[ICON_BULLET]黃金時代加成: +{1_num}%</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

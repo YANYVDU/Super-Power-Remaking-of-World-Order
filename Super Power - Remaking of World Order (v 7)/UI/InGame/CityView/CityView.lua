@@ -1232,26 +1232,17 @@ function OnCityViewUpdate()
 							if (pWorldCongress ~= nil and pWorldCongress:GetArtsyGreatPersonRateModifier() ~= 0) then
 								iWorldCongressMod = iWorldCongressMod + pWorldCongress:GetArtsyGreatPersonRateModifier();
 							end
-							if (bGoldenAge and pPlayer:GetGoldenAgeGreatWriterRateModifier() > 0) then
-								iGoldenAgeMod = iGoldenAgeMod + pPlayer:GetGoldenAgeGreatWriterRateModifier();
-							end
 						elseif (pSpecialistInfo.GreatPeopleUnitClass == "UNITCLASS_ARTIST") then
 							iPlayerMod = iPlayerMod + pPlayer:GetGreatArtistRateModifier();
 							iPolicyMod = iPolicyMod + pPlayer:GetPolicyGreatArtistRateModifier();
 							if (pWorldCongress ~= nil and pWorldCongress:GetArtsyGreatPersonRateModifier() ~= 0) then
 								iWorldCongressMod = iWorldCongressMod + pWorldCongress:GetArtsyGreatPersonRateModifier();
 							end
-							if (bGoldenAge and pPlayer:GetGoldenAgeGreatArtistRateModifier() > 0) then
-								iGoldenAgeMod = iGoldenAgeMod + pPlayer:GetGoldenAgeGreatArtistRateModifier();
-							end
 						elseif (pSpecialistInfo.GreatPeopleUnitClass == "UNITCLASS_MUSICIAN") then
 							iPlayerMod = iPlayerMod + pPlayer:GetGreatMusicianRateModifier();
 							iPolicyMod = iPolicyMod + pPlayer:GetPolicyGreatMusicianRateModifier();
 							if (pWorldCongress ~= nil and pWorldCongress:GetArtsyGreatPersonRateModifier() ~= 0) then
 								iWorldCongressMod = iWorldCongressMod + pWorldCongress:GetArtsyGreatPersonRateModifier();
-							end
-							if (bGoldenAge and pPlayer:GetGoldenAgeGreatMusicianRateModifier() > 0) then
-								iGoldenAgeMod = iGoldenAgeMod + pPlayer:GetGoldenAgeGreatMusicianRateModifier();
 							end
 						elseif (pSpecialistInfo.GreatPeopleUnitClass == "UNITCLASS_SCIENTIST") then
 							iPlayerMod = iPlayerMod + pPlayer:GetGreatScientistRateModifier();
@@ -1272,7 +1263,12 @@ function OnCityViewUpdate()
 								iWorldCongressMod = iWorldCongressMod + pWorldCongress:GetScienceyGreatPersonRateModifier();
 							end
 						end
-						
+
+						-- Golden Age GP rate modifier, summed from all sources (player instance + traits + religion beliefs) via C++
+						if (bGoldenAge) then
+							iGoldenAgeMod = pCity:GetGoldenAgeGreatPersonRateModifierFromSpecialist(iSpecialistIndex);
+						end
+
 						-- Player mod actually includes policy mod and World Congress mod, so separate them for tooltip
 						iPlayerMod = iPlayerMod - iPolicyMod - iWorldCongressMod;
 						
