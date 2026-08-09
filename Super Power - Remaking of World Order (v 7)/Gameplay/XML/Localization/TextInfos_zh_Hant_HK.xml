@@ -16943,6 +16943,183 @@
 				[NEWLINE][ICON_BULLET]朋友效果：朋友城市的[ICON_GOLD]市場和[ICON_GOLD]銀行+1[ICON_GREAT_MERCHANT]大商業家點數
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_FLORENCE_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]信仰購買[ICON_GREAT_PEOPLE]偉人後，下一次購買價格的上漲幅度降低50%，每擁有一個[ICON_GREAT_WORK]傑作，上漲幅度額外降低1%（至多-90%）
+				[NEWLINE][ICON_BULLET]工業時代後，允許使用[ICON_PEACE]信仰購買所有[ICON_GREAT_PEOPLE]偉人
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]信仰購買[ICON_GREAT_PEOPLE]偉人後，下一次購買價格的上漲幅度降低20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_FLORENCE_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]信仰購買[ICON_GREAT_PEOPLE]偉人後，下一次購買價格的上漲幅度降低50%，每擁有一個[ICON_GREAT_WORK]傑作，上漲幅度額外降低1%（至多-90%）
+				[NEWLINE][ICON_BULLET]工業時代後，允許使用[ICON_PEACE]信仰購買所有[ICON_GREAT_PEOPLE]偉人
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_FLORENCE_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]信仰購買[ICON_GREAT_PEOPLE]偉人後，下一次購買價格的上漲幅度降低20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MALACCA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]奢侈品提供的[ICON_HAPPINESS_1]快樂+100%
+				[NEWLINE][ICON_BULLET]盟友每擁有1種提供快樂的[ICON_GOLD]奢侈品，城市+1%[ICON_FOOD]餘糧加成
+				[NEWLINE][ICON_BULLET]盟友每擁有1種提供快樂的[ICON_GOLD]奢侈品，[ICON_INTERNATIONAL_TRADE]商路金錢+3%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]奢侈品提供的[ICON_HAPPINESS_1]快樂+40%
+				[NEWLINE][ICON_BULLET]朋友每擁有2種提供快樂的[ICON_GOLD]奢侈品，城市+1%[ICON_FOOD]餘糧加成
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MALACCA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]奢侈品提供的[ICON_HAPPINESS_1]快樂+100%
+				[NEWLINE][ICON_BULLET]盟友每擁有1種提供快樂的[ICON_GOLD]奢侈品，城市+1%[ICON_FOOD]餘糧加成
+				[NEWLINE][ICON_BULLET]盟友每擁有1種提供快樂的[ICON_GOLD]奢侈品，[ICON_INTERNATIONAL_TRADE]商路金錢+3%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MALACCA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]奢侈品提供的[ICON_HAPPINESS_1]快樂+40%
+				[NEWLINE][ICON_BULLET]朋友每擁有2種提供快樂的[ICON_GOLD]奢侈品，城市+1%[ICON_FOOD]餘糧加成
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_PANAMA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔1格，該商路[ICON_GOLD]金錢收益+1%
+				[NEWLINE][ICON_BULLET]盟友每一條[ICON_INTERNATIONAL_TRADE]跨大陸國際商路，來自[ICON_CITIZEN]人口的不滿降低3%(至多-90%)
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]盟友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔2格，該商路[ICON_GOLD]金錢收益+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔1格，該商路[ICON_GOLD]金錢收益+1%
+				[NEWLINE][ICON_BULLET]盟友每一條[ICON_INTERNATIONAL_TRADE]跨大陸國際商路，來自[ICON_CITIZEN]人口的不滿降低3%(至多-90%)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]盟友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔2格，該商路[ICON_GOLD]金錢收益+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_BRUSSELS_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的藝術、文學、音樂家[ICON_GREAT_PEOPLE]點數累積速率+40%
+				[NEWLINE][ICON_BULLET]盟友每擁有一個[ICON_GREAT_WORK]傑作，[ICON_CAPITAL]首都獲得1點[ICON_GREAT_MUSICIAN]大音樂家點數
+				[NEWLINE][ICON_BULLET]盟友的[ICON_GREAT_MUSICIAN]大音樂家舉辦[ICON_TOURISM]演唱會產出魅力+20%，且可獲得相當於其產出魅力5%的[ICON_GOLD]金錢
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的藝術、文學、音樂家[ICON_GREAT_PEOPLE]點數累積速率+15%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_GP_MOD">
+			<Text>[ICON_BULLET]盟邦UA加成: +{1_num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRUSSELS_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的藝術、文學、音樂家[ICON_GREAT_PEOPLE]點數累積速率+40%
+				[NEWLINE][ICON_BULLET]盟友每擁有一個[ICON_GREAT_WORK]傑作，[ICON_CAPITAL]首都獲得1點[ICON_GREAT_MUSICIAN]大音樂家點數
+				[NEWLINE][ICON_BULLET]盟友的[ICON_GREAT_MUSICIAN]大音樂家舉辦[ICON_TOURISM]演唱會產出魅力+20%，且可獲得相當於其產出魅力5%的[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRUSSELS_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的藝術、文學、音樂家[ICON_GREAT_PEOPLE]點數累積速率+15%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_COLOMBO_HELP">
+			<Text>當你為可倫坡的盟友或朋友時，你通往可倫坡的[ICON_INTERNATIONAL_TRADE]國際商路每時代獲得額外[ICON_GOLD]金幣。盟友城市擁有通往可倫坡的商路時，將部分[ICON_PEACE]信仰轉化為[ICON_RESEARCH]科研和[ICON_TOURISM]魅力。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_COLOMBO_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你通往可倫坡的[ICON_INTERNATIONAL_TRADE]國際商路每時代獲得+15[ICON_GOLD]金幣
+				[NEWLINE][ICON_BULLET]擁有通往可倫坡商路的城市將20%的[ICON_PEACE]信仰轉化為[ICON_RESEARCH]科研、15%轉化為[ICON_TOURISM]魅力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]你通往可倫坡的[ICON_INTERNATIONAL_TRADE]國際商路每時代獲得+6[ICON_GOLD]金幣
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_COLOMBO_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你通往可倫坡的[ICON_INTERNATIONAL_TRADE]國際商路每時代獲得+15[ICON_GOLD]金幣
+				[NEWLINE][ICON_BULLET]擁有通往可倫坡商路的城市將20%的[ICON_PEACE]信仰轉化為[ICON_RESEARCH]科研、15%轉化為[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_COLOMBO_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]你通往可倫坡的[ICON_INTERNATIONAL_TRADE]國際商路每時代獲得+6[ICON_GOLD]金幣
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_DUBAI_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每向杜拜捐贈過1000[ICON_GOLD]現金，全域[ICON_HAPPINESS_1]快樂+1
+				[NEWLINE][ICON_BULLET]此來源的每點快樂提供全域奇觀建造速率+1%
+				[NEWLINE][ICON_BULLET]此來源的每點快樂提高自身5%對其他意識形態的輿論壓力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]每向杜拜捐贈過2000[ICON_GOLD]現金，全域[ICON_HAPPINESS_1]快樂+1
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_DUBAI_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每向杜拜捐贈過1000[ICON_GOLD]現金，全域[ICON_HAPPINESS_1]快樂+1
+				[NEWLINE][ICON_BULLET]此來源的每點快樂提供全域奇觀建造速率+1%
+				[NEWLINE][ICON_BULLET]此來源的每點快樂提高自身5%對其他意識形態的輿論壓力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_DUBAI_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]每向杜拜捐贈過2000[ICON_GOLD]現金，全域[ICON_HAPPINESS_1]快樂+1
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_VALLETTA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]敵人城市一環內我方軍事單位達到3個或以上時，該城市無法回復血量
+				[NEWLINE][ICON_BULLET]購買宗教建築後，全國陸軍單位+5經驗
+				[NEWLINE][ICON_BULLET]誕生陸軍統帥時，獲得等同於對瓦萊塔影響力100%的[ICON_PEACE]信仰
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]敵人城市一環內我方軍事單位達到6個或以上時，該城市無法回復血量
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VALLETTA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]敵人城市一環內我方軍事單位達到3個或以上時，該城市無法回復血量
+				[NEWLINE][ICON_BULLET]購買宗教建築後，全國陸軍單位+5經驗
+				[NEWLINE][ICON_BULLET]誕生陸軍統帥時，獲得等同於對瓦萊塔影響力100%的[ICON_PEACE]信仰
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VALLETTA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]敵人城市一環內我方軍事單位達到6個或以上時，該城市無法回復血量
+			</Text>
+		</Row>
 		<Row Tag="TXT_KEY_TP_HAPPINESS_GOLD_DONATION">
 			<Text>{1_Num} 來自金幣捐贈</Text>
 		</Row>
