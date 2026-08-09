@@ -18667,6 +18667,183 @@
 				[NEWLINE][ICON_BULLET][ICON_GOLD] Market and [ICON_GOLD] Bank provide +1 Great Merchant Point in friend cities
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_FLORENCE_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]After faith-purchasing a [ICON_GREAT_PEOPLE]Great Person, the cost rise of the next purchase is reduced by 50%, plus an additional 1% per [ICON_GREAT_WORK]Great Work (max -90%)
+				[NEWLINE][ICON_BULLET]From the Industrial Era onward, allows faith-purchasing of all [ICON_GREAT_PEOPLE]Great People
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]After faith-purchasing a [ICON_GREAT_PEOPLE]Great Person, the cost rise of the next purchase is reduced by 20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_FLORENCE_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]After faith-purchasing a [ICON_GREAT_PEOPLE]Great Person, the cost rise of the next purchase is reduced by 50%, plus an additional 1% per [ICON_GREAT_WORK]Great Work (max -90%)
+				[NEWLINE][ICON_BULLET]From the Industrial Era onward, allows faith-purchasing of all [ICON_GREAT_PEOPLE]Great People
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_FLORENCE_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]After faith-purchasing a [ICON_GREAT_PEOPLE]Great Person, the cost rise of the next purchase is reduced by 20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MALACCA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET][ICON_HAPPINESS_1]Happiness from Luxury Resources +100%
+				[NEWLINE][ICON_BULLET]Each type of happy [ICON_GOLD]Luxury Resource owned: +1% [ICON_FOOD]Food Surplus in all cities
+				[NEWLINE][ICON_BULLET]Each type of happy [ICON_GOLD]Luxury Resource owned: +3% [ICON_INTERNATIONAL_TRADE]Trade Route Gold
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_HAPPINESS_1]Happiness from Luxury Resources +40%
+				[NEWLINE][ICON_BULLET]Each 2 types of happy [ICON_GOLD]Luxury Resources owned: +1% [ICON_FOOD]Food Surplus in all cities
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MALACCA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET][ICON_HAPPINESS_1]Happiness from Luxury Resources +100%
+				[NEWLINE][ICON_BULLET]Each type of happy [ICON_GOLD]Luxury Resource owned: +1% [ICON_FOOD]Food Surplus in all cities
+				[NEWLINE][ICON_BULLET]Each type of happy [ICON_GOLD]Luxury Resource owned: +3% [ICON_INTERNATIONAL_TRADE]Trade Route Gold
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MALACCA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_HAPPINESS_1]Happiness from Luxury Resources +40%
+				[NEWLINE][ICON_BULLET]Each 2 types of happy [ICON_GOLD]Luxury Resources owned: +1% [ICON_FOOD]Food Surplus in all cities
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_PANAMA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET][ICON_INTERNATIONAL_TRADE]International Trade Routes: +1% [ICON_GOLD]Gold per tile between origin and destination cities
+				[NEWLINE][ICON_BULLET]Each cross-continental international trade route: -3% [ICON_CITIZEN]Population Unhappiness (max -90%)
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_INTERNATIONAL_TRADE]International Trade Routes: +1% [ICON_GOLD]Gold per 2 tiles between origin and destination cities
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET][ICON_INTERNATIONAL_TRADE]International Trade Routes: +1% [ICON_GOLD]Gold per tile between origin and destination cities
+				[NEWLINE][ICON_BULLET]Each cross-continental international trade route: -3% [ICON_CITIZEN]Population Unhappiness (max -90%)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_INTERNATIONAL_TRADE]International Trade Routes: +1% [ICON_GOLD]Gold per 2 tiles between origin and destination cities
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_BRUSSELS_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]+40% [ICON_GREAT_PEOPLE]Great People points accumulation rate for [ICON_GREAT_ARTIST]Artists, [ICON_GREAT_WRITER]Writers, and [ICON_GREAT_MUSICIAN]Musicians
+				[NEWLINE][ICON_BULLET]Each [ICON_GREAT_WORK]Great Work owned grants +1 [ICON_GREAT_MUSICIAN]Great Musician points in the [ICON_CAPITAL]Capital
+				[NEWLINE][ICON_BULLET]+20% [ICON_TOURISM]Tourism from [ICON_GREAT_MUSICIAN]Great Musician concerts, and earn [ICON_GOLD]Gold equal to 5% of the [ICON_TOURISM]Tourism generated
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]+15% [ICON_GREAT_PEOPLE]Great People points accumulation rate for [ICON_GREAT_ARTIST]Artists, [ICON_GREAT_WRITER]Writers, and [ICON_GREAT_MUSICIAN]Musicians
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_GP_MOD">
+			<Text>[ICON_BULLET]Ally UA Bonus: +{1_num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRUSSELS_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]+40% [ICON_GREAT_PEOPLE]Great People points accumulation rate for [ICON_GREAT_ARTIST]Artists, [ICON_GREAT_WRITER]Writers, and [ICON_GREAT_MUSICIAN]Musicians
+				[NEWLINE][ICON_BULLET]Each [ICON_GREAT_WORK]Great Work owned grants +1 [ICON_GREAT_MUSICIAN]Great Musician points in the [ICON_CAPITAL]Capital
+				[NEWLINE][ICON_BULLET]+20% [ICON_TOURISM]Tourism from [ICON_GREAT_MUSICIAN]Great Musician concerts, and earn [ICON_GOLD]Gold equal to 5% of the [ICON_TOURISM]Tourism generated
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRUSSELS_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]+15% [ICON_GREAT_PEOPLE]Great People points accumulation rate for [ICON_GREAT_ARTIST]Artists, [ICON_GREAT_WRITER]Writers, and [ICON_GREAT_MUSICIAN]Musicians
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_COLOMBO_HELP">
+			<Text>Your [ICON_INTERNATIONAL_TRADE]International Trade Routes to Colombo grant extra [ICON_GOLD]Gold per Era while you are Colombo's Ally or Friend. While an Ally, cities with a Trade Route to Colombo convert part of their [ICON_PEACE]Faith into [ICON_RESEARCH]Science and [ICON_TOURISM]Tourism.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_COLOMBO_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Your [ICON_INTERNATIONAL_TRADE]International Trade Routes to Colombo grant +15[ICON_GOLD]Gold per Era
+				[NEWLINE][ICON_BULLET]Cities with a Trade Route to Colombo convert 20% of their [ICON_PEACE]Faith into [ICON_RESEARCH]Science and 15% into [ICON_TOURISM]Tourism
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Your [ICON_INTERNATIONAL_TRADE]International Trade Routes to Colombo grant +6[ICON_GOLD]Gold per Era
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_COLOMBO_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Your [ICON_INTERNATIONAL_TRADE]International Trade Routes to Colombo grant +15[ICON_GOLD]Gold per Era
+				[NEWLINE][ICON_BULLET]Cities with a Trade Route to Colombo convert 20% of their [ICON_PEACE]Faith into [ICON_RESEARCH]Science and 15% into [ICON_TOURISM]Tourism
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_COLOMBO_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Your [ICON_INTERNATIONAL_TRADE]International Trade Routes to Colombo grant +6[ICON_GOLD]Gold per Era
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_DUBAI_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]+1 global [ICON_HAPPINESS_1]Happiness for every 1000[ICON_GOLD]Gold donated to Dubai
+				[NEWLINE][ICON_BULLET]Each point of Happiness from this source grants +1% global Wonder production
+				[NEWLINE][ICON_BULLET]Each point of Happiness from this source increases your ideological pressure on other ideologies by 5%
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]+1 global [ICON_HAPPINESS_1]Happiness for every 2000[ICON_GOLD]Gold donated to Dubai
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_DUBAI_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]+1 global [ICON_HAPPINESS_1]Happiness for every 1000[ICON_GOLD]Gold donated to Dubai
+				[NEWLINE][ICON_BULLET]Each point of Happiness from this source grants +1% global Wonder production
+				[NEWLINE][ICON_BULLET]Each point of Happiness from this source increases your ideological pressure on other ideologies by 5%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_DUBAI_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]+1 global [ICON_HAPPINESS_1]Happiness for every 2000[ICON_GOLD]Gold donated to Dubai
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_VALLETTA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Enemy cities with 3 or more of your military units in their inner ring cannot heal
+				[NEWLINE][ICON_BULLET]Purchasing a religious building grants +5 XP to all Land units
+				[NEWLINE][ICON_BULLET]Great Generals born grant Faith equal to 100% of your influence with Valletta
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Enemy cities with 6 or more of your military units in their inner ring cannot heal
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VALLETTA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Enemy cities with 3 or more of your military units in their inner ring cannot heal
+				[NEWLINE][ICON_BULLET]Purchasing a religious building grants +5 XP to all Land units
+				[NEWLINE][ICON_BULLET]Great Generals born grant Faith equal to 100% of your influence with Valletta
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VALLETTA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Enemy cities with 6 or more of your military units in their inner ring cannot heal
+			</Text>
+		</Row>
 		<Row Tag="TXT_KEY_TP_HAPPINESS_GOLD_DONATION">
 			<Text>{1_Num} from Gold Donations</Text>
 		</Row>
