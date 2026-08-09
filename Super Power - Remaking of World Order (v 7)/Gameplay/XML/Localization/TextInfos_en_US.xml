@@ -18722,5 +18722,8 @@
 			<Text>Provides additional 15 [ICON_RES_HORSE]Horses</Text>
 		</Row>
 
+		<Row Tag="TXT_KEY_GOLDENAGE_GP_MOD">
+			<Text>[ICON_BULLET]Golden Age Bonus: +{1_num}%</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

@@ -17194,5 +17194,8 @@
 		<Row Tag="TXT_KEY_CITY_STATE_GP_MOD">
 			<Text>[ICON_BULLET]盟邦UA加成: +{1_num}%</Text>
 		</Row>
+		<Row Tag="TXT_KEY_GOLDENAGE_GP_MOD">
+			<Text>[ICON_BULLET]黄金时代加成: +{1_num}%</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>
