@@ -16997,9 +16997,5 @@
 		<Row Tag="TXT_KEY_BUILDING_CSUA_ALMATY_HELP">
 			<Text>额外提供15[ICON_RES_HORSE]馬</Text>
 		</Row>
-
-		<Row Tag="TXT_KEY_GOLDENAGE_GP_MOD">
-			<Text>[ICON_BULLET]黃金時代加成: +{1_num}%</Text>
-		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
