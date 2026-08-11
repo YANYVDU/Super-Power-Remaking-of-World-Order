@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context>
+	<Container ID="WorldLabelStack"/>
+	<Grid ID="MainGrid" Size="320,228" Anchor="C,C" Style="GridBlackIndent8" Hidden="1" ConsumeMouse="1">
+		<Grid Size="320,228" Anchor="C,C" Style="Grid9Frame" Padding="8,8">
+			<Label Anchor="L,T" Offset="4,4" Font="TwCenMT20" FontStyle="Shadow" Color0="Beige" Color1="0.0.0.160" String="TXT_KEY_PLOT_NAME_TITLE"/>
+			<EditBox ID="NameInput" EditMode="1" Anchor="L,T" Offset="4,36" Size="296,28" Font="TwCenMT16" MaxLength="64"/>
+			<!-- Color legend header -->
+			<Label Anchor="L,T" Offset="4,72" Font="TwCenMT14" FontStyle="Shadow" Color0="Beige" Color1="0.0.0.160" String="颜色前缀:"/>
+			<!-- Row 1 -->
+			<Label Anchor="L,T" Offset="4,90" Font="TwCenMT14" FontStyle="Shadow" Color0="255.0.0.255" Color1="0.0.0.160" String=".R Abc"/>
+			<Label Anchor="L,T" Offset="46,90" Font="TwCenMT14" FontStyle="Shadow" Color0="0.255.0.255" Color1="0.0.0.160" String=".G Abc"/>
+			<Label Anchor="L,T" Offset="88,90" Font="TwCenMT14" FontStyle="Shadow" Color0="0.0.255.255" Color1="0.0.0.160" String=".BL Abc"/>
+			<Label Anchor="L,T" Offset="136,90" Font="TwCenMT14" FontStyle="Shadow" Color0="255.255.0.255" Color1="0.0.0.160" String=".Y Abc"/>
+			<Label Anchor="L,T" Offset="178,90" Font="TwCenMT14" FontStyle="Shadow" Color0="0.255.255.255" Color1="0.0.0.160" String=".C Abc"/>
+			<Label Anchor="L,T" Offset="220,90" Font="TwCenMT14" FontStyle="Shadow" Color0="255.0.255.255" Color1="0.0.0.160" String=".M Abc"/>
+			<!-- Row 2 -->
+			<Label Anchor="L,T" Offset="4,106" Font="TwCenMT14" FontStyle="Shadow" Color0="255.255.255.255" Color1="0.0.0.160" String=".W Abc"/>
+			<Label Anchor="L,T" Offset="46,106" Font="TwCenMT14" FontStyle="Shadow" Color0="128.0.128.255" Color1="0.0.0.160" String=".P Abc"/>
+			<Label Anchor="L,T" Offset="88,106" Font="TwCenMT14" FontStyle="Shadow" Color0="0.0.128.255" Color1="0.0.0.160" String=".N Abc"/>
+			<Label Anchor="L,T" Offset="130,106" Font="TwCenMT14" FontStyle="Shadow" Color0="192.192.192.255" Color1="0.0.0.160" String=".S Abc"/>
+			<Label Anchor="L,T" Offset="172,106" Font="TwCenMT14" FontStyle="Shadow" Color0="0.128.255.255" Color1="0.0.0.160" String=".U Abc"/>
+			<!-- Row 3 -->
+			<Label Anchor="L,T" Offset="4,122" Font="TwCenMT14" FontStyle="Shadow" Color0="34.139.34.255" Color1="0.0.0.160" String=".F Abc"/>
+			<Label Anchor="L,T" Offset="46,122" Font="TwCenMT14" FontStyle="Shadow" Color0="139.69.19.255" Color1="0.0.0.160" String=".BR Abc"/>
+			<!-- Buttons -->
+			<Button ID="ConfirmBtn" Anchor="L,B" Offset="8,12" Size="90,28" Style="SmallButton" Font="TwCenMT14">
+				<Label String="TXT_KEY_PLOT_NAME_CONFIRM" Anchor="C,C" Font="TwCenMT14"/>
+			</Button>
+			<Button ID="ClearBtn" Anchor="C,B" Offset="0,12" Size="90,28" Style="SmallButton" Font="TwCenMT14">
+				<Label String="TXT_KEY_PLOT_NAME_CLEAR" Anchor="C,C" Font="TwCenMT14"/>
+			</Button>
+			<Button ID="CancelBtn" Anchor="R,B" Offset="8,12" Size="90,28" Style="SmallButton" Font="TwCenMT14">
+				<Label String="TXT_KEY_PLOT_NAME_CANCEL" Anchor="C,C" Font="TwCenMT14"/>
+			</Button>
+		</Grid>
+	</Grid>
+	<Instance Name="PlotNameLabelR">
+		<WorldAnchor ID="Anchor"><Label ID="Label" Anchor="C,C" Offset="0,0" String="" Font="TwCenMT24" Color0="255.0.0.255" Color1="0.0.0.160" FontStyle="Shadow"/></WorldAnchor>
+	</Instance>
+	<Instance Name="PlotNameLabelG">
+		<WorldAnchor ID="Anchor"><Label ID="Label" Anchor="C,C" Offset="0,0" String="" Font="TwCenMT24" Color0="0.255.0.255" Color1="0.0.0.160" FontStyle="Shadow"/></WorldAnchor>
+	</Instance>
+	<Instance Name="PlotNameLabelBL">
+		<WorldAnchor ID="Anchor"><Label ID="Label" Anchor="C,C" Offset="0,0" String="" Font="TwCenMT24" Color0="0.0.255.255" Color1="0.0.0.160" FontStyle="Shadow"/></WorldAnchor>
+	</Instance>
+	<Instance Name="PlotNameLabelY">
+		<WorldAnchor ID="Anchor"><Label ID="Label" Anchor="C,C" Offset="0,0" String="" Font="TwCenMT24" Color0="255.255.0.255" Color1="0.0.0.160" FontStyle="Shadow"/></WorldAnchor>
+	</Instance>
+	<Instance Name="PlotNameLabelC">
+		<WorldAnchor ID="Anchor"><Label ID="Label" Anchor="C,C" Offset="0,0" String="" Font="TwCenMT24" Color0="0.255.255.255" Color1="0.0.0.160" FontStyle="Shadow"/></WorldAnchor>
+	</Instance>
+	<Instance Name="PlotNameLabelM">
+		<WorldAnchor ID="Anchor"><Label ID="Label" Anchor="C,C" Offset="0,0" String="" Font="TwCenMT24" Color0="255.0.255.255" Color1="0.0.0.160" FontStyle="Shadow"/></WorldAnchor>
+	</Instance>
+	<Instance Name="PlotNameLabelW">
+		<WorldAnchor ID="Anchor"><Label ID="Label" Anchor="C,C" Offset="0,0" String="" Font="TwCenMT24" Color0="255.255.255.255" Color1="0.0.0.160" FontStyle="Shadow"/></WorldAnchor>
+	</Instance>
+	<Instance Name="PlotNameLabelP">
+		<WorldAnchor ID="Anchor"><Label ID="Label" Anchor="C,C" Offset="0,0" String="" Font="TwCenMT24" Color0="128.0.128.255" Color1="0.0.0.160" FontStyle="Shadow"/></WorldAnchor>
+	</Instance>
+	<Instance Name="PlotNameLabelN">
+		<WorldAnchor ID="Anchor"><Label ID="Label" Anchor="C,C" Offset="0,0" String="" Font="TwCenMT24" Color0="0.0.128.255" Color1="0.0.0.160" FontStyle="Shadow"/></WorldAnchor>
+	</Instance>
+	<Instance Name="PlotNameLabelS">
+		<WorldAnchor ID="Anchor"><Label ID="Label" Anchor="C,C" Offset="0,0" String="" Font="TwCenMT24" Color0="192.192.192.255" Color1="0.0.0.160" FontStyle="Shadow"/></WorldAnchor>
+	</Instance>
+	<Instance Name="PlotNameLabelU">
+		<WorldAnchor ID="Anchor"><Label ID="Label" Anchor="C,C" Offset="0,0" String="" Font="TwCenMT24" Color0="0.128.255.255" Color1="0.0.0.160" FontStyle="Shadow"/></WorldAnchor>
+	</Instance>
+	<Instance Name="PlotNameLabelF">
+		<WorldAnchor ID="Anchor"><Label ID="Label" Anchor="C,C" Offset="0,0" String="" Font="TwCenMT24" Color0="34.139.34.255" Color1="0.0.0.160" FontStyle="Shadow"/></WorldAnchor>
+	</Instance>
+	<Instance Name="PlotNameLabelBR">
+		<WorldAnchor ID="Anchor"><Label ID="Label" Anchor="C,C" Offset="0,0" String="" Font="TwCenMT24" Color0="139.69.19.255" Color1="0.0.0.160" FontStyle="Shadow"/></WorldAnchor>
+	</Instance>
+</Context>

@@ -810,6 +810,7 @@ Controls.FindOnMapButton:RegisterCallback( Mouse.eLClick, OnFindOnMapButtonClick
 -- GIFT MENU
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
+local iGoldGiftHuge = GameDefines["MINOR_GOLD_GIFT_HUGE"] or 5000;
 local iGoldGiftLarge = GameDefines["MINOR_GOLD_GIFT_LARGE"];
 local iGoldGiftMedium = GameDefines["MINOR_GOLD_GIFT_MEDIUM"];
 local iGoldGiftSmall = GameDefines["MINOR_GOLD_GIFT_SMALL"];
@@ -861,7 +862,20 @@ function PopulateGiftChoices()
 	end
 	Controls.LargeGift:SetText(buttonText);
 	SetButtonSize(Controls.LargeGift, Controls.LargeGiftButton, Controls.LargeGiftAnim, Controls.LargeGiftButtonHL);
-	
+
+	-- Huge Gold
+	iGold = iGoldGiftHuge;
+	iFriendshipAmount = pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold);
+	local buttonText = Locale.ConvertTextKey("TXT_KEY_POPUP_MINOR_GOLD_GIFT_AMOUNT", iGold, iFriendshipAmount);
+	if (iNumGoldPlayerHas < iGold) then
+		buttonText = "[COLOR_WARNING_TEXT]" .. buttonText .. "[ENDCOLOR]";
+		Controls.HugeGiftAnim:SetHide(true);
+	else
+		Controls.HugeGiftAnim:SetHide(false);
+	end
+	Controls.HugeGift:SetText(buttonText);
+	SetButtonSize(Controls.HugeGift, Controls.HugeGiftButton, Controls.HugeGiftAnim, Controls.HugeGiftButtonHL);
+
 	-- Unit
 	local iInfluence = pPlayer:GetFriendshipFromUnitGift(iActivePlayer, false, true);
 	local iTravelTurns = GameDefines.MINOR_UNIT_GIFT_TRAVEL_TURNS;
@@ -894,7 +908,7 @@ function PopulateGiftChoices()
 	
 	-- Tooltip info
 	local iFriendsAmount = GameDefines["FRIENDSHIP_THRESHOLD_FRIENDS"];
-	local iAlliesAmount = GameDefines["FRIENDSHIP_THRESHOLD_ALLIES"];
+	local iAlliesAmount = Players[iActivePlayer]:GetMinorCivAlliesThreshold();
     local iFriendship = pPlayer:GetMinorCivFriendshipWithMajor(iActivePlayer);
 	local strInfoTT = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_GOLD_STATUS_TT", iFriendsAmount, iAlliesAmount, iFriendship);
 	strInfoTT = strInfoTT .. "[NEWLINE][NEWLINE]";
@@ -902,6 +916,7 @@ function PopulateGiftChoices()
 	Controls.SmallGiftButton:SetToolTipString(strInfoTT);
 	Controls.MediumGiftButton:SetToolTipString(strInfoTT);
 	Controls.LargeGiftButton:SetToolTipString(strInfoTT);
+	Controls.HugeGiftButton:SetToolTipString(strInfoTT);
 	
 	UpdateButtonStack();
 end
@@ -939,7 +954,7 @@ function OnBigGold ()
 	local iActivePlayer = Game.GetActivePlayer();
 	local pActivePlayer = Players[iActivePlayer];
 	local iNumGoldPlayerHas = pActivePlayer:GetGold();
-	
+
 	if (iNumGoldPlayerHas >= iGoldGiftLarge) then
 		Game.DoMinorGoldGift(g_iMinorCivID, iGoldGiftLarge);
 		m_iLastAction = kiGiftedGold;
@@ -947,6 +962,19 @@ function OnBigGold ()
 	end
 end
 Controls.LargeGiftButton:RegisterCallback( Mouse.eLClick, OnBigGold );
+
+function OnHugeGold ()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	local iNumGoldPlayerHas = pActivePlayer:GetGold();
+
+	if (iNumGoldPlayerHas >= iGoldGiftHuge) then
+		Game.DoMinorGoldGift(g_iMinorCivID, iGoldGiftHuge);
+		m_iLastAction = kiGiftedGold;
+		OnCloseGive();
+	end
+end
+Controls.HugeGiftButton:RegisterCallback( Mouse.eLClick, OnHugeGold );
 
 ----------------------------------------------------------------
 -- Gift Unit

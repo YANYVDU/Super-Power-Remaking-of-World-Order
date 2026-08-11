@@ -560,6 +560,18 @@ function ScienceTipHandler( control )
 		if iScienceModFromResource ~= 0 then
 			strText = strText .. Locale.ConvertTextKey("TXT_KEY_PRODMOD_YIELD_RESOURCE_BUFF", iScienceModFromResource);
 		end
+
+		-- Science from Policies (Yield per global population)
+		local iScienceFromGlobalPop = pPlayer:GetPolicyYieldPerGlobalPop(GameInfoTypes["YIELD_SCIENCE"]) * pPlayer:GetTotalPopulation();
+		if (iScienceFromGlobalPop ~= 0) then
+			if (bFirstEntry) then
+				bFirstEntry = false;
+			else
+				strText = strText .. "[NEWLINE]";
+			end
+			strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_SCIENCE_FROM_GLOBAL_POP", iScienceFromGlobalPop / 100);
+			strText = strText .. "[NEWLINE]";
+		end
 	
 		local iScienceFromRAs = pPlayer:GetScienceFromResearchAgreementsTimes100();
 		if (iScienceFromRAs ~= 0) then
@@ -747,9 +759,7 @@ function HappinessTipHandler( control )
 		local iResourcesHappiness = pPlayer:GetHappinessFromResources();
 		local iExtraLuxuryHappiness = pPlayer:GetExtraHappinessPerLuxury();
 
-		local iCityHappinessRaw = pPlayer:GetHappinessFromCities();
-		local SPUnhappinessCityException = SPUnhappinessFromCitiesCount (pPlayer)
-		local iCityHappiness = iCityHappinessRaw + SPUnhappinessCityException
+		local iCityHappiness = pPlayer:GetHappinessFromCities();
 
 		local iBuildingHappiness = pPlayer:GetHappinessFromBuildings();
 		local iTradeRouteHappiness = pPlayer:GetHappinessFromTradeRoutes();
@@ -759,6 +769,7 @@ function HappinessTipHandler( control )
 		local iMinorCivHappiness = pPlayer:GetHappinessFromMinorCivs();
 		local iLeagueHappiness = pPlayer:GetHappinessFromLeagues();
 		local iFaithHappiness = pPlayer:GetHappinessFromFaith();
+		local iGoldDonationHappiness = pPlayer:GetGoldDonationHappiness();
 
 		--SP Flat Hadicap Happiness
 		local iHandicapHappiness = Game.GetHappinessFromHandicap();
@@ -803,7 +814,15 @@ function HappinessTipHandler( control )
 		strText = strText .. "  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_HAPPINESS_FROM_RESOURCES", iResourcesHappiness);
 	
 		-- Individual Resource Info
-	
+
+		-- Luxury happiness percentage modifier (Mercantile CS allies + CSUA), shown before the per-resource list
+		local iLuxHappinessMod = pPlayer:GetTotalLuxuryHappinessModifier();
+		local iLuxHappinessValue = pPlayer:GetTotalLuxuryHappinessValue();
+		if (iLuxHappinessMod > 0 and iLuxHappinessValue > 0) then
+			strText = strText .. "[NEWLINE]";
+			strText = strText .. "          " .. Locale.ConvertTextKey("TXT_KEY_TP_HAPPINESS_LUXURY_MOD", iLuxHappinessMod, iLuxHappinessValue);
+		end
+
 		local iBaseHappinessFromResources = 0;
 		local iNumHappinessResources = 0;
 
@@ -831,8 +850,8 @@ function HappinessTipHandler( control )
 			strText = strText .. "          " .. Locale.ConvertTextKey("TXT_KEY_TP_HAPPINESS_EXTRA_PER_RESOURCE", iExtraLuxuryHappiness, iNumHappinessResources * iExtraLuxuryHappiness);
 		end
 	
-		-- Misc Happiness from Resources
-		local iMiscHappiness = iResourcesHappiness - iBaseHappinessFromResources - iHappinessFromExtraResources - (iExtraLuxuryHappiness * iNumHappinessResources);
+		-- Misc Happiness from Resources (excluding the luxury modifier which is listed separately)
+		local iMiscHappiness = iResourcesHappiness - iBaseHappinessFromResources - iHappinessFromExtraResources - (iExtraLuxuryHappiness * iNumHappinessResources) - iLuxHappinessValue;
 		if (iMiscHappiness > 0) then
 			strText = strText .. "[NEWLINE]";
 			strText = strText .. "          +" .. Locale.ConvertTextKey("TXT_KEY_TP_HAPPINESS_OTHER_SOURCES", iMiscHappiness);
@@ -870,6 +889,10 @@ function HappinessTipHandler( control )
 			strText = strText .. "[NEWLINE]";
 			strText = strText .. "  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_HAPPINESS_CITY_STATE_FRIENDSHIP", iMinorCivHappiness);
 		end
+		if (iGoldDonationHappiness ~= 0) then
+			strText = strText .. "[NEWLINE]";
+			strText = strText .. "  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_HAPPINESS_GOLD_DONATION", iGoldDonationHappiness);
+		end
 		if (iLeagueHappiness ~= 0) then
 			strText = strText .. "[NEWLINE]";
 			strText = strText .. "  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_HAPPINESS_LEAGUES", iLeagueHappiness);
@@ -882,11 +905,11 @@ function HappinessTipHandler( control )
 		strText = strText .. "  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_HAPPINESS_DIFFICULTY_LEVEL", iHandicapHappiness);
 		strText = strText .. "[/COLOR]";
 
-		local iUnhappinessFromCityCount = SPUnhappinessFromCitiesCount (pPlayer)
+		local iUnhappinessFromCityCount = pPlayer:GetUnhappinessFromCorruption() / 100
 	
 		
 		-- Unhappiness
-		local iTotalUnhappiness = pPlayer:GetUnhappiness() + iUnhappinessFromCityCount
+		local iTotalUnhappiness = pPlayer:GetUnhappiness()
 		
 		
 		local iUnhappinessFromUnits = Locale.ToNumber( pPlayer:GetUnhappinessFromUnits() / 100, "#.##" );
@@ -908,7 +931,7 @@ function HappinessTipHandler( control )
 		strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_UNHAPPINESS_TOTAL", iTotalUnhappiness);
 		strText = strText .. "[NEWLINE]";
 		
-		strText = strText .. "  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_UNHAPPINESS_CITY_COUNT", iUnhappinessFromCityCount);
+		strText = strText .. "  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_UNHAPPINESS_CORRUPTION", iUnhappinessFromCityCount);
 		
 		if (iUnhappinessFromCapturedCityCount ~= "0") then
 			strText = strText .. "[NEWLINE]";
@@ -948,6 +971,40 @@ function HappinessTipHandler( control )
 	
 	
 	
+		--------------------------------------SP Population Unhappiness Modifiers-----------------------------
+		local function AddPopUnhappinessModRow(strText, iValue, strKey)
+			if (iValue ~= 0) then
+				local strColorStart = "";
+				local strColorEnd = "";
+				if (iValue < 0) then
+					strColorStart = "[COLOR:150:220:150:255]";
+					strColorEnd = "[/COLOR]";
+				end
+				strText = strText .. "[NEWLINE]  [ICON_BULLET]" .. strColorStart .. Locale.ConvertTextKey(strKey, iValue) .. strColorEnd;
+			end
+			return strText;
+		end
+
+		local iPopModTrait = pPlayer:GetTraitPopUnhappinessMod();
+		local iPopModHandicap = 0;
+		local iHandicap = pPlayer:GetHandicapType();
+		if (GameInfo.HandicapInfos[iHandicap] ~= nil and GameInfo.HandicapInfos[iHandicap].PopulationUnhappinessMod ~= nil) then
+			iPopModHandicap = GameInfo.HandicapInfos[iHandicap].PopulationUnhappinessMod - 100;
+		end
+		local iPopModOverextension = pPlayer:GetDiplomaticOverextensionUnhappinessPercent();
+		local iPopModCityState = pPlayer:GetCrossContinentRouteUnhappinessReduction();
+
+		local strPopMods = "";
+		strPopMods = AddPopUnhappinessModRow(strPopMods, iPopModTrait, "TXT_KEY_TP_UNHAPPINESS_POP_MOD_TRAIT");
+		strPopMods = AddPopUnhappinessModRow(strPopMods, iPopModHandicap, "TXT_KEY_TP_UNHAPPINESS_POP_MOD_HANDICAP");
+		strPopMods = AddPopUnhappinessModRow(strPopMods, iPopModOverextension, "TXT_KEY_TP_UNHAPPINESS_POP_MOD_OVEREXTENSION");
+		strPopMods = AddPopUnhappinessModRow(strPopMods, iPopModCityState, "TXT_KEY_TP_UNHAPPINESS_POP_MOD_CITY_STATE");
+
+		if (strPopMods ~= "") then
+			strText = strText .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_TP_UNHAPPINESS_POP_MOD_TITLE") .. strPopMods;
+		end
+		--------------------------------------SP Population Unhappiness Modifiers END-----------------------------
+
 		--------------------------------------SP Additional Happiness by Extra Consumer Goods-----------------------------
 	
     	local strSPConsumerHappiness = Locale.ConvertTextKey("TXT_KEY_SP_UI_HAPPINESS_CONSUMERGOODS_BONUS")
@@ -997,7 +1054,7 @@ function GoldenAgeTipHandler( control )
 		local pTeam = Teams[pPlayer:GetTeam()];
 		local pCity = UI.GetHeadSelectedCity();
 
-		local iHappiness = pPlayer:GetExcessHappiness();
+		local iHappiness = pPlayer:GetExcessHappiness() ;
 		local iGoldAgePointFromReligion = pPlayer:GetGoldenAgePointPerTurnFromReligion();
 		local iGoldAgePointFromTraits = pPlayer:GetGoldenAgePointPerTurnFromTraits();
 		local iGoldAgePointFromCitys = pPlayer:GetGoldenAgePointPerTurnFromCitys();
@@ -1555,43 +1612,3 @@ Events.SerialEventCityInfoDirty.Add(OnTopPanelDirty);
 UpdateData();
 DoInitTooltips();
 
--------------SP Unhappiness from city levels Count-------------------
-function SPUnhappinessFromCitiesCount (pPlayer)
-		local Lv1CitiesCount = pPlayer:GetBuildingClassCount(GameInfo.BuildingClasses.BUILDINGCLASS_CITY_HALL_LV1.ID)
-		local Lv2CitiesCount = pPlayer:GetBuildingClassCount(GameInfo.BuildingClasses.BUILDINGCLASS_CITY_HALL_LV2.ID)
-		local Lv3CitiesCount = pPlayer:GetBuildingClassCount(GameInfo.BuildingClasses.BUILDINGCLASS_CITY_HALL_LV3.ID)
-		local Lv4CitiesCount = pPlayer:GetBuildingClassCount(GameInfo.BuildingClasses.BUILDINGCLASS_CITY_HALL_LV4.ID)
-		local Lv5CitiesCount = pPlayer:GetBuildingClassCount(GameInfo.BuildingClasses.BUILDINGCLASS_CITY_HALL_LV5.ID)	
-
-
-		local Lv1CitiesUnhappiness = 2 * Lv1CitiesCount
-		local Lv2CitiesUnhappiness = 4 * Lv2CitiesCount
-		local Lv3CitiesUnhappiness = 6 * Lv3CitiesCount
-		local Lv4CitiesUnhappiness = 8 * Lv4CitiesCount
-		local Lv5CitiesUnhappiness = 10 * Lv5CitiesCount
-		
-		--print ("Lv1CitiesCount:"..Lv1CitiesCount)
-		--print ("Lv2CitiesCount:"..Lv2CitiesCount)
-		--print ("Lv3CitiesCount:"..Lv3CitiesCount)
-		--print ("Lv4CitiesCount:"..Lv4CitiesCount)
-		--print ("Lv5CitiesCount:"..Lv5CitiesCount)	
-			
-		local SPCitiesUnhappinessTotal = Lv1CitiesUnhappiness + Lv2CitiesUnhappiness + Lv3CitiesUnhappiness + Lv4CitiesUnhappiness + Lv5CitiesUnhappiness
-		
-		local SPCitiesUnhappinessMod = 1
-		
-		if pPlayer:HasPolicy(GameInfo.Policies["POLICY_REPRESENTATION"].ID) then
-			SPCitiesUnhappinessMod = SPCitiesUnhappinessMod - 0.5		
-		end
-		
-		if pPlayer:GetBuildingClassCount(GameInfo.BuildingClasses.BUILDINGCLASS_FORBIDDEN_PALACE.ID) >= 1 then
-			SPCitiesUnhappinessMod = SPCitiesUnhappinessMod - 0.5
-		end
-
-		--print ("CitiesUnhappinessTotal:"..SPCitiesUnhappinessTotal)
-		--print ("CitiesUnhappinessMod:"..SPCitiesUnhappinessMod)
-		
-		SPCitiesUnhappinessTotal = SPCitiesUnhappinessTotal * SPCitiesUnhappinessMod
-		
-		return SPCitiesUnhappinessTotal
-end		

@@ -394,6 +394,14 @@
 			<Where Name="GLOBAL_CS_GIFTS"/>
 			<Set Value="1"/>
 		</Update>
+		<Update>
+			<Where Name="SP_UNIQUE_CITYSTATE"/>
+			<Set Value="1"/>
+		</Update>
+		<Update>
+			<Where Name="SP_CITYSTATE_BASIC"/>
+			<Set Value="1"/>
+		</Update>
 	</CustomModOptions>
 
 
@@ -419,6 +427,11 @@
 			<Where Name="SP_FASTER_AI"/>
 			<Set Value="1"/>
 		</Update>
+<!-- AI_PERF performance logging (0=off, 1=on). When enabled, writes per-AI-function timing to logs/ -->
+		<Update>
+			<Where Name="GLOBAL_AI_PERF_LOGGING"/>
+			<Set Value="0"/>
+		</Update>
 		
 	<!--********************************* Passable Forts *****************************-->
 		<Update>
@@ -429,6 +442,11 @@
 			<Where Name="GLOBAL_PASSABLE_FORTS_ANY"/>
 			<Set Value="0"/>
 			<!-- Default is OFF -->
+		</Update>
+	<!--*********************Faith Keep ********************* -->
+		<Update>
+			<Where Name="RELIGION_KEEP_PROPHET_OVERFLOW"/>
+			<Set Value="1"/>
 		</Update>
 	</CustomModOptions>
 

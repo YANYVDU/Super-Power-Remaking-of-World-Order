@@ -16,7 +16,7 @@
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_VERSION">
-			<Text>[COLOR_YELLOW]Version 10 Final C[ENDCOLOR]</Text>
+			<Text>[COLOR_YELLOW]Version 10 Final G[ENDCOLOR]</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_SP_MOD_SETUP">
@@ -1050,6 +1050,20 @@
 			<Text>Anything new for city states in Super Power MOD?</Text>
 		</Row>
 
+		<!--************************************ Interface ********************************-->
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_TOPIC">
+			<Text>SP: Custom Plot Naming</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_DESCRIPTION">
+			<Text>{TXT_KEY_CONCEPT_PLOT_NAMING_TOPIC}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_SUMMARY">
+			<Text>This mod allows you to place custom name labels on any map plot.[NEWLINE][NEWLINE]【How to Use】[NEWLINE]Hover the mouse over the target plot and press Ctrl+N to open the naming dialog. Enter a name and click "Confirm" — a floating label will appear above the plot.[NEWLINE][NEWLINE]【Color Prefixes】[NEWLINE]Start your name with .X or .XX to color the label. 13 colors supported:[NEWLINE].R Red  .G Green  .BL Blue  .Y Yellow  .C Cyan  .M Magenta  .W White[NEWLINE].P Purple  .N Navy  .S Silver  .U Ultramarine  .F Forest  .BR Brown[NEWLINE]No prefix defaults to red.[NEWLINE][NEWLINE]【Clearing Names】[NEWLINE]Press Ctrl+N on a named plot again and click "Clear" to remove the label.[NEWLINE][NEWLINE]【Save Compatibility】[NEWLINE]Plot name data is saved with the game and restored on reload. Labels are automatically hidden when entering the city screen.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_ADVISOR_QUESTION">
+			<Text>How to name plots on the map?</Text>
+		</Row>
+
 	<!--**************************************Misc Text Changes************************************-->
 	<!--********************************************** Resoultions Info Change ********************************************** -->
 
@@ -1998,7 +2012,7 @@
 			<Text>
 				Build a Dojo in this city.
 				[NEWLINE][NEWLINE]All new units built or purchased in this city +15 XP.
-				[NEWLINE][NEWLINE]+2 [ICON_HAPPINESS_1] Happiness.
+				[NEWLINE][NEWLINE]+2 [ICON_HAPPINESS_1] Local Happiness.
 				[NEWLINE][NEWLINE]+5 [ICON_RES_MANPOWER] Manpower.
 				[NEWLINE][NEWLINE]This order will consume the Samurai.
 				[NEWLINE][NEWLINE]One city can ONLY have ONE Dojo building.
@@ -2663,23 +2677,11 @@
 		<Replace Tag="TXT_KEY_POLICYSCREEN_IDEOLOGY_NOT_STARTED">
 			<Text>Ideological tenets may not be purchased until you have chosen an Ideology. This choice becomes available ONLY when you enter the Modern Era.</Text>
 		</Replace>
-		
-		
 
 		<Replace Tag="TXT_KEY_BUILDING_PALACE_HELP">
 			<Text>Indicates this City is the [ICON_CAPITAL] Capital of the empire. Contains 1 slot for a Great Work of Art.[NEWLINE][NEWLINE][ICON_CONNECTED] Connecting other Cities to the [ICON_CAPITAL] Capital by Road will produce additional [ICON_GOLD] Gold.[NEWLINE][NEWLINE]You may move your palace to another city. However this won't affect other players' Domination victory.</Text>
 		</Replace>
 		
-		<Replace Tag="TXT_KEY_BUILDING_COURTHOUSE_HELP">
-			<Text>Eliminates extra [ICON_HAPPINESS_4] Unhappiness from an [ICON_OCCUPIED] Occupied City. [NEWLINE][NEWLINE]Pay extra 1 [ICON_GOLD] Gold for every 3 [ICON_CITIZEN] Population.</Text>
-		</Replace>
-
-		
-		
-		
-		
-
-
 		<Replace Tag="TXT_KEY_BUILDING_GRANARY_HELP">
 			<Text>+5%[ICON_FOOD] Food Output for the city. [NEWLINE][NEWLINE]+1 [ICON_FOOD] Food for each [ICON_RES_WHEAT] Wheat, [ICON_RES_BANANA] Banana, [ICON_RES_DEER] Deer and [ICON_RES_BISON] Bison worked for the city. Allows [ICON_FOOD] Food to be moved from this city along trade routes inside your civilization.[NEWLINE][NEWLINE]Upon discovering Fertilizer, this kind of building becomes [COLOR_NEGATIVE_TEXT]obsolete[ENDCOLOR] (it is no longer allowed to build and its bonuses are lost). [NEWLINE][NEWLINE]+1 [ICON_TOURISM] Tourism after discovering Mass Media.</Text>
 		</Replace>
@@ -3882,7 +3884,11 @@
 			<Tag>TXT_KEY_BUILDING_JAPANESE_DOJO</Tag>
 			<Text>[ICON_HAPPINESS_1][ICON_RES_MANPOWER] Dojo</Text>
 		</Row>
-		
+		<Row>
+			<Tag>TXT_KEY_BUILDING_JAPANESE_DOJO_HELP</Tag>
+			<Text>All new units built or purchased in this city +15 XP.[NEWLINE][NEWLINE]+5 [ICON_RES_MANPOWER] Manpower, +2 [ICON_HAPPINESS_1] Local Happiness.[NEWLINE][NEWLINE]Can only be built by a Japanese Samurai, which is consumed after construction.</Text>
+		</Row>
+
 
 
 
@@ -3979,7 +3985,7 @@
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP" />
 			<Set
-				Text="All missionaries from this city may spread a religion 3 times instead of 2. Missionaries and great prophets have the ability of +1 [ICON_MOVES] movement, and gaining [ICON_PEACE] faith and [ICON_GOLDEN_AGE] golden age points when spreading religion. Provides a free Mosque in the city in which it was built. [NEWLINE][NEWLINE]+4 [ICON_TOURISM] Tourism when Scientific Theory is discovered. " />
+				Text="All missionaries may spread a religion 3 times instead of 2. Missionaries and great prophets have the ability of +1 [ICON_MOVES] movement, and gaining [ICON_PEACE] faith and [ICON_GOLDEN_AGE] golden age points when spreading religion. Provides a free Mosque in the city in which it was built. [NEWLINE][NEWLINE]+4 [ICON_TOURISM] Tourism when Scientific Theory is discovered. " />
 		</Update>
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_PARTHENON_HELP" />
@@ -4069,7 +4075,7 @@
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP" />
 			<Set
-				Text="+2 additional Delegates in the world congress. -50% extra [ICON_HAPPINESS_4] Unhappiness in Lv1-5 Cities. Lv1 Cities will create no extra [ICON_HAPPINESS_4] Unhappiness." />
+				Text="-50% extra [ICON_HAPPINESS_4] Unhappiness from Corruption. Gain 2 additional Delegates in the World Congress." />
 		</Update>
 		
 		
@@ -4541,6 +4547,29 @@
 			<Text>The Shimizu TRY 2004 Mega-City Pyramid is a proposed Shimizu Corporation project for the construction of a massive pyramid over Tokyo Bay in Japan. The structure would be more than 14 times as high as the Great Pyramid of Giza (139 metres, 456.04 feet), and would house 1,000,000 people. The structure would be 2,000 meters (6,561 feet) tall measured from mean sea level, including 5 stacked trusses, each with similar dimensions to that of the Great Pyramid of Giza. This pyramid would help answer Tokyo's increasing lack of space, although the project would only handle a small fraction of the population of the Greater Tokyo Area. </Text>
 		</Row>
 		
+
+		<!--****************************Place of Nations*************************************-->
+
+		<!-- Description tags -->
+		<Row Tag="TXT_KEY_WONDER_PLACE_OF_NATIONS">
+			<Text>Palace of Nations</Text>
+		</Row>
+		<!-- Help tags -->
+		<Row Tag="TXT_KEY_BUILDING_PLACE_OF_NATIONS_HELP">
+			<Text>
+				[ICON_BULLET]+2 [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige.
+				[NEWLINE][ICON_BULLET]+25% [ICON_INFLUENCE] Influence with all known City-States upon completion.
+			</Text>
+		</Row>
+		<!-- Quote tags -->
+		<Row Tag="TXT_KEY_WONDER_PLACE_OF_NATIONS_QUOTE">
+			<Text>[NEWLINE]"We the peoples of the United Nations, determined to save succeeding generations from the scourge of war."[NEWLINE] — Charter of the United Nations[NEWLINE]</Text>
+		</Row>
+		<!-- Pedia tags -->
+		<Row Tag="TXT_KEY_WONDER_PLACE_OF_NATIONS_PEDIA">
+			<Text>The Palace of Nations, located in Geneva, Switzerland, was initially built between 1929 and 1938 to serve as the headquarters of the League of Nations. The League of Nations was the first worldwide intergovernmental organization founded after World War I, with the principal mission of maintaining world peace through diplomacy. Although the League ultimately failed to prevent the outbreak of World War II, it laid the groundwork for the establishment of the United Nations.[NEWLINE][NEWLINE]Situated in Ariana Park on the shores of Lake Geneva, the Palace of Nations is an architectural masterpiece blending Neoclassical and Modernist styles. Its main Assembly Hall, capable of seating 2,000 delegates, has witnessed countless diplomatic negotiations that shaped the course of world history. Following World War II, the Palace became the United Nations Office at Geneva, the second-largest UN center after the headquarters in New York.[NEWLINE][NEWLINE]Today, the Palace of Nations hosts over 8,000 international meetings each year and serves as a vital hub for global discussions on human rights, disarmament, trade, and humanitarian affairs. It stands as an enduring symbol of humanity’s quest for peace and cooperation.</Text>
+		</Row>
+
 	<!--****************************National Wonders*************************************-->
 
 		<Replace Tag="TXT_KEY_BUILDING_HEROIC_EPIC_HELP">
@@ -5764,7 +5793,6 @@
 		<Replace Tag="TXT_KEY_BUILDING_COURTHOUSE_HELP">
 			<Text>
 				[ICON_BULLET]Eliminates extra [ICON_HAPPINESS_4] Unhappiness from an [ICON_OCCUPIED] Occupied City. 
-				[NEWLINE][ICON_BULLET]Pay extra 1 [ICON_GOLD] Gold for every 3 [ICON_CITIZEN] Population.
 			</Text>
 		</Replace>
 
@@ -5960,8 +5988,9 @@
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_DANISH_WIND_TURBINE_HELP">
-			<Text>[COLOR_POSITIVE_TEXT]No Pollution[ENDCOLOR]
-			[NEWLINE][NEWLINE]Every 5[ICON_CITIZEN] citizens in this city + 1[ICON_GOLD]</Text>
+			<Text>+15 [ICON_RES_ELECTRICITY] Electricity.
+			[NEWLINE][NEWLINE]Every 5[ICON_CITIZEN] citizens in this city + 1[ICON_GOLD]
+			[NEWLINE][NEWLINE][COLOR_POSITIVE_TEXT]No Pollution[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_DANISH_WIND_TURBINE_TEXT">
 			<Text>Denmark was a pioneer in developing commercial wind power during the 1970s, and today a substantial share of the wind turbines around the world are produced by Danish manufacturers such as Vestas and Siemens Wind Power along with many component suppliers.</Text>
@@ -7497,8 +7526,8 @@
 		<Row Tag="TXT_KEY_POLICY_FAMILY_REGISTER_HELP" >
 			<Text>
 				[COLOR_POSITIVE_TEXT]Imperial Examination[ENDCOLOR]
-				[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH] Science for every 5 [ICON_CITIZEN] Citizens in the city. 
-				[NEWLINE][ICON_BULLET]Add a Scientist Slot in each City.
+				[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH] Science for every 3 [ICON_CITIZEN] Citizens nationwide.
+				[NEWLINE][ICON_BULLET]+3 [ICON_GREAT_SCIENTIST] Great Scientist points in all cities, +1 [ICON_RESEARCH] Science from Academies.
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POLICY_FAMILY_REGISTER_TEXT">
@@ -7605,7 +7634,7 @@
 			<Text>
 				[COLOR_POSITIVE_TEXT]Province[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]+1 [ICON_HAPPINESS_1] Happiness for each City you own connected to the [ICON_CAPITAL] Capital.
-				[NEWLINE][ICON_BULLET]-50% extra [ICON_HAPPINESS_4] Unhappiness in Lv1-5 Cities.
+				[NEWLINE][ICON_BULLET]-50% extra [ICON_HAPPINESS_4] Unhappiness From Corruption.
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POLICY_PROVINCE_TEXT">
@@ -7760,8 +7789,9 @@
 		<Replace Tag="TXT_KEY_POLICY_THEOCRACY_HELP">
 			<Text>
 				[COLOR_POSITIVE_TEXT]Theocracy[ENDCOLOR]
-				[NEWLINE][ICON_BULLET]+10% [ICON_CULTURE] Culture output in all cities.
-				[NEWLINE][ICON_BULLET]+1 Writer Slot for each city.</Text>
+				[NEWLINE][ICON_BULLET]+2% [ICON_CULTURE] Culture for each city in the world following your founder religion.
+				[NEWLINE][ICON_BULLET]+3 [ICON_GREAT_WRITER] Great Writer points in all cities.
+				[NEWLINE][ICON_BULLET]+4 [ICON_HAPPINESS_1] Local Happiness from each Holy Site worked by a citizen.</Text>
 		</Replace>
 		
 		<Replace Tag="TXT_KEY_POLICY_FREE_RELIGION_HELP">
@@ -8152,7 +8182,8 @@
 			<Text>
 				[COLOR_POSITIVE_TEXT]Free Thought[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH] Science from every Trading Post.
-				[NEWLINE][ICON_BULLET]+6 [ICON_RESEARCH] Science from every Research Center built by Great Scientists.</Text>
+				[NEWLINE][ICON_BULLET]+6 [ICON_RESEARCH] Science from every Research Center built by Great Scientists.
+				[NEWLINE][ICON_BULLET]Each point of [ICON_HAPPINESS_1] Local Happiness reduces city Corruption Score by 10.</Text>
 		</Replace>
 
 		<Replace Tag="TXT_KEY_POLICY_HUMANISM_HELP" >
@@ -8527,9 +8558,9 @@
 	
 	
 	<!--Buildings-->
-		<Row Tag="TXT_KEY_BUILDING_THEOCRACY_WRITER" >
+		<!-- <Row Tag="TXT_KEY_BUILDING_THEOCRACY_WRITER" >
 			<Text>[ICON_GREAT_WRITER] Theocracy</Text>
-		</Row>
+		</Row> -->
 
 		<Row Tag="TXT_KEY_BUILDING_FAMILY_PRODUCTION" >
 			<Text>[ICON_RESEARCH] Imperial Academy</Text>
@@ -9061,6 +9092,12 @@
 		<Replace Tag="TXT_KEY_BELIEF_RELIGIOUS_SETTLEMENTS">
 			<Text>+2 [ICON_CULTURE] Culture in cities, +50% faster border growth</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_BELIEF_SERENS_GOVERNANCE_SHORT">
+			<Text>Seren's Governance</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SERENS_GOVERNANCE">
+			<Text>City Corruption Score -200. City produces 1 [ICON_PEACE] Faith per 100 Corruption Score</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_BELIEF_PILGRIMAGE">
 			<Text>+20% num of followers for this Religion in other civilizations [ICON_PEACE] Faith in HolyCity, +3 [ICON_PEACE] Faith for each foreign city following this religion</Text>
 		</Replace>
@@ -9115,7 +9152,7 @@
 			<Text>+1 [ICON_PEACE] Faith and +1 [ICON_CULTURE] Culture for each [ICON_RES_GOLD]Gold, [ICON_RES_SILVER]Silver, [ICON_RES_COPPER]Copper, [ICON_RES_IRON]Iron and [ICON_RES_SALT]Salt</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_GOD_FESTIVALS">
-			<Text>+2 [ICON_PEACE] Faith and +2 [ICON_CULTURE] Culture for each Wine and Incense</Text>
+			<Text>+2 [ICON_PEACE] Faith and +2 [ICON_CULTURE] Culture for each [ICON_RES_WINE]Wine and [ICON_RES_INCENSE]Incense</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_ONE_WITH_NATURE">
 			<Text>+8 [ICON_PEACE] Faith for each Natural Wonder</Text>
@@ -9155,7 +9192,7 @@
 			<Text>Church Artists</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_RELIGIOUS_FERVOR">
-			<Text>Use [ICON_PEACE] Faith to purchase [COLOR_POSITIVE_TEXT]Church Artist[ENDCOLOR], a religious unit who can start a [ICON_GOLDEN_AGE] Golden Age. +2 [ICON_PEACE] Faith from every Amphitheatres, Art Galleries and Opera Houses. +25% [ICON_PRODUCTION] Production of Wonders</Text>
+			<Text>Use [ICON_PEACE] Faith to purchase [COLOR_POSITIVE_TEXT]Church Artist[ENDCOLOR] (Prereq Tech: Acoustics), a religious unit who can start a [ICON_GOLDEN_AGE] Golden Age. +2 [ICON_PEACE] Faith from every Amphitheatres, Art Galleries and Opera Houses. +25% [ICON_PRODUCTION] Production of World Wonders</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_UNITY_OF_PROPHETS">
 			<Text>Inquisitors and Prophets reduce this religion's presence by half (instead of eliminating it). Turns of Inquisition fervor -50%. A [ICON_PROPHET] Great Prophet appears in the Holy City</Text>
@@ -9299,6 +9336,12 @@
 		<Row Tag="TXT_KEY_BELIEF_SCIENCE_RELIGION">
 			<Text>+2% [ICON_RESEARCH] Science for each follower (max +30%)</Text>
 		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SAGES_LEGACY_SHORT">
+			<Text>Sages' Legacy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SAGES_LEGACY">
+			<Text>Adjacency bonuses from Customs Houses, Academies, Manufactories, and Holy Sites to adjacent Improvements are doubled</Text>
+		</Row>
 
 		<Row Tag="TXT_KEY_EXTRA_RELIGION_SPREADS_2">
 			<Text>+2 Extra Religion Spread</Text>
@@ -9349,6 +9392,12 @@
 		</Row>
 		<Row Tag="TXT_KEY_BELIEF_CURSADER">
 			<Text>Recruits 6 Knights Templar with 60 experience in the Holy City</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_HOLY_PROPAGATION_SHORT">
+			<Text>Holy Propagation</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_HOLY_PROPAGATION">
+			<Text>Farms +1 [ICON_PEACE] Faith and Every 3 cities first converting to this religion grants 1 [ICON_CITIZEN] Population in the Holy City</Text>
 		</Row>
 
 
@@ -11156,7 +11205,7 @@
 			<Text>Land Ranged Units</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNITCOMBAT_BOMBER">
-			<Text>Land Special Units</Text>
+			<Text>AOE Units</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNITCOMBAT_ARCHER">
 			<Text>Aircraft Units</Text>
@@ -13032,6 +13081,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER_HEADING">
 			<Text>Saab JAS 39 Gripen</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER_HELP">
+			<Text>A versatile multirole fighter capable of both air combat and strikes against land and naval targets.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CIVILOPEDIA_UNIT_SWEDISH_JAS39_FIGHTER_TEXT">
 			<Text>The Saab JAS 39 Gripen (English: "griffin") is a light single-engine multirole fighter aircraft manufactured by the Swedish aerospace company Saab. It was designed to replace the Saab 35 Draken and 37 Viggen in the Swedish Air Force (Flygvapnet). </Text>
@@ -15450,7 +15502,7 @@
 			<Text>Supply I</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_SUPPLY_1_HELP">
-			<Text>[ICON_BULLET]All units in adjacent tiles or in the same tile Heal +15 HP per turn. [NEWLINE][ICON_BULLET]This unit Heals +15 HP per turn.</Text>
+			<Text>[ICON_BULLET]All units in adjacent tiles or in the same tile Heal +15 HP per turn. [NEWLINE][ICON_BULLET]This unit Heals +15 HP per turn. [NEWLINE][ICON_BULLET]Cost of purchasing Aircrafts for this Carrier reduced by 20%.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_SUPPLY_2">
 			<Text>Supply II</Text>
@@ -15462,7 +15514,7 @@
 			<Text>Supply III</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_SUPPLY_3_HELP">
-			<Text>This Aircraft Carrier [COLOR_POSITIVE_TEXT]Resupplies[ENDCOLOR] its Carrier-based Aircrafts outside friendly territory.</Text>
+			<Text>This unit [COLOR_POSITIVE_TEXT]Resupplies[ENDCOLOR] its carrier-based aircraft or missiles outside friendly territory, and purchase costs -20%.</Text>
 		</Row>
 
 
@@ -15923,8 +15975,8 @@
 		</Replace>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_HELICOPTER_HELP">
 			<Text>
-				[ICON_BULLET]+200% [ICON_STRENGTH] Combat Strength vs [COLOR_POSITIVE_TEXT]Helicopters[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Aircrafts[ENDCOLOR].
-				[NEWLINE][ICON_BULLET]Can intercept enemy aircrafts once per turn within 2 Hex Range.
+				[ICON_BULLET]+200% [ICON_STRENGTH] Combat Strength vs [COLOR_POSITIVE_TEXT]Carrier-based Aircraft[ENDCOLOR], [COLOR_POSITIVE_TEXT]Air Superiority Units[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Attack Aircraft[ENDCOLOR].
+				[NEWLINE][ICON_BULLET]Can intercept enemy aircrafts once per turn.
 				[NEWLINE][ICON_BULLET]No Damage received encountering enemy fighters' air-sweeps.
 			</Text>
 		</Row>
@@ -16076,7 +16128,7 @@
 		<Row Tag="TXT_KEY_PROMOTION_SP_FULL_MOON_STRIKE_HELP">
 			<Text>
 				[ICON_BULLET]+1 [ICON_MOVES] Movement (can multiply).
-				[NEWLINE][ICON_BULLET]+50% [ICON_STRENGTH] Attack vs [COLOR_POSITIVE_TEXT]Siege Units, Archery, Anti Aircraft Units and Land AOE weapons[ENDCOLOR].
+				[NEWLINE][ICON_BULLET]+50% [ICON_STRENGTH] Attack vs [COLOR_POSITIVE_TEXT]Siege Units, Archery, Anti Aircraft Units and Weapons with Area of Effect[ENDCOLOR].
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_HUSSAR">
@@ -16393,9 +16445,21 @@
 		<Replace Tag="TXT_KEY_PEDIA_UNLOCK_PROMOTIONS_LABEL">
 			<Text>Promotions Unlocked:</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_GRANT_PROMOTIONS_NATIONAL_LABEL">
+			<Text>Granted Promotions (National):</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_GRANT_PROMOTIONS_LOCAL_LABEL">
+			<Text>Granted Promotions (Local):</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_ACQUISITION_METHODS_LABEL">
+			<Text>Free From:</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_PEDIA_MAX_INSTANCES_LABEL">
 			<Text>Max Instances:</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_PROJECT_COMPLETED_BY">
+			<Text>Completed by: {1_Player}, {2_City}</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_PEDIA_MAX_PLAYER_INSTANCES">
 			<Text>[ICON_BULLET]{1_Num} Per Player</Text>
 		</Replace>
@@ -17252,6 +17316,10 @@
 			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR] [ICON_RESEARCH] from Religion.</Text>
 		</Row>
 
+		<Row Tag="TXT_KEY_TP_SCIENCE_FROM_GLOBAL_POP">
+			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR] [ICON_RESEARCH] from Policies (Population).</Text>
+		</Row>
+
 		<Row Tag="TXT_KEY_EUPANEL_BONUS_CITY_STATE_FRENDSHIP">
 			<Text>Frendship City State Bonus</Text>
 		</Row>
@@ -17664,6 +17732,18 @@
 		</Row>
 		<Row Tag="TXT_KEY_UNITCOMBAT_DAMAGE_MODIFIER_SP">
 			<Text>Hit Points Modify</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_DIFFERENT_RELIGION_MODIFIER">
+			<Text>Different Religion Bonus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLDEN_AGE_TURN_MODIFIER">
+			<Text>Golden Age Turns Bonus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FOLLOWER_COUNT_MODIFIER">
+			<Text>Follower Count Bonus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FOLLOWING_CITY_COUNT_MODIFIER">
+			<Text>Following Cities Bonus</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EUPANEL_RESOURCE_MODIFIER">
 			<Text>Extra Resouces Bonus</Text>
@@ -18307,6 +18387,12 @@
 		<Replace Tag="TXT_KEY_RO_STATUS_FOUNDER">
 			<Text>Religion Leader of {1_ReligionName}</Text>
 		</Replace>
+	<Row Tag="TXT_KEY_RO_YOUR_FOLLOWERS">
+		<Text>Followers: {1_Num}</Text>
+	</Row>
+	<Row Tag="TXT_KEY_RO_YOUR_CITIES">
+		<Text>Cities following: {1_Num}</Text>
+	</Row>
 		<Row Tag="TXT_KEY_EUPANEL_CAPTURE_CHANCE_SP">
 			<Text>[COLOR_CYAN]Capture Chance if Sunk[ENDCOLOR]</Text>
 		</Row>
@@ -18325,7 +18411,16 @@
 		<Row Tag="TXT_KEY_Building_PER_ERA">
 			<Text>/Per Era</Text>
 		</Row>
-		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_ERA">
+				<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_HOLY_CITY">
+			<Text>Belief: Trading to Holy City{1_String}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_HOLY_CITY_DEST">
+			<Text>Belief: Holy City receives{1_String}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_SAME_RELIGION">
+			<Text>Belief: Same Religion{1_String}</Text>
+		</Row>
+<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_ERA">
 			<Text>Era gold bonus from {1_CityName}: {2_Num}</Text>
 		</Row>
 		<Row Tag="TXT_KEY_STRATEGIC_ENVIRONMENT_COMBAT_MOD">
@@ -18379,6 +18474,24 @@
 		<Row Tag="TXT_KEY_MILITARY_PROMISE">
 			<Text>Promise withdraw Military</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_MODIFIER">
+			<Text>National Corruption [ICON_HAPPINESS_4]Unhappiness</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_CHANGE">
+			<Text>Corruption Unhappiness</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL">
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]Diplomatic Prestige:</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CORRUPTION">
+			<Text>{1_num} From Corruption</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EXPANSION_PROMISE">
+			<Text>Promise not to expand</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BORDER_PROMISE">
+			<Text>Promise not to encroach borders</Text>
+		</Row>
 
 		<Replace Tag="TXT_KEY_FOODMOD_PLAYER">
 			<Text>[NEWLINE][ICON_BULLET]Empire Modifier (Difference): {1_Num}%</Text>
@@ -18415,6 +18528,375 @@
 		</Row>
 		<Row Tag="TXT_KEY_PEDIA_FREE_FROM_PROJECT_LABEL">
 			<Text>Free From Project:</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLD_ATTACK_BONUS">
+			<Text>[ICON_GOLD]Treasury Bounty</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLD_DEFENSE_BONUS">
+			<Text>[ICON_GOLD]Treasury Bounty</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CULTURE_ATTACK_BONUS">
+			<Text>[ICON_CULTURE]Cultural Resolve</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CULTURE_DEFENSE_BONUS">
+			<Text>[ICON_CULTURE]Cultural Resolve</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FAITH_ATTACK_BONUS">
+			<Text>[ICON_PEACE]Divine Strength</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FAITH_DEFENSE_BONUS">
+			<Text>[ICON_PEACE]Divine Strength</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_REGRESSAND_MODIFIER">
+			<Text>
+				[ICON_TEAM_4] International Immigration Move-in Threshold Modifier:{1_Num}%
+			</Text>
+		</Row>
+		<Replace Tag="TXT_KEY_WORKERS_SPECIALFORT_HEADING3_BODY">
+			<Text>In SuperPower Games,the fort improvement is a special improvement that is constructed by militia units and provides protection to military units in friendly territory. The fort may be constructed in a friendly or neutral tile. Constructing a fort atop an existing improvement will destroy the previous improvement.
+				[NEWLINE]Defensive Bonus of the Fort: 50%</Text>
+		</Replace>
+		<Row Tag="TXT_KEY_NO_OCCUPIED_UNHAPPINESS">
+			<Text>[ICON_BULLET]Eliminates extra [ICON_HAPPINESS_4] Unhappiness from an [ICON_OCCUPIED] Occupied City. </Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_9">
+			<Text>Basic Promotions</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_10">
+			<Text>[COLOR_NEGATIVE_TEXT]Negative Promotions[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_III">
+			<Text>Anti-Air Fire Point</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_III_HELP">
+			<Text>
+				Will intercept enemy aircraft which try to bomb nearby Units.
+				[NEWLINE][ICON_BULLET]Can intercept enemy aircrafts once per turn.
+				[NEWLINE][ICON_BULLET]Strong vs [COLOR_POSITIVE_TEXT]Attack Aircrafts[ENDCOLOR].
+				[NEWLINE][ICON_BULLET]NOT effective for intercepting [COLOR_NEGATIVE_TEXT]Strategic Bombers[ENDCOLOR].
+			</Text>
+		</Row>
+		<!-- Plot Naming -->
+		<Row Tag="TXT_KEY_PLOT_NAME_TITLE">
+			<Text>Enter Place Name</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CONFIRM">
+			<Text>Confirm</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CLEAR">
+			<Text>Clear</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CANCEL">
+			<Text>Cancel</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SHOW_PLOT_NAMES">
+			<Text>Show Plot Names</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SHOW_PLOT_NAMES_TT">
+			<Text>Toggle display of custom plot name labels on the map</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY">
+			<Text>Expedition Supply</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY_HELP">
+			<Text>Automatically restores health each turn, providing an additional +15HP to all adjacent and same-tile units when they restore health, and an additional +15HP to this unit each turn when it restores health.</Text>
+		</Row>
+		<Replace Tag="TXT_KEY_PROMOTION_HEAL_IF_DESTROY_ENEMY_HELP">
+			<Text>Heals 50 HP after destroying a non-barbarian unit</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_DEFEND_NEAR_CAPITAL_HELP">
+			<Text>+30% [ICON_STRENGTH] Combat Strength when fighting near the Capital. Bonus lost when far from the Capital.</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_INVULNERABIILITY_HELP">
+			<Text>+30% [ICON_STRENGTH] Combat Strength when defending, and +20 HP additional healing per turn.</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_HOMELAND_GUARDIAN_BOOGALOO_HELP">
+			<Text>+15% [ICON_STRENGTH] Combat Strength when fighting within friendly territory.</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_HOVERING_UNIT_HELP">
+			<Text>This unit can cross Mountains and Coast tiles directly, but takes damage if it ends its turn on a Mountain</Text>
+		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_CSUA_HEADER">
+			<Text>Unique Ability</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_ZURICH_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]All cities gain +1[ICON_GREAT_SCIENTIST]Great Scientist Point. [ICON_RESEARCH] Academy, [ICON_RESEARCH] University, [ICON_RESEARCH] Public School and [ICON_RESEARCH] Research Lab each provide +1[ICON_GREAT_SCIENTIST]Great Scientist Point
+				[NEWLINE][ICON_BULLET]For every 3[ICON_GREAT_PEOPLE]Great Scientists born, all[ICON_GREAT_SCIENTIST]Scientists earn +1[ICON_RESEARCH]
+				[NEWLINE][ICON_BULLET]For every 2[ICON_GREAT_PEOPLE]Great Engineers born, all[ICON_GREAT_ENGINEER]Engineers earn +1[ICON_PRODUCTION]
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_RESEARCH] Academy and [ICON_RESEARCH] University each provide +1[ICON_GREAT_SCIENTIST]Great Scientist Point
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ZURICH_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]All cities gain +1[ICON_GREAT_SCIENTIST]Great Scientist Point. [ICON_RESEARCH] Academy, [ICON_RESEARCH] University, [ICON_RESEARCH] Public School and [ICON_RESEARCH] Research Lab each provide +1[ICON_GREAT_SCIENTIST]Great Scientist Point
+				[NEWLINE][ICON_BULLET]For every 3[ICON_GREAT_PEOPLE]Great Scientists born, [ICON_GREAT_SCIENTIST]Scientists +1[ICON_RESEARCH]
+				[NEWLINE][ICON_BULLET]For every 2[ICON_GREAT_PEOPLE]Great Engineers born, [ICON_GREAT_ENGINEER]Engineers +1[ICON_PRODUCTION]
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ZURICH_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_RESEARCH] Academy and [ICON_RESEARCH] University provide +1[ICON_GREAT_SCIENTIST]Great Scientist Point in friend cities
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_ANTWERP_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]All cities gain +1[ICON_GREAT_MERCHANT]Great Merchant Point. [ICON_GOLD] Market, [ICON_GOLD] Bank, [ICON_GOLD] Stock Exchange and [ICON_GOLD] Finance Company each provide +1[ICON_GREAT_MERCHANT]Great Merchant Point
+				[NEWLINE][ICON_BULLET]For every 1[ICON_GREAT_PEOPLE]Great Merchant born, [ICON_GREAT_MERCHANT]Merchants +2[ICON_GOLD]Gold. Minimum [ICON_INFLUENCE] Influence required for alliance reduced by 1% (max -90%)
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_GOLD] Market and [ICON_GOLD] Bank provide +1[ICON_GREAT_MERCHANT]Great Merchant Point in friend cities
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ANTWERP_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]All cities gain +1 Great Merchant Point. [ICON_GOLD] Market, [ICON_GOLD] Bank, [ICON_GOLD] Stock Exchange and [ICON_GOLD] Finance Company each provide +1 Great Merchant Point
+				[NEWLINE][ICON_BULLET]For every 1 Great Merchant born, Merchants +2 Gold. Minimum [ICON_INFLUENCE] Influence required for alliance reduced by 1% (max -90%)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ANTWERP_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_GOLD] Market and [ICON_GOLD] Bank provide +1 Great Merchant Point in friend cities
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_FLORENCE_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]After faith-purchasing a [ICON_GREAT_PEOPLE]Great Person, the cost rise of the next purchase is reduced by 50%, plus an additional 1% per [ICON_GREAT_WORK]Great Work (max -90%)
+				[NEWLINE][ICON_BULLET]From the Industrial Era onward, allows faith-purchasing of all [ICON_GREAT_PEOPLE]Great People
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]After faith-purchasing a [ICON_GREAT_PEOPLE]Great Person, the cost rise of the next purchase is reduced by 20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_FLORENCE_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]After faith-purchasing a [ICON_GREAT_PEOPLE]Great Person, the cost rise of the next purchase is reduced by 50%, plus an additional 1% per [ICON_GREAT_WORK]Great Work (max -90%)
+				[NEWLINE][ICON_BULLET]From the Industrial Era onward, allows faith-purchasing of all [ICON_GREAT_PEOPLE]Great People
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_FLORENCE_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]After faith-purchasing a [ICON_GREAT_PEOPLE]Great Person, the cost rise of the next purchase is reduced by 20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MALACCA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET][ICON_HAPPINESS_1]Happiness from Luxury Resources +100%
+				[NEWLINE][ICON_BULLET]Each type of happy [ICON_GOLD]Luxury Resource owned: +1% [ICON_FOOD]Food Surplus in all cities
+				[NEWLINE][ICON_BULLET]Each type of happy [ICON_GOLD]Luxury Resource owned: +3% [ICON_INTERNATIONAL_TRADE]Trade Route Gold
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_HAPPINESS_1]Happiness from Luxury Resources +40%
+				[NEWLINE][ICON_BULLET]Each 2 types of happy [ICON_GOLD]Luxury Resources owned: +1% [ICON_FOOD]Food Surplus in all cities
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MALACCA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET][ICON_HAPPINESS_1]Happiness from Luxury Resources +100%
+				[NEWLINE][ICON_BULLET]Each type of happy [ICON_GOLD]Luxury Resource owned: +1% [ICON_FOOD]Food Surplus in all cities
+				[NEWLINE][ICON_BULLET]Each type of happy [ICON_GOLD]Luxury Resource owned: +3% [ICON_INTERNATIONAL_TRADE]Trade Route Gold
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MALACCA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_HAPPINESS_1]Happiness from Luxury Resources +40%
+				[NEWLINE][ICON_BULLET]Each 2 types of happy [ICON_GOLD]Luxury Resources owned: +1% [ICON_FOOD]Food Surplus in all cities
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_PANAMA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET][ICON_INTERNATIONAL_TRADE]International Trade Routes: +1% [ICON_GOLD]Gold per tile between origin and destination cities
+				[NEWLINE][ICON_BULLET]Each cross-continental international trade route: -3% [ICON_CITIZEN]Population Unhappiness (max -90%)
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_INTERNATIONAL_TRADE]International Trade Routes: +1% [ICON_GOLD]Gold per 2 tiles between origin and destination cities
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET][ICON_INTERNATIONAL_TRADE]International Trade Routes: +1% [ICON_GOLD]Gold per tile between origin and destination cities
+				[NEWLINE][ICON_BULLET]Each cross-continental international trade route: -3% [ICON_CITIZEN]Population Unhappiness (max -90%)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_INTERNATIONAL_TRADE]International Trade Routes: +1% [ICON_GOLD]Gold per 2 tiles between origin and destination cities
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_BRUSSELS_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]+40% [ICON_GREAT_PEOPLE]Great People points accumulation rate for [ICON_GREAT_ARTIST]Artists, [ICON_GREAT_WRITER]Writers, and [ICON_GREAT_MUSICIAN]Musicians
+				[NEWLINE][ICON_BULLET]Each [ICON_GREAT_WORK]Great Work owned grants +1 [ICON_GREAT_MUSICIAN]Great Musician points in the [ICON_CAPITAL]Capital
+				[NEWLINE][ICON_BULLET]+20% [ICON_TOURISM]Tourism from [ICON_GREAT_MUSICIAN]Great Musician concerts, and earn [ICON_GOLD]Gold equal to 5% of the [ICON_TOURISM]Tourism generated
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]+15% [ICON_GREAT_PEOPLE]Great People points accumulation rate for [ICON_GREAT_ARTIST]Artists, [ICON_GREAT_WRITER]Writers, and [ICON_GREAT_MUSICIAN]Musicians
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_GP_MOD">
+			<Text>[ICON_BULLET]Ally UA Bonus: +{1_num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRUSSELS_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]+40% [ICON_GREAT_PEOPLE]Great People points accumulation rate for [ICON_GREAT_ARTIST]Artists, [ICON_GREAT_WRITER]Writers, and [ICON_GREAT_MUSICIAN]Musicians
+				[NEWLINE][ICON_BULLET]Each [ICON_GREAT_WORK]Great Work owned grants +1 [ICON_GREAT_MUSICIAN]Great Musician points in the [ICON_CAPITAL]Capital
+				[NEWLINE][ICON_BULLET]+20% [ICON_TOURISM]Tourism from [ICON_GREAT_MUSICIAN]Great Musician concerts, and earn [ICON_GOLD]Gold equal to 5% of the [ICON_TOURISM]Tourism generated
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRUSSELS_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]+15% [ICON_GREAT_PEOPLE]Great People points accumulation rate for [ICON_GREAT_ARTIST]Artists, [ICON_GREAT_WRITER]Writers, and [ICON_GREAT_MUSICIAN]Musicians
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_COLOMBO_HELP">
+			<Text>Your [ICON_INTERNATIONAL_TRADE]International Trade Routes to Colombo grant extra [ICON_GOLD]Gold per Era while you are Colombo's Ally or Friend. While an Ally, cities with a Trade Route to Colombo convert part of their [ICON_PEACE]Faith into [ICON_RESEARCH]Science and [ICON_TOURISM]Tourism.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_COLOMBO_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Your [ICON_INTERNATIONAL_TRADE]International Trade Routes to Colombo grant +15[ICON_GOLD]Gold per Era
+				[NEWLINE][ICON_BULLET]Cities with a Trade Route to Colombo convert 20% of their [ICON_PEACE]Faith into [ICON_RESEARCH]Science and 15% into [ICON_TOURISM]Tourism
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Your [ICON_INTERNATIONAL_TRADE]International Trade Routes to Colombo grant +6[ICON_GOLD]Gold per Era
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_COLOMBO_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Your [ICON_INTERNATIONAL_TRADE]International Trade Routes to Colombo grant +15[ICON_GOLD]Gold per Era
+				[NEWLINE][ICON_BULLET]Cities with a Trade Route to Colombo convert 20% of their [ICON_PEACE]Faith into [ICON_RESEARCH]Science and 15% into [ICON_TOURISM]Tourism
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_COLOMBO_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Your [ICON_INTERNATIONAL_TRADE]International Trade Routes to Colombo grant +6[ICON_GOLD]Gold per Era
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_DUBAI_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]+1 global [ICON_HAPPINESS_1]Happiness for every 1000[ICON_GOLD]Gold donated to Dubai
+				[NEWLINE][ICON_BULLET]Each point of Happiness from this source grants +1% global Wonder production
+				[NEWLINE][ICON_BULLET]Each point of Happiness from this source increases your ideological pressure on other ideologies by 5%
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]+1 global [ICON_HAPPINESS_1]Happiness for every 2000[ICON_GOLD]Gold donated to Dubai
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_DUBAI_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]+1 global [ICON_HAPPINESS_1]Happiness for every 1000[ICON_GOLD]Gold donated to Dubai
+				[NEWLINE][ICON_BULLET]Each point of Happiness from this source grants +1% global Wonder production
+				[NEWLINE][ICON_BULLET]Each point of Happiness from this source increases your ideological pressure on other ideologies by 5%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_DUBAI_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]+1 global [ICON_HAPPINESS_1]Happiness for every 2000[ICON_GOLD]Gold donated to Dubai
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_VALLETTA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Enemy cities with 3 or more of your military units in their inner ring cannot heal
+				[NEWLINE][ICON_BULLET]Purchasing a religious building grants +5 XP to all Land units
+				[NEWLINE][ICON_BULLET]Great Generals born grant Faith equal to 100% of your influence with Valletta
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Enemy cities with 6 or more of your military units in their inner ring cannot heal
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VALLETTA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Enemy cities with 3 or more of your military units in their inner ring cannot heal
+				[NEWLINE][ICON_BULLET]Purchasing a religious building grants +5 XP to all Land units
+				[NEWLINE][ICON_BULLET]Great Generals born grant Faith equal to 100% of your influence with Valletta
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VALLETTA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Enemy cities with 6 or more of your military units in their inner ring cannot heal
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_GOLD_DONATION">
+			<Text>{1_Num} from Gold Donations</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE">
+			<Text>
+				Current [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige: {1}/{2} ({3})
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE_OVEREXTENDED">
+			<Text>
+				Overextended
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE_OK">
+			<Text>
+				Within Limit
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_OVEREXTENSION_PENALTY">
+			<Text>
+				[ICON_DIPLOMATIC_PRESTIGE]Overextension Penalties:
+				[NEWLINE][ICON_BULLET]Influence decays +{1}% per turn
+				[NEWLINE][ICON_BULLET]Influence gain {2}%
+				[NEWLINE][ICON_BULLET]Unhappiness +{3}%
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_CITY_STATE">
+			<Text>Bonus from City-State Allies: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_CITY_STATE_LUXURY">
+			<Text>{2_Num} from City-State Allies ({1_Num}%)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_LUXURY_MOD">
+			<Text>{2_Num} from Luxury Happiness Modifier ({1_Num}%)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_TITLE">
+			<Text>Population Unhappiness Modifiers</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_TRAIT">
+			<Text>Trait: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_HANDICAP">
+			<Text>Difficulty: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_OVEREXTENSION">
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]Diplomatic Overextension: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_CITY_STATE">
+			<Text>City-State Ally: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_ALMATY_HELP">
+			<Text>Provides additional 15 [ICON_RES_HORSE]Horses</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

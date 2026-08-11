@@ -66,6 +66,14 @@
 		</Row>
 		
 		<Row>
+			<Type>BELIEF_SERENS_GOVERNANCE</Type>
+			<Description>TXT_KEY_BELIEF_SERENS_GOVERNANCE</Description>
+			<ShortDescription>TXT_KEY_BELIEF_SERENS_GOVERNANCE_SHORT</ShortDescription>
+			<CityCorruptionScoreChange>-200</CityCorruptionScoreChange>
+			<Pantheon>true</Pantheon>
+		</Row>
+		
+		<Row>
 			<Type>BELIEF_RELIGIOUS_COLONIZATION</Type>
 			<Description>TXT_KEY_BELIEF_RELIGIOUS_COLONIZATION</Description>
 			<ShortDescription>TXT_KEY_BELIEF_RELIGIOUS_COLONIZATION_SHORT</ShortDescription>
@@ -86,6 +94,14 @@
 			<Founder>true</Founder>
 		</Row>
 		
+		<Row>
+			<Type>BELIEF_HOLY_PROPAGATION</Type>
+			<Description>TXT_KEY_BELIEF_HOLY_PROPAGATION</Description>
+			<ShortDescription>TXT_KEY_BELIEF_HOLY_PROPAGATION_SHORT</ShortDescription>
+			<FirstConversionCitiesPerPop>3</FirstConversionCitiesPerPop>
+			<Founder>true</Founder>
+		</Row>
+
 		<Row>
 			<Type>BELIEF_RIVER_CRAFTSMAN</Type>
 			<Description>TXT_KEY_BELIEF_RIVER_CRAFTSMAN</Description>
@@ -153,6 +169,13 @@
 			<Type>BELIEF_SCIENCE_RELIGION</Type>
 			<Description>TXT_KEY_BELIEF_SCIENCE_RELIGION</Description>
 			<ShortDescription>TXT_KEY_BELIEF_SCIENCE_RELIGION_SHORT</ShortDescription>
+			<Reformation>true</Reformation>
+		</Row>
+
+		<Row>
+			<Type>BELIEF_SAGES_LEGACY</Type>
+			<Description>TXT_KEY_BELIEF_SAGES_LEGACY</Description>
+			<ShortDescription>TXT_KEY_BELIEF_SAGES_LEGACY_SHORT</ShortDescription>
 			<Reformation>true</Reformation>
 		</Row>
 	</Beliefs>

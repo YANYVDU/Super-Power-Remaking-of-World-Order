@@ -2992,7 +2992,19 @@ CivilopediaCategory[CategoryUnits].SelectArticle = function( unitID, shouldAddTo
 
 		-- update the game info
 		if thisUnit.Help then
-			UpdateTextBlock( Locale.ConvertTextKey( thisUnit.Help ), Controls.GameInfoLabel, Controls.GameInfoInnerFrame, Controls.GameInfoFrame );
+			local helpText = Locale.ConvertTextKey( thisUnit.Help )
+			for row in GameInfo.Unit_FreePromotions{ UnitType = thisUnit.Type } do
+				local promo = GameInfo.UnitPromotions[ row.PromotionType ]
+				if promo and promo.PediaType ~= "PEDIA_UNIT_CATEGORY" and promo.Help and promo.Help ~= "" then
+					local promoHelp = Locale.ConvertTextKey( promo.Help )
+					if string.match(promoHelp, "^%s*%[ICON_BULLET%]") then
+						helpText = helpText .. "[NEWLINE]" .. promoHelp
+					else
+						helpText = helpText .. "[NEWLINE][ICON_BULLET]" .. promoHelp
+					end
+				end
+			end
+			UpdateTextBlock( helpText, Controls.GameInfoLabel, Controls.GameInfoInnerFrame, Controls.GameInfoFrame );
 		end
 				
 		-- update the strategy info
@@ -3286,7 +3298,26 @@ CivilopediaCategory[CategoryPromotions].SelectArticle = function( promotionID, s
 			
 		-- update the game info
 		if thisPromotion.Help then
-			UpdateTextBlock( Locale.ConvertTextKey( thisPromotion.Help ), Controls.GameInfoLabel, Controls.GameInfoInnerFrame, Controls.GameInfoFrame );
+			local helpText = Locale.ConvertTextKey( thisPromotion.Help )
+			-- MOD - acquisition methods (buildings that grant this promotion)
+			local acquireBuildings = {}
+			for building in GameInfo.Buildings() do
+				local matched = false
+				if building.FreePromotion == thisPromotion.Type then matched = true
+				elseif building.FreePromotion2 == thisPromotion.Type then matched = true
+				elseif building.FreePromotion3 == thisPromotion.Type then matched = true
+				elseif building.TrainedFreePromotion == thisPromotion.Type then matched = true end
+				if matched then
+					table.insert(acquireBuildings, Locale.ConvertTextKey(building.Description))
+				end
+			end
+			if #acquireBuildings > 0 then
+				helpText = helpText .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_PEDIA_ACQUISITION_METHODS_LABEL")
+				for _, bname in ipairs(acquireBuildings) do
+					helpText = helpText .. "[NEWLINE][ICON_BULLET]" .. bname
+				end
+			end
+			UpdateTextBlock( helpText, Controls.GameInfoLabel, Controls.GameInfoInnerFrame, Controls.GameInfoFrame );
 		end
 	end	
 
@@ -3523,11 +3554,15 @@ function SelectBuildingOrWonderArticle( buildingID )
 		local bRestriction = false;
 		local strRestriction = "";
 		if thisBuilding.Water then
+			local waterText = Locale.ConvertTextKey( "TXT_KEY_CIVILOPEDIA_CONSTRUCTION_WATER" );
+			if thisBuilding.MinAreaSize and thisBuilding.MinAreaSize > 0 then
+				waterText = waterText .. "(" .. thisBuilding.MinAreaSize .. ")";
+			end
 			if (not bRestriction) then
 				bRestriction = true;
-				strRestriction = Locale.ConvertTextKey( "TXT_KEY_CIVILOPEDIA_CONSTRUCTION_WATER" );
+				strRestriction = waterText;
 			else
-				strRestriction = strRestriction .. "[NEWLINE]" .. Locale.ConvertTextKey( "TXT_KEY_CIVILOPEDIA_CONSTRUCTION_WATER" );
+				strRestriction = strRestriction .. "[NEWLINE]" .. waterText;
 			end
 		end
 		if thisBuilding.River then
@@ -3891,6 +3926,64 @@ function SelectBuildingOrWonderArticle( buildingID )
 		end	
 		UpdateButtonFrame( buttonAdded, Controls.GreatWorksInnerFrame, Controls.GreatWorksFrame );
 
+			-- MOD - granted promotions (national: FreePromotion/2/3)
+			local nationalGrantPromos = {}
+			if thisBuilding.FreePromotion then
+				local promo = GameInfo.UnitPromotions[thisBuilding.FreePromotion]
+				if promo and promo.ShowInPedia ~= 0 then table.insert(nationalGrantPromos, promo) end
+			end
+			if thisBuilding.FreePromotion2 then
+				local promo = GameInfo.UnitPromotions[thisBuilding.FreePromotion2]
+				if promo and promo.ShowInPedia ~= 0 then table.insert(nationalGrantPromos, promo) end
+			end
+			if thisBuilding.FreePromotion3 then
+				local promo = GameInfo.UnitPromotions[thisBuilding.FreePromotion3]
+				if promo and promo.ShowInPedia ~= 0 then table.insert(nationalGrantPromos, promo) end
+			end
+			if #nationalGrantPromos > 0 then
+				g_PromotionsManager:ResetInstances()
+				buttonAdded = 0
+				Controls.FreePromotionsLabel:SetText(Locale.ConvertTextKey("TXT_KEY_PEDIA_GRANT_PROMOTIONS_NATIONAL_LABEL"))
+				for _, promo in ipairs(nationalGrantPromos) do
+					local thisPromotionInstance = g_PromotionsManager:GetInstance()
+					if thisPromotionInstance then
+						local textureOffset, textureSheet = IconLookup(promo.PortraitIndex, buttonSize, promo.IconAtlas)
+						if textureOffset == nil then
+							textureSheet = defaultErrorTextureSheet
+							textureOffset = nullOffset
+						end
+						UpdateSmallButton(buttonAdded, thisPromotionInstance.PromotionImage, thisPromotionInstance.PromotionButton, textureSheet, textureOffset, CategoryPromotions, Locale.ConvertTextKey(promo.Description), promo.ID)
+						buttonAdded = buttonAdded + 1
+					end
+				end
+				UpdateButtonFrame(buttonAdded, Controls.FreePromotionsInnerFrame, Controls.FreePromotionsFrame)
+			end
+
+			-- MOD - granted promotions (local: TrainedFreePromotion)
+			local localGrantPromos = {}
+			if thisBuilding.TrainedFreePromotion then
+				local promo = GameInfo.UnitPromotions[thisBuilding.TrainedFreePromotion]
+				if promo and promo.ShowInPedia ~= 0 then table.insert(localGrantPromos, promo) end
+			end
+			if #localGrantPromos > 0 then
+				g_PromotionsManager:ResetInstances()
+				buttonAdded = 0
+				Controls.FreePromotionsLabel:SetText(Locale.ConvertTextKey("TXT_KEY_PEDIA_GRANT_PROMOTIONS_LOCAL_LABEL"))
+				for _, promo in ipairs(localGrantPromos) do
+					local thisPromotionInstance = g_PromotionsManager:GetInstance()
+					if thisPromotionInstance then
+						local textureOffset, textureSheet = IconLookup(promo.PortraitIndex, buttonSize, promo.IconAtlas)
+						if textureOffset == nil then
+							textureSheet = defaultErrorTextureSheet
+							textureOffset = nullOffset
+						end
+						UpdateSmallButton(buttonAdded, thisPromotionInstance.PromotionImage, thisPromotionInstance.PromotionButton, textureSheet, textureOffset, CategoryPromotions, Locale.ConvertTextKey(promo.Description), promo.ID)
+						buttonAdded = buttonAdded + 1
+					end
+				end
+				UpdateButtonFrame(buttonAdded, Controls.FreePromotionsInnerFrame, Controls.FreePromotionsFrame)
+			end
+
 		-- update the game info
 		if thisBuilding.Help then
 			-- Don't add text if it's the same as the strategy text
@@ -4080,7 +4173,7 @@ CivilopediaCategory[CategoryWonders].SelectArticle = function( wonderID, shouldA
 			--update the promotions unlocked
 			g_UnlockedPromotionsManager:ResetInstances();
 			buttonAdded = 0;
-			local UnlockPromotion = GameInfo.UnitPromotions[thisProject.FreePromotion]
+			local UnlockPromotion = thisProject.FreePromotion and GameInfo.UnitPromotions[thisProject.FreePromotion] or nil
 				if UnlockPromotion then
 					local thisInstance = g_UnlockedPromotionsManager:GetInstance();
 					if thisInstance then
@@ -4150,7 +4243,20 @@ CivilopediaCategory[CategoryWonders].SelectArticle = function( wonderID, shouldA
 			
 			-- update the game info
 			if thisProject.Help then
-				UpdateTextBlock( Locale.ConvertTextKey( thisProject.Help ), Controls.GameInfoLabel, Controls.GameInfoInnerFrame, Controls.GameInfoFrame );
+				local helpText = Locale.ConvertTextKey( thisProject.Help );
+				-- Show first completer for global-once projects (like wonder builder display)
+				if thisProject.MaxGlobalInstances > 0 and Game ~= nil then
+					local firstData = Game.GetProjectFirstData(thisProject.ID);
+					if firstData then
+						local firstPlayer = Players[firstData.playerID];
+						if firstPlayer then
+							helpText = helpText .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_PEDIA_PROJECT_COMPLETED_BY",
+								Locale.ConvertTextKey(firstPlayer:GetCivilizationShortDescriptionKey()),
+								firstData.cityName);
+						end
+					end
+				end
+				UpdateTextBlock( helpText, Controls.GameInfoLabel, Controls.GameInfoInnerFrame, Controls.GameInfoFrame );
 			end
 					
 			-- update the strategy info
@@ -4914,13 +5020,47 @@ CivilopediaCategory[CategoryCityStates].SelectArticle = function( cityStateID, s
  		
 		-- update the game info
 		
-		-- MOD - update Minor Civ bonuses
-		g_FreeFormTextManager:ResetInstances();
-		
-		local traitType = GameInfo.MinorCivTraits[thisCityState.MinorCivTrait];
-		local bodyString = "";
-		local headString = "";
-		if (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_CULTURED) then
+			-- MOD - update Minor Civ bonuses
+			g_FreeFormTextManager:ResetInstances();
+
+			-- MOD - City-State Unique Ability (Super Power V11)
+			if thisCityState.UAType ~= nil and thisCityState.UAType ~= "" then
+				local uaInfo = GameInfo.CityStateUAs[thisCityState.UAType];
+				if uaInfo ~= nil then
+					local strAlly = "";
+					local strFriend = "";
+					if uaInfo.AllyEffectType ~= nil and uaInfo.AllyEffectType ~= "" then
+						local allyEff = GameInfo.CityStateUAEffects[uaInfo.AllyEffectType];
+						if allyEff ~= nil and allyEff.Help ~= nil and allyEff.Help ~= "" then
+							strAlly = Locale.ConvertTextKey(allyEff.Help);
+						end
+					end
+					if uaInfo.FriendEffectType ~= nil and uaInfo.FriendEffectType ~= "" then
+						local friendEff = GameInfo.CityStateUAEffects[uaInfo.FriendEffectType];
+						if friendEff ~= nil and friendEff.Help ~= nil and friendEff.Help ~= "" then
+							strFriend = Locale.ConvertTextKey(friendEff.Help);
+						end
+					end
+					local uaBody = "";
+					if strAlly ~= "" then uaBody = strAlly; end
+					if strFriend ~= "" then
+						if uaBody ~= "" then uaBody = uaBody .. "[NEWLINE][NEWLINE]"; end
+						uaBody = uaBody .. strFriend;
+					end
+					if uaBody ~= "" then
+						local thisFreeFormTextInstance = g_FreeFormTextManager:GetInstance();
+						if thisFreeFormTextInstance then
+							thisFreeFormTextInstance.FFTextHeader:SetText(Locale.ConvertTextKey("TXT_KEY_PEDIA_CSUA_HEADER"));
+							UpdateTextBlock(uaBody, thisFreeFormTextInstance.FFTextLabel, thisFreeFormTextInstance.FFTextInnerFrame, thisFreeFormTextInstance.FFTextFrame);
+						end
+					end
+				end
+			end
+
+			local traitType = GameInfo.MinorCivTraits[thisCityState.MinorCivTrait];
+			local bodyString = "";
+			local headString = "";
+			if (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_CULTURED) then
 			headString = Locale.ConvertTextKey( "TXT_KEY_PEDIA_CONSTRUCTION_MINORBONUS_CULTURED" );
 			local nNum = {};
 			nNum[1] = GameInfo.Defines( "Name='FRIENDS_CULTURE_BONUS_AMOUNT_ANCIENT'" )().Value;
@@ -5031,50 +5171,62 @@ CivilopediaCategory[CategoryCityStates].SelectArticle = function( cityStateID, s
 			bodyString = bodyString .. "[NEWLINE]" .. Locale.ConvertTextKey( "TXT_KEY_PEDIA_CONSTRUCTION_MINORBONUS_RELIGIOUS_MEDIEVAL", nNum[3] + nNum[8] );
 			bodyString = bodyString .. "[NEWLINE]" .. Locale.ConvertTextKey( "TXT_KEY_PEDIA_CONSTRUCTION_MINORBONUS_RELIGIOUS_RENAISSANCE", nNum[4] + nNum[9] );
 			bodyString = bodyString .. "[NEWLINE]" .. Locale.ConvertTextKey( "TXT_KEY_PEDIA_CONSTRUCTION_MINORBONUS_RELIGIOUS_INDUSTRIAL", nNum[5] + nNum[10] );
-		end
-		if ( headString ~= "" ) then
-			local thisFreeFormTextInstance = g_FreeFormTextManager:GetInstance();
-			if thisFreeFormTextInstance then
-				thisFreeFormTextInstance.FFTextHeader:SetText( headString );
-				UpdateTextBlock( bodyString, thisFreeFormTextInstance.FFTextLabel, thisFreeFormTextInstance.FFTextInnerFrame, thisFreeFormTextInstance.FFTextFrame );
 			end
-		end
-		
-		-- MOD - Advanced Civilopedia
-		headString = Locale.ConvertTextKey("TXT_KEY_PEDIA_MINOR_FLAVORS");
-		bodyString = "";
-		local bNewBlock = true;
-		
-		for row in GameInfo.MinorCivilization_Flavors( condition ) do
-			local flavorTag = "TXT_KEY_PEDIA_LEADER_" .. row.FlavorType;
-			local rowID = GameInfo.Flavors[row.FlavorType].ID;
-			if (row.Flavor > 0) then
-				local rowTag = Locale.ConvertTextKey(flavorTag) .. " " .. tostring( row.Flavor );
-				if (bNewBlock) then
-					bodyString = bodyString .. rowTag;
-					bNewBlock = false;
-				else
-					bodyString = bodyString .. "[NEWLINE]" .. rowTag;
+			-- Append ally bonus from TT tooltip
+			if (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_CULTURED) then
+				bodyString = bodyString .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_CULTURED_TT");
+			elseif (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_MARITIME) then
+				bodyString = bodyString .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_MARITIME_TT");
+			elseif (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_MILITARISTIC) then
+				bodyString = bodyString .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_MILITARISTIC_NO_UU_TT");
+			elseif (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_MERCANTILE) then
+				bodyString = bodyString .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_MERCANTILE_TT");
+			elseif (traitType == GameInfo.MinorCivTraits.MINOR_TRAIT_RELIGIOUS) then
+				bodyString = bodyString .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_RELIGIOUS_TT");
+			end
+			if ( headString ~= "" ) then
+				local thisFreeFormTextInstance = g_FreeFormTextManager:GetInstance();
+				if thisFreeFormTextInstance then
+					thisFreeFormTextInstance.FFTextHeader:SetText( headString );
+					UpdateTextBlock( bodyString, thisFreeFormTextInstance.FFTextLabel, thisFreeFormTextInstance.FFTextInnerFrame, thisFreeFormTextInstance.FFTextFrame );
 				end
 			end
-		end
-		
-		if ( bodyString ~= "" ) then
-			local thisFreeFormTextInstance = g_FreeFormTextManager:GetInstance();
-			if thisFreeFormTextInstance then
-				thisFreeFormTextInstance.FFTextHeader:SetText( Locale.ConvertTextKey( headString ));
-				UpdateTextBlock( bodyString, thisFreeFormTextInstance.FFTextLabel, thisFreeFormTextInstance.FFTextInnerFrame, thisFreeFormTextInstance.FFTextFrame );
+ 
+			-- MOD - Advanced Civilopedia
+			headString = Locale.ConvertTextKey("TXT_KEY_PEDIA_MINOR_FLAVORS");
+			bodyString = "";
+			local bNewBlock = true;
+			
+			for row in GameInfo.MinorCivilization_Flavors( condition ) do
+				local flavorTag = "TXT_KEY_PEDIA_LEADER_" .. row.FlavorType;
+				local rowID = GameInfo.Flavors[row.FlavorType].ID;
+				if (row.Flavor > 0) then
+					local rowTag = Locale.ConvertTextKey(flavorTag) .. " " .. tostring( row.Flavor );
+					if (bNewBlock) then
+						bodyString = bodyString .. rowTag;
+						bNewBlock = false;
+					else
+						bodyString = bodyString .. "[NEWLINE]" .. rowTag;
+				end
 			end
-		end
-		
-		Controls.FFTextStack:SetHide( false );
-		
-		-- update the historical info
-		if (thisCityState.Civilopedia) then
+			end
+			
+			if ( bodyString ~= "" ) then
+				local thisFreeFormTextInstance = g_FreeFormTextManager:GetInstance();
+				if thisFreeFormTextInstance then
+					thisFreeFormTextInstance.FFTextHeader:SetText( Locale.ConvertTextKey( headString ));
+					UpdateTextBlock( bodyString, thisFreeFormTextInstance.FFTextLabel, thisFreeFormTextInstance.FFTextInnerFrame, thisFreeFormTextInstance.FFTextFrame );
+				end
+			end
+			
+			Controls.FFTextStack:SetHide( false );
+			
+			-- update the historical info
+			if (thisCityState.Civilopedia) then
 			UpdateTextBlock( Locale.ConvertTextKey( thisCityState.Civilopedia ), Controls.HistoryLabel, Controls.HistoryInnerFrame, Controls.HistoryFrame );
-		end
+			end
 				
-	end	
+		end	
 
 	ResizeEtc();
 
@@ -8194,31 +8346,36 @@ CivilopediaCategory[CategoryPromotions].DisplayList = function()
 		otherSortedList[tostring( thisListInstance.ListItemButton )] = sortOrder;
 	end
 
-	-- for each element of the sorted list		
+	-- for each element of the sorted list (using PromotionPedias config)
 
-	for section = 1,8,1 do
-		local thisHeaderInstance = g_ListHeadingManager:GetInstance();
-		if thisHeaderInstance then
-			sortedList[CategoryPromotions][section].headingOpen = true; -- ain't lua great
-			sortOrder = sortOrder + 1;
-			local textString = "TXT_KEY_PROMOTIONS_SECTION_"..tostring( section );
-			local localizedLabel = "[ICON_MINUS] "..Locale.ConvertTextKey( textString );
-			thisHeaderInstance.ListHeadingLabel:SetText( localizedLabel );
-			thisHeaderInstance.ListHeadingButton:SetVoids( section, 0 );
-			thisHeaderInstance.ListHeadingButton:RegisterCallback( Mouse.eLClick, CivilopediaCategory[CategoryPromotions].SelectHeading );
-			otherSortedList[tostring( thisHeaderInstance.ListHeadingButton )] = sortOrder;
-		end	
-			
-		for i, v in ipairs(sortedList[CategoryPromotions][section]) do
-			-- add an entry
-			local thisListInstance = g_ListItemManager:GetInstance();
-			if thisListInstance then
+	InitPediaTypeConfig()
+	for _, config in ipairs(g_PediaTypeConfig[CategoryPromotions]) do
+		local sectionId = config.SectionId;
+		local sectionTextKey = config.SectionTextKey;
+		local sectionData = sortedList[CategoryPromotions][sectionId];
+		if sectionData then
+			local thisHeaderInstance = g_ListHeadingManager:GetInstance();
+			if thisHeaderInstance then
+				sectionData.headingOpen = true; -- ain't lua great
 				sortOrder = sortOrder + 1;
-				thisListInstance.ListItemLabel:SetText( v.entryName );
-				thisListInstance.ListItemButton:SetVoids( v.entryID, addToList );
-				thisListInstance.ListItemButton:RegisterCallback( Mouse.eLClick, CivilopediaCategory[CategoryPromotions].SelectArticle );
-				thisListInstance.ListItemButton:SetToolTipCallback( TipHandler )
-				otherSortedList[tostring( thisListInstance.ListItemButton )] = sortOrder;
+				local localizedLabel = "[ICON_MINUS] "..Locale.ConvertTextKey( sectionTextKey );
+				thisHeaderInstance.ListHeadingLabel:SetText( localizedLabel );
+				thisHeaderInstance.ListHeadingButton:SetVoids( sectionId, 0 );
+				thisHeaderInstance.ListHeadingButton:RegisterCallback( Mouse.eLClick, CivilopediaCategory[CategoryPromotions].SelectHeading );
+				otherSortedList[tostring( thisHeaderInstance.ListHeadingButton )] = sortOrder;
+			end	
+				
+			for i, v in ipairs(sectionData) do
+				-- add an entry
+				local thisListInstance = g_ListItemManager:GetInstance();
+				if thisListInstance then
+					sortOrder = sortOrder + 1;
+					thisListInstance.ListItemLabel:SetText( v.entryName );
+					thisListInstance.ListItemButton:SetVoids( v.entryID, addToList );
+					thisListInstance.ListItemButton:RegisterCallback( Mouse.eLClick, CivilopediaCategory[CategoryPromotions].SelectArticle );
+					thisListInstance.ListItemButton:SetToolTipCallback( TipHandler )
+					otherSortedList[tostring( thisListInstance.ListItemButton )] = sortOrder;
+				end
 			end
 		end
 	end

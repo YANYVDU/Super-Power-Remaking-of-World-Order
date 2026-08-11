@@ -16,7 +16,7 @@
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_VERSION">
-			<Text>[COLOR_YELLOW]版本號 10 Final C[ENDCOLOR]</Text>
+			<Text>[COLOR_YELLOW]版本號 10 Final G[ENDCOLOR]</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_SP_MOD_SETUP">
@@ -332,10 +332,6 @@
 
 		<Replace Tag="TXT_KEY_BUILDING_PALACE_HELP">
 			<Text>標示該城市是文明的[ICON_CAPITAL]首都。擁有一個美術傑作展位。[NEWLINE][NEWLINE]用道路將其他城市[ICON_CONNECTED]連接到[ICON_CAPITAL]首都將獲得額外的[ICON_GOLD]金幣。[NEWLINE][NEWLINE]你可以通過遷都將宮殿轉移至其他城市，但這不會影響其他文明的征服勝利進程。</Text>
-		</Replace>
-
-		<Replace Tag="TXT_KEY_BUILDING_COURTHOUSE_HELP">
-			<Text>消除因[ICON_OCCUPIED]佔領城市導致的額外[ICON_HAPPINESS_4]不滿。[NEWLINE][NEWLINE]本城市每有3位[ICON_CITIZEN]市民則增加1[ICON_GOLD] 維護費。</Text>
 		</Replace>
 
 		<Replace Tag="TXT_KEY_BUILDING_GRANARY_HELP">
@@ -937,7 +933,7 @@
 		<Row Tag="TXT_KEY_BUILDING_INDONESIA_SPICE_HARBOR_HELP">
 			<Text>
 				通過水域建立到[ICON_CAPITAL]首都的[ICON_CONNECTED]城市連接（如果尚未建立陸路[ICON_CONNECTED]連接）。
-				[NEWLINE][NEWLINE]所在城市每處已開發的奢侈資源額外+1份。
+				[NEWLINE][NEWLINE]所在城市每處已開發的奢侈資源額外+1份。+5[ICON_RES_CONSUMER]商品。
 				[NEWLINE][NEWLINE]從本城起始通向其他文明的海上商路額外+10基礎[ICON_GOLD]金幣。
 				[NEWLINE][NEWLINE]城市必須擁有燈塔。
 			</Text>
@@ -1268,7 +1264,7 @@
 		<Replace Tag="TXT_KEY_BUILDING_MILITARY_BASE_HELP">
 			<Text>
 				允許你在本城市訓練或雇傭以下[COLOR_POSITIVE_TEXT]軍事單位[ENDCOLOR]。
-				[NEWLINE][ICON_BULLET][COLOR_YELLOW]固定翼飛機單位[ENDCOLOR]；
+				[NEWLINE][ICON_BULLET][COLOR_YELLOW]飛機單位[ENDCOLOR]；
 				[NEWLINE][ICON_BULLET][COLOR_YELLOW]直升機單位[ENDCOLOR]。
 				[NEWLINE][NEWLINE]允許從這個城市空運單位。
 				[NEWLINE][COLOR_POSITIVE_TEXT]城市可容納的空軍單位數量增加4單位。[ENDCOLOR]
@@ -1395,7 +1391,7 @@
 
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_HANGING_GARDEN_HELP" />
-			<Set Text="所有城市-10%[ICON_CITIZEN]人口成長閾值。向所在城市贈送一個花園。" />
+			<Set Text="所有城市-10%[ICON_CITIZEN]人口成長閾值。向所在城市贈送一個公園。" />
 		</Update>
 
 		<Replace Tag="TXT_KEY_WONDER_COLOSSUS_HELP">
@@ -1424,7 +1420,7 @@
 
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP" />
-			<Set Text="所在城市誕生的傳教士能有三次傳教機會。傳教士和大先知+1[ICON_MOVES]移動力，傳播宗教時可獲得[ICON_PEACE]信仰和[ICON_GOLDEN_AGE]黃金時代點數。向所在城市贈送一個清真寺。研究科學理論後+4[ICON_TOURISM]旅遊業績產出。" />
+			<Set Text="你的傳教士能有三次傳教機會。傳教士和大先知+1[ICON_MOVES]移動力，傳播宗教時可獲得[ICON_PEACE]信仰和[ICON_GOLDEN_AGE]黃金時代點數。向所在城市贈送一個清真寺。研究科學理論後+4[ICON_TOURISM]旅遊業績產出。" />
 		</Update>
 
 		<Update>
@@ -1512,7 +1508,7 @@
 
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP" />
-			<Set Text="一級城市不再造成額外[ICON_HAPPINESS_4]不滿，二至五級城市造成的額外[ICON_HAPPINESS_4]不滿-50%。在世界議會中獲得額外2個代表。" />
+			<Set Text="來自腐敗的[ICON_HAPPINESS_4]不滿-50%。在世界議會中獲得額外2個代表。" />
 		</Update>
 
 		<Update>
@@ -1710,7 +1706,7 @@
 		<!-- Help tags -->
 		<Row Tag="TXT_KEY_WONDER_SAN_MARCO_HELP">
 			<Text>
-				[ICON_BULLET]本城市[ICON_TOURISM]旅遊業績產出產出+50%。
+				[ICON_BULLET]本城市[ICON_TOURISM]旅遊業績產出+50%。
 				[NEWLINE][ICON_BULLET]本城市[ICON_CULTURE]文化產出+50%。
 				[NEWLINE][ICON_BULLET]城市附近出現兩位大藝術家。
 				[NEWLINE][ICON_BULLET]擁有4個美術傑作展位。
@@ -1939,7 +1935,32 @@
 			<Text>這座“空中城市”的規模簡直令人難以置信。如果建成，東京清水巨城金字塔的高度是埃及吉薩大金字塔的12倍。埃及吉薩大金字塔高6574英尺(約合2003米)，占地面積3平方英里。整座建築共有8層，相互堆疊而成，總面積估計達到34平方英里，每一層都由幾個更小的金字塔構成，每個大概相當於拉斯維加斯盧克索酒店那麼大，一至四層專門用於住宿和商業活動，五至八層用於休閒和娛樂等社交場所。[NEWLINE][NEWLINE]清水“空大型城市市”可容納75萬人，相當於東京1200萬總人口的16分之一。解決那麼多人的出行問題是一個巨大挑戰，不過，便捷的交通運輸系統以及快速移動的人行道和電梯網，通過55個交通樞紐將整個城市連成一片，不僅實現了零碳排放，還有效解決了居民出行問題。這座超級結構的外立面覆蓋光電塗層，可以將陽光轉換為電，從而為更為綠色的城市作出貢獻。</Text>
 		</Row>
 
-		<!--****************************National Wonders*************************************-->
+	
+		<!--****************************Place of Nations*************************************-->
+
+		<!-- Description tags -->
+		<Row Tag="TXT_KEY_WONDER_PLACE_OF_NATIONS">
+			<Text>萬國宮</Text>
+		</Row>
+		<!-- Help tags -->
+		<Row Tag="TXT_KEY_BUILDING_PLACE_OF_NATIONS_HELP">
+			<Text>
+				[ICON_BULLET]額外+2[ICON_DIPLOMATIC_PRESTIGE]外交威望。
+				[NEWLINE][ICON_BULLET]建成時提高所有見面城邦25%[ICON_INFLUENCE]影響力。
+			</Text>
+		</Row>
+		<!-- Quote tags -->
+		<Row Tag="TXT_KEY_WONDER_PLACE_OF_NATIONS_QUOTE">
+			<Text>[NEWLINE]「我聯合國人民同茲決心，欲免後世再遭今代人類兩度身歷慘不堪言之戰禍。」[NEWLINE] ——《聯合國憲章》[NEWLINE]</Text>
+		</Row>
+		<!-- Pedia tags -->
+		<Row Tag="TXT_KEY_WONDER_PLACE_OF_NATIONS_PEDIA">
+			<Text>萬國宮（Palace of Nations）位於瑞士日內瓦，始建於1929年，最初是為國際聯盟建造的總部。國際聯盟是第一次世界大戰後成立的第一個全球性國際組織，旨在通過外交手段和平解決國際爭端。雖然國聯最終未能阻止第二次世界大戰的爆發，但它為後來的聯合國奠定了基礎。
+				萬國宮坐落在日內瓦湖畔的阿里亞納公園內，建築群宏偉壯觀，融合了新古典主義與現代主義風格。其主會議廳可容納2000名代表，見證了無數次改變世界格局的外交談判。二戰後，萬國宮成為聯合國日內瓦辦事處，是僅次於紐約聯合國總部的第二大聯合國中心。
+				如今，萬國宮每年舉辦超過8000場國際會議，是人權、裁軍、貿易和人道主義事務等全球議題的核心舞台。它象徵著人類對和平與合作的永恆追求。</Text>
+		</Row>
+
+	<!--****************************National Wonders*************************************-->
 
 		<Replace Tag="TXT_KEY_BUILDING_HEROIC_EPIC_HELP">
 			<Text>
@@ -2073,7 +2094,7 @@
 		</Row>
 		<!-- Help tags -->
 		<Row Tag="TXT_KEY_BUILDING_NATIONAL_CARAVANSARY_HELP">
-			<Text>+4[ICON_RES_CONSUMER]商品。[NEWLINE][NEWLINE]獲得一條額外的商路和一支免費的商隊。[NEWLINE][NEWLINE]必須在文明的所有城市中擁有客棧。建造成本隨城市數量增加。</Text>
+			<Text>+5[ICON_RES_CONSUMER]商品。[NEWLINE][NEWLINE]獲得一條額外的商路和一支免費的商隊。[NEWLINE][NEWLINE]必須在文明的所有城市中擁有客棧。建造成本隨城市數量增加。</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_BUILDING_NATIONAL_CARAVANSARY_STRATEGY</Tag>
@@ -2956,7 +2977,6 @@
 		<Replace Tag="TXT_KEY_BUILDING_COURTHOUSE_HELP">
 			<Text>
 				[ICON_BULLET]消除來自[ICON_OCCUPIED]被佔領城市的額外[ICON_HAPPINESS_4]不滿。
-				[NEWLINE][ICON_BULLET]每3[ICON_CITIZEN]人口+1[ICON_GOLD]維護費。
 			</Text>
 		</Replace>
 
@@ -3159,7 +3179,7 @@
 			<Text>[ICON_RES_ELECTRICITY]燃油發電站</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_OIL_PLANT_HELP">
-			<Text>本城市每10[ICON_CITIZEN]人口+1[ICON_GOLD]金幣。[COLOR_NEGATIVE_TEXT]污染[ENDCOLOR]會導致[ICON_FOOD]食物累積-5%。[NEWLINE][NEWLINE]只能在小型城市（6人口）建造。</Text>
+			<Text>本城市每5[ICON_CITIZEN]人口+1[ICON_GOLD]金幣。[COLOR_NEGATIVE_TEXT]污染[ENDCOLOR]會導致[ICON_FOOD]食物累積-5%。[NEWLINE][NEWLINE]只能在小型城市（6人口）建造。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_BUILDINGS_OIL_PLANT_TEXT">
 			<Text>大部分石油產品均可用作燃料，但燃料油在不同的地區卻有不同的解釋。歐洲對燃料油的概念一般是指原油經蒸餾而留下的黑色粘稠殘餘物，或它與較輕組分的摻和物，主要用作蒸汽爐及各種加熱爐的燃料或作為大型慢速柴油燃料及作為各種工業燃料。但在美國則指任何閃點不低於37.8°C的可燃燒的液態或可液化的石油產品，它既可以是殘渣燃料油也可是餾分燃料油。餾分燃料油不僅可直接由蒸餾原油得到（即直餾餾分），也可由其它加工過程如裂化等再經蒸餾得到。</Text>
@@ -3325,7 +3345,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_BUILDING_RACECOURSE_HELP</Tag>
-			<Text>該建築提供的[ICON_HAPPINESS_1]幸福度點數以該城市的[ICON_CITIZEN]市民數量為限。[NEWLINE][NEWLINE]只能在小型城市（6人口）建造。。</Text>
+			<Text>該建築提供的[ICON_HAPPINESS_1]幸福度點數以該城市的[ICON_CITIZEN]市民數量為限。[NEWLINE][NEWLINE]只能在小型城市（6人口）建造。</Text>
 		</Row>
 
 		<Row>
@@ -4616,6 +4636,20 @@
 			<Text>超級大國模組城邦有什麼變化嗎？</Text>
 		</Row>
 
+		<!--************************************ Interface ********************************-->
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_TOPIC">
+			<Text>SP：地塊自定義命名</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_DESCRIPTION">
+			<Text>{TXT_KEY_CONCEPT_PLOT_NAMING_TOPIC}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_SUMMARY">
+			<Text>本MOD支持在地圖任意地塊上添加自定義地名標籤。[NEWLINE][NEWLINE]【操作方式】[NEWLINE]將鼠標懸停在目標地塊上，按下 Ctrl+N 快捷鍵，即可彈出命名對話框。輸入名稱後點擊「確定」，該地塊上方將顯示浮動地名標籤。[NEWLINE][NEWLINE]【顏色前綴】[NEWLINE]輸入名稱時以 .X 或 .XX 開頭即可為標籤染色。支持13種顏色：[NEWLINE].R 紅色 .G 綠色 .BL 藍色 .Y 黃色 .C 青色 .M 品紅 .W 白色[NEWLINE].P 紫色 .N 藏青 .S 銀色 .U 天藍 .F 森林綠 .BR 棕色[NEWLINE]不指定前綴時默認為紅色。[NEWLINE][NEWLINE]【清除命名】[NEWLINE]對已命名地塊再次按 Ctrl+N，點擊「清除」按鈕即可刪除。[NEWLINE][NEWLINE]【存檔兼容】[NEWLINE]地塊命名數據會隨存檔保存，讀檔後可恢復。標籤在進入城市界面時自動隱藏。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_ADVISOR_QUESTION">
+			<Text>如何在地圖上給地塊命名？</Text>
+		</Row>
+
 		<!--**************************************Misc Text Changes************************************-->
 
 		<!--********************************************** Resoultions Info Change ********************************************** -->
@@ -5348,7 +5382,7 @@
 			<Text>[COLOR_POSITIVE_TEXT]建立道場[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_BTNNOTE_BUILDING_JAPANESE_DOJO">
-			<Text>在本城市建立一座道場。該城市所有建造和購買的軍事單位+15經驗值且允許在本城市組建特戰單位和精英單位。[NEWLINE][NEWLINE]+3[ICON_RES_MANPOWER]人力。[NEWLINE][NEWLINE]該指令會消耗你的日本武士，每座城市只能建造一座道場。</Text>
+			<Text>在本城市建立一座道場。該城市所有建造和購買的軍事單位+15經驗值。[NEWLINE][NEWLINE]+2[ICON_HAPPINESS_1]本地幸福度。[NEWLINE][NEWLINE]+5[ICON_RES_MANPOWER]人力。[NEWLINE][NEWLINE]該指令會消耗你的日本武士，每座城市只能建造一座道場。</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_SP_BTNNOTE_UNIT_RECON_TARGET_GUIDE_SHORT">
@@ -6615,8 +6649,8 @@
 		<Row Tag="TXT_KEY_POLICY_FAMILY_REGISTER_HELP">
 			<Text>
 				[COLOR_POSITIVE_TEXT]科舉考試[ENDCOLOR]
-				[NEWLINE][ICON_BULLET]每5[ICON_CITIZEN]人口+1[ICON_RESEARCH]科研。
-				[NEWLINE][ICON_BULLET]每個城市中獲得一個科學家席位。
+				[NEWLINE][ICON_BULLET]全國每有3[ICON_CITIZEN]人口+1[ICON_RESEARCH]科研。
+				[NEWLINE][ICON_BULLET]所有城市+3[ICON_GREAT_SCIENTIST]大科學家點數，學院+1[ICON_RESEARCH]科研。
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POLICY_FAMILY_REGISTER_TEXT">
@@ -6710,7 +6744,7 @@
 			<Text>
 				[COLOR_POSITIVE_TEXT]行省製度[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]每座與[ICON_CAPITAL]首都[ICON_CONNECTED]相連的城市+1[ICON_HAPPINESS_1]快樂。
-				[NEWLINE][ICON_BULLET]非首都直轄城市的額外不滿-50%。
+				[NEWLINE][ICON_BULLET]来自腐敗的[ICON_HAPPINESS_4]不滿-50%。
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POLICY_PROVINCE_TEXT">
@@ -6874,8 +6908,9 @@
 		<Replace Tag="TXT_KEY_POLICY_THEOCRACY_HELP">
 			<Text>
 				[COLOR_POSITIVE_TEXT]神權政治[ENDCOLOR]
-				[NEWLINE][ICON_BULLET]全國+10%[ICON_CULTURE]文化。
-				[NEWLINE][ICON_BULLET]所有城市獲得一個額外的文學家席位。
+				[NEWLINE][ICON_BULLET]每有一座城市信奉你為領袖的宗教，全國+2%[ICON_CULTURE]文化。
+				[NEWLINE][ICON_BULLET]所有城市+3[ICON_GREAT_WRITER]文學家點數。
+				[NEWLINE][ICON_BULLET]每處有市民工作的聖地+4[ICON_HAPPINESS_1]本地快樂
 			</Text>
 		</Replace>
 
@@ -7257,6 +7292,7 @@
 				[COLOR_POSITIVE_TEXT]思想自由[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]每處貿易站+1[ICON_RESEARCH]科研。
 				[NEWLINE][ICON_BULLET]每處學園+6[ICON_RESEARCH]科研。
+				[NEWLINE][ICON_BULLET]每點[ICON_HAPPINESS_1]本地快樂降低城市10點管理成本。
 			</Text>
 		</Replace>
 
@@ -7621,9 +7657,9 @@
 		<!--Buildings-->
 
 
-		<Row Tag="TXT_KEY_BUILDING_THEOCRACY_WRITER">
+		<!-- <Row Tag="TXT_KEY_BUILDING_THEOCRACY_WRITER">
 			<Text>[ICON_GREAT_WRITER]神權政治</Text>
-		</Row>
+		</Row> -->
 
 		<Row Tag="TXT_KEY_BUILDING_FAMILY_PRODUCTION">
 			<Text>[ICON_RESEARCH]府學</Text>
@@ -8147,6 +8183,12 @@
 		<Replace Tag="TXT_KEY_BELIEF_GURUSHIP">
 			<Text>城市有專業人員時+2[ICON_PEACE]信仰、[ICON_CULTURE]文化，+1[ICON_PRODUCTION]產能、[ICON_RESEARCH]科研</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_BELIEF_SERENS_GOVERNANCE_SHORT">
+			<Text>清心養性</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SERENS_GOVERNANCE">
+			<Text>城市管理成本-200，城市每100管理成本產出1[ICON_PEACE]信仰</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_BELIEF_PILGRIMAGE">
 			<Text>為聖城提供其他文明本宗教信徒數量20%的[ICON_PEACE]信仰，其他文明每個信仰該宗教的城市為此宗教+3[ICON_PEACE]信仰</Text>
 		</Replace>
@@ -8190,7 +8232,7 @@
 			<Text>每一處[ICON_RES_GOLD]黃金、[ICON_RES_SILVER]白銀、[ICON_RES_COPPER]赤銅、[ICON_RES_IRON]鐵礦、[ICON_RES_SALT]鹽資源+1[ICON_PEACE]信仰、+1[ICON_CULTURE]文化</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_GOD_FESTIVALS">
-			<Text>每一處紅酒和熏香+2[ICON_PEACE]信仰、+2[ICON_CULTURE]文化</Text>
+			<Text>每一處[ICON_RES_WINE]紅酒和[ICON_RES_INCENSE]熏香+2[ICON_PEACE]信仰、+2[ICON_CULTURE]文化</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_ONE_WITH_NATURE">
 			<Text>自然奇觀+8[ICON_PEACE]信仰</Text>
@@ -8225,7 +8267,7 @@
 			<Text>教會藝匠</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_RELIGIOUS_FERVOR">
-			<Text>允許使用[ICON_PEACE]信仰購買[COLOR_POSITIVE_TEXT]宗教藝術師[ENDCOLOR]，該單位能夠開啟黃金時代。露天劇場、畫廊和歌劇院+2[ICON_PEACE]信仰。建造奇觀時+25%[ICON_PRODUCTION]產能積累</Text>
+			<Text>允許使用[ICON_PEACE]信仰購買[COLOR_POSITIVE_TEXT]宗教藝術師[ENDCOLOR]（解鎖科技：聲學），該單位能夠開啟黃金時代。露天劇場、畫廊和歌劇院+2[ICON_PEACE]信仰。建造世界奇觀時+25%[ICON_PRODUCTION]產能積累</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_UNITY_OF_PROPHETS">
 			<Text>宗教裁判官和先知只能將此宗教的信眾減少一半（而非全部清除）。城市審判狂熱時間減半。聖城中誕生一位[ICON_PROPHET]大先知</Text>
@@ -8353,6 +8395,12 @@
 		<Row Tag="TXT_KEY_BELIEF_SCIENCE_RELIGION">
 			<Text>每個信徒增加本城+2%[ICON_RESEARCH]科研產出(最大+30%)</Text>
 		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SAGES_LEGACY_SHORT">
+			<Text>聖賢遺澤</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SAGES_LEGACY">
+			<Text>海關、學園、製造中心、宗教聖地為鄰近改良設施提供的加成翻倍</Text>
+		</Row>
 
 		<Row Tag="TXT_KEY_EXTRA_RELIGION_SPREADS_2">
 			<Text>+2次宗教傳播次數</Text>
@@ -8400,6 +8448,12 @@
 		</Row>
 		<Row Tag="TXT_KEY_BELIEF_CURSADER">
 			<Text>在聖城征召6名擁有60點經驗的聖殿騎士</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_HOLY_PROPAGATION_SHORT">
+			<Text>聖邑繁衍</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_HOLY_PROPAGATION">
+			<Text>農田+1[ICON_PEACE]信仰，每有3座城市首次皈依時，聖城獲得1[ICON_CITIZEN]人口</Text>
 		</Row>
 
 
@@ -9529,7 +9583,7 @@
 			<Text>陸軍遠程單位</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNITCOMBAT_BOMBER">
-			<Text>陸軍特種單位</Text>
+			<Text>覆蓋火力單位</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNITCOMBAT_ARCHER">
 			<Text>空軍單位</Text>
@@ -9623,7 +9677,7 @@
 				[NEWLINE][ICON_BULLET]兩條升級鏈各有著強大的效果，根據局勢想好晉升的選擇；
 				[NEWLINE][ICON_BULLET]兩兩一組作為敵後騷擾部隊，可以通過偷襲脆弱工人、民兵、遠程單位甚至偉人給敵人造成重大損失同時快速升級，兩兩互補也提供了持久戰鬥續航能力；
 				[NEWLINE][ICON_BULLET]高等級的特戰在正面戰場特別是野戰和防守戰鬥中有著不輸於正規軍的戰鬥力，同時可以提供視野，這在早期戰鬥中十分有用，並且阻止電腦在陰影中刷兵。
-				[NEWLINE][ICON_BULLET]建議使用改名MOD來區分你的不同定位的特戰單位。
+				[NEWLINE][ICON_BULLET]建議右鍵點擊單位名稱改名來區分你的不同定位的特戰單位。
 			</Text>
 		</Row>
 
@@ -9772,7 +9826,7 @@
 				[NEWLINE][ICON_BULLET]遊獵單位前期就可以攻擊後移動，同樣受政策無視zoc加成，這使其在早期戰爭中有著不俗的生存能力；
 				[NEWLINE][ICON_BULLET]有著光環晉升，可以用機動力在多個戰場提供光環加成，不用急著進攻；
 				[NEWLINE][ICON_BULLET]有著獵殺晉升，可以直接將目標破防，配合更強戰鬥力的兵種打出更高的傷害；
-				[NEWLINE][ICON_BULLET]建議使用改名來區分你的不同定位的遊獵單位，方便操作；
+				[NEWLINE][ICON_BULLET]建議右鍵點擊單位名稱改名來區分你的不同定位的遊獵單位，方便操作；
 				[NEWLINE][ICON_BULLET]熟稔使用它的近戰和遠程能力，它不是一個跑的快的弓箭手，也不是可以突破戰線的騎兵。
 			</Text>
 		</Row>
@@ -9923,7 +9977,7 @@
 
 				[NEWLINE][NEWLINE][COLOR_CYAN]戰術：[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]海洋中的遊獵單位，雖然戰鬥中沒有陸軍遊獵單位在正面戰鬥中的強力，但是低廉的造價和良好的輔助能力同樣受到操作者的喜愛而得以大量普及；
-				[NEWLINE][ICON_BULLET]建議使用改名來區分你的不同定位的遊獵單位，注意使用好兵種之間的克制。
+				[NEWLINE][ICON_BULLET]建議右鍵點擊單位名稱改名來區分你的不同定位的遊獵單位，注意使用好兵種之間的克制。
 			</Text>
 		</Row>
 
@@ -10892,7 +10946,7 @@
 			<Text>U型潛艇</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_HELP_GERMAN_UBOAT">
-			<Text>替代潛艇，造價更低，自帶“狼群戰術”晉升，+1射程（可以疊加為4射程），+50%远程戰鬥力。</Text>
+			<Text>替代潛艇，造價更低，自帶“狼群戰術”晉升，+1射程（可以疊加為4射程），+50%遠程戰鬥力。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_GERMAN_UBOAT_PEDIA">
 			<Text>
@@ -11230,6 +11284,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER_HEADING">
 			<Text>JAS-39鷹獅</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER_HELP">
+			<Text>可以同時進行空戰和對陸海攻擊的多功能戰鬥機。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CIVILOPEDIA_UNIT_SWEDISH_JAS39_FIGHTER_TEXT">
 			<Text>JAS 39“鷹獅”（瑞典語：JAS 39 Gripen，英文：JAS 39 Griffin 或 Gryphon，又譯作“獅鷲”）為瑞典薩博公司（SAAB）（Svenska Aeroplan AB）為中心所開發用以取代Saab-37戰鬥機，在戰機世代上屬於第四代戰鬥機。JAS-39首飛於1988年，正向全世界推銷中。現已服役於瑞典、捷克、匈牙利等國空軍，並正於南非空軍中成軍。2007年10月，泰國國會也已批准首批六架JAS-39戰機訂單。</Text>
@@ -12568,7 +12625,7 @@
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_HELP">
 			<Text>
 				可以攔截試圖轟炸附近單位的敵軍飛機。
-				[NEWLINE][ICON_BULLET]每回合能夠進行一次對空攔截。
+				[NEWLINE][ICON_BULLET]每回合能夠進行對空攔截。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]和[COLOR_POSITIVE_TEXT]直升機[ENDCOLOR]單位擁有戰鬥力加成。
 				[NEWLINE][ICON_BULLET]攔截[COLOR_NEGATIVE_TEXT]戰略轟炸機[ENDCOLOR]時效果不佳。
@@ -12703,13 +12760,13 @@
 			<Text>破陣一級</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_SUNDER_1_HELP">
-			<Text>如果目標單位被攻擊後HP小於60%，則其防禦力-25%，直至其恢復滿員該效果才會消失。（該效果可疊加）</Text>
+			<Text>如果目標單位被攻擊後HP小於75%，則其防禦力-25%，直至其恢復滿員該效果才會消失。（該效果可疊加）</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_SUNDER_2">
 			<Text>破陣二級</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_SUNDER_2_HELP">
-			<Text>如果目標單位被攻擊後HP小於75%，則其防禦力-25%，直至其恢復滿員該效果才會消失。（該效果可疊加）</Text>
+			<Text>如果目標單位被攻擊後HP小於90%，則其防禦力-25%，直至其恢復滿員該效果才會消失。（該效果可疊加）</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_PROMOTION_HUNTDOWN_1">
@@ -12941,7 +12998,7 @@
 				[NEWLINE][ICON_BULLET]能夠攻擊後移動。
 				[NEWLINE][ICON_BULLET]能夠使用敵方道路。
 				[NEWLINE][ICON_BULLET]劫掠不消耗移動力。
-				[NEWLINE][ICON_BULLET]路基飛機無法發現或攻擊此類單位。
+				[NEWLINE][ICON_BULLET]陸基飛機無法發現或攻擊此類單位。
 				[NEWLINE][ICON_BULLET]不能通過[ICON_GOLD]金錢[COLOR_NEGATIVE_TEXT]購買[ENDCOLOR]。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]克制[COLOR_POSITIVE_TEXT]民兵[ENDCOLOR]單位
@@ -13493,7 +13550,7 @@
 			<Text>補給三級</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_SUPPLY_3_HELP">
-			<Text>本航母能夠在友方地域之外補充艦載機。购买舰载机费用减20%</Text>
+			<Text>本單位能夠在友方地域之外補充艦載機或導彈，且購買費用-20%</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_FIGHTER">
@@ -13879,7 +13936,7 @@
 		</Replace>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_HELICOPTER_HELP">
 			<Text>
-				[ICON_BULLET]對[COLOR_POSITIVE_TEXT]直升機單位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]固定翼飛機單位[ENDCOLOR]+150%[ICON_STRENGTH]戰鬥力。[NEWLINE][ICON_BULLET]能夠攔截1格內的敵方飛機，被遊獵時不會受傷。
+				[ICON_BULLET]對[COLOR_POSITIVE_TEXT]艦載機[ENDCOLOR]、[COLOR_POSITIVE_TEXT]空優單位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]+200%[ICON_STRENGTH]戰鬥力。[NEWLINE][ICON_BULLET]能夠攔截敵方飛機，被遊獵時不會受傷。
 			</Text>
 		</Row>
 
@@ -14009,7 +14066,7 @@
 		<Row Tag="TXT_KEY_PROMOTION_SP_FULL_MOON_STRIKE_HELP">
 			<Text>
 				[ICON_BULLET]+1[ICON_MOVES]移動力（可疊加）。
-				[NEWLINE][ICON_BULLET]對陸軍遠程，防空單位，攻城單位和陸地AOE武器+50%[ICON_STRENGTH]攻擊力。
+				[NEWLINE][ICON_BULLET]對陸軍遠程，防空單位，攻城單位和覆蓋火力+50%[ICON_STRENGTH]攻擊力。
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_HUSSAR">
@@ -14202,7 +14259,7 @@
 			<Text>濺射免疫</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_SPLASH_HELP">
-			<Text>免疫來自陸軍特種單位和海軍旗艦等的濺射傷害。</Text>
+			<Text>免疫來自覆蓋火力單位和海軍旗艦等的濺射傷害。</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_PROMOTION_NUCLEAR_ARTILLERY">
@@ -14250,10 +14307,10 @@
 			<Text>在丘陵地塊戰鬥力加25%。</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_NAVAL_BONUS_HELP">
-			<Text>對海軍加成33%。</Text>
+			<Text>與海軍單位作戰時提高33%[ICON_STRENGTH]戰鬥力</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_NAVAL_BONUS_STRONG_HELP">
-			<Text>對海軍加成100%。</Text>
+			<Text>與海軍單位作戰時提高100%[ICON_STRENGTH]戰鬥力</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_PRIZE_SHIPS_HELP">
 			<Text>[ICON_BULLET]有一定概率[COLOR_POSITIVE_TEXT]俘獲[ENDCOLOR]消滅的敵軍。
@@ -14644,9 +14701,21 @@
 		<Replace Tag="TXT_KEY_PEDIA_UNLOCK_PROMOTIONS_LABEL">
 			<Text>解鎖晉升:</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_GRANT_PROMOTIONS_NATIONAL_LABEL">
+			<Text>贈送晉升（全國）：</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_GRANT_PROMOTIONS_LOCAL_LABEL">
+			<Text>贈送晉升（本城）：</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_ACQUISITION_METHODS_LABEL">
+			<Text>獲贈方式</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_PEDIA_MAX_INSTANCES_LABEL">
 			<Text>保有上限:</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_PROJECT_COMPLETED_BY">
+			<Text>已完成: {1_Player}, {2_City}</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_PEDIA_MAX_PLAYER_INSTANCES">
 			<Text>[ICON_BULLET]每位玩家{1_Num}</Text>
 		</Replace>
@@ -15506,6 +15575,10 @@
 			<Text>[ICON_BULLET]來自宗教的[COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR][ICON_RESEARCH]。</Text>
 		</Row>
 
+		<Row Tag="TXT_KEY_TP_SCIENCE_FROM_GLOBAL_POP">
+			<Text>[ICON_BULLET]來自政策（人口）的[COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR][ICON_RESEARCH]。</Text>
+		</Row>
+
 		<Row Tag="TXT_KEY_EUPANEL_BONUS_CITY_STATE_FRENDSHIP">
 			<Text>同盟城邦加成</Text>
 		</Row>
@@ -15931,6 +16004,18 @@
 		</Row>
 		<Row Tag="TXT_KEY_UNITCOMBAT_DAMAGE_MODIFIER_SP">
 			<Text>單位生命值</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_DIFFERENT_RELIGION_MODIFIER">
+			<Text>異教徒加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLDEN_AGE_TURN_MODIFIER">
+			<Text>黃金時代回合加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FOLLOWER_COUNT_MODIFIER">
+			<Text>全球信眾加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FOLLOWING_CITY_COUNT_MODIFIER">
+			<Text>信教城市加成</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EUPANEL_RESOURCE_MODIFIER">
 			<Text>額外資源加成</Text>
@@ -16577,6 +16662,12 @@
 		<Replace Tag="TXT_KEY_RO_STATUS_FOUNDER">
 			<Text>{1_ReligionName}宗教領袖</Text>
 		</Replace>
+	<Row Tag="TXT_KEY_RO_YOUR_FOLLOWERS">
+		<Text>全圖信眾: {1_Num}</Text>
+	</Row>
+	<Row Tag="TXT_KEY_RO_YOUR_CITIES">
+		<Text>信教城市: {1_Num}</Text>
+	</Row>
 		<Row Tag="TXT_KEY_EUPANEL_CAPTURE_CHANCE_SP">
 			<Text>[COLOR_CYAN]擊沉後的俘虜幾率[ENDCOLOR]</Text>
 		</Row>
@@ -16595,7 +16686,16 @@
 		<Row Tag="TXT_KEY_Building_PER_ERA">
 			<Text>/每個時代</Text>
 		</Row>
-		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_ERA">
+				<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_HOLY_CITY">
+			<Text>信條：通往聖城{1_String}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_HOLY_CITY_DEST">
+			<Text>信條：聖城獲得{1_String}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_SAME_RELIGION">
+			<Text>信條：同宗教{1_String}</Text>
+		</Row>
+<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_ERA">
 			<Text>从{1_CityName}得到的時代金幣獎勵數: {2_Num}</Text>
 		</Row>
 		<Row Tag="TXT_KEY_STRATEGIC_ENVIRONMENT_COMBAT_MOD">
@@ -16649,6 +16749,24 @@
 		<Row Tag="TXT_KEY_MILITARY_PROMISE">
 			<Text>承諾撤軍</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_MODIFIER">
+			<Text>全國腐敗[ICON_HAPPINESS_4]不滿</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_CHANGE">
+			<Text>腐敗不滿</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL">
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]外交威望 ：</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CORRUPTION">
+			<Text>{1_num}来自腐敗</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EXPANSION_PROMISE">
+			<Text>承諾不擴張</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BORDER_PROMISE">
+			<Text>承諾不侵擾邊界</Text>
+		</Row>
 
 		<Replace Tag="TXT_KEY_FOODMOD_PLAYER">
 			<Text>[NEWLINE][ICON_BULLET]帝國修正值（余糧）：{1_Num}%</Text>
@@ -16685,6 +16803,376 @@
 		</Row>
 		<Row Tag="TXT_KEY_PEDIA_FREE_FROM_PROJECT_LABEL">
 			<Text>獲得自項目:</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLD_ATTACK_BONUS">
+			<Text>[ICON_GOLD]國庫充盈</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLD_DEFENSE_BONUS">
+			<Text>[ICON_GOLD]國庫充盈</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CULTURE_ATTACK_BONUS">
+			<Text>[ICON_CULTURE]文化自信</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CULTURE_DEFENSE_BONUS">
+			<Text>[ICON_CULTURE]文化自信</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FAITH_ATTACK_BONUS">
+			<Text>[ICON_PEACE]信仰狂熱</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FAITH_DEFENSE_BONUS">
+			<Text>[ICON_PEACE]信仰狂熱</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_REGRESSAND_MODIFIER">
+			<Text>
+				移民[ICON_TEAM_4]遷入阈值修正:{1_Num}%
+			</Text>
+		</Row>
+		<Replace Tag="TXT_KEY_WORKERS_SPECIALFORT_HEADING3_BODY">
+			<Text>在SP中，堡壘是由非正規軍建造的特殊改良設施，可為在友方領土上的軍事單位提供保護。堡壘可建在友方或中立方的單元格上。在原有改良設施上建造堡壘會摧毀該設施。
+				[NEWLINE]堡壘防禦加成：50%</Text>
+		</Replace>
+		<Row Tag="TXT_KEY_NO_OCCUPIED_UNHAPPINESS">
+			<Text>[ICON_BULLET]消除來自[ICON_OCCUPIED]被佔領城市的額外[ICON_HAPPINESS_4]不滿。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_9">
+			<Text>基礎屬性</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_10">
+			<Text>[COLOR_NEGATIVE_TEXT]負面屬性[ENDCOLOR]</Text>
+		</Row>
+		<Replace Tag="TXT_KEY_PROMOTION_ANTI_AIR_III">
+			<Text>防空火力点</Text>
+		</Replace>
+		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_III_HELP">
+			<Text>
+				可以攔截試圖轟炸附近單位的敵軍飛機。
+				[NEWLINE][ICON_BULLET]每回合能夠進行對空攔截。
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]擁有戰鬥力加成。
+				[NEWLINE][ICON_BULLET]攔截[COLOR_NEGATIVE_TEXT]戰略轟炸機[ENDCOLOR]時效果不佳。
+			</Text>
+		</Row>
+		<!-- Plot Naming -->
+		<Row Tag="TXT_KEY_PLOT_NAME_TITLE">
+			<Text>輸入地名</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CONFIRM">
+			<Text>確定</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CLEAR">
+			<Text>清除</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CANCEL">
+			<Text>取消</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SHOW_PLOT_NAMES">
+			<Text>顯示地塊名稱</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SHOW_PLOT_NAMES_TT">
+			<Text>切換地圖上自定義地塊名稱標籤的顯示</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY">
+			<Text>遠征補給</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY_HELP">
+			<Text>每回合都會自動回復，所有臨近和同格的單位回復時額外+15HP，本單位回復時每回合額外+15HP</Text>
+		</Row>
+		<Replace Tag="TXT_KEY_PROMOTION_HEAL_IF_DESTROY_ENEMY_HELP">
+			<Text>消滅非蠻族單位後回復50HP</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_DEFEND_NEAR_CAPITAL_HELP">
+			<Text>在首都附近作戰時提高30%[ICON_STRENGTH]戰鬥力，遠離首都後失效</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_INVULNERABIILITY_HELP">
+			<Text>防禦時提高30%[ICON_STRENGTH]戰鬥力，回復時每回合額外+20HP</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_HOMELAND_GUARDIAN_BOOGALOO_HELP">
+			<Text>境內作戰時提高15%[ICON_STRENGTH]戰鬥力</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_HOVERING_UNIT_HELP">
+			<Text>該單位可以直接跨越山脈和海濱，但在山脈上時結束回合會受到傷害</Text>
+		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_CSUA_HEADER">
+			<Text>城邦特殊能力</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_ZURICH_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市+1[ICON_GREAT_SCIENTIST]大科學家點數，城市的[ICON_RESEARCH]學院、[ICON_RESEARCH]大學、[ICON_RESEARCH]公立學校、[ICON_RESEARCH]研究實驗室額外+1[ICON_GREAT_SCIENTIST]大科學家點數
+				[NEWLINE][ICON_BULLET]盟友每誕生過3個[ICON_GREAT_PEOPLE]大科學家，[ICON_GREAT_SCIENTIST]科學家+1[ICON_RESEARCH]
+				[NEWLINE][ICON_BULLET]盟友每誕生過2個[ICON_GREAT_PEOPLE]大工程師，[ICON_GREAT_ENGINEER]工程師+1[ICON_PRODUCTION]
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市的[ICON_RESEARCH]學院、[ICON_RESEARCH]大學+1[ICON_GREAT_SCIENTIST]大科學家點數
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ZURICH_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市+1[ICON_GREAT_SCIENTIST]大科學家點數，城市的[ICON_RESEARCH]學院、[ICON_RESEARCH]大學、[ICON_RESEARCH]公立學校、[ICON_RESEARCH]研究實驗室額外+1[ICON_GREAT_SCIENTIST]大科學家點數
+				[NEWLINE][ICON_BULLET]盟友每誕生過3位[ICON_GREAT_PEOPLE]大科學家，[ICON_GREAT_SCIENTIST]科學家+1[ICON_RESEARCH]
+				[NEWLINE][ICON_BULLET]盟友每誕生過2位[ICON_GREAT_PEOPLE]大工程師，[ICON_GREAT_ENGINEER]工程師+1[ICON_PRODUCTION]
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ZURICH_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市的[ICON_RESEARCH]學院、[ICON_RESEARCH]大學+1[ICON_GREAT_SCIENTIST]大科學家點數
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_ANTWERP_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市+1[ICON_GREAT_MERCHANT]大商業家點數，城市的[ICON_GOLD]市場、[ICON_GOLD]銀行、[ICON_GOLD]證券交易所、[ICON_GOLD]金融公司額外+1[ICON_GREAT_MERCHANT]大商業家點數
+				[NEWLINE][ICON_BULLET]盟友每誕生過1位[ICON_GREAT_PEOPLE]大商業家，[ICON_GREAT_MERCHANT]商業家+2[ICON_GOLD]金錢，成為城邦盟友的所需最低[ICON_INFLUENCE]影響力降低1%(至多-90%)
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友效果：朋友城市的[ICON_GOLD]市場和[ICON_GOLD]銀行+1[ICON_GREAT_MERCHANT]大商業家點數
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ANTWERP_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市+1[ICON_GREAT_MERCHANT]大商業家點數，城市的[ICON_GOLD]市場、[ICON_GOLD]銀行、[ICON_GOLD]證券交易所、[ICON_GOLD]金融公司額外+1[ICON_GREAT_MERCHANT]大商業家點數
+				[NEWLINE][ICON_BULLET]盟友每誕生過1位[ICON_GREAT_PEOPLE]大商業家，[ICON_GREAT_MERCHANT]商業家+2[ICON_GOLD]金錢，成為城邦盟友的所需最低[ICON_INFLUENCE]影響力降低1%(至多-90%)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ANTWERP_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友效果：朋友城市的[ICON_GOLD]市場和[ICON_GOLD]銀行+1[ICON_GREAT_MERCHANT]大商業家點數
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_FLORENCE_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]信仰購買[ICON_GREAT_PEOPLE]偉人後，下一次購買價格的上漲幅度降低50%，每擁有一個[ICON_GREAT_WORK]傑作，上漲幅度額外降低1%（至多-90%）
+				[NEWLINE][ICON_BULLET]工業時代後，允許使用[ICON_PEACE]信仰購買所有[ICON_GREAT_PEOPLE]偉人
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]信仰購買[ICON_GREAT_PEOPLE]偉人後，下一次購買價格的上漲幅度降低20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_FLORENCE_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]信仰購買[ICON_GREAT_PEOPLE]偉人後，下一次購買價格的上漲幅度降低50%，每擁有一個[ICON_GREAT_WORK]傑作，上漲幅度額外降低1%（至多-90%）
+				[NEWLINE][ICON_BULLET]工業時代後，允許使用[ICON_PEACE]信仰購買所有[ICON_GREAT_PEOPLE]偉人
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_FLORENCE_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]信仰購買[ICON_GREAT_PEOPLE]偉人後，下一次購買價格的上漲幅度降低20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MALACCA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]奢侈品提供的[ICON_HAPPINESS_1]快樂+100%
+				[NEWLINE][ICON_BULLET]盟友每擁有1種提供快樂的[ICON_GOLD]奢侈品，城市+1%[ICON_FOOD]餘糧加成
+				[NEWLINE][ICON_BULLET]盟友每擁有1種提供快樂的[ICON_GOLD]奢侈品，[ICON_INTERNATIONAL_TRADE]商路金錢+3%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]奢侈品提供的[ICON_HAPPINESS_1]快樂+40%
+				[NEWLINE][ICON_BULLET]朋友每擁有2種提供快樂的[ICON_GOLD]奢侈品，城市+1%[ICON_FOOD]餘糧加成
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MALACCA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]奢侈品提供的[ICON_HAPPINESS_1]快樂+100%
+				[NEWLINE][ICON_BULLET]盟友每擁有1種提供快樂的[ICON_GOLD]奢侈品，城市+1%[ICON_FOOD]餘糧加成
+				[NEWLINE][ICON_BULLET]盟友每擁有1種提供快樂的[ICON_GOLD]奢侈品，[ICON_INTERNATIONAL_TRADE]商路金錢+3%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MALACCA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]奢侈品提供的[ICON_HAPPINESS_1]快樂+40%
+				[NEWLINE][ICON_BULLET]朋友每擁有2種提供快樂的[ICON_GOLD]奢侈品，城市+1%[ICON_FOOD]餘糧加成
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_PANAMA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔1格，該商路[ICON_GOLD]金錢收益+1%
+				[NEWLINE][ICON_BULLET]盟友每一條[ICON_INTERNATIONAL_TRADE]跨大陸國際商路，來自[ICON_CITIZEN]人口的不滿降低3%(至多-90%)
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]盟友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔2格，該商路[ICON_GOLD]金錢收益+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔1格，該商路[ICON_GOLD]金錢收益+1%
+				[NEWLINE][ICON_BULLET]盟友每一條[ICON_INTERNATIONAL_TRADE]跨大陸國際商路，來自[ICON_CITIZEN]人口的不滿降低3%(至多-90%)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]盟友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔2格，該商路[ICON_GOLD]金錢收益+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_BRUSSELS_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的藝術、文學、音樂家[ICON_GREAT_PEOPLE]點數累積速率+40%
+				[NEWLINE][ICON_BULLET]盟友每擁有一個[ICON_GREAT_WORK]傑作，[ICON_CAPITAL]首都獲得1點[ICON_GREAT_MUSICIAN]大音樂家點數
+				[NEWLINE][ICON_BULLET]盟友的[ICON_GREAT_MUSICIAN]大音樂家舉辦[ICON_TOURISM]演唱會產出魅力+20%，且可獲得相當於其產出魅力5%的[ICON_GOLD]金錢
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的藝術、文學、音樂家[ICON_GREAT_PEOPLE]點數累積速率+15%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_GP_MOD">
+			<Text>[ICON_BULLET]盟邦UA加成: +{1_num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRUSSELS_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的藝術、文學、音樂家[ICON_GREAT_PEOPLE]點數累積速率+40%
+				[NEWLINE][ICON_BULLET]盟友每擁有一個[ICON_GREAT_WORK]傑作，[ICON_CAPITAL]首都獲得1點[ICON_GREAT_MUSICIAN]大音樂家點數
+				[NEWLINE][ICON_BULLET]盟友的[ICON_GREAT_MUSICIAN]大音樂家舉辦[ICON_TOURISM]演唱會產出魅力+20%，且可獲得相當於其產出魅力5%的[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRUSSELS_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的藝術、文學、音樂家[ICON_GREAT_PEOPLE]點數累積速率+15%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_COLOMBO_HELP">
+			<Text>當你為可倫坡的盟友或朋友時，你通往可倫坡的[ICON_INTERNATIONAL_TRADE]國際商路每時代獲得額外[ICON_GOLD]金幣。盟友城市擁有通往可倫坡的商路時，將部分[ICON_PEACE]信仰轉化為[ICON_RESEARCH]科研和[ICON_TOURISM]魅力。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_COLOMBO_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你通往可倫坡的[ICON_INTERNATIONAL_TRADE]國際商路每時代獲得+15[ICON_GOLD]金幣
+				[NEWLINE][ICON_BULLET]擁有通往可倫坡商路的城市將20%的[ICON_PEACE]信仰轉化為[ICON_RESEARCH]科研、15%轉化為[ICON_TOURISM]魅力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]你通往可倫坡的[ICON_INTERNATIONAL_TRADE]國際商路每時代獲得+6[ICON_GOLD]金幣
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_COLOMBO_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你通往可倫坡的[ICON_INTERNATIONAL_TRADE]國際商路每時代獲得+15[ICON_GOLD]金幣
+				[NEWLINE][ICON_BULLET]擁有通往可倫坡商路的城市將20%的[ICON_PEACE]信仰轉化為[ICON_RESEARCH]科研、15%轉化為[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_COLOMBO_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]你通往可倫坡的[ICON_INTERNATIONAL_TRADE]國際商路每時代獲得+6[ICON_GOLD]金幣
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_DUBAI_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每向杜拜捐贈過1000[ICON_GOLD]現金，全域[ICON_HAPPINESS_1]快樂+1
+				[NEWLINE][ICON_BULLET]此來源的每點快樂提供全域奇觀建造速率+1%
+				[NEWLINE][ICON_BULLET]此來源的每點快樂提高自身5%對其他意識形態的輿論壓力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]每向杜拜捐贈過2000[ICON_GOLD]現金，全域[ICON_HAPPINESS_1]快樂+1
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_DUBAI_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每向杜拜捐贈過1000[ICON_GOLD]現金，全域[ICON_HAPPINESS_1]快樂+1
+				[NEWLINE][ICON_BULLET]此來源的每點快樂提供全域奇觀建造速率+1%
+				[NEWLINE][ICON_BULLET]此來源的每點快樂提高自身5%對其他意識形態的輿論壓力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_DUBAI_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]每向杜拜捐贈過2000[ICON_GOLD]現金，全域[ICON_HAPPINESS_1]快樂+1
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_VALLETTA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]敵人城市一環內我方軍事單位達到3個或以上時，該城市無法回復血量
+				[NEWLINE][ICON_BULLET]購買宗教建築後，全國陸軍單位+5經驗
+				[NEWLINE][ICON_BULLET]誕生陸軍統帥時，獲得等同於對瓦萊塔影響力100%的[ICON_PEACE]信仰
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]敵人城市一環內我方軍事單位達到6個或以上時，該城市無法回復血量
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VALLETTA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]敵人城市一環內我方軍事單位達到3個或以上時，該城市無法回復血量
+				[NEWLINE][ICON_BULLET]購買宗教建築後，全國陸軍單位+5經驗
+				[NEWLINE][ICON_BULLET]誕生陸軍統帥時，獲得等同於對瓦萊塔影響力100%的[ICON_PEACE]信仰
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VALLETTA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]敵人城市一環內我方軍事單位達到6個或以上時，該城市無法回復血量
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_GOLD_DONATION">
+			<Text>{1_Num} 來自金幣捐贈</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE">
+			<Text>
+				當前[ICON_DIPLOMATIC_PRESTIGE]外交威望：{1}/{2}（{3}）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE_OVEREXTENDED">
+			<Text>
+				已超限
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE_OK">
+			<Text>
+				未超限
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_OVEREXTENSION_PENALTY">
+			<Text>
+				超限懲罰：
+				[NEWLINE][ICON_BULLET]影響力每回合衰減 +{1}%
+				[NEWLINE][ICON_BULLET]影響力增長 {2}%
+				[NEWLINE][ICON_BULLET]全國不滿 +{3}%
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_CITY_STATE">
+			<Text>城邦盟友商路加成：{1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_CITY_STATE_LUXURY">
+			<Text>{2_Num}由於城邦盟友（{1_Num}%）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_LUXURY_MOD">
+			<Text>{2_Num}奢侈快樂加成（{1_Num}%）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_TITLE">
+			<Text>人口不滿修正</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_TRAIT">
+			<Text>領袖特性：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_HANDICAP">
+			<Text>難度：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_OVEREXTENSION">
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]外交威望超限：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_CITY_STATE">
+			<Text>城邦盟友：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_ALMATY_HELP">
+			<Text>额外提供15[ICON_RES_HORSE]馬</Text>
 		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

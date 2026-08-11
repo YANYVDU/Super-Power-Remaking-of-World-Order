@@ -88,6 +88,15 @@
 			<Advisor>ECONOMIC</Advisor>
 			<CivilopediaHeaderType>HEADER_CITIES</CivilopediaHeaderType>
 		</Row>
+		<Row>
+			<Type>CONCEPT_PLOT_NAMING</Type>
+			<Topic>TXT_KEY_CONCEPT_PLOT_NAMING_TOPIC</Topic>
+			<Description>TXT_KEY_CONCEPT_PLOT_NAMING_DESCRIPTION</Description>
+			<Summary>TXT_KEY_CONCEPT_PLOT_NAMING_SUMMARY</Summary>
+			<AdvisorQuestion>TXT_KEY_CONCEPT_PLOT_NAMING_ADVISOR_QUESTION</AdvisorQuestion>
+			<Advisor>ECONOMIC</Advisor>
+			<CivilopediaHeaderType>HEADER_CITIES</CivilopediaHeaderType>
+		</Row>
 
 
 		<!--************************************Research********************************-->

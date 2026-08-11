@@ -16,7 +16,7 @@
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_VERSION">
-			<Text>[COLOR_YELLOW]版本号 10 Final C[ENDCOLOR]</Text>
+			<Text>[COLOR_YELLOW]版本号 10 Final G[ENDCOLOR]</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_SP_MOD_SETUP">
@@ -334,10 +334,6 @@
 
 		<Replace Tag="TXT_KEY_BUILDING_PALACE_HELP">
 			<Text>标示该城市是文明的[ICON_CAPITAL]首都。拥有一个美术杰作展位。[NEWLINE][NEWLINE]用道路将其他城市[ICON_CONNECTED]连接到[ICON_CAPITAL]首都将获得额外的[ICON_GOLD]金钱。[NEWLINE][NEWLINE]你可以通过迁都将宫殿转移至其他城市，但这不会影响其他文明的征服胜利进程。</Text>
-		</Replace>
-
-		<Replace Tag="TXT_KEY_BUILDING_COURTHOUSE_HELP">
-			<Text>消除因[ICON_OCCUPIED]占领城市导致的额外[ICON_HAPPINESS_4]不满。[NEWLINE][NEWLINE]本城市每有3位[ICON_CITIZEN]市民则增加1[ICON_GOLD] 维护费。</Text>
 		</Replace>
 
 		<Replace Tag="TXT_KEY_BUILDING_GRANARY_HELP">
@@ -964,7 +960,7 @@
 		<Row Tag="TXT_KEY_BUILDING_INDONESIA_SPICE_HARBOR_HELP">
 			<Text>
 				通过水域建立到[ICON_CAPITAL]首都的[ICON_CONNECTED]城市连接（如果尚未建立陆路[ICON_CONNECTED]连接）。
-				[NEWLINE][NEWLINE]所在城市每处已开发的奢侈资源额外+1份。
+				[NEWLINE][NEWLINE]所在城市每处已开发的奢侈资源额外+1份。+5[ICON_RES_CONSUMER]商品。
 				[NEWLINE][NEWLINE]从本城起始通向其他文明的海上商路额外+10基础[ICON_GOLD]金钱。
 				[NEWLINE][NEWLINE]城市必须拥有灯塔。
 			</Text>
@@ -1303,7 +1299,7 @@
 		<Replace Tag="TXT_KEY_BUILDING_MILITARY_BASE_HELP">
 			<Text>
 				允许你在本城市训练或雇佣以下[COLOR_POSITIVE_TEXT]军事单位[ENDCOLOR]。
-				[NEWLINE][ICON_BULLET][COLOR_YELLOW]固定翼飞机单位[ENDCOLOR]；
+				[NEWLINE][ICON_BULLET][COLOR_YELLOW]飞机单位[ENDCOLOR]；
 				[NEWLINE][ICON_BULLET][COLOR_YELLOW]直升机单位[ENDCOLOR]。
 				[NEWLINE][NEWLINE]允许从这个城市空运单位。
 				[NEWLINE][COLOR_POSITIVE_TEXT]城市可容纳的空军单位数量增加4单位。[ENDCOLOR]
@@ -1321,7 +1317,6 @@
 				[NEWLINE][NEWLINE]只能由陆军统帅或海军统帅建立。
 			</Text>
 		</Replace>
-
 		<Row>
 			<Tag>TXT_KEY_BUILDING_WOOD_DOCK</Tag>
 			<Text>[ICON_WAR]码头</Text>
@@ -1376,7 +1371,10 @@
 
 		<Row>
 			<Tag>TXT_KEY_BUILDING_JAPANESE_DOJO_HELP</Tag>
-			<Text>该城市所有建造和购买的军事单位+15经验值。[NEWLINE][NEWLINE]+5[ICON_RES_MANPOWER]人力,+2[ICON_HAPPINESS_1]本地快乐。[NEWLINE][NEWLINE]只能由日本武士建造，且建造完成后单位被消耗。</Text>
+			<Text>该城市所有建造和购买的军事单位+15经验值。
+				[NEWLINE]
+				[NEWLINE]+5[ICON_RES_MANPOWER]人力,+2[ICON_HAPPINESS_1]本地快乐。
+				[NEWLINE][NEWLINE]只能由日本武士建造，且建造完成后单位被消耗。</Text>
 		</Row>
 
 		<Replace Tag="TXT_KEY_BUILDING_CIRCUS_HELP">
@@ -1436,7 +1434,7 @@
 
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_HANGING_GARDEN_HELP" />
-			<Set Text="所有城市-10%[ICON_CITIZEN]人口增长阈值。向所在城市赠送一个花园。" />
+			<Set Text="所有城市-10%[ICON_CITIZEN]人口增长阈值。向所在城市赠送一个公园。" />
 		</Update>
 
 		<Replace Tag="TXT_KEY_WONDER_COLOSSUS_HELP">
@@ -1465,7 +1463,7 @@
 
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP" />
-			<Set Text="所在城市诞生的传教士能有三次传教机会。传教士和大先知+1[ICON_MOVES]移动力，传播宗教时可获得[ICON_PEACE]信仰和[ICON_GOLDEN_AGE]黄金时代点数。向所在城市赠送一个清真寺。研究科学理论后+4[ICON_TOURISM]魅力产出。" />
+			<Set Text="你的传教士能有三次传教机会。传教士和大先知+1[ICON_MOVES]移动力，传播宗教时可获得[ICON_PEACE]信仰和[ICON_GOLDEN_AGE]黄金时代点数。向所在城市赠送一个清真寺。研究科学理论后+4[ICON_TOURISM]魅力产出。" />
 		</Update>
 
 		<Update>
@@ -1553,7 +1551,7 @@
 
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP" />
-			<Set Text="一级城市不再造成额外[ICON_HAPPINESS_4]不满，二至五级城市造成的额外[ICON_HAPPINESS_4]不满-50%。在世界议会中获得额外2个代表。" />
+			<Set Text="来自腐败的[ICON_HAPPINESS_4]不满-50%。在世界议会中获得额外2个代表。" />
 		</Update>
 
 		<Update>
@@ -1983,6 +1981,28 @@
 			<Text>这座“空中城市”的规模简直令人难以置信。如果建成，东京清水巨城金字塔的高度是埃及吉萨大金字塔的12倍。埃及吉萨大金字塔高6574英尺(约合2003米)，占地面积3平方英里。整座建筑共有8层，相互堆叠而成，总面积估计达到34平方英里，每一层都由几个更小的金字塔构成，每个大概相当于拉斯维加斯卢克索酒店那么大，一至四层专门用于住宿和商业活动，五至八层用于休闲和娱乐等社交场所。[NEWLINE][NEWLINE]清水“空大型城市市”可容纳75万人，相当于东京1200万总人口的16分之一。解决那么多人的出行问题是一个巨大挑战，不过，便捷的交通运输系统以及快速移动的人行道和电梯网，通过55个交通枢纽将整个城市连成一片，不仅实现了零碳排放，还有效解决了居民出行问题。这座超级结构的外立面覆盖光电涂层，可以将阳光转换为电，从而为更为绿色的城市作出贡献。</Text>
 		</Row>
 
+		<!-- Description tags -->
+		<Row Tag="TXT_KEY_WONDER_PLACE_OF_NATIONS">
+			<Text>万国宫</Text>
+		</Row>
+		<!-- Help tags -->
+		<Row Tag="TXT_KEY_BUILDING_PLACE_OF_NATIONS_HELP">
+			<Text>
+				[ICON_BULLET]额外+2[ICON_DIPLOMATIC_PRESTIGE]外交威望。
+				[NEWLINE][ICON_BULLET]建成时提高所有见面城邦25%[ICON_INFLUENCE]影响力。
+			</Text>
+		</Row>
+		<!-- Quote tags -->
+		<Row Tag="TXT_KEY_WONDER_PLACE_OF_NATIONS_QUOTE">
+			<Text>[NEWLINE]“我联合国人民同兹决心，欲免后世再遭今代人类两度身历惨不堪言之战祸。”[NEWLINE] ——《联合国宪章》[NEWLINE]</Text>
+		</Row>
+		<!-- Pedia tags -->
+		<Row Tag="TXT_KEY_WONDER_PLACE_OF_NATIONS_PEDIA">
+			<Text>万国宫（Palace of Nations）位于瑞士日内瓦，始建于1929年，最初是为国际联盟建造的总部。国际联盟是第一次世界大战后成立的第一个全球性国际组织，旨在通过外交手段和平解决国际争端。虽然国联最终未能阻止第二次世界大战的爆发，但它为后来的联合国奠定了基础。
+			万国宫坐落在日内瓦湖畔的阿里亚纳公园内，建筑群宏伟壮观，融合了新古典主义与现代主义风格。其主会议厅可容纳2000名代表，见证了无数次改变世界格局的外交谈判。二战后，万国宫成为联合国日内瓦办事处，是仅次于纽约联合国总部的第二大联合国中心。
+			如今，万国宫每年举办超过8000场国际会议，是人权、裁军、贸易和人道主义事务等全球议题的核心舞台。它象征着人类对和平与合作的永恒追求。</Text>
+		</Row>
+
 		<!--****************************National Wonders*************************************-->
 
 		<Replace Tag="TXT_KEY_BUILDING_HEROIC_EPIC_HELP">
@@ -2119,7 +2139,7 @@
 		</Row>
 		<!-- Help tags -->
 		<Row Tag="TXT_KEY_BUILDING_NATIONAL_CARAVANSARY_HELP">
-			<Text>+4[ICON_RES_CONSUMER]商品。[NEWLINE][NEWLINE]获得一条额外的商路和一支免费的商队。[NEWLINE][NEWLINE]必须在文明的所有城市中拥有客栈。建造成本随城市数量增加。</Text>
+			<Text>+5[ICON_RES_CONSUMER]商品。[NEWLINE][NEWLINE]获得一条额外的商路和一支免费的商队。[NEWLINE][NEWLINE]必须在文明的所有城市中拥有客栈。建造成本随城市数量增加。</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_BUILDING_NATIONAL_CARAVANSARY_STRATEGY</Tag>
@@ -3011,7 +3031,6 @@
 		<Replace Tag="TXT_KEY_BUILDING_COURTHOUSE_HELP">
 			<Text>
 				[ICON_BULLET]消除来自[ICON_OCCUPIED]被占领城市的额外[ICON_HAPPINESS_4]不满。
-				[NEWLINE][ICON_BULLET]每3[ICON_CITIZEN]人口+1[ICON_GOLD]维护费。
 			</Text>
 		</Replace>
 
@@ -3387,7 +3406,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_BUILDING_RACECOURSE_HELP</Tag>
-			<Text>该建筑提供的[ICON_HAPPINESS_1]快乐点数以该城市的[ICON_CITIZEN]市民数量为限。[NEWLINE][NEWLINE]只能在小型城市（6人口）建造。。</Text>
+			<Text>该建筑提供的[ICON_HAPPINESS_1]快乐点数以该城市的[ICON_CITIZEN]市民数量为限。[NEWLINE][NEWLINE]只能在小型城市（6人口）建造。</Text>
 		</Row>
 
 		<Row>
@@ -4700,6 +4719,20 @@
 			<Text>超级大国模组城邦有什么变化吗？</Text>
 		</Row>
 
+		<!--************************************ Interface ********************************-->
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_TOPIC">
+			<Text>SP：地块自定义命名</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_DESCRIPTION">
+			<Text>{TXT_KEY_CONCEPT_PLOT_NAMING_TOPIC}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_SUMMARY">
+			<Text>本MOD支持在地图任意地块上添加自定义地名标签。[NEWLINE][NEWLINE]【操作方式】[NEWLINE]将鼠标悬停在目标地块上，按下 Ctrl+N 快捷键，即可弹出命名对话框。输入名称后点击"确定"，该地块上方将显示浮动地名标签。[NEWLINE][NEWLINE]【颜色前缀】[NEWLINE]输入名称时以 .X 或 .XX 开头即可为标签染色。支持13种颜色：[NEWLINE].R 红色 .G 绿色 .BL 蓝色 .Y 黄色 .C 青色 .M 品红 .W 白色[NEWLINE].P 紫色 .N 藏青 .S 银色 .U 天蓝 .F 森林绿 .BR 棕色[NEWLINE]不指定前缀时默认为红色。[NEWLINE][NEWLINE]【清除命名】[NEWLINE]对已命名地块再次按 Ctrl+N，点击"清除"按钮即可删除。[NEWLINE][NEWLINE]【存档兼容】[NEWLINE]地块命名数据会随存档保存，读档后可恢复。标签在进入城市界面时自动隐藏。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONCEPT_PLOT_NAMING_ADVISOR_QUESTION">
+			<Text>如何在地图上给地块命名？</Text>
+		</Row>
+
 		<!--**************************************Misc Text Changes************************************-->
 
 		<!--********************************************** Resoultions Info Change ********************************************** -->
@@ -5442,7 +5475,13 @@
 			<Text>[COLOR_POSITIVE_TEXT]建立道场[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_BTNNOTE_BUILDING_JAPANESE_DOJO">
-			<Text>在本城市建立一座道场。该城市所有建造和购买的军事单位+15经验值且允许在本城市组建特战单位和精英单位。[NEWLINE][NEWLINE]+3[ICON_RES_MANPOWER]人力。[NEWLINE][NEWLINE]该指令会消耗你的日本武士，每座城市只能建造一座道场。</Text>
+			<Text>在本城市建立一座道场。该城市所有建造和购买的军事单位+15经验值。
+				[NEWLINE]
+				[NEWLINE]+2[ICON_HAPPINESS_1]本地快乐。
+				[NEWLINE]
+				[NEWLINE]+5[ICON_RES_MANPOWER]人力。
+				[NEWLINE]
+				[NEWLINE]该指令会消耗你的日本武士，每座城市只能建造一座道场。</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_SP_BTNNOTE_UNIT_RECON_TARGET_GUIDE_SHORT">
@@ -6716,8 +6755,8 @@
 		<Row Tag="TXT_KEY_POLICY_FAMILY_REGISTER_HELP">
 			<Text>
 				[COLOR_POSITIVE_TEXT]科举考试[ENDCOLOR]
-				[NEWLINE][ICON_BULLET]每5[ICON_CITIZEN]人口+1[ICON_RESEARCH]科研。
-				[NEWLINE][ICON_BULLET]每个城市中获得一个科学家席位。
+				[NEWLINE][ICON_BULLET]全国每有3[ICON_CITIZEN]人口+1[ICON_RESEARCH]科研。
+				[NEWLINE][ICON_BULLET]所有城市+3[ICON_GREAT_SCIENTIST]大科学家点数，学院+1[ICON_RESEARCH]科研。
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POLICY_FAMILY_REGISTER_TEXT">
@@ -6811,7 +6850,7 @@
 			<Text>
 				[COLOR_POSITIVE_TEXT]行省制度[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]每座与[ICON_CAPITAL]首都[ICON_CONNECTED]相连的城市+1[ICON_HAPPINESS_1]快乐。
-				[NEWLINE][ICON_BULLET]非首都直辖城市的额外不满-50%。
+				[NEWLINE][ICON_BULLET]来自腐败的[ICON_HAPPINESS_4]不满-50%。
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POLICY_PROVINCE_TEXT">
@@ -6976,8 +7015,9 @@
 		<Replace Tag="TXT_KEY_POLICY_THEOCRACY_HELP">
 			<Text>
 				[COLOR_POSITIVE_TEXT]神权政治[ENDCOLOR]
-				[NEWLINE][ICON_BULLET]全国+10%[ICON_CULTURE]文化。
-				[NEWLINE][ICON_BULLET]所有城市获得一个额外的文学家席位。
+				[NEWLINE][ICON_BULLET]每有一座城市信仰你为领袖的宗教，全国+2%[ICON_CULTURE]文化。
+				[NEWLINE][ICON_BULLET]所有城市+3[ICON_GREAT_WRITER]文学家点数。
+				[NEWLINE][ICON_BULLET]每处有市民工作的圣地+4[ICON_HAPPINESS_1]本地快乐
 			</Text>
 		</Replace>
 
@@ -7359,6 +7399,7 @@
 				[COLOR_POSITIVE_TEXT]思想自由[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]每处贸易站+1[ICON_RESEARCH]科研。
 				[NEWLINE][ICON_BULLET]每处学园+6[ICON_RESEARCH]科研。
+				[NEWLINE][ICON_BULLET]每点[ICON_HAPPINESS_1]本地快乐降低城市10点管理成本。
 			</Text>
 		</Replace>
 
@@ -7725,9 +7766,9 @@
 		<!--Buildings-->
 
 
-		<Row Tag="TXT_KEY_BUILDING_THEOCRACY_WRITER">
+		<!-- <Row Tag="TXT_KEY_BUILDING_THEOCRACY_WRITER">
 			<Text>[ICON_GREAT_WRITER]神权政治</Text>
-		</Row>
+		</Row> -->
 
 		<Row Tag="TXT_KEY_BUILDING_FAMILY_PRODUCTION">
 			<Text>[ICON_RESEARCH]府学</Text>
@@ -8254,6 +8295,12 @@
 		<Replace Tag="TXT_KEY_BELIEF_GURUSHIP">
 			<Text>城市有专业人员时+2[ICON_PEACE]信仰、[ICON_CULTURE]文化、+1[ICON_PRODUCTION]产能、[ICON_RESEARCH]科研</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_BELIEF_SERENS_GOVERNANCE_SHORT">
+			<Text>清心养性</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SERENS_GOVERNANCE">
+			<Text>城市管理成本-200，城市每100管理成本产出1[ICON_PEACE]信仰</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_BELIEF_PILGRIMAGE">
 			<Text>为圣城提供其他文明本宗教信徒数量20%的[ICON_PEACE]信仰，其他文明每个信仰该宗教的城市为此宗教+3[ICON_PEACE]信仰</Text>
 		</Replace>
@@ -8297,7 +8344,7 @@
 			<Text>每一处[ICON_RES_GOLD]黄金、[ICON_RES_SILVER]白银、[ICON_RES_COPPER]赤铜、[ICON_RES_IRON]铁矿、[ICON_RES_SALT]盐资源+1[ICON_PEACE]信仰、+1[ICON_CULTURE]文化</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_GOD_FESTIVALS">
-			<Text>每一处红酒和熏香+2[ICON_PEACE]信仰、+2[ICON_CULTURE]文化</Text>
+			<Text>每一处[ICON_RES_WINE]红酒和[ICON_RES_INCENSE]熏香+2[ICON_PEACE]信仰、+2[ICON_CULTURE]文化</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_ONE_WITH_NATURE">
 			<Text>自然奇观+8[ICON_PEACE]信仰</Text>
@@ -8330,7 +8377,7 @@
 			<Text>教会艺匠</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_RELIGIOUS_FERVOR">
-			<Text>允许使用[ICON_PEACE]信仰购买[COLOR_POSITIVE_TEXT]宗教艺术师[ENDCOLOR]，该单位能够开启黄金时代。露天剧场、画廊和歌剧院+2[ICON_PEACE]信仰。建造奇观时+25%[ICON_PRODUCTION]产能积累</Text>
+			<Text>允许使用[ICON_PEACE]信仰购买[COLOR_POSITIVE_TEXT]宗教艺术师[ENDCOLOR]（前置科技：声学），该单位能够开启黄金时代。露天剧场、画廊和歌剧院+2[ICON_PEACE]信仰。建造世界奇观时+25%[ICON_PRODUCTION]产能积累</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_UNITY_OF_PROPHETS">
 			<Text>宗教裁判官和先知只能将此宗教的信众减少一半（而非全部清除）。城市审判狂热时间减半。圣城中诞生一位[ICON_PROPHET]大先知</Text>
@@ -8458,6 +8505,12 @@
 		<Row Tag="TXT_KEY_BELIEF_SCIENCE_RELIGION">
 			<Text>每个信徒增加本城+2%[ICON_RESEARCH]科研产出(最大+30%)</Text>
 		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SAGES_LEGACY_SHORT">
+			<Text>圣贤遗泽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_SAGES_LEGACY">
+			<Text>海关、学园、制造中心、宗教圣地为邻近改良设施提供的加成翻倍</Text>
+		</Row>
 
 		<Row Tag="TXT_KEY_EXTRA_RELIGION_SPREADS_2">
 			<Text>+2次宗教传播次数</Text>
@@ -8505,6 +8558,12 @@
 		</Row>
 		<Row Tag="TXT_KEY_BELIEF_CURSADER">
 			<Text>在圣城征召6名拥有60点经验的圣殿骑士</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_HOLY_PROPAGATION_SHORT">
+			<Text>圣邑繁衍</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_HOLY_PROPAGATION">
+			<Text>农田+1[ICON_PEACE]信仰，每有3座城市首次皈依时，圣城获得1[ICON_CITIZEN]人口</Text>
 		</Row>
 
 
@@ -9641,7 +9700,7 @@
 			<Text>陆军远程单位</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNITCOMBAT_BOMBER">
-			<Text>陆军特种单位</Text>
+			<Text>覆盖火力单位</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNITCOMBAT_ARCHER">
 			<Text>空军单位</Text>
@@ -9737,7 +9796,7 @@
 				[NEWLINE][ICON_BULLET]两条升级链各有着强大的效果，根据局势想好晋升的选择；
 				[NEWLINE][ICON_BULLET]两两一组作为敌后骚扰部队，可以通过偷袭脆弱工人、民兵、远程单位甚至伟人给敌人造成重大损失同时快速升级，两两互补也提供了持久战斗续航能力；
 				[NEWLINE][ICON_BULLET]高等级的特战在正面战场特别是野战和防守战斗中有着不输于正规军的战斗力，同时可以提供视野，这在早期战斗中十分有用，并且阻止电脑在阴影中刷兵。
-				[NEWLINE][ICON_BULLET]建议使用改名MOD来区分你的不同定位的特战单位。
+				[NEWLINE][ICON_BULLET]建议右键点击单位名称改名来区分你的不同定位的特战单位。
 			</Text>
 		</Row>
 
@@ -9890,7 +9949,7 @@
 				[NEWLINE][ICON_BULLET]游猎单位前期就可以攻击后移动，同样受政策无视zoc加成，这使其在早期战争中有着不俗的生存能力；
 				[NEWLINE][ICON_BULLET]有着光环晋升，可以用机动力在多个战场提供光环加成，不用急着进攻；
 				[NEWLINE][ICON_BULLET]有着猎杀晋升，可以直接将目标破防，配合更强战斗力的兵种打出更高的伤害；
-				[NEWLINE][ICON_BULLET]建议使用改名来区分你的不同定位的游猎单位，方便操作；
+				[NEWLINE][ICON_BULLET]建议右键点击单位名称改名来区分你的不同定位的单位，方便操作；
 				[NEWLINE][ICON_BULLET]熟稔使用它的近战和远程能力，它不是一个跑的快的弓箭手，也不是可以突破战线的骑兵。
 			</Text>
 		</Row>
@@ -10046,7 +10105,7 @@
 
 				[NEWLINE][NEWLINE][COLOR_CYAN]战术：[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]海洋中的游猎单位，虽然战斗中没有陆军游猎单位在正面战斗中的强力，但是低廉的造价和良好的辅助能力同样受到操作者的喜爱而得以大量普及；
-				[NEWLINE][ICON_BULLET]建议使用改名来区分你的不同定位的游猎单位，注意使用好兵种之间的克制。
+				[NEWLINE][ICON_BULLET]建议右键点击单位名称改名来区分你的不同定位的游猎单位，注意使用好兵种之间的克制。
 			</Text>
 		</Row>
 
@@ -11380,6 +11439,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER_HEADING">
 			<Text>JAS-39鹰狮</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER_HELP">
+			<Text>可以同时进行空战和对陆海攻击的多功能战斗机。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CIVILOPEDIA_UNIT_SWEDISH_JAS39_FIGHTER_TEXT">
 			<Text>JAS 39“鹰狮”（瑞典语：JAS 39 Gripen，英文：JAS 39 Griffin 或 Gryphon，又译作“狮鹫”）为瑞典萨博公司（SAAB）（Svenska Aeroplan AB）为中心所开发用以取代Saab-37战斗机，在战机世代上属于第四代战斗机。JAS-39首飞于1988年，正向全世界推销中。现已服役于瑞典、捷克、匈牙利等国空军，并正于南非空军中成军。2007年10月，泰国国会也已批准首批六架JAS-39战机订单。</Text>
@@ -13106,7 +13168,7 @@
 				[NEWLINE][ICON_BULLET]能够攻击后移动。
 				[NEWLINE][ICON_BULLET]能够使用敌方道路。
 				[NEWLINE][ICON_BULLET]劫掠不消耗移动力。
-				[NEWLINE][ICON_BULLET]路基飞机无法发现或攻击此类单位。
+				[NEWLINE][ICON_BULLET]陆基飞机无法发现或攻击此类单位。
 				[NEWLINE][ICON_BULLET]不能通过[ICON_GOLD]金钱[COLOR_NEGATIVE_TEXT]购买[ENDCOLOR]。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]克制[COLOR_POSITIVE_TEXT]民兵[ENDCOLOR]单位
@@ -13663,7 +13725,7 @@
 			<Text>补给三级</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_SUPPLY_3_HELP">
-			<Text>本航母能够在友方地域之外补充舰载机。购买舰载机费用减20%</Text>
+			<Text>本单位能够在友方地域之外补充舰载机或导弹，且购买费用-20%</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_PROMOTION_CARRIER_FIGHTER">
@@ -14049,7 +14111,7 @@
 		</Replace>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_HELICOPTER_HELP">
 			<Text>
-				[ICON_BULLET]对[COLOR_POSITIVE_TEXT]直升机单位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]固定翼飞机单位[ENDCOLOR]+150%[ICON_STRENGTH]战斗力。[NEWLINE][ICON_BULLET]能够拦截1格内的敌方飞机，被游猎时不会受伤。
+				[ICON_BULLET]对[COLOR_POSITIVE_TEXT]舰载机[ENDCOLOR]、[COLOR_POSITIVE_TEXT]空优单位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]攻击机[ENDCOLOR]+200%[ICON_STRENGTH]战斗力。[NEWLINE][ICON_BULLET]能够拦截敌方飞机，被游猎时不会受伤。
 			</Text>
 		</Row>
 
@@ -14180,7 +14242,7 @@
 		<Row Tag="TXT_KEY_PROMOTION_SP_FULL_MOON_STRIKE_HELP">
 			<Text>
 				[ICON_BULLET]+1[ICON_MOVES]移动力（可叠加）。
-				[NEWLINE][ICON_BULLET]对陆军远程，防空单位，攻城单位和陆地AOE武器+50%[ICON_STRENGTH]攻击力。
+				[NEWLINE][ICON_BULLET]对陆军远程，防空单位，攻城单位和覆盖火力+50%[ICON_STRENGTH]攻击力。
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_HUSSAR">
@@ -14376,7 +14438,7 @@
 			<Text>溅射免疫</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_SPLASH_HELP">
-			<Text>免疫来自陆军特种单位和海军旗舰等的溅射伤害。</Text>
+			<Text>免疫来自覆盖火力单位和海军旗舰等的溅射伤害。</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_PROMOTION_NUCLEAR_ARTILLERY">
@@ -14424,10 +14486,10 @@
 			<Text>在丘陵地块战斗力加25%。</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_NAVAL_BONUS_HELP">
-			<Text>对海军加成33%。</Text>
+			<Text>与海军单位作战时提高33%[ICON_STRENGTH]战斗力</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_NAVAL_BONUS_STRONG_HELP">
-			<Text>对海军加成100%。</Text>
+			<Text>与海军单位作战时提高100%[ICON_STRENGTH]战斗力</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_PRIZE_SHIPS_HELP">
 			<Text>
@@ -14823,9 +14885,21 @@
 		<Replace Tag="TXT_KEY_PEDIA_UNLOCK_PROMOTIONS_LABEL">
 			<Text>解锁晋升:</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_GRANT_PROMOTIONS_NATIONAL_LABEL">
+			<Text>赠送晋升（全国）：</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_GRANT_PROMOTIONS_LOCAL_LABEL">
+			<Text>赠送晋升（本城）：</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_ACQUISITION_METHODS_LABEL">
+			<Text>获赠方式</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_PEDIA_MAX_INSTANCES_LABEL">
 			<Text>保有上限:</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_PROJECT_COMPLETED_BY">
+			<Text>已完成: {1_Player}, {2_City}</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_PEDIA_MAX_PLAYER_INSTANCES">
 			<Text>[ICON_BULLET]每位玩家{1_Num}</Text>
 		</Replace>
@@ -15687,6 +15761,10 @@
 			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR][ICON_RESEARCH]来自宗教。</Text>
 		</Row>
 
+		<Row Tag="TXT_KEY_TP_SCIENCE_FROM_GLOBAL_POP">
+			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR][ICON_RESEARCH]来自政策（人口加成）。</Text>
+		</Row>
+
 		<Row Tag="TXT_KEY_EUPANEL_BONUS_CITY_STATE_FRENDSHIP">
 			<Text>同盟城邦加成</Text>
 		</Row>
@@ -16121,6 +16199,18 @@
 		</Row>
 		<Row Tag="TXT_KEY_UNITCOMBAT_DAMAGE_MODIFIER_SP">
 			<Text>单位生命值</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_DIFFERENT_RELIGION_MODIFIER">
+			<Text>异教徒加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLDEN_AGE_TURN_MODIFIER">
+			<Text>黄金时代回合加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FOLLOWER_COUNT_MODIFIER">
+			<Text>全球信众加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FOLLOWING_CITY_COUNT_MODIFIER">
+			<Text>信教城市加成</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EUPANEL_RESOURCE_MODIFIER">
 			<Text>额外资源加成</Text>
@@ -16765,6 +16855,12 @@
 		<Replace Tag="TXT_KEY_RO_STATUS_FOUNDER">
 			<Text>{1_ReligionName}宗教领袖</Text>
 		</Replace>
+	<Row Tag="TXT_KEY_RO_YOUR_FOLLOWERS">
+		<Text>全图信众: {1_Num}</Text>
+	</Row>
+	<Row Tag="TXT_KEY_RO_YOUR_CITIES">
+		<Text>信教城市: {1_Num}</Text>
+	</Row>
 
 		<Row Tag="TXT_KEY_EUPANEL_CAPTURE_CHANCE_SP">
 			<Text>[COLOR_CYAN]战胜时俘获敌军的几率[ENDCOLOR]</Text>
@@ -16783,6 +16879,15 @@
 		</Row>
 		<Row Tag="TXT_KEY_Building_PER_ERA">
 			<Text>/每个时代</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_HOLY_CITY">
+			<Text>信条：通往圣城{1_String}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_HOLY_CITY_DEST">
+			<Text>信条：圣城获得{1_String}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_SAME_RELIGION">
+			<Text>信条：同宗教{1_String}</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_ERA">
 			<Text>从{1_CityName}得到的时代金钱奖励: {2_Num}</Text>
@@ -16838,6 +16943,24 @@
 		<Row Tag="TXT_KEY_MILITARY_PROMISE">
 			<Text>承诺撤军</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_MODIFIER">
+			<Text>全国腐败[[ICON_HAPPINESS_4]]不满：</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_CHANGE">
+			<Text>腐败不满：</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL">
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]外交威望：</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CORRUPTION">
+			<Text>{1_num}来自腐败</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EXPANSION_PROMISE">
+			<Text>承诺不扩张</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BORDER_PROMISE">
+			<Text>承诺不侵扰边界</Text>
+		</Row>
 
 		<Replace Tag="TXT_KEY_FOODMOD_PLAYER">
 			<Text>[NEWLINE][ICON_BULLET]全文明修正（余粮）: {1_Num}%</Text>
@@ -16874,6 +16997,376 @@
 		</Row>
 		<Row Tag="TXT_KEY_PEDIA_FREE_FROM_PROJECT_LABEL">
 			<Text>来自工程:</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLD_ATTACK_BONUS">
+			<Text>[ICON_GOLD]国库充盈</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_GOLD_DEFENSE_BONUS">
+			<Text>[ICON_GOLD]国库充盈</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CULTURE_ATTACK_BONUS">
+			<Text>[ICON_CULTURE]文化自信</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CULTURE_DEFENSE_BONUS">
+			<Text>[ICON_CULTURE]文化自信</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FAITH_ATTACK_BONUS">
+			<Text>[ICON_PEACE]信仰狂热</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_FAITH_DEFENSE_BONUS">
+			<Text>[ICON_PEACE]信仰狂热</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_REGRESSAND_MODIFIER">
+			<Text>
+				移民[ICON_TEAM_4]迁入阈值修正:{1_Num}%
+			</Text>
+		</Row>
+		<Replace Tag="TXT_KEY_WORKERS_SPECIALFORT_HEADING3_BODY">
+			<Text>堡垒是一种特殊的设施。在SP中，它由非正规军建造，为军事部队在本国领土内提供保护。堡垒可以被建造在本国或者中立地块。在区域设施上修建堡垒会将该区域设施摧毁。
+				[NEWLINE]堡垒提供的防御加成：50%</Text>
+		</Replace>
+		<Row Tag="TXT_KEY_NO_OCCUPIED_UNHAPPINESS">
+			<Text>[ICON_BULLET]消除来自[ICON_OCCUPIED]被占领城市的额外[ICON_HAPPINESS_4]不满。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_9">
+			<Text>基础晋升</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTIONS_SECTION_10">
+			<Text>[COLOR_NEGATIVE_TEXT]负面晋升[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_III">
+			<Text>防空火力点</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_III_HELP">
+			<Text>
+				可以拦截试图轰炸附近单位的敌军飞机。
+				[NEWLINE][ICON_BULLET]每回合能够进行一次对空拦截。
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET]对[COLOR_POSITIVE_TEXT]攻击机[ENDCOLOR]单位拥有战斗力加成。
+				[NEWLINE][ICON_BULLET]拦截[COLOR_NEGATIVE_TEXT]战略轰炸机[ENDCOLOR]时效果不佳。
+			</Text>
+		</Row>
+		<!-- Plot Naming -->
+		<Row Tag="TXT_KEY_PLOT_NAME_TITLE">
+			<Text>输入地名</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CONFIRM">
+			<Text>确定</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CLEAR">
+			<Text>清除</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_CANCEL">
+			<Text>取消</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SHOW_PLOT_NAMES">
+			<Text>显示地块名称</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SHOW_PLOT_NAMES_TT">
+			<Text>切换地图上自定义地块名称标签的显示</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY">
+			<Text>远征补给</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_EXPEDITION_SUPPLY_HELP">
+			<Text>每回合都会自动回复，所有临近和同格的单位回复时额外+15HP，本单位回复时每回合额外+15HP</Text>
+		</Row>
+		<Replace Tag="TXT_KEY_PROMOTION_HEAL_IF_DESTROY_ENEMY_HELP">
+			<Text>消灭非蛮族单位后回复50生命值</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_DEFEND_NEAR_CAPITAL_HELP">
+			<Text>在首都附近作战时提高30%[ICON_STRENGTH]战斗力，远离首都后失效</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_INVULNERABIILITY_HELP">
+			<Text>防御时提高30%[ICON_STRENGTH]战斗力，回复时每回合额外+20HP</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_HOMELAND_GUARDIAN_BOOGALOO_HELP">
+			<Text>境内作战时提高15%[ICON_STRENGTH]战斗力</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_HOVERING_UNIT_HELP">
+			<Text>该单位可以直接跨越山脉和海滨，但在山脉上时结束回合会受到伤害</Text>
+		</Replace>
+		<Row Tag="TXT_KEY_PEDIA_CSUA_HEADER">
+			<Text>城邦特殊能力</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_ZURICH_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市+1[ICON_GREAT_SCIENTIST]大科学家点数，城市的[ICON_RESEARCH]学院、[ICON_RESEARCH]大学、[ICON_RESEARCH]公立学校、[ICON_RESEARCH]研究实验室额外+1[ICON_GREAT_SCIENTIST]大科学家点数
+				[NEWLINE][ICON_BULLET]盟友每诞生过3位[ICON_GREAT_PEOPLE]大科学家，[ICON_GREAT_SCIENTIST]科学家+1[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]盟友每诞生过2位[ICON_GREAT_PEOPLE]大工程师，[ICON_GREAT_ENGINEER]工程师+1[ICON_PRODUCTION]产能
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市的[ICON_RESEARCH]学院、[ICON_RESEARCH]大学+1[ICON_GREAT_SCIENTIST]大科学家点数
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ZURICH_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市+1[ICON_GREAT_SCIENTIST]大科学家点数，城市的[ICON_RESEARCH]学院、[ICON_RESEARCH]大学、[ICON_RESEARCH]公立学校、[ICON_RESEARCH]研究实验室额外+1[ICON_GREAT_SCIENTIST]大科学家点数
+				[NEWLINE][ICON_BULLET]盟友每诞生过3位[ICON_GREAT_PEOPLE]大科学家，[ICON_GREAT_SCIENTIST]科学家+1[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]盟友每诞生过2位[ICON_GREAT_PEOPLE]大工程师，[ICON_GREAT_ENGINEER]工程师+1[ICON_PRODUCTION]产能
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ZURICH_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市的[ICON_RESEARCH]学院、[ICON_RESEARCH]大学+1[ICON_GREAT_SCIENTIST]大科学家点数
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_ANTWERP_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市+1[ICON_GREAT_MERCHANT]大商业家点数，城市的[ICON_GOLD]市场、[ICON_GOLD]银行、[ICON_GOLD]证券交易所、[ICON_GOLD]金融公司额外+1[ICON_GREAT_MERCHANT]大商业家点数
+				[NEWLINE][ICON_BULLET]盟友每诞生过1位[ICON_GREAT_PEOPLE]大商业家，[ICON_GREAT_MERCHANT]商业家+2[ICON_GOLD]金钱，成为城邦盟友的所需最低[ICON_INFLUENCE]影响力降低1%(至多-50%)
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友效果：朋友城市的[ICON_GOLD]市场和[ICON_GOLD]银行+1[ICON_GREAT_MERCHANT]大商业家点数
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ANTWERP_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市+1[ICON_GREAT_MERCHANT]大商业家点数，城市的[ICON_GOLD]市场、[ICON_GOLD]银行、[ICON_GOLD]证券交易所、[ICON_GOLD]金融公司额外+1[ICON_GREAT_MERCHANT]大商业家点数
+				[NEWLINE][ICON_BULLET]盟友每诞生过1位[ICON_GREAT_PEOPLE]大商业家，[ICON_GREAT_MERCHANT]商业家+2[ICON_GOLD]金钱，成为城邦盟友的所需最低[ICON_INFLUENCE]影响力降低1%(至多-50%)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ANTWERP_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友效果：朋友城市的[ICON_GOLD]市场和[ICON_GOLD]银行+1[ICON_GREAT_MERCHANT]大商业家点数
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_FLORENCE_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]信仰购买[ICON_GREAT_PEOPLE]伟人后，下一次购买价格的上涨幅度降低50%，每拥有一个[ICON_GREAT_WORK]杰作，上涨幅度额外降低1%（至多-90%）
+				[NEWLINE][ICON_BULLET]工业时代后，允许使用[ICON_PEACE]信仰购买所有[ICON_GREAT_PEOPLE]伟人
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]信仰购买[ICON_GREAT_PEOPLE]伟人后，下一次购买价格的上涨幅度降低20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_FLORENCE_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]信仰购买[ICON_GREAT_PEOPLE]伟人后，下一次购买价格的上涨幅度降低50%，每拥有一个[ICON_GREAT_WORK]杰作，上涨幅度额外降低1%（至多-90%）
+				[NEWLINE][ICON_BULLET]工业时代后，允许使用[ICON_PEACE]信仰购买所有[ICON_GREAT_PEOPLE]伟人
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_FLORENCE_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]信仰购买[ICON_GREAT_PEOPLE]伟人后，下一次购买价格的上涨幅度降低20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MALACCA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]奢侈品提供的[ICON_HAPPINESS_1]快乐+100%
+				[NEWLINE][ICON_BULLET]盟友每拥有1种提供快乐的[ICON_GOLD]奢侈品，城市+1%[ICON_FOOD]余粮加成
+				[NEWLINE][ICON_BULLET]盟友每拥有1种提供快乐的[ICON_GOLD]奢侈品，[ICON_INTERNATIONAL_TRADE]商路金钱+3%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]奢侈品提供的[ICON_HAPPINESS_1]快乐+40%
+				[NEWLINE][ICON_BULLET]朋友每拥有2种提供快乐的[ICON_GOLD]奢侈品，城市+1%[ICON_FOOD]余粮加成
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MALACCA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]奢侈品提供的[ICON_HAPPINESS_1]快乐+100%
+				[NEWLINE][ICON_BULLET]盟友每拥有1种提供快乐的[ICON_GOLD]奢侈品，城市+1%[ICON_FOOD]余粮加成
+				[NEWLINE][ICON_BULLET]盟友每拥有1种提供快乐的[ICON_GOLD]奢侈品，[ICON_INTERNATIONAL_TRADE]商路金钱+3%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MALACCA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]奢侈品提供的[ICON_HAPPINESS_1]快乐+40%
+				[NEWLINE][ICON_BULLET]朋友每拥有2种提供快乐的[ICON_GOLD]奢侈品，城市+1%[ICON_FOOD]余粮加成
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_PANAMA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友发出的[ICON_INTERNATIONAL_TRADE]国际商路起点和终点城市每间隔1格，该商路[ICON_GOLD]金钱收益+1%
+				[NEWLINE][ICON_BULLET]盟友每有一条[ICON_INTERNATIONAL_TRADE]跨大陆国际商路，来自[ICON_CITIZEN]人口的不满降低3%(至多-90%)
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]盟友发出的[ICON_INTERNATIONAL_TRADE]国际商路起点和终点城市每间隔2格，该商路[ICON_GOLD]金钱收益+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友发出的[ICON_INTERNATIONAL_TRADE]国际商路起点和终点城市每间隔1格，该商路[ICON_GOLD]金钱收益+1%
+				[NEWLINE][ICON_BULLET]盟友每有一条[ICON_INTERNATIONAL_TRADE]跨大陆国际商路，来自[ICON_CITIZEN]人口的不满降低3%(至多-90%)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]盟友发出的[ICON_INTERNATIONAL_TRADE]国际商路起点和终点城市每间隔2格，该商路[ICON_GOLD]金钱收益+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_BRUSSELS_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的艺术、文学、音乐家[ICON_GREAT_PEOPLE]点数积累速率+40%
+				[NEWLINE][ICON_BULLET]盟友每拥有一个[ICON_GREAT_WORK]杰作，[ICON_CAPITAL]首都获得1点[ICON_GREAT_MUSICIAN]大音乐家点数
+				[NEWLINE][ICON_BULLET]盟友的[ICON_GREAT_MUSICIAN]大音乐家举办[ICON_TOURISM]演唱会产出魅力+20%，且可获得相当于其产出魅力5%的[ICON_GOLD]金钱
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的艺术、文学、音乐家[ICON_GREAT_PEOPLE]点数积累速率+15%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRUSSELS_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的艺术、文学、音乐家[ICON_GREAT_PEOPLE]点数积累速率+40%
+				[NEWLINE][ICON_BULLET]盟友每拥有一个[ICON_GREAT_WORK]杰作，[ICON_CAPITAL]首都获得1点[ICON_GREAT_MUSICIAN]大音乐家点数
+				[NEWLINE][ICON_BULLET]盟友的[ICON_GREAT_MUSICIAN]大音乐家举办[ICON_TOURISM]演唱会产出魅力+20%，且可获得相当于其产出魅力5%的[ICON_GOLD]金钱
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRUSSELS_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的艺术、文学、音乐家[ICON_GREAT_PEOPLE]点数积累速率+15%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_COLOMBO_HELP">
+			<Text>当你为科伦坡的盟友或朋友时，你通往科伦坡的[ICON_INTERNATIONAL_TRADE]国际商路每时代获得额外[ICON_GOLD]金币。盟友城市拥有通往科伦坡的商路时，将部分[ICON_PEACE]信仰转化为[ICON_RESEARCH]科研和[ICON_TOURISM]魅力。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_COLOMBO_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你通往科伦坡的[ICON_INTERNATIONAL_TRADE]国际商路每时代获得+15[ICON_GOLD]金币
+				[NEWLINE][ICON_BULLET]拥有通往科伦坡商路的城市将20%的[ICON_PEACE]信仰转化为[ICON_RESEARCH]科研、15%转化为[ICON_TOURISM]魅力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]你通往科伦坡的[ICON_INTERNATIONAL_TRADE]国际商路每时代获得+6[ICON_GOLD]金币
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_COLOMBO_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你通往科伦坡的[ICON_INTERNATIONAL_TRADE]国际商路每时代获得+15[ICON_GOLD]金币
+				[NEWLINE][ICON_BULLET]拥有通往科伦坡商路的城市将20%的[ICON_PEACE]信仰转化为[ICON_RESEARCH]科研、15%转化为[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_COLOMBO_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]你通往科伦坡的[ICON_INTERNATIONAL_TRADE]国际商路每时代获得+6[ICON_GOLD]金币
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_DUBAI_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每向迪拜捐赠过1000[ICON_GOLD]现金，全局[ICON_HAPPINESS_1]快乐+1
+				[NEWLINE][ICON_BULLET]此来源的每点快乐提供全局奇观建造速率+1%
+				[NEWLINE][ICON_BULLET]此来源的每点快乐提高自身5%对其他意识形态的舆论压力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]每向迪拜捐赠过2000[ICON_GOLD]现金，全局[ICON_HAPPINESS_1]快乐+1
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_DUBAI_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每向迪拜捐赠过1000[ICON_GOLD]现金，全局[ICON_HAPPINESS_1]快乐+1
+				[NEWLINE][ICON_BULLET]此来源的每点快乐提供全局奇观建造速率+1%
+				[NEWLINE][ICON_BULLET]此来源的每点快乐提高自身5%对其他意识形态的舆论压力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_DUBAI_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]每向迪拜捐赠过2000[ICON_GOLD]现金，全局[ICON_HAPPINESS_1]快乐+1
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_VALLETTA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]敌人城市一环内我方军事单位达到3个或以上时，该城市无法回血
+				[NEWLINE][ICON_BULLET]购买宗教建筑后，全国陆军单位+5经验
+				[NEWLINE][ICON_BULLET]诞生陆军统帅时，获得等同于对瓦莱塔影响力100%的[ICON_PEACE]信仰
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]敌人城市一环内我方军事单位达到6个或以上时，该城市无法回血
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VALLETTA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]敌人城市一环内我方军事单位达到3个或以上时，该城市无法回血
+				[NEWLINE][ICON_BULLET]购买宗教建筑后，全国陆军单位+5经验
+				[NEWLINE][ICON_BULLET]诞生陆军统帅时，获得等同于对瓦莱塔影响力100%的[ICON_PEACE]信仰
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VALLETTA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]敌人城市一环内我方军事单位达到6个或以上时，该城市无法回血
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_GOLD_DONATION">
+			<Text>{1_Num} 来自金币捐赠</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE">
+			<Text>
+				当前[ICON_DIPLOMATIC_PRESTIGE]外交威望：{1}/{2}（{3}）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE_OVEREXTENDED">
+			<Text>
+				已超限
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE_OK">
+			<Text>
+				未超限
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_DIPLO_OVEREXTENSION_PENALTY">
+			<Text>
+				[ICON_DIPLOMATIC_PRESTIGE]超限惩罚：
+				[NEWLINE][ICON_BULLET][ICON_INFLUENCE]影响力每回合衰减 +{1}%
+				[NEWLINE][ICON_BULLET][ICON_INFLUENCE]影响力增长 {2}%
+				[NEWLINE][ICON_BULLET][ICON_UNHAPPINESS]全国不满 +{3}%
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_CITY_STATE">
+			<Text>城邦盟友商路加成：{1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_CITY_STATE_LUXURY">
+			<Text>{2_Num}由于城邦盟友（{1_Num}%）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_LUXURY_MOD">
+			<Text>{2_Num}奢侈快乐加成（{1_Num}%）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_TITLE">
+			<Text>人口不满修正</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_TRAIT">
+			<Text>领袖特性：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_HANDICAP">
+			<Text>难度：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_OVEREXTENSION">
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]外交威望超限：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_CITY_STATE">
+			<Text>城邦盟友：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_ALMATY_HELP">
+			<Text>额外提供15[ICON_RES_HORSE]马匹</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_GP_MOD">
+			<Text>[ICON_BULLET]盟邦UA加成: +{1_num}%</Text>
 		</Row>
 	</Language_zh_CN>
 </GameData>

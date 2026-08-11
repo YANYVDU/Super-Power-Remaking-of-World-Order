@@ -8,6 +8,7 @@ include("CityStateStatusHelper")
 local iGoldGiftLarge	= GameDefines.MINOR_GOLD_GIFT_LARGE
 local iGoldGiftMedium = GameDefines.MINOR_GOLD_GIFT_MEDIUM
 local iGoldGiftSmall	= GameDefines.MINOR_GOLD_GIFT_SMALL
+local iGoldGiftHuge	= GameDefines.MINOR_GOLD_GIFT_HUGE or 5000
 
 local gCsIM = InstanceManager:new("CsStatusInstance", "CsBox", Controls.CsStack)
 
@@ -123,6 +124,13 @@ function GetCsControl(im, iCs, iPlayer)
 	-- Influence
 	local iInfluence, sInfluenceText, iNeededInfluence, sInfluenceToolTip = getInfluence(pCs, pPlayer)
 	controlTable.CsInfluence:SetText(sInfluenceText)
+
+	-- SP: 追加城邦独特 UA 描述到影响力 tooltip（基于 MinorCivilizations.UAType -> CityStateUAs.Help）
+	sInfluenceToolTip = sInfluenceToolTip or "";
+	local strUAHelp = GetCityStateUAHelpText(iPlayer, iCs);
+	if (strUAHelp ~= "") then
+		sInfluenceToolTip = sInfluenceToolTip .. "[NEWLINE][NEWLINE]" .. strUAHelp;
+	end
 	controlTable.CsInfluence:SetToolTipString(sInfluenceToolTip)
 	sortEntry.influence = iInfluence
 	sortEntry.neededInfluence = iNeededInfluence
@@ -420,6 +428,18 @@ function setGoldGiftIcons(controlTable, pCs, pPlayer, bForcePeace)
 		controlTable.CsGiftLarge:RegisterCallback(Mouse.eLClick, OnGiftSelected)
 	else
 		controlTable.CsGiftLarge:SetHide(true)
+	end
+
+	-- Huge Gold (5000)
+	if (not bWar and iPlayerGold >= iGoldGiftHuge) then
+		controlTable.CsGiftHuge:SetHide(false)
+		controlTable.CsGiftHuge:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_DO_CS_STATUS_GIFT_INFLUENCE_TT", iGoldGiftHuge, pCs:GetFriendshipFromGoldGift(iPlayer, iGoldGiftHuge)))
+
+		controlTable.CsGiftHuge:SetVoid1(iCs)
+		controlTable.CsGiftHuge:SetVoid2(iGoldGiftHuge)
+		controlTable.CsGiftHuge:RegisterCallback(Mouse.eLClick, OnGiftSelected)
+	else
+		controlTable.CsGiftHuge:SetHide(true)
 	end
 end
 
