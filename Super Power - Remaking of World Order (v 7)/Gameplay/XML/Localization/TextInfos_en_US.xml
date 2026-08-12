@@ -18709,14 +18709,14 @@
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_HANDICAP">
 			<Text>Difficulty: {1_Num}%</Text>
 		</Row>
+		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_OVEREXTENSION">
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]Diplomatic Prestige Overextension: {1_Num}%</Text>
+		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_CITY_STATE">
 			<Text>City-State Ally: {1_Num}%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CITY_STATE_GP_MOD">
 			<Text>[ICON_BULLET]Ally UA Bonus: +{1_num}%</Text>
-		</Row>
-		<Row Tag="TXT_KEY_GOLDENAGE_GP_MOD">
-			<Text>[ICON_BULLET]Golden Age Bonus: +{1_num}%</Text>
 		</Row>
 	</Language_en_US>
 </GameData>
