@@ -18865,9 +18865,9 @@
 		<Row Tag="TXT_KEY_SP_DIPLO_OVEREXTENSION_PENALTY">
 			<Text>
 				[ICON_DIPLOMATIC_PRESTIGE]Overextension Penalties:
-				[NEWLINE][ICON_BULLET]Influence decays +{1}% per turn
-				[NEWLINE][ICON_BULLET]Influence gain {2}%
-				[NEWLINE][ICON_BULLET]Unhappiness +{3}%
+				[NEWLINE][ICON_BULLET][ICON_INFLUENCE]Influence decays +{1}% per turn
+				[NEWLINE][ICON_BULLET][ICON_INFLUENCE]Influence gain {2}%
+				[NEWLINE][ICON_BULLET][ICON_UNHAPPINESS]Unhappiness +{3}%
 			</Text>
 		</Row>
 

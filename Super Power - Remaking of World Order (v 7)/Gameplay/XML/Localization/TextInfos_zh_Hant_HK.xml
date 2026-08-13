@@ -17140,10 +17140,10 @@
 		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_OVEREXTENSION_PENALTY">
 			<Text>
-				超限懲罰：
-				[NEWLINE][ICON_BULLET]影響力每回合衰減 +{1}%
-				[NEWLINE][ICON_BULLET]影響力增長 {2}%
-				[NEWLINE][ICON_BULLET]全國不滿 +{3}%
+				[ICON_DIPLOMATIC_PRESTIGE]超限懲罰：
+				[NEWLINE][ICON_BULLET][ICON_INFLUENCE]影響力每回合衰減 +{1}%
+				[NEWLINE][ICON_BULLET][ICON_INFLUENCE]影響力增長 {2}%
+				[NEWLINE][ICON_BULLET][ICON_UNHAPPINESS]全國不滿 +{3}%
 			</Text>
 		</Row>
 
