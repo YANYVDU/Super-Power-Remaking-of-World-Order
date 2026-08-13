@@ -16756,7 +16756,7 @@
 			<Text>腐敗不滿</Text>
 		</Row>
 		<Row Tag="TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL">
-			<Text>外交威望 ：</Text>
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]外交威望 ：</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CORRUPTION">
 			<Text>{1_num}来自腐敗</Text>
@@ -16943,9 +16943,12 @@
 				[NEWLINE][ICON_BULLET]朋友效果：朋友城市的[ICON_GOLD]市場和[ICON_GOLD]銀行+1[ICON_GREAT_MERCHANT]大商業家點數
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_GOLD_DONATION">
+			<Text>{1_Num} 來自金幣捐贈</Text>
+		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE">
 			<Text>
-				當前外交威望：{1}/{2}（{3}）
+				當前[ICON_DIPLOMATIC_PRESTIGE]外交威望：{1}/{2}（{3}）
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE_OVEREXTENDED">
@@ -16960,10 +16963,10 @@
 		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_OVEREXTENSION_PENALTY">
 			<Text>
-				超限懲罰：
-				[NEWLINE][ICON_BULLET]影響力每回合衰減 +{1}%
-				[NEWLINE][ICON_BULLET]影響力增長 {2}%
-				[NEWLINE][ICON_BULLET]全國不滿 +{3}%
+				[ICON_DIPLOMATIC_PRESTIGE]超限懲罰：
+				[NEWLINE][ICON_BULLET][ICON_INFLUENCE]影響力每回合衰減 +{1}%
+				[NEWLINE][ICON_BULLET][ICON_INFLUENCE]影響力增長 {2}%
+				[NEWLINE][ICON_BULLET][ICON_UNHAPPINESS]全國不滿 +{3}%
 			</Text>
 		</Row>
 

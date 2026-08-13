@@ -18480,8 +18480,8 @@
 		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_CHANGE">
 			<Text>Corruption Unhappiness</Text>
 		</Row>
-<Row Tag="TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL">
-			<Text>Diplomatic Prestige:</Text>
+		<Row Tag="TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL">
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]Diplomatic Prestige:</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CORRUPTION">
 			<Text>{1_num} From Corruption</Text>
@@ -18667,9 +18667,12 @@
 				[NEWLINE][ICON_BULLET][ICON_GOLD] Market and [ICON_GOLD] Bank provide +1 Great Merchant Point in friend cities
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_TP_HAPPINESS_GOLD_DONATION">
+			<Text>{1_Num} from Gold Donations</Text>
+		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE">
 			<Text>
-				Current Diplomatic Prestige: {1}/{2} ({3})
+				Current [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige: {1}/{2} ({3})
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_PRESTIGE_OVEREXTENDED">
@@ -18684,10 +18687,10 @@
 		</Row>
 		<Row Tag="TXT_KEY_SP_DIPLO_OVEREXTENSION_PENALTY">
 			<Text>
-				Overextension Penalties:
-				[NEWLINE][ICON_BULLET]Influence decays +{1}% per turn
-				[NEWLINE][ICON_BULLET]Influence gain {2}%
-				[NEWLINE][ICON_BULLET]Unhappiness +{3}%
+				[ICON_DIPLOMATIC_PRESTIGE]Overextension Penalties:
+				[NEWLINE][ICON_BULLET][ICON_INFLUENCE]Influence decays +{1}% per turn
+				[NEWLINE][ICON_BULLET][ICON_INFLUENCE]Influence gain {2}%
+				[NEWLINE][ICON_BULLET][ICON_UNHAPPINESS]Unhappiness +{3}%
 			</Text>
 		</Row>
 
@@ -18710,7 +18713,7 @@
 			<Text>Difficulty: {1_Num}%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_OVEREXTENSION">
-			<Text>[ICON_DIPLOMATIC_PRESTIGE]Diplomatic Prestige Overextension: {1_Num}%</Text>
+			<Text>[ICON_DIPLOMATIC_PRESTIGE]Diplomatic Overextension: {1_Num}%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_POP_MOD_CITY_STATE">
 			<Text>City-State Ally: {1_Num}%</Text>
