@@ -15960,6 +15960,19 @@
 			<Text>[NEWLINE][ICON_BULLET]{1_CivName} {2_value}[ICON_GOLD]</Text>
 		</Row>
 
+		<Row Tag="TXT_KEY_TP_SCIENCE_TO_OVERLORD">
+			<Text>[NEWLINE][COLOR:255:150:150:255]上缴宗主国 {1_Overlord}：-{2_value}[ICON_RESEARCH][/COLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_CULTURE_TO_OVERLORD">
+			<Text>[NEWLINE][COLOR:255:150:150:255]上缴宗主国 {1_Overlord}：-{2_value}[ICON_CULTURE][/COLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_FAITH_TO_OVERLORD">
+			<Text>[NEWLINE][COLOR:255:150:150:255]上缴宗主国 {1_Overlord}：-{2_value}[ICON_PEACE][/COLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_GOLD_TO_OVERLORD">
+			<Text>[NEWLINE][COLOR:255:150:150:255]上缴宗主国 {1_Overlord}：-{2_value}[ICON_GOLD][/COLOR]</Text>
+		</Row>
+
 		<Replace Tag="TXT_KEY_RESOURCE_TOOLTIP_IMPROVED_WORKED">
 			<Text>資源基礎產出:</Text>
 		</Replace>

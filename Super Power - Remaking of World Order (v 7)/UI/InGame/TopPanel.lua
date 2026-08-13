@@ -546,6 +546,19 @@ function ScienceTipHandler( control )
 			end
 		end
 
+		if pPlayer.GetOverlord and pPlayer.GetScienceTimes100ToOverlord then
+			local iOverlord = pPlayer:GetOverlord();
+			if iOverlord >= 0 then
+				local iTribute = pPlayer:GetScienceTimes100ToOverlord();
+				if iTribute ~= 0 then
+					local pOverlord = Players[iOverlord];
+					if pOverlord ~= nil then
+						strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_SCIENCE_TO_OVERLORD", pOverlord:GetCivilizationShortDescription(), iTribute / 100.0);
+					end
+				end
+			end
+		end
+
 		-- Science from Other Players
 		local iScienceFromOtherPlayers = pPlayer:GetScienceFromOtherPlayersTimes100();
 		if (iScienceFromOtherPlayers ~= 0) then
@@ -706,6 +719,19 @@ function GoldTipHandler( control )
 
 				local civName = player:GetCivilizationShortDescription()
 				strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_FROM_VASSALS", civName, value)
+			end
+		end
+	end
+
+	if pPlayer.GetOverlord and pPlayer.GetGoldToOverlord then
+		local iOverlord = pPlayer:GetOverlord();
+		if iOverlord >= 0 then
+			local iTribute = pPlayer:GetGoldToOverlord();
+			if iTribute ~= 0 then
+				local pOverlord = Players[iOverlord];
+				if pOverlord ~= nil then
+					strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_TO_OVERLORD", pOverlord:GetCivilizationShortDescription(), iTribute);
+				end
 			end
 		end
 	end
@@ -1320,6 +1346,19 @@ function CultureTipHandler( control )
 			end
 		end
 
+		if pPlayer.GetOverlord and pPlayer.GetCultureToOverlord then
+			local iOverlord = pPlayer:GetOverlord();
+			if iOverlord >= 0 then
+				local iTribute = pPlayer:GetCultureToOverlord();
+				if iTribute ~= 0 then
+					local pOverlord = Players[iOverlord];
+					if pOverlord ~= nil then
+						strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_CULTURE_TO_OVERLORD", pOverlord:GetCivilizationShortDescription(), iTribute);
+					end
+				end
+			end
+		end
+
 		-- Let people know that building more cities makes policies harder to get
 		if (not OptionsManager.IsNoBasicHelp()) then
 			strText = strText .. "[NEWLINE][NEWLINE]";
@@ -1454,6 +1493,19 @@ function FaithTipHandler( control )
 
 					local civName = player:GetCivilizationShortDescription()
 					strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_FAITH_FROM_VASSALS", civName, value)
+				end
+			end
+		end
+
+		if pPlayer.GetOverlord and pPlayer.GetFaithToOverlord then
+			local iOverlord = pPlayer:GetOverlord();
+			if iOverlord >= 0 then
+				local iTribute = pPlayer:GetFaithToOverlord();
+				if iTribute ~= 0 then
+					local pOverlord = Players[iOverlord];
+					if pOverlord ~= nil then
+						strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_FAITH_TO_OVERLORD", pOverlord:GetCivilizationShortDescription(), iTribute);
+					end
 				end
 			end
 		end
