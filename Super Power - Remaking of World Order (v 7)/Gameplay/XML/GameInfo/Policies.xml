@@ -279,6 +279,10 @@
 			<Set CityStateTradeChange="0" ProtectedMinorPerTurnInfluence="400" NumTradeRouteBonus="1" GridX="5" GridY="1" PortraitIndex="17"/>
 			<Where Type="POLICY_MERCHANT_CONFEDERACY"/>
 		</Update>
+		<Update>
+			<Set DiplomaticPrestige="2"/>
+			<Where Type="POLICY_PATRONAGE_FINISHER"/>
+		</Update>
 
 		<Row>
 			<Type>POLICY_MILITARY_AID</Type>
@@ -572,7 +576,7 @@
 			<Where Type="POLICY_ARSENAL_DEMOCRACY"/>
 		</Update>
 		<Update>
-			<Set ProtectedMinorPerTurnInfluence="0" ImmigrationInModifier="100"/>
+			<Set ProtectedMinorPerTurnInfluence="0" ImmigrationInModifier="100" DiplomaticPrestige="2"/>
 			<Where Type="POLICY_TREATY_ORGANIZATION"/>
 		</Update>
 		<Update>
