@@ -17662,6 +17662,45 @@
 		<Row Tag="TXT_KEY_TP_SCIENCE_FROM_FRIENDS">
 			<Text>[NEWLINE][ICON_BULLET]{1_CivName} {2_value}[ICON_RESEARCH]</Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_TP_TITLE_SCIENCE_FROM_VASSALS">
+			<Text>[NEWLINE][NEWLINE]From Vassals:</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_SCIENCE_FROM_VASSALS">
+			<Text>[NEWLINE][ICON_BULLET]{1_CivName} {2_value}[ICON_RESEARCH]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_TITLE_CULTURE_FROM_VASSALS">
+			<Text>[NEWLINE][NEWLINE]From Vassals:</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_CULTURE_FROM_VASSALS">
+			<Text>[NEWLINE][ICON_BULLET]{1_CivName} {2_value}[ICON_CULTURE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_TITLE_FAITH_FROM_VASSALS">
+			<Text>[NEWLINE][NEWLINE]From Vassals:</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_FAITH_FROM_VASSALS">
+			<Text>[NEWLINE][ICON_BULLET]{1_CivName} {2_value}[ICON_PEACE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_TITLE_GOLD_FROM_VASSALS">
+			<Text>[NEWLINE][NEWLINE]From Vassals:</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_GOLD_FROM_VASSALS">
+			<Text>[NEWLINE][ICON_BULLET]{1_CivName} {2_value}[ICON_GOLD]</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_TP_SCIENCE_TO_OVERLORD">
+			<Text>[NEWLINE][COLOR:255:150:150:255]Tribute to Overlord {1_Overlord}: -{2_value}[ICON_RESEARCH][/COLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_CULTURE_TO_OVERLORD">
+			<Text>[NEWLINE][COLOR:255:150:150:255]Tribute to Overlord {1_Overlord}: -{2_value}[ICON_CULTURE][/COLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_FAITH_TO_OVERLORD">
+			<Text>[NEWLINE][COLOR:255:150:150:255]Tribute to Overlord {1_Overlord}: -{2_value}[ICON_PEACE][/COLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_GOLD_TO_OVERLORD">
+			<Text>[NEWLINE][COLOR:255:150:150:255]Tribute to Overlord {1_Overlord}: -{2_value}[ICON_GOLD][/COLOR]</Text>
+		</Row>
+
 		<Replace Tag="TXT_KEY_RESOURCE_TOOLTIP_IMPROVED_WORKED">
 			<Text>Base Yield from Resouce:</Text>
 		</Replace>

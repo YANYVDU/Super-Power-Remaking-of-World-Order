@@ -527,7 +527,37 @@ function ScienceTipHandler( control )
 				strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_SCIENCE_FROM_FRIENDS", civName, value / 100.0)
 			end
 		end
-		
+
+		if pPlayer.GetScienceTimes100FromVassalsTable then
+			local tScienceTimes100FromVassalsTable = pPlayer:GetScienceTimes100FromVassalsTable();
+			local bFirstEntryScienceTimes100FromVassalsTable = true
+			for playerID = 0, GameDefines.MAX_MAJOR_CIVS - 1 do
+				local value = tScienceTimes100FromVassalsTable[playerID]
+				local player = Players[playerID]
+				if value ~= nil and value ~= 0 and player ~= nil then
+					if bFirstEntryScienceTimes100FromVassalsTable then
+						strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_TITLE_SCIENCE_FROM_VASSALS")
+						bFirstEntryScienceTimes100FromVassalsTable = false
+					end
+
+					local civName = player:GetCivilizationShortDescription()
+					strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_SCIENCE_FROM_VASSALS", civName, value / 100.0)
+				end
+			end
+		end
+
+		if pPlayer.GetOverlord and pPlayer.GetScienceTimes100ToOverlord then
+			local iOverlord = pPlayer:GetOverlord();
+			if iOverlord >= 0 then
+				local iTribute = pPlayer:GetScienceTimes100ToOverlord();
+				if iTribute ~= 0 then
+					local pOverlord = Players[iOverlord];
+					if pOverlord ~= nil then
+						strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_SCIENCE_TO_OVERLORD", pOverlord:GetCivilizationShortDescription(), iTribute / 100.0);
+					end
+				end
+			end
+		end
 
 		-- Science from Other Players
 		local iScienceFromOtherPlayers = pPlayer:GetScienceFromOtherPlayersTimes100();
@@ -674,7 +704,38 @@ function GoldTipHandler( control )
 	if (iGoldPerTurnFromReligion > 0) then
 		strText = strText .. "[NEWLINE]  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_FROM_RELIGION", iGoldPerTurnFromReligion);
 	end
-	
+
+	if pPlayer.GetGoldFromVassalsTable then
+		local tGoldFromVassalsTable = pPlayer:GetGoldFromVassalsTable();
+		local bFirstEntryGoldFromVassalsTable = true
+		for playerID = 0, GameDefines.MAX_MAJOR_CIVS - 1 do
+			local value = tGoldFromVassalsTable[playerID]
+			local player = Players[playerID]
+			if value ~= nil and value ~= 0 and player ~= nil then
+				if bFirstEntryGoldFromVassalsTable then
+					strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_TITLE_GOLD_FROM_VASSALS")
+					bFirstEntryGoldFromVassalsTable = false
+				end
+
+				local civName = player:GetCivilizationShortDescription()
+				strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_FROM_VASSALS", civName, value)
+			end
+		end
+	end
+
+	if pPlayer.GetOverlord and pPlayer.GetGoldToOverlord then
+		local iOverlord = pPlayer:GetOverlord();
+		if iOverlord >= 0 then
+			local iTribute = pPlayer:GetGoldToOverlord();
+			if iTribute ~= 0 then
+				local pOverlord = Players[iOverlord];
+				if pOverlord ~= nil then
+					strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_TO_OVERLORD", pOverlord:GetCivilizationShortDescription(), iTribute);
+				end
+			end
+		end
+	end
+
 	strText = strText .. "[/COLOR]";
 
 	local iUnitCost = pPlayer:CalculateUnitCost();
@@ -1267,6 +1328,37 @@ function CultureTipHandler( control )
 			strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_CULTURE_FROM_GOLDEN_AGE", iCultureFromGoldenAge);
 		end
 
+		if pPlayer.GetCultureFromVassalsTable then
+			local tCultureFromVassalsTable = pPlayer:GetCultureFromVassalsTable();
+			local bFirstEntryCultureFromVassalsTable = true
+			for playerID = 0, GameDefines.MAX_MAJOR_CIVS - 1 do
+				local value = tCultureFromVassalsTable[playerID]
+				local player = Players[playerID]
+				if value ~= nil and value ~= 0 and player ~= nil then
+					if bFirstEntryCultureFromVassalsTable then
+						strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_TITLE_CULTURE_FROM_VASSALS")
+						bFirstEntryCultureFromVassalsTable = false
+					end
+
+					local civName = player:GetCivilizationShortDescription()
+					strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_CULTURE_FROM_VASSALS", civName, value)
+				end
+			end
+		end
+
+		if pPlayer.GetOverlord and pPlayer.GetCultureToOverlord then
+			local iOverlord = pPlayer:GetOverlord();
+			if iOverlord >= 0 then
+				local iTribute = pPlayer:GetCultureToOverlord();
+				if iTribute ~= 0 then
+					local pOverlord = Players[iOverlord];
+					if pOverlord ~= nil then
+						strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_CULTURE_TO_OVERLORD", pOverlord:GetCivilizationShortDescription(), iTribute);
+					end
+				end
+			end
+		end
+
 		-- Let people know that building more cities makes policies harder to get
 		if (not OptionsManager.IsNoBasicHelp()) then
 			strText = strText .. "[NEWLINE][NEWLINE]";
@@ -1386,7 +1478,38 @@ function FaithTipHandler( control )
 			strText = strText .. "[NEWLINE]";
 			strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_FAITH_FROM_RELIGION", iFaithFromReligion);
 		end
-		
+
+		if pPlayer.GetFaithFromVassalsTable then
+			local tFaithFromVassalsTable = pPlayer:GetFaithFromVassalsTable();
+			local bFirstEntryFaithFromVassalsTable = true
+			for playerID = 0, GameDefines.MAX_MAJOR_CIVS - 1 do
+				local value = tFaithFromVassalsTable[playerID]
+				local player = Players[playerID]
+				if value ~= nil and value ~= 0 and player ~= nil then
+					if bFirstEntryFaithFromVassalsTable then
+						strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_TITLE_FAITH_FROM_VASSALS")
+						bFirstEntryFaithFromVassalsTable = false
+					end
+
+					local civName = player:GetCivilizationShortDescription()
+					strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_FAITH_FROM_VASSALS", civName, value)
+				end
+			end
+		end
+
+		if pPlayer.GetOverlord and pPlayer.GetFaithToOverlord then
+			local iOverlord = pPlayer:GetOverlord();
+			if iOverlord >= 0 then
+				local iTribute = pPlayer:GetFaithToOverlord();
+				if iTribute ~= 0 then
+					local pOverlord = Players[iOverlord];
+					if pOverlord ~= nil then
+						strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_FAITH_TO_OVERLORD", pOverlord:GetCivilizationShortDescription(), iTribute);
+					end
+				end
+			end
+		end
+
 		if (iFaithFromCities ~= 0 or iFaithFromMinorCivs ~= 0 or iFaithFromReligion ~= 0) then
 			strText = strText .. "[NEWLINE]";
 		end
