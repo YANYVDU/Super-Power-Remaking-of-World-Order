@@ -15642,6 +15642,18 @@
 		<Row Tag="TXT_KEY_TP_INFLUENCE_PER_TURN_SUFFIX">
 			<Text>/回合</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_SUFFIX">
+			<Text>（永久盟友）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_TT">
+			<Text>該城邦已與{1_Civ}結成永久同盟。其盟友地位無法被其他文明通過影響力取代。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_SELF_TT">
+			<Text>你是該城邦的永久盟友。其他文明無法撼動你的盟友地位。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_GIFT_WARNING">
+			<Text>該城邦已與{1_Civ}結成永久同盟。贈送金幣等提升影響力的手段不會起任何作用。</Text>
+		</Row>
 
 		<Replace Tag="TXT_KEY_TP_GOLDEN_AGE_ADDITION">
 			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR]來自額外的[ICON_HAPPINESS_1]幸福度。</Text>
