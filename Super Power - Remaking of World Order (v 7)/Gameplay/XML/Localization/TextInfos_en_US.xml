@@ -7828,6 +7828,7 @@
 				[NEWLINE][ICON_BULLET]National Wonder Unlocked: National Intelligence Agency.
 				[NEWLINE][NEWLINE]Finishing Bonus:
 				[NEWLINE][ICON_BULLET]Allied City-States to occasionally gift you [ICON_GREAT_PEOPLE] Great People.
+				[NEWLINE][ICON_BULLET][ICON_DIPLOMATIC_PRESTIGE]+2 Diplomatic Prestige.
 
 			</Text>
 		</Replace>
@@ -8312,6 +8313,7 @@
 			[COLOR_POSITIVE_TEXT]Beacon of Democracy[ENDCOLOR]
 			[NEWLINE] Every 25 [ICON_HAPPINESS_1] excess Happiness providing +5% [ICON_RESEARCH] Science in all cities. (can be superimposed with the rational policy).
 			[NEWLINE]+100% [ICON_TEAM_4] International Immigration Rate from other civlizations to Your Nation.
+			[NEWLINE]You gain 2 [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_TREATY_ORGANIZATION_TEXT">
@@ -9422,19 +9424,19 @@
 			<Text>Observer Member State</Text>
 		</Row>
 		<Row Tag="TXT_KEY_LEAGUE_PROJECT_REWARD_WORLD_TRADE_ORGANIZATION_1_HELP">
-			<Text>Gain an additional Trade Route slot.</Text>
+			<Text>Gain an additional Trade Route slot and +1 [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_LEAGUE_PROJECT_REWARD_WORLD_TRADE_ORGANIZATION_2">
 			<Text>Member State</Text>
 		</Row>
 		<Row Tag="TXT_KEY_LEAGUE_PROJECT_REWARD_WORLD_TRADE_ORGANIZATION_2_HELP">
-			<Text>One Great Merchant appears.</Text>
+			<Text>One Great Merchant appears and +2 [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_LEAGUE_PROJECT_REWARD_WORLD_TRADE_ORGANIZATION_3">
 			<Text>Host State</Text>
 		</Row>
 		<Row Tag="TXT_KEY_LEAGUE_PROJECT_REWARD_WORLD_TRADE_ORGANIZATION_3_HELP">
-			<Text>+5 additional Delegates in World Congress and United Nations.</Text>
+			<Text>+5 additional Delegates in World Congress and United Nations, and +3 [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige.</Text>
 		</Row>
 
 		
@@ -9442,8 +9444,8 @@
 			<Text>
 				Begins the World trade Organization project.  Once underway, Civilizations can contribute [ICON_PRODUCTION] Production towards its completion by selecting it in the city production list.  When complete, Civilizations receive bonuses based on how much they contributed.
 				[NEWLINE][NEWLINE][ICON_TROPHY_GOLD]: {TXT_KEY_LEAGUE_PROJECT_REWARD_WORLD_TRADE_ORGANIZATION_3_HELP}
-				[NEWLINE][ICON_TROPHY_SILVER]: {TXT_KEY_LEAGUE_PROJECT_REWARD_WORLD_TRADE_ORGANIZATION_2_HELP}
-				[NEWLINE][ICON_TROPHY_BRONZE]: {TXT_KEY_LEAGUE_PROJECT_REWARD_WORLD_TRADE_ORGANIZATION_1_HELP}
+				[NEWLINE][NEWLINE][ICON_TROPHY_SILVER]: {TXT_KEY_LEAGUE_PROJECT_REWARD_WORLD_TRADE_ORGANIZATION_2_HELP}
+				[NEWLINE][NEWLINE][ICON_TROPHY_BRONZE]: {TXT_KEY_LEAGUE_PROJECT_REWARD_WORLD_TRADE_ORGANIZATION_1_HELP}
 			</Text>
 		</Row>
 
