@@ -338,7 +338,18 @@ function getNeededInf(pCs, pPlayer)
 			sNeededInf = Locale.ConvertTextKey("TXT_KEY_CITY_STATE_ALLY_TT", Players[iAlly]:GetCivilizationShortDescriptionKey(), iNeededInf);
 		end
 	else
-		iNeededInf = GameDefines["FRIENDSHIP_THRESHOLD_ALLIES"] - iPlayerInf
+		-- Dynamic allies threshold (era + player modifiers + CSUA great-person) when CSUA is on;
+		-- keep in sync with the DLL check CvMinorCivAI::GetAlliesThresholdForPlayer
+		local bCSUniqueCityState = false
+		if (GameInfo.CustomModOptions ~= nil) then
+			local row = GameInfo.CustomModOptions("Name = 'SP_UNIQUE_CITYSTATE'")()
+			bCSUniqueCityState = (row ~= nil and row.Value == 1)
+		end
+		if (bCSUniqueCityState and pPlayer.GetMinorCivAlliesThreshold) then
+			iNeededInf = pPlayer:GetMinorCivAlliesThreshold() - iPlayerInf
+		else
+			iNeededInf = GameDefines["FRIENDSHIP_THRESHOLD_ALLIES"] - iPlayerInf
+		end
 		sNeededInf = Locale.ConvertTextKey("TXT_KEY_CITY_STATE_ALLY_NOBODY_TT", iNeededInf)
 	end
 
