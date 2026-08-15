@@ -303,6 +303,13 @@ function GetCityStateStatusToolTip(iMajor, iMinor, bFullInfo)
 	local strShortDescKey = pMinor:GetCivilizationShortDescriptionKey();
 	local iInfluence = pMinor:GetMinorCivFriendshipWithMajor(iMajor);
 	local iInfluenceChangeThisTurn = pMinor:GetFriendshipChangePerTurnTimes100(iMajor) / 100;
+	-- SP: 超限时正增长（含负影响力恢复）同样被 RisePenalty 打折，与实际结算(ChangeFriendshipWithMajorTimes100)保持一致
+	if (iInfluenceChangeThisTurn > 0 and pMajor.GetDiplomaticOverextensionRisePenalty) then
+		local iRisePenalty = pMajor:GetDiplomaticOverextensionRisePenalty();
+		if (iRisePenalty ~= 0) then
+			iInfluenceChangeThisTurn = iInfluenceChangeThisTurn * (100 + iRisePenalty) / 100;
+		end
+	end
 	local iInfluenceAnchor = pMinor:GetMinorCivFriendshipAnchorWithMajor(iMajor);
 
 	-- SP: 动态盟友阈值
