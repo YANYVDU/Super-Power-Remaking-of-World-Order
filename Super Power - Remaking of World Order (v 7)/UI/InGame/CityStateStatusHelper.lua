@@ -499,6 +499,21 @@ function GetCityStateStatusToolTip(iMajor, iMinor, bFullInfo)
 	return strStatusTT;
 end
 
+function GetPermanentAlly(iMinor)
+	-- Returns the PlayerTypes of the city-state's permanent ally, or -1 if none
+	local pMinor = Players[iMinor];
+	if (pMinor == nil) then
+		return -1;
+	end
+	for iPlayerLoop = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
+		local pOther = Players[iPlayerLoop];
+		if (pOther ~= nil and pOther:IsAlive() and pOther:IsPermanentAlly(iMinor)) then
+			return iPlayerLoop;
+		end
+	end
+	return -1;
+end
+
 function GetAllyText(iActivePlayer, iMinor)
 	local sText = "";
 
@@ -527,6 +542,11 @@ function GetAllyText(iActivePlayer, iMinor)
 		end
 	end
 
+	-- Mark permanent ally with a suffix
+	local iPermanentAlly = GetPermanentAlly(iMinor);
+	if (iPermanentAlly ~= -1) then
+		sText = sText .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_PERMANENT_ALLY_SUFFIX");
+	end
 	return sText;
 end
 
@@ -536,6 +556,15 @@ function GetAllyToolTip(iActivePlayer, iMinor)
 	local pActivePlayer = Players[iActivePlayer];
 	local pMinor = Players[iMinor];
 	if (pActivePlayer ~= nil and pMinor ~= nil) then
+		-- Permanent ally: cannot be displaced by influence
+		local iPermanentAlly = GetPermanentAlly(iMinor);
+		if (iPermanentAlly ~= -1) then
+			if (iPermanentAlly == iActivePlayer) then
+				return Locale.ConvertTextKey("TXT_KEY_CITY_STATE_PERMANENT_ALLY_SELF_TT");
+			else
+				return Locale.ConvertTextKey("TXT_KEY_CITY_STATE_PERMANENT_ALLY_TT", Players[iPermanentAlly]:GetCivilizationShortDescriptionKey());
+			end
+		end
 		local iActivePlayerInf = pMinor:GetMinorCivFriendshipWithMajor(iActivePlayer);
 		local iAlly = pMinor:GetAlly();
 		-- Has an ally

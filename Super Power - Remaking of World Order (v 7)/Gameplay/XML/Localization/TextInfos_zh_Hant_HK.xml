@@ -17213,5 +17213,17 @@
 		<Row Tag="TXT_KEY_BUILDING_CSUA_ALMATY_HELP">
 			<Text>额外提供15[ICON_RES_HORSE]馬</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_SUFFIX">
+			<Text>（永久盟友）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_TT">
+			<Text>該城邦已與{1_Civ}建立永久盟友關係，其他文明無法透過提升影響力來爭奪其盟友地位。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_SELF_TT">
+			<Text>你是該城邦的永久盟友，其他文明無法爭奪。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_GIFT_WARNING">
+			<Text>該城邦已與{1_Civ}建立永久盟友關係，贈送金幣等提升影響力的方式不會生效。</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

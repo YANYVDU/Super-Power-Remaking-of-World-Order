@@ -18937,5 +18937,17 @@
 		<Row Tag="TXT_KEY_BUILDING_CSUA_ALMATY_HELP">
 			<Text>Provides additional 15 [ICON_RES_HORSE]Horses</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_SUFFIX">
+			<Text> (Permanent Ally)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_TT">
+			<Text>This City-State has formed a permanent alliance with {1_Civ}. Its ally status cannot be contested by other civilizations through influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_SELF_TT">
+			<Text>You are the permanent ally of this City-State. Other civilizations cannot contest your status.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_GIFT_WARNING">
+			<Text>This City-State has formed a permanent alliance with {1_Civ}. Gold gifts and other influence-boosting methods will have no effect.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

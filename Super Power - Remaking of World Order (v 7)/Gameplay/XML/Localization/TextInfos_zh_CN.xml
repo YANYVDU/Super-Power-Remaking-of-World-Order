@@ -17407,5 +17407,17 @@
 		<Row Tag="TXT_KEY_CITY_STATE_GP_MOD">
 			<Text>[ICON_BULLET]盟邦UA加成: +{1_num}%</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_SUFFIX">
+			<Text>（永久盟友）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_TT">
+			<Text>该城邦已与{1_Civ}建立永久盟友关系，其他文明无法通过提升影响力来争夺其盟友地位。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_SELF_TT">
+			<Text>你是该城邦的永久盟友，其他文明无法争夺。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_GIFT_WARNING">
+			<Text>该城邦已与{1_Civ}建立永久盟友关系，赠送金币等提升影响力的方式不会生效。</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>
