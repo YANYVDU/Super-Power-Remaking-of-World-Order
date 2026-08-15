@@ -481,7 +481,8 @@ function OnDisplay()
 		Controls.TakeButton:SetHide(false);
 		Controls.PeaceButton:SetHide(true);
 		Controls.WarButton:SetHide(false);
-		
+		Controls.InfluenceButton:SetHide(false);
+
 	-- War
 	else
 		
@@ -607,9 +608,11 @@ function OnDisplay()
 	SetButtonSize(Controls.VeniceBuyFoodLabel, Controls.VeniceBuyFoodButton, Controls.VeniceBuyFoodAnim, Controls.VeniceBuyFoodButtonHL);
 	SetButtonSize(Controls.NoUnitSpawningLabel, Controls.NoUnitSpawningButton, Controls.NoUnitSpawningAnim, Controls.NoUnitSpawningButtonHL);
 	SetButtonSize(Controls.BuyoutLabel, Controls.BuyoutButton, Controls.BuyoutAnim, Controls.BuyoutButtonHL);
-	
+	SetButtonSize(Controls.InfluenceLabel, Controls.InfluenceButton, Controls.InfluenceAnim, Controls.InfluenceButtonHL);
+
 	Controls.GiveStack:SetHide(true);
 	Controls.TakeStack:SetHide(true);
+	Controls.InfluenceStack:SetHide(true);
 	Controls.ButtonStack:SetHide(false);
 	
 	UpdateButtonStack();
@@ -815,18 +818,30 @@ local iGoldGiftLarge = GameDefines["MINOR_GOLD_GIFT_LARGE"];
 local iGoldGiftMedium = GameDefines["MINOR_GOLD_GIFT_MEDIUM"];
 local iGoldGiftSmall = GameDefines["MINOR_GOLD_GIFT_SMALL"];
 
-function PopulateGiftChoices()	
+function PopulateGiftChoices()
 	local pPlayer = Players[g_iMinorCivID];
-	
+
 	local iActivePlayer = Game.GetActivePlayer();
 	local pActivePlayer = Players[iActivePlayer];
-	
+
+	-- Diplomatic Overextension: displayed influence gain should match the actual (penalized) gain
+	local iOverextensionRisePenalty = 0;
+	if (pActivePlayer.GetDiplomaticOverextensionRisePenalty) then
+		iOverextensionRisePenalty = pActivePlayer:GetDiplomaticOverextensionRisePenalty();
+	end
+	local function applyOverextension(iAmount)
+		if (iOverextensionRisePenalty ~= 0) then
+			return math.floor(iAmount * (100 + iOverextensionRisePenalty) / 100);
+		end
+		return iAmount;
+	end
+
 	-- Small Gold
 	local iNumGoldPlayerHas = pActivePlayer:GetGold();
-	
+
 	iGold = iGoldGiftSmall;
 	iLowestGold = iGold;
-	iFriendshipAmount = pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold);
+	iFriendshipAmount = applyOverextension(pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold));
 	local buttonText = Locale.ConvertTextKey("TXT_KEY_POPUP_MINOR_GOLD_GIFT_AMOUNT", iGold, iFriendshipAmount);
 	if (iNumGoldPlayerHas < iGold) then
 		buttonText = "[COLOR_WARNING_TEXT]" .. buttonText .. "[ENDCOLOR]";
@@ -839,7 +854,7 @@ function PopulateGiftChoices()
 	
 	-- Medium Gold
 	iGold = iGoldGiftMedium;
-	iFriendshipAmount = pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold);
+	iFriendshipAmount = applyOverextension(pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold));
 	local buttonText = Locale.ConvertTextKey("TXT_KEY_POPUP_MINOR_GOLD_GIFT_AMOUNT", iGold, iFriendshipAmount);
 	if (iNumGoldPlayerHas < iGold) then
 		buttonText = "[COLOR_WARNING_TEXT]" .. buttonText .. "[ENDCOLOR]";
@@ -852,7 +867,7 @@ function PopulateGiftChoices()
 	
 	-- Large Gold
 	iGold = iGoldGiftLarge;
-	iFriendshipAmount = pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold);
+	iFriendshipAmount = applyOverextension(pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold));
 	local buttonText = Locale.ConvertTextKey("TXT_KEY_POPUP_MINOR_GOLD_GIFT_AMOUNT", iGold, iFriendshipAmount);
 	if (iNumGoldPlayerHas < iGold) then
 		buttonText = "[COLOR_WARNING_TEXT]" .. buttonText .. "[ENDCOLOR]";
@@ -865,7 +880,7 @@ function PopulateGiftChoices()
 
 	-- Huge Gold
 	iGold = iGoldGiftHuge;
-	iFriendshipAmount = pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold);
+	iFriendshipAmount = applyOverextension(pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold));
 	local buttonText = Locale.ConvertTextKey("TXT_KEY_POPUP_MINOR_GOLD_GIFT_AMOUNT", iGold, iFriendshipAmount);
 	if (iNumGoldPlayerHas < iGold) then
 		buttonText = "[COLOR_WARNING_TEXT]" .. buttonText .. "[ENDCOLOR]";
@@ -877,7 +892,7 @@ function PopulateGiftChoices()
 	SetButtonSize(Controls.HugeGift, Controls.HugeGiftButton, Controls.HugeGiftAnim, Controls.HugeGiftButtonHL);
 
 	-- Unit
-	local iInfluence = pPlayer:GetFriendshipFromUnitGift(iActivePlayer, false, true);
+	local iInfluence = applyOverextension(pPlayer:GetFriendshipFromUnitGift(iActivePlayer, false, true));
 	local iTravelTurns = GameDefines.MINOR_UNIT_GIFT_TRAVEL_TURNS;
 	local buttonText = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_GIFT_UNIT", iInfluence);
 	local tooltipText = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_GIFT_UNIT_TT", iTravelTurns, iInfluence);
@@ -1017,6 +1032,87 @@ function OnCloseGive()
 	UpdateButtonStack();
 end
 Controls.ExitGiveButton:RegisterCallback( Mouse.eLClick, OnCloseGive );
+
+----------------------------------------------------------------
+-- Influence Overview
+----------------------------------------------------------------
+function OnInfluenceButtonClicked()
+	Controls.GiveStack:SetHide(true);
+	Controls.TakeStack:SetHide(true);
+	Controls.InfluenceStack:SetHide(false);
+	Controls.ButtonStack:SetHide(true);
+	PopulateInfluenceList();
+	UpdateButtonStack();
+end
+Controls.InfluenceButton:RegisterCallback( Mouse.eLClick, OnInfluenceButtonClicked );
+
+function OnCloseInfluence()
+	Controls.InfluenceStack:SetHide(true);
+	Controls.ButtonStack:SetHide(false);
+	UpdateButtonStack();
+end
+Controls.ExitInfluenceButton:RegisterCallback( Mouse.eLClick, OnCloseInfluence );
+
+function PopulateInfluenceList()
+	local iMinor = g_iMinorCivID;
+	local pMinor = Players[iMinor];
+	local iActivePlayer = Game.GetActivePlayer();
+	local iMinorTeam = pMinor:GetTeam();
+
+	-- Collect influence of every major civ that has met this city-state
+	local entries = {};
+	for iPlayer = 0, GameDefines.MAX_MAJOR_CIVS - 1 do
+		local pPlayer = Players[iPlayer];
+		if (pPlayer:IsAlive() and Teams[iMinorTeam]:IsHasMet(pPlayer:GetTeam())) then
+			local iInfluence = pMinor:GetMinorCivFriendshipWithMajor(iPlayer);
+			table.insert(entries, { player = iPlayer, influence = iInfluence });
+		end
+	end
+
+	-- Sort by influence descending (stable via player id tiebreak), keep top 5
+	table.sort(entries, function(a, b)
+		if (a.influence ~= b.influence) then return a.influence > b.influence; end
+		return a.player < b.player;
+	end);
+
+	for i = 0, 4 do
+		local row = Controls["InfluenceRow" .. i];
+		local rowLabel = Controls["InfluenceRow" .. i .. "Label"];
+		local entry = entries[i + 1];
+		if (entry ~= nil) then
+			local strColor = "";
+			local strEnd = "";
+			local strYou = "";
+			if (entry.player == iActivePlayer) then
+				strColor = "[COLOR_POSITIVE_TEXT]";
+				strEnd = "[ENDCOLOR]";
+				strYou = " (" .. Locale.ConvertTextKey("TXT_KEY_YOU") .. ")";
+			end
+			local strName = Locale.ConvertTextKey(Players[entry.player]:GetCivilizationShortDescriptionKey());
+
+			-- Per-turn influence change (natural decay/recovery), with overextension rise penalty applied like the DLL
+			local strRate = "";
+			local iChange = pMinor:GetFriendshipChangePerTurnTimes100(entry.player) / 100;
+			if (iChange > 0) then
+				local pEntryPlayer = Players[entry.player];
+				if (pEntryPlayer.GetDiplomaticOverextensionRisePenalty) then
+					local iRise = pEntryPlayer:GetDiplomaticOverextensionRisePenalty();
+					if (iRise ~= 0) then
+						iChange = iChange * (100 + iRise) / 100;
+					end
+				end
+			end
+			if (iChange ~= 0) then
+				strRate = string.format(" (%+.2f%s)", iChange, Locale.ConvertTextKey("TXT_KEY_TP_INFLUENCE_PER_TURN_SUFFIX"));
+			end
+
+			rowLabel:SetText(strColor .. strName .. strYou .. ": " .. entry.influence .. strRate .. strEnd);
+			row:SetHide(false);
+		else
+			row:SetHide(true);
+		end
+	end
+end
 
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------

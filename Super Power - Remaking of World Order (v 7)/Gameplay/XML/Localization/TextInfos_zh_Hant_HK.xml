@@ -15635,6 +15635,13 @@
 			</Text>
 		</Replace>
 
+		<Row Tag="TXT_KEY_POP_CSTATE_INFLUENCE_OVERVIEW">
+			<Text>查看外交情況</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_INFLUENCE_PER_TURN_SUFFIX">
+			<Text>/回合</Text>
+		</Row>
+
 		<Replace Tag="TXT_KEY_TP_GOLDEN_AGE_ADDITION">
 			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR]來自額外的[ICON_HAPPINESS_1]幸福度。</Text>
 		</Replace>

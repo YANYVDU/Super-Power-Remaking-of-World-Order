@@ -17376,6 +17376,13 @@
 			</Text>
 		</Replace>
 
+		<Row Tag="TXT_KEY_POP_CSTATE_INFLUENCE_OVERVIEW">
+			<Text>View Diplomacy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_INFLUENCE_PER_TURN_SUFFIX">
+			<Text>/turn</Text>
+		</Row>
+
 		<Replace Tag="TXT_KEY_TP_GOLDEN_AGE_ADDITION">
 			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR] from excess [ICON_HAPPINESS_1] Happiness.</Text>
 		</Replace>
