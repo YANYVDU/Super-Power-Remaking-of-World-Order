@@ -928,6 +928,11 @@ function PopulateGiftChoices()
 	local strInfoTT = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_GOLD_STATUS_TT", iFriendsAmount, iAlliesAmount, iFriendship);
 	strInfoTT = strInfoTT .. "[NEWLINE][NEWLINE]";
 	strInfoTT = strInfoTT .. Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_GOLD_TT");
+	local iPermanentAlly = GetPermanentAlly(g_iMinorCivID);
+	if (iPermanentAlly ~= -1 and iPermanentAlly ~= iActivePlayer) then
+		strInfoTT = strInfoTT .. "[NEWLINE][NEWLINE]";
+		strInfoTT = strInfoTT .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_PERMANENT_ALLY_GIFT_WARNING", Players[iPermanentAlly]:GetCivilizationShortDescriptionKey());
+	end
 	Controls.SmallGiftButton:SetToolTipString(strInfoTT);
 	Controls.MediumGiftButton:SetToolTipString(strInfoTT);
 	Controls.LargeGiftButton:SetToolTipString(strInfoTT);
