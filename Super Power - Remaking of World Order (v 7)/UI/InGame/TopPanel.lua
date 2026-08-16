@@ -125,7 +125,14 @@ function UpdateData()
 				strGoldenAgeStr = Locale.ConvertTextKey("TXT_KEY_TOP_PANEL_GOLDEN_AGES_OFF");
 			else
 				if (pPlayer:GetGoldenAgeTurns() > 0) then
-					local xmlGoldenAgeStr = GameInfo.Civilizations[pPlayer:GetCivilizationType()].SpecialGAText or "TXT_KEY_GOLDEN_AGE_ANNOUNCE"
+					-- 兼容性修复：GameInfo.Civilizations[...].SpecialGAText 在部分 UI 环境下会报 "Cannot find key"，
+					-- 改用 DB.Query 直接查询数据库（总是返回全部列），失败时回退默认文本。
+					local xmlGoldenAgeStr = "TXT_KEY_GOLDEN_AGE_ANNOUNCE";
+					for row in DB.Query("SELECT SpecialGAText FROM Civilizations WHERE ID=" .. pPlayer:GetCivilizationType()) do
+						if row.SpecialGAText ~= nil and row.SpecialGAText ~= "" then
+							xmlGoldenAgeStr = row.SpecialGAText;
+						end
+					end
 					strGoldenAgeStr = string.format(Locale.ToUpper(Locale.ConvertTextKey(xmlGoldenAgeStr)) .. " (%i)", pPlayer:GetGoldenAgeTurns());
 				else
 					strGoldenAgeStr = string.format("%i/%i", pPlayer:GetGoldenAgeProgressMeter(), pPlayer:GetGoldenAgeProgressThreshold());
@@ -1152,7 +1159,13 @@ function GoldenAgeTipHandler( control )
 		if (pPlayer:IsGoldenAgeCultureBonusDisabled()) then
 			strText = strText ..  Locale.ConvertTextKey("TXT_KEY_TP_GOLDEN_AGE_EFFECT_NO_CULTURE");
 		elseif pPlayer:GetGoldenAgeTurns() > 0 then
-			local strGoldenAgeHelp = GameInfo.Civilizations[pPlayer:GetCivilizationType()].SpecialGAHelpText or "TXT_KEY_TP_GOLDEN_AGE_EFFECT";
+			-- 兼容性修复：与 SpecialGAText 相同，GameInfo 列访问不可靠，改用 DB.Query。
+			local strGoldenAgeHelp = "TXT_KEY_TP_GOLDEN_AGE_EFFECT";
+			for row in DB.Query("SELECT SpecialGAHelpText FROM Civilizations WHERE ID=" .. pPlayer:GetCivilizationType()) do
+				if row.SpecialGAHelpText ~= nil and row.SpecialGAHelpText ~= "" then
+					strGoldenAgeHelp = row.SpecialGAHelpText;
+				end
+			end
 			strText = strText ..  Locale.ConvertTextKey(strGoldenAgeHelp);	
 		end
 	end
