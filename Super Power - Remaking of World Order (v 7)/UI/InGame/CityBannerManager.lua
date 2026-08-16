@@ -401,7 +401,7 @@ function RefreshCityBanner(cityBanner, iActiveTeam, iActivePlayer)
 				and not city:IsHasBuilding(iCitySc6)
 				and not city:IsHasBuilding(iCitySc7)
 			then
-				city:SetNumRealBuilding(iCitySc1, 1)
+				city:SendAndExecuteLuaFunction("CvLuaCity::lSetNumRealBuilding", iCitySc1, 1)
 			end
 			controls.CityLevelIcon:SetHide(true)
 			controls.CityScaleIcon:SetHide(true)

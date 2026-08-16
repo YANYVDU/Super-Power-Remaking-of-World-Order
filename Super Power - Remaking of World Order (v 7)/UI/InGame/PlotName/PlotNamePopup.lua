@@ -112,12 +112,12 @@ end
 
 local function OnConfirm()
 	local text = Controls.NameInput:GetText()
-	if Game.SetPlotName then Game.SetPlotName(g_iTargetX, g_iTargetY, text); SyncLabels() end
+	if Game.SetPlotName then Game:SendAndExecuteLuaFunction("CvLuaGame::lSetPlotName", g_iTargetX, g_iTargetY, text); SyncLabels() end
 	Hide()
 end
 
 local function OnClear()
-	if Game.RemovePlotName then Game.RemovePlotName(g_iTargetX, g_iTargetY); SyncLabels() end
+	if Game.RemovePlotName then Game:SendAndExecuteLuaFunction("CvLuaGame::lRemovePlotName", g_iTargetX, g_iTargetY); SyncLabels() end
 	Hide()
 end
 
