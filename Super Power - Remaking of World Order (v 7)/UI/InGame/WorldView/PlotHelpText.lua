@@ -57,6 +57,14 @@ function OnMouseOverHex( hexX, hexY )
                 TextString = TextString .. "[NEWLINE]" .. strInternationalTradeRoutes;
             end
             
+            -- PlotName: show custom name if set
+            if Game.GetPlotName then
+                local plotName = Game.GetPlotName(hexX, hexY)
+                if plotName then
+                    TextString = TextString .. "[NEWLINE][COLOR_CYAN]" .. (string.match(plotName, "^%.[A-Za-z][A-Za-z]?(.*)") or plotName) .. "[ENDCOLOR]"
+                end
+            end
+
             if (OptionsManager:IsDebugMode()) then
                 -- X Y - in debug
                 TextString = TextString .. "[NEWLINE]";

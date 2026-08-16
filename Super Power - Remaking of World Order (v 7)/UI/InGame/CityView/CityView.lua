@@ -349,7 +349,7 @@ function AddBuildingButton( pCity, building )
 		
 		controlTable.BuildingName:SetText(strBuildingName);
 
-		pediaSearchStrings[tostring(controlTable.BuildingButton)] = Locale.ConvertTextKey(building.Description);
+		pediaSearchStrings[tostring(controlTable.BuildingButton)] = building.Description;
 		controlTable.BuildingButton:RegisterCallback( Mouse.eRClick, GetPedia );
 				
 		-- Portrait
@@ -1207,6 +1207,10 @@ function OnCityViewUpdate()
 						end
 					end
 					iGPPChange = iGPPChange + pCity:GetGreatPersonPointFromReligion(iSpecialistIndex) * 100 ;
+					iGPPChange = iGPPChange + pCity:GetGreatPersonPointsFromPolicies(iSpecialistIndex) * 100;
+					iGPPChange = iGPPChange + pCity:GetGreatPersonPointsFromUA(iSpecialistIndex) * 100;
+					iGPPChange = iGPPChange + pCity:GetGreatPersonPointsFromUA_Building(iSpecialistIndex) * 100;
+					iGPPChange = iGPPChange + pCity:GetGreatPersonPointsFromUA_GreatWork(iSpecialistIndex);
 					if iGPPChange > 0 then
 						-- Generic GP mods
 						local iPlayerMod = pPlayer:GetGreatPeopleRateModifier();
@@ -1228,26 +1232,17 @@ function OnCityViewUpdate()
 							if (pWorldCongress ~= nil and pWorldCongress:GetArtsyGreatPersonRateModifier() ~= 0) then
 								iWorldCongressMod = iWorldCongressMod + pWorldCongress:GetArtsyGreatPersonRateModifier();
 							end
-							if (bGoldenAge and pPlayer:GetGoldenAgeGreatWriterRateModifier() > 0) then
-								iGoldenAgeMod = iGoldenAgeMod + pPlayer:GetGoldenAgeGreatWriterRateModifier();
-							end
 						elseif (pSpecialistInfo.GreatPeopleUnitClass == "UNITCLASS_ARTIST") then
 							iPlayerMod = iPlayerMod + pPlayer:GetGreatArtistRateModifier();
 							iPolicyMod = iPolicyMod + pPlayer:GetPolicyGreatArtistRateModifier();
 							if (pWorldCongress ~= nil and pWorldCongress:GetArtsyGreatPersonRateModifier() ~= 0) then
 								iWorldCongressMod = iWorldCongressMod + pWorldCongress:GetArtsyGreatPersonRateModifier();
 							end
-							if (bGoldenAge and pPlayer:GetGoldenAgeGreatArtistRateModifier() > 0) then
-								iGoldenAgeMod = iGoldenAgeMod + pPlayer:GetGoldenAgeGreatArtistRateModifier();
-							end
 						elseif (pSpecialistInfo.GreatPeopleUnitClass == "UNITCLASS_MUSICIAN") then
 							iPlayerMod = iPlayerMod + pPlayer:GetGreatMusicianRateModifier();
 							iPolicyMod = iPolicyMod + pPlayer:GetPolicyGreatMusicianRateModifier();
 							if (pWorldCongress ~= nil and pWorldCongress:GetArtsyGreatPersonRateModifier() ~= 0) then
 								iWorldCongressMod = iWorldCongressMod + pWorldCongress:GetArtsyGreatPersonRateModifier();
-							end
-							if (bGoldenAge and pPlayer:GetGoldenAgeGreatMusicianRateModifier() > 0) then
-								iGoldenAgeMod = iGoldenAgeMod + pPlayer:GetGoldenAgeGreatMusicianRateModifier();
 							end
 						elseif (pSpecialistInfo.GreatPeopleUnitClass == "UNITCLASS_SCIENTIST") then
 							iPlayerMod = iPlayerMod + pPlayer:GetGreatScientistRateModifier();
@@ -1268,11 +1263,17 @@ function OnCityViewUpdate()
 								iWorldCongressMod = iWorldCongressMod + pWorldCongress:GetScienceyGreatPersonRateModifier();
 							end
 						end
-						
+
+						-- Golden Age GP rate modifier, summed from all sources (player instance + traits + religion beliefs) via C++
+						if (bGoldenAge) then
+							iGoldenAgeMod = pCity:GetGoldenAgeGreatPersonRateModifierFromSpecialist(iSpecialistIndex);
+						end
+
 						-- Player mod actually includes policy mod and World Congress mod, so separate them for tooltip
 						iPlayerMod = iPlayerMod - iPolicyMod - iWorldCongressMod;
 						
-						local iMod = iPlayerMod + iPolicyMod + iWorldCongressMod + iCityMod + iGoldenAgeMod;
+						local iCityStateMod = pPlayer:GetCityStateSpecialistPointRate(iSpecialistIndex);
+						local iMod = iPlayerMod + iPolicyMod + iWorldCongressMod + iCityMod + iGoldenAgeMod + iCityStateMod;
 						iGPPChange = (iGPPChange * (100 + iMod)) / 100;
 						strToolTipText = strToolTipText .. " (+" .. math.floor(iGPPChange/100) .. "[ICON_GREAT_PEOPLE])";	
 						if (iPlayerMod > 0) then
@@ -1293,6 +1294,9 @@ function OnCityViewUpdate()
 							else
 								strToolTipText = strToolTipText .. "[NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_WORLD_CONGRESS_POSITIVE_GP_MOD", iWorldCongressMod);
 							end
+						end
+						if (iCityStateMod > 0) then
+							strToolTipText = strToolTipText .. "[NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_GP_MOD", iCityStateMod);
 						end
 					end
 					controlTable.GPBox:SetToolTipString(strToolTipText);
@@ -2776,16 +2780,16 @@ function OnPortraitRClicked()
 
 	if unitProduction ~= -1 then
 		local thisUnitInfo = GameInfo.Units[unitProduction];
-		searchString = Locale.ConvertTextKey( thisUnitInfo.Description );
+		searchString = thisUnitInfo.Description;
 	elseif buildingProduction ~= -1 then
 		local thisBuildingInfo = GameInfo.Buildings[buildingProduction];
-		searchString = Locale.ConvertTextKey( thisBuildingInfo.Description );
+		searchString = thisBuildingInfo.Description;
 	elseif projectProduction ~= -1 then
 		local thisProjectInfo = GameInfo.Projects[projectProduction];
-		searchString = Locale.ConvertTextKey( thisProjectInfo.Description );
+		searchString = thisProjectInfo.Description;
 	elseif processProduction ~= -1 then
 		local pProcessInfo = GameInfo.Processes[processProduction];
-		searchString = Locale.ConvertTextKey( pProcessInfo.Description );
+		searchString = pProcessInfo.Description;
 	else
 		noProduction = true;
 	end

@@ -385,13 +385,18 @@ local function SetKey( t, key, value )
 	end
 end
 
-local function AddPreWrittenHelpTextAndConcat( tips, row ) -- assumes tips is a table
+local function AddPreWrittenHelpTextAndConcat( tips, row, extraHelps ) -- assumes tips is a table
 	local tip = row and row.Help and L( row.Help ) or ""
 	if tip ~= "" then
 		if #tips > 2 then
 			insert( tips, "----------------" )
 		end
 		insert( tips, tip )
+	end
+	if extraHelps then
+		for _, h in ipairs(extraHelps) do
+			insert( tips, h )
+		end
 	end
 	return concat( tips, "[NEWLINE]" )
 end
@@ -473,6 +478,7 @@ function GetHelpTextForUnit( unitID ) -- isIncludeRequirementsInfo )
 
 
 	------------------------------------------------new for Promotions------------------------------------------------
+	local freePromotionHelps = {}
     for row in GameInfo.Unit_FreePromotions( thisUnitType ) do
 		item = GameInfo.UnitPromotions[ row.PromotionType ]
 		if item then
@@ -483,7 +489,19 @@ function GetHelpTextForUnit( unitID ) -- isIncludeRequirementsInfo )
                 unitRange = unitRange + (item.RangeChange or 0)
                 unitMoves = unitMoves + (item.MovesChange or 0)
                 unitSight = unitSight + (item.VisibilityChange or 0)
-            end
+			end
+			-- Collect free promotion Help texts (skip PEDIA_UNIT_CATEGORY)
+			if item.PediaType ~= "PEDIA_UNIT_CATEGORY" and item.Help and item.Help ~= "" then
+				local promoHelp = L(item.Help)
+				if promoHelp ~= "" then
+					-- Don't double-up [ICON_BULLET] prefix
+					if string.match(promoHelp, "^%s*%[ICON_BULLET%]") then
+						insert( freePromotionHelps, promoHelp )
+					else
+						insert( freePromotionHelps, "[ICON_BULLET]" .. promoHelp )
+					end
+				end
+			end
 		end
 	end
 
@@ -897,7 +915,7 @@ function GetHelpTextForUnit( unitID ) -- isIncludeRequirementsInfo )
 	end
 
 	-- Pre-written Help text
-	return AddPreWrittenHelpTextAndConcat( tips, unit )
+	return AddPreWrittenHelpTextAndConcat( tips, unit, freePromotionHelps )
 end
 
 
@@ -1130,6 +1148,9 @@ function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader, bNoMa
 		HappinessPerCity = L"TXT_KEY_HAPPINESS_PERCITY111" .. "%+i[ICON_HAPPINESS_1]",-- TOTO
 	--y	HappinessPerXPolicies = "",
 	--	CityCountUnhappinessMod = L"TXT_KEY_CITY_COUNT_UNHAPPINESS_MOD111",	-- TOTO
+		CorruptionUnhappinessModifier = L"TXT_KEY_CORRUPTION_UNHAPPINESS_MODIFIER" .. "%+i%%",
+		CorruptionUnhappinessChange = L"TXT_KEY_CORRUPTION_UNHAPPINESS_CHANGE" .. "%+i[ICON_HAPPINESS_4]",
+		DiplomaticPrestige = L"TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL" .. "%+i[ICON_DIPLOMATIC_PRESTIGE]",
 		WorkerSpeedModifier = L"TXT_KEY_WORKER_SPEED_MODIFIER111" .. "%+i%%",	-- TOTO
 		MilitaryProductionModifier = L"TXT_KEY_MILITARY_PRODUCTION_MODIFIER111" .. "%+i%%[ICON_PRODUCTION]",-- TOTO
 		SpaceProductionModifier = L"TXT_KEY_SPACE_PRODUCTION_MODIFIER11" .. "%+i%%[ICON_PRODUCTION]",	-- TOTO
@@ -3947,6 +3968,24 @@ if Game then
 					insert( treaties, negativeOrPositiveTextColor[false] .. "[ICON_CITY_STATE]"
 							.. L"TXT_KEY_MILITARY_PROMISE"
 							.. "[ENDCOLOR]" .. inParentheses(iMilitaryPromiseTurnLeft)
+					)
+				end
+
+				-- Expansion Promise
+				local iExpansionPromiseTurnLeft = Players[playerID]:GetExpansionPromiseTurnLeft(activePlayerID)
+				if iExpansionPromiseTurnLeft >= 0 then
+					insert( treaties, negativeOrPositiveTextColor[false] .. "[ICON_CITY_STATE]"
+							.. L"TXT_KEY_EXPANSION_PROMISE"
+							.. "[ENDCOLOR]" .. inParentheses(iExpansionPromiseTurnLeft)
+					)
+				end
+
+				-- Border Promise
+				local iBorderPromiseTurnLeft = Players[playerID]:GetBorderPromiseTurnLeft(activePlayerID)
+				if iBorderPromiseTurnLeft >= 0 then
+					insert( treaties, negativeOrPositiveTextColor[false] .. "[ICON_CITY_STATE]"
+							.. L"TXT_KEY_BORDER_PROMISE"
+							.. "[ENDCOLOR]" .. inParentheses(iBorderPromiseTurnLeft)
 					)
 				end
 			end

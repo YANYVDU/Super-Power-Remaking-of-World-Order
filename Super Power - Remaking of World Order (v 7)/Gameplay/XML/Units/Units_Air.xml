@@ -289,7 +289,7 @@
 			<Description>TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER</Description>
 			<Civilopedia>TXT_KEY_CIVILOPEDIA_UNIT_SWEDISH_JAS39_FIGHTER_TEXT</Civilopedia>
 			<Strategy>TXT_KEY_SP_UNITS_AIR_FIGHTERS_STRATEGY</Strategy>
-			<Help>TXT_KEY_PROMOTION_ANTI_AIR_II_HELP</Help>
+			<Help>TXT_KEY_UNIT_SWEDISH_JAS39_FIGHTER_HELP</Help>
 			<MilitarySupport>true</MilitarySupport>
 			<MilitaryProduction>true</MilitaryProduction>
 			<IgnoreBuildingDefense>true</IgnoreBuildingDefense>

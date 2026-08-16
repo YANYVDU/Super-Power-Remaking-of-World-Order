@@ -8,6 +8,7 @@ include("CityStateStatusHelper")
 local iGoldGiftLarge	= GameDefines.MINOR_GOLD_GIFT_LARGE
 local iGoldGiftMedium = GameDefines.MINOR_GOLD_GIFT_MEDIUM
 local iGoldGiftSmall	= GameDefines.MINOR_GOLD_GIFT_SMALL
+local iGoldGiftHuge	= GameDefines.MINOR_GOLD_GIFT_HUGE or 5000
 
 local gCsIM = InstanceManager:new("CsStatusInstance", "CsBox", Controls.CsStack)
 
@@ -123,6 +124,13 @@ function GetCsControl(im, iCs, iPlayer)
 	-- Influence
 	local iInfluence, sInfluenceText, iNeededInfluence, sInfluenceToolTip = getInfluence(pCs, pPlayer)
 	controlTable.CsInfluence:SetText(sInfluenceText)
+
+	-- SP: 追加城邦独特 UA 描述到影响力 tooltip（基于 MinorCivilizations.UAType -> CityStateUAs.Help）
+	sInfluenceToolTip = sInfluenceToolTip or "";
+	local strUAHelp = GetCityStateUAHelpText(iPlayer, iCs);
+	if (strUAHelp ~= "") then
+		sInfluenceToolTip = sInfluenceToolTip .. "[NEWLINE][NEWLINE]" .. strUAHelp;
+	end
 	controlTable.CsInfluence:SetToolTipString(sInfluenceToolTip)
 	sortEntry.influence = iInfluence
 	sortEntry.neededInfluence = iNeededInfluence
@@ -330,7 +338,18 @@ function getNeededInf(pCs, pPlayer)
 			sNeededInf = Locale.ConvertTextKey("TXT_KEY_CITY_STATE_ALLY_TT", Players[iAlly]:GetCivilizationShortDescriptionKey(), iNeededInf);
 		end
 	else
-		iNeededInf = GameDefines["FRIENDSHIP_THRESHOLD_ALLIES"] - iPlayerInf
+		-- Dynamic allies threshold (era + player modifiers + CSUA great-person) when CSUA is on;
+		-- keep in sync with the DLL check CvMinorCivAI::GetAlliesThresholdForPlayer
+		local bCSUniqueCityState = false
+		if (GameInfo.CustomModOptions ~= nil) then
+			local row = GameInfo.CustomModOptions("Name = 'SP_UNIQUE_CITYSTATE'")()
+			bCSUniqueCityState = (row ~= nil and row.Value == 1)
+		end
+		if (bCSUniqueCityState and pPlayer.GetMinorCivAlliesThreshold) then
+			iNeededInf = pPlayer:GetMinorCivAlliesThreshold() - iPlayerInf
+		else
+			iNeededInf = GameDefines["FRIENDSHIP_THRESHOLD_ALLIES"] - iPlayerInf
+		end
 		sNeededInf = Locale.ConvertTextKey("TXT_KEY_CITY_STATE_ALLY_NOBODY_TT", iNeededInf)
 	end
 
@@ -420,6 +439,18 @@ function setGoldGiftIcons(controlTable, pCs, pPlayer, bForcePeace)
 		controlTable.CsGiftLarge:RegisterCallback(Mouse.eLClick, OnGiftSelected)
 	else
 		controlTable.CsGiftLarge:SetHide(true)
+	end
+
+	-- Huge Gold (5000)
+	if (not bWar and iPlayerGold >= iGoldGiftHuge) then
+		controlTable.CsGiftHuge:SetHide(false)
+		controlTable.CsGiftHuge:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_DO_CS_STATUS_GIFT_INFLUENCE_TT", iGoldGiftHuge, pCs:GetFriendshipFromGoldGift(iPlayer, iGoldGiftHuge)))
+
+		controlTable.CsGiftHuge:SetVoid1(iCs)
+		controlTable.CsGiftHuge:SetVoid2(iGoldGiftHuge)
+		controlTable.CsGiftHuge:RegisterCallback(Mouse.eLClick, OnGiftSelected)
+	else
+		controlTable.CsGiftHuge:SetHide(true)
 	end
 end
 

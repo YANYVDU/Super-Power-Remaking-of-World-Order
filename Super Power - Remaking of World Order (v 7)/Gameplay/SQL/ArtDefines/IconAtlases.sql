@@ -27,6 +27,11 @@ VALUES		('SP_IMPROVEMENT_ATLAS', 				256, 		'SPImprovementAtlas256.dds',					8, 
 			('BUILDING_SWEDEN_NOBEL_PRIZE_ATLAS', 	256, 		'NobelPrize_256.dds',					        1, 				1),
 			('BUILDING_SWEDEN_NOBEL_PRIZE_ATLAS', 	128, 		'NobelPrize_128.dds',					        1, 				1),
 			('BUILDING_SWEDEN_NOBEL_PRIZE_ATLAS', 	064, 		'NobelPrize_64.dds',					        1, 				1),
-			('BUILDING_SWEDEN_NOBEL_PRIZE_ATLAS', 	045, 		'NobelPrize_45.dds',					        1, 				1);
+			('BUILDING_SWEDEN_NOBEL_PRIZE_ATLAS', 	045, 		'NobelPrize_45.dds',					        1, 				1),
+			('SP11_EXTRA_ATLAS', 					256, 		'SP11BuildingsAtlas256.dds',					8, 				2),
+			('SP11_EXTRA_ATLAS', 					128, 		'SP11BuildingsAtlas128.dds',					8, 				2),
+			('SP11_EXTRA_ATLAS', 					080, 		'SP11BuildingsAtlas80.dds',						8, 				2),
+			('SP11_EXTRA_ATLAS', 					064, 		'SP11BuildingsAtlas64.dds',						8, 				2),
+			('SP11_EXTRA_ATLAS', 					045, 		'SP11BuildingsAtlas45.dds',						8, 				2);
 --==========================================================================================================================
 --==========================================================================================================================

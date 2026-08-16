@@ -1074,6 +1074,7 @@ EstablishCorpsButton = {
 				tUnit:SetMaxHitPointsChangeFromRazedCityPop(HPFromRazedCityPop)
 				tUnit:SetCombatStrengthChangeFromKilledUnits(tUnit:GetCombatStrengthChangeFromKilledUnits()+nUnit:GetCombatStrengthChangeFromKilledUnits())
 				tUnit:SetRangedCombatStrengthChangeFromKilledUnits(tUnit:GetRangedCombatStrengthChangeFromKilledUnits()+nUnit:GetRangedCombatStrengthChangeFromKilledUnits())
+				tUnit:ChangeTotalKills(nUnit:GetTotalKills())
 				
             else
                 nUnit = nil;

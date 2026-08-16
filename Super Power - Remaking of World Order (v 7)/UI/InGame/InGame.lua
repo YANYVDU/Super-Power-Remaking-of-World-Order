@@ -294,6 +294,17 @@ InterfaceModeMessageHandler[InterfaceModeTypes.INTERFACEMODE_GIFT_TILE_IMPROVEME
 -- Input handling
 ----------------------------------------------------------------        
 function InputHandler( uiMsg, wParam, lParam )
+		-- PlotName popup keyboard handling
+		if uiMsg == KeyEvents.KeyDown then
+			if wParam == 78 and UIManager:GetControl() then
+				local hexX, hexY = UI.GetMouseOverHex()
+				if hexX and hexY then
+					LuaEvents.PlotNameShow(hexX, hexY)
+					return true
+				end
+			end
+		end
+
 	local interfaceMode = UI.GetInterfaceMode();
 	local currentInterfaceModeHandler = InterfaceModeMessageHandler[interfaceMode];
 	if currentInterfaceModeHandler and currentInterfaceModeHandler[uiMsg] then
