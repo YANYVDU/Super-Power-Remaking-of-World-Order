@@ -8357,7 +8357,7 @@
 			<Text>河圖洛書</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BELIEF_RIVER_CRAFTSMAN">
-			<Text>水力磨坊+2[ICON_HAPPINESS_1]快樂</Text>
+			<Text>水磨坊+2[ICON_HAPPINESS_1]快樂</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BELIEF_MAZU_SHORT">
 			<Text>媽祖祭典</Text>
