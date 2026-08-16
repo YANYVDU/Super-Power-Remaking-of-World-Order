@@ -17003,7 +17003,7 @@
 			<Text>承诺撤军</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_MODIFIER">
-			<Text>全国腐败[[ICON_HAPPINESS_4]]不满：</Text>
+			<Text>全国腐败[ICON_HAPPINESS_4]不满：</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_CHANGE">
 			<Text>腐败不满：</Text>
