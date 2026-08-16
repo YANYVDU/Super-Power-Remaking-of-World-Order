@@ -18533,7 +18533,7 @@
 			<Text>Promise withdraw Military</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_MODIFIER">
-<Text>National Corruption [ICON_HAPPINESS_4]Unhappiness</Text>
+			<Text>National Corruption [ICON_HAPPINESS_4]Unhappiness</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CORRUPTION_UNHAPPINESS_CHANGE">
 			<Text>Corruption Unhappiness</Text>
