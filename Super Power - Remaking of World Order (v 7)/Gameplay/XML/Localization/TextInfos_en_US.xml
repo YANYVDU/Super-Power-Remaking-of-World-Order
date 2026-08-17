@@ -17728,54 +17728,6 @@
 			<Text>[NEWLINE][COLOR:255:150:150:255]Tribute to Overlord {1_Overlord}: -{2_value}[ICON_GOLD][/COLOR]</Text>
 		</Row>
 
-		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_ESTABLISHED_OVERLORD">
-			<Text>{2_Vassal} is now your vassal, paying tribute in Science, Culture, Faith and Gold.</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_ESTABLISHED_OVERLORD">
-			<Text>Vassal: {2_Vassal}</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_ESTABLISHED_VASSAL">
-			<Text>You have become a vassal of {1_Overlord} and must pay them tribute.</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_ESTABLISHED_VASSAL">
-			<Text>Vassal of {1_Overlord}</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_RELEASED_OVERLORD">
-			<Text>{2_Vassal} is no longer your vassal.</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_RELEASED_OVERLORD">
-			<Text>Vassal released: {2_Vassal}</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_RELEASED_VASSAL">
-			<Text>You have been released from vassalage under {1_Overlord}.</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_RELEASED_VASSAL">
-			<Text>Released from {1_Overlord}</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_DEAL_GOLD_TAX">
-			<Text>Your vassal {1_CivName} agreed to a deal with {2_CivName}, earning you {3_value}[ICON_GOLD] Gold in vassal tax.</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_DEAL_GOLD_TAX">
-			<Text>Vassal deal tax +{2_value}[ICON_GOLD]</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_DEAL_GPT_TAX">
-			<Text>Your vassal {1_CivName} agreed to a deal with {2_CivName}, earning you {3_value}[ICON_GOLD] Gold per turn in vassal tax.</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_DEAL_GPT_TAX">
-			<Text>Vassal deal tax +{2_value}[ICON_GOLD]/turn</Text>
-		</Row>
-
 		<Row Tag="TXT_KEY_TP_VASSAL_DEAL_GOLD">
 			<Text>[NEWLINE][ICON_BULLET]Vassal deal tax {1_value}[ICON_GOLD]</Text>
 		</Row>

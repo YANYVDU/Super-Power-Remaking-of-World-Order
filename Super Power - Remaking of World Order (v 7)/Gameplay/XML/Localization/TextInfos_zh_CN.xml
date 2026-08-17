@@ -16194,54 +16194,6 @@
 			<Text>[NEWLINE][COLOR:255:150:150:255]上缴宗主国 {1_Overlord}：-{2_value}[ICON_GOLD][/COLOR]</Text>
 		</Row>
 
-		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_ESTABLISHED_OVERLORD">
-			<Text>{2_Vassal}现在成为了你的附庸，向你上缴科研、文化、信仰与金钱产出。</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_ESTABLISHED_OVERLORD">
-			<Text>附庸：{2_Vassal}</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_ESTABLISHED_VASSAL">
-			<Text>你已成为{1_Overlord}的附庸，需向其缴纳一定比例的产出。</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_ESTABLISHED_VASSAL">
-			<Text>臣服于{1_Overlord}</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_RELEASED_OVERLORD">
-			<Text>{2_Vassal}不再是你的附庸。</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_RELEASED_OVERLORD">
-			<Text>附庸脱离：{2_Vassal}</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_RELEASED_VASSAL">
-			<Text>你已脱离{1_Overlord}的附庸关系。</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_RELEASED_VASSAL">
-			<Text>脱离{1_Overlord}附庸</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_DEAL_GOLD_TAX">
-			<Text>附庸 {1_CivName} 与 {2_CivName} 达成的交易为您带来了 {3_value}[ICON_GOLD] 金币附庸税。</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_DEAL_GOLD_TAX">
-			<Text>附庸交易税 +{2_value}[ICON_GOLD]</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_DEAL_GPT_TAX">
-			<Text>附庸 {1_CivName} 与 {2_CivName} 达成的交易为您每回合带来 {3_value}[ICON_GOLD] 金币附庸税。</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_DEAL_GPT_TAX">
-			<Text>附庸交易税 +{2_value}[ICON_GOLD]/回合</Text>
-		</Row>
-
 		<Row Tag="TXT_KEY_TP_VASSAL_DEAL_GOLD">
 			<Text>[NEWLINE][ICON_BULLET]附庸交易税 {1_value}[ICON_GOLD]</Text>
 		</Row>
