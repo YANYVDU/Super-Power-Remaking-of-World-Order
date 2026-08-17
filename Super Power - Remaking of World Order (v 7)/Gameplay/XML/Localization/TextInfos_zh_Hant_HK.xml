@@ -15993,6 +15993,27 @@
 			<Text>[NEWLINE][COLOR:255:150:150:255]上缴宗主国 {1_Overlord}：-{2_value}[ICON_GOLD][/COLOR]</Text>
 		</Row>
 
+		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_DEAL_GOLD_TAX">
+			<Text>附庸 {1_CivName} 與 {2_CivName} 達成的交易為您帶來了 {3_value}[ICON_GOLD] 金幣附庸稅。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_DEAL_GOLD_TAX">
+			<Text>附庸交易稅 +{2_value}[ICON_GOLD]</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_DEAL_GPT_TAX">
+			<Text>附庸 {1_CivName} 與 {2_CivName} 達成的交易為您每回合帶來 {3_value}[ICON_GOLD] 金幣附庸稅。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_DEAL_GPT_TAX">
+			<Text>附庸交易稅 +{2_value}[ICON_GOLD]/回合</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_TP_VASSAL_DEAL_GOLD">
+			<Text>[NEWLINE][ICON_BULLET]附庸交易稅 {1_value}[ICON_GOLD]</Text>
+		</Row>
+
+
 		<Replace Tag="TXT_KEY_RESOURCE_TOOLTIP_IMPROVED_WORKED">
 			<Text>資源基礎產出:</Text>
 		</Replace>

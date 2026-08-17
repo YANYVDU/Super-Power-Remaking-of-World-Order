@@ -17722,6 +17722,27 @@
 			<Text>[NEWLINE][COLOR:255:150:150:255]Tribute to Overlord {1_Overlord}: -{2_value}[ICON_GOLD][/COLOR]</Text>
 		</Row>
 
+		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_DEAL_GOLD_TAX">
+			<Text>Your vassal {1_CivName} agreed to a deal with {2_CivName}, earning you {3_value}[ICON_GOLD] Gold in vassal tax.</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_DEAL_GOLD_TAX">
+			<Text>Vassal deal tax +{2_value}[ICON_GOLD]</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_DEAL_GPT_TAX">
+			<Text>Your vassal {1_CivName} agreed to a deal with {2_CivName}, earning you {3_value}[ICON_GOLD] Gold per turn in vassal tax.</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_DEAL_GPT_TAX">
+			<Text>Vassal deal tax +{2_value}[ICON_GOLD]/turn</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_TP_VASSAL_DEAL_GOLD">
+			<Text>[NEWLINE][ICON_BULLET]Vassal deal tax {1_value}[ICON_GOLD]</Text>
+		</Row>
+
+
 		<Replace Tag="TXT_KEY_RESOURCE_TOOLTIP_IMPROVED_WORKED">
 			<Text>Base Yield from Resouce:</Text>
 		</Replace>
