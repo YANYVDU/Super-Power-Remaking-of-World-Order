@@ -17396,6 +17396,12 @@
 		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_GIFT_WARNING">
 			<Text>This City-State has formed a permanent alliance with {1_Civ}. Gold gifts and other influence-boosting methods will have no effect.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_DIPLO_MAJOR_CIV_DIPLO_STATE_VASSAL">
+			<Text>Vassal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_MAJOR_CIV_DIPLO_STATE_OVERLORD">
+			<Text>Overlord</Text>
+		</Row>
 
 		<Replace Tag="TXT_KEY_TP_GOLDEN_AGE_ADDITION">
 			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR] from excess [ICON_HAPPINESS_1] Happiness.</Text>
@@ -17720,6 +17726,38 @@
 		</Row>
 		<Row Tag="TXT_KEY_TP_GOLD_TO_OVERLORD">
 			<Text>[NEWLINE][COLOR:255:150:150:255]Tribute to Overlord {1_Overlord}: -{2_value}[ICON_GOLD][/COLOR]</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_ESTABLISHED_OVERLORD">
+			<Text>{2_Vassal} is now your vassal, paying tribute in Science, Culture, Faith and Gold.</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_ESTABLISHED_OVERLORD">
+			<Text>Vassal: {2_Vassal}</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_ESTABLISHED_VASSAL">
+			<Text>You have become a vassal of {1_Overlord} and must pay them tribute.</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_ESTABLISHED_VASSAL">
+			<Text>Vassal of {1_Overlord}</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_RELEASED_OVERLORD">
+			<Text>{2_Vassal} is no longer your vassal.</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_RELEASED_OVERLORD">
+			<Text>Vassal released: {2_Vassal}</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_RELEASED_VASSAL">
+			<Text>You have been released from vassalage under {1_Overlord}.</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_RELEASED_VASSAL">
+			<Text>Released from {1_Overlord}</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_DEAL_GOLD_TAX">

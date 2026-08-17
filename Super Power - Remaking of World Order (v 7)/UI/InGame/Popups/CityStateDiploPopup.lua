@@ -824,12 +824,18 @@ function PopulateGiftChoices()
 	local iActivePlayer = Game.GetActivePlayer();
 	local pActivePlayer = Players[iActivePlayer];
 
+	-- Permanent ally: gold/unit gifts yield no influence (DLL rejects them)
+	local bPermanentAlly = (GetPermanentAlly(g_iMinorCivID) ~= -1);
+
 	-- Diplomatic Overextension: displayed influence gain should match the actual (penalized) gain
 	local iOverextensionRisePenalty = 0;
 	if (pActivePlayer.GetDiplomaticOverextensionRisePenalty) then
 		iOverextensionRisePenalty = pActivePlayer:GetDiplomaticOverextensionRisePenalty();
 	end
 	local function applyOverextension(iAmount)
+		if (bPermanentAlly) then
+			return 0;
+		end
 		if (iOverextensionRisePenalty ~= 0) then
 			return math.floor(iAmount * (100 + iOverextensionRisePenalty) / 100);
 		end

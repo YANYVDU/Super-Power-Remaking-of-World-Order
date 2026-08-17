@@ -15654,6 +15654,12 @@
 		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_GIFT_WARNING">
 			<Text>該城邦已與{1_Civ}結成永久同盟。贈送金幣等提升影響力的手段不會起任何作用。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_DIPLO_MAJOR_CIV_DIPLO_STATE_VASSAL">
+			<Text>附庸</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_MAJOR_CIV_DIPLO_STATE_OVERLORD">
+			<Text>宗主國</Text>
+		</Row>
 
 		<Replace Tag="TXT_KEY_TP_GOLDEN_AGE_ADDITION">
 			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR]來自額外的[ICON_HAPPINESS_1]幸福度。</Text>
@@ -15991,6 +15997,38 @@
 		</Row>
 		<Row Tag="TXT_KEY_TP_GOLD_TO_OVERLORD">
 			<Text>[NEWLINE][COLOR:255:150:150:255]上缴宗主国 {1_Overlord}：-{2_value}[ICON_GOLD][/COLOR]</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_ESTABLISHED_OVERLORD">
+			<Text>{2_Vassal}現在成為了你的附庸，向你上繳科研、文化、信仰與金錢產出。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_ESTABLISHED_OVERLORD">
+			<Text>附庸：{2_Vassal}</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_ESTABLISHED_VASSAL">
+			<Text>你已成為{1_Overlord}的附庸，需向其繳納一定比例的產出。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_ESTABLISHED_VASSAL">
+			<Text>臣服於{1_Overlord}</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_RELEASED_OVERLORD">
+			<Text>{2_Vassal}不再是你的附庸。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_RELEASED_OVERLORD">
+			<Text>附庸脫離：{2_Vassal}</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_RELEASED_VASSAL">
+			<Text>你已脫離{1_Overlord}的附庸關係。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_VASSAL_RELEASED_VASSAL">
+			<Text>脫離{1_Overlord}附庸</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_NOTIFICATION_VASSAL_DEAL_GOLD_TAX">
