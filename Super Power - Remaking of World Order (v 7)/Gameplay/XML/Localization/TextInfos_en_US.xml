@@ -18718,7 +18718,7 @@
 			<Text>
 				Ally Effects:
 				[NEWLINE][ICON_BULLET]All cities gain +1 Great Merchant Point. [ICON_GOLD] Market, [ICON_GOLD] Bank, [ICON_GOLD] Stock Exchange and [ICON_GOLD] Finance Company each provide +1 Great Merchant Point
-				[NEWLINE][ICON_BULLET]For every 1 Great Merchant born, Merchants +2 Gold. Minimum [ICON_INFLUENCE] Influence required for alliance reduced by 1% (max -90%)
+				[NEWLINE][ICON_BULLET]For every 1 Great Merchant born, Merchants +2 Gold. Minimum [ICON_INFLUENCE] Influence required for alliance reduced by 1% (max -50%)
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_ANTWERP_FRIEND_HELP">
@@ -18957,6 +18957,227 @@
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_CSUA_ALMATY_HELP">
 			<Text>Provides additional 15 [ICON_RES_HORSE]Horses</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MELBOURNE_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Cities with [ICON_RES_GOLD]Gold gain +50% [ICON_GOLD]Gold and [ICON_TOURISM]Tourism
+				[NEWLINE][ICON_BULLET]Circus, Racetrack, Zoo, Amusement Park, Theme Park, Stadium, Wildlife Preserve, Jeweler and Video Game Company grant the city +10% [ICON_PRODUCTION]Production and [ICON_GOLD]Gold
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Cities with [ICON_RES_GOLD]Gold gain +20% [ICON_GOLD]Gold and [ICON_TOURISM]Tourism
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MELBOURNE_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Cities with [ICON_RES_GOLD]Gold gain +50% [ICON_GOLD]Gold and [ICON_TOURISM]Tourism
+				[NEWLINE][ICON_BULLET]Circus, Racetrack, Zoo, Amusement Park, Theme Park, Stadium, Wildlife Preserve, Jeweler and Video Game Company grant the city +10% [ICON_PRODUCTION]Production and [ICON_GOLD]Gold
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MELBOURNE_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Cities with [ICON_RES_GOLD]Gold gain +20% [ICON_GOLD]Gold and [ICON_TOURISM]Tourism
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_ANTANANARIVO_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Coastal cities' population growth threshold -20%
+				[NEWLINE][ICON_BULLET]+1 [ICON_DIPLOMATIC_PRESTIGE]Diplomatic Prestige for every 10 cities
+				[NEWLINE][ICON_BULLET]Each worked Mine grants the city +3% [ICON_GOLD]Gold
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Coastal cities' population growth threshold -10%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ANTANANARIVO_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Coastal cities' population growth threshold -20%
+				[NEWLINE][ICON_BULLET]+1 [ICON_DIPLOMATIC_PRESTIGE]Diplomatic Prestige for every 10 cities
+				[NEWLINE][ICON_BULLET]Each worked Mine grants the city +3% [ICON_GOLD]Gold
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ANTANANARIVO_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Coastal cities' population growth threshold -10%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_PRAGUE_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Walls, Castle, Arsenal and Military Base grant the city +10% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]Cities with your own [ICON_SPY]Spy garrisoned gain +20% [ICON_RESEARCH]Science
+				[NEWLINE][ICON_BULLET]Each enemy [ICON_SPY]Spy you kill grants you a [ICON_SPY]Spy
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Walls and Castle grant the city +10% [ICON_CULTURE]Culture
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PRAGUE_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Walls, Castle, Arsenal and Military Base grant the city +10% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]Cities with your own [ICON_SPY]Spy garrisoned gain +20% [ICON_RESEARCH]Science
+				[NEWLINE][ICON_BULLET]Each enemy [ICON_SPY]Spy you kill grants you a [ICON_SPY]Spy
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PRAGUE_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Walls and Castle grant the city +10% [ICON_CULTURE]Culture
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_CAHOKIA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each worked Farm grants the city +5% [ICON_FOOD]Food
+				[NEWLINE][ICON_BULLET]Each city that has reached Medium size grants +20% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]Each city that has reached Large size grants +30% [ICON_GOLD]Gold
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Each worked Farm grants the city +2% [ICON_FOOD]Food
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_CAHOKIA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each worked Farm grants the city +5% [ICON_FOOD]Food
+				[NEWLINE][ICON_BULLET]Each city that has reached Medium size grants +20% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]Each city that has reached Large size grants +30% [ICON_GOLD]Gold
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_CAHOKIA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Each worked Farm grants the city +2% [ICON_FOOD]Food
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_SAMARKAND_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each worked Trading Post grants the city +8% [ICON_GOLD]Gold
+				[NEWLINE][ICON_BULLET]Each worked Trading Post grants the city +4% [ICON_RESEARCH]Science
+				[NEWLINE][ICON_BULLET]The Observatory grants the city +50% [ICON_RESEARCH]Science
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Each worked Trading Post grants the city +3% [ICON_GOLD]Gold
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SAMARKAND_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each worked Trading Post grants the city +8% [ICON_GOLD]Gold
+				[NEWLINE][ICON_BULLET]Each worked Trading Post grants the city +4% [ICON_RESEARCH]Science
+				[NEWLINE][ICON_BULLET]The Observatory grants the city +50% [ICON_RESEARCH]Science
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SAMARKAND_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Each worked Trading Post grants the city +3% [ICON_GOLD]Gold
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_ZANZIBAR_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each worked Plantation grants the city +5% [ICON_GOLD]Gold
+				[NEWLINE][ICON_BULLET]Each worked Plantation grants the city +5% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]Each worked Plantation grants the city +2 [ICON_HAPPINESS_1]Local Happiness
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Each worked Plantation grants the city +2% [ICON_GOLD]Gold
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ZANZIBAR_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each worked Plantation grants the city +5% [ICON_GOLD]Gold
+				[NEWLINE][ICON_BULLET]Each worked Plantation grants the city +5% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]Each worked Plantation grants the city +2 [ICON_HAPPINESS_1]Local Happiness
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ZANZIBAR_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Each worked Plantation grants the city +2% [ICON_GOLD]Gold
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_BYBLOS_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Library, Academy, University, Public School and Laboratory grant the city +8% [ICON_RESEARCH]Science
+				[NEWLINE][ICON_BULLET]While this city runs a trade route to Byblos, 10% of its [ICON_GOLD]Gold is converted into [ICON_RESEARCH]Science
+				[NEWLINE][ICON_BULLET]Each worked Lumber Mill grants the city +5% [ICON_GOLD]Gold
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Library and Academy grant the city +8% [ICON_RESEARCH]Science
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BYBLOS_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Library, Academy, University, Public School and Laboratory grant the city +8% [ICON_RESEARCH]Science
+				[NEWLINE][ICON_BULLET]While this city runs a trade route to Byblos, 10% of its [ICON_GOLD]Gold is converted into [ICON_RESEARCH]Science
+				[NEWLINE][ICON_BULLET]Each worked Lumber Mill grants the city +5% [ICON_GOLD]Gold
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BYBLOS_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Library and Academy grant the city +8% [ICON_RESEARCH]Science
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_WELLINGTON_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]The capital gains +20% [ICON_PRODUCTION]Production and [ICON_FOOD]Food (via the Palace)
+				[NEWLINE][ICON_BULLET]Cities at the first corruption level gain +10% [ICON_PRODUCTION]Production and [ICON_FOOD]Food
+				[NEWLINE][ICON_BULLET]Each worked Pasture grants the city +3% [ICON_FOOD]Food and [ICON_GOLD]Gold
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]The capital gains +8% [ICON_PRODUCTION]Production and [ICON_FOOD]Food (via the Palace)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_WELLINGTON_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]The capital gains +20% [ICON_PRODUCTION]Production and [ICON_FOOD]Food (via the Palace)
+				[NEWLINE][ICON_BULLET]Cities at the first corruption level gain +10% [ICON_PRODUCTION]Production and [ICON_FOOD]Food
+				[NEWLINE][ICON_BULLET]Each worked Pasture grants the city +3% [ICON_FOOD]Food and [ICON_GOLD]Gold
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_WELLINGTON_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]The capital gains +8% [ICON_PRODUCTION]Production and [ICON_FOOD]Food (via the Palace)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_CAPE_TOWN_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]While this city runs a trade route to Cape Town, 20% of its [ICON_GOLD]Gold is converted into [ICON_FOOD]Food
+				[NEWLINE][ICON_BULLET]Lighthouse, Harbor, Seaport and International Seaport grant the city +10% [ICON_GOLD]Gold and +5% [ICON_PRODUCTION]Production
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]While this city runs a trade route to Cape Town, 8% of its [ICON_GOLD]Gold is converted into [ICON_FOOD]Food
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_CAPE_TOWN_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]While this city runs a trade route to Cape Town, 20% of its [ICON_GOLD]Gold is converted into [ICON_FOOD]Food
+				[NEWLINE][ICON_BULLET]Lighthouse, Harbor, Seaport and International Seaport grant the city +10% [ICON_GOLD]Gold and +5% [ICON_PRODUCTION]Production
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_CAPE_TOWN_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]While this city runs a trade route to Cape Town, 8% of its [ICON_GOLD]Gold is converted into [ICON_FOOD]Food
+			</Text>
 		</Row>
 	</Language_en_US>
 </GameData>
