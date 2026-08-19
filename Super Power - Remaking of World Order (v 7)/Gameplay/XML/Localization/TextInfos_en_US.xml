@@ -18708,7 +18708,7 @@
 			<Text>
 				Ally Effects:
 				[NEWLINE][ICON_BULLET]All cities gain +1[ICON_GREAT_MERCHANT]Great Merchant Point. [ICON_GOLD] Market, [ICON_GOLD] Bank, [ICON_GOLD] Stock Exchange and [ICON_GOLD] Finance Company each provide +1[ICON_GREAT_MERCHANT]Great Merchant Point
-				[NEWLINE][ICON_BULLET]For every 1[ICON_GREAT_PEOPLE]Great Merchant born, [ICON_GREAT_MERCHANT]Merchants +2[ICON_GOLD]Gold. Minimum [ICON_INFLUENCE] Influence required for alliance reduced by 1% (max -90%)
+				[NEWLINE][ICON_BULLET]For every 1[ICON_GREAT_PEOPLE]Great Merchant born, [ICON_GREAT_MERCHANT]Merchants +2[ICON_GOLD]Gold. Minimum [ICON_INFLUENCE] Influence required for alliance reduced by 1% (max -50%)
 				[NEWLINE]
 				[NEWLINE]Friend Effects:
 				[NEWLINE][ICON_BULLET][ICON_GOLD] Market and [ICON_GOLD] Bank provide +1[ICON_GREAT_MERCHANT]Great Merchant Point in friend cities
@@ -19177,6 +19177,54 @@
 			<Text>
 				Friend Effects:
 				[NEWLINE][ICON_BULLET]While this city runs a trade route to Cape Town, 8% of its [ICON_GOLD]Gold is converted into [ICON_FOOD]Food
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_GENOA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET][ICON_GOLD]Bank, [ICON_GOLD]Stock Exchange and [ICON_GOLD]Finance Company each provide +20% [ICON_GOLD]Gold
+				[NEWLINE][ICON_BULLET]Each sea trade route increases the [ICON_INFLUENCE]Influence gained from Gold Gifts by 1%
+				[NEWLINE][ICON_BULLET]Every friend city-state grants +1% [ICON_RESEARCH]Science, every ally city-state grants +2% [ICON_RESEARCH]Science
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_GOLD]Bank, [ICON_GOLD]Stock Exchange and [ICON_GOLD]Finance Company each provide +8% [ICON_GOLD]Gold
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GENOA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET][ICON_GOLD]Bank, [ICON_GOLD]Stock Exchange and [ICON_GOLD]Finance Company each provide +20% [ICON_GOLD]Gold
+				[NEWLINE][ICON_BULLET]Each sea trade route increases the [ICON_INFLUENCE]Influence gained from Gold Gifts by 1%
+				[NEWLINE][ICON_BULLET]Every friend city-state grants +1% [ICON_RESEARCH]Science, every ally city-state grants +2% [ICON_RESEARCH]Science
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GENOA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET][ICON_GOLD]Bank, [ICON_GOLD]Stock Exchange and [ICON_GOLD]Finance Company each provide +8% [ICON_GOLD]Gold
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_VILNIUS_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each unlocked social policy grants +2% [ICON_GOLD]Gold and +1% [ICON_RESEARCH]Science empire-wide
+				[NEWLINE][ICON_BULLET]Every 1 [ICON_CITIZEN]Population reduces the [ICON_GOLDEN_AGE]Golden Age threshold by 1 (before percentage reductions)
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Each unlocked social policy grants +1% [ICON_GOLD]Gold empire-wide
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VILNIUS_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each unlocked social policy grants +2% [ICON_GOLD]Gold and +1% [ICON_RESEARCH]Science empire-wide
+				[NEWLINE][ICON_BULLET]Every 1 [ICON_CITIZEN]Population reduces the [ICON_GOLDEN_AGE]Golden Age threshold by 1 (before percentage reductions)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VILNIUS_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Each unlocked social policy grants +1% [ICON_GOLD]Gold empire-wide
 			</Text>
 		</Row>
 	</Language_en_US>

@@ -171,6 +171,24 @@
 			<Type>EFFECT_CSUA_CAPE_TOWN_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_CAPE_TOWN_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_GENOA_ALLY</Type>
+			<GoldDonationInfluenceModifierPerSeaRoute>1</GoldDonationInfluenceModifierPerSeaRoute>
+			<Help>TXT_KEY_EFFECT_CSUA_GENOA_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_GENOA_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_GENOA_FRIEND_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_VILNIUS_ALLY</Type>
+			<GoldenAgeThresholdPerPopulation>-100</GoldenAgeThresholdPerPopulation>
+			<Help>TXT_KEY_EFFECT_CSUA_VILNIUS_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_VILNIUS_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_VILNIUS_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -936,6 +954,79 @@
 			<YieldMod>5</YieldMod>
 		</Row>
 	 </CityStateUAEffect_BuildingClassYieldModifiers>
+	 <!-- 热那亚：银行、证券交易所、金融公司额外金钱产出 -->
+	 <CityStateUAEffect_BuildingClassYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_GENOA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>20</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_GENOA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_STOCK_EXCHANGE</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>20</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_GENOA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_FINANCE_COMPANY</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>20</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_GENOA_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>8</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_GENOA_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_STOCK_EXCHANGE</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>8</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_GENOA_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_FINANCE_COMPANY</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>8</YieldMod>
+		</Row>
+	 </CityStateUAEffect_BuildingClassYieldModifiers>
+	 <!-- 热那亚：每拥有一个朋友城邦，全国产出+YieldMod/100%（YieldType 指定产出类型，100=+1%）；此处为科研+1%/朋友 -->
+	 <CityStateUAEffect_FriendCityStateYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_GENOA_ALLY</EffectType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+	 </CityStateUAEffect_FriendCityStateYieldModifiers>
+	 <!-- 热那亚：每拥有一个盟友城邦，全国产出+YieldMod/100%（YieldType 指定产出类型，100=+1%）；此处为科研+2%/盟友 -->
+	 <CityStateUAEffect_AllyCityStateYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_GENOA_ALLY</EffectType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>200</YieldMod>
+		</Row>
+	 </CityStateUAEffect_AllyCityStateYieldModifiers>
+	 <!-- 维尔纽斯：每拥有一个已解锁社会政策，全国产出+YieldMod/100%（YieldType 指定产出类型，100=+1%） -->
+	 <CityStateUAEffect_PolicyYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_VILNIUS_ALLY</EffectType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>200</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_VILNIUS_ALLY</EffectType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_VILNIUS_FRIEND</EffectType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+	 </CityStateUAEffect_PolicyYieldModifiers>
 	<CityStateUAs>
 		<Row>
 			<Type>CSUA_ZURICH</Type>
@@ -1062,6 +1153,20 @@
 			<Help>TXT_KEY_CSUA_CAPE_TOWN_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_CAPE_TOWN_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_CAPE_TOWN_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_GENOA</Type>
+			<Description>TXT_KEY_CITYSTATE_GENOA</Description>
+			<Help>TXT_KEY_CSUA_GENOA_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_GENOA_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_GENOA_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_VILNIUS</Type>
+			<Description>TXT_KEY_CITYSTATE_VILNIUS</Description>
+			<Help>TXT_KEY_CSUA_VILNIUS_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_VILNIUS_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_VILNIUS_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
