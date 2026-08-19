@@ -16983,7 +16983,7 @@
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]盟友的城市+1[ICON_GREAT_MERCHANT]大商業家點數，城市的[ICON_GOLD]市場、[ICON_GOLD]銀行、[ICON_GOLD]證券交易所、[ICON_GOLD]金融公司額外+1[ICON_GREAT_MERCHANT]大商業家點數
-				[NEWLINE][ICON_BULLET]盟友每誕生過1位[ICON_GREAT_PEOPLE]大商業家，[ICON_GREAT_MERCHANT]商業家+2[ICON_GOLD]金錢，成為城邦盟友的所需最低[ICON_INFLUENCE]影響力降低1%(至多-90%)
+				[NEWLINE][ICON_BULLET]盟友每誕生過1位[ICON_GREAT_PEOPLE]大商業家，[ICON_GREAT_MERCHANT]商業家+2[ICON_GOLD]金錢，成為城邦盟友的所需最低[ICON_INFLUENCE]影響力降低1%(至多-50%)
 				[NEWLINE]
 				[NEWLINE]朋友效果：
 				[NEWLINE][ICON_BULLET]朋友城市的[ICON_GOLD]市場和[ICON_GOLD]銀行+1[ICON_GREAT_MERCHANT]大商業家點數
@@ -17452,6 +17452,54 @@
 			<Text>
 				朋友效果：
 				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，8%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_GENOA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]城市的[ICON_GOLD]銀行、[ICON_GOLD]證券交易所、[ICON_GOLD]金融公司額外提供+20%[ICON_GOLD]金錢
+				[NEWLINE][ICON_BULLET]盟友的每條海上商路提高1%捐獻金錢獲得的[ICON_INFLUENCE]影響力
+				[NEWLINE][ICON_BULLET]盟友每擁有1個朋友城邦，全國+1%[ICON_RESEARCH]科研；每擁有1個盟友城邦，全國+2%[ICON_RESEARCH]科研
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市的[ICON_GOLD]銀行、[ICON_GOLD]證券交易所、[ICON_GOLD]金融公司額外提供+8%[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GENOA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]城市的[ICON_GOLD]銀行、[ICON_GOLD]證券交易所、[ICON_GOLD]金融公司額外提供+20%[ICON_GOLD]金錢
+				[NEWLINE][ICON_BULLET]盟友的每條海上商路提高1%捐獻金錢獲得的[ICON_INFLUENCE]影響力
+				[NEWLINE][ICON_BULLET]盟友每擁有1個朋友城邦，全國+1%[ICON_RESEARCH]科研；每擁有1個盟友城邦，全國+2%[ICON_RESEARCH]科研
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GENOA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市的[ICON_GOLD]銀行、[ICON_GOLD]證券交易所、[ICON_GOLD]金融公司額外提供+8%[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_VILNIUS_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每擁有1個已解鎖的社會政策，全國+2%[ICON_GOLD]金錢、+1%[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]盟友每擁有1[ICON_CITIZEN]人口，開啟[ICON_GOLDEN_AGE]黃金時代的閾值固定-1（在百分比扣減之前）
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每擁有1個已解鎖的社會政策，全國+1%[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VILNIUS_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每擁有1個已解鎖的社會政策，全國+2%[ICON_GOLD]金錢、+1%[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]盟友每擁有1[ICON_CITIZEN]人口，開啟[ICON_GOLDEN_AGE]黃金時代的閾值固定-1（在百分比扣減之前）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VILNIUS_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每擁有1個已解鎖的社會政策，全國+1%[ICON_GOLD]金錢
 			</Text>
 		</Row>
 	</Language_zh_Hant_HK>
