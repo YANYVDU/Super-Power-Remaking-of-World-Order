@@ -17427,5 +17427,226 @@
 		<Row Tag="TXT_KEY_CITY_STATE_GP_MOD">
 			<Text>[ICON_BULLET]盟邦UA加成: +{1_num}%</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_MELBOURNE_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]拥有[ICON_RES_GOLD]黄金资源的城市+50%[ICON_GOLD]金钱与[ICON_TOURISM]魅力
+				[NEWLINE][ICON_BULLET]马戏场、赛马场、动物园、游乐场、主题公园、体育场、野生动物园、珠宝市场、电子娱乐公司为城市+10%[ICON_PRODUCTION]产能与[ICON_GOLD]金钱
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]拥有[ICON_RES_GOLD]黄金资源的城市+20%[ICON_GOLD]金钱与[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MELBOURNE_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]拥有[ICON_RES_GOLD]黄金资源的城市+50%[ICON_GOLD]金钱与[ICON_TOURISM]魅力
+				[NEWLINE][ICON_BULLET]马戏场、赛马场、动物园、游乐场、主题公园、体育场、野生动物园、珠宝市场、电子娱乐公司为城市+10%[ICON_PRODUCTION]产能与[ICON_GOLD]金钱
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MELBOURNE_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]拥有[ICON_RES_GOLD]黄金资源的城市+20%[ICON_GOLD]金钱与[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_ANTANANARIVO_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]沿海城市人口增长阈值-20%
+				[NEWLINE][ICON_BULLET]每拥有10座城市，[ICON_DIPLOMATIC_PRESTIGE]外交威望+1
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的矿井+3%[ICON_GOLD]金钱
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]沿海城市人口增长阈值-10%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ANTANANARIVO_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]沿海城市人口增长阈值-20%
+				[NEWLINE][ICON_BULLET]每拥有10座城市，[ICON_DIPLOMATIC_PRESTIGE]外交威望+1
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的矿井+3%[ICON_GOLD]金钱
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ANTANANARIVO_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]沿海城市人口增长阈值-10%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_PRAGUE_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]城墙、城堡、兵工厂、军事基地为城市+10%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]己方间谍驻守的城市+20%[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]每击杀1个他国[ICON_SPY]间谍，自身获得1个[ICON_SPY]间谍
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]城墙、城堡为城市+10%[ICON_CULTURE]文化
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PRAGUE_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]城墙、城堡、兵工厂、军事基地为城市+10%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]己方间谍驻守的城市+20%[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]每击杀1个他国[ICON_SPY]间谍，自身获得1个[ICON_SPY]间谍
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_PRAGUE_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]城墙、城堡为城市+10%[ICON_CULTURE]文化
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_CAHOKIA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的农田+5%[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]每个达到中型规模的城市+20%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]每个达到大型规模的城市+30%[ICON_GOLD]金钱
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的农田+2%[ICON_FOOD]食物
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_CAHOKIA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的农田+5%[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]每个达到中型规模的城市+20%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]每个达到大型规模的城市+30%[ICON_GOLD]金钱
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_CAHOKIA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的农田+2%[ICON_FOOD]食物
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_SAMARKAND_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的贸易站+8%[ICON_GOLD]金钱
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的贸易站+4%[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]天文台使城市+50%[ICON_RESEARCH]科研
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的贸易站+3%[ICON_GOLD]金钱
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SAMARKAND_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的贸易站+8%[ICON_GOLD]金钱
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的贸易站+4%[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]天文台使城市+50%[ICON_RESEARCH]科研
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SAMARKAND_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的贸易站+3%[ICON_GOLD]金钱
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_ZANZIBAR_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的种植园+5%[ICON_GOLD]金钱
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的种植园+5%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的种植园+2[ICON_HAPPINESS_1]本地快乐
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的种植园+2%[ICON_GOLD]金钱
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ZANZIBAR_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的种植园+5%[ICON_GOLD]金钱
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的种植园+5%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的种植园+2[ICON_HAPPINESS_1]本地快乐
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ZANZIBAR_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的种植园+2%[ICON_GOLD]金钱
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_BYBLOS_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]图书馆、学院、大学、公立学校、研究实验室为城市+8%[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]城市有通往比布鲁斯的商路时，10%[ICON_GOLD]金钱转化为[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的伐木场+5%[ICON_GOLD]金钱
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]图书馆、学院为城市+8%[ICON_RESEARCH]科研
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BYBLOS_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]图书馆、学院、大学、公立学校、研究实验室为城市+8%[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]城市有通往比布鲁斯的商路时，10%[ICON_GOLD]金钱转化为[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的伐木场+5%[ICON_GOLD]金钱
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BYBLOS_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]图书馆、学院为城市+8%[ICON_RESEARCH]科研
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_WELLINGTON_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]首都获得+20%[ICON_PRODUCTION]产能与[ICON_FOOD]食物（对宫殿加成）
+				[NEWLINE][ICON_BULLET]一级城市获得+10%[ICON_PRODUCTION]产能与[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的牧场+3%[ICON_FOOD]食物与[ICON_GOLD]金钱
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]首都获得+8%[ICON_PRODUCTION]产能与[ICON_FOOD]食物（对宫殿加成）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_WELLINGTON_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]首都获得+20%[ICON_PRODUCTION]产能与[ICON_FOOD]食物（对宫殿加成）
+				[NEWLINE][ICON_BULLET]一级城市获得+10%[ICON_PRODUCTION]产能与[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]城市每处有市民工作的牧场+3%[ICON_FOOD]食物与[ICON_GOLD]金钱
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_WELLINGTON_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]首都获得+8%[ICON_PRODUCTION]产能与[ICON_FOOD]食物（对宫殿加成）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_CAPE_TOWN_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]城市有通往开普敦的商路时，20%[ICON_GOLD]金钱转化为[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]灯塔、港口、海运码头、国际自由港为城市+10%[ICON_GOLD]金钱、5%[ICON_PRODUCTION]产能
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]城市有通往开普敦的商路时，8%[ICON_GOLD]金钱转化为[ICON_FOOD]食物
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_CAPE_TOWN_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]城市有通往开普敦的商路时，20%[ICON_GOLD]金钱转化为[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]灯塔、港口、海运码头、国际自由港为城市+10%[ICON_GOLD]金钱、5%[ICON_PRODUCTION]产能
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_CAPE_TOWN_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]城市有通往开普敦的商路时，8%[ICON_GOLD]金钱转化为[ICON_FOOD]食物
+			</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>
