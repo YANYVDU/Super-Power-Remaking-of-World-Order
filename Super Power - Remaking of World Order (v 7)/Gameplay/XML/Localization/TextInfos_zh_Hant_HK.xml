@@ -17502,6 +17502,9 @@
 				[NEWLINE][ICON_BULLET]朋友每擁有1個已解鎖的社會政策，全國+1%[ICON_GOLD]金錢
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PRODMOD_CITYSTATE_UA">
+			<Text>[NEWLINE][ICON_BULLET]來自城邦修正: {1_Num}%</Text>
+		</Row>
 		<Row Tag="TXT_KEY_SP_SELECT_CITY_STATES_BUTTON">
 			<Text>[COLOR_YELLOW]自選城邦[ENDCOLOR]</Text>
 		</Row>
