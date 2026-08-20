@@ -19227,6 +19227,9 @@
 				[NEWLINE][ICON_BULLET]Each unlocked social policy grants +1% [ICON_GOLD]Gold empire-wide
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PRODMOD_CITYSTATE_UA">
+			<Text>[NEWLINE][ICON_BULLET]City-State Modifier: {1_Num}%</Text>
+		</Row>
 		<Row Tag="TXT_KEY_SP_SELECT_CITY_STATES_BUTTON">
 			<Text>[COLOR_YELLOW]Select City-States[ENDCOLOR]</Text>
 		</Row>

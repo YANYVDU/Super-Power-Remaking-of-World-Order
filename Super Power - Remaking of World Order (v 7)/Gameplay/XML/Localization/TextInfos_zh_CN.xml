@@ -17696,6 +17696,9 @@
 				[NEWLINE][ICON_BULLET]朋友每拥有一个已解锁的社会政策，全国+1%[ICON_GOLD]金钱
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PRODMOD_CITYSTATE_UA">
+			<Text>[NEWLINE][ICON_BULLET]来自城邦修正: {1_Num}%</Text>
+		</Row>
 		<Row Tag="TXT_KEY_SP_SELECT_CITY_STATES_BUTTON">
 			<Text>[COLOR_YELLOW]自选城邦[ENDCOLOR]</Text>
 		</Row>
