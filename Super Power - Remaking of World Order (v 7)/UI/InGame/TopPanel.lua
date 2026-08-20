@@ -741,8 +741,8 @@ function GoldTipHandler( control )
 			end
 		end
 	end
-	if pPlayer.GetGoldFromVassalDeals then
-		local iVassalDealGold = pPlayer:GetGoldFromVassalDeals();
+	if pPlayer.GetGoldFromVassalDealsLumpSum then
+		local iVassalDealGold = pPlayer:GetGoldFromVassalDealsLumpSum();
 		if iVassalDealGold > 0 then
 			strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_VASSAL_DEAL_GOLD", iVassalDealGold)
 		end
