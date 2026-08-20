@@ -357,6 +357,10 @@ function UpdateDisplay()
     						leaderButtonTooltip = AlwaysWarStr;
     					end
         				statusString = Locale.ConvertTextKey( "TXT_KEY_DIPLO_MAJOR_CIV_DIPLO_STATE_WAR" );
+					elseif (pOtherPlayer.IsVassalOf and pOtherPlayer:IsVassalOf(g_iPlayer)) then
+						statusString = Locale.ConvertTextKey( "TXT_KEY_DIPLO_MAJOR_CIV_DIPLO_STATE_VASSAL" );
+					elseif (g_pPlayer.IsVassalOf and g_pPlayer:IsVassalOf(iPlayerLoop)) then
+						statusString = Locale.ConvertTextKey( "TXT_KEY_DIPLO_MAJOR_CIV_DIPLO_STATE_OVERLORD" );
 					elseif (pOtherPlayer:IsDenouncingPlayer(g_iPlayer)) then
 						statusString = Locale.ConvertTextKey( "TXT_KEY_DIPLO_MAJOR_CIV_DIPLO_STATE_DENOUNCING" );							
 					elseif (pOtherPlayer:WasResurrectedThisTurnBy(g_iPlayer)) then
