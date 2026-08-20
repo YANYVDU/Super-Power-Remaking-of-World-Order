@@ -17502,5 +17502,26 @@
 				[NEWLINE][ICON_BULLET]朋友每擁有1個已解鎖的社會政策，全國+1%[ICON_GOLD]金錢
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SP_SELECT_CITY_STATES_BUTTON">
+			<Text>[COLOR_YELLOW]自選城邦[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SELECT_CITY_STATES_TITLE">
+			<Text>自選城邦</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SELECT_CITY_STATES_DESC">
+			<Text>勾選固定載入的城邦；未選足數量將隨機補齊。[NEWLINE][ICON_BULLET]已選 {1_num} 個</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SELECT_CITY_STATES_CONFIRM">
+			<Text>確定</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SELECT_CITY_STATES_CANCEL">
+			<Text>取消</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_SELECT_CITY_STATES_SELECTED">
+			<Text>[ICON_BULLET]已選 {1_num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_CITY_STATE_HAS_UA">
+			<Text>[COLOR_CYAN]專屬UA[ENDCOLOR]</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

@@ -81,6 +81,11 @@ function SPData:SaveData()
 	for option in GameInfo.GameOptions{Visible = 1} do
 		saveData.SPGameOptions[option.Type] = PreGame.GetGameOption(option.Type) == 1 or false;
 	end
+	saveData.SelectedMinorCivs = {};
+	saveData.SelectedMinorCivsEnabled = PreGame.GetGameOption("GAMEOPTION_SP_CS_ENABLED") or 0;
+	for slot = GameDefines.MAX_MAJOR_CIVS, GameDefines.MAX_CIV_PLAYERS - 1 do
+		saveData.SelectedMinorCivs[slot] = PreGame.GetGameOption("GAMEOPTION_SP_CS_" .. slot) or -1;
+	end
 	saveData.IsSaved = true;
 
 	-- Convert saveData to a string.
@@ -120,6 +125,11 @@ function SPData:CopyData(from, to)
 	for k, v in pairs(from.SPGameOptions or {}) do
 		to.SPGameOptions[k] = v;
 	end
+	to.SelectedMinorCivs = {};
+	for k, v in pairs(from.SelectedMinorCivs or {}) do
+		to.SelectedMinorCivs[k] = v;
+	end
+	to.SelectedMinorCivsEnabled = from.SelectedMinorCivsEnabled;
 	to.IsSaved = from.IsSaved;
 end
 
@@ -175,6 +185,13 @@ function SPPreGameInitialize()
 		end
 		local maxMinorCivs = math.min((GameDefines.MAX_CIV_PLAYERS - GameDefines.MAX_MAJOR_CIVS), #GameInfo.MinorCivilizations);
 		PreGame.SetNumMinorCivs( math.min(SPData.NumMinorCivs, maxMinorCivs) );
+		if SPData.SelectedMinorCivs then
+			for slot = GameDefines.MAX_MAJOR_CIVS, GameDefines.MAX_CIV_PLAYERS - 1 do
+				local t = SPData.SelectedMinorCivs[slot] or -1;
+				PreGame.SetGameOption("GAMEOPTION_SP_CS_" .. slot, t);
+			end
+			PreGame.SetGameOption("GAMEOPTION_SP_CS_ENABLED", SPData.SelectedMinorCivsEnabled or 0);
+		end
 		for option in GameInfo.MapScriptOptions{FileName = PreGame.GetMapScript()} do
 			PreGame.SetMapOption(option.OptionID, SPData.MapScriptOptions[option.OptionID]);
 		end

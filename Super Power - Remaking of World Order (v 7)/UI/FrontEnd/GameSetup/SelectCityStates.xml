@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context ColorSet="Beige_Black" Font="TwCenMT22" FontStyle="Shadow" >
+
+	<!--======================-->
+	<!-- City-State Instance  -->
+	<!--======================-->
+	<!-- Two city-states per row; each cell is name + checkbox. UA help is the checkbox tooltip. -->
+
+	<Instance Name="CityStateInstance" >
+		<Button Anchor="L,T" Size="430,40" Color="255,255,255,0" ID="Row" ConsumeMouse="1" >
+			<CheckBox Anchor="L,C" Offset="0,0" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" TextAnchorSide="Left" ID="Check"/>
+			<Label Anchor="L,C" Offset="28,0" Font="TwCenMT20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" ID="Name" />
+		</Button>
+	</Instance>
+
+	<Instance Name="RowInstance" >
+		<Box Anchor="L,T" Size="870,42" Color="255,255,255,0" ID="RowBox" >
+			<Box Anchor="L,T" Offset="0,0" Size="435,42" Color="255,255,255,0" ID="Col1" />
+			<Box Anchor="L,T" Offset="435,0" Size="435,42" Color="255,255,255,0" ID="Col2" />
+		</Box>
+	</Instance>
+
+	<!--=====================-->
+	<!-- Select City-States  -->
+	<!--=====================-->
+
+	<Grid Size="960,758" Anchor="C,C" Offset="0,36" Padding="0,0" Style="Grid9DetailFive140" >
+
+		<ScrollPanel Anchor="L,T" Offset="20,70" Size="902,580" Vertical="1" ID="ListPanel" >
+			<ScrollBar Style="VertSlider" Length="540" Offset="0.18" Anchor="R,T" AnchorSide="O,I" />
+			<UpButton	Offset="0.0"	Style="ScrollBarUp"	Anchor="R,T" AnchorSide="O,I" />
+			<DownButton Offset="0.1" Style="ScrollBarDown"	Anchor="R,B" AnchorSide="O,I" />
+			<Stack Anchor="L,T" Offset="0,0" StackGrowth="Bottom" Padding="0" ID="CityStateStack"/>
+		</ScrollPanel>
+
+		<Box Style="MenuLeftSideTreatment"/>
+		<Box Style="MenuRightSideTreatment"/>
+
+		<Box Style="MenuTopTreatment"/>
+		<Box Style="MenuBottomTreatment"/>
+
+		<Label Style="MenuTitleCaption" String="TXT_KEY_SP_SELECT_CITY_STATES_TITLE" />
+
+		<Label Anchor="C,T" Offset="0,48" Font="TwCenMT18" ColorSet="Beige_Black_Alpha" String="TXT_KEY_SP_SELECT_CITY_STATES_DESC" ID="DescLabel" />
+
+		<Box Anchor="C,B" AnchorSide="I.I" Offset="0,54" Size="910,56" Color="255,255,255,0" >
+			<GridButton Anchor="L,B" Style="SmallButton" Size="150,32" Offset="14,0" StateOffsetIncrement="0,0" ID="CancelButton" ConsumeMouse="1" >
+				<Label Anchor="C,C" Offset="0,0" String="TXT_KEY_SP_SELECT_CITY_STATES_CANCEL" Font="TwCenMT18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"/>
+			</GridButton>
+			<GridButton Anchor="R,B" Style="SmallButton" Size="150,32" Offset="-14,0" StateOffsetIncrement="0,0" ID="ConfirmButton" ConsumeMouse="1" >
+				<Label Anchor="C,C" Offset="0,0" String="TXT_KEY_SP_SELECT_CITY_STATES_CONFIRM" Font="TwCenMT18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"/>
+			</GridButton>
+		</Box>
+
+		<Box Anchor="C,B" Offset="0,100" Size="920,1" Color="255,255,200,200" />
+
+	</Grid>
+</Context>
