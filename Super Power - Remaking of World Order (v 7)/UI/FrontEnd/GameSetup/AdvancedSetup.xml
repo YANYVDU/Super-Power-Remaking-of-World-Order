@@ -97,6 +97,16 @@
                     </Stack>
                 </Box>
 
+                <!-- Select City-States Entry -->
+                <Box Anchor="L,T" Size="480,36" Offset="0,0" Color="255.255.255.0" ID="SelectCityStatesRow">
+                    <Stack ID="SelectCityStatesStack" Anchor="L,T" Size="463,32" StackGrowth="Right">
+                        <GridButton Anchor="L,C" Style="SmallButton" Size="300,28" Offset="10,0" StateOffsetIncrement="0,0" ID="SelectCityStatesButton">
+                            <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_SP_SELECT_CITY_STATES_BUTTON" Font="TwCenMT18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"/>
+                        </GridButton>
+                        <Label Anchor="L,C" Offset="10,0" Font="TwCenMT16" ColorSet="Beige_Black_Alpha" String="" ID="SelectCityStatesCount" />
+                    </Stack>
+                </Box>
+
                 <!-- List of Combo Box Options -->
                 <Stack Anchor="L,T" Offset="0,3" Padding="0" StackGrowth="Bottom" ID="DropDownOptionsStack" >
 
@@ -255,5 +265,6 @@
     </Grid>
 
     <LuaContext FileName="Assets/UI/FrontEnd/GameSetup/SetCivNames" ID="SetCivNames" Hidden="1" />
+    <LuaContext FileName="Assets/UI/FrontEnd/GameSetup/SelectCityStates" ID="SelectCityStates" Hidden="1" />
 
 </Context>
