@@ -15831,13 +15831,19 @@
 			<Text>（永久盟友）</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_TT">
-			<Text>该城邦已与{1_Civ}结成永久同盟。其盟友地位无法被其他文明通过影响力取代。</Text>
+			<Text>该城邦已与{1_Civ}结成永久同盟。其盟友地位无法被其他文明通过影响力、[ICON_GOLD]金币赠送、单位赠送、间谍操纵或政变等手段撼动。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_SELF_TT">
-			<Text>你是该城邦的永久盟友。其他文明无法撼动你的盟友地位。</Text>
+			<Text>你是该城邦的永久盟友。其他文明无法通过影响力、[ICON_GOLD]金币、单位、间谍操纵或政变等手段撼动你的盟友地位。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_GIFT_WARNING">
-			<Text>该城邦已与{1_Civ}结成永久同盟。赠送金币等提升影响力的手段不会起任何作用。</Text>
+			<Text>该城邦已与{1_Civ}结成永久同盟。赠送[ICON_GOLD]金币、单位、伟人及间谍等手段均无法提升你的影响力。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_MAJOR_CIV_DIPLO_STATE_VASSAL">
+			<Text>附庸</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_MAJOR_CIV_DIPLO_STATE_OVERLORD">
+			<Text>宗主国</Text>
 		</Row>
 
 		<Replace Tag="TXT_KEY_TP_GOLDEN_AGE_ADDITION">
@@ -16184,7 +16190,11 @@
 			<Text>[NEWLINE][COLOR:255:150:150:255]上缴宗主国 {1_Overlord}：-{2_value}[ICON_PEACE][/COLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_GOLD_TO_OVERLORD">
-			<Text>[NEWLINE][COLOR:255:150:150:255]上缴宗主国 {1_Overlord}：-{2_value}[ICON_GOLD][/COLOR]</Text>
+			<Text>上缴宗主国 {1_Overlord}：-{2_value}[ICON_GOLD]</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_TP_VASSAL_DEAL_GOLD">
+			<Text>[NEWLINE]  [ICON_BULLET]附庸交易税（本回合） {1_value}[ICON_GOLD]</Text>
 		</Row>
 
 		<Replace Tag="TXT_KEY_RESOURCE_TOOLTIP_IMPROVED_WORKED">
