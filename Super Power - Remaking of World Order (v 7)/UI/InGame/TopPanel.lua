@@ -65,6 +65,14 @@ function UpdateData()
 			-----------------------------
 			local iTotalGold = pPlayer:GetGold();
 			local iGoldPerTurn = pPlayer:CalculateGoldRate();
+			-- 附庸金币税走 ChangeGold 即时结算、不经 CalculateGoldRate，这里补上收/缴税，
+			-- 使顶部每回合数字与实际国库变化一致。
+			if pPlayer.GetGoldFromVassals then
+				iGoldPerTurn = iGoldPerTurn + pPlayer:GetGoldFromVassals();
+			end
+			if pPlayer.GetGoldToOverlord then
+				iGoldPerTurn = iGoldPerTurn - pPlayer:GetGoldToOverlord();
+			end
 			
 			-- Accounting for positive or negative GPT - there's obviously a better way to do this.  If you see this comment and know how, it's up to you ;)
 			-- Text is White when you can buy a Plot
@@ -685,7 +693,11 @@ function GoldTipHandler( control )
 	local fCityConnectionGold = pPlayer:GetCityConnectionGoldTimes100() / 100;
 	--local fInternationalTradeRouteGold = pPlayer:GetGoldPerTurnFromTradeRoutesTimes100() / 100;
 	local fTraitGold = pPlayer:GetGoldPerTurnFromTraits();
-	local fTotalIncome = fGoldPerTurnFromCities + iGoldPerTurnFromOtherPlayers + fCityConnectionGold + iGoldPerTurnFromReligion + fTradeRouteGold + fTraitGold;
+	local fGoldFromVassals = 0;
+	if pPlayer.GetGoldFromVassals then
+		fGoldFromVassals = pPlayer:GetGoldFromVassals();
+	end
+	local fTotalIncome = fGoldPerTurnFromCities + iGoldPerTurnFromOtherPlayers + fCityConnectionGold + iGoldPerTurnFromReligion + fTradeRouteGold + fTraitGold + fGoldFromVassals;
 	
 	if (pPlayer:IsAnarchy()) then
 		strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_ANARCHY", pPlayer:GetAnarchyNumTurns());
@@ -729,17 +741,10 @@ function GoldTipHandler( control )
 			end
 		end
 	end
-
-	if pPlayer.GetOverlord and pPlayer.GetGoldToOverlord then
-		local iOverlord = pPlayer:GetOverlord();
-		if iOverlord >= 0 then
-			local iTribute = pPlayer:GetGoldToOverlord();
-			if iTribute ~= 0 then
-				local pOverlord = Players[iOverlord];
-				if pOverlord ~= nil then
-					strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_TO_OVERLORD", pOverlord:GetCivilizationShortDescription(), iTribute);
-				end
-			end
+	if pPlayer.GetGoldFromVassalDealsLumpSum then
+		local iVassalDealGold = pPlayer:GetGoldFromVassalDealsLumpSum();
+		if iVassalDealGold > 0 then
+			strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_VASSAL_DEAL_GOLD", iVassalDealGold)
 		end
 	end
 
@@ -749,7 +754,11 @@ function GoldTipHandler( control )
 	local iUnitSupply = pPlayer:CalculateUnitSupply();
 	local iBuildingMaintenance = pPlayer:GetBuildingGoldMaintenance();
 	local iImprovementMaintenance = pPlayer:GetImprovementGoldMaintenance();
-	local iTotalExpenses = iUnitCost + iUnitSupply + iBuildingMaintenance + iImprovementMaintenance + iGoldPerTurnToOtherPlayers;
+	local iGoldToOverlord = 0;
+	if pPlayer.GetGoldToOverlord then
+		iGoldToOverlord = pPlayer:GetGoldToOverlord();
+	end
+	local iTotalExpenses = iUnitCost + iUnitSupply + iBuildingMaintenance + iImprovementMaintenance + iGoldPerTurnToOtherPlayers + iGoldToOverlord;
 	
 	strText = strText .. "[NEWLINE]";
 	strText = strText .. "[COLOR:255:150:150:255]";
@@ -768,6 +777,15 @@ function GoldTipHandler( control )
 	end
 	if (iGoldPerTurnToOtherPlayers > 0) then
 		strText = strText .. "[NEWLINE]  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_TO_OTHERS", iGoldPerTurnToOtherPlayers);
+	end
+	if (iGoldToOverlord > 0) then
+		local iOverlord = pPlayer:GetOverlord();
+		if iOverlord >= 0 then
+			local pOverlord = Players[iOverlord];
+			if pOverlord ~= nil then
+				strText = strText .. "[NEWLINE]  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_TO_OVERLORD", pOverlord:GetCivilizationShortDescription(), iGoldToOverlord);
+			end
+		end
 	end
 	strText = strText .. "[/COLOR]";
 	
@@ -1328,7 +1346,17 @@ function CultureTipHandler( control )
 		end
 		
 		-- Culture from Golden Age
-		local iCultureFromGoldenAge = pPlayer:GetTotalJONSCulturePerTurn() - iCultureForFree - iCultureFromCities - iCultureFromHappiness - iCultureFromMinors - iCultureFromReligion - iCultureFromTraits - iCultureFromBonusTurns;
+		-- 附庸文化税已计入 GetTotalJONSCulturePerTurn()（+FromVassals -ToOverlord），
+		-- 反推黄金时代文化前须剔除，否则会被税污染。
+		local iCultureFromVassals = 0;
+		local iCultureToOverlord = 0;
+		if pPlayer.GetCultureFromVassals then
+			iCultureFromVassals = pPlayer:GetCultureFromVassals();
+		end
+		if pPlayer.GetCultureToOverlord then
+			iCultureToOverlord = pPlayer:GetCultureToOverlord();
+		end
+		local iCultureFromGoldenAge = pPlayer:GetTotalJONSCulturePerTurn() - iCultureForFree - iCultureFromCities - iCultureFromHappiness - iCultureFromMinors - iCultureFromReligion - iCultureFromTraits - iCultureFromBonusTurns - iCultureFromVassals + iCultureToOverlord;
 		if (iCultureFromGoldenAge ~= 0) then
 		
 			-- Add separator for non-initial entries

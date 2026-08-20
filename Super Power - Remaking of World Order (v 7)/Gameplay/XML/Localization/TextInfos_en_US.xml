@@ -17388,13 +17388,19 @@
 			<Text> (Permanent Ally)</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_TT">
-			<Text>This City-State has formed a permanent alliance with {1_Civ}. Its ally status cannot be contested by other civilizations through influence.</Text>
+			<Text>This City-State has formed a permanent alliance with {1_Civ}. Its ally status cannot be contested by other civilizations through influence, [ICON_GOLD]Gold gifts, unit gifts, espionage, or coups.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_SELF_TT">
-			<Text>You are the permanent ally of this City-State. Other civilizations cannot contest your status.</Text>
+			<Text>You are the permanent ally of this City-State. Other civilizations cannot contest your status through influence, [ICON_GOLD]Gold, units, espionage, or coups.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CITY_STATE_PERMANENT_ALLY_GIFT_WARNING">
-			<Text>This City-State has formed a permanent alliance with {1_Civ}. Gold gifts and other influence-boosting methods will have no effect.</Text>
+			<Text>This City-State has formed a permanent alliance with {1_Civ}. [ICON_GOLD]Gold gifts, unit gifts, Great People, and espionage will not increase your influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_MAJOR_CIV_DIPLO_STATE_VASSAL">
+			<Text>Vassal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_MAJOR_CIV_DIPLO_STATE_OVERLORD">
+			<Text>Overlord</Text>
 		</Row>
 
 		<Replace Tag="TXT_KEY_TP_GOLDEN_AGE_ADDITION">
@@ -17719,8 +17725,13 @@
 			<Text>[NEWLINE][COLOR:255:150:150:255]Tribute to Overlord {1_Overlord}: -{2_value}[ICON_PEACE][/COLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_GOLD_TO_OVERLORD">
-			<Text>[NEWLINE][COLOR:255:150:150:255]Tribute to Overlord {1_Overlord}: -{2_value}[ICON_GOLD][/COLOR]</Text>
+			<Text>Tribute to Overlord {1_Overlord}: -{2_value}[ICON_GOLD]</Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_TP_VASSAL_DEAL_GOLD">
+			<Text>[NEWLINE]  [ICON_BULLET]Vassal deal tax (this turn) {1_value}[ICON_GOLD]</Text>
+		</Row>
+
 
 		<Replace Tag="TXT_KEY_RESOURCE_TOOLTIP_IMPROVED_WORKED">
 			<Text>Base Yield from Resouce:</Text>

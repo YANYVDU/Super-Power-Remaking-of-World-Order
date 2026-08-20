@@ -245,6 +245,11 @@ function getAlly(pCs, pPlayer)
 		end
 	end
 
+	local iPermanentAlly = GetPermanentAlly(pCs:GetID());
+	if (iPermanentAlly ~= -1) then
+		sAllyText = sAllyText .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_PERMANENT_ALLY_SUFFIX");
+	end
+
 	return sAlly, sAllyText
 end
 
@@ -404,11 +409,18 @@ function setGoldGiftIcons(controlTable, pCs, pPlayer, bForcePeace)
 	local pTeam = Teams[pPlayer:GetTeam()]
 	local iPlayerGold = pPlayer:GetGold()
 	local bWar = (bForcePeace == false and pTeam:IsAtWar(pCs:GetTeam()))
+	local bPermanentAlly = (GetPermanentAlly(iCs) ~= -1);
+	local function giftInfluence(iGold)
+		if (bPermanentAlly) then
+			return 0;
+		end
+		return pCs:GetFriendshipFromGoldGift(iPlayer, iGold);
+	end
 
 	-- Small Gold
 	if (not bWar and iPlayerGold >= iGoldGiftSmall) then
 		controlTable.CsGiftSmall:SetHide(false)
-		controlTable.CsGiftSmall:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_DO_CS_STATUS_GIFT_INFLUENCE_TT", iGoldGiftSmall, pCs:GetFriendshipFromGoldGift(iPlayer, iGoldGiftSmall)))
+		controlTable.CsGiftSmall:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_DO_CS_STATUS_GIFT_INFLUENCE_TT", iGoldGiftSmall, giftInfluence(iGoldGiftSmall)))
 
 		controlTable.CsGiftSmall:SetVoid1(iCs)
 		controlTable.CsGiftSmall:SetVoid2(iGoldGiftSmall)
@@ -420,7 +432,7 @@ function setGoldGiftIcons(controlTable, pCs, pPlayer, bForcePeace)
 	-- Medium Gold
 	if (not bWar and iPlayerGold >= iGoldGiftMedium) then
 		controlTable.CsGiftMedium:SetHide(false)
-		controlTable.CsGiftMedium:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_DO_CS_STATUS_GIFT_INFLUENCE_TT", iGoldGiftMedium, pCs:GetFriendshipFromGoldGift(iPlayer, iGoldGiftMedium)))
+		controlTable.CsGiftMedium:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_DO_CS_STATUS_GIFT_INFLUENCE_TT", iGoldGiftMedium, giftInfluence(iGoldGiftMedium)))
 
 		controlTable.CsGiftMedium:SetVoid1(iCs)
 		controlTable.CsGiftMedium:SetVoid2(iGoldGiftMedium)
@@ -432,7 +444,7 @@ function setGoldGiftIcons(controlTable, pCs, pPlayer, bForcePeace)
 	-- Large Gold
 	if (not bWar and iPlayerGold >= iGoldGiftLarge) then
 		controlTable.CsGiftLarge:SetHide(false)
-		controlTable.CsGiftLarge:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_DO_CS_STATUS_GIFT_INFLUENCE_TT", iGoldGiftLarge, pCs:GetFriendshipFromGoldGift(iPlayer, iGoldGiftLarge)))
+		controlTable.CsGiftLarge:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_DO_CS_STATUS_GIFT_INFLUENCE_TT", iGoldGiftLarge, giftInfluence(iGoldGiftLarge)))
 
 		controlTable.CsGiftLarge:SetVoid1(iCs)
 		controlTable.CsGiftLarge:SetVoid2(iGoldGiftLarge)
@@ -444,7 +456,7 @@ function setGoldGiftIcons(controlTable, pCs, pPlayer, bForcePeace)
 	-- Huge Gold (5000)
 	if (not bWar and iPlayerGold >= iGoldGiftHuge) then
 		controlTable.CsGiftHuge:SetHide(false)
-		controlTable.CsGiftHuge:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_DO_CS_STATUS_GIFT_INFLUENCE_TT", iGoldGiftHuge, pCs:GetFriendshipFromGoldGift(iPlayer, iGoldGiftHuge)))
+		controlTable.CsGiftHuge:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_DO_CS_STATUS_GIFT_INFLUENCE_TT", iGoldGiftHuge, giftInfluence(iGoldGiftHuge)))
 
 		controlTable.CsGiftHuge:SetVoid1(iCs)
 		controlTable.CsGiftHuge:SetVoid2(iGoldGiftHuge)
