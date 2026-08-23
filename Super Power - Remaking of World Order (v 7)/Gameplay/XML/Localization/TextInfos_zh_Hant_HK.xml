@@ -16234,6 +16234,39 @@
 		<Row Tag="TXT_KEY_DIPLOMACY_DUAL_EMPIRE_TREATY_ADV_QUEST">
 			<Text>如何與其他主要文明建立二元帝國？ </Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_DIPLOMACY_SUZERAIN_SYSTEM_TITLE">
+			<Text>宗主系統</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLOMACY_SUZERAIN_SYSTEM_BODY">
+			<Text>
+				僅天道之國可用。
+				[NEWLINE][NEWLINE]獲取附庸：
+				[NEWLINE][ICON_BULLET]在世界議會中提出「天道臣服」議案，指定一個主要文明成為妳的臣服國
+				[NEWLINE][ICON_BULLET]提出議案時，妳的軍事評分、人口、城市數量必須同時達到目標文明的兩倍以上
+				[NEWLINE][ICON_BULLET]妳的永久盟友城邦與已有附庸的城市、人口、軍事評分，可按比例計入上述判定
+				[NEWLINE][NEWLINE]附庸的義務與宗主的收益：
+				[NEWLINE][ICON_BULLET]附庸每回合上繳其25%的[ICON_RESEARCH]科研、[ICON_CULTURE]文化、[ICON_PEACE]信仰與[ICON_GOLD]金錢產出（實打實扣除）
+				[NEWLINE][ICON_BULLET]宗主獲得附庸的全部特色單位、特色建築與特色設施
+				[NEWLINE][ICON_BULLET]簽訂研究協定時，天道一方的基礎科研值按「宗主+全部附庸」之和計算
+				[NEWLINE][ICON_BULLET]雙方不可互相宣戰或譴責
+				[NEWLINE][ICON_BULLET]計算征服勝利時，附庸持有的所有原始首都計入宗主
+				[NEWLINE][NEWLINE]議案可被廢除，附庸將隨之恢復獨立。
+				[NEWLINE][NEWLINE][COLOR_WARNING_TEXT]未來願景（未實裝）：[ENDCOLOR]
+				[NEWLINE][ICON_BULLET]更多附庸來源——戰爭中打服對方使其無條件投降，或讓弱國主動來投；附庸越多，越易收服新附庸
+				[NEWLINE][ICON_BULLET]天命——衡量天下穩定與否的全局能量，附庸與永久盟友持續供給，統治操作消耗
+				[NEWLINE][ICON_BULLET]臣服度——每個附庸獨立的忠誠值，隨軍力對比漲落，過低則發動獨立戰爭
+				[NEWLINE][ICON_BULLET]服兵役與朝貢——附庸定期分撥軍隊、上貢資源金幣，大貢割讓城市
+				[NEWLINE][ICON_BULLET]歸宗——附庸新創信條併入宗主宗教，附庸研發的科技加速宗主研究
+				[NEWLINE][ICON_BULLET]索取與賣科技——向附庸無外交懲罰地索取資源，或出售科技換取金錢
+				[NEWLINE][ICON_BULLET]反制手段——鎮壓、賞賜、還城、保護、一鍵維穩，附庸可反、宗主能管
+				[NEWLINE][ICON_BULLET]枕戈待旦——附庸獨立戰爭時，宗主駐軍不被彈出、原地反擊
+				[NEWLINE][ICON_BULLET]調停——附庸內鬥時，宗主出面仲裁，撮合三方和平協定
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLOMACY_SUZERAIN_SYSTEM_ADV_QUEST">
+			<Text>如何建立宗主系統、收服其他文明為附庸？</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_SPECIALISTSANDGP_LANDMARK_HEADING4_BODY">
 			<Text>風景地標為城市產生大量文化和魅力。</Text>
 		</Replace>

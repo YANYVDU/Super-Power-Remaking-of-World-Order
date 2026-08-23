@@ -17964,6 +17964,39 @@
 		<Row Tag="TXT_KEY_DIPLOMACY_DUAL_EMPIRE_TREATY_ADV_QUEST">
 			<Text>How to build a dual empire with other major civilizations? </Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_DIPLOMACY_SUZERAIN_SYSTEM_TITLE">
+			<Text>Suzerain System</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLOMACY_SUZERAIN_SYSTEM_BODY">
+			<Text>
+				Available only in Tiandao.
+				[NEWLINE][NEWLINE]Acquiring a vassal:
+				[NEWLINE][ICON_BULLET]Propose the "Heavenly Mandate Submission" resolution in the World Congress to designate another major civilization as your vassal.
+				[NEWLINE][ICON_BULLET]Your Military Might, Population, and number of Cities must each be at least double those of the target civilization.
+				[NEWLINE][ICON_BULLET]The Cities, Population, and Military Might of your permanent allied city-states and existing vassals count toward this requirement by ratio.
+				[NEWLINE][NEWLINE]Vassal obligations and overlord benefits:
+				[NEWLINE][ICON_BULLET]The vassal pays 25% of its [ICON_RESEARCH]Science, [ICON_CULTURE]Culture, [ICON_PEACE]Faith, and [ICON_GOLD]Gold output as tribute each turn (actually deducted).
+				[NEWLINE][ICON_BULLET]The overlord gains access to all of the vassal's Unique Units, Buildings, and Improvements.
+				[NEWLINE][ICON_BULLET]In Research Agreements, your base Science contribution counts the combined output of you and all your vassals.
+				[NEWLINE][ICON_BULLET]Neither party may declare war on or denounce the other.
+				[NEWLINE][ICON_BULLET]For Domination Victory, all original capitals held by vassals count toward the overlord.
+				[NEWLINE][NEWLINE]The resolution may be repealed, freeing the vassal.
+				[NEWLINE][NEWLINE][COLOR_WARNING_TEXT]Future vision (not yet implemented):[ENDCOLOR]
+				[NEWLINE][ICON_BULLET]More ways to gain vassals - defeat a foe in war to force unconditional surrender, or let weaker civilizations come to you voluntarily; the more vassals you hold, the easier it is to gain new ones.
+				[NEWLINE][ICON_BULLET]Mandate of Heaven - a global resource measuring the stability of your rule, fed by vassals and permanent allies and spent on governing actions.
+				[NEWLINE][ICON_BULLET]Submission - each vassal has its own loyalty that rises and falls with the balance of military power, and triggers a war of independence when too low.
+				[NEWLINE][ICON_BULLET]Levies and Tribute - vassals periodically provide troops and resources, with great tribute ceding a city.
+				[NEWLINE][ICON_BULLET]Integration - new beliefs founded by vassals join the overlord's religion, and vassal-researched technologies speed up the overlord's research.
+				[NEWLINE][ICON_BULLET]Demand and Sell Technology - demand resources from vassals without diplomatic penalty, or sell technology for gold.
+				[NEWLINE][ICON_BULLET]Countermeasures - Suppress, Reward, Return City, Protect, and One-click Stabilize, so vassals can rebel and the overlord can govern.
+				[NEWLINE][ICON_BULLET]Lying in Wait - when a vassal launches a war of independence, the overlord's garrison is not ejected and strikes back in place.
+				[NEWLINE][ICON_BULLET]Mediation - when vassals fight each other, the overlord arbitrates and brokers a tripartite peace.
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLOMACY_SUZERAIN_SYSTEM_ADV_QUEST">
+			<Text>How to establish a Suzerain system and bind other civilizations as vassals?</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_SPECIALISTSANDGP_LANDMARK_HEADING4_BODY">
 			<Text>A Landmark Improvement provides loads of culture and tourism to the city.</Text>
 		</Replace>

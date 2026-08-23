@@ -481,5 +481,14 @@
 			<Advisor>FOREIGN</Advisor>
 			<CivilopediaHeaderType>HEADER_DIPLOMACY</CivilopediaHeaderType>
 		</Row>
+		<Row>
+			<Type>CONCEPT_DIPLOMACY_SUZERAIN_SYSTEM</Type>
+			<Topic>TXT_KEY_TOPIC_DIPLOMACY</Topic>
+			<Description>TXT_KEY_DIPLOMACY_SUZERAIN_SYSTEM_TITLE</Description>
+			<Summary>TXT_KEY_DIPLOMACY_SUZERAIN_SYSTEM_BODY</Summary>
+			<AdvisorQuestion>TXT_KEY_DIPLOMACY_SUZERAIN_SYSTEM_ADV_QUEST</AdvisorQuestion>
+			<Advisor>FOREIGN</Advisor>
+			<CivilopediaHeaderType>HEADER_DIPLOMACY</CivilopediaHeaderType>
+		</Row>
 	</Concepts>
 </GameData>
