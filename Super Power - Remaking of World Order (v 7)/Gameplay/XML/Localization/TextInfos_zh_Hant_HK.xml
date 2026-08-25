@@ -17317,6 +17317,31 @@
 				[NEWLINE][ICON_BULLET]城牆、城堡為城市+10%[ICON_CULTURE]文化
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_SOFIA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]策劃政變成功率+30%（可突破85%上限，最高必定成功）
+				[NEWLINE][ICON_BULLET]政變失敗的間諜不會死亡，而是返回避難所
+				[NEWLINE][ICON_BULLET]每擁有1個[ICON_SPY]間諜，盜取[ICON_RESEARCH]科技速度+5%，擊殺他國[ICON_SPY]間諜的機率+5%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]策劃政變成功率+12%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SOFIA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]策劃政變成功率+30%（可突破85%上限，最高必定成功）
+				[NEWLINE][ICON_BULLET]政變失敗的間諜不會死亡，而是返回避難所
+				[NEWLINE][ICON_BULLET]每擁有1個[ICON_SPY]間諜，盜取[ICON_RESEARCH]科技速度+5%，擊殺他國[ICON_SPY]間諜的機率+5%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SOFIA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]策劃政變成功率+12%
+			</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_CAHOKIA_HELP">
 			<Text>
 				盟友效果：

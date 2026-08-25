@@ -189,6 +189,19 @@
 			<Type>EFFECT_CSUA_VILNIUS_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_VILNIUS_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_SOFIA_ALLY</Type>
+			<CoupChanceModifier>30</CoupChanceModifier>
+			<CoupFailSpySurvives>true</CoupFailSpySurvives>
+			<StealTechSpeedPerSpy>5</StealTechSpeedPerSpy>
+			<SpyKillChancePerSpy>5</SpyKillChancePerSpy>
+			<Help>TXT_KEY_EFFECT_CSUA_SOFIA_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_SOFIA_FRIEND</Type>
+			<CoupChanceModifier>12</CoupChanceModifier>
+			<Help>TXT_KEY_EFFECT_CSUA_SOFIA_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1167,6 +1180,13 @@
 			<Help>TXT_KEY_CSUA_VILNIUS_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_VILNIUS_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_VILNIUS_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_SOFIA</Type>
+			<Description>TXT_KEY_CITYSTATE_SOFIA</Description>
+			<Help>TXT_KEY_CSUA_SOFIA_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_SOFIA_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_SOFIA_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>

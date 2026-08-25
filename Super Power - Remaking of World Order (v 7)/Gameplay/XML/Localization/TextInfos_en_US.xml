@@ -19042,6 +19042,31 @@
 				[NEWLINE][ICON_BULLET]Walls and Castle grant the city +10% [ICON_CULTURE]Culture
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_SOFIA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]+30% chance to successfully stage a [ICON_SPY]Coup (may exceed the 85% cap, up to a guaranteed success)
+				[NEWLINE][ICON_BULLET]Spies that fail a [ICON_SPY]Coup survive and return to the safe house
+				[NEWLINE][ICON_BULLET]Each [ICON_SPY]Spy you own speeds up stealing [ICON_RESEARCH]Technology by 5% and raises the chance to kill enemy [ICON_SPY]Spies by 5%
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]+12% chance to successfully stage a [ICON_SPY]Coup
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SOFIA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]+30% chance to successfully stage a [ICON_SPY]Coup (may exceed the 85% cap, up to a guaranteed success)
+				[NEWLINE][ICON_BULLET]Spies that fail a [ICON_SPY]Coup survive and return to the safe house
+				[NEWLINE][ICON_BULLET]Each [ICON_SPY]Spy you own speeds up stealing [ICON_RESEARCH]Technology by 5% and raises the chance to kill enemy [ICON_SPY]Spies by 5%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SOFIA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]+12% chance to successfully stage a [ICON_SPY]Coup
+			</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_CAHOKIA_HELP">
 			<Text>
 				Ally Effects:
