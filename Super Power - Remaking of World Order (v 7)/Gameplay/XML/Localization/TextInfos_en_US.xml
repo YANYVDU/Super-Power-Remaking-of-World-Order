@@ -19287,5 +19287,26 @@
 		<Row Tag="TXT_KEY_SP_CITY_STATE_HAS_UA">
 			<Text>[COLOR_CYAN]Unique Ability[ENDCOLOR]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID">
+			<Text>Economic Aid</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_REVOKE">
+			<Text>Withdraw Economic Aid</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_TT">
+			<Text>Declare economic aid to this City-State:[NEWLINE][ICON_BULLET]Pay [ICON_GOLD]{1_num} gold per turn[NEWLINE][ICON_BULLET]Ally: influence stays unchanged (or -1 per turn if not providing aid)[NEWLINE][ICON_BULLET]Non-ally: +1 influence per turn[NEWLINE][ICON_BULLET]Cannot rejoin this round after withdrawing</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_REVOKE_TT">
+			<Text>Stop economic aid to this City-State.[NEWLINE][COLOR_WARNING_TEXT]Allies lose 20 influence immediately and cannot rejoin this round[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_DISABLED_LOCKED_TT">
+			<Text>[NEWLINE][COLOR_WARNING_TEXT]Withdrawn or terminated this round; cannot rejoin until the next round[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_DISABLED_CLOSED_TT">
+			<Text>[NEWLINE][COLOR_WARNING_TEXT]This City-State has not started its economic program; it will open next round[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TOOLTIP_ECONOMIC_AID_ACTIVE">
+			<Text>Economic Aid</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

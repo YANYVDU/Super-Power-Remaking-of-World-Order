@@ -17562,5 +17562,26 @@
 		<Row Tag="TXT_KEY_SP_CITY_STATE_HAS_UA">
 			<Text>[COLOR_CYAN]專屬UA[ENDCOLOR]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID">
+			<Text>經濟援助</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_REVOKE">
+			<Text>退出經濟援助</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_TT">
+			<Text>宣佈對該城邦提供經濟援助：[NEWLINE][ICON_BULLET]每回合支付 [ICON_GOLD]{1_num} 金幣[NEWLINE][ICON_BULLET]盟友：影響力保持不變（未援助則每回合 -1 影響力）[NEWLINE][ICON_BULLET]非盟友：每回合 +1 影響力[NEWLINE][ICON_BULLET]本輪內退出後不可再次參加</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_REVOKE_TT">
+			<Text>停止對該城邦的經濟援助。[NEWLINE][COLOR_WARNING_TEXT]盟友退出將立刻扣除 20 影響力，且本輪內不可再次參加[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_DISABLED_LOCKED_TT">
+			<Text>[NEWLINE][COLOR_WARNING_TEXT]本輪內已退出或終止，本輪無法再次參加[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_DISABLED_CLOSED_TT">
+			<Text>[NEWLINE][COLOR_WARNING_TEXT]該城邦還未開始經濟建設，需等到下一輪[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TOOLTIP_ECONOMIC_AID_ACTIVE">
+			<Text>經濟援助中</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

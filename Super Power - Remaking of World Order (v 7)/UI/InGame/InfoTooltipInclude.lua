@@ -4201,6 +4201,7 @@ if Game then
 		local allied = {}
 		local friends = {}
 		local protected = {}
+		local economicAid = {}
 		local denouncements = {}
 		local backstabs = {}
 		local denouncedBy = {}
@@ -4235,6 +4236,10 @@ if Game then
 					if player:IsProtectingMinor(otherPlayerID) then
 						insert( protected, otherPlayerName .. inParentheses( not IsCiv5Vanilla and isUs and ( otherPlayer:GetTurnLastPledgedProtectionByMajor(playerID) - Game.GetGameTurn() + 10 ) ) )  -- todo check scaling % game speed
 					end
+					-- Economic aid (Super Power V11)
+					if otherPlayer:IsEconomicAidFromMajor(playerID) then
+						insert( economicAid, otherPlayerName )
+					end
 				else
 					-- Defensive pacts
 					if team:IsDefensivePact(otherTeamID) then
@@ -4268,6 +4273,9 @@ if Game then
 		end
 		if #protected > 0 then
 			insert( tips, "[ICON_CITY_STATE]" .. L"TXT_KEY_POP_CSTATE_PLEDGE_TO_PROTECT" .. ": " .. concat( protected, ", ") )
+		end
+		if #economicAid > 0 then
+			insert( tips, "[ICON_GOLD]" .. L"TXT_KEY_TOOLTIP_ECONOMIC_AID_ACTIVE" .. ": " .. concat( economicAid, ", ") )
 		end
 		if #backstabs > 0 then
 			insert( tips, "[ICON_PIRATE]" .. L( "TXT_KEY_DIPLO_BACKSTABBED", concat( backstabs, ", ") ) )

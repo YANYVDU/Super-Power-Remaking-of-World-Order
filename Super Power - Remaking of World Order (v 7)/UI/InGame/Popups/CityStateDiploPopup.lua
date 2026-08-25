@@ -27,6 +27,8 @@ local kiGiftedGold = 4;
 local kiPledgedToProtect = 5;
 local kiDeclaredWar = 6;
 local kiRevokedProtection = 7;
+local kiEconomicAid = 8;
+local kiRevokedEconomicAid = 9;
 local m_iLastAction = kiNoAction;
 local m_iPendingAction = kiNoAction; -- For bullying dialog popups
 
@@ -560,7 +562,55 @@ function OnDisplay()
 		Controls.RevokePledgeLabel:SetText(strRevokeProtectButton);
 		Controls.RevokePledgeButton:SetToolTipString(strRevokeProtectTT);
 	end
-	
+
+	-- Economic Aid (Super Power V11)
+	local bShowAidButton = false;
+	local bEnableAidButton = false;
+	local bShowRevokeAidButton = false;
+	local bEnableRevokeAidButton = false;
+	local strAidButton = Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID");
+	local strAidTT = Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_TT", Game.GetEconomicAidWorldEra());
+	local strRevokeAidButton = Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_REVOKE");
+	local strRevokeAidTT = Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_REVOKE_TT");
+
+	if (not bWar and Game.IsEconomicAidActive()) then
+		-- Already providing aid
+		if (pPlayer:IsEconomicAidFromMajor(iActivePlayer)) then
+			bShowRevokeAidButton = true;
+			if (pPlayer:CanMajorWithdrawEconomicAid(iActivePlayer)) then
+				bEnableRevokeAidButton = true;
+			else
+				bEnableRevokeAidButton = false;
+			end
+		-- Not providing aid
+		else
+			bShowAidButton = true;
+			if (pPlayer:CanMajorStartEconomicAid(iActivePlayer)) then
+				bEnableAidButton = true;
+			else
+				bEnableAidButton = false;
+				strAidButton = "[COLOR_WARNING_TEXT]" .. strAidButton .. "[ENDCOLOR]";
+				if (not pPlayer:IsEconomicAidOpenThisRound()) then
+					strAidTT = strAidTT .. Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_DISABLED_CLOSED_TT");
+				else
+					strAidTT = strAidTT .. Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_DISABLED_LOCKED_TT");
+				end
+			end
+		end
+	end
+	Controls.AidAnim:SetHide(not bEnableAidButton);
+	Controls.AidButton:SetHide(not bShowAidButton);
+	if (bShowAidButton) then
+		Controls.AidLabel:SetText(strAidButton);
+		Controls.AidButton:SetToolTipString(strAidTT);
+	end
+	Controls.RevokeAidAnim:SetHide(not bEnableRevokeAidButton);
+	Controls.RevokeAidButton:SetHide(not bShowRevokeAidButton);
+	if (bShowRevokeAidButton) then
+		Controls.RevokeAidLabel:SetText(strRevokeAidButton);
+		Controls.RevokeAidButton:SetToolTipString(strRevokeAidTT);
+	end
+
 	if (Game.IsOption(GameOptionTypes.GAMEOPTION_ALWAYS_WAR)) then
 		Controls.PeaceButton:SetHide(true);
 	end
@@ -605,6 +655,8 @@ function OnDisplay()
 	SetButtonSize(Controls.WarLabel, Controls.WarButton, Controls.WarAnim, Controls.WarButtonHL);
 	SetButtonSize(Controls.PledgeLabel, Controls.PledgeButton, Controls.PledgeAnim, Controls.PledgeButtonHL);
 	SetButtonSize(Controls.RevokePledgeLabel, Controls.RevokePledgeButton, Controls.RevokePledgeAnim, Controls.RevokePledgeButtonHL);
+	SetButtonSize(Controls.AidLabel, Controls.AidButton, Controls.AidAnim, Controls.AidButtonHL);
+	SetButtonSize(Controls.RevokeAidLabel, Controls.RevokeAidButton, Controls.RevokeAidAnim, Controls.RevokeAidButtonHL);
 	SetButtonSize(Controls.VeniceBuyFoodLabel, Controls.VeniceBuyFoodButton, Controls.VeniceBuyFoodAnim, Controls.VeniceBuyFoodButtonHL);
 	SetButtonSize(Controls.NoUnitSpawningLabel, Controls.NoUnitSpawningButton, Controls.NoUnitSpawningAnim, Controls.NoUnitSpawningButtonHL);
 	SetButtonSize(Controls.BuyoutLabel, Controls.BuyoutButton, Controls.BuyoutAnim, Controls.BuyoutButtonHL);
@@ -674,16 +726,41 @@ Controls.PledgeButton:RegisterCallback( Mouse.eLClick, OnPledgeButtonClicked );
 -- Revoke Pledge
 ----------------------------------------------------------------
 function OnRevokePledgeButtonClicked ()
-	
+
 	local iActivePlayer = Game.GetActivePlayer();
 	local pPlayer = Players[g_iMinorCivID];
-	
+
 	if (pPlayer:CanMajorWithdrawProtection(iActivePlayer)) then
 		Game.DoMinorPledgeProtection(iActivePlayer, g_iMinorCivID, false);
 		m_iLastAction = kiRevokedProtection;
 	end
 end
 Controls.RevokePledgeButton:RegisterCallback( Mouse.eLClick, OnRevokePledgeButtonClicked );
+
+----------------------------------------------------------------
+-- Economic Aid (Super Power V11)
+----------------------------------------------------------------
+function OnAidButtonClicked ()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pPlayer = Players[g_iMinorCivID];
+
+	if (pPlayer:CanMajorStartEconomicAid(iActivePlayer)) then
+		Game.DoMinorEconomicAid(iActivePlayer, g_iMinorCivID, true);
+		m_iLastAction = kiEconomicAid;
+	end
+end
+Controls.AidButton:RegisterCallback( Mouse.eLClick, OnAidButtonClicked );
+
+function OnRevokeAidButtonClicked ()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pPlayer = Players[g_iMinorCivID];
+
+	if (pPlayer:CanMajorWithdrawEconomicAid(iActivePlayer)) then
+		Game.DoMinorEconomicAid(iActivePlayer, g_iMinorCivID, false);
+		m_iLastAction = kiRevokedEconomicAid;
+	end
+end
+Controls.RevokeAidButton:RegisterCallback( Mouse.eLClick, OnRevokeAidButtonClicked );
 
 ----------------------------------------------------------------
 -- Buyout

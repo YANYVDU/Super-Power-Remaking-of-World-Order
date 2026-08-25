@@ -795,6 +795,12 @@
 			<Set Value="100"/>
 			<Where Name="MINOR_BULLY_GOLD" />
 		</Update>
+		<!-- Economic Aid (Super Power V11): base length of one global aid round, scaled by game speed.
+		     Default is provided by MPDLL (UNIQUE_CITYSTATES.sql); Update only adjusts it here -->
+		<Update>
+			<Set Value="20"/>
+			<Where Name="ECONOMIC_AID_ROUND_LENGTH" />
+		</Update>
 	</Defines>
 	
 	
