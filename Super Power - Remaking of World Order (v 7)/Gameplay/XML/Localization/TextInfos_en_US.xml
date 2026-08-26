@@ -19314,5 +19314,29 @@
 		<Row Tag="TXT_KEY_TOOLTIP_ECONOMIC_AID_ACTIVE">
 			<Text>Economic Aid</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_BASE_TT">
+			<Text>[ICON_BULLET]Base Production: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_CITY_TT">
+			<Text>[ICON_BULLET]From this city's buildings: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_BUILDING_TT">
+			<Text>[ICON_BULLET]From this civilization's buildings/wonders: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_THEIR_POLICY_TT">
+			<Text>[ICON_BULLET]From this civilization's policies: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_MY_POLICY_TT">
+			<Text>[ICON_BULLET]From my policies: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_CSUA_TT">
+			<Text>[ICON_BULLET]From city-state UA: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_RANK_TT">
+			<Text>[ICON_BULLET]From spy rank: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_SPEED_TT">
+			<Text>[ICON_BULLET]From spy speed: {1_Num}</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

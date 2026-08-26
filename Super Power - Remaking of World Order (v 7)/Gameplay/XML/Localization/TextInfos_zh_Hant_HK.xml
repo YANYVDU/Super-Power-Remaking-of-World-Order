@@ -17589,5 +17589,29 @@
 		<Row Tag="TXT_KEY_TOOLTIP_ECONOMIC_AID_ACTIVE">
 			<Text>經濟援助中</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_BASE_TT">
+			<Text>[ICON_BULLET]基礎產出: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_CITY_TT">
+			<Text>[ICON_BULLET]來自該城市建築: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_BUILDING_TT">
+			<Text>[ICON_BULLET]來自該文明建築/奇觀: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_THEIR_POLICY_TT">
+			<Text>[ICON_BULLET]來自該文明政策: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_MY_POLICY_TT">
+			<Text>[ICON_BULLET]來自我方政策: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_CSUA_TT">
+			<Text>[ICON_BULLET]來自城邦UA: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_RANK_TT">
+			<Text>[ICON_BULLET]來自間諜等級: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_SPEED_TT">
+			<Text>[ICON_BULLET]來自間諜速度: {1_Num}</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
