@@ -19314,6 +19314,9 @@
 		<Row Tag="TXT_KEY_TOOLTIP_ECONOMIC_AID_ACTIVE">
 			<Text>Economic Aid</Text>
 		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_ROUND_STATUS">
+			<Text>[ICON_GOLD]Economic Aid - Round {1_Round} - {2_TurnsLeft} turns remaining</Text>
+		</Row>
 		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_BASE_TT">
 			<Text>[ICON_BULLET]Base Production: {1_Num}</Text>
 		</Row>

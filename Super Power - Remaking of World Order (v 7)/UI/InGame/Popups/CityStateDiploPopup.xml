@@ -121,6 +121,8 @@
               </AlphaAnim>
             </ShowOnMouseOver>
           </Button>
+          <!-- ECONOMIC AID ROUND STATUS (Super Power V11) -->
+          <Label Hidden="1" Size="500,18" Anchor="C,C" Offset="0,0" Font="TwCenMT16" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" ID="EconomicAidRoundLabel" String="TXT_KEY_POP_CSTATE_ECONOMIC_AID_ROUND_STATUS"/>
           <!-- ECONOMIC AID BUTTON (Super Power V11) -->
           <Button Hidden="1" Size="500,32" Anchor="C,C" Offset="0,0" ID="AidButton" ToolTip="TXT_KEY_POP_CSTATE_ECONOMIC_AID_TT">
             <Label Anchor="C,C" Offset="0,0" ID="AidLabel" String="TXT_KEY_POP_CSTATE_ECONOMIC_AID"/>

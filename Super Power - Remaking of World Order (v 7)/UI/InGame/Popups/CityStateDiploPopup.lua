@@ -574,6 +574,11 @@ function OnDisplay()
 	local strRevokeAidTT = Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_REVOKE_TT");
 
 	if (not bWar and Game.IsEconomicAidActive()) then
+		-- Round status: all city-states share the same global round; show which round
+		-- we are in and how many turns remain before the next round starts.
+		local strRoundStatus = Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_ROUND_STATUS", Game.GetEconomicAidRound(), Game.GetEconomicAidRoundTurnsLeft());
+		Controls.EconomicAidRoundLabel:SetText(strRoundStatus);
+		Controls.EconomicAidRoundLabel:SetHide(false);
 		-- Already providing aid
 		if (pPlayer:IsEconomicAidFromMajor(iActivePlayer)) then
 			bShowRevokeAidButton = true;
@@ -597,6 +602,8 @@ function OnDisplay()
 				end
 			end
 		end
+	else
+		Controls.EconomicAidRoundLabel:SetHide(true);
 	end
 	Controls.AidAnim:SetHide(not bEnableAidButton);
 	Controls.AidButton:SetHide(not bShowAidButton);

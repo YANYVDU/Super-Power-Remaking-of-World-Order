@@ -17589,6 +17589,9 @@
 		<Row Tag="TXT_KEY_TOOLTIP_ECONOMIC_AID_ACTIVE">
 			<Text>經濟援助中</Text>
 		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_ROUND_STATUS">
+			<Text>[ICON_GOLD]經濟援助 · 第 {1_Round} 輪 · 剩餘 {2_TurnsLeft} 回合</Text>
+		</Row>
 		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_BASE_TT">
 			<Text>[ICON_BULLET]基礎產出: {1_Num}</Text>
 		</Row>
