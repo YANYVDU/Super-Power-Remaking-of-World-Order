@@ -687,6 +687,26 @@ function GoldTipHandler( control )
 	end
 	
 	local iGoldPerTurnFromReligion = pPlayer:GetGoldPerTurnFromReligion();
+	-- Religion gold may be negative (e.g. GoldPerFollowingCity penalty); move it to expenses
+	local iGoldPerTurnToReligion = 0;
+	if (iGoldPerTurnFromReligion < 0) then
+		iGoldPerTurnToReligion = -iGoldPerTurnFromReligion;
+		iGoldPerTurnFromReligion = 0;
+	end
+
+	-- Economic Aid per-turn expense (Super Power V11): era coefficient per aided city-state
+	local iEconomicAidExpense = 0;
+	if (Game.IsEconomicAidActive()) then
+		local iAidGold = Game.GetEconomicAidWorldEra();
+		local iAidCount = 0;
+		for iMinor = GameDefines.MAX_MAJOR_CIVS, GameDefines.MAX_CIV_PLAYERS - 1 do
+			local pMinor = Players[iMinor];
+			if (pMinor ~= nil and pMinor:isAlive() and pMinor:isMinorCiv() and pMinor:IsEconomicAidFromMajor(iPlayerID)) then
+				iAidCount = iAidCount + 1;
+			end
+		end
+		iEconomicAidExpense = iAidGold * iAidCount;
+	end
 
 	local fTradeRouteGold = (pPlayer:GetGoldFromCitiesTimes100() - pPlayer:GetGoldFromCitiesMinusTradeRoutesTimes100()) / 100;
 	local fGoldPerTurnFromCities = pPlayer:GetGoldFromCitiesMinusTradeRoutesTimes100() / 100;
@@ -758,7 +778,7 @@ function GoldTipHandler( control )
 	if pPlayer.GetGoldToOverlord then
 		iGoldToOverlord = pPlayer:GetGoldToOverlord();
 	end
-	local iTotalExpenses = iUnitCost + iUnitSupply + iBuildingMaintenance + iImprovementMaintenance + iGoldPerTurnToOtherPlayers + iGoldToOverlord;
+	local iTotalExpenses = iUnitCost + iUnitSupply + iBuildingMaintenance + iImprovementMaintenance + iGoldPerTurnToOtherPlayers + iGoldToOverlord + iEconomicAidExpense + iGoldPerTurnToReligion;
 	
 	strText = strText .. "[NEWLINE]";
 	strText = strText .. "[COLOR:255:150:150:255]";
@@ -777,6 +797,12 @@ function GoldTipHandler( control )
 	end
 	if (iGoldPerTurnToOtherPlayers > 0) then
 		strText = strText .. "[NEWLINE]  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_TO_OTHERS", iGoldPerTurnToOtherPlayers);
+	end
+	if (iEconomicAidExpense > 0) then
+		strText = strText .. "[NEWLINE]  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_ECONOMIC_AID", iEconomicAidExpense);
+	end
+	if (iGoldPerTurnToReligion > 0) then
+		strText = strText .. "[NEWLINE]  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_TO_RELIGION", iGoldPerTurnToReligion);
 	end
 	if (iGoldToOverlord > 0) then
 		local iOverlord = pPlayer:GetOverlord();

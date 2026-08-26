@@ -17409,6 +17409,12 @@
 		<Row Tag="TXT_KEY_TP_GOLDEN_AGE_ADDITION_RELIGION">
 			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR] from Religion.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_TP_GOLD_ECONOMIC_AID">
+			<Text>[ICON_BULLET][COLOR_NEGATIVE_TEXT]-{1_Num}[ENDCOLOR] for Economic Aid.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_GOLD_TO_RELIGION">
+			<Text>[ICON_BULLET][COLOR_NEGATIVE_TEXT]-{1_Num}[ENDCOLOR] to Religion.</Text>
+		</Row>
 		<Row Tag="TXT_KEY_TP_GOLDEN_AGE_ADDITION_TRAIT">
 			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR] from Traits.</Text>
 		</Row>
