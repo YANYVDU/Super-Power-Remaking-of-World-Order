@@ -73,6 +73,18 @@ function UpdateData()
 			if pPlayer.GetGoldToOverlord then
 				iGoldPerTurn = iGoldPerTurn - pPlayer:GetGoldToOverlord();
 			end
+			-- 经济援助花费同样走 ChangeGold 即时结算、不经 CalculateGoldRate，这里补扣，
+			-- 使顶部每回合数字与实际国库变化一致（Super Power V11）。
+			if Game.IsEconomicAidActive() then
+				local iAidCount = 0;
+				for iMinor = GameDefines.MAX_MAJOR_CIVS, GameDefines.MAX_CIV_PLAYERS - 1 do
+					local pMinor = Players[iMinor];
+					if (pMinor ~= nil and pMinor:IsAlive() and pMinor:IsMinorCiv() and pMinor:IsEconomicAidFromMajor(iPlayerID)) then
+						iAidCount = iAidCount + 1;
+					end
+				end
+				iGoldPerTurn = iGoldPerTurn - Game.GetEconomicAidWorldEra() * iAidCount;
+			end
 			
 			-- Accounting for positive or negative GPT - there's obviously a better way to do this.  If you see this comment and know how, it's up to you ;)
 			-- Text is White when you can buy a Plot
@@ -701,7 +713,7 @@ function GoldTipHandler( control )
 		local iAidCount = 0;
 		for iMinor = GameDefines.MAX_MAJOR_CIVS, GameDefines.MAX_CIV_PLAYERS - 1 do
 			local pMinor = Players[iMinor];
-			if (pMinor ~= nil and pMinor:isAlive() and pMinor:isMinorCiv() and pMinor:IsEconomicAidFromMajor(iPlayerID)) then
+			if (pMinor ~= nil and pMinor:IsAlive() and pMinor:IsMinorCiv() and pMinor:IsEconomicAidFromMajor(iPlayerID)) then
 				iAidCount = iAidCount + 1;
 			end
 		end
