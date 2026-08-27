@@ -4237,7 +4237,7 @@ if Game then
 						insert( protected, otherPlayerName .. inParentheses( not IsCiv5Vanilla and isUs and ( otherPlayer:GetTurnLastPledgedProtectionByMajor(playerID) - Game.GetGameTurn() + 10 ) ) )  -- todo check scaling % game speed
 					end
 					-- Economic aid (Super Power V11)
-					if otherPlayer:IsEconomicAidFromMajor(playerID) then
+					if Game.IsEconomicAidActive() and otherPlayer:IsEconomicAidFromMajor(playerID) then
 						insert( economicAid, otherPlayerName )
 					end
 				else
