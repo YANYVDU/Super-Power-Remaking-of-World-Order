@@ -19073,6 +19073,31 @@
 				[NEWLINE][ICON_BULLET]+12% chance to successfully stage a [ICON_SPY]Coup
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_JERUSALEM_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each holy city you control grants +40% Religious Pressure to the religion you founded
+				[NEWLINE][ICON_BULLET]Each city worldwide following the religion you founded grants your [ICON_CAPITAL]Capital +1% [ICON_RESEARCH]Science
+				[NEWLINE][ICON_BULLET]Denouncements of you by other civilizations have no effect
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Each holy city you control grants +20% Religious Pressure to the religion you founded
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_JERUSALEM_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each holy city you control grants +40% Religious Pressure to the religion you founded
+				[NEWLINE][ICON_BULLET]Each city worldwide following the religion you founded grants your [ICON_CAPITAL]Capital +1% [ICON_RESEARCH]Science
+				[NEWLINE][ICON_BULLET]Denouncements of you by other civilizations have no effect
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_JERUSALEM_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Each holy city you control grants +20% Religious Pressure to the religion you founded
+			</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_CAHOKIA_HELP">
 			<Text>
 				Ally Effects:

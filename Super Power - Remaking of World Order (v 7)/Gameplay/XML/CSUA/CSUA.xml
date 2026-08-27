@@ -202,6 +202,19 @@
 			<CoupChanceModifier>12</CoupChanceModifier>
 			<Help>TXT_KEY_EFFECT_CSUA_SOFIA_FRIEND_HELP</Help>
 		</Row>
+		<!-- 耶路撒冷：盟友每掌控一座圣城，其为领袖的宗教+40%宗教压力；每有一座城市信仰该宗教，盟友首都+1%科研；盟友免疫其他文明的谴责 -->
+		<Row>
+			<Type>EFFECT_CSUA_JERUSALEM_ALLY</Type>
+			<ReligiousPressureModifierPerHolyCity>40</ReligiousPressureModifierPerHolyCity>
+			<DenounceImmunity>true</DenounceImmunity>
+			<Help>TXT_KEY_EFFECT_CSUA_JERUSALEM_ALLY_HELP</Help>
+		</Row>
+		<!-- 耶路撒冷：朋友每掌控一座圣城，其为领袖的宗教+20%宗教压力 -->
+		<Row>
+			<Type>EFFECT_CSUA_JERUSALEM_FRIEND</Type>
+			<ReligiousPressureModifierPerHolyCity>20</ReligiousPressureModifierPerHolyCity>
+			<Help>TXT_KEY_EFFECT_CSUA_JERUSALEM_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1040,6 +1053,14 @@
 			<YieldMod>100</YieldMod>
 		</Row>
 	 </CityStateUAEffect_PolicyYieldModifiers>
+	 <!-- 耶路撒冷：每有一座城市信仰盟友为领袖的宗教，盟友首都+YieldType产出百分比加成（Modifier=100 => +1%） -->
+	 <CityStateUAEffect_CapitalYieldModifierPerFollowingCity>
+		<Row>
+			<EffectType>EFFECT_CSUA_JERUSALEM_ALLY</EffectType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Modifier>100</Modifier>
+		</Row>
+	 </CityStateUAEffect_CapitalYieldModifierPerFollowingCity>
 	<CityStateUAs>
 		<Row>
 			<Type>CSUA_ZURICH</Type>
@@ -1187,6 +1208,13 @@
 			<Help>TXT_KEY_CSUA_SOFIA_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_SOFIA_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_SOFIA_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_JERUSALEM</Type>
+			<Description>TXT_KEY_CITYSTATE_JERUSALEM</Description>
+			<Help>TXT_KEY_CSUA_JERUSALEM_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_JERUSALEM_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_JERUSALEM_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>

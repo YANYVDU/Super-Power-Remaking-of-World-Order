@@ -17348,6 +17348,31 @@
 				[NEWLINE][ICON_BULLET]策劃政變成功率+12%
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_JERUSALEM_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你每掌控一座聖城，你創立的宗教+40%宗教壓力
+				[NEWLINE][ICON_BULLET]全世界每有一座城市信仰你創立的宗教，你的[ICON_CAPITAL]首都+1%[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]其他文明對你的譴責無效
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]你每掌控一座聖城，你創立的宗教+20%宗教壓力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_JERUSALEM_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你每掌控一座聖城，你創立的宗教+40%宗教壓力
+				[NEWLINE][ICON_BULLET]全世界每有一座城市信仰你創立的宗教，你的[ICON_CAPITAL]首都+1%[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]其他文明對你的譴責無效
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_JERUSALEM_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]你每掌控一座聖城，你創立的宗教+20%宗教壓力
+			</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_CAHOKIA_HELP">
 			<Text>
 				盟友效果：
