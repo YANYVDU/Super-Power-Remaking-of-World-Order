@@ -215,6 +215,20 @@
 			<ReligiousPressureModifierPerHolyCity>20</ReligiousPressureModifierPerHolyCity>
 			<Help>TXT_KEY_EFFECT_CSUA_JERUSALEM_FRIEND_HELP</Help>
 		</Row>
+		<!-- 梵蒂冈：盟友为领袖的宗教获得教廷承认，半数以上城市信奉该宗教的文明+1代表票并为盟友每追随国提供1张；该宗教传播速度+50%；每信教城市圣城+1%魅力 -->
+		<Row>
+			<Type>EFFECT_CSUA_VATICAN_ALLY</Type>
+			<ReligionSpreadSpeedModifier>50</ReligionSpreadSpeedModifier>
+			<PapalRecognitionVotes>1</PapalRecognitionVotes>
+			<PapalRecognitionAllyVotes>1</PapalRecognitionAllyVotes>
+			<Help>TXT_KEY_EFFECT_CSUA_VATICAN_ALLY_HELP</Help>
+		</Row>
+		<!-- 梵蒂冈：朋友为领袖的宗教传播速度+20% -->
+		<Row>
+			<Type>EFFECT_CSUA_VATICAN_FRIEND</Type>
+			<ReligionSpreadSpeedModifier>20</ReligionSpreadSpeedModifier>
+			<Help>TXT_KEY_EFFECT_CSUA_VATICAN_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1061,6 +1075,14 @@
 			<Modifier>100</Modifier>
 		</Row>
 	 </CityStateUAEffect_CapitalYieldModifierPerFollowingCity>
+	 <!-- 梵蒂冈：每有一座城市信仰盟友为领袖的宗教，该宗教圣城+YieldType产出百分比加成（Modifier=100 => +1%） -->
+	 <CityStateUAEffect_HolyCityYieldModifierPerFollowingCity>
+		<Row>
+			<EffectType>EFFECT_CSUA_VATICAN_ALLY</EffectType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Modifier>100</Modifier>
+		</Row>
+	 </CityStateUAEffect_HolyCityYieldModifierPerFollowingCity>
 	<CityStateUAs>
 		<Row>
 			<Type>CSUA_ZURICH</Type>
@@ -1215,6 +1237,13 @@
 			<Help>TXT_KEY_CSUA_JERUSALEM_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_JERUSALEM_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_JERUSALEM_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_VATICAN</Type>
+			<Description>TXT_KEY_CITYSTATE_VATICAN_CITY</Description>
+			<Help>TXT_KEY_CSUA_VATICAN_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_VATICAN_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_VATICAN_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>

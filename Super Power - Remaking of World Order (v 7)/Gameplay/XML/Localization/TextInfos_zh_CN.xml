@@ -17567,6 +17567,36 @@
 				[NEWLINE][ICON_BULLET]你每掌控一座圣城，你创立的宗教+20%宗教压力
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_VATICAN_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你创立的宗教获得「教廷承认」
+				[NEWLINE][ICON_BULLET]世界议会中，有半数以上城市信奉该宗教的文明可额外获得1张代表票，每个这样的文明并为盟友提供1张代表票
+				[NEWLINE][ICON_BULLET]该宗教传播速度加快50%
+				[NEWLINE][ICON_BULLET]全世界每有一座城市信奉该宗教，其圣城+1%[ICON_TOURISM]魅力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]你创立的宗教传播速度加快20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VATICAN_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你创立的宗教获得「教廷承认」
+				[NEWLINE][ICON_BULLET]世界议会中，有半数以上城市信奉该宗教的文明可额外获得1张代表票，每个这样的文明并为盟友提供1张代表票
+				[NEWLINE][ICON_BULLET]该宗教传播速度加快50%
+				[NEWLINE][ICON_BULLET]全世界每有一座城市信奉该宗教，其圣城+1%[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VATICAN_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]你创立的宗教传播速度加快20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_PAPAL_RECOGNITION_VOTES">
+			<Text>[NEWLINE][ICON_BULLET]{1_NumVotes} 来自教廷承认</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_CAHOKIA_HELP">
 			<Text>
 				盟友效果：

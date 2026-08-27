@@ -19098,6 +19098,36 @@
 				[NEWLINE][ICON_BULLET]Each holy city you control grants +20% Religious Pressure to the religion you founded
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_VATICAN_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]The religion you founded gains Papal Recognition
+				[NEWLINE][ICON_BULLET]In the World Congress, civilizations with a majority of their cities following this religion gain 1 extra Delegate, and each such civilization provides 1 Delegate to the Ally
+				[NEWLINE][ICON_BULLET]This religion spreads 50% faster
+				[NEWLINE][ICON_BULLET]Each city worldwide following this religion grants its Holy City +1% [ICON_TOURISM]Tourism
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]The religion you founded spreads 20% faster
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VATICAN_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]The religion you founded gains Papal Recognition
+				[NEWLINE][ICON_BULLET]In the World Congress, civilizations with a majority of their cities following this religion gain 1 extra Delegate, and each such civilization provides 1 Delegate to the Ally
+				[NEWLINE][ICON_BULLET]This religion spreads 50% faster
+				[NEWLINE][ICON_BULLET]Each city worldwide following this religion grants its Holy City +1% [ICON_TOURISM]Tourism
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VATICAN_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]The religion you founded spreads 20% faster
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_PAPAL_RECOGNITION_VOTES">
+			<Text>[NEWLINE][ICON_BULLET]{1_NumVotes} from Papal Recognition</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_CAHOKIA_HELP">
 			<Text>
 				Ally Effects:
