@@ -19396,5 +19396,36 @@
 		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_SPEED_TT">
 			<Text>[ICON_BULLET]From spy speed: {1_Num}</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_GANGTOK_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]For every city worldwide following the ally's religion, the ally gains +1[ICON_HAPPINESS_1] global happiness
+				[NEWLINE][ICON_BULLET]The ally may purchase [ICON_INFLUENCE] influence from any city-state once per turn using [ICON_PEACE] faith, at one quarter of the corresponding gold price
+				[NEWLINE][ICON_BULLET]Each worked [ICON_PEACE] Holy Site in the ally's cities provides +10%[ICON_PEACE] faith
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]For every 2 cities worldwide following the friend's religion, the friend gains +1[ICON_HAPPINESS_1] global happiness
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GANGTOK_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]For every city worldwide following the ally's religion, the ally gains +1[ICON_HAPPINESS_1] global happiness
+				[NEWLINE][ICON_BULLET]The ally may purchase [ICON_INFLUENCE] influence from any city-state once per turn using [ICON_PEACE] faith, at one quarter of the corresponding gold price
+				[NEWLINE][ICON_BULLET]Each worked [ICON_PEACE] Holy Site in the ally's cities provides +10%[ICON_PEACE] faith
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GANGTOK_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]For every 2 cities worldwide following the friend's religion, the friend gains +1[ICON_HAPPINESS_1] global happiness
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_FAITH_GIFT_TT">
+			<Text>As Gangtok's ally, you may purchase [ICON_INFLUENCE] influence from any city-state once per turn using [ICON_PEACE] faith, at one quarter of the corresponding gold price.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POPUP_MINOR_FAITH_GIFT_AMOUNT">
+			<Text>{1_NumFaith} [ICON_PEACE] Faith - will earn {2_NumFriendship} [ICON_INFLUENCE] Influence</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

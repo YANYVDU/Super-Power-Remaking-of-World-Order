@@ -250,6 +250,44 @@
               </AlphaAnim>
             </ShowOnMouseOver>
           </Button>
+          <!-- FAITH GIFT BUTTONS (Gangtok UA: buy influence with faith at 1/4 of the gold price) -->
+          <Box ID="FaithGiftSeparator" Anchor="C,C" Offset="0,0" Size="500,14" Color="White.0" Hidden="1"/>
+          <Button ID="FaithGiftSmallButton" Size="500,32" Hidden="1" Anchor="C,C" Offset="0,0" ToolTip="TXT_KEY_POP_CSTATE_FAITH_GIFT_TT">
+            <Label ID="FaithGiftSmall" Anchor="C,C" Offset="0,0"/>
+            <Image Anchor="C,B" Offset="0,0" Texture="bar500x2.dds" Size="500.1"/>
+            <ShowOnMouseOver>
+              <AlphaAnim ID="FaithGiftSmallAnim" Anchor="C,C" Offset="0,0" Size="500,35" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+                <Grid ID="FaithGiftSmallButtonHL" Size="500,35" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL"/>
+              </AlphaAnim>
+            </ShowOnMouseOver>
+          </Button>
+          <Button ID="FaithGiftMediumButton" Size="500,32" Hidden="1" Anchor="C,C" Offset="0,0" ToolTip="TXT_KEY_POP_CSTATE_FAITH_GIFT_TT">
+            <Label ID="FaithGiftMedium" Anchor="C,C" Offset="0,0"/>
+            <Image Anchor="C,B" Offset="0,0" Texture="bar500x2.dds" Size="500.1"/>
+            <ShowOnMouseOver>
+              <AlphaAnim ID="FaithGiftMediumAnim" Anchor="C,C" Offset="0,0" Size="500,35" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+                <Grid ID="FaithGiftMediumButtonHL" Size="500,35" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL"/>
+              </AlphaAnim>
+            </ShowOnMouseOver>
+          </Button>
+          <Button ID="FaithGiftLargeButton" Size="500,32" Hidden="1" Anchor="C,C" Offset="0,0" ToolTip="TXT_KEY_POP_CSTATE_FAITH_GIFT_TT">
+            <Label ID="FaithGiftLarge" Anchor="C,C" Offset="0,0"/>
+            <Image Anchor="C,B" Offset="0,0" Texture="bar500x2.dds" Size="500.1"/>
+            <ShowOnMouseOver>
+              <AlphaAnim ID="FaithGiftLargeAnim" Anchor="C,C" Offset="0,0" Size="500,35" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+                <Grid ID="FaithGiftLargeButtonHL" Size="500,35" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL"/>
+              </AlphaAnim>
+            </ShowOnMouseOver>
+          </Button>
+          <Button ID="FaithGiftHugeButton" Size="500,32" Hidden="1" Anchor="C,C" Offset="0,0" ToolTip="TXT_KEY_POP_CSTATE_FAITH_GIFT_TT">
+            <Label ID="FaithGiftHuge" Anchor="C,C" Offset="0,0"/>
+            <Image Anchor="C,B" Offset="0,0" Texture="bar500x2.dds" Size="500.1"/>
+            <ShowOnMouseOver>
+              <AlphaAnim ID="FaithGiftHugeAnim" Anchor="C,C" Offset="0,0" Size="500,35" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+                <Grid ID="FaithGiftHugeButtonHL" Size="500,35" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL"/>
+              </AlphaAnim>
+            </ShowOnMouseOver>
+          </Button>
           <!-- GIFT UNIT BUTTON -->
           <Button Size="500,32" Anchor="C,C" Offset="0,0" ID="UnitGiftButton">
             <Label ID="UnitGift" Anchor="C,C" Offset="0,0" />

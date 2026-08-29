@@ -28,6 +28,7 @@ UPDATE MinorCivilizations SET UAType = 'CSUA_JERUSALEM' WHERE Type = 'MINOR_CIV_
 UPDATE MinorCivilizations SET UAType = 'CSUA_VATICAN' WHERE Type = 'MINOR_CIV_VATICAN_CITY';
 UPDATE MinorCivilizations SET UAType = 'CSUA_VILNIUS' WHERE Type = 'MINOR_CIV_VILNIUS';
 UPDATE MinorCivilizations SET UAType = 'CSUA_SOFIA' WHERE Type = 'MINOR_CIV_SOFIA';
+UPDATE MinorCivilizations SET UAType = 'CSUA_GANGTOK' WHERE Type = 'MINOR_CIV_LHASA';
 
 -- MinorCivAlliesThresholdExtra: per-era ally threshold increase (Rule 8)
 -- Formula: threshold = FRIENDSHIP_THRESHOLD_ALLIES(60) + MinorCivAlliesThresholdExtra

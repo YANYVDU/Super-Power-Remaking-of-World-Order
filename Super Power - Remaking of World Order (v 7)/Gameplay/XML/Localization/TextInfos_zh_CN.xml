@@ -17865,5 +17865,36 @@
 		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_SPEED_TT">
 			<Text>[ICON_BULLET]来自间谍速度: {1_Num}</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_GANGTOK_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]全世界每有1座城市信仰盟友创立的宗教，盟友+1[ICON_HAPPINESS_1]全局快乐
+				[NEWLINE][ICON_BULLET]盟友每回合可使用[ICON_PEACE]信仰向任意城邦购买1次[ICON_INFLUENCE]影响力，价格为对应金钱赠礼的1/4
+				[NEWLINE][ICON_BULLET]盟友城市中，每个有市民工作的[ICON_PEACE]宗教圣地为该城市+10%[ICON_PEACE]信仰
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]全世界每有2座城市信仰朋友创立的宗教，朋友+1[ICON_HAPPINESS_1]全局快乐
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GANGTOK_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]全世界每有1座城市信仰盟友创立的宗教，盟友+1[ICON_HAPPINESS_1]全局快乐
+				[NEWLINE][ICON_BULLET]盟友每回合可使用[ICON_PEACE]信仰向任意城邦购买1次[ICON_INFLUENCE]影响力，价格为对应金钱赠礼的1/4
+				[NEWLINE][ICON_BULLET]盟友城市中，每个有市民工作的[ICON_PEACE]宗教圣地为该城市+10%[ICON_PEACE]信仰
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GANGTOK_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]全世界每有2座城市信仰朋友创立的宗教，朋友+1[ICON_HAPPINESS_1]全局快乐
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_FAITH_GIFT_TT">
+			<Text>作为甘托克的盟友，你每回合可使用[ICON_PEACE]信仰向任意城邦购买1次[ICON_INFLUENCE]影响力，价格为对应金钱赠礼的1/4。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POPUP_MINOR_FAITH_GIFT_AMOUNT">
+			<Text>{1_NumFaith}[ICON_PEACE]信仰——将会增加{2_NumFriendship}[ICON_INFLUENCE]影响力。</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

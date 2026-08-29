@@ -981,6 +981,37 @@ function PopulateGiftChoices()
 	Controls.HugeGift:SetText(buttonText);
 	SetButtonSize(Controls.HugeGift, Controls.HugeGiftButton, Controls.HugeGiftAnim, Controls.HugeGiftButtonHL);
 
+	-- Faith Gifts (Gangtok CS UA: buy influence with faith at (gold price / divisor) faith, once per turn)
+	local iFaithCostDivisor = pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor();
+	local bFaithGiftEnabled = (iFaithCostDivisor > 0);
+	Controls.FaithGiftSeparator:SetHide(not bFaithGiftEnabled);
+	local iFaithGiftRemaining = pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining();
+	local iFaithPlayerHas = pActivePlayer:GetFaith();
+
+	local faithGiftButtons = {
+		{ Button = Controls.FaithGiftSmallButton, Label = Controls.FaithGiftSmall, Anim = Controls.FaithGiftSmallAnim, HL = Controls.FaithGiftSmallButtonHL, Gold = iGoldGiftSmall },
+		{ Button = Controls.FaithGiftMediumButton, Label = Controls.FaithGiftMedium, Anim = Controls.FaithGiftMediumAnim, HL = Controls.FaithGiftMediumButtonHL, Gold = iGoldGiftMedium },
+		{ Button = Controls.FaithGiftLargeButton, Label = Controls.FaithGiftLarge, Anim = Controls.FaithGiftLargeAnim, HL = Controls.FaithGiftLargeButtonHL, Gold = iGoldGiftLarge },
+		{ Button = Controls.FaithGiftHugeButton, Label = Controls.FaithGiftHuge, Anim = Controls.FaithGiftHugeAnim, HL = Controls.FaithGiftHugeButtonHL, Gold = iGoldGiftHuge },
+	};
+
+	for _, gift in ipairs(faithGiftButtons) do
+		gift.Button:SetHide(not bFaithGiftEnabled);
+		if bFaithGiftEnabled then
+			local iFaithCost = math.floor(gift.Gold / iFaithCostDivisor);
+			local iFriendship = applyOverextension(pPlayer:GetFriendshipFromGoldGift(iActivePlayer, gift.Gold));
+			local sText = Locale.ConvertTextKey("TXT_KEY_POPUP_MINOR_FAITH_GIFT_AMOUNT", iFaithCost, iFriendship);
+			if (iFaithGiftRemaining <= 0 or iFaithPlayerHas < iFaithCost) then
+				sText = "[COLOR_WARNING_TEXT]" .. sText .. "[ENDCOLOR]";
+				gift.Anim:SetHide(true);
+			else
+				gift.Anim:SetHide(false);
+			end
+			gift.Label:SetText(sText);
+			SetButtonSize(gift.Label, gift.Button, gift.Anim, gift.HL);
+		end
+	end
+
 	-- Unit
 	local iInfluence = applyOverextension(pPlayer:GetFriendshipFromUnitGift(iActivePlayer, false, true));
 	local iTravelTurns = GameDefines.MINOR_UNIT_GIFT_TRAVEL_TURNS;
@@ -1085,6 +1116,61 @@ function OnHugeGold ()
 	end
 end
 Controls.HugeGiftButton:RegisterCallback( Mouse.eLClick, OnHugeGold );
+
+----------------------------------------------------------------
+-- Faith Gifts (Gangtok CS UA)
+----------------------------------------------------------------
+function OnFaithGiftSmall ()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	if (pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining() > 0) then
+		local iFaithCost = math.floor(iGoldGiftSmall / pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor());
+		if (pActivePlayer:GetFaith() >= iFaithCost) then
+			Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftSmall);
+			OnCloseGive();
+		end
+	end
+end
+Controls.FaithGiftSmallButton:RegisterCallback( Mouse.eLClick, OnFaithGiftSmall );
+
+function OnFaithGiftMedium ()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	if (pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining() > 0) then
+		local iFaithCost = math.floor(iGoldGiftMedium / pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor());
+		if (pActivePlayer:GetFaith() >= iFaithCost) then
+			Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftMedium);
+			OnCloseGive();
+		end
+	end
+end
+Controls.FaithGiftMediumButton:RegisterCallback( Mouse.eLClick, OnFaithGiftMedium );
+
+function OnFaithGiftLarge ()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	if (pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining() > 0) then
+		local iFaithCost = math.floor(iGoldGiftLarge / pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor());
+		if (pActivePlayer:GetFaith() >= iFaithCost) then
+			Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftLarge);
+			OnCloseGive();
+		end
+	end
+end
+Controls.FaithGiftLargeButton:RegisterCallback( Mouse.eLClick, OnFaithGiftLarge );
+
+function OnFaithGiftHuge ()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	if (pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining() > 0) then
+		local iFaithCost = math.floor(iGoldGiftHuge / pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor());
+		if (pActivePlayer:GetFaith() >= iFaithCost) then
+			Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftHuge);
+			OnCloseGive();
+		end
+	end
+end
+Controls.FaithGiftHugeButton:RegisterCallback( Mouse.eLClick, OnFaithGiftHuge );
 
 ----------------------------------------------------------------
 -- Gift Unit
