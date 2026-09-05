@@ -3,7 +3,7 @@
 
   <Box Style="BGBlock_ClearTopBar" />
 
-  <Grid Size="990,677" Anchor="C,C" Offset="0,30" Style="Grid9DetailFive140" ConsumeMouse="1">
+  <Grid Size="1030,677" Anchor="C,C" Offset="0,30" Style="Grid9DetailFive140" ConsumeMouse="1">
 
     <!-- Panel Header Text -->
     <Label Style="MenuTitleCaption" String="TXT_KEY_DIPLOMACY_OVERVIEW" ID="TitleLabel" />
@@ -20,9 +20,9 @@
 
 
     <!-- Top Panel  -->     
-    <Box Anchor="C,T" Size="971,56" Offset="0,44" Color="0.0.0.128" >
+    <Box Anchor="C,T" Size="1011,56" Offset="0,44" Color="0.0.0.128" >
 
-      <Stack Anchor="C,T" Size="971,32" Offset="0,0" Padding="0" StackGrowth="Right">
+      <Stack Anchor="C,T" Size="1011,32" Offset="0,0" Padding="0" StackGrowth="Right">
 
         <Button  Anchor="L,T" Size="150,24" Offset="0,0" String="TXT_KEY_DO_YOUR_RELATIONS" ID="RelationsButton" >
           <ShowOnMouseOver>
@@ -62,7 +62,7 @@
         
       </Stack>
 
-      <Stack Anchor="C,T" Size="971,32" Offset="0,25" Padding="0" StackGrowth="Right">
+      <Stack Anchor="C,T" Size="1011,32" Offset="0,25" Padding="0" StackGrowth="Right">
 
         <Box  Anchor="L,T" Size="150,24" Offset="0,0" Color="0.0.0.128" />
 
@@ -102,7 +102,7 @@
         </Button>
 
       </Stack>
-      <Image Anchor="C,B" Offset="0,0" Texture="HorizontalTrim.dds" Size="971.5" />
+      <Image Anchor="C,B" Offset="0,0" Texture="HorizontalTrim.dds" Size="1011.5" />
 
     </Box>
 

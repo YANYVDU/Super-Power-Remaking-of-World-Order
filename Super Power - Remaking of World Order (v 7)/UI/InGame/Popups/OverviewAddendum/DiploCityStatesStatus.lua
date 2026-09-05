@@ -186,6 +186,16 @@ function GetCsControl(im, iCs, iPlayer)
 	-- Gold gifts
 	setGoldGiftIcons(controlTable, pCs, pPlayer, false)
 
+	-- Economic Aid auto-renew (Super Power V11)
+	local bAidAutoRenew = pCs:IsEconomicAidAutoRenew(iPlayer)
+	controlTable.CsAidAutoRenew:SetCheck(bAidAutoRenew)
+	controlTable.CsAidAutoRenew:RegisterCallback( Mouse.eLClick,
+	function()
+		local bNew = not pCs:IsEconomicAidAutoRenew(iPlayer)
+		pCs:SetEconomicAidAutoRenew(iPlayer, bNew)
+		controlTable.CsAidAutoRenew:SetCheck(bNew)
+	end )
+
 	return controlTable
 end
 

@@ -17896,5 +17896,14 @@
 		<Row Tag="TXT_KEY_POPUP_MINOR_FAITH_GIFT_AMOUNT">
 			<Text>{1_NumFaith}[ICON_PEACE]信仰——将会增加{2_NumFriendship}[ICON_INFLUENCE]影响力。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CONFIRM_REVOKE_ECONOMIC_AID">
+			<Text>真的要停止对{1_CityStateName}的经济援助吗？[NEWLINE][COLOR_WARNING_TEXT]盟友退出将立刻扣除20[ICON_INFLUENCE]影响力，且本轮内不可再次参加[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DO_CS_STATUS_AID_AUTO_RENEW">
+			<Text>自动续约</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DO_CS_STATUS_AID_AUTO_RENEW_TT">
+			<Text>勾选后，每轮经济援助开始时自动重新对该城邦提供[ICON_GOLD]经济援助。若因退出、战争或城邦关闭而中断，将在条件允许的下一轮自动续约。</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

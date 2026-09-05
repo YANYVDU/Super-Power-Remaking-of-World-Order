@@ -19427,5 +19427,14 @@
 		<Row Tag="TXT_KEY_POPUP_MINOR_FAITH_GIFT_AMOUNT">
 			<Text>{1_NumFaith} [ICON_PEACE] Faith - will earn {2_NumFriendship} [ICON_INFLUENCE] Influence</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CONFIRM_REVOKE_ECONOMIC_AID">
+			<Text>Are you sure you want to stop economic aid to {1_CityStateName}?[NEWLINE][COLOR_WARNING_TEXT]Allies lose 20 [ICON_INFLUENCE] influence immediately and cannot rejoin this round[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DO_CS_STATUS_AID_AUTO_RENEW">
+			<Text>Auto Renew</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DO_CS_STATUS_AID_AUTO_RENEW_TT">
+			<Text>When checked, economic aid to this City-State is renewed automatically at the start of each round. If interrupted by withdrawal, war, or a closed program, it rejoins the next round once conditions allow.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

@@ -579,6 +579,7 @@ function OnDisplay()
 		local strRoundStatus = Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_ROUND_STATUS", Game.GetEconomicAidRound(), Game.GetEconomicAidRoundTurnsLeft());
 		Controls.EconomicAidRoundLabel:SetText(strRoundStatus);
 		Controls.EconomicAidRoundLabel:SetHide(false);
+		Controls.EconomicAidRoundLine:SetHide(false);
 		-- Already providing aid
 		if (pPlayer:IsEconomicAidFromMajor(iActivePlayer)) then
 			bShowRevokeAidButton = true;
@@ -604,6 +605,7 @@ function OnDisplay()
 		end
 	else
 		Controls.EconomicAidRoundLabel:SetHide(true);
+		Controls.EconomicAidRoundLine:SetHide(true);
 	end
 	Controls.AidAnim:SetHide(not bEnableAidButton);
 	Controls.AidButton:SetHide(not bShowAidButton);
@@ -763,8 +765,12 @@ function OnRevokeAidButtonClicked ()
 	local pPlayer = Players[g_iMinorCivID];
 
 	if (pPlayer:CanMajorWithdrawEconomicAid(iActivePlayer)) then
-		Game.DoMinorEconomicAid(iActivePlayer, g_iMinorCivID, false);
-		m_iLastAction = kiRevokedEconomicAid;
+		local pMinor = Players[g_iMinorCivID];
+		local cityStateName = Locale.Lookup(pMinor:GetCivilizationShortDescriptionKey());
+		Controls.BullyConfirmLabel:SetText( Locale.ConvertTextKey("TXT_KEY_CONFIRM_REVOKE_ECONOMIC_AID", cityStateName) );
+		m_iPendingAction = kiRevokedEconomicAid;
+		Controls.BullyConfirm:SetHide(false);
+		Controls.BGBlock:SetHide(true);
 	end
 end
 Controls.RevokeAidButton:RegisterCallback( Mouse.eLClick, OnRevokeAidButtonClicked );
@@ -1441,6 +1447,10 @@ function OnYesBully( )
 		Game.DoMinorBullyUnit(iActivePlayer, g_iMinorCivID);
 		m_iPendingAction = kiNoAction;
 		m_iLastAction = kiBulliedUnit;
+	elseif (m_iPendingAction == kiRevokedEconomicAid) then
+		Game.DoMinorEconomicAid(iActivePlayer, g_iMinorCivID, false);
+		m_iPendingAction = kiNoAction;
+		m_iLastAction = kiRevokedEconomicAid;
 	else
 		print("Scripting error - Selected Yes for bully confrirmation dialog, but invalid PendingAction type");
 	end
