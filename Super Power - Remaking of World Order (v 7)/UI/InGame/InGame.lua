@@ -1268,7 +1268,9 @@ Events.GameViewTypeChanged.Add(OnGameViewTypeChanged);
 -- Support for Modded Add-in UI's
 ---------------------------------------------------------------------------------------
 g_uiAddins = {};
+local bAddinsLoaded = false;
 for addin in Modding.GetActivatedModEntryPoints("InGameUIAddin") do
+	bAddinsLoaded = true;
 	local addinFile = Modding.GetEvaluatedFilePath(addin.ModID, addin.Version, addin.File);
 	local addinPath = addinFile.EvaluatedPath;
 	
@@ -1277,4 +1279,8 @@ for addin in Modding.GetActivatedModEntryPoints("InGameUIAddin") do
 	local path = string.sub(addinPath, 1, #addinPath - #extension);
 	
 	table.insert(g_uiAddins, ContextPtr:LoadNewContext(path));
+end
+-- DLC NO .modinfo，SPInit WILL NOT LOADEDE
+if not bAddinsLoaded then
+	table.insert(g_uiAddins, ContextPtr:LoadNewContext("SPInit"));
 end
