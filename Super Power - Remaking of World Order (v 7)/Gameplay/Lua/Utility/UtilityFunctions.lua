@@ -47,11 +47,19 @@ function AICanBeBoss(player)
 
 	local CapitalDistance = 0;
 	local WorldSizeLength = Map.GetGridSize();
-	if Players[Game.GetActivePlayer()] ~= nil and Players[Game.GetActivePlayer()]:GetCapitalCity() ~= nil and player:GetCapitalCity() ~= nil then
-		local HumanCapital  = Players[Game.GetActivePlayer()]:GetCapitalCity();
-		local ThisAICapital = player:GetCapitalCity();
-		CapitalDistance     = Map.PlotDistance(HumanCapital:GetX(), HumanCapital:GetY(), ThisAICapital:GetX(), ThisAICapital:GetY())
+	local humanCount = 0
+	for id, pPlayer in pairs(Players) do
+		if pPlayer and pPlayer:IsAlive() and pPlayer:IsMajorCiv() and pPlayer:IsHuman() then
+			if (pPlayer:GetCapitalCity()) then 
+				humanCount = humanCount + 1
+				local HumanCapital  = pPlayer:GetCapitalCity()
+				local ThisAICapital = player:GetCapitalCity()
+				CapitalDistance = CapitalDistance + Map.PlotDistance(HumanCapital:GetX(), HumanCapital:GetY(), ThisAICapital:GetX(), ThisAICapital:GetY())
+			end
+		end
 	end
+	CapitalDistance = math.floor(CapitalDistance / humanCount)
+
 	if AICityCount >= 15 or AICityCount >= WorldCityTotal / MajorCivNum or AIPopCount >= WorldPopTotal / MajorCivNum or CapitalDistance >= WorldSizeLength / 3 then
 		print("This AI can become a Boss!")
 		return true
@@ -111,7 +119,7 @@ function GetUpgradeUnit(player, sUnitType)
 	return nil
 end
 
-function SatelliteLaunchEffects(unit, city, player)
+local function SatelliteLaunchEffects_Base(unit, city, player)
 	if unit == nil or city == nil or player == nil or player:GetNumCities() == 0
 		or not unit:IsHasPromotion(GameInfoTypes.PROMOTION_SATELLITE_UNIT)
 	then
@@ -119,44 +127,101 @@ function SatelliteLaunchEffects(unit, city, player)
 	end
 
 	if unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_SPUTNIK then
-		city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_SPUTNIK"], 1)
+					city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_SPUTNIK"], 1)
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_RECONNAISSANCE then
-		city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_RECONNAISSANCE"], 1)
+					city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_RECONNAISSANCE"], 1)
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_GPS then
-		city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_GPS"], 1)
+					city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_GPS"], 1)
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_APOLLO11 then
-		city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_APOLLO11"], 1)
+					city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_APOLLO11"], 1)
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_HUBBLE then
-		city:SetNumRealBuilding(GameInfoTypes["BUILDING_HUBBLE"], 1)
-		local NewUnit = player:InitUnit(GameInfoTypes.UNIT_SCIENTIST, city:GetX(), city:GetY(), UNITAI_SCIENTIST)
-		NewUnit:JumpToNearestValidPlot()
+					city:SetNumRealBuilding(GameInfoTypes["BUILDING_HUBBLE"], 1)
+		local NewUnit
+					NewUnit = player:InitUnit(GameInfoTypes.UNIT_SCIENTIST, city:GetX(), city:GetY(), UNITAI_SCIENTIST)
+					NewUnit:JumpToNearestValidPlot()
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_WEATHER then
-		city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_WEATHER"], 1)
+					city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_WEATHER"], 1)
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_TIANGONG then
-		city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_TIANGONG"], 1)
+					city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_TIANGONG"], 1)
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_ECCM then
-		city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_ECCM"], 1)
+					city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_ECCM"], 1)
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_ENVIRONMENT then
-		city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_ENVIRONMENT"], 1)
+					city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_ENVIRONMENT"], 1)
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_ANTIFALLOUT then
-		city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_ANTIFALLOUT"], 1)
-		Game.ChangeNuclearWinterProcess(-math.min(Game.GetNuclearWinterProcess(), 150), true, true)
-		Game.ChangeNuclearWinterNaturalReduction(2);
+					city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_ANTIFALLOUT"], 1)
+					Game.ChangeNuclearWinterProcess(-math.min(Game.GetNuclearWinterProcess(), 150), true, true)
+					Game.ChangeNuclearWinterNaturalReduction(2)
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_RESOURCEPLUS then
-		city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_RESOURCEPLUS"], 1)
+					city:SetNumRealBuilding(GameInfoTypes["BUILDING_SATELLITE_RESOURCEPLUS"], 1)
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_SPACE_ELEVATOR then
-		city:SetNumRealBuilding(GameInfoTypes["BUILDING_SPACE_ELEVATOR"], 1)
+					city:SetNumRealBuilding(GameInfoTypes["BUILDING_SPACE_ELEVATOR"], 1)
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_ORBITAL_STRIKE then
-		player:InitUnit(GameInfo.Units.UNIT_ORBITAL_STRIKE.ID, city:GetX(), city:GetY(), UNITAI_MISSILE_AIR)
+					player:InitUnit(GameInfo.Units.UNIT_ORBITAL_STRIKE.ID, city:GetX(), city:GetY(),UNITAI_MISSILE_AIR)
 		print("Rods from God built!")
 	end
 
-	SatelliteEffectsGlobal(unit);
+	SatelliteEffectsGlobal_Base(unit);
 
 	print("Satellite unit's effect is ON!")
+
 end -----------function END
 
-function SatelliteEffectsGlobal(unit)
+local function SatelliteLaunchEffects_MP(unit, city, player)
+	if unit == nil or city == nil or player == nil or player:GetNumCities() == 0
+		or not unit:IsHasPromotion(GameInfoTypes.PROMOTION_SATELLITE_UNIT)
+	then
+		return
+	end
+
+	if unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_SPUTNIK then
+					city:SendAndExecuteLuaFunction("CvLuaCity::lSetNumRealBuilding", GameInfoTypes["BUILDING_SATELLITE_SPUTNIK"],1)
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_RECONNAISSANCE then
+					city:SendAndExecuteLuaFunction("CvLuaCity::lSetNumRealBuilding", GameInfoTypes["BUILDING_SATELLITE_RECONNAISSANCE"],1)
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_GPS then
+					city:SendAndExecuteLuaFunction("CvLuaCity::lSetNumRealBuilding", GameInfoTypes["BUILDING_SATELLITE_GPS"],1)
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_APOLLO11 then
+					city:SendAndExecuteLuaFunction("CvLuaCity::lSetNumRealBuilding", GameInfoTypes["BUILDING_SATELLITE_APOLLO11"],1)
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_HUBBLE then
+					city:SendAndExecuteLuaFunction("CvLuaCity::lSetNumRealBuilding", GameInfoTypes["BUILDING_HUBBLE"],1)
+		local NewUnit
+					NewUnit = player:SendAndExecuteLuaFunction("CvLuaPlayer::lInitUnit", GameInfoTypes.UNIT_SCIENTIST, city:GetX(), city:GetY(), UNITAI_SCIENTIST)
+					NewUnit:SendAndExecuteLuaFunction("CvLuaUnit::lJumpToNearestValidPlot")
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_WEATHER then
+					city:SendAndExecuteLuaFunction("CvLuaCity::lSetNumRealBuilding", GameInfoTypes["BUILDING_SATELLITE_WEATHER"],1)
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_TIANGONG then
+					city:SendAndExecuteLuaFunction("CvLuaCity::lSetNumRealBuilding", GameInfoTypes["BUILDING_SATELLITE_TIANGONG"],1)
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_ECCM then
+					city:SendAndExecuteLuaFunction("CvLuaCity::lSetNumRealBuilding", GameInfoTypes["BUILDING_SATELLITE_ECCM"],1)
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_ENVIRONMENT then
+					city:SendAndExecuteLuaFunction("CvLuaCity::lSetNumRealBuilding", GameInfoTypes["BUILDING_SATELLITE_ENVIRONMENT"],1)
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_ANTIFALLOUT then
+					city:SendAndExecuteLuaFunction("CvLuaCity::lSetNumRealBuilding", GameInfoTypes["BUILDING_SATELLITE_ANTIFALLOUT"],1)
+					Game.SendAndExecuteLuaFunction("CvLuaGame::lChangeNuclearWinterProcess", -math.min(Game.GetNuclearWinterProcess(), 150), true, true)
+					Game.SendAndExecuteLuaFunction("CvLuaGame::lChangeNuclearWinterNaturalReduction", 2)
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_RESOURCEPLUS then
+					city:SendAndExecuteLuaFunction("CvLuaCity::lSetNumRealBuilding", GameInfoTypes["BUILDING_SATELLITE_RESOURCEPLUS"],1)
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_SPACE_ELEVATOR then
+					city:SendAndExecuteLuaFunction("CvLuaCity::lSetNumRealBuilding", GameInfoTypes["BUILDING_SPACE_ELEVATOR"],1)
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_ORBITAL_STRIKE then
+					player:SendAndExecuteLuaFunction("CvLuaPlayer::lInitUnit", GameInfo.Units.UNIT_ORBITAL_STRIKE.ID, city:GetX(), city:GetY(),UNITAI_MISSILE_AIR)
+		print("Rods from God built!")
+	end
+
+	SatelliteEffectsGlobal_MP(unit);
+
+	print("Satellite unit's effect is ON!")
+
+end -----------function END
+
+function SatelliteLaunchEffects(unit, city, player, bBroadcast)
+    if bBroadcast and Game.IsGameMultiPlayer() then
+        return SatelliteLaunchEffects_MP(unit, city, player)
+    end
+    return SatelliteLaunchEffects_Base(unit, city, player)
+end -----------function END
+
+
+local function SatelliteEffectsGlobal_Base(unit)
 	if unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_WEATHER then
 		print("Satellite Effects Global:Weather Control!")
 		for plotLoop = 0, Map.GetNumPlots() - 1, 1 do
@@ -166,7 +231,7 @@ function SatelliteEffectsGlobal(unit)
 				if plot:GetTerrainType() == TerrainTypes.TERRAIN_DESERT then
 					local pPlotX = plot:GetX()
 					local pPlotY = plot:GetY()
-					Game.SetPlotExtraYield(pPlotX, pPlotY, GameInfoTypes.YIELD_FOOD, 2)
+											Game.SetPlotExtraYield(pPlotX, pPlotY, GameInfoTypes.YIELD_FOOD, 2)
 				end
 			end
 		end
@@ -179,7 +244,7 @@ function SatelliteEffectsGlobal(unit)
 				if plot:GetFeatureType() == FeatureTypes.NO_FEATURE and not plot:IsHills() and not plot:IsMountain() then
 					local pPlotX = plot:GetX()
 					local pPlotY = plot:GetY()
-					Game.SetPlotExtraYield(pPlotX, pPlotY, GameInfoTypes.YIELD_PRODUCTION, 1)
+											Game.SetPlotExtraYield(pPlotX, pPlotY, GameInfoTypes.YIELD_PRODUCTION, 1)
 				end
 			end
 
@@ -187,10 +252,10 @@ function SatelliteEffectsGlobal(unit)
 				local pPlotX = plot:GetX()
 				local pPlotY = plot:GetY()
 				if plot:IsHills() then
-					Game.SetPlotExtraYield(pPlotX, pPlotY, GameInfoTypes.YIELD_PRODUCTION, 2)
+											Game.SetPlotExtraYield(pPlotX, pPlotY, GameInfoTypes.YIELD_PRODUCTION, 2)
 				else
-					Game.SetPlotExtraYield(pPlotX, pPlotY, GameInfoTypes.YIELD_PRODUCTION, 1)
-					Game.SetPlotExtraYield(pPlotX, pPlotY, GameInfoTypes.YIELD_FOOD, 1)
+											Game.SetPlotExtraYield(pPlotX, pPlotY, GameInfoTypes.YIELD_PRODUCTION, 1)
+											Game.SetPlotExtraYield(pPlotX, pPlotY, GameInfoTypes.YIELD_FOOD, 1)
 				end
 			end
 		end
@@ -200,7 +265,7 @@ function SatelliteEffectsGlobal(unit)
 			local plot = Map.GetPlotByIndex(plotLoop)
 
 			if plot:GetFeatureType() == FeatureTypes.FEATURE_FALLOUT then
-				plot:SetFeatureType(-1)
+									plot:SetFeatureType(-1)
 			end
 		end
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_RESOURCEPLUS then
@@ -211,16 +276,16 @@ function SatelliteEffectsGlobal(unit)
 			if plot:GetNumResource() >= 2 and not plot:IsCity() then
 				-- If you only change the resource amount on the plot, the player's resource quantity will not change! You must remove then add the improvement to make the change!
 				local iImprovement = plot:GetImprovementType()
-				plot:SetImprovementType(-1)
-				plot:ChangeNumResource(4)
-				plot:SetImprovementType(iImprovement)
+									plot:SetImprovementType(-1)
+									plot:ChangeNumResource(4)
+									plot:SetImprovementType(iImprovement)
 			end
 		end
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_GPS then
 		for playerID, player in pairs(Players) do
 			if player and player:GetNumCities() > 0 and player:IsMajorCiv() then
 				if playerID ~= unit:GetOwner() then
-					player:ChangeFreePromotionCount(GameInfo.UnitPromotions.PROMOTION_GPS_MOVEMENT_SMALL.ID, 1)
+											player:ChangeFreePromotionCount(GameInfo.UnitPromotions.PROMOTION_GPS_MOVEMENT_SMALL.ID, 1)
 				end
 			end
 		end
@@ -228,34 +293,149 @@ function SatelliteEffectsGlobal(unit)
 		for playerID, player in pairs(Players) do
 			if player and player:GetNumCities() > 0 and player:IsMajorCiv() then
 				if playerID ~= unit:GetOwner() then
-					player:ChangeFreePromotionCount(GameInfo.UnitPromotions.PROMOTION_SATELLITE_RECON_SMALL.ID, 1)
+											player:ChangeFreePromotionCount(GameInfo.UnitPromotions.PROMOTION_SATELLITE_RECON_SMALL.ID, 1)
 				end
 			end
 		end
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_APOLLO11 then
 		for playerID, player in pairs(Players) do
 			if player and player:GetNumCities() > 0 and player:IsMajorCiv() then
-				player:ChooseFreeTechs(1)
+									player:ChooseFreeTechs(1)
 			end
 		end
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_HUBBLE then
 		for playerID, player in pairs(Players) do
 			if player and player:GetCapitalCity() and player:IsMajorCiv() then
 				local CapitalCity = player:GetCapitalCity()
-				local NewUnit = player:InitUnit(GameInfoTypes.UNIT_SCIENTIST, CapitalCity:GetX(), CapitalCity:GetY(), UNITAI_SCIENTIST)
-				NewUnit:JumpToNearestValidPlot()
+				local NewUnit
+									NewUnit = player:InitUnit(GameInfoTypes.UNIT_SCIENTIST, CapitalCity:GetX(), CapitalCity:GetY(), UNITAI_SCIENTIST)
+									NewUnit:JumpToNearestValidPlot()
 			end
 		end
 	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_TIANGONG then
 		for playerID, player in pairs(Players) do
 			if player and player:GetCapitalCity() and player:IsMajorCiv() then
 				local CapitalCity = player:GetCapitalCity()
-				local NewUnit = player:InitUnit(GameInfoTypes.UNIT_ENGINEER, CapitalCity:GetX(), CapitalCity:GetY(), UNITAI_ENGINEER)
-				NewUnit:JumpToNearestValidPlot()
+				local NewUnit
+									NewUnit = player:InitUnit(GameInfoTypes.UNIT_ENGINEER, CapitalCity:GetX(), CapitalCity:GetY(), UNITAI_ENGINEER)
+									NewUnit:JumpToNearestValidPlot()
 			end
 		end
 	end
+
 end -----------function END
+
+local function SatelliteEffectsGlobal_MP(unit)
+	if unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_WEATHER then
+		print("Satellite Effects Global:Weather Control!")
+		for plotLoop = 0, Map.GetNumPlots() - 1, 1 do
+			local plot = Map.GetPlotByIndex(plotLoop)
+
+			if plot:GetFeatureType() == FeatureTypes.NO_FEATURE and not plot:IsHills() and not plot:IsMountain() then
+				if plot:GetTerrainType() == TerrainTypes.TERRAIN_DESERT then
+					local pPlotX = plot:GetX()
+					local pPlotY = plot:GetY()
+											Game.SendAndExecuteLuaFunction(Game.SetPlotExtraYield, pPlotX, pPlotY, GameInfoTypes.YIELD_FOOD, 2)
+				end
+			end
+		end
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_ENVIRONMENT then
+		print("Satellite Effects Global:Environment Transform!")
+		for plotLoop = 0, Map.GetNumPlots() - 1, 1 do
+			local plot = Map.GetPlotByIndex(plotLoop)
+
+			if plot:GetTerrainType() == TerrainTypes.TERRAIN_TUNDRA then
+				if plot:GetFeatureType() == FeatureTypes.NO_FEATURE and not plot:IsHills() and not plot:IsMountain() then
+					local pPlotX = plot:GetX()
+					local pPlotY = plot:GetY()
+											Game.SendAndExecuteLuaFunction(Game.SetPlotExtraYield, pPlotX, pPlotY, GameInfoTypes.YIELD_PRODUCTION, 1)
+				end
+			end
+
+			if plot:GetTerrainType() == TerrainTypes.TERRAIN_SNOW and not plot:IsMountain() then
+				local pPlotX = plot:GetX()
+				local pPlotY = plot:GetY()
+				if plot:IsHills() then
+											Game.SendAndExecuteLuaFunction(Game.SetPlotExtraYield, pPlotX, pPlotY, GameInfoTypes.YIELD_PRODUCTION, 2)
+				else
+											Game.SendAndExecuteLuaFunction(Game.SetPlotExtraYield, pPlotX, pPlotY, GameInfoTypes.YIELD_PRODUCTION, 1)
+											Game.SendAndExecuteLuaFunction(Game.SetPlotExtraYield, pPlotX, pPlotY, GameInfoTypes.YIELD_FOOD, 1)
+				end
+			end
+		end
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_ANTIFALLOUT then
+		print("Satellite Effects Global:Remove Fallout!")
+		for plotLoop = 0, Map.GetNumPlots() - 1, 1 do
+			local plot = Map.GetPlotByIndex(plotLoop)
+
+			if plot:GetFeatureType() == FeatureTypes.FEATURE_FALLOUT then
+									plot:SendAndExecuteLuaFunction("CvLuaPlot::lSetFeatureType", -1)
+			end
+		end
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_RESOURCEPLUS then
+		print("Satellite Effects Global:Resource Bonus")
+		for plotLoop = 0, Map.GetNumPlots() - 1, 1 do
+			local plot = Map.GetPlotByIndex(plotLoop)
+
+			if plot:GetNumResource() >= 2 and not plot:IsCity() then
+				-- If you only change the resource amount on the plot, the player's resource quantity will not change! You must remove then add the improvement to make the change!
+				local iImprovement = plot:GetImprovementType()
+									plot:SendAndExecuteLuaFunction("CvLuaPlot::lSetImprovementType", -1)
+									plot:SendAndExecuteLuaFunction("CvLuaPlot::lChangeNumResource", 4)
+									plot:SendAndExecuteLuaFunction("CvLuaPlot::lSetImprovementType", iImprovement)
+			end
+		end
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_GPS then
+		for playerID, player in pairs(Players) do
+			if player and player:GetNumCities() > 0 and player:IsMajorCiv() then
+				if playerID ~= unit:GetOwner() then
+											player:SendAndExecuteLuaFunction("CvLuaPlayer::lChangeFreePromotionCount", GameInfo.UnitPromotions.PROMOTION_GPS_MOVEMENT_SMALL.ID, 1)
+				end
+			end
+		end
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_RECONNAISSANCE then
+		for playerID, player in pairs(Players) do
+			if player and player:GetNumCities() > 0 and player:IsMajorCiv() then
+				if playerID ~= unit:GetOwner() then
+											player:SendAndExecuteLuaFunction("CvLuaPlayer::lChangeFreePromotionCount", GameInfo.UnitPromotions.PROMOTION_SATELLITE_RECON_SMALL.ID, 1)
+				end
+			end
+		end
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_APOLLO11 then
+		for playerID, player in pairs(Players) do
+			if player and player:GetNumCities() > 0 and player:IsMajorCiv() then
+									player:SendAndExecuteLuaFunction("CvLuaPlayer::lChooseFreeTechs", 1)
+			end
+		end
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_HUBBLE then
+		for playerID, player in pairs(Players) do
+			if player and player:GetCapitalCity() and player:IsMajorCiv() then
+				local CapitalCity = player:GetCapitalCity()
+				local NewUnit
+									NewUnit = player:SendAndExecuteLuaFunction("CvLuaPlayer::lInitUnit", GameInfoTypes.UNIT_SCIENTIST, CapitalCity:GetX(), CapitalCity:GetY(), UNITAI_SCIENTIST)
+									NewUnit:SendAndExecuteLuaFunction("CvLuaUnit::lJumpToNearestValidPlot")
+			end
+		end
+	elseif unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_TIANGONG then
+		for playerID, player in pairs(Players) do
+			if player and player:GetCapitalCity() and player:IsMajorCiv() then
+				local CapitalCity = player:GetCapitalCity()
+				local NewUnit
+									NewUnit = player:SendAndExecuteLuaFunction("CvLuaPlayer::lInitUnit", GameInfoTypes.UNIT_ENGINEER, CapitalCity:GetX(), CapitalCity:GetY(), UNITAI_ENGINEER)
+									NewUnit:SendAndExecuteLuaFunction("CvLuaUnit::lJumpToNearestValidPlot")
+			end
+		end
+	end
+
+end -----------function END
+
+function SatelliteEffectsGlobal(unit, bBroadcast)
+    if bBroadcast and Game.IsGameMultiPlayer() then
+        return SatelliteEffectsGlobal_MP(unit)
+    end
+    return SatelliteEffectsGlobal_Base(unit)
+end -----------function END
+
 
 ----------------------------------City Functions----------------------------
 
@@ -308,16 +488,37 @@ function SetCitadelUnits(iPlayer, x, y)
 	end
 end
 
-function RemoveConflictFeatures(plot)
+local function RemoveConflictFeatures_Base(plot)
 	if plot == nil then
 		return
 	end
 
 	if plot:GetFeatureType() == FeatureTypes.FEATURE_FOREST or plot:GetFeatureType() == FeatureTypes.FEATURE_MARSH or plot:GetFeatureType() == FeatureTypes.FEATURE_JUNGLE then
-		plot:SetFeatureType(-1)
+					plot:SetFeatureType(-1)
 		print("ConflictFeatures Removed!")
 	end
+
 end
+
+local function RemoveConflictFeatures_MP(plot)
+	if plot == nil then
+		return
+	end
+
+	if plot:GetFeatureType() == FeatureTypes.FEATURE_FOREST or plot:GetFeatureType() == FeatureTypes.FEATURE_MARSH or plot:GetFeatureType() == FeatureTypes.FEATURE_JUNGLE then
+					plot:SendAndExecuteLuaFunction(plot.SetFeatureType, -1)
+		print("ConflictFeatures Removed!")
+	end
+
+end
+
+function RemoveConflictFeatures(plot, bBroadcast)
+    if bBroadcast and Game.IsGameMultiPlayer() then
+        return RemoveConflictFeatures_MP(plot)
+    end
+    return RemoveConflictFeatures_Base(plot)
+end
+
 
 -------------------AI Force build units
 
@@ -568,7 +769,7 @@ end
 
 -- MOD Begin by CaptainCWB
 -- Improve Tiles for Both Human & AI
-function ImproveTiles(bIsHuman)
+local function ImproveTiles_Base(bIsHuman)
 	for plotLoop = 0, Map.GetNumPlots() - 1, 1 do
 		local plot = Map.GetPlotByIndex(plotLoop)
 		if plot == nil or plot:GetOwner() == -1 or plot:IsCity() or Players[plot:GetOwner()]:IsMinorCiv() or Players[plot:GetOwner()]:IsBarbarian()
@@ -585,32 +786,32 @@ function ImproveTiles(bIsHuman)
 			then
 				if plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_FARM, player:GetTeam()) then
 					if not player:HasTrait(GameInfoTypes["TRAIT_IGNORE_TERRAIN_IN_FOREST"]) then
-						RemoveConflictFeatures(plot)
+						RemoveConflictFeatures_Base(plot)
 					end
-					plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_FARM)
+											plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_FARM)
 				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_MINE, player:GetTeam()) then
-					RemoveConflictFeatures(plot)
-					plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_MINE)
+					RemoveConflictFeatures_Base(plot)
+											plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_MINE)
 				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_QUARRY, player:GetTeam()) then
-					RemoveConflictFeatures(plot)
-					plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_QUARRY)
+					RemoveConflictFeatures_Base(plot)
+											plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_QUARRY)	
 				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_PASTURE, player:GetTeam()) then
-					RemoveConflictFeatures(plot)
-					plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_PASTURE)
+					RemoveConflictFeatures_Base(plot)
+											plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_PASTURE)
 				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_FISHING_BOATS, player:GetTeam()) then
-					plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_FISHING_BOATS)
+											plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_FISHING_BOATS)
 				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_FISHFARM_MOD, player:GetTeam()) then
-					plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_FISHFARM_MOD)
+											plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_FISHFARM_MOD)
 				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_PLANTATION, player:GetTeam()) then
-					RemoveConflictFeatures(plot)
-					plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_PLANTATION)
+					RemoveConflictFeatures_Base(plot)
+											plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_PLANTATION)
 				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_CAMP, player:GetTeam()) then
-					plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_CAMP)
+											plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_CAMP)
 				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_WELL, player:GetTeam()) then
-					RemoveConflictFeatures(plot)
-					plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_WELL)
+					RemoveConflictFeatures_Base(plot)
+											plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_WELL)
 				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_OFFSHORE_PLATFORM, player:GetTeam()) then
-					plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_OFFSHORE_PLATFORM)
+											plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_OFFSHORE_PLATFORM)
 				end
 				print("Improve Resource Automatically!")
 			end
@@ -620,20 +821,99 @@ function ImproveTiles(bIsHuman)
 					and (GameInfoTypes[GameInfo.Builds["BUILD_TRADING_POST"].PrereqTech] == nil
 						or Teams[player:GetTeam()]:IsHasTech(GameInfoTypes[GameInfo.Builds["BUILD_TRADING_POST"].PrereqTech]))
 				then
-					plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_TRADING_POST);
+											plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_TRADING_POST)
 				end
 			elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_FISHERY_MOD, player:GetTeam()) and Teams[player:GetTeam()]:IsHasTech(GameInfoTypes[GameInfo.Builds["BUILD_FISHERY_MOD"].PrereqTech]) then
-				plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_FISHFARM_MOD)
+									plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_FISHFARM_MOD)
 			elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_GAS_RIG_MOD, player:GetTeam()) and Teams[player:GetTeam()]:IsHasTech(GameInfoTypes[GameInfo.Builds["BUILD_GAS_RIG_MOD"].PrereqTech]) then
-				plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_OFFSHORE_PLATFORM)
+									plot:SetImprovementType(GameInfoTypes.IMPROVEMENT_OFFSHORE_PLATFORM)
 			end
 			if plot:IsImprovementPillaged() then
-				plot:SetImprovementPillaged(false)
+				--plot:SetImprovementPillaged(false)
+									plot:SetImprovementPillaged(false)
 				print("pillaged plot repaired by Automation!")
 			end
 		end
 	end
+
 end
+
+local function ImproveTiles_MP(bIsHuman)
+	for plotLoop = 0, Map.GetNumPlots() - 1, 1 do
+		local plot = Map.GetPlotByIndex(plotLoop)
+		if plot == nil or plot:GetOwner() == -1 or plot:IsCity() or Players[plot:GetOwner()]:IsMinorCiv() or Players[plot:GetOwner()]:IsBarbarian()
+			or (bIsHuman and (not Players[plot:GetOwner()]:IsHuman() or not Teams[Players[plot:GetOwner()]:GetTeam()]:IsHasTech(GameInfoTypes["TECH_AUTOMATION_T"])))
+			or (not bIsHuman and Players[plot:GetOwner()]:IsHuman())
+		then
+		else
+			local player = Players[plot:GetOwner()];
+
+			if plot:GetResourceType(player:GetTeam()) ~= -1
+				and (plot:GetImprovementType() == -1
+					or (not plot:CanHaveImprovement(plot:GetImprovementType(), player:GetTeam())
+						and GameInfo.Resources[plot:GetResourceType(player:GetTeam())].ResourceClassType ~= "RESOURCECLASS_BONUS"))
+			then
+				if plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_FARM, player:GetTeam()) then
+					if not player:HasTrait(GameInfoTypes["TRAIT_IGNORE_TERRAIN_IN_FOREST"]) then
+						RemoveConflictFeatures_MP(plot)
+					end
+											plot:SendAndExecuteLuaFunction(plot.SetImprovementType, GameInfoTypes.IMPROVEMENT_FARM)
+				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_MINE, player:GetTeam()) then
+					RemoveConflictFeatures_MP(plot)
+											plot:SendAndExecuteLuaFunction(plot.SetImprovementType, GameInfoTypes.IMPROVEMENT_MINE)
+				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_QUARRY, player:GetTeam()) then
+					RemoveConflictFeatures_MP(plot)
+											plot:SendAndExecuteLuaFunction(plot.SetImprovementType, GameInfoTypes.IMPROVEMENT_QUARRY)	
+				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_PASTURE, player:GetTeam()) then
+					RemoveConflictFeatures_MP(plot)
+											plot:SendAndExecuteLuaFunction(plot.SetImprovementType, GameInfoTypes.IMPROVEMENT_PASTURE)
+				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_FISHING_BOATS, player:GetTeam()) then
+											plot:SendAndExecuteLuaFunction(plot.SetImprovementType, GameInfoTypes.IMPROVEMENT_FISHING_BOATS)
+				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_FISHFARM_MOD, player:GetTeam()) then
+											plot:SendAndExecuteLuaFunction(plot.SetImprovementType, GameInfoTypes.IMPROVEMENT_FISHFARM_MOD)
+				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_PLANTATION, player:GetTeam()) then
+					RemoveConflictFeatures_MP(plot)
+											plot:SendAndExecuteLuaFunction(plot.SetImprovementType, GameInfoTypes.IMPROVEMENT_PLANTATION)
+				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_CAMP, player:GetTeam()) then
+											plot:SendAndExecuteLuaFunction(plot.SetImprovementType, GameInfoTypes.IMPROVEMENT_CAMP)
+				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_WELL, player:GetTeam()) then
+					RemoveConflictFeatures_MP(plot)
+											plot:SendAndExecuteLuaFunction(plot.SetImprovementType, GameInfoTypes.IMPROVEMENT_WELL)
+				elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_OFFSHORE_PLATFORM, player:GetTeam()) then
+											plot:SendAndExecuteLuaFunction(plot.SetImprovementType, GameInfoTypes.IMPROVEMENT_OFFSHORE_PLATFORM)
+				end
+				print("Improve Resource Automatically!")
+			end
+			if not plot:IsWater() or plot:GetResourceType(-1) ~= -1 or plot:GetImprovementType() ~= -1 or (plot:IsUnit() and player:IsHuman()) then
+				if plot:GetFeatureType() == FeatureTypes.FEATURE_JUNGLE and plot:GetImprovementType() == -1
+					and plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_TRADING_POST, player:GetTeam())
+					and (GameInfoTypes[GameInfo.Builds["BUILD_TRADING_POST"].PrereqTech] == nil
+						or Teams[player:GetTeam()]:IsHasTech(GameInfoTypes[GameInfo.Builds["BUILD_TRADING_POST"].PrereqTech]))
+				then
+											plot:SendAndExecuteLuaFunction(plot.SetImprovementType, GameInfoTypes.IMPROVEMENT_TRADING_POST)
+				end
+			elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_FISHERY_MOD, player:GetTeam()) and Teams[player:GetTeam()]:IsHasTech(GameInfoTypes[GameInfo.Builds["BUILD_FISHERY_MOD"].PrereqTech]) then
+									plot:SendAndExecuteLuaFunction(plot.SetImprovementType, GameInfoTypes.IMPROVEMENT_FISHFARM_MOD)
+			elseif plot:CanHaveImprovement(GameInfoTypes.IMPROVEMENT_GAS_RIG_MOD, player:GetTeam()) and Teams[player:GetTeam()]:IsHasTech(GameInfoTypes[GameInfo.Builds["BUILD_GAS_RIG_MOD"].PrereqTech]) then
+									plot:SendAndExecuteLuaFunction(plot.SetImprovementType, GameInfoTypes.IMPROVEMENT_OFFSHORE_PLATFORM)
+			end
+			if plot:IsImprovementPillaged() then
+				--plot:SetImprovementPillaged(false)
+									plot:SendAndExecuteLuaFunction(plot.SetImprovementPillaged, false)
+				print("pillaged plot repaired by Automation!")
+			end
+		end
+	end
+
+end
+
+function ImproveTiles(bIsHuman, bBroadcast)
+    if bBroadcast and Game.IsGameMultiPlayer() then
+        return ImproveTiles_MP(bIsHuman)
+    end
+    return ImproveTiles_Base(bIsHuman)
+end
+
 
 -- Carriers Restore Cargos
 local SpecialQuery = DB.CreateQuery([[
@@ -730,7 +1010,7 @@ function SPCargoListSetup(iPlayerID)
 	g_CargoSetList[iPlayerID] = { iCBAcraft, iMissileU, iCost, iASAcraft }
 end
 
-function CarrierRestore(iPlayerID, iUnitID, iCargoUnit)
+local function CarrierRestore_Base(iPlayerID, iUnitID, iCargoUnit)
 	if Players[iPlayerID] == nil or not Players[iPlayerID]:IsAlive()
 		or Players[iPlayerID]:GetUnitByID(iUnitID) == nil
 		or Players[iPlayerID]:GetUnitByID(iUnitID):IsDead()
@@ -771,25 +1051,24 @@ function CarrierRestore(iPlayerID, iUnitID, iCargoUnit)
 				print("French Eurotiger Unique!");
 			end
 			while not pUnit:IsFull() do
-				local Missile = pPlayer:InitUnit(iCargoUnit, pPlot:GetX(), pPlot:GetY(), UNITAI_MISSILE_AIR);
-				Missile:LoadUnit(pUnit);
-				Missile:SetMoves(0);
+				local playerUnit
+									playerUnit = pPlayer:InitUnit(iCargoUnit, pPlot:GetX(), pPlot:GetY(), UNITAI_MISSILE_AIR)
+									playerUnit:SetMoves(0)
 				print("Missile restored!");
 			end
 		elseif sSpecialCargo == "SPECIALUNIT_FIGHTER" and iCost and iCost >= 0 and iCost <= pPlayer:GetGold() then
-			local pNewCargoUnit = pPlayer:InitUnit(iCargoUnit, pPlot:GetX(), pPlot:GetY(), UNITAI_ATTACK_AIR);
+			local pNewCargoUnit
+							pNewCargoUnit = pPlayer:InitUnit(iCargoUnit, pPlot:GetX(), pPlot:GetY(), UNITAI_ATTACK_AIR)
 			print("New Aircraft restored on Carrier! Cost: " .. iCost);
 			if not pPlayer:IsHuman() then
-				pNewCargoUnit:PushMission(GameInfoTypes.MISSION_AIRPATROL);
+									pNewCargoUnit:PushMission(GameInfoTypes.MISSION_AIRPATROL)
 			end
-			pNewCargoUnit:LoadUnit(pUnit);
-			pNewCargoUnit:SetMoves(0);
+							pNewCargoUnit:SetMoves(0)
 			if not pPlayer:IsHuman() and not pUnit:IsFull() and 2 * iCost <= pPlayer:GetGold() then
 				iCost = 2 * iCost;
-				pNewCargoUnit = pPlayer:InitUnit(iCargoUnit, pPlot:GetX(), pPlot:GetY(), UNITAI_ATTACK_AIR);
-				pNewCargoUnit:PushMission(GameInfoTypes.MISSION_AIRPATROL);
-				pNewCargoUnit:LoadUnit(pUnit);
-				pNewCargoUnit:SetMoves(0);
+									pNewCargoUnit = pPlayer:InitUnit(iCargoUnit, pPlot:GetX(), pPlot:GetY(), UNITAI_ATTACK_AIR)
+									pNewCargoUnit:PushMission(GameInfoTypes.MISSION_AIRPATROL)
+									pNewCargoUnit:SetMoves(0)
 				print("New Aircraft restored on Carrier twice for AI! Total Cost: " .. iCost);
 			end
 			return iCost
@@ -843,19 +1122,158 @@ function CarrierRestore(iPlayerID, iUnitID, iCargoUnit)
 				end
 			end
 			local unitAIType = pUnit:GetUnitAIType();
-			pUnit:Kill();
-			local pNewCargoUnit = pPlayer:InitUnit(iCargoUnit, pPlot:GetX(), pPlot:GetY(), unitAIType);
-			pNewCargoUnit:SetLevel(iLevel);
-			pNewCargoUnit:SetExperience(iExperience);
+							pUnit:Kill()
+			local pNewCargoUnit
+							pNewCargoUnit = pPlayer:InitUnit(iCargoUnit, pPlot:GetX(), pPlot:GetY(), unitAIType)
+							pNewCargoUnit:SetLevel(iLevel)
+							pNewCargoUnit:SetExperience(iExperience)
 			for _, unitPromotionID in ipairs(tUnitPromotions) do
-				pNewCargoUnit:SetHasPromotion(unitPromotionID, true);
+									pNewCargoUnit:SetHasPromotion(unitPromotionID, true)
 			end
-			pNewCargoUnit:LoadUnit(pUnit);
-			pNewCargoUnit:SetMoves(0);
+
+							pNewCargoUnit:SetMoves(0)
 			return iCost;
 		end
 	end
+
 end
+
+local function CarrierRestore_MP(iPlayerID, iUnitID, iCargoUnit)
+	if Players[iPlayerID] == nil or not Players[iPlayerID]:IsAlive()
+		or Players[iPlayerID]:GetUnitByID(iUnitID) == nil
+		or Players[iPlayerID]:GetUnitByID(iUnitID):IsDead()
+		or Players[iPlayerID]:GetUnitByID(iUnitID):IsDelayedDeath()
+		or Players[iPlayerID]:GetUnitByID(iUnitID):GetPlot() == nil
+		or Players[iPlayerID]:GetUnitByID(iUnitID):GetPlot():IsCity()
+		or iCargoUnit == nil or iCargoUnit == -1
+		or g_CargoSetList[iPlayerID] == nil
+	then
+		return;
+	end
+	local pPlayer = Players[iPlayerID];
+	local pUnit   = pPlayer:GetUnitByID(iUnitID);
+	local pPlot   = pUnit:GetPlot();
+	local iCost   = g_CargoSetList[iPlayerID][3];
+
+	-- Add New aircraft(s)!
+	if pUnit:CargoSpace() > 0 and not pUnit:IsFull() then
+		local sSpecialCargo = GameInfo.Units[pUnit:GetUnitType()].SpecialCargo;
+
+		local SupplyDiscount = 0;
+		if pUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CARRIER_SUPPLY_1"]) then
+			SupplyDiscount = SupplyDiscount + 1
+		end
+		if pUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CARRIER_SUPPLY_2"]) then
+			SupplyDiscount = SupplyDiscount + 1
+		end
+		if pUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CARRIER_SUPPLY_3"]) then
+			SupplyDiscount = SupplyDiscount + 1
+		end
+		if iCost and iCost > 0 then
+			iCost = math.floor(iCost * (1 - 0.2 * SupplyDiscount));
+		end
+
+		if sSpecialCargo == "SPECIALUNIT_MISSILE" then
+			if pUnit:GetUnitType() == GameInfoTypes.UNIT_FRANCE_MISTRAL and iCargoUnit == GameInfoTypes.UNIT_GUIDED_MISSILE then
+				iCargoUnit = GameInfoTypes["UNIT_FRANCE_EUROCOPTER_TIGER"];
+				print("French Eurotiger Unique!");
+			end
+			while not pUnit:IsFull() do
+				local playerUnit
+									playerUnit = pPlayer:SendAndExecuteLuaFunction(pPlayer.InitUnit, iCargoUnit, pPlot:GetX(), pPlot:GetY(), UNITAI_MISSILE_AIR)
+									playerUnit:SendAndExecuteLuaFunction(pUnit.SetMoves, 0)
+				print("Missile restored!");
+			end
+		elseif sSpecialCargo == "SPECIALUNIT_FIGHTER" and iCost and iCost >= 0 and iCost <= pPlayer:GetGold() then
+			local pNewCargoUnit
+												pNewCargoUnit = pPlayer:SendAndExecuteLuaFunction(pPlayer.InitUnit, iCargoUnit, pPlot:GetX(), pPlot:GetY(), UNITAI_ATTACK_AIR)
+			print("New Aircraft restored on Carrier! Cost: " .. iCost);
+			if not pPlayer:IsHuman() then
+									pNewCargoUnit:SendAndExecuteLuaFunction(pNewCargoUnit.PushMission, GameInfoTypes.MISSION_AIRPATROL)
+			end
+							pNewCargoUnit:SendAndExecuteLuaFunction(pNewCargoUnit.SetMoves, 0)
+			if not pPlayer:IsHuman() and not pUnit:IsFull() and 2 * iCost <= pPlayer:GetGold() then
+				iCost = 2 * iCost;
+									pNewCargoUnit = pPlayer:SendAndExecuteLuaFunction(pPlayer.InitUnit, iCargoUnit, pPlot:GetX(), pPlot:GetY(), UNITAI_ATTACK_AIR)
+									pNewCargoUnit:SendAndExecuteLuaFunction(pNewCargoUnit.PushMission, GameInfoTypes.MISSION_AIRPATROL)
+									pNewCargoUnit:SendAndExecuteLuaFunction(pNewCargoUnit.SetMoves, 0)
+				print("New Aircraft restored on Carrier twice for AI! Total Cost: " .. iCost);
+			end
+			return iCost
+		end
+
+		-- Upgrade Old aircraft!
+	elseif pUnit:IsCargo() then
+		local sSpecial = GameInfo.Units[pUnit:GetUnitType()].Special;
+		if sSpecial == "SPECIALUNIT_FIGHTER" and iCost and iCost > 0 then
+			iCost = math.floor(iCost / 2);
+		elseif sSpecial == "SPECIALUNIT_STEALTH" then
+			iCost = pUnit:UpgradePrice(iCargoUnit);
+		elseif sSpecial == "SPECIALUNIT_MISSILE" then
+			iCost = 0;
+		end
+		local SupplyDiscount = 0;
+		if pUnit:GetTransportUnit():IsHasPromotion(GameInfoTypes["PROMOTION_CARRIER_SUPPLY_1"]) then
+			SupplyDiscount = SupplyDiscount + 1
+		end
+		if pUnit:GetTransportUnit():IsHasPromotion(GameInfoTypes["PROMOTION_CARRIER_SUPPLY_2"]) then
+			SupplyDiscount = SupplyDiscount + 1
+		end
+		if pUnit:GetTransportUnit():IsHasPromotion(GameInfoTypes["PROMOTION_CARRIER_SUPPLY_3"]) then
+			SupplyDiscount = SupplyDiscount + 1
+		end
+		if iCost and iCost > 0 then
+			iCost = math.floor(iCost * (1 - 0.2 * SupplyDiscount));
+		end
+		-- Can't upgrade because lacking the Gold!
+		if iCost == nil or iCost < 0 or iCost > pPlayer:GetGold() then
+			return;
+		end
+		if (iCargoUnit == GameInfoTypes["UNIT_CARRIER_FIGHTER_ADV"] and (pPlayer:HasTrait(GameInfoTypes["TRAIT_OCEAN_MOVEMENT"]) or pPlayer:GetUUFromExtra(GameInfoTypes["UNIT_CARRIER_FIGHTER_ENGLISH_HARRIER_ADV"]) > 0))
+		or pUnit:GetUnitType() == GameInfoTypes["UNIT_CARRIER_FIGHTER_ENGLISH_HARRIER"]
+		then
+			iCargoUnit = GameInfoTypes["UNIT_CARRIER_FIGHTER_ENGLISH_HARRIER_ADV"];
+			print("English Unique 'Upgrade' CFJ!");
+		elseif pUnit:GetTransportUnit():GetUnitType() == GameInfoTypes.UNIT_FRANCE_MISTRAL and iCargoUnit == GameInfoTypes.UNIT_GUIDED_MISSILE then
+			iCargoUnit = GameInfoTypes["UNIT_FRANCE_EUROCOPTER_TIGER"];
+			print("French Eurotiger Unique!");
+		end
+
+		if iCargoUnit ~= -1 then
+			print("Found old aircrafts! Upgrade Price is: " .. iCost);
+			local iLevel = pUnit:GetLevel();
+			local iExperience = pUnit:GetExperience();
+			local tUnitPromotions = {};
+			for unitPromotion in GameInfo.UnitPromotions() do
+				if pUnit:IsHasPromotion(unitPromotion.ID) and not unitPromotion.LostWithUpgrade then
+					table.insert(tUnitPromotions, unitPromotion.ID);
+				end
+			end
+			local unitAIType = pUnit:GetUnitAIType();
+							pUnit:SendAndExecuteLuaFunction(pUnit.Kill)
+			local pNewCargoUnit
+							pNewCargoUnit = pPlayer:SendAndExecuteLuaFunction(pPlayer.InitUnit, iCargoUnit, pPlot:GetX(), pPlot:GetY(), unitAIType)
+							pNewCargoUnit:SendAndExecuteLuaFunction(pNewCargoUnit.SetLevel, iLevel)
+							pNewCargoUnit:SendAndExecuteLuaFunction(pNewCargoUnit.SetExperience, iExperience)
+			for _, unitPromotionID in ipairs(tUnitPromotions) do
+									pNewCargoUnit:SendAndExecuteLuaFunction(pNewCargoUnit.SetHasPromotion, unitPromotionID, true)
+			end
+
+							pNewCargoUnit:SendAndExecuteLuaFunction(pNewCargoUnit.SetMoves, 0)
+			return iCost;
+		end
+	end
+
+end
+
+function CarrierRestore(iPlayerID, iUnitID, iCargoUnit, bBroadcast)
+    if bBroadcast and Game.IsGameMultiPlayer() then
+        return CarrierRestore_MP(iPlayerID, iUnitID, iCargoUnit)
+    end
+    return CarrierRestore_Base(iPlayerID, iUnitID, iCargoUnit)
+end
+
 
 -- MOD End   by CaptainCWB
 print("UtilityFunctions Check Pass!")
+

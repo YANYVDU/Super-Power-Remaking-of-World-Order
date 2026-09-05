@@ -282,7 +282,7 @@ function PlayerIntoNewEra(playerID, era) -- AI will get bonus when Human Player 
     if not player:IsMajorCiv() or handicap < 3 then return end
     -- Force AI to build improvemnts on resources since they always forget
     if player:IsHuman() then 
-        ImproveTiles(false) 
+        ImproveTiles(false, false)
         return
     end
     

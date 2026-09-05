@@ -112,12 +112,12 @@ end
 
 local function OnConfirm()
 	local text = Controls.NameInput:GetText()
-	if Game.SetPlotName then Game.SetPlotName(g_iTargetX, g_iTargetY, text); SyncLabels() end
+	if Game.SetPlotName then Game.SendAndExecuteLuaFunction("CvLuaGame::lSetPlotName", g_iTargetX, g_iTargetY, text); SyncLabels() end
 	Hide()
 end
 
 local function OnClear()
-	if Game.RemovePlotName then Game.RemovePlotName(g_iTargetX, g_iTargetY); SyncLabels() end
+	if Game.RemovePlotName then Game.SendAndExecuteLuaFunction("CvLuaGame::lRemovePlotName", g_iTargetX, g_iTargetY); SyncLabels() end
 	Hide()
 end
 
@@ -137,7 +137,7 @@ Controls.ConfirmBtn:RegisterCallback(Mouse.eLClick, OnConfirm)
 Controls.ClearBtn:RegisterCallback(Mouse.eLClick, OnClear)
 Controls.CancelBtn:RegisterCallback(Mouse.eLClick, Hide)
 ContextPtr:SetInputHandler(OnPopupInput)
-Events.SerialEventEnterCityScreen.Add(function() Controls.WorldLabelStack:SetHide(true) end)
-Events.SerialEventExitCityScreen.Add(function() Controls.WorldLabelStack:SetHide(false) end)
+Events.SerialEventEnterCityScreen.Add(function() Controls.WorldLabelStack:SetHide(true); SyncLabels() end)
+Events.SerialEventExitCityScreen.Add(function() Controls.WorldLabelStack:SetHide(false); SyncLabels() end)
 LoadPlotNameSettings()
 SyncLabels()

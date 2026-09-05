@@ -93,10 +93,12 @@ function( wParam, lParam )
 			if (pPlot:GetVisibilityCount() > 0) then
 				pPlot:ChangeVisibilityCount(team, -1, -1, true, true);
 			end
-			pPlot:SetRevealed(team, false);
-
-			pPlot:ChangeVisibilityCount(team, 1, -1, true, true);
-			pPlot:SetRevealed(team, bIsDebug);
+			--pPlot:SetRevealed(team, false);
+			pPlot:SendAndExecuteLuaFunction(pPlot.SetRevealed, team, false)
+			--pPlot:ChangeVisibilityCount(team, 1, -1, true, true);
+			pPlot:SendAndExecuteLuaFunction(pPlot.ChangeVisibilityCount, team, 1, -1, true, true)
+			--pPlot:SetRevealed(team, bIsDebug);
+			pPlot:SendAndExecuteLuaFunction(pPlot.SetRevealed, team, bIsDebug)
 		end       
 		return true;
     elseif ( wParam == Keys.G ) then
