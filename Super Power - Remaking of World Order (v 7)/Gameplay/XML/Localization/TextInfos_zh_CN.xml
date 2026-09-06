@@ -18052,5 +18052,30 @@
 		<Row Tag="TXT_KEY_CSUA_KATHMANDU_DONATION_TT">
 			<Text>作为加德满都的盟友，你每回合首次[ICON_GOLD]金钱捐献将返还50%的[ICON_PEACE]信仰。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_GENEVA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]为领袖的宗教获得「世界认可」：每有2个主要文明的主流宗教为该宗教，盟友+1[ICON_DIPLOMATIC_PRESTIGE]外交威望
+				[NEWLINE][ICON_BULLET]每有3座城市信仰该宗教，盟友每回合对所有已见面城邦+1[ICON_INFLUENCE]影响力
+				[NEWLINE][ICON_BULLET]盟友每次诞生[ICON_PROPHET]大先知，获得等同于其对日内瓦影响力×2的[ICON_GOLD]金钱
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每次诞生[ICON_PROPHET]大先知，获得等同于其对日内瓦影响力的[ICON_GOLD]金钱
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GENEVA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]为领袖的宗教获得「世界认可」：每有2个主要文明的主流宗教为该宗教，盟友+1[ICON_DIPLOMATIC_PRESTIGE]外交威望
+				[NEWLINE][ICON_BULLET]每有3座城市信仰该宗教，盟友每回合对所有已见面城邦+1[ICON_INFLUENCE]影响力
+				[NEWLINE][ICON_BULLET]盟友每次诞生[ICON_PROPHET]大先知，获得等同于其对日内瓦影响力×2的[ICON_GOLD]金钱
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GENEVA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每次诞生[ICON_PROPHET]大先知，获得等同于其对日内瓦影响力的[ICON_GOLD]金钱
+			</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

@@ -277,6 +277,17 @@
 			<Type>EFFECT_CSUA_KATHMANDU_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_KATHMANDU_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_GENEVA_ALLY</Type>
+			<DiplomaticPrestigePerMajorityCiv>50</DiplomaticPrestigePerMajorityCiv>
+			<InfluencePerTurnPerFollowCityMod>100</InfluencePerTurnPerFollowCityMod>
+			<FollowingCityDivisor>3</FollowingCityDivisor>
+			<Help>TXT_KEY_EFFECT_CSUA_GENEVA_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_GENEVA_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_GENEVA_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -591,6 +602,20 @@
 			<MinorCivType>MINOR_CIV_VALLETTA</MinorCivType>
 			<UnitClassType>UNITCLASS_GREAT_GENERAL</UnitClassType>
 			<YieldType>YIELD_FAITH</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_GENEVA_ALLY</EffectType>
+			<MinorCivType>MINOR_CIV_GENEVA</MinorCivType>
+			<UnitClassType>UNITCLASS_PROPHET</UnitClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>200</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_GENEVA_FRIEND</EffectType>
+			<MinorCivType>MINOR_CIV_GENEVA</MinorCivType>
+			<UnitClassType>UNITCLASS_PROPHET</UnitClassType>
+			<YieldType>YIELD_GOLD</YieldType>
 			<YieldMod>100</YieldMod>
 		</Row>
 	 </CityStateUAEffect_UnitBornYield>
@@ -1393,6 +1418,13 @@
 			<Help>TXT_KEY_CSUA_KATHMANDU_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_KATHMANDU_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_KATHMANDU_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_GENEVA</Type>
+			<Description>TXT_KEY_CITYSTATE_GENEVA</Description>
+			<Help>TXT_KEY_CSUA_GENEVA_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_GENEVA_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_GENEVA_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>

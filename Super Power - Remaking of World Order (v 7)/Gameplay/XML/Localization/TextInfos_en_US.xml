@@ -19583,5 +19583,30 @@
 		<Row Tag="TXT_KEY_CSUA_KATHMANDU_DONATION_TT">
 			<Text>As an ally of Kathmandu, the first [ICON_GOLD] Gold donation you make each turn refunds 50% of the amount as [ICON_PEACE] Faith.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_GENEVA_HELP">
+			<Text>
+				Ally effect:
+				[NEWLINE][ICON_BULLET]Gain "World Recognition" for the religion the ally leads: +1 [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige per 2 major civilizations whose majority religion is that religion
+				[NEWLINE][ICON_BULLET]+1 [ICON_INFLUENCE] Influence per turn with every met city-state for every 3 cities following that religion
+				[NEWLINE][ICON_BULLET]Whenever the ally spawns a [ICON_PROPHET] Great Prophet, gain [ICON_GOLD] Gold equal to twice their Influence with Geneva
+				[NEWLINE]
+				[NEWLINE]Friend effect:
+				[NEWLINE][ICON_BULLET]Whenever a friend spawns a [ICON_PROPHET] Great Prophet, gain [ICON_GOLD] Gold equal to their Influence with Geneva
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GENEVA_ALLY_HELP">
+			<Text>
+				Ally effect:
+				[NEWLINE][ICON_BULLET]Gain "World Recognition" for the religion the ally leads: +1 [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige per 2 major civilizations whose majority religion is that religion
+				[NEWLINE][ICON_BULLET]+1 [ICON_INFLUENCE] Influence per turn with every met city-state for every 3 cities following that religion
+				[NEWLINE][ICON_BULLET]Whenever the ally spawns a [ICON_PROPHET] Great Prophet, gain [ICON_GOLD] Gold equal to twice their Influence with Geneva
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GENEVA_FRIEND_HELP">
+			<Text>
+				Friend effect:
+				[NEWLINE][ICON_BULLET]Whenever a friend spawns a [ICON_PROPHET] Great Prophet, gain [ICON_GOLD] Gold equal to their Influence with Geneva
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
