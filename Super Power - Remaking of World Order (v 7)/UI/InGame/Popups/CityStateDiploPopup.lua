@@ -673,6 +673,22 @@ function OnDisplay()
 		Controls.BeliefPurchaseButton:SetToolTipString(strBeliefPurchaseTT);
 	end
 
+	-- Faith Pantheon Purchase (La Venta CS UA: buy an idle pantheon belief to add to the ally-led religion)
+	local iPantheonPurchaseCost = Game.GetCityStateFaithPantheonPurchaseCost(g_iMinorCivID);
+	local bShowPantheonPurchaseButton = (iPantheonPurchaseCost > 0);
+	local bEnablePantheonPurchaseButton = bShowPantheonPurchaseButton and (pActivePlayer:GetFaith() >= iPantheonPurchaseCost);
+	local strPantheonPurchaseButton = Locale.Lookup("TXT_KEY_POP_CSTATE_PANTHEON_PURCHASE") .. " (" .. iPantheonPurchaseCost .. "[ICON_FAITH])";
+	local strPantheonPurchaseTT = Locale.Lookup("TXT_KEY_POP_CSTATE_PANTHEON_PURCHASE_TT", iPantheonPurchaseCost);
+	if (bShowPantheonPurchaseButton and not bEnablePantheonPurchaseButton) then
+		strPantheonPurchaseButton = "[COLOR_WARNING_TEXT]" .. strPantheonPurchaseButton .. "[ENDCOLOR]";
+	end
+	Controls.PantheonPurchaseAnim:SetHide(not bEnablePantheonPurchaseButton);
+	Controls.PantheonPurchaseButton:SetHide(not bShowPantheonPurchaseButton);
+	if (bShowPantheonPurchaseButton) then
+		Controls.PantheonPurchaseLabel:SetText(strPantheonPurchaseButton);
+		Controls.PantheonPurchaseButton:SetToolTipString(strPantheonPurchaseTT);
+	end
+
 	Controls.DescriptionLabel:SetText(strText);
 	
 	SetButtonSize(Controls.PeaceLabel, Controls.PeaceButton, Controls.PeaceAnim, Controls.PeaceButtonHL);
@@ -687,6 +703,7 @@ function OnDisplay()
 	SetButtonSize(Controls.NoUnitSpawningLabel, Controls.NoUnitSpawningButton, Controls.NoUnitSpawningAnim, Controls.NoUnitSpawningButtonHL);
 	SetButtonSize(Controls.BuyoutLabel, Controls.BuyoutButton, Controls.BuyoutAnim, Controls.BuyoutButtonHL);
 	SetButtonSize(Controls.BeliefPurchaseLabel, Controls.BeliefPurchaseButton, Controls.BeliefPurchaseAnim, Controls.BeliefPurchaseButtonHL);
+	SetButtonSize(Controls.PantheonPurchaseLabel, Controls.PantheonPurchaseButton, Controls.PantheonPurchaseAnim, Controls.PantheonPurchaseButtonHL);
 	SetButtonSize(Controls.InfluenceLabel, Controls.InfluenceButton, Controls.InfluenceAnim, Controls.InfluenceButtonHL);
 
 	Controls.GiveStack:SetHide(true);
@@ -829,6 +846,29 @@ function OnBeliefPurchaseButtonClicked()
 	end
 end
 Controls.BeliefPurchaseButton:RegisterCallback( Mouse.eLClick, OnBeliefPurchaseButtonClicked );
+
+----------------------------------------------------------------
+-- Faith Pantheon Purchase (La Venta CS UA)
+----------------------------------------------------------------
+function OnPantheonPurchaseButtonClicked()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	local iCost = Game.GetCityStateFaithPantheonPurchaseCost(g_iMinorCivID);
+	if (iCost > 0 and pActivePlayer:GetFaith() >= iCost) then
+		-- 空闲神系加入的是盟友为领袖的宗教（玩家创立的宗教），而非城邦的宗教
+		local religionID = pActivePlayer:GetReligionCreatedByPlayer();
+		local religionName = "";
+		if (religionID ~= -1) then
+			religionName = Locale.Lookup(GameInfo.Religions[religionID].Description);
+		end
+		-- Lua 全局变量不跨 context 共享，参数须通过 LuaEvents 传入选择弹窗（Mode="pantheon"）
+		local pantheonContext = ContextPtr:LoadNewContext("InGame/Popups/ChooseBeliefPopup");
+		LuaEvents.CSUABeliefPopupOpen( g_iMinorCivID, iCost, religionName, "pantheon" );
+		UIManager:QueuePopup( pantheonContext, PopupPriority.SocialPolicy );
+		UIManager:DequeuePopup( ContextPtr );
+	end
+end
+Controls.PantheonPurchaseButton:RegisterCallback( Mouse.eLClick, OnPantheonPurchaseButtonClicked );
 
 
 ----------------------------------------------------------------

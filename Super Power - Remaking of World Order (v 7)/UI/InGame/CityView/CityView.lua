@@ -1273,6 +1273,12 @@ function OnCityViewUpdate()
 						iPlayerMod = iPlayerMod - iPolicyMod - iWorldCongressMod;
 						
 						local iCityStateMod = pPlayer:GetCityStateSpecialistPointRate(iSpecialistIndex);
+						-- 拉本塔UA：把全局杰作/文物伟人加成从"城市修正"拆出，归入"盟邦UA加成"行单独显示
+						local iCSGreatWorkMod = pPlayer:GetCSUAGreatPersonRateModifierFromGreatWorks();
+						if (iCSGreatWorkMod ~= 0) then
+							iCityMod = iCityMod - iCSGreatWorkMod;
+							iCityStateMod = iCityStateMod + iCSGreatWorkMod;
+						end
 						local iMod = iPlayerMod + iPolicyMod + iWorldCongressMod + iCityMod + iGoldenAgeMod + iCityStateMod;
 						iGPPChange = (iGPPChange * (100 + iMod)) / 100;
 						strToolTipText = strToolTipText .. " (+" .. math.floor(iGPPChange/100) .. "[ICON_GREAT_PEOPLE])";	

@@ -11,10 +11,11 @@ include( "IconSupport" );
 include( "InstanceManager" );
 
 -- 城邦外交界面通过 LuaEvents 传入参数（Lua 全局变量不跨 context 共享）
+-- Mode: "belief"（维滕贝格任意信条）或 "pantheon"（拉本塔空闲神系）
 g_CSUABeliefPopupParams = nil;
-LuaEvents.CSUABeliefPopupOpen.Add(function(MinorID, Cost, ReligionName)
-	g_CSUABeliefPopupParams = { MinorID = MinorID, Cost = Cost, ReligionName = ReligionName };
-	print("[ChooseBeliefPopup] params received minor=" .. tostring(MinorID) .. " cost=" .. tostring(Cost) .. " religion=" .. tostring(ReligionName));
+LuaEvents.CSUABeliefPopupOpen.Add(function(MinorID, Cost, ReligionName, Mode)
+	g_CSUABeliefPopupParams = { MinorID = MinorID, Cost = Cost, ReligionName = ReligionName, Mode = Mode or "belief" };
+	print("[ChooseBeliefPopup] params received minor=" .. tostring(MinorID) .. " cost=" .. tostring(Cost) .. " religion=" .. tostring(ReligionName) .. " mode=" .. tostring(Mode));
 end);
 
 -- 交替底色（同原版选神系UI）
@@ -77,6 +78,19 @@ function RefreshList()
 		end
 	end
 
+	local mode = params.Mode or "belief";
+
+	-- 拉本塔 pantheon 模式：构建已占用神系集合（被任意宗教占用的神系不可再购买，仅保留空闲神系）
+	local occupiedBeliefs = {};
+	if (mode == "pantheon") then
+		for religionRow in GameInfo.Religions() do
+			local rid = religionRow.ID;
+			for _, bid in ipairs(Game.GetBeliefsInReligion(rid)) do
+				occupiedBeliefs[bid] = true;
+			end
+		end
+	end
+
 	-- 分类定义：神系 / 追随者 / 创立 / 强化 / 改革
 	local sections = {
 		{ key = "PANTHEON",     labelKey = "TXT_KEY_CHOOSE_BELIEF_SECTION_PANTHEON",     list = {} },
@@ -86,12 +100,17 @@ function RefreshList()
 		{ key = "REFORMATION",  labelKey = "TXT_KEY_CHOOSE_BELIEF_SECTION_REFORMATION",  list = {} },
 	};
 
-	-- 收集全部信条，按类型归类；突破限制：被他人占用/未占用的均可选，仅排除盟友宗教已含的同一信条
+	-- 收集全部信条，按类型归类；维滕贝格突破限制：被他人占用/未占用的均可选，仅排除盟友宗教已含的同一信条；
+	-- 拉本塔仅允许购买未被任何宗教占用的空闲神系信条
 	for row in GameInfo.Beliefs() do
 		local beliefID = row.ID;
-		if not knownBeliefs[beliefID] then
+		if (not knownBeliefs[beliefID]) and (not occupiedBeliefs[beliefID]) then
 			local section = nil;
-			if (row.Reformation) then
+			if (mode == "pantheon") then
+				if (row.Pantheon) then
+					section = sections[1];
+				end
+			elseif (row.Reformation) then
 				section = sections[5];
 			elseif (row.Enhancer) then
 				section = sections[4];
@@ -177,8 +196,14 @@ function OnYes()
 	local params = g_CSUABeliefPopupParams;
 	print("[ChooseBeliefPopup] OnYes params=" .. tostring(params) .. " beliefID=" .. tostring(g_BeliefID));
 	if (params ~= nil and params.MinorID ~= nil and g_BeliefID ~= -1) then
-		local bSuccess = Game.DoCityStateFaithBeliefPurchase(params.MinorID, g_BeliefID);
-		print("[CSUA BeliefPurchase] minor=" .. params.MinorID .. " belief=" .. g_BeliefID .. " result=" .. tostring(bSuccess));
+		local bSuccess = false;
+		if (params.Mode == "pantheon") then
+			bSuccess = Game.DoCityStateFaithPantheonPurchase(params.MinorID, g_BeliefID);
+			print("[CSUA PantheonPurchase] minor=" .. params.MinorID .. " belief=" .. g_BeliefID .. " result=" .. tostring(bSuccess));
+		else
+			bSuccess = Game.DoCityStateFaithBeliefPurchase(params.MinorID, g_BeliefID);
+			print("[CSUA BeliefPurchase] minor=" .. params.MinorID .. " belief=" .. g_BeliefID .. " result=" .. tostring(bSuccess));
+		end
 		if (bSuccess) then
 			Events.AudioPlay2DSound("AS2D_INTERFACE_POLICY");
 		end
@@ -231,7 +256,9 @@ function ShowHideHandler( bIsHide, bInitState )
 			-- 读取调用方参数（维滕贝格/拉本塔UA均可复用）
 			local params = g_CSUABeliefPopupParams;
 			if (params ~= nil) then
-				if (params.ReligionName ~= nil) then
+				if (params.Mode == "pantheon") then
+					Controls.SubtitleLabel:LocalizeAndSetText("TXT_KEY_CHOOSE_PANTHEON_SUBTITLE", params.ReligionName, params.Cost);
+				elseif (params.ReligionName ~= nil) then
 					Controls.SubtitleLabel:LocalizeAndSetText("TXT_KEY_CHOOSE_BELIEF_SUBTITLE", params.ReligionName, params.Cost);
 				else
 					Controls.SubtitleLabel:LocalizeAndSetText("TXT_KEY_CHOOSE_BELIEF_SUBTITLE_NO_RELIGION", params.Cost);

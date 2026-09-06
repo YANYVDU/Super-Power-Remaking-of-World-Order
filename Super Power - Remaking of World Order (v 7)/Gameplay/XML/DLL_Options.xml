@@ -407,6 +407,11 @@
 			<Where Name="SP_FAITH_BELIEF_PURCHASE_COST"/>
 			<Set Value="2500"/>
 		</Update>
+		<Update>
+			<!-- 拉本塔：空闲神系信条购买的基础信仰价格（标准速度下初始500，每次购买翻倍） -->
+			<Where Name="SP_PANTHEON_BELIEF_PURCHASE_BASE_COST"/>
+			<Set Value="500"/>
+		</Update>
 	</CustomModOptions>
 
 

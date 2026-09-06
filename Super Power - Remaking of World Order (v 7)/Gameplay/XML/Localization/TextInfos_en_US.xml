@@ -19503,5 +19503,48 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_BELIEF_PURCHASED_BROADCAST">
 			<Text>{1_CivName} has added the {3_BeliefName} belief to {2_ReligionName}.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_LAVENTA_HELP">
+			<Text>
+				Ally effect:
+				[NEWLINE][ICON_BULLET]+4% great-person rate per masterpiece or artifact the ally owns
+				[NEWLINE][ICON_BULLET]The ally may spend [ICON_PEACE] Faith to purchase an idle (unclaimed) pantheon belief and add it to the religion led by the ally (base 500 [ICON_PEACE], doubles with each purchase, no limit)
+				[NEWLINE][ICON_BULLET]Each purchase grants the ally influence with all met city-states equal to 50% of the ally's excess happiness
+				[NEWLINE]
+				[NEWLINE]Friend effect:
+				[NEWLINE][ICON_BULLET]+2% great-person rate per masterpiece or artifact the friend owns
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_LAVENTA_ALLY_HELP">
+			<Text>
+				Ally effect:
+				[NEWLINE][ICON_BULLET]+4% great-person rate per masterpiece or artifact the ally owns
+				[NEWLINE][ICON_BULLET]The ally may spend [ICON_PEACE] Faith to purchase an idle (unclaimed) pantheon belief and add it to the religion led by the ally (base 500 [ICON_PEACE], doubles with each purchase, no limit)
+				[NEWLINE][ICON_BULLET]Each purchase grants the ally influence with all met city-states equal to 50% of the ally's excess happiness
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_LAVENTA_FRIEND_HELP">
+			<Text>
+				Friend effect:
+				[NEWLINE][ICON_BULLET]+2% great-person rate per masterpiece or artifact the friend owns
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_PANTHEON_PURCHASE">
+			<Text>Purchase an Idle Pantheon Belief</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_PANTHEON_PURCHASE_TT">
+			<Text>As an ally of La Venta, you may spend {1_Num}[ICON_PEACE] Faith to purchase an idle (unclaimed) pantheon belief and add it to the religion led by the ally. The base cost is 500 [ICON_PEACE] and doubles with each purchase. Each purchase grants you influence with all met city-states equal to 50% of your excess happiness.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_PANTHEON_SUBTITLE">
+			<Text>Purchase an idle pantheon belief for {1_ReligionName} for {2_Num}[ICON_PEACE] Faith.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_PANTHEON_PURCHASED">
+			<Text>You have added the {1_BeliefName} pantheon belief to the {2_ReligionName} religion.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_PANTHEON_PURCHASED_S">
+			<Text>Pantheon Belief Purchased</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_PANTHEON_PURCHASED_BROADCAST">
+			<Text>{1_CivName} has added the {3_BeliefName} pantheon belief to {2_ReligionName}.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

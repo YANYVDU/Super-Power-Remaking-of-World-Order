@@ -255,6 +255,19 @@
 			<Type>EFFECT_CSUA_WITTENBERG_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_WITTENBERG_FRIEND_HELP</Help>
 		</Row>
+		<!-- 拉本塔：盟友可购买空闲神系信条加入其为领袖的宗教（价格翻倍、无上限）；每件杰作/文物+4%伟人点数 -->
+		<Row>
+			<Type>EFFECT_CSUA_LAVENTA_ALLY</Type>
+			<FaithPantheonPurchase>true</FaithPantheonPurchase>
+			<GreatPersonRateModifierPerGreatWork>4</GreatPersonRateModifierPerGreatWork>
+			<Help>TXT_KEY_EFFECT_CSUA_LAVENTA_ALLY_HELP</Help>
+		</Row>
+		<!-- 拉本塔：朋友每件杰作/文物+2%伟人点数 -->
+		<Row>
+			<Type>EFFECT_CSUA_LAVENTA_FRIEND</Type>
+			<GreatPersonRateModifierPerGreatWork>2</GreatPersonRateModifierPerGreatWork>
+			<Help>TXT_KEY_EFFECT_CSUA_LAVENTA_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1297,6 +1310,13 @@
 			<Help>TXT_KEY_CSUA_WITTENBERG_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_WITTENBERG_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_WITTENBERG_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_LAVENTA</Type>
+			<Description>TXT_KEY_CITYSTATE_LA_VENTA</Description>
+			<Help>TXT_KEY_CSUA_LAVENTA_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_LAVENTA_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_LAVENTA_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>

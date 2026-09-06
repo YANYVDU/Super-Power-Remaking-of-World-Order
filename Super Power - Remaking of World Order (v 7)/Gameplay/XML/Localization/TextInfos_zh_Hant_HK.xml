@@ -17778,5 +17778,48 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_BELIEF_PURCHASED_BROADCAST">
 			<Text>{1_CivName}已將「{3_BeliefName}」信條加入{2_ReligionName}。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_LAVENTA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每擁有1件傑作或文物，所有偉人點數積累速度+4%
+				[NEWLINE][ICON_BULLET]盟友可花費[ICON_PEACE]信仰，購買1個空閒（未被佔用）的神系信條加入其為領袖的宗教（基礎500[ICON_PEACE]，每次購買價格翻倍，無上限）
+				[NEWLINE][ICON_BULLET]每次購買後，盟友對所有已見城邦提高其富餘快樂×0.5的影響力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每擁有1件傑作或文物，所有偉人點數積累速度+2%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_LAVENTA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每擁有1件傑作或文物，所有偉人點數積累速度+4%
+				[NEWLINE][ICON_BULLET]盟友可花費[ICON_PEACE]信仰，購買1個空閒（未被佔用）的神系信條加入其為領袖的宗教（基礎500[ICON_PEACE]，每次購買價格翻倍，無上限）
+				[NEWLINE][ICON_BULLET]每次購買後，盟友對所有已見城邦提高其富餘快樂×0.5的影響力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_LAVENTA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每擁有1件傑作或文物，所有偉人點數積累速度+2%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_PANTHEON_PURCHASE">
+			<Text>購買空閒神系信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_PANTHEON_PURCHASE_TT">
+			<Text>作為拉本塔的盟友，你可花費{1_Num}[ICON_PEACE]信仰，購買1個空閒（未被佔用）的神系信條加入其為領袖的宗教。基礎價格500[ICON_PEACE]，每次購買翻倍。每次購買後，你對所有已見城邦提高富餘快樂×0.5的影響力。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_PANTHEON_SUBTITLE">
+			<Text>為 {1_ReligionName} 購買1個空閒神系信條，花費{2_Num}[ICON_PEACE]信仰。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_PANTHEON_PURCHASED">
+			<Text>你已將「{1_BeliefName}」神系信條加入{2_ReligionName}。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_PANTHEON_PURCHASED_S">
+			<Text>神系信條購買完成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_PANTHEON_PURCHASED_BROADCAST">
+			<Text>{1_CivName}已將「{3_BeliefName}」神系信條加入{2_ReligionName}。</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

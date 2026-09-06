@@ -191,6 +191,16 @@
               </AlphaAnim>
             </ShowOnMouseOver>
           </Button>
+          <!-- FAITH PANTHEON PURCHASE BUTTON (La Venta CS UA: buy an idle pantheon belief to add to the ally-led religion) -->
+          <Button Hidden="1" Size="500,32" Anchor="C,C" Offset="0,0" ID="PantheonPurchaseButton" ToolTip="TXT_KEY_POP_CSTATE_PANTHEON_PURCHASE_TT">
+            <Label Anchor="C,C" Offset="0,0" ID="PantheonPurchaseLabel" String="TXT_KEY_POP_CSTATE_PANTHEON_PURCHASE"/>
+            <Image Anchor="C,B" Offset="0,0" Texture="bar500x2.dds" Size="500.1"/>
+            <ShowOnMouseOver>
+              <AlphaAnim ID="PantheonPurchaseAnim" Anchor="C,C" Offset="0,0" Size="500,35" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+                <Grid ID="PantheonPurchaseButtonHL" Size="500,35" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL"/>
+              </AlphaAnim>
+            </ShowOnMouseOver>
+          </Button>
           <!-- ECONOMIC AID BUTTON (Super Power V11) -->
           <Button Hidden="1" Size="500,32" Anchor="C,C" Offset="0,0" ID="AidButton" ToolTip="TXT_KEY_POP_CSTATE_ECONOMIC_AID_TT">
             <Label Anchor="C,C" Offset="0,0" ID="AidLabel" String="TXT_KEY_POP_CSTATE_ECONOMIC_AID"/>
