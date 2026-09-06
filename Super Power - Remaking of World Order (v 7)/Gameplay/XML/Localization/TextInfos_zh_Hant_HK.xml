@@ -17711,5 +17711,72 @@
 		<Row Tag="TXT_KEY_DO_CS_STATUS_AID_AUTO_RENEW_TT">
 			<Text>勾選後，每輪經濟援助開始時自動重新對該城邦提供[ICON_GOLD]經濟援助。若因退出、戰爭或城邦關閉而中斷，將在條件允許的下一輪自動續約。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_WITTENBERG_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每有1座城市信仰盟友為領袖的宗教，盟友首都+1%[ICON_PEACE]信仰
+				[NEWLINE][ICON_BULLET]盟友可花費高額[ICON_PEACE]信仰，為其領導的宗教購買1個自選信條（每盟友限1次）
+				[NEWLINE][ICON_BULLET]該宗教的城市被審判官或大先知清除宗教時，保留40%信眾
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]每有2座城市信仰盟友為領袖的宗教，朋友首都+1%[ICON_PEACE]信仰
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_WITTENBERG_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每有1座城市信仰盟友為領袖的宗教，盟友首都+1%[ICON_PEACE]信仰
+				[NEWLINE][ICON_BULLET]盟友可花費高額[ICON_PEACE]信仰，為其領導的宗教購買1個自選信條（每盟友限1次）
+				[NEWLINE][ICON_BULLET]該宗教的城市被審判官或大先知清除宗教時，保留40%信眾
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_WITTENBERG_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]每有2座城市信仰盟友為領袖的宗教，朋友首都+1%[ICON_PEACE]信仰
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_BELIEF_PURCHASE">
+			<Text>購買信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_BELIEF_PURCHASE_TT">
+			<Text>作為維滕貝格的盟友，你可花費{1_Num}[ICON_PEACE]信仰，為其領導的宗教購買1個自選信條（每盟友限1次，信條效果完整生效）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_TITLE">
+			<Text>購買信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SUBTITLE">
+			<Text>為 {1_ReligionName} 購買1個信條，花費{2_Num}[ICON_PEACE]信仰。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SUBTITLE_NO_RELIGION">
+			<Text>購買1個信條，花費{1_Num}[ICON_PEACE]信仰。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_PANTHEON">
+			<Text>神系信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_FOLLOWER">
+			<Text>追隨者信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_FOUNDER">
+			<Text>創立者信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_ENHANCER">
+			<Text>強化信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_REFORMATION">
+			<Text>改革信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONFIRM_BELIEF_PURCHASE">
+			<Text>購買信條"{1_Belief}"？該信條將加入其領導的宗教，效果立即生效，且購買後不可撤銷。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_BELIEF_PURCHASED">
+			<Text>你已將「{1_BeliefName}」信條加入{2_ReligionName}。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_BELIEF_PURCHASED_S">
+			<Text>信條購買完成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_BELIEF_PURCHASED_BROADCAST">
+			<Text>{1_CivName}已將「{3_BeliefName}」信條加入{2_ReligionName}。</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

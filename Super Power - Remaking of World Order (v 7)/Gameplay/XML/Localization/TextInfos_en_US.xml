@@ -19436,5 +19436,72 @@
 		<Row Tag="TXT_KEY_DO_CS_STATUS_AID_AUTO_RENEW_TT">
 			<Text>When checked, economic aid to this City-State is renewed automatically at the start of each round. If interrupted by withdrawal, war, or a closed program, it rejoins the next round once conditions allow.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_WITTENBERG_HELP">
+			<Text>
+				Ally effect:
+				[NEWLINE][ICON_BULLET]+1%[ICON_PEACE] Faith per city in the world following a religion led by the ally, added to the ally's capital
+				[NEWLINE][ICON_BULLET]The ally may spend a large amount of [ICON_PEACE] Faith to purchase one belief of their choice and add it to the religion led by the ally (once per ally)
+				[NEWLINE][ICON_BULLET]When this religion is cleansed from a city by an Inquisitor or Great Prophet, 40% of its followers are retained
+				[NEWLINE]
+				[NEWLINE]Friend effect:
+				[NEWLINE][ICON_BULLET]+1%[ICON_PEACE] Faith per 2 cities in the world following a religion led by the ally, added to the friend's capital
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_WITTENBERG_ALLY_HELP">
+			<Text>
+				Ally effect:
+				[NEWLINE][ICON_BULLET]+1%[ICON_PEACE] Faith per city in the world following a religion led by the ally, added to the ally's capital
+				[NEWLINE][ICON_BULLET]The ally may spend a large amount of [ICON_PEACE] Faith to purchase one belief of their choice and add it to the religion led by the ally (once per ally)
+				[NEWLINE][ICON_BULLET]When this religion is cleansed from a city by an Inquisitor or Great Prophet, 40% of its followers are retained
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_WITTENBERG_FRIEND_HELP">
+			<Text>
+				Friend effect:
+				[NEWLINE][ICON_BULLET]+1%[ICON_PEACE] Faith per 2 cities in the world following a religion led by the ally, added to the friend's capital
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_BELIEF_PURCHASE">
+			<Text>Purchase a Belief</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_BELIEF_PURCHASE_TT">
+			<Text>As an ally of Wittenberg, you may spend {1_Num}[ICON_PEACE] Faith to purchase a belief of your choice and add it to the religion led by the ally (once per ally; the belief's effect applies in full).</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_TITLE">
+			<Text>Purchase a Belief</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SUBTITLE">
+			<Text>Purchase a belief for {1_ReligionName} for {2_Num}[ICON_PEACE] Faith.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SUBTITLE_NO_RELIGION">
+			<Text>Purchase a belief for {1_Num}[ICON_PEACE] Faith.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_PANTHEON">
+			<Text>Pantheon Beliefs</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_FOLLOWER">
+			<Text>Follower Beliefs</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_FOUNDER">
+			<Text>Founder Beliefs</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_ENHANCER">
+			<Text>Enhancer Beliefs</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_REFORMATION">
+			<Text>Reformation Beliefs</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONFIRM_BELIEF_PURCHASE">
+			<Text>Purchase the belief "{1_Belief}"? It will be added to the religion led by the ally, taking effect immediately. This cannot be undone.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_BELIEF_PURCHASED">
+			<Text>You have added the {1_BeliefName} belief to the {2_ReligionName} religion.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_BELIEF_PURCHASED_S">
+			<Text>Belief Purchased</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_BELIEF_PURCHASED_BROADCAST">
+			<Text>{1_CivName} has added the {3_BeliefName} belief to {2_ReligionName}.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

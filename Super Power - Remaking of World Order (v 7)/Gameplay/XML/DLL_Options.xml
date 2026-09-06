@@ -402,6 +402,11 @@
 			<Where Name="SP_CITYSTATE_BASIC"/>
 			<Set Value="1"/>
 		</Update>
+		<Update>
+			<!-- 维滕贝格：自选信条购买的基础信仰价格（会被游戏速度FaithPercent缩放，标准速度下为2250） -->
+			<Where Name="SP_FAITH_BELIEF_PURCHASE_COST"/>
+			<Set Value="2500"/>
+		</Update>
 	</CustomModOptions>
 
 

@@ -243,6 +243,18 @@
 			<HappinessPerFollowingCity>50</HappinessPerFollowingCity>
 			<Help>TXT_KEY_EFFECT_CSUA_GANGTOK_FRIEND_HELP</Help>
 		</Row>
+		<!-- 维滕贝格：盟友可花费高额信仰购买一个自选信条加入其为领袖的宗教（每盟友一次）；该宗教被审判官/大先知清理时保留40%信众 -->
+		<Row>
+			<Type>EFFECT_CSUA_WITTENBERG_ALLY</Type>
+			<FaithBeliefPurchase>true</FaithBeliefPurchase>
+			<InquisitorRetentionPercent>40</InquisitorRetentionPercent>
+			<Help>TXT_KEY_EFFECT_CSUA_WITTENBERG_ALLY_HELP</Help>
+		</Row>
+		<!-- 维滕贝格：朋友无额外效果占位 -->
+		<Row>
+			<Type>EFFECT_CSUA_WITTENBERG_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_WITTENBERG_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1097,6 +1109,19 @@
 			<Modifier>100</Modifier>
 		</Row>
 	 </CityStateUAEffect_HolyCityYieldModifierPerFollowingCity>
+	 <!-- 维滕贝格：每有一座城市信仰盟友为领袖的宗教，盟友首都+YieldType产出百分比加成（Modifier=100 => +1%） -->
+	 <CityStateUAEffect_CapitalYieldModifierPerFollowingCity>
+		<Row>
+			<EffectType>EFFECT_CSUA_WITTENBERG_ALLY</EffectType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_WITTENBERG_FRIEND</EffectType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Modifier>50</Modifier>
+		</Row>
+	 </CityStateUAEffect_CapitalYieldModifierPerFollowingCity>
 	<CityStateUAs>
 		<Row>
 			<Type>CSUA_ZURICH</Type>
@@ -1265,6 +1290,13 @@
 			<Help>TXT_KEY_CSUA_GANGTOK_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_GANGTOK_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_GANGTOK_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_WITTENBERG</Type>
+			<Description>TXT_KEY_CITYSTATE_WITTENBERG</Description>
+			<Help>TXT_KEY_CSUA_WITTENBERG_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_WITTENBERG_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_WITTENBERG_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
