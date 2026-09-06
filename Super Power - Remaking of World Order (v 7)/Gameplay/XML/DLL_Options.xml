@@ -403,14 +403,16 @@
 			<Set Value="1"/>
 		</Update>
 		<Update>
-			<!-- 维滕贝格：自选信条购买的基础信仰价格（会被游戏速度FaithPercent缩放，标准速度下为2250） -->
 			<Where Name="SP_FAITH_BELIEF_PURCHASE_COST"/>
 			<Set Value="2500"/>
 		</Update>
 		<Update>
-			<!-- 拉本塔：空闲神系信条购买的基础信仰价格（标准速度下初始500，每次购买翻倍） -->
 			<Where Name="SP_PANTHEON_BELIEF_PURCHASE_BASE_COST"/>
 			<Set Value="500"/>
+		</Update>
+		<Update>
+			<Where Name="SP_RELIGION_PRESSURE_SELF_FOUNDER_MOD"/>
+			<Set Value="33"/>
 		</Update>
 	</CustomModOptions>
 
