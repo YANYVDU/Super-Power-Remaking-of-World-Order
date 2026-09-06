@@ -2533,5 +2533,46 @@
 			<Help>TXT_KEY_BUILDING_CIV_S_P_ELE_RESOURCES</Help>
 			<Description>TXT_KEY_BUILDING_CIV_S_P_ELE_RESOURCES</Description>
 		</Row>
+		<Row>
+			<Type>BUILDING_EVEREST_CAMP</Type>
+			<BuildingClass>BUILDINGCLASS_EVEREST_CAMP</BuildingClass>
+			<Cost>200</Cost>
+			<FaithCost>-1</FaithCost>
+			<Mountain>true</Mountain>
+			<HurryCostModifier>-1</HurryCostModifier>
+			<PrereqEffect>EFFECT_CSUA_KATHMANDU_ALLY</PrereqEffect>
+			<Description>TXT_KEY_BUILDING_EVEREST_CAMP</Description>
+			<Help>TXT_KEY_BUILDING_EVEREST_CAMP_HELP</Help>
+			<Strategy>TXT_KEY_BUILDING_EVEREST_CAMP_STRATEGY</Strategy>
+			<IconAtlas>SP11_EXTRA_ATLAS</IconAtlas>
+			<PortraitIndex>1</PortraitIndex>
+			<NukeImmune>true</NukeImmune>
+			<NeverCapture>true</NeverCapture>
+		</Row>
 	</Buildings>
+
+	<Building_YieldModifiers>
+		<Row>
+			<BuildingType>BUILDING_EVEREST_CAMP</BuildingType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>50</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_EVEREST_CAMP</BuildingType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>50</Yield>
+		</Row>
+	</Building_YieldModifiers>
+	<Building_Flavors>
+		<Row>
+			<BuildingType>BUILDING_EVEREST_CAMP</BuildingType>
+			<FlavorType>FLAVOR_GOLD</FlavorType>
+			<Flavor>20</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_EVEREST_CAMP</BuildingType>
+			<FlavorType>FLAVOR_CULTURE</FlavorType>
+			<Flavor>20</Flavor>
+		</Row>
+	</Building_Flavors>
 </GameData>

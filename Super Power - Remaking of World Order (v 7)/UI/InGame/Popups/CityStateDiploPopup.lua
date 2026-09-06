@@ -1141,6 +1141,11 @@ function PopulateGiftChoices()
 		strInfoTT = strInfoTT .. "[NEWLINE][NEWLINE]";
 		strInfoTT = strInfoTT .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_PERMANENT_ALLY_GIFT_WARNING", Players[iPermanentAlly]:GetCivilizationShortDescriptionKey());
 	end
+	local iFaithRefundPercent = Players[iActivePlayer]:GetCSUAFaithRefundPerDonationPercent();
+	if (iFaithRefundPercent > 0) then
+		strInfoTT = strInfoTT .. "[NEWLINE][NEWLINE]";
+		strInfoTT = strInfoTT .. Locale.ConvertTextKey("TXT_KEY_CSUA_KATHMANDU_DONATION_TT");
+	end
 	Controls.SmallGiftButton:SetToolTipString(strInfoTT);
 	Controls.MediumGiftButton:SetToolTipString(strInfoTT);
 	Controls.LargeGiftButton:SetToolTipString(strInfoTT);

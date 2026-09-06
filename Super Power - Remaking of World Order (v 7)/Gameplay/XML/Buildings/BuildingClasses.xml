@@ -1223,6 +1223,11 @@
 			<DefaultBuilding>BUILDING_CIV_S_P_ELE_RESOURCES</DefaultBuilding>
 			<Description>TXT_KEY_BUILDING_CIV_S_P_ELE_RESOURCES</Description>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_EVEREST_CAMP</Type>
+			<DefaultBuilding>BUILDING_EVEREST_CAMP</DefaultBuilding>
+			<Description>TXT_KEY_BUILDING_EVEREST_CAMP</Description>
+		</Row>
 	</BuildingClasses>
 
 </GameData>

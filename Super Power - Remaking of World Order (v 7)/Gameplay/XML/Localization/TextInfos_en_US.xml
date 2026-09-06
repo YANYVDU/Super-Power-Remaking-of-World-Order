@@ -19546,5 +19546,42 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_PANTHEON_PURCHASED_BROADCAST">
 			<Text>{1_CivName} has added the {3_BeliefName} pantheon belief to {2_ReligionName}.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_KATHMANDU_HELP">
+			<Text>
+				Ally effect:
+				[NEWLINE][ICON_BULLET]+10% [ICON_GOLD] Gold from religious buildings (Pagoda, Cathedral, Mosque, Monastery, Inquisition)
+				[NEWLINE][ICON_BULLET]The first [ICON_GOLD] Gold donation each turn refunds 50% of the amount as [ICON_PEACE] Faith
+				[NEWLINE][ICON_BULLET]Unlocks the Everest Camp special building (only in cities adjacent to a Mountain; +50% [ICON_GOLD] Gold and [ICON_TOURISM] Tourism)
+				[NEWLINE]
+				[NEWLINE]Friend effect:
+				[NEWLINE][ICON_BULLET]+4% [ICON_GOLD] Gold from religious buildings (Pagoda, Cathedral, Mosque, Monastery, Inquisition)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KATHMANDU_ALLY_HELP">
+			<Text>
+				Ally effect:
+				[NEWLINE][ICON_BULLET]+10% [ICON_GOLD] Gold from religious buildings (Pagoda, Cathedral, Mosque, Monastery, Inquisition)
+				[NEWLINE][ICON_BULLET]The first [ICON_GOLD] Gold donation each turn refunds 50% of the amount as [ICON_PEACE] Faith
+				[NEWLINE][ICON_BULLET]Unlocks the Everest Camp special building (only in cities adjacent to a Mountain; +50% [ICON_GOLD] Gold and [ICON_TOURISM] Tourism)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KATHMANDU_FRIEND_HELP">
+			<Text>
+				Friend effect:
+				[NEWLINE][ICON_BULLET]+4% [ICON_GOLD] Gold from religious buildings (Pagoda, Cathedral, Mosque, Monastery, Inquisition)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_EVEREST_CAMP">
+			<Text>Everest Camp</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_EVEREST_CAMP_HELP">
+			<Text>+50% [ICON_GOLD] Gold and +50% [ICON_TOURISM] Tourism in this city. Can only be constructed in a city adjacent to a Mountain, and only by the ally of Kathmandu. Cannot be purchased.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_EVEREST_CAMP_STRATEGY">
+			<Text>Build the Everest Camp in a city adjacent to a Mountain to greatly boost its Gold and Tourism output. Only an ally of Kathmandu may construct it.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_KATHMANDU_DONATION_TT">
+			<Text>As an ally of Kathmandu, the first [ICON_GOLD] Gold donation you make each turn refunds 50% of the amount as [ICON_PEACE] Faith.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

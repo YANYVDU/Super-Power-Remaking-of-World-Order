@@ -17821,5 +17821,42 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_PANTHEON_PURCHASED_BROADCAST">
 			<Text>{1_CivName}已將「{3_BeliefName}」神系信條加入{2_ReligionName}。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_KATHMANDU_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]宗教建築（佛塔、大教堂、清真寺、修道院、裁判所）為城市+10%[ICON_GOLD]金錢
+				[NEWLINE][ICON_BULLET]每回合首次[ICON_GOLD]金錢捐獻返還50%[ICON_PEACE]信仰
+				[NEWLINE][ICON_BULLET]解鎖特殊建築珠穆朗瑪營地（僅可在鄰近山脈的城市建造；城市+50%[ICON_GOLD]金錢與[ICON_TOURISM]旅遊）
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]宗教建築（佛塔、大教堂、清真寺、修道院、裁判所）為城市+4%[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KATHMANDU_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]宗教建築（佛塔、大教堂、清真寺、修道院、裁判所）為城市+10%[ICON_GOLD]金錢
+				[NEWLINE][ICON_BULLET]每回合首次[ICON_GOLD]金錢捐獻返還50%[ICON_PEACE]信仰
+				[NEWLINE][ICON_BULLET]解鎖特殊建築珠穆朗瑪營地（僅可在鄰近山脈的城市建造；城市+50%[ICON_GOLD]金錢與[ICON_TOURISM]旅遊）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KATHMANDU_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]宗教建築（佛塔、大教堂、清真寺、修道院、裁判所）為城市+4%[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_EVEREST_CAMP">
+			<Text>珠穆朗瑪營地</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_EVEREST_CAMP_HELP">
+			<Text>所在城市+50%[ICON_GOLD]金錢與+50%[ICON_TOURISM]旅遊。僅可在鄰近山脈的城市建造，且僅限加德滿都的盟友。不可購買。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_EVEREST_CAMP_STRATEGY">
+			<Text>在鄰近山脈的城市建造珠穆朗瑪營地，可大幅提升該城市的金錢與旅遊產出。僅加德滿都的盟友可建造。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_KATHMANDU_DONATION_TT">
+			<Text>作為加德滿都的盟友，你每回合首次[ICON_GOLD]金錢捐獻將返還50%的[ICON_PEACE]信仰。</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

@@ -268,6 +268,15 @@
 			<GreatPersonRateModifierPerGreatWork>2</GreatPersonRateModifierPerGreatWork>
 			<Help>TXT_KEY_EFFECT_CSUA_LAVENTA_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_KATHMANDU_ALLY</Type>
+			<FaithRefundPerDonationPercent>50</FaithRefundPerDonationPercent>
+			<Help>TXT_KEY_EFFECT_CSUA_KATHMANDU_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_KATHMANDU_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_KATHMANDU_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1071,6 +1080,66 @@
 			<YieldType>YIELD_GOLD</YieldType>
 			<YieldMod>8</YieldMod>
 		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KATHMANDU_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_PAGODA</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>10</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KATHMANDU_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CATHEDRAL</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>10</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KATHMANDU_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_MOSQUE</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>10</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KATHMANDU_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_MONASTERY</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>10</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KATHMANDU_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_INQUISITION</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>10</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KATHMANDU_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_PAGODA</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>4</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KATHMANDU_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CATHEDRAL</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>4</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KATHMANDU_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_MOSQUE</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>4</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KATHMANDU_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_MONASTERY</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>4</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KATHMANDU_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_INQUISITION</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>4</YieldMod>
+		</Row>
 	 </CityStateUAEffect_BuildingClassYieldModifiers>
 	 <!-- 热那亚：每拥有一个朋友城邦，全国产出+YieldMod/100%（YieldType 指定产出类型，100=+1%）；此处为科研+1%/朋友 -->
 	 <CityStateUAEffect_FriendCityStateYieldModifiers>
@@ -1317,6 +1386,13 @@
 			<Help>TXT_KEY_CSUA_LAVENTA_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_LAVENTA_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_LAVENTA_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_KATHMANDU</Type>
+			<Description>TXT_KEY_CITYSTATE_KATHMANDU</Description>
+			<Help>TXT_KEY_CSUA_KATHMANDU_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_KATHMANDU_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_KATHMANDU_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
