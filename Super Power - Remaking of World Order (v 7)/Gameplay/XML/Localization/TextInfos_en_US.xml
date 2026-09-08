@@ -19608,5 +19608,8 @@
 				[NEWLINE][ICON_BULLET]Whenever a friend spawns a [ICON_PROPHET] Great Prophet, gain [ICON_GOLD] Gold equal to their Influence with Geneva
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SP_CS_ENEMY_COMBAT_PER_GOLD">
+			<Text>per 100 [ICON_GOLD] gold: -{1_Modifier}% [ICON_STRENGTH]</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

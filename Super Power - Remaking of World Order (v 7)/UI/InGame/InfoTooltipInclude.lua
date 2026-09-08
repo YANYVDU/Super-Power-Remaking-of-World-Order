@@ -1584,6 +1584,12 @@ function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader, bNoMa
 				insert( tips, UnitColor(L"TXT_KEY_EXPERIENCE_DOMAIN_GLOBAL_SP"..L"TXT_KEY_WITHIN_BORDERS"..L"TXT_KEY_ENEMY"..L(item.Description)).." "..tempstring..Modifier.."%"..L"TXT_KEY_COMBAT")
 			end
 		end
+		for row in GameInfo.Building_DomainEnemyCombatModifierPerGold( thisBuildingType ) do
+			item = GameInfo.Domains[ row.DomainType ]
+			if item and row.Modifier ~= 0 then
+				insert( tips, UnitColor(L"TXT_KEY_LOCAL_POP_SP"..L"TXT_KEY_WITHIN_BORDERS"..L"TXT_KEY_ENEMY"..L(item.Description)).." "..L("TXT_KEY_SP_CS_ENEMY_COMBAT_PER_GOLD", -row.Modifier) )
+			end
+		end
 		for row in GameInfo.Building_DomainFriendsCombatModifierLocal( thisBuildingType ) do
 			item = GameInfo.Domains[ row.DomainType ]
 			if item and row.Modifier ~= 0 then

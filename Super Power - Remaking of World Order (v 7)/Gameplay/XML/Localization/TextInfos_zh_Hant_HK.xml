@@ -17883,5 +17883,8 @@
 				[NEWLINE][ICON_BULLET]朋友每次誕生[ICON_PROPHET]大先知，獲得等同於其對日內瓦影響力的[ICON_GOLD]金錢
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SP_CS_ENEMY_COMBAT_PER_GOLD">
+			<Text>每100[ICON_GOLD]金幣削減{1_Modifier}%[ICON_STRENGTH]</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
