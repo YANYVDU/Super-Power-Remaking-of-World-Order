@@ -17895,5 +17895,8 @@
 		<Row Tag="TXT_KEY_SPY_POINTS_PROGRESS_TT">
 			<Text>{1_Progress}/{2_Threshold} 間諜點數後獲得下一位間諜[NEWLINE][COLOR_POSITIVE_TEXT]每回合 +{3_PerTurn}[ENDCOLOR]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SPY_RANK_3">
+			<Text>王牌間諜</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

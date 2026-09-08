@@ -19620,5 +19620,8 @@
 		<Row Tag="TXT_KEY_SPY_POINTS_PROGRESS_TT">
 			<Text>{1_Progress}/{2_Threshold} Spy Points until the next Spy[NEWLINE][COLOR_POSITIVE_TEXT]+{3_PerTurn} per turn[ENDCOLOR]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SPY_RANK_3">
+			<Text>Master Spy</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

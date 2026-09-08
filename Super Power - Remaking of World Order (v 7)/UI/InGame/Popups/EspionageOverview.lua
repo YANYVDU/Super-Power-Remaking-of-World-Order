@@ -26,7 +26,8 @@ local g_PianoKeys = {
 local g_RankOffsets = {
 		TXT_KEY_SPY_RANK_0 = {x = 0,y = 42},
 		TXT_KEY_SPY_RANK_1 = {x = 0,y = 21},
-		TXT_KEY_SPY_RANK_2 = {x = 0,y = 0}
+		TXT_KEY_SPY_RANK_2 = {x = 0,y = 0},
+		TXT_KEY_SPY_RANK_3 = {x = 0,y = 0}
 };
 	
 -- Progressbar state information based on agent activity.
@@ -415,7 +416,13 @@ function RelocateAgent(agentID, city)
 		agent.AgentActivity = Locale.Lookup(agent.State);	
 	end		
 
-	Controls.AgentRank:SetTextureOffset(rankOffsets[agent.Rank]);	
+	Controls.AgentRank:SetTextureOffset(rankOffsets[agent.Rank]);
+	-- Master Spies are tinted gold (unconditionally reset to avoid stale tint)
+	if (agent.Rank == "TXT_KEY_SPY_RANK_3") then
+		Controls.AgentRank:SetColorVal(1.0, 0.82, 0.26, 1.0);
+	else
+		Controls.AgentRank:SetColorVal(1.0, 1.0, 1.0, 1.0);
+	end
 	Controls.AgentName:LocalizeAndSetText(agent.Name);
 	Controls.AgentName:LocalizeAndSetToolTip("TXT_KEY_EO_SPY_NAMEPLATE_TT", agent.Rank, agent.Name); 
 	
@@ -477,11 +484,13 @@ function RelocateAgent(agentID, city)
 		strActivityTT = Locale.Lookup("TXT_KEY_EO_SPY_COUNTER_INTEL_TT", agent.Rank, agent.Name, city:GetName());
 		strActivityTT = strActivityTT .. "[NEWLINE]";
 		local iRankChance = 0;
-		if (agent.Rank == "TXT_KEY_SPY_RANK_1" or agent.Rank == "TXT_KEY_SPY_RANK_2") then
+		if (agent.Rank == "TXT_KEY_SPY_RANK_1" or agent.Rank == "TXT_KEY_SPY_RANK_2" or agent.Rank == "TXT_KEY_SPY_RANK_3") then
 			if (agent.Rank == "TXT_KEY_SPY_RANK_1") then
 				iRankChance = 10;
-			else
+			elseif (agent.Rank == "TXT_KEY_SPY_RANK_2") then
 				iRankChance = 20;
+			else
+				iRankChance = 30;
 			end
 			strActivityTT = strActivityTT .. "[NEWLINE]";
 			strActivityTT = strActivityTT .. Locale.Lookup("TXT_KEY_EO_SPY_COUNTER_INTEL_SPY_RANK_TT", iRankChance, agent.Rank, agent.Name);
@@ -600,12 +609,18 @@ function RefreshAgents()
 	
 		local agentEntry = g_AgentManager:GetInstance();
 		
-		agentEntry.AgentRank:SetTextureOffset(rankOffsets[v.Rank]);	
+		agentEntry.AgentRank:SetTextureOffset(rankOffsets[v.Rank]);
+		-- Master Spies are tinted gold (unconditionally reset to avoid stale tint on recycled instances)
+		if (v.Rank == "TXT_KEY_SPY_RANK_3") then
+			agentEntry.AgentRank:SetColorVal(1.0, 0.82, 0.26, 1.0);
+		else
+			agentEntry.AgentRank:SetColorVal(1.0, 1.0, 1.0, 1.0);
+		end
 		agentEntry.AgentName:LocalizeAndSetText(v.Name);
-		agentEntry.AgentName:LocalizeAndSetToolTip("TXT_KEY_EO_SPY_NAMEPLATE_TT", v.Rank, v.Name); 
+		agentEntry.AgentName:LocalizeAndSetToolTip("TXT_KEY_EO_SPY_NAMEPLATE_TT", v.Rank, v.Name);
 		local szSpyRankTooltip = pActivePlayer:GetInfluenceSpyRankTooltip (v.Name, v.Rank, -1);
 		agentEntry.AgentRank:SetToolTipString(szSpyRankTooltip);
-		
+
 		if (v.IsDiplomat) then
 			agentEntry.DiplomatIcon:SetToolTipString(szSpyRankTooltip);
 			agentEntry.DiplomatIcon:SetHide(false);
@@ -684,11 +699,13 @@ function RefreshAgents()
 				strActivityTT = strActivityTT .. Locale.Lookup("TXT_KEY_EO_SPY_COUNTER_INTEL_TT", v.Rank, v.Name, city:GetName());
 				strActivityTT = strActivityTT .. "[NEWLINE]";
 				local iRankChance = 0;
-				if (v.Rank == "TXT_KEY_SPY_RANK_1" or v.Rank == "TXT_KEY_SPY_RANK_2") then
+				if (v.Rank == "TXT_KEY_SPY_RANK_1" or v.Rank == "TXT_KEY_SPY_RANK_2" or v.Rank == "TXT_KEY_SPY_RANK_3") then
 					if (v.Rank == "TXT_KEY_SPY_RANK_1") then
 						iRankChance = 10;
-					else
+					elseif (v.Rank == "TXT_KEY_SPY_RANK_2") then
 						iRankChance = 20;
+					else
+						iRankChance = 30;
 					end
 					strActivityTT = strActivityTT .. "[NEWLINE]";
 					strActivityTT = strActivityTT .. Locale.Lookup("TXT_KEY_EO_SPY_COUNTER_INTEL_SPY_RANK_TT", iRankChance, v.Rank, v.Name);
