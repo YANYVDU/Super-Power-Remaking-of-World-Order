@@ -1494,27 +1494,52 @@ function RefreshTheirCities(selectedAgentIndex, selectedAgentCurrentCityPlayerID
 	Controls.TheirCityScrollPanel:CalculateInternalSize();
 end
 
+----------------------------------------------------------------
+-- Super Power V11: Spy Points progress meter (Great General style).
+function RefreshSpyPointsMeter()
+	local pPlayer = Players[Game.GetActivePlayer()];
+	local iProgress = pPlayer:GetSpyPoints();
+	local iThreshold = pPlayer:GetSpyPointsThreshold();
+	local iPerTurn = pPlayer:GetSpyPointsPerTurn();
+
+	if (iThreshold > 0) then
+		Controls.SpyPointsMeter:SetPercent(iProgress / iThreshold);
+	else
+		Controls.SpyPointsMeter:SetPercent(0);
+	end
+
+	Controls.SpyPointsLabel:SetText(Locale.ConvertTextKey("TXT_KEY_SPY_POINTS_PROGRESS", iProgress, iThreshold));
+
+	local strTT = Locale.ConvertTextKey("TXT_KEY_SPY_POINTS_PROGRESS_TT", iProgress, iThreshold, iPerTurn);
+	Controls.SpyPointsMeter:SetToolTipString(strTT);
+	Controls.SpyPointsLabel:SetToolTipString(strTT);
+	Controls.SpyPointsBox:SetToolTipString(strTT);
+end
+
 function Refresh()
 	
 	function TestEspionageStarted()
 		local player = Players[Game.GetActivePlayer()];
-		return player:GetNumSpies() > 0;
+		return player:GetNumSpies() > 0 or player:GetSpyPointsPerTurn() > 0 or player:GetSpyPoints() > 0;
 	end
 
 	local bEspionageStarted = TestEspionageStarted();
 	
 	Controls.LabelEspionageNotStartedYet:SetHide(bEspionageStarted);
 	Controls.TabPanel:SetHide(not bEspionageStarted);
-	Controls.AgentsListBox:SetHide(not bEspionageStarted);		 
+	Controls.AgentsListBox:SetHide(not bEspionageStarted);
 	Controls.AgentMovePanel:SetHide(true);
 	Controls.CitiesListBox:SetHide(not bEspionageStarted);
 	Controls.CloseButton:SetHide(false);
+	-- Super Power V11: Spy Points meter only shows on the Overview tab once espionage has started.
+	Controls.SpyPointsBox:SetHide(not bEspionageStarted or g_CurrentTab ~= "Overview");
 
 	if(bEspionageStarted) then
 		g_SelectedAgentID = nil;
 		g_SelectedCity = nil;
 		g_CitiesAvailableToRelocate = nil;
 
+		RefreshSpyPointsMeter();
 		RefreshAgents();
 		RefreshMyCities();
 		RefreshTheirCities();

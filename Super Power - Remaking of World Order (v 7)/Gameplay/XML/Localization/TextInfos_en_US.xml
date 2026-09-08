@@ -19611,5 +19611,14 @@
 		<Row Tag="TXT_KEY_SP_CS_ENEMY_COMBAT_PER_GOLD">
 			<Text>per 100 [ICON_GOLD] gold: -{1_Modifier}% [ICON_STRENGTH]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SPY_POINTS_TITLE">
+			<Text>Spy Points</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_POINTS_PROGRESS">
+			<Text>{1_Progress}/{2_Threshold}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_POINTS_PROGRESS_TT">
+			<Text>{1_Progress}/{2_Threshold} Spy Points until the next Spy[NEWLINE][COLOR_POSITIVE_TEXT]+{3_PerTurn} per turn[ENDCOLOR]</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

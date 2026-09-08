@@ -17886,5 +17886,14 @@
 		<Row Tag="TXT_KEY_SP_CS_ENEMY_COMBAT_PER_GOLD">
 			<Text>每100[ICON_GOLD]金幣削減{1_Modifier}%[ICON_STRENGTH]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SPY_POINTS_TITLE">
+			<Text>間諜點數</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_POINTS_PROGRESS">
+			<Text>{1_Progress}/{2_Threshold}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_POINTS_PROGRESS_TT">
+			<Text>{1_Progress}/{2_Threshold} 間諜點數後獲得下一位間諜[NEWLINE][COLOR_POSITIVE_TEXT]每回合 +{3_PerTurn}[ENDCOLOR]</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
