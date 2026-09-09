@@ -151,6 +151,7 @@
 			<Grid Anchor="C,C" Offset="0,0" Size="514,72" Padding="0,0" Style="Grid9Frame" Hidden="0" ID="LeaderSpeechBorderFrame"/>
 			<Label Anchor="L,T" Offset="48,8" String="Bismarck - Germany" Font="TwCenMT20" FontStyle="SoftShadow" ID="NameText"/>
 			<Label Anchor="L,T" Offset="48,30" WrapWidth="450" LeadingOffset="-8" Font="TwCenMT18" String="Message Area For AI." ID="DiscussionText"/>
+			<Label Anchor="L,B" Offset="48,-4" WrapWidth="450" LeadingOffset="-8" Font="TwCenMT16" Color="255,235,128,255" String="" Hidden="1" ID="DiplomatAdviceLabel"/>
 			<!-- Them Symbol CivIconFrame64 -->
 			<Image Size="64,64" Offset="-32,-16" Anchor="L,T" Texture="IconFrame64.dds">
 				<Image ID="ThemCivIconBG" Size="64.64" Anchor="C,C" Offset="-1,-1" TextureOffset="77,0" Texture="CivIconBGSizes.dds"/>
@@ -277,6 +278,8 @@
 		<GridButton Style="FrameButton460" Anchor="C,B" Offset="0,-42" ID="WhatDoYouWantButton" String="TXT_KEY_DIPLO_WHAT_WANT_FOR_THIS" Font="TwCenMT22"/>
 		<!-- What will you give me-->
 		<GridButton Style="FrameButton460" Anchor="C,B" Offset="0,-42" ID="WhatWillYouGiveMeButton" String="TXT_KEY_DIPLO_WHAT_GIVE_FOR_THIS" Font="TwCenMT22"/>
+		<!-- Consult Diplomat (SP): reveals AI trade bottom line, gated by stationed spy rank -->
+		<GridButton Style="FrameButton460" Anchor="C,B" Offset="0,-42" ID="ConsultDiplomatButton" String="TXT_KEY_DIPLO_CONSULT_DIPLOMAT" Font="TwCenMT22" Hidden="1"/>
 		<!-- What will make this work -->
 		<GridButton Style="FrameButton460" Anchor="C,B" Offset="0,-42" ID="WhatWillMakeThisWorkButton" String="TXT_KEY_DIPLO_MAKE_DEAL_WORK" Font="TwCenMT22"/>
 		<!-- What deal will end this conflict -->

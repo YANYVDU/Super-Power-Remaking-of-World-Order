@@ -19623,5 +19623,26 @@
 		<Row Tag="TXT_KEY_SPY_RANK_3">
 			<Text>Master Spy</Text>
 		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_DIPLOMAT">
+			<Text>Consult Diplomat</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_NO_DIPLOMAT">
+			<Text>We have no diplomat stationed in their capital. Station a spy as a diplomat to consult about their trade bottom line.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_MASTER">
+			<Text>Diplomat's assessment (Master Spy): We give them {2_TheyreOffering} and they give us {1_ImOffering}. Their net gain from the deal is {3_NetValue}. They accept while their net gain is between {5_Lower} and {4_Upper}.[NEWLINE]Outcome: {6_Acceptance}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_AGENT">
+			<Text>Diplomat's assessment (Special Agent): Their net gain from this deal is {1_NetValue}. They accept while their net gain is between {3_Lower} and {2_Upper}.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_ROUGH">
+			<Text>Diplomat's rough read (Agent): Their net gain is about {1_Percent}% of the deal's total value.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_ACCEPTABLE">
+			<Text>they accept this deal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_CANT_MATCH">
+			<Text>they still want more than we offer</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

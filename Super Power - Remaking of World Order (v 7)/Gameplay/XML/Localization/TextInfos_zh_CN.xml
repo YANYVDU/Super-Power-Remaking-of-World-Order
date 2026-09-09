@@ -18092,5 +18092,26 @@
 		<Row Tag="TXT_KEY_SPY_RANK_3">
 			<Text>王牌间谍</Text>
 		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_DIPLOMAT">
+			<Text>咨询外交官</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_NO_DIPLOMAT">
+			<Text>我们未派驻外交官到该国首都。派驻间谍担任外交官即可咨询其交易底线。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_MASTER">
+			<Text>外交官评估（王牌间谍）：我们给予他们 {2_TheyreOffering}，他们给予我们 {1_ImOffering}。他们在此交易中的净收益为 {3_NetValue}。他们接受的净收益区间为 {5_Lower} 至 {4_Upper}。[NEWLINE]结论：{6_Acceptance}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_AGENT">
+			<Text>外交官评估（高级特工）：他们在此交易中的净收益为 {1_NetValue}。他们接受的净收益区间为 {3_Lower} 至 {2_Upper}。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_ROUGH">
+			<Text>外交官大致判断（正式探员）：他们的净收益约占交易总额的 {1_Percent}%。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_ACCEPTABLE">
+			<Text>他们接受此交易</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_CANT_MATCH">
+			<Text>他们仍要求的比我们提供的更多</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

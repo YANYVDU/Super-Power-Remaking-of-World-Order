@@ -497,13 +497,23 @@ function DoUpdateButtons( diploMessage )
 		end
 
 		-- Depending on what's on the table we can ask the other player about what they think of the deal
-		Controls.WhatDoYouWantButton:SetHide( numItemsFromUs > 0 or numItemsFromThem == 0 )
 		Controls.WhatWillYouGiveMeButton:SetHide( numItemsFromUs == 0 or numItemsFromThem > 0 )
 		Controls.WhatWillMakeThisWorkButton:SetHide( numItemsFromUs == 0 or numItemsFromThem == 0 )
 		Controls.WhatWillEndThisWarButton:SetHide( not isAtWar )
 		Controls.WhatConcessionsButton:SetHide( not isAIRequestingConcessions )
 		Controls.CancelButton:SetHide( false )
 		Controls.ProposeButton:SetHide( false )
+
+		-- SP: 咨询外交官 shows only when we have a spy stationed as a diplomat in their capital.
+		-- It shares the bottom button slot with "What do you want" (WhatDoYouWantButton).
+		local iDiplomatRank = -1
+		if g_iUs ~= -1 and g_iThem ~= -1 and not g_bTradeReview then
+			iDiplomatRank = Players[g_iUs]:GetSpyRankVisitingThem( g_iThem, false )
+		end
+		local bShowConsultDiplomat = ( iDiplomatRank >= 0 )
+		Controls.ConsultDiplomatButton:SetHide( not bShowConsultDiplomat )
+		-- "What do you want" is the less informative option; hide it when we can consult the diplomat instead.
+		Controls.WhatDoYouWantButton:SetHide( bShowConsultDiplomat or (numItemsFromUs > 0 or numItemsFromThem == 0) )
 	end
 
 end
@@ -1655,6 +1665,71 @@ function OnWhatWillAIGive()
 
 end
 
+----------------------------------------------------------------
+----------------------------------------------------------------
+-- SP: 咨询外交官 - reveals the AI's trade bottom line, gated by the rank
+-- of the spy we have stationed as a diplomat in their capital.
+function OnConsultDiplomat()
+
+	if g_PVPTrade or g_iThem < 0 or g_iUs < 0 then
+		return
+	end
+
+	-- Rank of our diplomat stationed in the AI's capital (-1 if none).
+	local iRank = Players[g_iUs]:GetSpyRankVisitingThem(g_iThem, false)
+
+	if iRank < 0 then
+		Controls.DiplomatAdviceLabel:SetText( Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_NO_DIPLOMAT" ) )
+		Controls.DiplomatAdviceLabel:SetHide( false )
+		return
+	end
+
+	-- The AI's evaluation of the current deal, computed from the AI's perspective.
+	local advice = Players[g_iThem]:GetDiplomatTradeAdvice( g_Deal )
+
+	if advice == nil then
+		Controls.DiplomatAdviceLabel:SetHide( true )
+		return
+	end
+
+	local iTotalValueToMe = advice.iTotalValueToMe or 0
+	local iValueImOffering = advice.iValueImOffering or 0
+	local iValueTheyreOffering = advice.iValueTheyreOffering or 0
+	local iAmountOverWeWillRequest = advice.iAmountOverWeWillRequest or 0
+	local iAmountUnderWeWillOffer = advice.iAmountUnderWeWillOffer or 0
+	local bCantMatchOffer = advice.bCantMatchOffer or false
+
+	local text
+
+	if iRank == 3 then
+		-- Master Spy: full itemized detail
+		local acceptable
+		if bCantMatchOffer then
+			acceptable = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_CANT_MATCH" )
+		else
+			acceptable = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_ACCEPTABLE" )
+		end
+		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_MASTER",
+			tostring(iValueImOffering), tostring(iValueTheyreOffering),
+			tostring(iTotalValueToMe), tostring(iAmountOverWeWillRequest), tostring(iAmountUnderWeWillOffer),
+			acceptable )
+	elseif iRank == 2 then
+		-- Special Agent: total score
+		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_AGENT",
+			tostring(iTotalValueToMe), tostring(iAmountOverWeWillRequest), tostring(iAmountUnderWeWillOffer) )
+	else
+		-- Agent: rough value-difference ratio
+		local iSum = iValueImOffering + iValueTheyreOffering
+		local iRatio = (iSum > 0) and (iTotalValueToMe / iSum) or 0
+		local iPercent = math.floor( iRatio * 100 + 0.5 )
+		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_ROUGH", tostring(iPercent) )
+	end
+
+	Controls.DiplomatAdviceLabel:SetText( text )
+	Controls.DiplomatAdviceLabel:SetHide( false )
+
+end
+
 function RemoveByType( tradeType, playerID )
 	g_Deal:RemoveByType( tradeType, playerID )
 	return DoUIDealChangedByHuman( true )
@@ -2212,5 +2287,8 @@ Controls.ThemMakePeaceDuration:LocalizeAndSetText( "TXT_KEY_DIPLO_TURNS", g_iPea
 Controls.ThemDeclareWarDuration:LocalizeAndSetText( "TXT_KEY_DIPLO_TURNS", g_iPeaceDuration )
 Controls.UsTablePeaceTreaty:LocalizeAndSetText( "TXT_KEY_DIPLO_PEACE_TREATY", g_iPeaceDuration )
 Controls.ThemTablePeaceTreaty:LocalizeAndSetText( "TXT_KEY_DIPLO_PEACE_TREATY", g_iPeaceDuration )
+
+-- SP: 咨询外交官 button (diplomat trade-value reveal, gated by stationed spy rank)
+Controls.ConsultDiplomatButton:RegisterCallback( Mouse.eLClick, OnConsultDiplomat )
 
 DisplayDeal()
