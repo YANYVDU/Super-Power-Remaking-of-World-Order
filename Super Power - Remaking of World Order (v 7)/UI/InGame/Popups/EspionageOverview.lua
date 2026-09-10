@@ -419,9 +419,10 @@ function RelocateAgent(agentID, city)
 	Controls.AgentRank:SetTextureOffset(rankOffsets[agent.Rank]);
 	-- Master Spies are tinted gold (unconditionally reset to avoid stale tint)
 	if (agent.Rank == "TXT_KEY_SPY_RANK_3") then
-		Controls.AgentRank:SetColorVal(1.0, 0.82, 0.26, 1.0);
+		-- AgentRank is an Image control; Image supports SetColor (color table), not SetColorVal.
+		Controls.AgentRank:SetColor({x = 1, y = 0.82, z = 0.26, w = 1});
 	else
-		Controls.AgentRank:SetColorVal(1.0, 1.0, 1.0, 1.0);
+		Controls.AgentRank:SetColor({x = 1, y = 1, z = 1, w = 1});
 	end
 	Controls.AgentName:LocalizeAndSetText(agent.Name);
 	Controls.AgentName:LocalizeAndSetToolTip("TXT_KEY_EO_SPY_NAMEPLATE_TT", agent.Rank, agent.Name); 
@@ -612,9 +613,9 @@ function RefreshAgents()
 		agentEntry.AgentRank:SetTextureOffset(rankOffsets[v.Rank]);
 		-- Master Spies are tinted gold (unconditionally reset to avoid stale tint on recycled instances)
 		if (v.Rank == "TXT_KEY_SPY_RANK_3") then
-			agentEntry.AgentRank:SetColorVal(1.0, 0.82, 0.26, 1.0);
+			agentEntry.AgentRank:SetColor({x = 1, y = 0.82, z = 0.26, w = 1});
 		else
-			agentEntry.AgentRank:SetColorVal(1.0, 1.0, 1.0, 1.0);
+			agentEntry.AgentRank:SetColor({x = 1, y = 1, z = 1, w = 1});
 		end
 		agentEntry.AgentName:LocalizeAndSetText(v.Name);
 		agentEntry.AgentName:LocalizeAndSetToolTip("TXT_KEY_EO_SPY_NAMEPLATE_TT", v.Rank, v.Name);
