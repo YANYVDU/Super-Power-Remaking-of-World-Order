@@ -19644,5 +19644,35 @@
 		<Row Tag="TXT_KEY_DIPLO_CONSULT_CANT_MATCH">
 			<Text>they still want more than we offer</Text>
 		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_BUTTON">
+			<Text>Diplomacy Bargain</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_NO_DIPLOMAT">
+			<Text>We have no diplomat stationed in their capital. Station a spy as a diplomat to raise the value of our gold per turn this turn through negotiation.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_COOLDOWN">
+			<Text>Diplomacy Bargain cooling down; {1_Cooldown} turns remain.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_SUCCESS">
+			<Text>Diplomacy Bargain succeeded! This turn our gold per turn is worth 20% more to them.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_FAILURE">
+			<Text>Diplomacy Bargain failed to convince them; this attempt had no effect.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_TT">
+			<Text>A stationed diplomat (current rank {1_Rank}) reveals their bottom line for this deal. Higher ranks reveal more detail.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_TT">
+			<Text>Diplomacy Bargain: {1_Chance}% chance to trigger "Diplomatic Cooperation", raising our gold per turn's value to them by 20% this turn. {2_Cooldown} turn cooldown once triggered. (Expires at end of turn or when a trade succeeds.)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_TT_CD">
+			<Text>Diplomacy Bargain is on cooldown; {1_Cooldown} turns remain.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_DEMOTED">
+			<Text>Your diplomat in {1_Civ} has been demoted to a level-1 spy for profiting dishonestly from a trade.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_DEMOTED_SHORT">
+			<Text>Diplomat demoted</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

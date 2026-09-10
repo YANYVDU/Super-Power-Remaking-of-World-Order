@@ -72,6 +72,39 @@ local g_LeagueVoteList = {}
 
 local g_OtherPlayersButtons = {}
 
+-- Refresh the "Diplomacy Bargain" button label: show the success chance, or the remaining cooldown.
+function UpdateDiplomacyBargainButton()
+	if g_iUs == -1 or g_iThem == -1 then
+		return
+	end
+	if Controls.DiplomacyBargainButton == nil then
+		return
+	end
+	local iRank = Players[g_iUs]:GetSpyRankVisitingThem(g_iThem, false)
+	if iRank < 0 then
+		return
+	end
+	local iCooldown = Players[g_iUs]:GetDiplomacyBargainCooldown(g_iThem)
+	if iCooldown > 0 then
+		-- On cooldown: keep the button label clean; the remaining turns are shown in the tooltip only.
+		Controls.DiplomacyBargainButton:SetToolTipString( Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_TT_CD", tostring(iCooldown) ) )
+	else
+		local iChance = Players[g_iUs]:GetDiplomacyBargainChance(g_iThem)
+		if iChance >= 0 then
+			Controls.DiplomacyBargainButton:SetToolTipString( Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_TT", tostring(iChance), tostring(iCooldown) ) )
+		end
+	end
+end
+
+-- SP: the advice gold frame appears only when there is some text to display.
+function UpdateDiplomatAdviceFrame()
+	if not Controls.SpyDiplomacyAdviceFrame or not Controls.DiplomatAdviceLabel then
+		return
+	end
+	local bShowFrame = (not Controls.DiplomatAdviceLabel:IsHidden()) or (not Controls.DiplomacyBargainLabel:IsHidden())
+	Controls.SpyDiplomacyAdviceFrame:SetHide( not bShowFrame )
+end
+
 local offsetOfString = 32
 local bonusPadding = 16
 local innerFrameWidth = 524
@@ -506,14 +539,28 @@ function DoUpdateButtons( diploMessage )
 
 		-- SP: 咨询外交官 shows only when we have a spy stationed as a diplomat in their capital.
 		-- It shares the bottom button slot with "What do you want" (WhatDoYouWantButton).
+		-- These controls only exist in the leader-head DiploTrade context; skip entirely otherwise.
+		if Controls.ConsultDiplomatButton then
 		local iDiplomatRank = -1
 		if g_iUs ~= -1 and g_iThem ~= -1 and not g_bTradeReview then
 			iDiplomatRank = Players[g_iUs]:GetSpyRankVisitingThem( g_iThem, false )
 		end
 		local bShowConsultDiplomat = ( iDiplomatRank >= 0 )
 		Controls.ConsultDiplomatButton:SetHide( not bShowConsultDiplomat )
+		Controls.DiplomacyBargainButton:SetHide( not bShowConsultDiplomat )
+		UpdateDiplomacyBargainButton()
+		if bShowConsultDiplomat then
+			Controls.ConsultDiplomatButton:SetToolTipString( Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_TT", tostring(iDiplomatRank) ) )
+		end
 		-- "What do you want" is the less informative option; hide it when we can consult the diplomat instead.
 		Controls.WhatDoYouWantButton:SetHide( bShowConsultDiplomat or (numItemsFromUs > 0 or numItemsFromThem == 0) )
+		-- Clear any stale advice when it is no longer relevant.
+		if not bShowConsultDiplomat then
+			Controls.DiplomatAdviceLabel:SetHide( true )
+			Controls.DiplomacyBargainLabel:SetHide( true )
+		end
+		UpdateDiplomatAdviceFrame()
+		end
 	end
 
 end
@@ -1681,6 +1728,7 @@ function OnConsultDiplomat()
 	if iRank < 0 then
 		Controls.DiplomatAdviceLabel:SetText( Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_NO_DIPLOMAT" ) )
 		Controls.DiplomatAdviceLabel:SetHide( false )
+		UpdateDiplomatAdviceFrame()
 		return
 	end
 
@@ -1689,6 +1737,7 @@ function OnConsultDiplomat()
 
 	if advice == nil then
 		Controls.DiplomatAdviceLabel:SetHide( true )
+		UpdateDiplomatAdviceFrame()
 		return
 	end
 
@@ -1727,6 +1776,48 @@ function OnConsultDiplomat()
 
 	Controls.DiplomatAdviceLabel:SetText( text )
 	Controls.DiplomatAdviceLabel:SetHide( false )
+	UpdateDiplomatAdviceFrame()
+
+end
+
+function OnDiplomacyBargain()
+
+	if g_PVPTrade or g_iThem < 0 or g_iUs < 0 then
+		return
+	end
+
+	-- Rank of our diplomat stationed in the AI's capital (-1 if none).
+	local iRank = Players[g_iUs]:GetSpyRankVisitingThem(g_iThem, false)
+
+	if iRank < 0 then
+		Controls.DiplomacyBargainLabel:SetText( Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_NO_DIPLOMAT" ) )
+		Controls.DiplomacyBargainLabel:SetHide( false )
+		UpdateDiplomatAdviceFrame()
+		return
+	end
+
+	-- Attempt the negotiation in the DLL so the RNG is authoritative across clients.
+	local iResult = Players[g_iUs]:TryDiplomacyBargain(g_iThem)
+
+	local text
+	if iResult == -1 then
+		-- On cooldown: show remaining turns.
+		local iCooldown = Players[g_iUs]:GetDiplomacyBargainCooldown(g_iThem)
+		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_COOLDOWN", tostring(iCooldown) )
+	elseif iResult == 1 then
+		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_SUCCESS" )
+	elseif iResult == 0 then
+		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_FAILURE" )
+	else
+		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_NO_DIPLOMAT" )
+	end
+
+	Controls.DiplomacyBargainLabel:SetText( text )
+	Controls.DiplomacyBargainLabel:SetHide( false )
+	UpdateDiplomatAdviceFrame()
+
+	-- Refresh button text so any chance label reflects the new cooldown state.
+	UpdateDiplomacyBargainButton()
 
 end
 
@@ -2288,7 +2379,12 @@ Controls.ThemDeclareWarDuration:LocalizeAndSetText( "TXT_KEY_DIPLO_TURNS", g_iPe
 Controls.UsTablePeaceTreaty:LocalizeAndSetText( "TXT_KEY_DIPLO_PEACE_TREATY", g_iPeaceDuration )
 Controls.ThemTablePeaceTreaty:LocalizeAndSetText( "TXT_KEY_DIPLO_PEACE_TREATY", g_iPeaceDuration )
 
--- SP: 咨询外交官 button (diplomat trade-value reveal, gated by stationed spy rank)
-Controls.ConsultDiplomatButton:RegisterCallback( Mouse.eLClick, OnConsultDiplomat )
+-- SP: 咨询外交官 + 外交谈判 buttons. These controls only exist in the leader-head (DiploTrade) context,
+-- so guard them: this same TradeLogic.lua is also included by the vanilla WorldView SimpleDiploTrade,
+-- whose XML has neither control.
+if Controls.ConsultDiplomatButton and Controls.DiplomacyBargainButton then
+	Controls.ConsultDiplomatButton:RegisterCallback( Mouse.eLClick, OnConsultDiplomat )
+	Controls.DiplomacyBargainButton:RegisterCallback( Mouse.eLClick, OnDiplomacyBargain )
+end
 
 DisplayDeal()

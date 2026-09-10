@@ -17919,5 +17919,35 @@
 		<Row Tag="TXT_KEY_DIPLO_CONSULT_CANT_MATCH">
 			<Text>他們仍要求的比我們提供的更多</Text>
 		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_BUTTON">
+			<Text>外交談判</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_NO_DIPLOMAT">
+			<Text>我們未派駐外交官到該國首都。派駐間諜擔任外交官方可透過談判提升回合金在本回合內的價值。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_COOLDOWN">
+			<Text>外交談判冷卻中，還需 {1_Cooldown} 回合。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_SUCCESS">
+			<Text>外交談判成功！本回合內我方回合金對該國的價值提升 20%。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_FAILURE">
+			<Text>外交談判未能說服對方，本次嘗試未獲效果。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_TT">
+			<Text>派駐外交官（目前等級 {1_Rank}）可查看該國對本交易的底線評估。等級越高，評估越詳細。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_TT">
+			<Text>外交談判：有 {1_Chance}% 機率觸發「外交合作」，使本回合我方回合金對該國的價值提升 20%。觸發後冷卻 {2_Cooldown} 回合。（本回合內或交易成功後效果消除）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_TT_CD">
+			<Text>外交談判正在冷卻，還需 {1_Cooldown} 回合才能再次嘗試。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_DEMOTED">
+			<Text>你在{1_Civ}的外交官因在交易中不正當獲利，已被降級為一級間諜。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_DEMOTED_SHORT">
+			<Text>外交官被降級</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
