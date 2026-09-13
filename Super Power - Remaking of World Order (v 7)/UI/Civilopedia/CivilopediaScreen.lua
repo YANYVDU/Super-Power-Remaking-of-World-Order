@@ -53,6 +53,7 @@ local CategoryImprovements = 14;
 local CategoryBeliefs = 15;
 local CategoryWorldCongress = 16;
 local numCategories = 16;
+local CategoryExtrasBase = 100; -- virtual category ids for data-driven extra pages; numCategories stays 16 (no extra top tab)
 
 local selectedCategory = CategoryHomePage;
 local CivilopediaCategory = {};
@@ -161,9 +162,14 @@ function SetSelectedCategory( thisCategory )
 	print("SetSelectedCategory("..tostring(thisCategory)..")");
 	if selectedCategory ~= thisCategory then
 		selectedCategory = thisCategory;
-		-- set up tab
-		Controls.SelectedCategoryTab:SetOffsetVal(47 * (selectedCategory - 1), -10);
-		Controls.SelectedCategoryTab:SetTexture( CivilopediaCategory[selectedCategory].buttonTexture );
+		-- set up tab (hide highlight for data-driven extra pages, which have no top tab)
+		if selectedCategory >= CategoryExtrasBase then
+			Controls.SelectedCategoryTab:SetHide( true );
+		else
+			Controls.SelectedCategoryTab:SetHide( false );
+			Controls.SelectedCategoryTab:SetOffsetVal(47 * (selectedCategory - 1), -10);
+			Controls.SelectedCategoryTab:SetTexture( CivilopediaCategory[selectedCategory].buttonTexture );
+		end
 		-- set up label for category
 		Controls.CategoryLabel:SetText( CivilopediaCategory[selectedCategory].labelString );
 		-- populate the list of entries
@@ -273,6 +279,24 @@ CivilopediaCategory[CategoryHomePage].PopulateList = function()
 			searchableList[Locale.ToLower(name)] = article;
 			searchableTextKeyList[compoundName] = article;
 			categorizedList[(CategoryHomePage * absurdlyLargeNumTopicsInCategory) + i] = article;
+		end
+
+		-- data-driven extra pages (appended after the fixed 16 categories)
+		if GameInfo.CategoryExtras then
+			for row in GameInfo.CategoryExtras() do
+				local extrasId = CategoryExtrasBase + row.ID;
+				local article = {};
+				article.entryName = Locale.ConvertTextKey( row.Description );
+				article.entryID = extrasId;
+				article.entryCategory = CategoryHomePage;
+
+				sortedList[CategoryHomePage][1][tableid] = article;
+				tableid = tableid + 1;
+
+				searchableList[Locale.ToLower(article.entryName)] = article;
+				searchableTextKeyList[row.Description] = article;
+				categorizedList[(CategoryHomePage * absurdlyLargeNumTopicsInCategory) + extrasId] = article;
+			end
 		end
 end
 
@@ -2003,9 +2027,18 @@ end
 
 
 CivilopediaCategory[CategoryHomePage].SelectArticle = function( pageID, shouldAddToList )
-	
+
 	ClearArticle();
-	
+
+	if pageID >= CategoryExtrasBase then
+		if selectedCategory ~= pageID then
+			SetSelectedCategory( pageID );
+		end
+		CivilopediaCategory[pageID].DisplayHomePage();
+		ResizeEtc();
+		return;
+	end
+
 	if pageID == 1 then
 		if selectedCategory ~= CategoryHomePage then
 		SetSelectedCategory(CategoryHomePage);
@@ -9370,6 +9403,185 @@ end
 
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- data-driven extra pages (CategoryExtras / CategoryExtras_Classes / CategoryExtras_Items)
+-------------------------------------------------------------------------------
+
+local function CreateExtrasPopulateList( extrasId, extrasType )
+	return function()
+		sortedList[extrasId] = {};
+
+		for classRow in GameInfo.CategoryExtras_Classes() do
+			if classRow.CategoryExtraType == extrasType then
+				local section = {};
+				section.headingOpen = false;
+				section.headingLabel = Locale.ConvertTextKey( classRow.Description );
+
+				for itemRow in GameInfo.CategoryExtras_Items() do
+					if itemRow.CategoryExtraClassType == classRow.Type then
+						local article = {};
+						local name = Locale.ConvertTextKey( itemRow.Description );
+						article.entryName = name;
+						article.entryID = itemRow.ID;
+						article.entryCategory = extrasId;
+
+						table.insert( section, article );
+
+						-- index by various keys
+						searchableList[Locale.ToLower(name)] = article;
+						searchableTextKeyList[itemRow.Description] = article;
+						categorizedList[(extrasId * absurdlyLargeNumTopicsInCategory) + itemRow.ID] = article;
+					end
+				end
+
+				table.insert( sortedList[extrasId], section );
+			end
+		end
+	end
+end
+
+local function CreateExtrasDisplayList( extrasId, labelString )
+	return function()
+		g_ListHeadingManager:ResetInstances();
+		g_ListItemManager:ResetInstances();
+
+		local sortOrder = 0;
+		otherSortedList = {};
+
+		-- put in a home page before the first section
+		local thisListInstance = g_ListItemManager:GetInstance();
+		if thisListInstance then
+			sortOrder = sortOrder + 1;
+			thisListInstance.ListItemLabel:SetText( labelString );
+			thisListInstance.ListItemButton:SetVoids( homePageOfCategoryID, addToList );
+			thisListInstance.ListItemButton:RegisterCallback( Mouse.eLClick, CivilopediaCategory[extrasId].buttonClicked );
+			thisListInstance.ListItemButton:SetToolTipCallback( TipHandler );
+			otherSortedList[tostring( thisListInstance.ListItemButton )] = sortOrder;
+		end
+
+		for sectionID = 1, #sortedList[extrasId], 1 do
+			local section = sortedList[extrasId][sectionID];
+
+			-- add a section header
+			local thisHeaderInstance = g_ListHeadingManager:GetInstance();
+			if thisHeaderInstance then
+				sortOrder = sortOrder + 1;
+				if section.headingOpen then
+					thisHeaderInstance.ListHeadingLabel:SetText( "[ICON_MINUS] " .. section.headingLabel );
+				else
+					thisHeaderInstance.ListHeadingLabel:SetText( "[ICON_PLUS] " .. section.headingLabel );
+				end
+				thisHeaderInstance.ListHeadingButton:SetVoids( sectionID, 0 );
+				thisHeaderInstance.ListHeadingButton:RegisterCallback( Mouse.eLClick, CivilopediaCategory[extrasId].SelectHeading );
+				otherSortedList[tostring( thisHeaderInstance.ListHeadingButton )] = sortOrder;
+			end
+
+			-- for each element of the sorted list
+			if section.headingOpen then
+				for i, v in ipairs(section) do
+					local thisListInstance = g_ListItemManager:GetInstance();
+					if thisListInstance then
+						sortOrder = sortOrder + 1;
+						thisListInstance.ListItemLabel:SetText( v.entryName );
+						thisListInstance.ListItemButton:SetVoids( v.entryID, addToList );
+						thisListInstance.ListItemButton:RegisterCallback( Mouse.eLClick, function(dummy, shouldAddToList) CivilopediaCategory[extrasId].SelectArticle(v.entryID, shouldAddToList); end );
+						thisListInstance.ListItemButton:SetToolTipCallback( TipHandler );
+						otherSortedList[tostring( thisListInstance.ListItemButton )] = sortOrder;
+					end
+				end
+			end
+		end
+
+		Controls.ListOfArticles:SortChildren( SortFunction );
+		ResizeEtc();
+	end
+end
+
+local function CreateExtrasSelectHeading( extrasId )
+	return function( selectedSectionID, dummy )
+		sortedList[extrasId][selectedSectionID].headingOpen = not sortedList[extrasId][selectedSectionID].headingOpen;
+		CivilopediaCategory[extrasId].DisplayList();
+	end
+end
+
+local function CreateExtrasSelectArticle( extrasId )
+	return function( entryID, shouldAddToList )
+		if selectedCategory ~= extrasId then
+			SetSelectedCategory( extrasId );
+		end
+
+		ClearArticle();
+
+		if shouldAddToList == addToList then
+			currentTopic = currentTopic + 1;
+			listOfTopicsViewed[currentTopic] = categorizedList[(extrasId * absurdlyLargeNumTopicsInCategory) + entryID];
+			for i = currentTopic + 1, endTopic, 1 do
+				listOfTopicsViewed[i] = nil;
+			end
+			endTopic = currentTopic;
+		end
+
+		if entryID ~= nil then
+			for itemRow in GameInfo.CategoryExtras_Items() do
+				if itemRow.ID == entryID then
+					-- items carry no portrait; hide the frame
+					Controls.PortraitFrame:SetHide( true );
+
+					-- update the name
+					Controls.ArticleID:LocalizeAndSetText( itemRow.Description );
+
+					-- update the summary
+					if itemRow.Help ~= nil then
+						UpdateTextBlock( Locale.ConvertTextKey( itemRow.Help ), Controls.SummaryLabel, Controls.SummaryInnerFrame, Controls.SummaryFrame );
+					end
+					break;
+				end
+			end
+		end
+
+		ResizeEtc();
+	end
+end
+
+local function CreateExtrasDisplayHomePage( extrasId, descriptionTxtKey, helpTxtKey, iconAtlas, portraitIndex )
+	return function()
+		ClearArticle();
+		Controls.ArticleID:SetText( Locale.ConvertTextKey( descriptionTxtKey ) );
+
+		if IconHookup( portraitIndex, portraitSize, iconAtlas, Controls.Portrait ) then
+			Controls.PortraitFrame:SetHide( false );
+		else
+			Controls.PortraitFrame:SetHide( true );
+		end
+
+		if helpTxtKey ~= nil then
+			UpdateTextBlock( Locale.ConvertTextKey( helpTxtKey ), Controls.HomePageBlurbLabel, Controls.HomePageBlurbInnerFrame, Controls.HomePageBlurbFrame );
+		end
+
+		ResizeEtc();
+	end
+end
+
+-- register each data-driven extra page on its virtual category id (CategoryExtrasBase + row.ID)
+if GameInfo.CategoryExtras then
+	for row in GameInfo.CategoryExtras() do
+		local extrasId = CategoryExtrasBase + row.ID;
+		CivilopediaCategory[extrasId] = {};
+		CivilopediaCategory[extrasId].tag = extrasId;
+		CivilopediaCategory[extrasId].labelString = Locale.ConvertTextKey( row.Description );
+		CivilopediaCategory[extrasId].buttonTexture = "";
+		CivilopediaCategory[extrasId].buttonClicked = function()
+			SetSelectedCategory( extrasId );
+		end
+		CivilopediaCategory[extrasId].PopulateList    = CreateExtrasPopulateList( extrasId, row.Type );
+		CivilopediaCategory[extrasId].DisplayList     = CreateExtrasDisplayList( extrasId, CivilopediaCategory[extrasId].labelString );
+		CivilopediaCategory[extrasId].SelectHeading   = CreateExtrasSelectHeading( extrasId );
+		CivilopediaCategory[extrasId].SelectArticle   = CreateExtrasSelectArticle( extrasId );
+		CivilopediaCategory[extrasId].DisplayHomePage = CreateExtrasDisplayHomePage( extrasId, row.Description, row.Help, row.IconAtlas, row.PortraitIndex );
+		CivilopediaCategory[extrasId].PopulateList();
+	end
+end
 
 for i = 1, numCategories, 1 do
 	if CivilopediaCategory[i].PopulateList then
