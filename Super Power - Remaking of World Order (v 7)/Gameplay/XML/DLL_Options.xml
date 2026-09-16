@@ -403,6 +403,10 @@
 			<Set Value="1"/>
 		</Update>
 		<Update>
+			<Where Name="LUXURY_ERA_DECAY"/>
+			<Set Value="1"/>
+		</Update>
+		<Update>
 			<Where Name="SP_FAITH_BELIEF_PURCHASE_COST"/>
 			<Set Value="2500"/>
 		</Update>
