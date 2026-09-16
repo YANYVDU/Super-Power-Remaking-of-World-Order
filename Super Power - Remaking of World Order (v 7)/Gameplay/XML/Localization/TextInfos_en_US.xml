@@ -19785,5 +19785,30 @@
 		<Row Tag="TXT_KEY_RESOURCE_TOOLTIP_ERA_DECAY">
 			<Text>After {1_Era}, happiness -1 per era (min +1)</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_SYDNEY_HELP">
+			<Text>
+				Ally effect:
+				[NEWLINE][ICON_BULLET]+4% [ICON_CULTURE] Culture empire-wide per international immigrant the ally has accepted
+				[NEWLINE][ICON_BULLET]Whenever the ally accepts an international immigrant, gain 1% of their current treasury in [ICON_GOLD] Gold (capped at 100 x current Era x game speed modifier)
+				[NEWLINE][ICON_BULLET]Opera House and Sydney Opera House provide +33% [ICON_TOURISM] Tourism in their city
+				[NEWLINE]
+				[NEWLINE]Friend effect:
+				[NEWLINE][ICON_BULLET]+2% [ICON_CULTURE] Culture empire-wide per international immigrant the friend has accepted
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SYDNEY_ALLY_HELP">
+			<Text>
+				Ally effect:
+				[NEWLINE][ICON_BULLET]+4% [ICON_CULTURE] Culture empire-wide per international immigrant the ally has accepted
+				[NEWLINE][ICON_BULLET]Whenever the ally accepts an international immigrant, gain 1% of their current treasury in [ICON_GOLD] Gold (capped at 100 x current Era x game speed modifier)
+				[NEWLINE][ICON_BULLET]Opera House and Sydney Opera House provide +33% [ICON_TOURISM] Tourism in their city
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SYDNEY_FRIEND_HELP">
+			<Text>
+				Friend effect:
+				[NEWLINE][ICON_BULLET]+2% [ICON_CULTURE] Culture empire-wide per international immigrant the friend has accepted
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

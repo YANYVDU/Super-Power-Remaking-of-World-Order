@@ -18060,5 +18060,30 @@
 		<Row Tag="TXT_KEY_RESOURCE_TOOLTIP_ERA_DECAY">
 			<Text>過{1_Era}後，每時代快樂 -1（最低 +1）</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_SYDNEY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每接受過一個國際移民，盟友全國+4%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]每次接收國際移民，獲得當前國庫1%的[ICON_GOLD]金錢（上限100×當前時代×遊戲速度修正）
+				[NEWLINE][ICON_BULLET]歌劇院與悉尼歌劇院提高城市33%[ICON_TOURISM]魅力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]每接受過一個國際移民，朋友全國+2%[ICON_CULTURE]文化
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SYDNEY_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每接受過一個國際移民，盟友全國+4%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]每次接收國際移民，獲得當前國庫1%的[ICON_GOLD]金錢（上限100×當前時代×遊戲速度修正）
+				[NEWLINE][ICON_BULLET]歌劇院與悉尼歌劇院提高城市33%[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SYDNEY_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]每接受過一個國際移民，朋友全國+2%[ICON_CULTURE]文化
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

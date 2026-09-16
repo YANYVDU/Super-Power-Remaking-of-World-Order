@@ -288,6 +288,14 @@
 			<Type>EFFECT_CSUA_GENEVA_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_GENEVA_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_SYDNEY_ALLY</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_SYDNEY_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_SYDNEY_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_SYDNEY_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1426,6 +1434,13 @@
 			<AllyEffectType>EFFECT_CSUA_GENEVA_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_GENEVA_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_SYDNEY</Type>
+			<Description>TXT_KEY_CITYSTATE_SYDNEY</Description>
+			<Help>TXT_KEY_CSUA_SYDNEY_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_SYDNEY_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_SYDNEY_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -1449,4 +1464,40 @@
 			<YieldMod>10</YieldMod>
 		</Row>
 	 </CityStateUAEffect_ImprovementYieldModifiers>
+	 <!-- 悉尼：盟友/朋友每接受过一个国际移民，全国+X%文化（Modifier=每移民百分比×100） -->
+	 <CityStateUAEffect_ImmigrantYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_SYDNEY_ALLY</EffectType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Modifier>400</Modifier>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_SYDNEY_FRIEND</EffectType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Modifier>200</Modifier>
+		</Row>
+	 </CityStateUAEffect_ImmigrantYieldModifiers>
+	 <!-- 悉尼：盟友每次接收国际移民获得当前国库1%金钱（上限=100×当前时代×游戏速度修正） -->
+	 <CityStateUAEffect_ImmigrantCashReward>
+		<Row>
+			<EffectType>EFFECT_CSUA_SYDNEY_ALLY</EffectType>
+			<CashPercent>1</CashPercent>
+			<CashCapBase>100</CashCapBase>
+		</Row>
+	 </CityStateUAEffect_ImmigrantCashReward>
+	 <!-- 悉尼：盟友的歌剧院、悉尼歌剧院提供+33%旅游 -->
+	 <CityStateUAEffect_BuildingClassYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_SYDNEY_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_OPERA_HOUSE</BuildingClassType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<YieldMod>33</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_SYDNEY_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_SYDNEY_OPERA_HOUSE</BuildingClassType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<YieldMod>33</YieldMod>
+		</Row>
+	 </CityStateUAEffect_BuildingClassYieldModifiers>
 </GameData>

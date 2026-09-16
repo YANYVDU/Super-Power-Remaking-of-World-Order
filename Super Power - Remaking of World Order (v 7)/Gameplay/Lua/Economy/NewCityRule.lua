@@ -124,6 +124,10 @@ function DoInternationalImmigration(MoveOutPlayerID, MoveInPlayerID)
             local heading = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_IMMIGRANT_REACHED_CITY_SHORT")
             MoveInPlayer:AddNotification(NotificationTypes.NOTIFICATION_CITY_GROWTH, text, heading, targetCity:GetX(), targetCity:GetY())
         end
+
+        ------------Immigration Counters (Sydney CS UA)-----------
+        MoveInPlayer:ChangeTotalImmigrantsReceived(1)
+        MoveOutPlayer:ChangeTotalImmigrantsEmigrated(1)
         return true
     else
         return false
