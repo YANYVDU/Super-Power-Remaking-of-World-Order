@@ -291,18 +291,17 @@
 			<!-- Propose Button -->
 			<GridButton Style="FrameButton200" String="TXT_KEY_DIPLO_PROPOSE" ID="ProposeButton" Font="TwCenMT22"/>
 		</Stack>
-	</Grid>
-	<!-- SP: Consult Diplomat advice box (black-gold, matches the leader speech frame). Sits directly above the right-side "your items" panel. -->
-	<Grid Anchor="C,C" Offset="360,50" Size="200,140" Style="GridBlackIndent8" ID="SpyDiplomacyAdviceFrame">
-		<Grid Anchor="C,C" Size="200,140" Style="Grid9Frame"/>
-		<Stack Anchor="L,T" Offset="10,8" StackGrowth="B" Padding="4">
-			<Label WrapWidth="180" LeadingOffset="-8" Font="TwCenMT18" Hidden="1" ID="DiplomatAdviceLabel"/>
-			<Label WrapWidth="180" LeadingOffset="-8" Font="TwCenMT18" Hidden="1" ID="DiplomacyBargainLabel"/>
+		<!-- SP: Consult Diplomat advice box (black-gold, matches the leader speech frame). Sits directly above the right-side "your items" panel. -->
+		<Grid Anchor="C,B" Offset="360,276" Size="200,140" Style="GridBlackIndent8" ID="SpyDiplomacyAdviceFrame">
+			<Grid Anchor="C,C" Size="200,140" Style="Grid9Frame"/>
+			<Stack Anchor="L,T" Offset="10,8" StackGrowth="B" Padding="4">
+				<Label WrapWidth="180" LeadingOffset="-8" Font="TwCenMT18" Hidden="1" ID="DiplomatAdviceLabel"/>
+				<Label WrapWidth="180" LeadingOffset="-8" Font="TwCenMT18" Hidden="1" ID="DiplomacyBargainLabel"/>
+			</Stack>
+		</Grid>
+		<Stack Anchor="C,B" Offset="0,308" Size="200,68" StackGrowth="Bottom" Padding="6" ID="SpyDiplomacyButtonStack">
+			<GridButton Anchor="C,C" Offset="-120,38" Style="FrameButton200" String="TXT_KEY_DIPLO_CONSULT_DIPLOMAT" ID="ConsultDiplomatButton" Font="TwCenMT22" Hidden="1"/>
+			<GridButton Anchor="C,C" Offset="120,-38" Style="FrameButton200" String="TXT_KEY_DIPLO_BARGAIN_BUTTON" ID="DiplomacyBargainButton" Font="TwCenMT22" Hidden="1"/>
 		</Stack>
 	</Grid>
-	<!-- SP: two diplomat buttons, styled exactly like the Cancel/Propose buttons, stacked in the central gap. -->
-	<Stack Anchor="C,C" Offset="0,86" Size="200,68" StackGrowth="Bottom" Padding="6" ID="SpyDiplomacyButtonStack">
-		<GridButton Anchor="C,C" Offset="-120,38" Style="FrameButton200" String="TXT_KEY_DIPLO_CONSULT_DIPLOMAT" ID="ConsultDiplomatButton" Font="TwCenMT22" Hidden="1"/>
-		<GridButton Anchor="C,C" Offset="120,-38" Style="FrameButton200" String="TXT_KEY_DIPLO_BARGAIN_BUTTON" ID="DiplomacyBargainButton" Font="TwCenMT22" Hidden="1"/>
-	</Stack>
 </Context>

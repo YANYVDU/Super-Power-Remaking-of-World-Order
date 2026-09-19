@@ -180,7 +180,7 @@ function OnDisplay()
 	local iGrowthThreshold = pActivePlayerCapital:GrowthThreshold();
 	local iFoodToBuy = iGrowthThreshold * iFoodGrowthRate / 100;
 	local iGoldToPay = iFoodToBuy * iFoodPrice;
-	local iLastBuyFoodTurn = load(pActivePlayer, "iLastBuyFoodTurn") or -1;
+	local iLastBuyFoodTurn = pActivePlayer:GetLastVeniceBuyFoodTurn();
 	local bIsVenice = pActivePlayer:GetCivilizationType() == GameInfoTypes.CIVILIZATION_VENICE;
 	local bShowBuyFood = bIsVenice and bAllies;
 	local bCanBuyFood = bAllies and 
@@ -919,11 +919,12 @@ function onBuyFood()
 
 	local pCapitalCity = pActivePlayer:GetCapitalCity();
 	local iFood = pCapitalCity:GrowthThreshold() * iFoodGrowthRate / 100;
-	--pCapitalCity:ChangeFood(iFood);
-	pCapitalCity:SendAndExecuteLuaFunction("CvLuaCity::lChangeFood", iFood);
-	--pActivePlayer:ChangeGold(-iFood * iFoodPrice);
-	pActivePlayer:SendAndExecuteLuaFunction("CvLuaPlayer::lChangeGold", -iFood * iFoodPrice);
-	save(pActivePlayer, "iLastBuyFoodTurn", Game.GetGameTurn());
+	local iGoldToPay = iFood * iFoodPrice;
+
+	-- Broadcast the whole exchange (per-player cooldown, gold and food) so it runs in
+	-- lock-step on every client. The authoritative DLL cooldown replaces the old
+	-- client-local save/load that could be bypassed in multiplayer.
+	pActivePlayer:SendAndExecuteLuaFunction("CvLuaPlayer::lTryBuyFoodFromVenice", iFood, iGoldToPay);
 	Controls.VeniceBuyFoodButton:SetHide(true);
 
 	if pActivePlayer:IsHuman() then

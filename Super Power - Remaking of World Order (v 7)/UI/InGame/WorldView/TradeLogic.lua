@@ -1796,28 +1796,17 @@ function OnDiplomacyBargain()
 		return
 	end
 
-	-- Attempt the negotiation in the DLL so the RNG is authoritative across clients.
-	local iResult = Players[g_iUs]:TryDiplomacyBargain(g_iThem)
+	-- Dispatch the bargain through the on-host authoritative command handler so the
+	-- RNG roll and the cooldown are applied in lock-step on every client (multiplayer-safe).
+	Game.DoDiplomacyBargain( g_iThem )
 
-	local text
-	if iResult == -1 then
-		-- On cooldown: show remaining turns.
-		local iCooldown = Players[g_iUs]:GetDiplomacyBargainCooldown(g_iThem)
-		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_COOLDOWN", tostring(iCooldown) )
-	elseif iResult == 1 then
-		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_SUCCESS" )
-	elseif iResult == 0 then
-		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_FAILURE" )
-	else
-		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_NO_DIPLOMAT" )
+	-- The DLL evaluates the roll and posts a success/failure notification to us. Hide the
+	-- button locally to prevent double-clicking while the authoritative cooldown syncs in.
+	Controls.DiplomacyBargainLabel:SetHide( true )
+	if not Controls.DiplomacyBargainButton:IsHidden() then
+		Controls.DiplomacyBargainButton:SetHide( true )
 	end
-
-	Controls.DiplomacyBargainLabel:SetText( text )
-	Controls.DiplomacyBargainLabel:SetHide( false )
 	UpdateDiplomatAdviceFrame()
-
-	-- Refresh button text so any chance label reflects the new cooldown state.
-	UpdateDiplomacyBargainButton()
 
 end
 
