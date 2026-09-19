@@ -197,11 +197,14 @@ function OnYes()
 	print("[ChooseBeliefPopup] OnYes params=" .. tostring(params) .. " beliefID=" .. tostring(g_BeliefID));
 	if (params ~= nil and params.MinorID ~= nil and g_BeliefID ~= -1) then
 		local bSuccess = false;
+		local iActivePlayer = Game.GetActivePlayer();
 		if (params.Mode == "pantheon") then
-			bSuccess = Game.DoCityStateFaithPantheonPurchase(params.MinorID, g_BeliefID);
+			--bSuccess = Game.DoCityStateFaithPantheonPurchase(params.MinorID, g_BeliefID);
+			bSuccess = Game.SendAndExecuteLuaFunction("CvLuaGame::lDoCityStateFaithPantheonPurchaseFromMajor", iActivePlayer, params.MinorID, g_BeliefID);
 			print("[CSUA PantheonPurchase] minor=" .. params.MinorID .. " belief=" .. g_BeliefID .. " result=" .. tostring(bSuccess));
 		else
-			bSuccess = Game.DoCityStateFaithBeliefPurchase(params.MinorID, g_BeliefID);
+			--bSuccess = Game.DoCityStateFaithBeliefPurchase(params.MinorID, g_BeliefID);
+			bSuccess = Game.SendAndExecuteLuaFunction("CvLuaGame::lDoCityStateFaithBeliefPurchaseFromMajor", iActivePlayer, params.MinorID, g_BeliefID);
 			print("[CSUA BeliefPurchase] minor=" .. params.MinorID .. " belief=" .. g_BeliefID .. " result=" .. tostring(bSuccess));
 		end
 		if (bSuccess) then

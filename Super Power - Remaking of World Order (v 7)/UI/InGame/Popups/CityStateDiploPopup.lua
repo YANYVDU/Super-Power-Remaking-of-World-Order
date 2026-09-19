@@ -1220,7 +1220,8 @@ function OnFaithGiftSmall ()
 	if (pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining() > 0) then
 		local iFaithCost = math.floor(iGoldGiftSmall / pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor());
 		if (pActivePlayer:GetFaith() >= iFaithCost) then
-			Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftSmall);
+			--Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftSmall);
+			Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorFaithGiftFromMajor", iActivePlayer, g_iMinorCivID, iGoldGiftSmall);
 			OnCloseGive();
 		end
 	end
@@ -1233,7 +1234,8 @@ function OnFaithGiftMedium ()
 	if (pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining() > 0) then
 		local iFaithCost = math.floor(iGoldGiftMedium / pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor());
 		if (pActivePlayer:GetFaith() >= iFaithCost) then
-			Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftMedium);
+			--Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftMedium);
+			Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorFaithGiftFromMajor", iActivePlayer, g_iMinorCivID, iGoldGiftMedium);
 			OnCloseGive();
 		end
 	end
@@ -1246,7 +1248,8 @@ function OnFaithGiftLarge ()
 	if (pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining() > 0) then
 		local iFaithCost = math.floor(iGoldGiftLarge / pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor());
 		if (pActivePlayer:GetFaith() >= iFaithCost) then
-			Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftLarge);
+			--Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftLarge);
+			Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorFaithGiftFromMajor", iActivePlayer, g_iMinorCivID, iGoldGiftLarge);
 			OnCloseGive();
 		end
 	end
@@ -1259,7 +1262,8 @@ function OnFaithGiftHuge ()
 	if (pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining() > 0) then
 		local iFaithCost = math.floor(iGoldGiftHuge / pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor());
 		if (pActivePlayer:GetFaith() >= iFaithCost) then
-			Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftHuge);
+			--Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftHuge);
+			Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorFaithGiftFromMajor", iActivePlayer, g_iMinorCivID, iGoldGiftHuge);
 			OnCloseGive();
 		end
 	end
