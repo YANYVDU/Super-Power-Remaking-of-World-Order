@@ -7,6 +7,14 @@
 			<Value>1</Value>
 		</Row>
 
+		<!-- Economic Aid (SP): while granting economic aid to a city-state, raise its friendship
+		     anchor by this much so influence climbs toward a higher resting point (and can make
+		     the ally approach "friend" quickly). DB-tunable. -->
+		<Row>
+			<Name>MINOR_FRIENDSHIP_ANCHOR_MOD_ECONOMIC_AID</Name>
+			<Value>20</Value>
+		</Row>
+
 		<Update>
 			<Where Name="RELIGION_BASE_CHANCE_PROPHET_SPAWN"/>
 			<Set Value="100"/>
