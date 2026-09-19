@@ -1642,3 +1642,27 @@ if ContextPtr:IsHotLoad() then
 		player = Players[i]
 	end
 end
+
+-- SP: refresh every city-state banner's prestige tooltip immediately when a city-state's
+-- ally relation changes. Diplomatic Prestige + ally-count are shown in the hovered banner
+-- tooltip and were otherwise only rebuilt on the next turn's banner refresh.
+function RefreshCityStatePrestigeOnAllyChange()
+	local iActivePlayer = Game.GetActivePlayer()
+	local iActiveTeam = Game.GetActiveTeam()
+	for iPlayer, inst in pairs(Instances) do
+		if Players[iPlayer] and Players[iPlayer]:IsMinorCiv() then
+			for iCityID, cityBanner in pairs(inst) do
+				if cityBanner and cityBanner.Controls and cityBanner.Controls.BannerButton then
+					RefreshCityBanner(cityBanner, iActiveTeam, iActivePlayer)
+				end
+			end
+		end
+	end
+end
+
+if Events.MinorAlliesChanged then
+	Events.MinorAlliesChanged.Add(RefreshCityStatePrestigeOnAllyChange)
+end
+if GameEvents.MinorAlliesChanged then
+	GameEvents.MinorAlliesChanged.Add(RefreshCityStatePrestigeOnAllyChange)
+end
