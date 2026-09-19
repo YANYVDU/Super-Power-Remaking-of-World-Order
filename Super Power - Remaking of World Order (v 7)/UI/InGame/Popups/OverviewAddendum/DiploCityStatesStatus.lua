@@ -192,7 +192,8 @@ function GetCsControl(im, iCs, iPlayer)
 	controlTable.CsAidAutoRenew:RegisterCallback( Mouse.eLClick,
 	function()
 		local bNew = not pCs:IsEconomicAidAutoRenew(iPlayer)
-		pCs:SetEconomicAidAutoRenew(iPlayer, bNew)
+		-- pCs:SetEconomicAidAutoRenew(iPlayer, bNew)
+		pCs:SendAndExecuteLuaFunction("CvLuaPlayer::lSetEconomicAidAutoRenew", iPlayer, bNew)
 		controlTable.CsAidAutoRenew:SetCheck(bNew)
 	end )
 
