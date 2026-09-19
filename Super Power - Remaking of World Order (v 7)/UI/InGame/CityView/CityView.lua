@@ -1273,12 +1273,6 @@ function OnCityViewUpdate()
 						iPlayerMod = iPlayerMod - iPolicyMod - iWorldCongressMod;
 						
 						local iCityStateMod = pPlayer:GetCityStateSpecialistPointRate(iSpecialistIndex);
-						-- 拉本塔UA：把全局杰作/文物伟人加成从"城市修正"拆出，归入"盟邦UA加成"行单独显示
-						local iCSGreatWorkMod = pPlayer:GetCSUAGreatPersonRateModifierFromGreatWorks();
-						if (iCSGreatWorkMod ~= 0) then
-							iCityMod = iCityMod - iCSGreatWorkMod;
-							iCityStateMod = iCityStateMod + iCSGreatWorkMod;
-						end
 						local iMod = iPlayerMod + iPolicyMod + iWorldCongressMod + iCityMod + iGoldenAgeMod + iCityStateMod;
 						iGPPChange = (iGPPChange * (100 + iMod)) / 100;
 						strToolTipText = strToolTipText .. " (+" .. math.floor(iGPPChange/100) .. "[ICON_GREAT_PEOPLE])";	
@@ -2972,7 +2966,7 @@ function OnYes( )
 		then
 			print("City Hall sold! Set Puppet!")
 			
-			pCity:SetNumRealBuilding(GameInfoTypes["BUILDING_PUPPET_GOVERNEMENT"],1);
+			pCity:SendAndExecuteLuaFunction(pCity.SetNumRealBuilding, GameInfoTypes["BUILDING_PUPPET_GOVERNEMENT"], 1)
 			--Policy United Front effect:if city has Military Base, donnot sell Military Buildings
 			local pPlayer = Players[pCity:GetOwner()]
 			if pPlayer == nil then return end
@@ -2998,16 +2992,16 @@ function OnYes( )
 				or  building.BuildingClass == "BUILDINGCLASS_ARSENAL"
 				or  building.BuildingClass == "BUILDINGCLASS_MILITARY_BASE") and not isHasUnitedFront))
 				then
-					pCity:SetNumRealBuilding(building.ID, 0);
+					pCity:SendAndExecuteLuaFunction(pCity.SetNumRealBuilding, building.ID, 0)
 				end
 			end
 			
-			pCity:SetPuppet(true)
-			pCity:SetProductionAutomated(true)
+			pCity:SendAndExecuteLuaFunction(pCity.SetPuppet, true)
+			pCity:SendAndExecuteLuaFunction(pCity.SetProductionAutomated, true)
 			
 			local CityPop = pCity:GetPopulation()
 			local CityResTime = CityPop * 0.5
-			pCity:ChangeResistanceTurns(CityResTime)
+			pCity:SendAndExecuteLuaFunction(pCity.ChangeResistanceTurns, CityResTime)
 		end
 		--SP Selling City Hall Create Puppet End
 	end
