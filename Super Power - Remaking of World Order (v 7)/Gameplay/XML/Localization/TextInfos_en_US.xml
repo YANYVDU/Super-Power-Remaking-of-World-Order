@@ -19838,5 +19838,62 @@
 				[NEWLINE][ICON_BULLET]Each Customs House worked by a friend city provides +8% [ICON_GOLD] Gold in that city
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_FINAL_TOTAL">
+			<Text>Total: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_VALUE">
+			<Text>Base Gold: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_BASE">
+			<Text>Base Output: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_GPT_ORIGIN">
+			<Text>Your Trade Route Gold: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_GPT_DEST">
+			<Text>Their Trade Route Gold: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_RESOURCE">
+			<Text>Resources: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_EXCLUSIVE">
+			<Text>Exclusive Connection: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_POLICY">
+			<Text>Policies: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_CITY_STATE">
+			<Text>City-State: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_YOUR_BUILDING">
+			<Text>Your Buildings: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_THEIR_BUILDING">
+			<Text>Their Buildings: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_TRAIT">
+			<Text>Your Trait: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_OTHER_TRAIT">
+			<Text>Their Trait: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_PERCENT_SUM">
+			<Text>Total Modifiers: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_DOMAIN_SEA_MODIFIER">
+			<Text>Sea Trade Route: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_DOMAIN_LAND_MODIFIER">
+			<Text>Land Trade Route: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_RIVER_MODIFIER">
+			<Text>River City: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_CS_UA">
+			<Text>City-State UA: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_EXTRA">
+			<Text>Extra Gold (City Output/Era/Sea/Religion/Colombo): {1_Num} [ICON_GOLD]</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

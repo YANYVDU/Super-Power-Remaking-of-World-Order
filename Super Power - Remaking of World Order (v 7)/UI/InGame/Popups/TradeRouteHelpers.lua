@@ -14,93 +14,23 @@ function BuildTradeRouteGoldToolTipString (pOriginCity, pTargetCity, eDomain)
 	end
 
 	local strResult = "";
-	local strBaseValue = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE", pPlayer:GetInternationalTradeRouteBaseBonus(pOriginCity, pTargetCity, true) / 100);
-	local strYourGPTValue = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_GPT_YOURS", pOriginCity:GetNameKey(), pPlayer:GetInternationalTradeRouteGPTBonus(pOriginCity, pTargetCity, true) / 100);
-	local strTheirGPTValue = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_GPT_YOURS", pTargetCity:GetNameKey(), pPlayer:GetInternationalTradeRouteGPTBonus(pOriginCity, pTargetCity, false) / 100);
-	
-	local iPolicyBonus = pPlayer:GetInternationalTradeRoutePolicyBonus(pOriginCity, pTargetCity, eDomain);
-	local strPolicyValue = "";
-	if (iPolicyBonus ~= 0) then
-		strPolicyValue = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_POLICIES", iPolicyBonus / 100);
-	end
+	-- Fixed-value components (x100) plus their sum, mirroring GetTradeConnectionValueTimes100 gold branch
+	local iBaseTotal, iBase, iGPTOrigin, iGPTDest, iResource, iExclusive, iPolicy, iCityState, iYourBuilding, iTheirBuilding, iTrait, iOtherTrait
+		= pPlayer:GetInternationalTradeRouteBaseValueDetail(pOriginCity, pTargetCity, eDomain, true);
 
-	local iCityStateBonus = pPlayer:GetInternationalTradeRouteCityStateBonus(pOriginCity, pTargetCity, eDomain);
-	local strCityStateValue = "";
-	if (iCityStateBonus ~= 0) then
-		strCityStateValue = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_CITY_STATE", iCityStateBonus / 100);
-	end
+	-- Percentage modifiers (percentage points)
+	local iDomainMod = pPlayer:GetInternationalTradeRouteDomainModifier(eDomain);
+	local iRiverMod = pPlayer:GetInternationalTradeRouteRiverModifier(pOriginCity, pTargetCity, eDomain, true);
+	local iCSUAMod = pPlayer:GetCSUATradeRouteGoldModifier(pOriginCity, pTargetCity, eDomain) or 0;
+	local iTotalX100 = pPlayer:GetInternationalTradeRouteTotal(pOriginCity, pTargetCity, eDomain, true);
 
-	local iYourBuildingBonus = pPlayer:GetInternationalTradeRouteYourBuildingBonus(pOriginCity, pTargetCity, eDomain, true);
-	local strYourBuildingValue = "";
-	if (iYourBuildingBonus ~= 0) then
-		strYourBuildingValue = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BUILDING", pOriginCity:GetNameKey(), iYourBuildingBonus / 100);
-	end
-	
-	local iTheirBuildingBonus = pPlayer:GetInternationalTradeRouteTheirBuildingBonus(pOriginCity, pTargetCity, eDomain, true);
-	local strTheirBuildingValue = "";
-	if (iTheirBuildingBonus ~= 0) then
-		strTheirBuildingValue = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BUILDING", pTargetCity:GetNameKey(), iTheirBuildingBonus / 100);
-	end
-
-	local strYourEraValue = "";
-	local iEraBonus = pOriginCity:GetTradeRouteFromTheCityYieldsPerEra(YieldTypes.YIELD_GOLD);
-	local iEra = pPlayer:GetCurrentEra();
-	iEraBonus = iEraBonus * (iEra + 1) * 100;
-	if (iEraBonus ~= 0) then
-		strYourEraValue = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_ERA", pOriginCity:GetNameKey(), iEraBonus / 100);
-	end
-	
-	local strResourceList = "";
-	local strResourceHeader = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_RESOURCE_HEADER");
-	strResourceHeader = strResourceHeader .. "[NEWLINE]";
-	
-	for pResource in GameInfo.Resources() do
-		local iResourceLoop = pResource.ID;
-		local iUsage = Game.GetResourceUsageType(iResourceLoop);
-		if (iUsage == ResourceUsageTypes.RESOURCEUSAGE_LUXURY or iUsage == ResourceUsageTypes.RESOURCEUSAGE_STRATEGIC) then
-			if (pOriginCity:IsHasResourceLocal(iResourceLoop) ~= pTargetCity:IsHasResourceLocal(iResourceLoop)) then
-				local iGoldFromResource = 50.0;
-				iGoldFromResource = (iGoldFromResource) * (100 + pPlayer:GetInternationalTradeRouteResourceTraitModifier());
-				iGoldFromResource = (iGoldFromResource) / 100;
-				strResourceList = strResourceList .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_RESOURCE_DIFFERENT", pResource.IconString, pResource.Description, iGoldFromResource / 100);
-				strResourceList = strResourceList .. "[NEWLINE]";
-			end
-		end
-	end
-
-	local strExclusiveValue = "";
-	local iExclusiveBonus = pPlayer:GetInternationalTradeRouteExclusiveBonus(pOriginCity, pTargetCity);
-	if (iExclusiveBonus ~= 0) then
-		strExclusiveValue = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_EXCLUSIVE_CONNECTION", iExclusiveBonus / 100);
-	end
-
-	local strTraitValue = "";
-	local iTraitBonus = pPlayer:GetInternationalTradeRouteTraitBonus(pOriginCity, pTargetCity, eDomain, true);
-	if (iTraitBonus ~= 0) then
-		strTraitValue = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_OTHER_TRAIT", pPlayer:GetCivilizationAdjectiveKey(), iTraitBonus / 100);
-	end
-
-	local strOtherTraitValue = "";
-	local iOtherTraitBonus = pPlayer:GetInternationalTradeRouteOtherTraitBonus(pOriginCity, pTargetCity, eDomain, true);
-	if (iOtherTraitBonus ~= 0) then
-		strOtherTraitValue = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_OTHER_TRAIT", pOtherPlayer:GetCivilizationAdjectiveKey(), iOtherTraitBonus / 100);
-	end
-
-	local strRiverModifier = "";
-	local iRiverModifier = pPlayer:GetInternationalTradeRouteRiverModifier(pOriginCity, pTargetCity, eDomain, true);
-	if (iRiverModifier ~= 0) then
-		strRiverModifier = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_RIVER_MODIFIER", iRiverModifier);
-	end
-
+	-- strDomainModifier kept for reuse in the tradee (their) revenue section
 	local strDomainModifier = "";
-	local iDomainModifier = pPlayer:GetInternationalTradeRouteDomainModifier(eDomain);
-	if (iDomainModifier ~= 0) then
+	if (iDomainMod ~= 0) then
 		if (eDomain == DomainTypes.DOMAIN_SEA) then
-			strDomainModifier = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_DOMAIN_SEA_MODIFIER", (iDomainModifier + 100) / 100);
+			strDomainModifier = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_DOMAIN_SEA_MODIFIER", (iDomainMod + 100) / 100);
 		end
 	end
-
-	local strTotal = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_TOTAL", pPlayer:GetInternationalTradeRouteTotal(pOriginCity, pTargetCity, eDomain, true) / 100);
 	
 	local strOtherTotal = "";
 	local iTradeeAmount = pOtherPlayer:GetInternationalTradeRouteTotal(pOriginCity, pTargetCity, eDomain, false);
@@ -147,63 +77,64 @@ function BuildTradeRouteGoldToolTipString (pOriginCity, pTargetCity, eDomain)
 		strResult = Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_YOUR_REVENUE");
 	end
 	strResult = strResult .. "[NEWLINE]";
-	strResult = strResult .. strBaseValue;
+
+	-- Total at the very top
+	strResult = strResult .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_FINAL_TOTAL", iTotalX100 / 100);
 	strResult = strResult .. "[NEWLINE]";
-	strResult = strResult .. strYourGPTValue;
 	strResult = strResult .. "[NEWLINE]";
-	strResult = strResult .. strTheirGPTValue;
+
+	-- Base value block: sum on top, then each non-zero fixed component
+	strResult = strResult .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_VALUE", iBaseTotal / 100);
 	strResult = strResult .. "[NEWLINE]";
-	
-	if (strPolicyValue ~= "") then
-		strResult = strResult .. strPolicyValue;
-		strResult = strResult .. "[NEWLINE]";
+	local aBaseDetails = {
+		{ value = iBase,          tag = "TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_BASE" },
+		{ value = iGPTOrigin,     tag = "TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_GPT_ORIGIN" },
+		{ value = iGPTDest,       tag = "TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_GPT_DEST" },
+		{ value = iResource,      tag = "TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_RESOURCE" },
+		{ value = iExclusive,     tag = "TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_EXCLUSIVE" },
+		{ value = iPolicy,        tag = "TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_POLICY" },
+		{ value = iCityState,     tag = "TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_CITY_STATE" },
+		{ value = iYourBuilding,  tag = "TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_YOUR_BUILDING" },
+		{ value = iTheirBuilding, tag = "TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_THEIR_BUILDING" },
+		{ value = iTrait,         tag = "TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_TRAIT" },
+		{ value = iOtherTrait,    tag = "TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_OTHER_TRAIT" },
+	};
+	for _, kDetail in ipairs(aBaseDetails) do
+		if (kDetail.value ~= 0) then
+			strResult = strResult .. "  · " .. Locale.ConvertTextKey(kDetail.tag, kDetail.value / 100);
+			strResult = strResult .. "[NEWLINE]";
+		end
 	end
+	strResult = strResult .. "[NEWLINE]";
 
-	if (strCityStateValue ~= "") then
-		strResult = strResult .. strCityStateValue;
+	-- Percentage block: sum on top, then each non-zero source
+	local iPctSum = iDomainMod + iRiverMod + iCSUAMod;
+	strResult = strResult .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_PERCENT_SUM", iPctSum);
+	strResult = strResult .. "[NEWLINE]";
+	if (iDomainMod ~= 0) then
+		if (eDomain == DomainTypes.DOMAIN_SEA) then
+			strResult = strResult .. "  · " .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_DOMAIN_SEA_MODIFIER", iDomainMod);
+		else
+			strResult = strResult .. "  · " .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_DOMAIN_LAND_MODIFIER", iDomainMod);
+		end
 		strResult = strResult .. "[NEWLINE]";
 	end
+	if (iRiverMod ~= 0) then
+		strResult = strResult .. "  · " .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_RIVER_MODIFIER", iRiverMod);
+		strResult = strResult .. "[NEWLINE]";
+	end
+	if (iCSUAMod ~= 0) then
+		strResult = strResult .. "  · " .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_CS_UA", iCSUAMod);
+		strResult = strResult .. "[NEWLINE]";
+	end
+	strResult = strResult .. "[NEWLINE]";
 
-	if (strYourBuildingValue ~= "") then
-		strResult = strResult .. strYourBuildingValue;
+	-- Extra earnings closing the math: total = base x (100+pct)/100 (clamped to 100) + extra
+	local iAfterModX100 = math.max(100, math.floor(iBaseTotal * (100 + iPctSum) / 100));
+	local iExtraX100 = iTotalX100 - iAfterModX100;
+	if (iExtraX100 ~= 0) then
+		strResult = strResult .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_EXTRA", iExtraX100 / 100);
 		strResult = strResult .. "[NEWLINE]";
-	end
-
-	if (strTheirBuildingValue ~= "") then
-		strResult = strResult .. strTheirBuildingValue;
-		strResult = strResult .. "[NEWLINE]";
-	end
-	
-	if (strResourceList ~= "") then
-		strResult = strResult .. strResourceHeader;
-		strResult = strResult .. strResourceList;
-	end
-	
-	if (strExclusiveBonus ~= "") then
-		strResult = strResult .. strExclusiveValue;	
-	end
-	
-	if (strTraitValue ~= "") then
-		strResult = strResult .. strTraitValue;
-		strResult = strResult .. "[NEWLINE]";
-	end
-
-	if (strOtherTraitValue ~= "") then
-		strResult = strResult .. strOtherTraitValue;
-		strResult = strResult .. "[NEWLINE]";
-	end
-	
-	if (strRiverModifier ~= "") then
-		strResult = strResult .. strRiverModifier;
-	end
-	
-	if (strDomainModifier ~= "") then
-		strResult = strResult .. strDomainModifier;
-	end
-
-	if (strYourEraValue ~= "") then
-		strResult = strResult .. "[NEWLINE]";
-		strResult = strResult .. strYourEraValue;
 	end
 
 	-- Belief: Trade Route bonuses for all yields (concatenated per belief type)
@@ -236,8 +167,6 @@ function BuildTradeRouteGoldToolTipString (pOriginCity, pTargetCity, eDomain)
 		strResult = strResult .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BELIEF_SAME_RELIGION", sameReligionStr);
 	end
 
-	strResult = strResult .. "[NEWLINE]";
-	strResult = strResult .. strTotal;
 	strResult = strResult .. "[NEWLINE]";
 
 	if (strOtherTotal ~= "") then
