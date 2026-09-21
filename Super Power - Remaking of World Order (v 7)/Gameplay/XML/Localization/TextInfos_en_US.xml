@@ -19810,5 +19810,33 @@
 				[NEWLINE][ICON_BULLET]+2% [ICON_CULTURE] Culture empire-wide per international immigrant the friend has accepted
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_HORMUZ_HELP">
+			<Text>Provides additional 20 [ICON_RES_OIL]Oil</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_HORMUZ_HELP">
+			<Text>
+				Ally effect:
+				[NEWLINE][ICON_BULLET]Each Customs House worked by an ally city provides +20% [ICON_GOLD] Gold in that city
+				[NEWLINE][ICON_BULLET]The ally receives an additional 20 [ICON_RES_OIL] Oil
+				[NEWLINE][ICON_BULLET]Each unit of surplus [ICON_RES_OIL] Oil provides +4% Gold from international trade routes
+				[NEWLINE]
+				[NEWLINE]Friend effect:
+				[NEWLINE][ICON_BULLET]Each Customs House worked by a friend city provides +8% [ICON_GOLD] Gold in that city
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HORMUZ_ALLY_HELP">
+			<Text>
+				Ally effect:
+				[NEWLINE][ICON_BULLET]Each Customs House worked by an ally city provides +20% [ICON_GOLD] Gold in that city
+				[NEWLINE][ICON_BULLET]The ally receives an additional 20 [ICON_RES_OIL] Oil
+				[NEWLINE][ICON_BULLET]Each unit of surplus [ICON_RES_OIL] Oil provides +4% Gold from international trade routes
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HORMUZ_FRIEND_HELP">
+			<Text>
+				Friend effect:
+				[NEWLINE][ICON_BULLET]Each Customs House worked by a friend city provides +8% [ICON_GOLD] Gold in that city
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

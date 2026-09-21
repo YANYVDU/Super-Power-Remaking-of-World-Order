@@ -18085,5 +18085,33 @@
 				[NEWLINE][ICON_BULLET]每接受過一個國際移民，朋友全國+2%[ICON_CULTURE]文化
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_HORMUZ_HELP">
+			<Text>額外提供20[ICON_RES_OIL]石油</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_HORMUZ_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友城市每處有人工作的海關提高20%[ICON_GOLD]金錢產出
+				[NEWLINE][ICON_BULLET]額外為盟友提供20[ICON_RES_OIL]石油
+				[NEWLINE][ICON_BULLET]每單位富餘[ICON_RES_OIL]石油提高4%國際商路[ICON_GOLD]金錢
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市每處有人工作的海關提高8%[ICON_GOLD]金錢產出
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HORMUZ_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友城市每處有人工作的海關提高20%[ICON_GOLD]金錢產出
+				[NEWLINE][ICON_BULLET]額外為盟友提供20[ICON_RES_OIL]石油
+				[NEWLINE][ICON_BULLET]每單位富餘[ICON_RES_OIL]石油提高4%國際商路[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HORMUZ_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市每處有人工作的海關提高8%[ICON_GOLD]金錢產出
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
