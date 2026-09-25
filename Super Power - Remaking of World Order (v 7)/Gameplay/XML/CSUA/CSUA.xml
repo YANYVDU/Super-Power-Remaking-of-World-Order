@@ -306,6 +306,17 @@
 			<Type>EFFECT_CSUA_HORMUZ_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_HORMUZ_FRIEND_HELP</Help>
 		</Row>
+		<!-- 温哥华：盟友每座沿海城市+3全局快乐；每点快乐全国食物/魅力+1%（各自上限50%）；朋友每座沿海城市+1全局快乐 -->
+		<Row>
+			<Type>EFFECT_CSUA_VANCOUVER_ALLY</Type>
+			<CoastalCityHappiness>300</CoastalCityHappiness>
+			<Help>TXT_KEY_EFFECT_CSUA_VANCOUVER_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_VANCOUVER_FRIEND</Type>
+			<CoastalCityHappiness>100</CoastalCityHappiness>
+			<Help>TXT_KEY_EFFECT_CSUA_VANCOUVER_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1458,6 +1469,13 @@
 			<AllyEffectType>EFFECT_CSUA_HORMUZ_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_HORMUZ_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_VANCOUVER</Type>
+			<Description>TXT_KEY_CITYSTATE_VANCOUVER</Description>
+			<Help>TXT_KEY_CSUA_VANCOUVER_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_VANCOUVER_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_VANCOUVER_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -1549,4 +1567,19 @@
 			<Modifier>400</Modifier>
 		</Row>
 	 </CityStateUAEffect_TradeRouteGoldPerSurplusResource>
+	 <!-- 温哥华：盟友每点净快乐提供全国产出百分比（YieldMod基点=每点+1%，Cap=此值%上限；快乐为负时按0，两块效果自然协同被Cap封顶） -->
+	 <CityStateUAEffect_HappinessYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_VANCOUVER_ALLY</EffectType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>100</YieldMod>
+			<Cap>50</Cap>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_VANCOUVER_ALLY</EffectType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<YieldMod>100</YieldMod>
+			<Cap>50</Cap>
+		</Row>
+	 </CityStateUAEffect_HappinessYieldModifiers>
 </GameData>

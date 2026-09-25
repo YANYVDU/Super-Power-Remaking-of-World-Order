@@ -17770,7 +17770,30 @@
 				[NEWLINE][ICON_BULLET]朋友城市的[ICON_GOLD]银行、[ICON_GOLD]证券交易所、[ICON_GOLD]金融公司额外提供+8%[ICON_GOLD]金钱
 			</Text>
 		</Row>
-		<Row Tag="TXT_KEY_CSUA_VILNIUS_HELP">
+		<Row Tag="TXT_KEY_CSUA_VANCOUVER_HELP">
+		<Text>
+			盟友效果：
+			[NEWLINE][ICON_BULLET]盟友每座沿海城市提供+3[ICON_HAPPINESS_1]全局快乐
+			[NEWLINE][ICON_BULLET]盟友每有1点快乐，全国+1%[ICON_FOOD]食物、+1%[ICON_TOURISM]魅力（各自上限50%）
+			[NEWLINE]
+			[NEWLINE]朋友效果：
+			[NEWLINE][ICON_BULLET]朋友每座沿海城市提供+1[ICON_HAPPINESS_1]全局快乐
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_VANCOUVER_ALLY_HELP">
+		<Text>
+			盟友效果：
+			[NEWLINE][ICON_BULLET]盟友每座沿海城市提供+3[ICON_HAPPINESS_1]全局快乐
+			[NEWLINE][ICON_BULLET]盟友每有1点快乐，全国+1%[ICON_FOOD]食物、+1%[ICON_TOURISM]魅力（各自上限50%）
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_VANCOUVER_FRIEND_HELP">
+		<Text>
+			朋友效果：
+			[NEWLINE][ICON_BULLET]朋友每座沿海城市提供+1[ICON_HAPPINESS_1]全局快乐
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_CSUA_VILNIUS_HELP">
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]盟友每拥有一个已解锁的社会政策，全国+2%[ICON_GOLD]金钱、+1%[ICON_RESEARCH]科研
@@ -18355,14 +18378,11 @@
 		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_DOMAIN_LAND_MODIFIER">
 			<Text>陆地商路加成: +{1_Num}%</Text>
 		</Row>
-		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_RIVER_MODIFIER">
-			<Text>河流城市加成: +{1_Num}%</Text>
-		</Row>
 		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_CS_UA">
 			<Text>城邦UA加成: +{1_Num}%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_EXTRA">
-			<Text>额外收益（城市产出/时代/海路/信条/科伦坡）: {1_Num} [ICON_GOLD]</Text>
+			<Text>额外收益（城市产出/时代/海路/信条/CSUA）: {1_Num} [ICON_GOLD]</Text>
 		</Row>
 	</Language_zh_CN>
 </GameData>
