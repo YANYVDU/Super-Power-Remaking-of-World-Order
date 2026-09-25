@@ -863,7 +863,7 @@ function ResetDisplay( diploMessage )
 			toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_YOU_NEED_EMBASSY_TT" .. "[ENDCOLOR]"
 		end
 		SetEnabledAndToolTip( Controls.UsPocketOpenBorders, deal:IsPossibleToTradeItem( ourPlayerID, theirPlayerID, TradeableItems.TRADE_ITEM_OPEN_BORDERS, g_iDealDuration ), toolTip )
-		Controls.UsPocketOpenBorders:SetHide( isSameTeam or ourTeam:IsAllowsOpenBordersToTeam( theirTeamID ) )
+		Controls.UsPocketOpenBorders:SetHide( isSameTeam or Players[ourPlayerID]:IsAllowsOpenBordersToPlayer( theirPlayerID ) )
 
 		-- Are they not allowed to give OB?
 		toolTip = g_borderTooltip
@@ -874,7 +874,7 @@ function ResetDisplay( diploMessage )
 			toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_THEY_NEED_EMBASSY_TT" .. "[ENDCOLOR]"
 		end
 		SetEnabledAndToolTip( Controls.ThemPocketOpenBorders, deal:IsPossibleToTradeItem( theirPlayerID, ourPlayerID, TradeableItems.TRADE_ITEM_OPEN_BORDERS, g_iDealDuration ), toolTip )
-		Controls.ThemPocketOpenBorders:SetHide( isSameTeam or theirTeam:IsAllowsOpenBordersToTeam( ourTeamID ) )
+		Controls.ThemPocketOpenBorders:SetHide( isSameTeam or Players[theirPlayerID]:IsAllowsOpenBordersToPlayer( ourPlayerID ) )
 
 		----------------------------------------------------------------------------------
 		-- pocket Defensive Pact

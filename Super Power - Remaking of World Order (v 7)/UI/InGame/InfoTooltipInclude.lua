@@ -3888,7 +3888,7 @@ if Game then
 
 				-- Open Borders to them
 				isTradeable = ScratchDeal:IsPossibleToTradeItem( activePlayerID, playerID, TradeableItems.TRADE_ITEM_OPEN_BORDERS, g_dealDuration )
-				isActiveDeal = activeTeam:IsAllowsOpenBordersToTeam(teamID)
+				isActiveDeal = Players[activePlayerID]:IsAllowsOpenBordersToPlayer(playerID)
 
 				if isTradeable or isActiveDeal then
 					insert( treaties, negativeOrPositiveTextColor[isActiveDeal] .. "<"
@@ -3899,7 +3899,7 @@ if Game then
 
 				-- Open Borders from them
 				isTradeable = ScratchDeal:IsPossibleToTradeItem( playerID, activePlayerID, TradeableItems.TRADE_ITEM_OPEN_BORDERS, g_dealDuration )
-				isActiveDeal = team:IsAllowsOpenBordersToTeam( activeTeamID )
+				isActiveDeal = Players[playerID]:IsAllowsOpenBordersToPlayer( activePlayerID )
 
 				if isTradeable or isActiveDeal then
 					insert( treaties, negativeOrPositiveTextColor[isActiveDeal]

@@ -2076,11 +2076,11 @@ function RefreshCultureVictory()
                     strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_CO_SP_IMMIGRATION_REGRESSAND_MODIFIER", ImmigrationRegressandModifier)
                 end
 
-				if PlayerTeam:IsAllowsOpenBordersToTeam(pPlayer:GetTeam()) then
+				if activePlayer:IsAllowsOpenBordersToPlayer(iPlayer) then
 					strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_IN_OPENBORDER")
 				end
 
-				if AITeam:IsAllowsOpenBordersToTeam(activePlayer:GetTeam()) then
+				if pPlayer:IsAllowsOpenBordersToPlayer(Game.GetActivePlayer()) then
 					strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_OUT_OPENBORDER")
 				end
 
