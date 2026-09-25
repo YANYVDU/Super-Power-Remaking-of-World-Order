@@ -1,8 +1,15 @@
-INSERT INTO BuildingClasses (Type, Description, DefaultBuilding) 
+INSERT INTO BuildingClasses (Type, Description, DefaultBuilding)
 VALUES ('BUILDINGCLASS_CSUA', 'TXT_KEY_CITYSTATE_ALMATY', 'BUILDING_CSUA_ALMATY');
 
-INSERT INTO Buildings (Type,BuildingClass,Help, Description, Cost,ConquestProb,HurryCostModifier,IconAtlas,PortraitIndex,NukeImmune) 
+INSERT INTO Buildings (Type,BuildingClass,Help, Description, Cost,ConquestProb,HurryCostModifier,IconAtlas,PortraitIndex,NukeImmune)
 VALUES  ('BUILDING_CSUA_ALMATY', 'BUILDINGCLASS_CSUA', 'TXT_KEY_BUILDING_CSUA_ALMATY_HELP', 'TXT_KEY_CITYSTATE_ALMATY', -1, 100, -1, 'BW_ATLAS_1', 19, 1);
+
+-- Hormuz: fake building granting +20 oil to the city-state (shared with its ally via resource sharing)
+INSERT INTO BuildingClasses (Type, Description, DefaultBuilding)
+VALUES ('BUILDINGCLASS_CSUA_HORMUZ', 'TXT_KEY_CITYSTATE_ORMUS', 'BUILDING_CSUA_HORMUZ');
+
+INSERT INTO Buildings (Type,BuildingClass,Help, Description, Cost,ConquestProb,HurryCostModifier,IconAtlas,PortraitIndex,NukeImmune)
+VALUES  ('BUILDING_CSUA_HORMUZ', 'BUILDINGCLASS_CSUA_HORMUZ', 'TXT_KEY_BUILDING_CSUA_HORMUZ_HELP', 'TXT_KEY_CITYSTATE_ORMUS', -1, 100, -1, 'BW_ATLAS_1', 19, 1);
 
 -- City-State Unique Ability Effects (Super Power V11)
 UPDATE MinorCivilizations SET UAType = 'CSUA_ZURICH' WHERE Type = 'MINOR_CIV_ZURICH';
@@ -34,6 +41,7 @@ UPDATE MinorCivilizations SET UAType = 'CSUA_LAVENTA' WHERE Type = 'MINOR_CIV_LA
 UPDATE MinorCivilizations SET UAType = 'CSUA_KATHMANDU' WHERE Type = 'MINOR_CIV_KATHMANDU';
 UPDATE MinorCivilizations SET UAType = 'CSUA_GENEVA' WHERE Type = 'MINOR_CIV_GENEVA';
 UPDATE MinorCivilizations SET UAType = 'CSUA_SYDNEY' WHERE Type = 'MINOR_CIV_SYDNEY';
+UPDATE MinorCivilizations SET UAType = 'CSUA_HORMUZ' WHERE Type = 'MINOR_CIV_ORMUS';
 
 -- MinorCivAlliesThresholdExtra: per-era ally threshold increase (Rule 8)
 -- Formula: threshold = FRIENDSHIP_THRESHOLD_ALLIES(60) + MinorCivAlliesThresholdExtra

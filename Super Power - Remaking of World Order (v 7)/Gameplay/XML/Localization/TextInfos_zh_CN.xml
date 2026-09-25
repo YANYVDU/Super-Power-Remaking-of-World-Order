@@ -18279,5 +18279,90 @@
 				[NEWLINE][ICON_BULLET]每接受过一个国际移民，朋友全国+2%[ICON_CULTURE]文化
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_HORMUZ_HELP">
+			<Text>额外提供20[ICON_RES_OIL]石油</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_HORMUZ_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友城市每处有人工作的海关提高20%[ICON_GOLD]金钱产出
+				[NEWLINE][ICON_BULLET]额外为盟友提供20[ICON_RES_OIL]石油
+				[NEWLINE][ICON_BULLET]每单位富余[ICON_RES_OIL]石油提高4%国际商路[ICON_GOLD]金钱
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市每处有人工作的海关提高8%[ICON_GOLD]金钱产出
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HORMUZ_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友城市每处有人工作的海关提高20%[ICON_GOLD]金钱产出
+				[NEWLINE][ICON_BULLET]额外为盟友提供20[ICON_RES_OIL]石油
+				[NEWLINE][ICON_BULLET]每单位富余[ICON_RES_OIL]石油提高4%国际商路[ICON_GOLD]金钱
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HORMUZ_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市每处有人工作的海关提高8%[ICON_GOLD]金钱产出
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_FINAL_TOTAL">
+			<Text>总收益: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_VALUE">
+			<Text>基础收益: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_BASE">
+			<Text>基础产出: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_GPT_ORIGIN">
+			<Text>我方商路产出: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_GPT_DEST">
+			<Text>对方商路产出: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_RESOURCE">
+			<Text>资源: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_EXCLUSIVE">
+			<Text>专属连接: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_POLICY">
+			<Text>政策: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_CITY_STATE">
+			<Text>城邦: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_YOUR_BUILDING">
+			<Text>我方建筑: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_THEIR_BUILDING">
+			<Text>对方建筑: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_TRAIT">
+			<Text>我方特性: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_OTHER_TRAIT">
+			<Text>对方特性: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_PERCENT_SUM">
+			<Text>百分比加成总和: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_DOMAIN_SEA_MODIFIER">
+			<Text>海洋商路加成: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_DOMAIN_LAND_MODIFIER">
+			<Text>陆地商路加成: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_RIVER_MODIFIER">
+			<Text>河流城市加成: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_CS_UA">
+			<Text>城邦UA加成: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_EXTRA">
+			<Text>额外收益（城市产出/时代/海路/信条/科伦坡）: {1_Num} [ICON_GOLD]</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>
