@@ -351,6 +351,7 @@
 			<CultureBombRadius>2</CultureBombRadius>
 			<BaseGold>1000</BaseGold>
 			<NumGoldPerEra>500</NumGoldPerEra>
+			<NumInfluencePerEra>40</NumInfluencePerEra>
 			<UnitArtInfo>ART_DEF_UNIT_MERCHANT</UnitArtInfo>
 			<UnitArtInfoEraVariation>true</UnitArtInfoEraVariation>
 			<UnitFlagIconOffset>92</UnitFlagIconOffset>
@@ -403,6 +404,7 @@
 			<CultureBombRadius>2</CultureBombRadius>
 			<BaseGold>1000</BaseGold>
 			<NumGoldPerEra>400</NumGoldPerEra>
+			<NumInfluencePerEra>40</NumInfluencePerEra>
 			<CanBuyCityState>true</CanBuyCityState>
 			<UnitArtInfo>ART_DEF_UNIT_U_VENETIAN_MERCHANT</UnitArtInfo>
 			<UnitArtInfoEraVariation>true</UnitArtInfoEraVariation>
