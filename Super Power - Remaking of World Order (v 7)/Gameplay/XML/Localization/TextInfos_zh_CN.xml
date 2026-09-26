@@ -18537,5 +18537,28 @@
 				[NEWLINE][ICON_BULLET]朋友的首都以及第二首都+20%[ICON_CULTURE]文化
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_RIGA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的沿河城市+15%[ICON_GOLD]金钱和[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]盟友沿河且沿海的城市额外+15%[ICON_GOLD]金钱、[ICON_FOOD]食物、[ICON_CULTURE]文化、[ICON_PRODUCTION]产能
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的沿河城市+6%[ICON_GOLD]金钱和[ICON_FOOD]食物
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_RIGA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的沿河城市+15%[ICON_GOLD]金钱和[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]盟友沿河且沿海的城市额外+15%[ICON_GOLD]金钱、[ICON_FOOD]食物、[ICON_CULTURE]文化、[ICON_PRODUCTION]产能
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_RIGA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的沿河城市+6%[ICON_GOLD]金钱和[ICON_FOOD]食物
+			</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

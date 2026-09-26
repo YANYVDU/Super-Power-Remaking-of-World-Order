@@ -371,6 +371,16 @@
 			<CapitalAndSecondCapitalCultureModifier>20</CapitalAndSecondCapitalCultureModifier>
 			<Help>TXT_KEY_EFFECT_CSUA_BRATISLAVA_FRIEND_HELP</Help>
 		</Row>
+		<!-- 里加（盟友）：沿河城市+15%金钱和食物；沿河且沿海城市额外+15%金钱、食物、文化、产能。明细见下方 SpecialCity* 表 -->
+		<Row>
+			<Type>EFFECT_CSUA_RIGA_ALLY</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_RIGA_ALLY_HELP</Help>
+		</Row>
+		<!-- 里加（朋友）：沿河城市+6%金钱和食物 -->
+		<Row>
+			<Type>EFFECT_CSUA_RIGA_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_RIGA_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1565,6 +1575,13 @@
 			<AllyEffectType>EFFECT_CSUA_BRATISLAVA_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_BRATISLAVA_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_RIGA</Type>
+			<Description>TXT_KEY_CITYSTATE_RIGA</Description>
+			<Help>TXT_KEY_CSUA_RIGA_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_RIGA_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_RIGA_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -1876,6 +1893,12 @@
 		<Row>
 			<Type>SPECIAL_CITY_BOGOTA_EL_DORADO</Type>
 		</Row>
+		<Row>
+			<Type>SPECIAL_CITY_RIGA_RIVER</Type>
+		</Row>
+		<Row>
+			<Type>SPECIAL_CITY_RIGA_RIVER_COASTAL</Type>
+		</Row>
 	 </CityStateUAEffect_SpecialCityTypes>
 	 <!-- 波哥大：开发了黄金/白银/珍珠/宝石/琥珀/玉石其一的城市（纯 OR） -->
 	 <CityStateUAEffect_SpecialCityTypeConditionsOr>
@@ -1915,11 +1938,26 @@
 			<ConditionType>HAS_FEATURE</ConditionType>
 			<Value>FEATURE_EL_DORADO</Value>
 		</Row>
+		<!-- 里加：城市中心地块沿河 -->
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER</SpecialCityType>
+			<ConditionType>IS_RIVER</ConditionType>
+		</Row>
 	 </CityStateUAEffect_SpecialCityTypeConditionsOr>
-	 <!-- 波哥大：本次无 AND 条件（保留结构供后续城邦使用） -->
+	 <!-- 里加：沿河且沿海的城市类型使用 AND 条件 -->
 	 <CityStateUAEffect_SpecialCityTypeConditionsAnd>
+		<!-- 里加：城市中心地块沿河 且 临海（湖泊不算沿海） -->
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
+			<ConditionType>IS_RIVER</ConditionType>
+		</Row>
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
+			<ConditionType>IS_COASTAL</ConditionType>
+		</Row>
 	 </CityStateUAEffect_SpecialCityTypeConditionsAnd>
-	 <!-- 波哥大：符合特殊城市类型的城市获得产出百分比加成（不叠加） -->
+	 <!-- 符合特殊城市类型的城市获得产出百分比加成；同一城市匹配多个特殊城市类型时，同种产出的修正【累加】 -->
+	 <!-- 例：里加沿河且沿海城市同时命中 RIVER 与 RIVER_COASTAL，金钱/食物各 +15%+15% = +30% -->
 	 <CityStateUAEffect_SpecialCityYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_BOGOTA_ALLY</EffectType>
@@ -1944,6 +1982,57 @@
 			<SpecialCityType>SPECIAL_CITY_BOGOTA_EL_DORADO</SpecialCityType>
 			<YieldType>YIELD_TOURISM</YieldType>
 			<YieldMod>40</YieldMod>
+		</Row>
+		<!-- 里加（盟友）：沿河城市+15%金钱和食物 -->
+		<Row>
+			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER</SpecialCityType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>15</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER</SpecialCityType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>15</YieldMod>
+		</Row>
+		<!-- 里加（盟友）：沿河且沿海城市额外+15%金钱、食物、文化、产能（与上面叠加，合计金钱/食物+30%） -->
+		<Row>
+			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>15</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>15</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>15</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>15</YieldMod>
+		</Row>
+		<!-- 里加（朋友）：沿河城市+6%金钱和食物（沿海不额外给） -->
+		<Row>
+			<EffectType>EFFECT_CSUA_RIGA_FRIEND</EffectType>
+			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER</SpecialCityType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>6</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RIGA_FRIEND</EffectType>
+			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER</SpecialCityType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>6</YieldMod>
 		</Row>
 	 </CityStateUAEffect_SpecialCityYieldModifiers>
 	 <!-- 波哥大：每拥有一座符合特殊城市类型的城市，全国城市获得产出百分比加成（仅盟友） -->

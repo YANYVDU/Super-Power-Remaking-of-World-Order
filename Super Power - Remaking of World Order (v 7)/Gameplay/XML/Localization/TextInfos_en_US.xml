@@ -20068,5 +20068,28 @@
 				[NEWLINE][ICON_BULLET]The Capital and the Second Capital gain +20% [ICON_CULTURE]Culture
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_RIGA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Ally's cities on a river gain +15% [ICON_GOLD]Gold and [ICON_FOOD]Food
+				[NEWLINE][ICON_BULLET]Ally's cities that are both on a river and on the coast gain an additional +15% [ICON_GOLD]Gold, [ICON_FOOD]Food, [ICON_CULTURE]Culture and [ICON_PRODUCTION]Production
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Friend's cities on a river gain +6% [ICON_GOLD]Gold and [ICON_FOOD]Food
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_RIGA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Ally's cities on a river gain +15% [ICON_GOLD]Gold and [ICON_FOOD]Food
+				[NEWLINE][ICON_BULLET]Ally's cities that are both on a river and on the coast gain an additional +15% [ICON_GOLD]Gold, [ICON_FOOD]Food, [ICON_CULTURE]Culture and [ICON_PRODUCTION]Production
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_RIGA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Friend's cities on a river gain +6% [ICON_GOLD]Gold and [ICON_FOOD]Food
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
