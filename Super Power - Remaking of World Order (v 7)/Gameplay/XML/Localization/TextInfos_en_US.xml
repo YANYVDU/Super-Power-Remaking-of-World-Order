@@ -20045,5 +20045,28 @@
 				[NEWLINE][ICON_BULLET]A city containing El Dorado gains +40% [ICON_TOURISM]Tourism
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_BRATISLAVA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]The Capital and the Second Capital gain +50% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]Each Great Person ever born grants +1% [ICON_RESEARCH]Science and [ICON_PRODUCTION]Production empire-wide
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]The Capital and the Second Capital gain +20% [ICON_CULTURE]Culture
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRATISLAVA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]The Capital and the Second Capital gain +50% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]Each Great Person ever born grants +1% [ICON_RESEARCH]Science and [ICON_PRODUCTION]Production empire-wide
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRATISLAVA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]The Capital and the Second Capital gain +20% [ICON_CULTURE]Culture
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

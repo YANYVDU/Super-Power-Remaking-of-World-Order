@@ -359,6 +359,18 @@
 			<Type>EFFECT_CSUA_BOGOTA_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_BOGOTA_FRIEND_HELP</Help>
 		</Row>
+		<!-- 布拉迪斯拉发（盟友）：首都及第二首都+50%文化，每诞生过一位伟人全国科研与产能+1% -->
+		<Row>
+			<Type>EFFECT_CSUA_BRATISLAVA_ALLY</Type>
+			<CapitalAndSecondCapitalCultureModifier>50</CapitalAndSecondCapitalCultureModifier>
+			<Help>TXT_KEY_EFFECT_CSUA_BRATISLAVA_ALLY_HELP</Help>
+		</Row>
+		<!-- 布拉迪斯拉发（朋友）：首都及第二首都+20%文化 -->
+		<Row>
+			<Type>EFFECT_CSUA_BRATISLAVA_FRIEND</Type>
+			<CapitalAndSecondCapitalCultureModifier>20</CapitalAndSecondCapitalCultureModifier>
+			<Help>TXT_KEY_EFFECT_CSUA_BRATISLAVA_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1546,6 +1558,13 @@
 			<AllyEffectType>EFFECT_CSUA_BOGOTA_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_BOGOTA_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_BRATISLAVA</Type>
+			<Description>TXT_KEY_CITYSTATE_BRATISLAVA</Description>
+			<Help>TXT_KEY_CSUA_BRATISLAVA_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_BRATISLAVA_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_BRATISLAVA_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -1729,12 +1748,122 @@
 			<YieldMod>50</YieldMod>
 		</Row>
 	 </CityStateUAEffect_LiteracyYieldModifiers>
+	 <!-- 布拉迪斯拉发：每诞生过一位伟人，全国科研与产能+1%（YieldMod=基点，100=+1%）。
+	      该表按 UnitClassType 匹配，故"任意伟人"需枚举全部 9 类伟人单位类 × 2 产出 × 盟友/朋友 -->
 	 <CityStateUAEffect_BornGreatPersonYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_YEREVAN_ALLY</EffectType>
 			<UnitClassType>UNITCLASS_PROPHET</UnitClassType>
 			<YieldType>YIELD_FAITH</YieldType>
 			<YieldMod>500</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_SCIENTIST</UnitClassType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_SCIENTIST</UnitClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_ENGINEER</UnitClassType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_ENGINEER</UnitClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_MERCHANT</UnitClassType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_MERCHANT</UnitClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_ARTIST</UnitClassType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_ARTIST</UnitClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_WRITER</UnitClassType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_WRITER</UnitClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_MUSICIAN</UnitClassType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_MUSICIAN</UnitClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_PROPHET</UnitClassType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_PROPHET</UnitClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_GREAT_GENERAL</UnitClassType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_GREAT_GENERAL</UnitClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_GREAT_ADMIRAL</UnitClassType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BRATISLAVA_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_GREAT_ADMIRAL</UnitClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>100</YieldMod>
 		</Row>
 	 </CityStateUAEffect_BornGreatPersonYieldModifiers>
 	 <!-- 埃里温"圣地邻近改良+1文化"的 CityStateUAEffect_AdjacentImprovementYieldChanges 数据由 CSUA.sql 用

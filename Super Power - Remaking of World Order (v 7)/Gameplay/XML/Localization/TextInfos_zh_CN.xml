@@ -18514,5 +18514,28 @@
 				[NEWLINE][ICON_BULLET]朋友拥有黄金国的城市额外+40%[ICON_TOURISM]魅力
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_BRATISLAVA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的首都以及第二首都+50%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]盟友每诞生过一位伟人，全国[ICON_RESEARCH]科研和[ICON_PRODUCTION]产能+1%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的首都以及第二首都+20%[ICON_CULTURE]文化
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRATISLAVA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的首都以及第二首都+50%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]盟友每诞生过一位伟人，全国[ICON_RESEARCH]科研和[ICON_PRODUCTION]产能+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRATISLAVA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的首都以及第二首都+20%[ICON_CULTURE]文化
+			</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>
