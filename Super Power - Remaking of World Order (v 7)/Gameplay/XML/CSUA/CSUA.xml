@@ -317,6 +317,14 @@
 			<CoastalCityHappiness>100</CoastalCityHappiness>
 			<Help>TXT_KEY_EFFECT_CSUA_VANCOUVER_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_IFE_ALLY</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_IFE_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_IFE_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_IFE_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1476,6 +1484,13 @@
 			<AllyEffectType>EFFECT_CSUA_VANCOUVER_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_VANCOUVER_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_IFE</Type>
+			<Description>TXT_KEY_CITYSTATE_IFE</Description>
+			<Help>TXT_KEY_CSUA_IFE_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_IFE_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_IFE_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -1582,4 +1597,69 @@
 			<Cap>50</Cap>
 		</Row>
 	 </CityStateUAEffect_HappinessYieldModifiers>
+	 <CityStateUAEffect_FaithGPClassCostModifier>
+		<Row>
+			<EffectType>EFFECT_CSUA_IFE_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_ARTIST</UnitClassType>
+			<CostRiseModifier>-30</CostRiseModifier>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_IFE_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_WRITER</UnitClassType>
+			<CostRiseModifier>-30</CostRiseModifier>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_IFE_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_MUSICIAN</UnitClassType>
+			<CostRiseModifier>-30</CostRiseModifier>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_IFE_FRIEND</EffectType>
+			<UnitClassType>UNITCLASS_ARTIST</UnitClassType>
+			<CostRiseModifier>-10</CostRiseModifier>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_IFE_FRIEND</EffectType>
+			<UnitClassType>UNITCLASS_WRITER</UnitClassType>
+			<CostRiseModifier>-10</CostRiseModifier>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_IFE_FRIEND</EffectType>
+			<UnitClassType>UNITCLASS_MUSICIAN</UnitClassType>
+			<CostRiseModifier>-10</CostRiseModifier>
+		</Row>
+	 </CityStateUAEffect_FaithGPClassCostModifier>
+	<CityStateUAEffect_GreatWorkYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_IFE_ALLY</EffectType>
+			<GreatWorkClassType>GREAT_WORK_ART</GreatWorkClassType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<YieldMod>200</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_IFE_ALLY</EffectType>
+			<GreatWorkClassType>GREAT_WORK_ARTIFACT</GreatWorkClassType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<YieldMod>200</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_IFE_ALLY</EffectType>
+			<GreatWorkClassType>GREAT_WORK_LITERATURE</GreatWorkClassType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<YieldMod>200</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_IFE_ALLY</EffectType>
+			<GreatWorkClassType>GREAT_WORK_MUSIC</GreatWorkClassType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<YieldMod>200</YieldMod>
+		</Row>
+	 </CityStateUAEffect_GreatWorkYieldModifiers>
+	 <CityStateUAEffect_GoldenAgeYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_IFE_ALLY</EffectType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<YieldMod>25</YieldMod>
+		</Row>
+	 </CityStateUAEffect_GoldenAgeYieldModifiers>
 </GameData>

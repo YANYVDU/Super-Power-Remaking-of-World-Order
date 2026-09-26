@@ -19324,6 +19324,31 @@
 			[NEWLINE][ICON_BULLET]+1[ICON_HAPPINESS_1] global happiness per coastal city
 		</Text>
 	</Row>
+	<Row Tag="TXT_KEY_CSUA_IFE_HELP">
+		<Text>
+			Ally Effects:
+			[NEWLINE][ICON_BULLET]Faith-buying Great Artists, Writers, and Musicians costs 30% less [ICON_PEACE]Faith
+			[NEWLINE][ICON_BULLET]Each [ICON_GREAT_WORK_ART]Great Work or Artifact owned grants +2% [ICON_PEACE]Faith empire-wide
+			[NEWLINE][ICON_BULLET]During a [ICON_GOLDEN_AGE]Golden Age, generate +25% [ICON_PEACE]Faith empire-wide
+			[NEWLINE]
+			[NEWLINE]Friend Effects:
+			[NEWLINE][ICON_BULLET]Faith-buying Great Artists, Writers, and Musicians costs 10% less [ICON_PEACE]Faith
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_IFE_ALLY_HELP">
+		<Text>
+			Ally Effects:
+			[NEWLINE][ICON_BULLET]Faith-buying Great Artists, Writers, and Musicians costs 30% less [ICON_PEACE]Faith
+			[NEWLINE][ICON_BULLET]Each [ICON_GREAT_WORK_ART]Great Work or Artifact owned grants +2% [ICON_PEACE]Faith empire-wide
+			[NEWLINE][ICON_BULLET]During a [ICON_GOLDEN_AGE]Golden Age, generate +25% [ICON_PEACE]Faith empire-wide
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_IFE_FRIEND_HELP">
+		<Text>
+			Friend Effects:
+			[NEWLINE][ICON_BULLET]Faith-buying Great Artists, Writers, and Musicians costs 10% less [ICON_PEACE]Faith
+		</Text>
+	</Row>
 	<Row Tag="TXT_KEY_CSUA_VILNIUS_HELP">
 			<Text>
 				Ally Effects:

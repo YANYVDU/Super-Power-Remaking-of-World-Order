@@ -17793,6 +17793,31 @@
 			[NEWLINE][ICON_BULLET]朋友每座沿海城市提供+1[ICON_HAPPINESS_1]全局快乐
 		</Text>
 	</Row>
+	<Row Tag="TXT_KEY_CSUA_IFE_HELP">
+		<Text>
+			盟友效果：
+			[NEWLINE][ICON_BULLET]盟友信仰购买大美术家、大文学家、大音乐家所需的[ICON_PEACE]信仰降低30%
+			[NEWLINE][ICON_BULLET]盟友每拥有一件[ICON_GREAT_WORK_ART]杰作或文物，全国+2%[ICON_PEACE]信仰
+			[NEWLINE][ICON_BULLET]盟友在[ICON_GOLDEN_AGE]黄金时代内，全国额外+25%[ICON_PEACE]信仰
+			[NEWLINE]
+			[NEWLINE]朋友效果：
+			[NEWLINE][ICON_BULLET]朋友信仰购买大美术家、大文学家、大音乐家所需的[ICON_PEACE]信仰降低10%
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_IFE_ALLY_HELP">
+		<Text>
+			盟友效果：
+			[NEWLINE][ICON_BULLET]盟友信仰购买大美术家、大文学家、大音乐家所需的[ICON_PEACE]信仰降低30%
+			[NEWLINE][ICON_BULLET]盟友每拥有一件[ICON_GREAT_WORK_ART]杰作或文物，全国+2%[ICON_PEACE]信仰
+			[NEWLINE][ICON_BULLET]盟友在[ICON_GOLDEN_AGE]黄金时代内，全国额外+25%[ICON_PEACE]信仰
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_IFE_FRIEND_HELP">
+		<Text>
+			朋友效果：
+			[NEWLINE][ICON_BULLET]朋友信仰购买大美术家、大文学家、大音乐家所需的[ICON_PEACE]信仰降低10%
+		</Text>
+	</Row>
 	<Row Tag="TXT_KEY_CSUA_VILNIUS_HELP">
 			<Text>
 				盟友效果：
