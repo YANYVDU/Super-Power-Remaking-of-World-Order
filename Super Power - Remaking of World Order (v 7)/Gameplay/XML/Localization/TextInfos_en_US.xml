@@ -1596,6 +1596,21 @@
 				[NEWLINE]---------------------------[NEWLINE]
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_ACTUAL_RATE">
+			<Text>
+				[ICON_TEAM_1]Actual rate: {1_Num} immigration progress per turn
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_PROGRESS">
+			<Text>
+				[ICON_TEAM_1]International Immigration Progress: {1_Num} / {2_Num} ({3_Num}%)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_TURNS_LEFT">
+			<Text>
+				At the current rate, about {1_Num} turns until the next [ICON_CITIZEN]population move.
+			</Text>
+		</Row>
 
 
 		<Row Tag="TXT_KEY_CO_SP_MOVE_IN_OPENBORDER">
@@ -1718,6 +1733,21 @@
 		<Row Tag="TXT_KEY_CO_SP_MOVE_OTHER_STOPPED">
 			<Text>
 				[COLOR_NEGATIVE_TEXT]No Immigration for insufficient [ICON_RES_CONSUMER] Consumer Goods or [ICON_RES_ELECTRICITY] Electricity! [ENDCOLOR]
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_IN_UNHAPPY_STOPPED">
+			<Text>
+				[COLOR_NEGATIVE_TEXT]That civ is [ICON_HAPPINESS_4]unhappy and cannot take in immigrants![ENDCOLOR]
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_RATE_ZERO_STOPPED">
+			<Text>
+				[COLOR_NEGATIVE_TEXT]Immigration bonuses and penalties currently cancel out - rate is 0 and the meter is frozen.[ENDCOLOR]
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_GAP_ZERO_STOPPED">
+			<Text>
+				[COLOR_NEGATIVE_TEXT]Both civs sit at the same [ICON_TOURISM]cultural influence level ({1_Num} / {2_Num}) - no immigration flows either way.[ENDCOLOR]
 			</Text>
 		</Row>
 

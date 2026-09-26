@@ -8,6 +8,9 @@ include("UtilityFunctions");
 local g_PopupInfo = nil;
 local g_IconSize = 45;
 
+-- SP International Immigration meter: usable width inside the 88px frame (2px margin per side).
+local IMMIGRATION_BAR_WIDTH = 84;
+
 -- If Culture Overview UI is disabled, just exit!
 if (Game.IsOption("GAMEOPTION_NO_CULTURE_OVERVIEW_UI")) then
     return;
@@ -2004,6 +2007,7 @@ function RefreshCultureVictory()
             row.strPublicOpinionUnhappinessToolTip = nil;
             row.strExcessHappiness = "";
             row.strExcessHappinessToolTip = nil;
+            row.fImmigrationBarPct = nil;
 
             local iIdeology = pPlayer:GetLateGamePolicyTree();
             if (iIdeology ~= PolicyBranchTypes.NO_POLICY_BRANCH_TYPE) then
@@ -2065,8 +2069,43 @@ function RefreshCultureVictory()
 				end
 
 				row.iExcessHappiness = ImmigrationRate;
-                row.strExcessHappiness = format("%s ([COLOR_NEGATIVE_TEXT]0[ENDCOLOR]|%i|[COLOR_POSITIVE_TEXT]%i[ENDCOLOR])", strImmigrationRate, iImmigrationCounter, iImmigrationRegressand * 2);
+                -- SP: the raw "0|counter|2R" readout is replaced by the meter below. counter lives in
+                -- [0, 2R] and resets to R (the balance point): climbing to 2R moves one of their
+                -- citizens in (green, fills left to right), falling to 0 moves one of ours out
+                -- (red, fills right to left).
+                local fImmigrationBarPct = 0;
+                if iImmigrationCounter > iImmigrationRegressand then
+                    fImmigrationBarPct = (iImmigrationCounter - iImmigrationRegressand) / iImmigrationRegressand;
+                elseif iImmigrationCounter < iImmigrationRegressand then
+                    fImmigrationBarPct = -1 * (iImmigrationRegressand - iImmigrationCounter) / iImmigrationRegressand;
+                end
+                if fImmigrationBarPct > 1 then fImmigrationBarPct = 1; end
+                if fImmigrationBarPct < -1 then fImmigrationBarPct = -1; end
+                row.fImmigrationBarPct = fImmigrationBarPct;
+                row.strExcessHappiness = "";
+                -- Turns left before the next population move, assuming the rate holds.
+                local iImmigrationTurnsLeft = 0;
+                if ImmigrationRate > 0 then
+                    iImmigrationTurnsLeft = math.ceil((iImmigrationRegressand * 2 - iImmigrationCounter) / ImmigrationRate);
+                elseif ImmigrationRate < 0 then
+                    iImmigrationTurnsLeft = math.ceil(iImmigrationCounter / (-1 * ImmigrationRate));
+                end
 				strInternationalImmigrationToolTip = Locale.ConvertTextKey("TXT_KEY_CO_SP_IMMIGRATION_RATE_BASE", activePlayer:GetInfluenceLevel(iPlayer) - pPlayer:GetInfluenceLevel(Game.GetActivePlayer()), strImmigrationIcon)
+                -- SP: the base rate line above only shows the influence-level gap. The value that
+                -- actually moves the meter is GetImmigrationRate() after the diplomacy / religion /
+                -- policy / happiness modifiers, and it is integer-divided by 100 - so a gap of 1
+                -- level combined with any -25 or -50 modifier truncates to 0 and freezes the meter.
+                local strImmigrationActualRate = tostring(ImmigrationRate);
+                if ImmigrationRate > 0 then
+                    strImmigrationActualRate = "[COLOR_POSITIVE_TEXT]+" .. ImmigrationRate .. "[ENDCOLOR]";
+                elseif ImmigrationRate < 0 then
+                    strImmigrationActualRate = "[COLOR_NEGATIVE_TEXT]" .. ImmigrationRate .. "[ENDCOLOR]";
+                end
+                strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. Locale.ConvertTextKey("TXT_KEY_CO_SP_IMMIGRATION_ACTUAL_RATE", strImmigrationActualRate)
+                strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. Locale.ConvertTextKey("TXT_KEY_CO_SP_IMMIGRATION_PROGRESS", iImmigrationCounter, iImmigrationRegressand * 2, math.floor(fImmigrationBarPct * 100 + 0.5))
+                if ImmigrationRate ~= 0 then
+                    strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_CO_SP_IMMIGRATION_TURNS_LEFT", iImmigrationTurnsLeft)
+                end
                 if ImmigrationRegressandModifier ~= 0 then
                     if ImmigrationRegressandModifier < 0 then
                         ImmigrationRegressandModifier = " [COLOR_POSITIVE_TEXT]" .. ImmigrationRegressandModifier .. "[ENDCOLOR]";
@@ -2141,16 +2180,40 @@ function RefreshCultureVictory()
 					strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_OUT_TRAIT_RIVER_EXPANSION")
 				end
 
+				-- SP: CvPlayer::GetImmigrationRate evaluates its early-outs on the *receiving* civ,
+				-- which is not always the active player. The old checks used activePlayer, so a
+				-- receiver that could not take immigrants froze the meter with no explanation.
+				local iInfluenceGap = activePlayer:GetInfluenceLevel(iPlayer) - pPlayer:GetInfluenceLevel(Game.GetActivePlayer());
+				local pReceivingPlayer = nil;
+				if iInfluenceGap > 0 then
+					pReceivingPlayer = activePlayer;
+				elseif iInfluenceGap < 0 then
+					pReceivingPlayer = pPlayer;
+				end
+
+				local bImmigrationStopped = false;
 				if PlayersAtWar(pPlayer, activePlayer) then
 					strInternationalImmigrationToolTip = Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_WAR_STOPPED")
-				end
-
-				if pPlayer:GetTeam() == activePlayer:GetTeam() then
+					bImmigrationStopped = true;
+				elseif pPlayer:GetTeam() == activePlayer:GetTeam() then
 					strInternationalImmigrationToolTip = Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_TEAMMATE_STOPPED")
+					bImmigrationStopped = true;
+				elseif iInfluenceGap == 0 then
+					-- Same level on both sides: the gap - and therefore the raw rate - is 0. This
+					-- branch used to be silent, which is why a frozen meter showed no explanation.
+					strInternationalImmigrationToolTip = Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_GAP_ZERO_STOPPED", activePlayer:GetInfluenceLevel(iPlayer), pPlayer:GetInfluenceLevel(Game.GetActivePlayer()))
+					bImmigrationStopped = true;
+				elseif pReceivingPlayer ~= nil and pReceivingPlayer:GetExcessHappiness() < 0 then
+					strInternationalImmigrationToolTip = Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_IN_UNHAPPY_STOPPED")
+					bImmigrationStopped = true;
+				elseif pReceivingPlayer ~= nil and (pReceivingPlayer:GetNumResourceAvailable(GameInfoTypes["RESOURCE_CONSUMER"], true) < 0 or pReceivingPlayer:GetCurrentEra() >= GameInfo.Eras["ERA_MODERN"].ID and pReceivingPlayer:GetNumResourceAvailable(GameInfoTypes["RESOURCE_ELECTRICITY"], true) < 0) then
+					strInternationalImmigrationToolTip = Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_OTHER_STOPPED")
+					bImmigrationStopped = true;
 				end
 
-				if activePlayer:GetNumResourceAvailable(GameInfoTypes["RESOURCE_CONSUMER"], true) <= 0 or activePlayer:GetCurrentEra() >= GameInfo.Eras["ERA_MODERN"].ID and activePlayer:GetNumResourceAvailable(GameInfoTypes["RESOURCE_ELECTRICITY"], true) <= 0 then
-					strInternationalImmigrationToolTip = Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_OTHER_STOPPED")
+				-- Nothing above fired but the rate is still 0 - the modifiers cancelled each other out.
+				if ImmigrationRate == 0 and not bImmigrationStopped then
+					strInternationalImmigrationToolTip = Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_RATE_ZERO_STOPPED")
 				end
 
 				row.strExcessHappinessToolTip = strInternationalImmigrationToolTip;
@@ -2201,6 +2264,24 @@ function SortAndDisplayCultureVictory()
 
         instance.ExcessHappiness:SetText(row.strExcessHappiness);
         instance.ExcessHappiness:SetToolTipString(row.strExcessHappinessToolTip);
+
+        -- SP International Immigration meter. The label above stays in the tree (and keeps its
+        -- name) so overlays that still write to it keep working; the two are mutually exclusive.
+        local bImmigrationBar = (row.fImmigrationBarPct ~= nil);
+        instance.ExcessHappiness:SetHide(bImmigrationBar);
+        instance.ImmigrationBarHit:SetHide(not bImmigrationBar);
+        instance.ImmigrationBarIn:SetHide(true);
+        instance.ImmigrationBarOut:SetHide(true);
+        if bImmigrationBar then
+            instance.ImmigrationBarHit:SetToolTipString(row.strExcessHappinessToolTip);
+            if row.fImmigrationBarPct > 0 then
+                instance.ImmigrationBarIn:SetSizeX(IMMIGRATION_BAR_WIDTH * row.fImmigrationBarPct);
+                instance.ImmigrationBarIn:SetHide(false);
+            elseif row.fImmigrationBarPct < 0 then
+                instance.ImmigrationBarOut:SetSizeX(IMMIGRATION_BAR_WIDTH * (-1 * row.fImmigrationBarPct));
+                instance.ImmigrationBarOut:SetHide(false);
+            end
+        end
     end
 
     Controls.VictoryStack:CalculateSize();

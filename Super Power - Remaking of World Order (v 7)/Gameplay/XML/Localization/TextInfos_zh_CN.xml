@@ -5131,6 +5131,21 @@
 				[NEWLINE]---------------------------[NEWLINE]
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_ACTUAL_RATE">
+			<Text>
+				[ICON_TEAM_1]实际速率：每回合 {1_Num} 移民进度
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_PROGRESS">
+			<Text>
+				[ICON_TEAM_1]国际移民进度：{1_Num} / {2_Num}（{3_Num}%）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_TURNS_LEFT">
+			<Text>
+				按当前速率估算，约 {1_Num} 回合后发生下一次[ICON_CITIZEN]人口迁移。
+			</Text>
+		</Row>
 
 
 		<Row Tag="TXT_KEY_CO_SP_MOVE_IN_OPENBORDER">
@@ -5222,6 +5237,21 @@
 		<Row Tag="TXT_KEY_CO_SP_MOVE_OTHER_STOPPED">
 			<Text>
 				[COLOR_NEGATIVE_TEXT]因[ICON_RES_CONSUMER]商品或[ICON_RES_ELECTRICITY]电力短缺，无法接收移民！[ENDCOLOR]
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_IN_UNHAPPY_STOPPED">
+			<Text>
+				[COLOR_NEGATIVE_TEXT]因该国处于[ICON_HAPPINESS_4]不满状态，无法接收移民！[ENDCOLOR]
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_RATE_ZERO_STOPPED">
+			<Text>
+				[COLOR_NEGATIVE_TEXT]当前移民增益与减益相互抵消，速率为 0，进度停滞。[ENDCOLOR]
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_GAP_ZERO_STOPPED">
+			<Text>
+				[COLOR_NEGATIVE_TEXT]双方[ICON_TOURISM]文化影响等级相同（{1_Num} 级 / {2_Num} 级），彼此之间没有移民流动。[ENDCOLOR]
 			</Text>
 		</Row>
 
