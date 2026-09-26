@@ -19324,6 +19324,31 @@
 			[NEWLINE][ICON_BULLET]+1[ICON_HAPPINESS_1] global happiness per coastal city
 		</Text>
 	</Row>
+	<Row Tag="TXT_KEY_CSUA_YEREVAN_HELP">
+		<Text>
+			Ally Effects:
+			[NEWLINE][ICON_BULLET]Each point of Literacy rate grants +1% [ICON_PRODUCTION]Production empire-wide
+			[NEWLINE][ICON_BULLET]Each worked Holy Site provides +3 [ICON_HAPPINESS_1]Global Happiness, and every adjacent improved plot gains +1 [ICON_CULTURE]Culture
+			[NEWLINE][ICON_BULLET]Each Great Prophet ever born grants +5% [ICON_PEACE]Faith empire-wide
+			[NEWLINE]
+			[NEWLINE]Friend Effects:
+			[NEWLINE][ICON_BULLET]Every 2 points of Literacy rate grants +1% [ICON_PRODUCTION]Production empire-wide
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_YEREVAN_ALLY_HELP">
+		<Text>
+			Ally Effects:
+			[NEWLINE][ICON_BULLET]Each point of Literacy rate grants +1% [ICON_PRODUCTION]Production empire-wide
+			[NEWLINE][ICON_BULLET]Each worked Holy Site provides +3 [ICON_HAPPINESS_1]Global Happiness, and every adjacent improved plot gains +1 [ICON_CULTURE]Culture
+			[NEWLINE][ICON_BULLET]Each Great Prophet ever born grants +5% [ICON_PEACE]Faith empire-wide
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_YEREVAN_FRIEND_HELP">
+		<Text>
+			Friend Effects:
+			[NEWLINE][ICON_BULLET]Every 2 points of Literacy rate grants +1% [ICON_PRODUCTION]Production empire-wide
+		</Text>
+	</Row>
 	<Row Tag="TXT_KEY_CSUA_IFE_HELP">
 		<Text>
 			Ally Effects:

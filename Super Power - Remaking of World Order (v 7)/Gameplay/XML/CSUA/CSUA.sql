@@ -44,10 +44,28 @@ UPDATE MinorCivilizations SET UAType = 'CSUA_SYDNEY' WHERE Type = 'MINOR_CIV_SYD
 UPDATE MinorCivilizations SET UAType = 'CSUA_HORMUZ' WHERE Type = 'MINOR_CIV_ORMUS';
 UPDATE MinorCivilizations SET UAType = 'CSUA_VANCOUVER' WHERE Type = 'MINOR_CIV_VANCOUVER';
 UPDATE MinorCivilizations SET UAType = 'CSUA_IFE' WHERE Type = 'MINOR_CIV_IFE';
+UPDATE MinorCivilizations SET UAType = 'CSUA_YEREVAN' WHERE Type = 'MINOR_CIV_YEREVAN';
+
+-- Yerevan CS UA: +1 culture to ANY improved plot that borders a holy site (per-ImprovementType rows).
+-- Mirror of SP_AdjacentImprovementYieldChangesForNewImproments (NewSpecialistRule.sql): fully enumerate
+-- every Improvement here and auto-add rows for any future Improvement INSERT via an AFTER INSERT trigger,
+-- so ImprovementType is always a concrete type (strict match, no wildcard).
+-- Runs after CSUA.xml in load order, so EFFECT_CSUA_YEREVAN_ALLY already exists (FK-safe).
+INSERT INTO CityStateUAEffect_AdjacentImprovementYieldChanges(EffectType,ImprovementType,AdjacentImprovementType,YieldType,Yield)
+SELECT 'EFFECT_CSUA_YEREVAN_ALLY', Type, 'IMPROVEMENT_HOLY_SITE', 'YIELD_CULTURE', 1
+FROM Improvements
+WHERE Type != 'IMPROVEMENT_INCA_CITY' AND Type NOT LIKE 'IMPROVEMENT_POLYNESIA_CITY_%';
+
+CREATE TRIGGER IF NOT EXISTS SP_CSUA_YerevanAdjacentForNewImprovements
+AFTER INSERT ON Improvements
+WHEN New.Type != 'IMPROVEMENT_INCA_CITY' AND New.Type NOT LIKE 'IMPROVEMENT_POLYNESIA_CITY_%'
+BEGIN
+	INSERT INTO CityStateUAEffect_AdjacentImprovementYieldChanges(EffectType,ImprovementType,AdjacentImprovementType,YieldType,Yield)
+	VALUES ('EFFECT_CSUA_YEREVAN_ALLY', New.Type, 'IMPROVEMENT_HOLY_SITE', 'YIELD_CULTURE', 1);
+END;
 
 -- MinorCivAlliesThresholdExtra: per-era ally threshold increase (Rule 8)
 -- Formula: threshold = FRIENDSHIP_THRESHOLD_ALLIES(60) + MinorCivAlliesThresholdExtra
--- 远古60, 古典90, 中古150, 启蒙240, 工业300, 电气400, 全战500, 原子600, 信息750, 未来900
 UPDATE Eras SET MinorCivAlliesThresholdExtra = 0   WHERE Type = 'ERA_ANCIENT';     --  60 - 60 = 0
 UPDATE Eras SET MinorCivAlliesThresholdExtra = 30  WHERE Type = 'ERA_CLASSICAL';    --  90 - 60 = 30
 UPDATE Eras SET MinorCivAlliesThresholdExtra = 90  WHERE Type = 'ERA_MEDIEVAL';     -- 150 - 60 = 90

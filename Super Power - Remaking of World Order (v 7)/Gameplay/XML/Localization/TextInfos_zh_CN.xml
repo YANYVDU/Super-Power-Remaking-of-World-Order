@@ -17793,6 +17793,31 @@
 			[NEWLINE][ICON_BULLET]朋友每座沿海城市提供+1[ICON_HAPPINESS_1]全局快乐
 		</Text>
 	</Row>
+	<Row Tag="TXT_KEY_CSUA_YEREVAN_HELP">
+		<Text>
+			盟友效果：
+			[NEWLINE][ICON_BULLET]盟友每点识字率，全国[ICON_PRODUCTION]产能+1%
+			[NEWLINE][ICON_BULLET]盟友每处有市民工作的宗教圣地，提供+3[ICON_HAPPINESS_1]全局快乐，且其邻近的改良地块每处+1[ICON_CULTURE]文化
+			[NEWLINE][ICON_BULLET]盟友每诞生过一位大先知，全国+5%[ICON_PEACE]信仰
+			[NEWLINE]
+			[NEWLINE]朋友效果：
+			[NEWLINE][ICON_BULLET]朋友每2点识字率，全国[ICON_PRODUCTION]产能+1%
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_YEREVAN_ALLY_HELP">
+		<Text>
+			盟友效果：
+			[NEWLINE][ICON_BULLET]盟友每点识字率，全国[ICON_PRODUCTION]产能+1%
+			[NEWLINE][ICON_BULLET]盟友每处有市民工作的宗教圣地，提供+3[ICON_HAPPINESS_1]全局快乐，且其邻近的改良地块每处+1[ICON_CULTURE]文化
+			[NEWLINE][ICON_BULLET]盟友每诞生过一位大先知，全国+5%[ICON_PEACE]信仰
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_YEREVAN_FRIEND_HELP">
+		<Text>
+			朋友效果：
+			[NEWLINE][ICON_BULLET]朋友每2点识字率，全国[ICON_PRODUCTION]产能+1%
+		</Text>
+	</Row>
 	<Row Tag="TXT_KEY_CSUA_IFE_HELP">
 		<Text>
 			盟友效果：

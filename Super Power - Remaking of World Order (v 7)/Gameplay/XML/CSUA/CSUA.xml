@@ -325,6 +325,17 @@
 			<Type>EFFECT_CSUA_IFE_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_IFE_FRIEND_HELP</Help>
 		</Row>
+		<!-- 埃里温（盟友）：每点识字率→全国产能+1%；每处被市民工作的宗教圣地→全局快乐+3且其邻近改良+1文化；每诞生一位大先知→全国信仰+5% -->
+		<Row>
+			<Type>EFFECT_CSUA_YEREVAN_ALLY</Type>
+			<HolySiteHappiness>300</HolySiteHappiness>
+			<Help>TXT_KEY_EFFECT_CSUA_YEREVAN_ALLY_HELP</Help>
+		</Row>
+		<!-- 埃里温（朋友）：每2点识字率→全国产能+1%（每点+0.5%） -->
+		<Row>
+			<Type>EFFECT_CSUA_YEREVAN_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_YEREVAN_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1491,6 +1502,13 @@
 			<AllyEffectType>EFFECT_CSUA_IFE_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_IFE_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_YEREVAN</Type>
+			<Description>TXT_KEY_CITYSTATE_YEREVAN</Description>
+			<Help>TXT_KEY_CSUA_YEREVAN_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_YEREVAN_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_YEREVAN_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -1662,4 +1680,26 @@
 			<YieldMod>25</YieldMod>
 		</Row>
 	 </CityStateUAEffect_GoldenAgeYieldModifiers>
+	 <CityStateUAEffect_LiteracyYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_YEREVAN_ALLY</EffectType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_YEREVAN_FRIEND</EffectType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>50</YieldMod>
+		</Row>
+	 </CityStateUAEffect_LiteracyYieldModifiers>
+	 <CityStateUAEffect_BornGreatPersonYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_YEREVAN_ALLY</EffectType>
+			<UnitClassType>UNITCLASS_PROPHET</UnitClassType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<YieldMod>500</YieldMod>
+		</Row>
+	 </CityStateUAEffect_BornGreatPersonYieldModifiers>
+	 <!-- 埃里温"圣地邻近改良+1文化"的 CityStateUAEffect_AdjacentImprovementYieldChanges 数据由 CSUA.sql 用
+	      INSERT...SELECT FROM Improvements + AFTER INSERT 触发器全量枚举生成（对齐 SP_AdjacentImprovementYieldChangesForNewImproments）-->
 </GameData>
