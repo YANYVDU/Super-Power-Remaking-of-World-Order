@@ -18436,5 +18436,33 @@
 				由於該國的城邦盟友能力，減少[COLOR_NEGATIVE_TEXT]{1_num}%[ENDCOLOR][ICON_TEAM_2]移民移出速率。
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_KIEV_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每完成一個國家奇觀，全國[ICON_GREAT_PEOPLE]偉人點數累積+2%
+				[NEWLINE][ICON_BULLET]盟友每與一個文明宣布友好，在世界議會獲得1張選票
+				[NEWLINE][ICON_BULLET]盟友每持有1張世界議會選票，全國[ICON_CULTURE]文化+1%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每完成一個國家奇觀，全國[ICON_GREAT_PEOPLE]偉人點數累積+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KIEV_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每完成一個國家奇觀，全國[ICON_GREAT_PEOPLE]偉人點數累積+2%
+				[NEWLINE][ICON_BULLET]盟友每與一個文明宣布友好，在世界議會獲得1張選票
+				[NEWLINE][ICON_BULLET]盟友每持有1張世界議會選票，全國[ICON_CULTURE]文化+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KIEV_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每完成一個國家奇觀，全國[ICON_GREAT_PEOPLE]偉人點數累積+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_KIEV_DOF_VOTES">
+			<Text>[NEWLINE][ICON_BULLET]{1_NumVotes} 來自宣布友好</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

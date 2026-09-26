@@ -411,6 +411,20 @@
 			<Type>EFFECT_CSUA_BUCHAREST_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_BUCHAREST_FRIEND_HELP</Help>
 		</Row>
+		<!-- 基辅（盟友）：每完成一个国家奇观→全国伟人点数+2%；每与一个文明宣布友好→世界议会选票+1；
+		     每张世界议会选票→全国文化+1%（明细见下方 LeagueVote 表） -->
+		<Row>
+			<Type>EFFECT_CSUA_KIEV_ALLY</Type>
+			<GreatPersonRateModifierPerNationalWonder>2</GreatPersonRateModifierPerNationalWonder>
+			<LeagueVotesPerDoF>1</LeagueVotesPerDoF>
+			<Help>TXT_KEY_EFFECT_CSUA_KIEV_ALLY_HELP</Help>
+		</Row>
+		<!-- 基辅（朋友）：每完成一个国家奇观→全国伟人点数+1% -->
+		<Row>
+			<Type>EFFECT_CSUA_KIEV_FRIEND</Type>
+			<GreatPersonRateModifierPerNationalWonder>1</GreatPersonRateModifierPerNationalWonder>
+			<Help>TXT_KEY_EFFECT_CSUA_KIEV_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1626,6 +1640,13 @@
 			<AllyEffectType>EFFECT_CSUA_BUCHAREST_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_BUCHAREST_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_KIEV</Type>
+			<Description>TXT_KEY_CITYSTATE_KIEV</Description>
+			<Help>TXT_KEY_CSUA_KIEV_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_KIEV_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_KIEV_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -2130,4 +2151,12 @@
 			<Cap>0</Cap>
 		</Row>
 	 </CityStateUAEffect_DiplomatAbroadYieldModifiers>
+	 <!-- 基辅：每持有一张世界议会选票，全国文化+X%（YieldMod 为万分比，100=每票+1%） -->
+	 <CityStateUAEffect_LeagueVoteYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_KIEV_ALLY</EffectType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+	 </CityStateUAEffect_LeagueVoteYieldModifiers>
 </GameData>

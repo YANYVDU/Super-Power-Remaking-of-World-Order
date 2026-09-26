@@ -18630,5 +18630,33 @@
 				由于该国的城邦盟友能力，减少[COLOR_NEGATIVE_TEXT]{1_num}%[ENDCOLOR][ICON_TEAM_2]移民移出速率。
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_KIEV_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每完成一个国家奇观，全国[ICON_GREAT_PEOPLE]伟人点数积累+2%
+				[NEWLINE][ICON_BULLET]盟友每与一个文明宣布友好，在世界议会获得1张选票
+				[NEWLINE][ICON_BULLET]盟友每持有1张世界议会选票，全国[ICON_CULTURE]文化+1%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每完成一个国家奇观，全国[ICON_GREAT_PEOPLE]伟人点数积累+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KIEV_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每完成一个国家奇观，全国[ICON_GREAT_PEOPLE]伟人点数积累+2%
+				[NEWLINE][ICON_BULLET]盟友每与一个文明宣布友好，在世界议会获得1张选票
+				[NEWLINE][ICON_BULLET]盟友每持有1张世界议会选票，全国[ICON_CULTURE]文化+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KIEV_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每完成一个国家奇观，全国[ICON_GREAT_PEOPLE]伟人点数积累+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_KIEV_DOF_VOTES">
+			<Text>[NEWLINE][ICON_BULLET]{1_NumVotes} 来自宣布友好</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

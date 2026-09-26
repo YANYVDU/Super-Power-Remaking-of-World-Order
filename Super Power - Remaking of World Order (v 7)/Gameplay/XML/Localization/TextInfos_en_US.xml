@@ -20161,5 +20161,33 @@
 				Decrease [COLOR_NEGATIVE_TEXT]{1_num}%[ENDCOLOR] [ICON_TEAM_2] Move-out Rate for their allied City-State's Unique Ability.
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_KIEV_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]For each National Wonder the ally completes, the nation gains +2% [ICON_GREAT_PEOPLE]Great Person generation
+				[NEWLINE][ICON_BULLET]For each civilization the ally has declared friendship with, it gains 1 vote in the World Congress
+				[NEWLINE][ICON_BULLET]For each vote the ally holds in the World Congress, the nation gains +1% [ICON_CULTURE]Culture
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]For each National Wonder the friend completes, the nation gains +1% [ICON_GREAT_PEOPLE]Great Person generation
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KIEV_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]For each National Wonder the ally completes, the nation gains +2% [ICON_GREAT_PEOPLE]Great Person generation
+				[NEWLINE][ICON_BULLET]For each civilization the ally has declared friendship with, it gains 1 vote in the World Congress
+				[NEWLINE][ICON_BULLET]For each vote the ally holds in the World Congress, the nation gains +1% [ICON_CULTURE]Culture
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KIEV_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]For each National Wonder the friend completes, the nation gains +1% [ICON_GREAT_PEOPLE]Great Person generation
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_KIEV_DOF_VOTES">
+			<Text>[NEWLINE][ICON_BULLET]{1_NumVotes} from Declarations of Friendship</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
