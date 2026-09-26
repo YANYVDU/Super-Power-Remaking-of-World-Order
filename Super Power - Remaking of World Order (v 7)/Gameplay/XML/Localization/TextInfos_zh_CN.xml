@@ -17542,6 +17542,29 @@
 				[NEWLINE][ICON_BULLET]策划政变成功率+12%
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_SIDON_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你的单位进攻城市时无视该城市30%来自建筑的[ICON_STRENGTH]城防
+				[NEWLINE][ICON_BULLET]军事城邦盟友提供的每回合单位经验+100%，且对海军和空军也生效
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]你的单位进攻城市时无视该城市15%来自建筑的[ICON_STRENGTH]城防
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SIDON_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你的单位进攻城市时无视该城市30%来自建筑的[ICON_STRENGTH]城防
+				[NEWLINE][ICON_BULLET]军事城邦盟友提供的每回合单位经验+100%，且对海军和空军也生效
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SIDON_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]你的单位进攻城市时无视该城市15%来自建筑的[ICON_STRENGTH]城防
+			</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_JERUSALEM_HELP">
 			<Text>
 				盟友效果：

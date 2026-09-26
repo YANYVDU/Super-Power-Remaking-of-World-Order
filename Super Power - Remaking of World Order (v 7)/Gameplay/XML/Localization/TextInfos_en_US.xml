@@ -19073,6 +19073,29 @@
 				[NEWLINE][ICON_BULLET]+12% chance to successfully stage a [ICON_SPY]Coup
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_SIDON_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Your units ignore 30% of a city's [ICON_STRENGTH]defense from buildings when attacking
+				[NEWLINE][ICON_BULLET]Per-turn XP granted by your allied Militaristic City-States is increased by 100%, and also applies to naval and air units
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Your units ignore 15% of a city's [ICON_STRENGTH]defense from buildings when attacking
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SIDON_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Your units ignore 30% of a city's [ICON_STRENGTH]defense from buildings when attacking
+				[NEWLINE][ICON_BULLET]Per-turn XP granted by your allied Militaristic City-States is increased by 100%, and also applies to naval and air units
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SIDON_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Your units ignore 15% of a city's [ICON_STRENGTH]defense from buildings when attacking
+			</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_JERUSALEM_HELP">
 			<Text>
 				Ally Effects:

@@ -202,6 +202,19 @@
 			<CoupChanceModifier>12</CoupChanceModifier>
 			<Help>TXT_KEY_EFFECT_CSUA_SOFIA_FRIEND_HELP</Help>
 		</Row>
+		<!-- 西顿：盟友的单位攻城时无视城市30%来自建筑的城防；盟友的军事城邦提供的每回合免费单位经验+100%，且对海军和空军也生效；朋友无视15% -->
+		<Row>
+			<Type>EFFECT_CSUA_SIDON_ALLY</Type>
+			<CityAttackIgnoreBuildingDefensePercent>30</CityAttackIgnoreBuildingDefensePercent>
+			<MilitaryXPPerTurnModifier>100</MilitaryXPPerTurnModifier>
+			<MilitaryXPSeaAir>1</MilitaryXPSeaAir>
+			<Help>TXT_KEY_EFFECT_CSUA_SIDON_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_SIDON_FRIEND</Type>
+			<CityAttackIgnoreBuildingDefensePercent>15</CityAttackIgnoreBuildingDefensePercent>
+			<Help>TXT_KEY_EFFECT_CSUA_SIDON_FRIEND_HELP</Help>
+		</Row>
 		<!-- 耶路撒冷：盟友每掌控一座圣城，其为领袖的宗教+40%宗教压力；每有一座城市信仰该宗教，盟友首都+1%科研；盟友免疫其他文明的谴责 -->
 		<Row>
 			<Type>EFFECT_CSUA_JERUSALEM_ALLY</Type>
@@ -1424,6 +1437,13 @@
 			<Help>TXT_KEY_CSUA_SOFIA_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_SOFIA_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_SOFIA_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_SIDON</Type>
+			<Description>TXT_KEY_CITYSTATE_SIDON</Description>
+			<Help>TXT_KEY_CSUA_SIDON_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_SIDON_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_SIDON_FRIEND</FriendEffectType>
 		</Row>
 		<Row>
 			<Type>CSUA_JERUSALEM</Type>

@@ -186,11 +186,19 @@ end
 --------------------------------------------------------------------------------
 -- Refresh City stats
 --------------------------------------------------------------------------------
-function UpdateCityStats(pCity)
+function UpdateCityStats(pCity, pMyUnit)
 
 	-- Strength
 	local hp = pCity:GetMaxHitPoints()
-	local strength = math.floor(pCity:GetStrengthValue() / 100);
+	-- Sidon UA: show the city strength as seen by the attacker (part of its building defense is bypassed)
+	local iIgnoreBuildingDefense = 0;
+	if (pMyUnit ~= nil) then
+		local pAttacker = Players[pMyUnit:GetOwner()];
+		if (pAttacker ~= nil) then
+			iIgnoreBuildingDefense = pAttacker:GetCSUACityAttackIgnoreBuildingDefensePercent();
+		end
+	end
+	local strength = math.floor(pCity:GetStrengthValue(false, iIgnoreBuildingDefense) / 100);
 	local maxhp = pCity:GetMaxHitPoints();
 	local currenthp =pCity:GetMaxHitPoints() - pCity:GetDamage();
 	
@@ -350,7 +358,12 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 			iMyStrength = pMyUnit:GetMaxAttackStrength(pFromPlot, pToPlot, nil);
 		end
 
-		iTheirStrength = pCity:GetStrengthValue();
+		-- Sidon UA: the attacking player's units bypass part of the city's building defense
+		local iIgnoreBuildingDefense = 0;
+		if (pMyPlayer ~= nil) then
+			iIgnoreBuildingDefense = pMyPlayer:GetCSUACityAttackIgnoreBuildingDefensePercent();
+		end
+		iTheirStrength = pCity:GetStrengthValue(false, iIgnoreBuildingDefense);
 
 		if (iMyStrength > 0) then
 
@@ -3381,7 +3394,7 @@ function OnMouseOverHex(hexX, hexY)
 						local pCity = pPlot:GetPlotCity();
 
 						if (pTeam:IsAtWar(pCity:GetTeam()) or (UIManager:GetAlt() and pCity:GetOwner() ~= iTeam)) then
-							UpdateCityStats(pCity);
+							UpdateCityStats(pCity, pHeadUnit);
 							UpdateCombatOddsUnitVsCity(pHeadUnit, pCity);
 							UpdateUnitPromotions(nil);
 							UpdateCityPortrait(pCity);
@@ -3448,7 +3461,7 @@ function OnMouseOverHex(hexX, hexY)
 						local pCity = pPlot:GetPlotCity();
 
 						if (pTeam:IsAtWar(pCity:GetTeam()) or (UIManager:GetAlt() and pCity:GetOwner() ~= iTeam)) then
-							UpdateCityStats(pCity);
+							UpdateCityStats(pCity, pHeadUnit);
 							UpdateCombatOddsUnitVsCity(pHeadUnit, pCity);
 							UpdateUnitPromotions(nil);
 							UpdateCityPortrait(pCity);

@@ -17348,6 +17348,29 @@
 				[NEWLINE][ICON_BULLET]策劃政變成功率+12%
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_SIDON_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你的單位進攻城市時無視該城市30%來自建築的[ICON_STRENGTH]城防
+				[NEWLINE][ICON_BULLET]軍事城邦盟友提供的每回合單位經驗+100%，且對海軍和空軍也生效
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]你的單位進攻城市時無視該城市15%來自建築的[ICON_STRENGTH]城防
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SIDON_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你的單位進攻城市時無視該城市30%來自建築的[ICON_STRENGTH]城防
+				[NEWLINE][ICON_BULLET]軍事城邦盟友提供的每回合單位經驗+100%，且對海軍和空軍也生效
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SIDON_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]你的單位進攻城市時無視該城市15%來自建築的[ICON_STRENGTH]城防
+			</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_JERUSALEM_HELP">
 			<Text>
 				盟友效果：
