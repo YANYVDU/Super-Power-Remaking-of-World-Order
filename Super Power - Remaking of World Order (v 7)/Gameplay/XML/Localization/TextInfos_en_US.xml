@@ -20189,5 +20189,28 @@
 		<Row Tag="TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_KIEV_DOF_VOTES">
 			<Text>[NEWLINE][ICON_BULLET]{1_NumVotes} from Declarations of Friendship</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_KUALA_LUMPUR_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Puppet cities no longer raise the [ICON_RESEARCH]Science cost of new technologies
+				[NEWLINE][ICON_BULLET]For every 5 [ICON_CITIZEN]Citizens living in puppet cities, the nation gains +2% [ICON_CULTURE]Culture and +1% [ICON_TOURISM]Tourism
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Puppet cities only raise the [ICON_RESEARCH]Science cost of new technologies by half
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KUALA_LUMPUR_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Puppet cities no longer raise the [ICON_RESEARCH]Science cost of new technologies
+				[NEWLINE][ICON_BULLET]For every 5 [ICON_CITIZEN]Citizens living in puppet cities, the nation gains +2% [ICON_CULTURE]Culture and +1% [ICON_TOURISM]Tourism
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KUALA_LUMPUR_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Puppet cities only raise the [ICON_RESEARCH]Science cost of new technologies by half
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

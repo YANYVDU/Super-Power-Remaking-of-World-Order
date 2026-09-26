@@ -18658,5 +18658,28 @@
 		<Row Tag="TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_KIEV_DOF_VOTES">
 			<Text>[NEWLINE][ICON_BULLET]{1_NumVotes} 来自宣布友好</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_KUALA_LUMPUR_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]傀儡城市不再提高新科技的[ICON_RESEARCH]科研成本
+				[NEWLINE][ICON_BULLET]傀儡城市中每5点[ICON_CITIZEN]人口，全国[ICON_CULTURE]文化+2%、[ICON_TOURISM]魅力+1%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]傀儡城市只提高一半的新科技[ICON_RESEARCH]科研成本
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KUALA_LUMPUR_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]傀儡城市不再提高新科技的[ICON_RESEARCH]科研成本
+				[NEWLINE][ICON_BULLET]傀儡城市中每5点[ICON_CITIZEN]人口，全国[ICON_CULTURE]文化+2%、[ICON_TOURISM]魅力+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KUALA_LUMPUR_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]傀儡城市只提高一半的新科技[ICON_RESEARCH]科研成本
+			</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

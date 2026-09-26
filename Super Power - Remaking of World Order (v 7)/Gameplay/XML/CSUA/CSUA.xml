@@ -425,6 +425,19 @@
 			<GreatPersonRateModifierPerNationalWonder>1</GreatPersonRateModifierPerNationalWonder>
 			<Help>TXT_KEY_EFFECT_CSUA_KIEV_FRIEND_HELP</Help>
 		</Row>
+		<!-- 吉隆坡（盟友）：傀儡城市不再提高科研阈值；每5点傀儡城市人口→全国文化+2%、魅力+1%
+		     （人口明细见下方 SpecialCityPopulation 表） -->
+		<Row>
+			<Type>EFFECT_CSUA_KUALA_LUMPUR_ALLY</Type>
+			<PuppetNoTechCostPenalty>true</PuppetNoTechCostPenalty>
+			<Help>TXT_KEY_EFFECT_CSUA_KUALA_LUMPUR_ALLY_HELP</Help>
+		</Row>
+		<!-- 吉隆坡（朋友）：傀儡城市只提高一半的科研阈值 -->
+		<Row>
+			<Type>EFFECT_CSUA_KUALA_LUMPUR_FRIEND</Type>
+			<PuppetTechCostPartial>50</PuppetTechCostPartial>
+			<Help>TXT_KEY_EFFECT_CSUA_KUALA_LUMPUR_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1647,6 +1660,13 @@
 			<AllyEffectType>EFFECT_CSUA_KIEV_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_KIEV_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_KUALA_LUMPUR</Type>
+			<Description>TXT_KEY_CITYSTATE_KUALA_LUMPUR</Description>
+			<Help>TXT_KEY_CSUA_KUALA_LUMPUR_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_KUALA_LUMPUR_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_KUALA_LUMPUR_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -1964,6 +1984,9 @@
 		<Row>
 			<Type>SPECIAL_CITY_RIGA_RIVER_COASTAL</Type>
 		</Row>
+		<Row>
+			<Type>SPECIAL_CITY_PUPPET</Type>
+		</Row>
 	 </CityStateUAEffect_SpecialCityTypes>
 	 <!-- 波哥大：开发了黄金/白银/珍珠/宝石/琥珀/玉石其一的城市（纯 OR） -->
 	 <CityStateUAEffect_SpecialCityTypeConditionsOr>
@@ -2019,6 +2042,12 @@
 		<Row>
 			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
 			<ConditionType>IS_COASTAL</ConditionType>
+		</Row>
+		<!-- 吉隆坡：傀儡城市（被吞并的城市不算）。IS_PUPPET 无 Value；条件表按「And 全部命中」判定，
+		     故此处必须写一行，否则 Or 表为空会被读成「无限制」而匹配所有城市 -->
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_PUPPET</SpecialCityType>
+			<ConditionType>IS_PUPPET</ConditionType>
 		</Row>
 	 </CityStateUAEffect_SpecialCityTypeConditionsAnd>
 	 <!-- 符合特殊城市类型的城市获得产出百分比加成；同一城市匹配多个特殊城市类型时，同种产出的修正【累加】 -->
@@ -2159,4 +2188,22 @@
 			<YieldMod>100</YieldMod>
 		</Row>
 	 </CityStateUAEffect_LeagueVoteYieldModifiers>
+	 <!-- 吉隆坡（盟友）：每5点生活在傀儡城市中的人口，全国文化+2%、魅力+1%
+	      （YieldMod 为普通百分比；PerPopulation 为人口步长，向下取整） -->
+	 <CityStateUAEffect_SpecialCityPopulationYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_KUALA_LUMPUR_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_PUPPET</SpecialCityType>
+			<PerPopulation>5</PerPopulation>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>2</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KUALA_LUMPUR_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_PUPPET</SpecialCityType>
+			<PerPopulation>5</PerPopulation>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<YieldMod>1</YieldMod>
+		</Row>
+	 </CityStateUAEffect_SpecialCityPopulationYieldModifiers>
 </GameData>
