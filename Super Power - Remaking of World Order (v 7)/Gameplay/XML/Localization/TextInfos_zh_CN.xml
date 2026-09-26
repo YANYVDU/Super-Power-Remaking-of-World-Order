@@ -18585,5 +18585,50 @@
 				[NEWLINE][ICON_BULLET]朋友的国际[ICON_INTERNATIONAL_TRADE]商路[ICON_GOLD]金钱收益+10%
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_BUCHAREST_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每拥有一座世界奇观，全国[ICON_CULTURE]文化与[ICON_TOURISM]魅力产出+4%
+				[NEWLINE][ICON_BULLET]盟友每[ICON_TEAM_4]接收一个国际移民，国际移民接收速率+5%（上限+100%）；每[ICON_TEAM_2]离开一个国际移民，国际移民离开速率-5%（上限-90%）
+				[NEWLINE][ICON_BULLET]盟友每有一个派驻他国的[ICON_SPY]外交官，全国[ICON_PRODUCTION]产能与[ICON_RESEARCH]科研+5%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每拥有一座世界奇观，全国[ICON_CULTURE]文化与[ICON_TOURISM]魅力产出+2%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUCHAREST_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每拥有一座世界奇观，全国[ICON_CULTURE]文化与[ICON_TOURISM]魅力产出+4%
+				[NEWLINE][ICON_BULLET]盟友每[ICON_TEAM_4]接收一个国际移民，国际移民接收速率+5%（上限+100%）；每[ICON_TEAM_2]离开一个国际移民，国际移民离开速率-5%（上限-90%）
+				[NEWLINE][ICON_BULLET]盟友每有一个派驻他国的[ICON_SPY]外交官，全国[ICON_PRODUCTION]产能与[ICON_RESEARCH]科研+5%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUCHAREST_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每拥有一座世界奇观，全国[ICON_CULTURE]文化与[ICON_TOURISM]魅力产出+2%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_IN_CSUA_YOU">
+			<Text>
+				由于你的城邦盟友能力，增加[COLOR_POSITIVE_TEXT]{1_num}%[ENDCOLOR][ICON_TEAM_4]移民迁入速率。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_OUT_CSUA_YOU">
+			<Text>
+				由于你的城邦盟友能力，减少[COLOR_POSITIVE_TEXT]{1_num}%[ENDCOLOR][ICON_TEAM_2]移民移出速率。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_IN_CSUA_THEM">
+			<Text>
+				由于该国的城邦盟友能力，增加[COLOR_NEGATIVE_TEXT]{1_num}%[ENDCOLOR][ICON_TEAM_4]移民迁入速率。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_OUT_CSUA_THEM">
+			<Text>
+				由于该国的城邦盟友能力，减少[COLOR_NEGATIVE_TEXT]{1_num}%[ENDCOLOR][ICON_TEAM_2]移民移出速率。
+			</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

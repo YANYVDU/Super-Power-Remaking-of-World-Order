@@ -396,6 +396,21 @@
 			<TradeRouteGoldPercentInternational>10</TradeRouteGoldPercentInternational>
 			<Help>TXT_KEY_EFFECT_CSUA_MANILA_FRIEND_HELP</Help>
 		</Row>
+		<!-- 布加勒斯特（盟友）：每世界奇观→全国文化与魅力+4%；每接收/离开一个国际移民→接收速率+5%（上限+100%）、离开速率-5%（上限-90%）；
+		     每有一个在他国的外交官→全国产能与科研+5%。明细见下方 WorldWonder / DiplomatAbroad 表 -->
+		<Row>
+			<Type>EFFECT_CSUA_BUCHAREST_ALLY</Type>
+			<ImmigrationRatePerImmigrant>5</ImmigrationRatePerImmigrant>
+			<ImmigrationRateMax>100</ImmigrationRateMax>
+			<EmigrationRatePerImmigrant>5</EmigrationRatePerImmigrant>
+			<EmigrationRateMax>90</EmigrationRateMax>
+			<Help>TXT_KEY_EFFECT_CSUA_BUCHAREST_ALLY_HELP</Help>
+		</Row>
+		<!-- 布加勒斯特（朋友）：每世界奇观→全国文化与魅力+2% -->
+		<Row>
+			<Type>EFFECT_CSUA_BUCHAREST_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_BUCHAREST_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1604,6 +1619,13 @@
 			<AllyEffectType>EFFECT_CSUA_MANILA_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_MANILA_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_BUCHAREST</Type>
+			<Description>TXT_KEY_CITYSTATE_BUCHAREST</Description>
+			<Help>TXT_KEY_CSUA_BUCHAREST_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_BUCHAREST_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_BUCHAREST_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -2066,4 +2088,46 @@
 			<YieldMod>5</YieldMod>
 		</Row>
 	 </CityStateUAEffect_SpecialCityCountYieldModifiers>
+	 <!-- 布加勒斯特：每拥有一座世界奇观，全国文化/魅力+X%（YieldMod 为普通百分比，Cap 0=无上限） -->
+	 <CityStateUAEffect_WorldWonderYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUCHAREST_ALLY</EffectType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>4</YieldMod>
+			<Cap>0</Cap>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUCHAREST_ALLY</EffectType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<YieldMod>4</YieldMod>
+			<Cap>0</Cap>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUCHAREST_FRIEND</EffectType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>2</YieldMod>
+			<Cap>0</Cap>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUCHAREST_FRIEND</EffectType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<YieldMod>2</YieldMod>
+			<Cap>0</Cap>
+		</Row>
+	 </CityStateUAEffect_WorldWonderYieldModifiers>
+	 <!-- 布加勒斯特：每有一个派驻他国（不含城邦）的外交官，全国产能/科研+X%（YieldMod 为普通百分比，Cap 0=无上限） -->
+	 <CityStateUAEffect_DiplomatAbroadYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUCHAREST_ALLY</EffectType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>5</YieldMod>
+			<Cap>0</Cap>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUCHAREST_ALLY</EffectType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>5</YieldMod>
+			<Cap>0</Cap>
+		</Row>
+	 </CityStateUAEffect_DiplomatAbroadYieldModifiers>
 </GameData>

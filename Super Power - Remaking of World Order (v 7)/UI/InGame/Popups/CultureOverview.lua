@@ -2180,6 +2180,26 @@ function RefreshCultureVictory()
 					strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_OUT_TRAIT_RIVER_EXPANSION")
 				end
 
+				-- SP: Bucharest CSUA modifiers. Unlike the policy ones above, these are derived from each
+				-- player's cumulative immigrant counts (per-immigrant, capped), so read them through the
+				-- CSUA getters rather than a flat stored field.
+				local iActiveImmigrationMod = activePlayer:GetCSUAImmigrationRateModifier();
+				local iActiveEmigrationMod = activePlayer:GetCSUAEmigrationRateModifier();
+				local iPImmigrationMod = pPlayer:GetCSUAImmigrationRateModifier();
+				local iPEmigrationMod = pPlayer:GetCSUAEmigrationRateModifier();
+				if iActiveImmigrationMod ~= 0 then
+					strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_IN_CSUA_YOU", iActiveImmigrationMod)
+				end
+				if iActiveEmigrationMod ~= 0 then
+					strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_OUT_CSUA_YOU", iActiveEmigrationMod)
+				end
+				if iPImmigrationMod ~= 0 then
+					strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_IN_CSUA_THEM", iPImmigrationMod)
+				end
+				if iPEmigrationMod ~= 0 then
+					strInternationalImmigrationToolTip = strInternationalImmigrationToolTip .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_CO_SP_MOVE_OUT_CSUA_THEM", iPEmigrationMod)
+				end
+
 				-- SP: CvPlayer::GetImmigrationRate evaluates its early-outs on the *receiving* civ,
 				-- which is not always the active player. The old checks used activePlayer, so a
 				-- receiver that could not take immigrants froze the meter with no explanation.

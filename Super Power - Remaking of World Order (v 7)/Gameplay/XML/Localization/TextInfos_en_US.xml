@@ -20116,5 +20116,50 @@
 				[NEWLINE][ICON_BULLET]Friend's international [ICON_INTERNATIONAL_TRADE]Trade Routes gain +10% [ICON_GOLD]Gold
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_BUCHAREST_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]For each World Wonder the ally owns, the nation gains +4% [ICON_CULTURE]Culture and [ICON_TOURISM]Tourism
+				[NEWLINE][ICON_BULLET]For each international immigrant the ally [ICON_TEAM_4]receives, its immigration rate gains +5% (up to +100%); for each one it [ICON_TEAM_2]loses, its emigration rate is reduced by 5% (up to -90%)
+				[NEWLINE][ICON_BULLET]For each [ICON_SPY]Diplomat the ally stations in a foreign civilization, the nation gains +5% [ICON_PRODUCTION]Production and [ICON_RESEARCH]Science
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]For each World Wonder the friend owns, the nation gains +2% [ICON_CULTURE]Culture and [ICON_TOURISM]Tourism
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUCHAREST_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]For each World Wonder the ally owns, the nation gains +4% [ICON_CULTURE]Culture and [ICON_TOURISM]Tourism
+				[NEWLINE][ICON_BULLET]For each international immigrant the ally [ICON_TEAM_4]receives, its immigration rate gains +5% (up to +100%); for each one it [ICON_TEAM_2]loses, its emigration rate is reduced by 5% (up to -90%)
+				[NEWLINE][ICON_BULLET]For each [ICON_SPY]Diplomat the ally stations in a foreign civilization, the nation gains +5% [ICON_PRODUCTION]Production and [ICON_RESEARCH]Science
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUCHAREST_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]For each World Wonder the friend owns, the nation gains +2% [ICON_CULTURE]Culture and [ICON_TOURISM]Tourism
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_IN_CSUA_YOU">
+			<Text>
+				Increase [COLOR_POSITIVE_TEXT]{1_num}%[ENDCOLOR] [ICON_TEAM_4] Move-in Rate for your allied City-State's Unique Ability.
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_OUT_CSUA_YOU">
+			<Text>
+				Decrease [COLOR_POSITIVE_TEXT]{1_num}%[ENDCOLOR] [ICON_TEAM_2] Move-out Rate for your allied City-State's Unique Ability.
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_IN_CSUA_THEM">
+			<Text>
+				Increase [COLOR_NEGATIVE_TEXT]{1_num}%[ENDCOLOR] [ICON_TEAM_4] Move-in Rate for their allied City-State's Unique Ability.
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_OUT_CSUA_THEM">
+			<Text>
+				Decrease [COLOR_NEGATIVE_TEXT]{1_num}%[ENDCOLOR] [ICON_TEAM_2] Move-out Rate for their allied City-State's Unique Ability.
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
