@@ -381,6 +381,21 @@
 			<Type>EFFECT_CSUA_RIGA_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_RIGA_FRIEND_HELP</Help>
 		</Row>
+		<!-- 马尼拉（盟友）：国际商路金钱+25%；盟友每有一条国际商路，所有国际商路金钱额外+2%；盟友每有一种提供快乐的奢侈品，全国食物+2%（上限+50%） -->
+		<Row>
+			<Type>EFFECT_CSUA_MANILA_ALLY</Type>
+			<TradeRouteGoldPercentInternational>25</TradeRouteGoldPercentInternational>
+			<TradeRouteGoldModifierPerInternationalRoute>2</TradeRouteGoldModifierPerInternationalRoute>
+			<FoodModifierPerHappyLuxuryType>2</FoodModifierPerHappyLuxuryType>
+			<FoodModifierPerHappyLuxuryCap>50</FoodModifierPerHappyLuxuryCap>
+			<Help>TXT_KEY_EFFECT_CSUA_MANILA_ALLY_HELP</Help>
+		</Row>
+		<!-- 马尼拉（朋友）：国际商路金钱+10% -->
+		<Row>
+			<Type>EFFECT_CSUA_MANILA_FRIEND</Type>
+			<TradeRouteGoldPercentInternational>10</TradeRouteGoldPercentInternational>
+			<Help>TXT_KEY_EFFECT_CSUA_MANILA_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1581,6 +1596,13 @@
 			<Help>TXT_KEY_CSUA_RIGA_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_RIGA_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_RIGA_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_MANILA</Type>
+			<Description>TXT_KEY_CITYSTATE_MANILA</Description>
+			<Help>TXT_KEY_CSUA_MANILA_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_MANILA_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_MANILA_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>

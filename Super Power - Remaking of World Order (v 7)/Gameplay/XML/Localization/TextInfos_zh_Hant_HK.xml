@@ -18366,5 +18366,30 @@
 				[NEWLINE][ICON_BULLET]朋友的沿河城市+6%[ICON_GOLD]金錢和[ICON_FOOD]食物
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_MANILA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的國際[ICON_INTERNATIONAL_TRADE]商路[ICON_GOLD]金錢收益+25%
+				[NEWLINE][ICON_BULLET]盟友每有一條[ICON_INTERNATIONAL_TRADE]國際商路，所有國際商路[ICON_GOLD]金錢收益額外+2%
+				[NEWLINE][ICON_BULLET]盟友每一種提供[ICON_HAPPINESS_1]快樂的[ICON_GOLD]奢侈品，全國[ICON_FOOD]食物+2%（上限+50%）
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的國際[ICON_INTERNATIONAL_TRADE]商路[ICON_GOLD]金錢收益+10%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MANILA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的國際[ICON_INTERNATIONAL_TRADE]商路[ICON_GOLD]金錢收益+25%
+				[NEWLINE][ICON_BULLET]盟友每有一條[ICON_INTERNATIONAL_TRADE]國際商路，所有國際商路[ICON_GOLD]金錢收益額外+2%
+				[NEWLINE][ICON_BULLET]盟友每一種提供[ICON_HAPPINESS_1]快樂的[ICON_GOLD]奢侈品，全國[ICON_FOOD]食物+2%（上限+50%）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MANILA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的國際[ICON_INTERNATIONAL_TRADE]商路[ICON_GOLD]金錢收益+10%
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
