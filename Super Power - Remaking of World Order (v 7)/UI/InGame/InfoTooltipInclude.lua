@@ -589,7 +589,10 @@ function GetHelpTextForUnit( unitID ) -- isIncludeRequirementsInfo )
 
 	-- Great Merchant
 	if (unit.BaseGold or 0) > 0 then
-		insert( tips, format( "[ICON_BULLET]%s %i%s%+i[ICON_INFLUENCE]", L"TXT_KEY_MISSION_CONDUCT_TRADE_MISSION", unit.BaseGold + ( unit.NumGoldPerEra or 0 ) * ( Game and Teams[Game.GetActiveTeam()]:GetCurrentEra() or PreGame.GetEra() ), g_currencyIcon, GameDefines.MINOR_FRIENDSHIP_FROM_TRADE_MISSION or 0 ) )
+		local iEra = Game and Teams[Game.GetActiveTeam()]:GetCurrentEra() or PreGame.GetEra()
+		-- Influence scales with era for units with NumInfluencePerEra (matches CvUnit::getTradeInfluence)
+		local iInfluence = ( GameDefines.MINOR_FRIENDSHIP_FROM_TRADE_MISSION or 0 ) + ( unit.NumInfluencePerEra or 0 ) * iEra
+		insert( tips, format( "[ICON_BULLET]%s %i%s%+i[ICON_INFLUENCE]", L"TXT_KEY_MISSION_CONDUCT_TRADE_MISSION", unit.BaseGold + ( unit.NumGoldPerEra or 0 ) * iEra, g_currencyIcon, iInfluence ) )
 	end
 
 	-- Other tags
