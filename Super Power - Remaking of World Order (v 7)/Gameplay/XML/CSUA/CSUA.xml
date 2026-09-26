@@ -349,6 +349,16 @@
 			<Type>EFFECT_CSUA_YEREVAN_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_YEREVAN_FRIEND_HELP</Help>
 		</Row>
+		<!-- 波哥大（盟友/朋友）：开发指定奢侈的城市获得文化百分比加成，拥有黄金国的城市获得旅游百分比加成，
+		     每拥有一座开发指定奢侈的城市全国旅游+5%（仅盟友）。明细见下方 SpecialCity* 表 -->
+		<Row>
+			<Type>EFFECT_CSUA_BOGOTA_ALLY</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_BOGOTA_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_BOGOTA_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_BOGOTA_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1529,6 +1539,13 @@
 			<AllyEffectType>EFFECT_CSUA_YEREVAN_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_YEREVAN_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_BOGOTA</Type>
+			<Description>TXT_KEY_CITYSTATE_BOGOTA</Description>
+			<Help>TXT_KEY_CSUA_BOGOTA_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_BOGOTA_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_BOGOTA_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -1722,4 +1739,91 @@
 	 </CityStateUAEffect_BornGreatPersonYieldModifiers>
 	 <!-- 埃里温"圣地邻近改良+1文化"的 CityStateUAEffect_AdjacentImprovementYieldChanges 数据由 CSUA.sql 用
 	      INSERT...SELECT FROM Improvements + AFTER INSERT 触发器全量枚举生成（对齐 SP_AdjacentImprovementYieldChangesForNewImproments）-->
+	 <!-- 波哥大：命名特殊城市类型（被多个效果复用）。判定 = And 表全部命中 且（Or 表为空 或 任一命中） -->
+	 <CityStateUAEffect_SpecialCityTypes>
+		<Row>
+			<Type>SPECIAL_CITY_BOGOTA_LUXURY</Type>
+		</Row>
+		<Row>
+			<Type>SPECIAL_CITY_BOGOTA_EL_DORADO</Type>
+		</Row>
+	 </CityStateUAEffect_SpecialCityTypes>
+	 <!-- 波哥大：开发了黄金/白银/珍珠/宝石/琥珀/玉石其一的城市（纯 OR） -->
+	 <CityStateUAEffect_SpecialCityTypeConditionsOr>
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_BOGOTA_LUXURY</SpecialCityType>
+			<ConditionType>HAS_RESOURCE</ConditionType>
+			<Value>RESOURCE_GOLD</Value>
+		</Row>
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_BOGOTA_LUXURY</SpecialCityType>
+			<ConditionType>HAS_RESOURCE</ConditionType>
+			<Value>RESOURCE_SILVER</Value>
+		</Row>
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_BOGOTA_LUXURY</SpecialCityType>
+			<ConditionType>HAS_RESOURCE</ConditionType>
+			<Value>RESOURCE_PEARLS</Value>
+		</Row>
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_BOGOTA_LUXURY</SpecialCityType>
+			<ConditionType>HAS_RESOURCE</ConditionType>
+			<Value>RESOURCE_GEMS</Value>
+		</Row>
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_BOGOTA_LUXURY</SpecialCityType>
+			<ConditionType>HAS_RESOURCE</ConditionType>
+			<Value>RESOURCE_AMBER</Value>
+		</Row>
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_BOGOTA_LUXURY</SpecialCityType>
+			<ConditionType>HAS_RESOURCE</ConditionType>
+			<Value>RESOURCE_JADE</Value>
+		</Row>
+		<!-- 波哥大：城市疆域内含黄金国 -->
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_BOGOTA_EL_DORADO</SpecialCityType>
+			<ConditionType>HAS_FEATURE</ConditionType>
+			<Value>FEATURE_EL_DORADO</Value>
+		</Row>
+	 </CityStateUAEffect_SpecialCityTypeConditionsOr>
+	 <!-- 波哥大：本次无 AND 条件（保留结构供后续城邦使用） -->
+	 <CityStateUAEffect_SpecialCityTypeConditionsAnd>
+	 </CityStateUAEffect_SpecialCityTypeConditionsAnd>
+	 <!-- 波哥大：符合特殊城市类型的城市获得产出百分比加成（不叠加） -->
+	 <CityStateUAEffect_SpecialCityYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_BOGOTA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_BOGOTA_LUXURY</SpecialCityType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>35</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BOGOTA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_BOGOTA_EL_DORADO</SpecialCityType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<YieldMod>100</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BOGOTA_FRIEND</EffectType>
+			<SpecialCityType>SPECIAL_CITY_BOGOTA_LUXURY</SpecialCityType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>15</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BOGOTA_FRIEND</EffectType>
+			<SpecialCityType>SPECIAL_CITY_BOGOTA_EL_DORADO</SpecialCityType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<YieldMod>40</YieldMod>
+		</Row>
+	 </CityStateUAEffect_SpecialCityYieldModifiers>
+	 <!-- 波哥大：每拥有一座符合特殊城市类型的城市，全国城市获得产出百分比加成（仅盟友） -->
+	 <CityStateUAEffect_SpecialCityCountYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_BOGOTA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_BOGOTA_LUXURY</SpecialCityType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<YieldMod>5</YieldMod>
+		</Row>
+	 </CityStateUAEffect_SpecialCityCountYieldModifiers>
 </GameData>

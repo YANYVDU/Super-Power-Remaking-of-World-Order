@@ -20018,5 +20018,32 @@
 		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_EXTRA">
 			<Text>Extra Gold (City Output/Era/Sea/Religion/CSUA): {1_Num} [ICON_GOLD]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_BOGOTA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Cities that have developed [ICON_RES_GOLD]Gold, [ICON_RES_SILVER]Silver, [ICON_RES_PEARLS]Pearls, [ICON_RES_GEMS]Gems, [ICON_RES_AMBER]Amber or [ICON_RES_JADE]Jade gain +35% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]Each such city grants +5% [ICON_TOURISM]Tourism to all cities
+				[NEWLINE][ICON_BULLET]A city containing El Dorado gains +100% [ICON_TOURISM]Tourism
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Cities that have developed [ICON_RES_GOLD]Gold, [ICON_RES_SILVER]Silver, [ICON_RES_PEARLS]Pearls, [ICON_RES_GEMS]Gems, [ICON_RES_AMBER]Amber or [ICON_RES_JADE]Jade gain +15% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]A city containing El Dorado gains +40% [ICON_TOURISM]Tourism
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BOGOTA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Cities that have developed [ICON_RES_GOLD]Gold, [ICON_RES_SILVER]Silver, [ICON_RES_PEARLS]Pearls, [ICON_RES_GEMS]Gems, [ICON_RES_AMBER]Amber or [ICON_RES_JADE]Jade gain +35% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]Each such city grants +5% [ICON_TOURISM]Tourism to all cities
+				[NEWLINE][ICON_BULLET]A city containing El Dorado gains +100% [ICON_TOURISM]Tourism
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BOGOTA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Cities that have developed [ICON_RES_GOLD]Gold, [ICON_RES_SILVER]Silver, [ICON_RES_PEARLS]Pearls, [ICON_RES_GEMS]Gems, [ICON_RES_AMBER]Amber or [ICON_RES_JADE]Jade gain +15% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]A city containing El Dorado gains +40% [ICON_TOURISM]Tourism
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

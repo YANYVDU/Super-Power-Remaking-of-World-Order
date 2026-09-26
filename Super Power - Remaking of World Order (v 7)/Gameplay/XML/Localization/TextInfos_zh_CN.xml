@@ -18487,5 +18487,32 @@
 		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_EXTRA">
 			<Text>额外收益（城市产出/时代/海路/信条/CSUA）: {1_Num} [ICON_GOLD]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_BOGOTA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友开发了[ICON_RES_GOLD]黄金、[ICON_RES_SILVER]白银、[ICON_RES_PEARLS]珍珠、[ICON_RES_GEMS]宝石、[ICON_RES_AMBER]琥珀、[ICON_RES_JADE]玉石其一的城市，该城市+35%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]盟友每拥有一座此类城市，所有城市+5%[ICON_TOURISM]魅力
+				[NEWLINE][ICON_BULLET]盟友拥有黄金国的城市额外+100%[ICON_TOURISM]魅力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友开发了[ICON_RES_GOLD]黄金、[ICON_RES_SILVER]白银、[ICON_RES_PEARLS]珍珠、[ICON_RES_GEMS]宝石、[ICON_RES_AMBER]琥珀、[ICON_RES_JADE]玉石其一的城市，该城市+15%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]朋友拥有黄金国的城市额外+40%[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BOGOTA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友开发了[ICON_RES_GOLD]黄金、[ICON_RES_SILVER]白银、[ICON_RES_PEARLS]珍珠、[ICON_RES_GEMS]宝石、[ICON_RES_AMBER]琥珀、[ICON_RES_JADE]玉石其一的城市，该城市+35%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]盟友每拥有一座此类城市，所有城市+5%[ICON_TOURISM]魅力
+				[NEWLINE][ICON_BULLET]盟友拥有黄金国的城市额外+100%[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BOGOTA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友开发了[ICON_RES_GOLD]黄金、[ICON_RES_SILVER]白银、[ICON_RES_PEARLS]珍珠、[ICON_RES_GEMS]宝石、[ICON_RES_AMBER]琥珀、[ICON_RES_JADE]玉石其一的城市，该城市+15%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]朋友拥有黄金国的城市额外+40%[ICON_TOURISM]魅力
+			</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>
