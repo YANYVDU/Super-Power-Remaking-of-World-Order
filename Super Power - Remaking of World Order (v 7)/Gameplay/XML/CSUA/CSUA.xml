@@ -431,6 +431,14 @@
 			<WorldWonderHappiness>100</WorldWonderHappiness>
 			<Help>TXT_KEY_EFFECT_CSUA_UR_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_MOMBASA_ALLY</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_MOMBASA_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_MOMBASA_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_MOMBASA_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -1651,6 +1659,13 @@
 			<AllyEffectType>EFFECT_CSUA_UR_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_UR_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_MOMBASA</Type>
+			<Description>TXT_KEY_CITYSTATE_MOMBASA</Description>
+			<Help>TXT_KEY_CSUA_MOMBASA_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_MOMBASA_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_MOMBASA_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -1984,10 +1999,13 @@
 			<Type>SPECIAL_CITY_PUPPET</Type>
 		</Row>
 		<Row>
-			<Type>SPECIAL_CITY_TYRE_COASTAL</Type>
+			<Type>SPECIAL_CITY_COASTAL</Type>
 		</Row>
 		<Row>
 			<Type>SPECIAL_CITY_TYRE_OTHER_CONTINENT</Type>
+		</Row>
+		<Row>
+			<Type>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</Type>
 		</Row>
 	 </CityStateUAEffect_SpecialCityTypes>
 	 <CityStateUAEffect_SpecialCityTypeConditionsOr>
@@ -2045,12 +2063,16 @@
 			<ConditionType>IS_PUPPET</ConditionType>
 		</Row>
 		<Row>
-			<SpecialCityType>SPECIAL_CITY_TYRE_COASTAL</SpecialCityType>
+			<SpecialCityType>SPECIAL_CITY_COASTAL</SpecialCityType>
 			<ConditionType>IS_COASTAL</ConditionType>
 		</Row>
 		<Row>
 			<SpecialCityType>SPECIAL_CITY_TYRE_OTHER_CONTINENT</SpecialCityType>
 			<ConditionType>IS_OTHER_CONTINENT</ConditionType>
+		</Row>
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</SpecialCityType>
+			<ConditionType>HAS_LAND_AND_SEA_INTERNATIONAL_TR</ConditionType>
 		</Row>
 	 </CityStateUAEffect_SpecialCityTypeConditionsAnd>
 	 <CityStateUAEffect_SpecialCityYieldModifiers>
@@ -2126,6 +2148,42 @@
 			<YieldType>YIELD_FOOD</YieldType>
 			<YieldMod>6</YieldMod>
 		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MOMBASA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</SpecialCityType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>15</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MOMBASA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</SpecialCityType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>15</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MOMBASA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</SpecialCityType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>15</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MOMBASA_FRIEND</EffectType>
+			<SpecialCityType>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</SpecialCityType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>6</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MOMBASA_FRIEND</EffectType>
+			<SpecialCityType>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</SpecialCityType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>6</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MOMBASA_FRIEND</EffectType>
+			<SpecialCityType>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</SpecialCityType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>6</YieldMod>
+		</Row>
 	 </CityStateUAEffect_SpecialCityYieldModifiers>
 	 <CityStateUAEffect_SpecialCityCountYieldModifiers>
 		<Row>
@@ -2138,6 +2196,18 @@
 			<EffectType>EFFECT_CSUA_TYRE_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_TYRE_OTHER_CONTINENT</SpecialCityType>
 			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>5</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MOMBASA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_COASTAL</SpecialCityType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>5</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MOMBASA_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_COASTAL</SpecialCityType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
 			<YieldMod>5</YieldMod>
 		</Row>
 	 </CityStateUAEffect_SpecialCityCountYieldModifiers>
@@ -2207,7 +2277,7 @@
 	 <CityStateUAEffect_SpecialCityDamageReduction>
 		<Row>
 			<EffectType>EFFECT_CSUA_TYRE_ALLY</EffectType>
-			<SpecialCityType>SPECIAL_CITY_TYRE_COASTAL</SpecialCityType>
+			<SpecialCityType>SPECIAL_CITY_COASTAL</SpecialCityType>
 			<Percent>40</Percent>
 		</Row>
 	 </CityStateUAEffect_SpecialCityDamageReduction>

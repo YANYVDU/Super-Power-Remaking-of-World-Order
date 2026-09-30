@@ -20323,5 +20323,28 @@
 		<Row Tag="TXT_KEY_PLOT_NAME_COLOR_LEGEND">
 			<Text>Color prefix:</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_MOMBASA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Ally's cities that send out both a land and a sea [ICON_INTERNATIONAL_TRADE]international trade route gain +15% [ICON_GOLD]Gold, [ICON_CULTURE]Culture and [ICON_FOOD]Food
+				[NEWLINE][ICON_BULLET]Each coastal city of the ally grants +5% [ICON_FOOD]Food and [ICON_PRODUCTION]Production nation-wide
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Friend's cities that send out both a land and a sea [ICON_INTERNATIONAL_TRADE]international trade route gain +6% [ICON_GOLD]Gold, [ICON_CULTURE]Culture and [ICON_FOOD]Food
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MOMBASA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Ally's cities that send out both a land and a sea [ICON_INTERNATIONAL_TRADE]international trade route gain +15% [ICON_GOLD]Gold, [ICON_CULTURE]Culture and [ICON_FOOD]Food
+				[NEWLINE][ICON_BULLET]Each coastal city of the ally grants +5% [ICON_FOOD]Food and [ICON_PRODUCTION]Production nation-wide
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MOMBASA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Friend's cities that send out both a land and a sea [ICON_INTERNATIONAL_TRADE]international trade route gain +6% [ICON_GOLD]Gold, [ICON_CULTURE]Culture and [ICON_FOOD]Food
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

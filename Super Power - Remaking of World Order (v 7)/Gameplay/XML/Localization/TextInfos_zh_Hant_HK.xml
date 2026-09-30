@@ -18598,5 +18598,28 @@
 		<Row Tag="TXT_KEY_PLOT_NAME_COLOR_LEGEND">
 			<Text>顏色前綴:</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_MOMBASA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友同時發出陸路與海路[ICON_INTERNATIONAL_TRADE]國際商路的城市，+15%[ICON_GOLD]金錢、[ICON_CULTURE]文化、[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]盟友每座沿海城市，全國+5%[ICON_FOOD]食物和[ICON_PRODUCTION]產能
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友同時發出陸路與海路[ICON_INTERNATIONAL_TRADE]國際商路的城市，+6%[ICON_GOLD]金錢、[ICON_CULTURE]文化、[ICON_FOOD]食物
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MOMBASA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友同時發出陸路與海路[ICON_INTERNATIONAL_TRADE]國際商路的城市，+15%[ICON_GOLD]金錢、[ICON_CULTURE]文化、[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]盟友每座沿海城市，全國+5%[ICON_FOOD]食物和[ICON_PRODUCTION]產能
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MOMBASA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友同時發出陸路與海路[ICON_INTERNATIONAL_TRADE]國際商路的城市，+6%[ICON_GOLD]金錢、[ICON_CULTURE]文化、[ICON_FOOD]食物
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
