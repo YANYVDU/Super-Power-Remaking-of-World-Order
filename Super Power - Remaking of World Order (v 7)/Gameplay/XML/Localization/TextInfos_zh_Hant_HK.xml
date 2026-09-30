@@ -18512,5 +18512,36 @@
 				[NEWLINE][ICON_BULLET]每座大型城市使全國+4%[ICON_GOLD]金錢與[ICON_RESEARCH]科研
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_TYRE_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每處碼頭、船塢使全國+10%[ICON_PRODUCTION]產能
+				[NEWLINE][ICON_BULLET]沿海城市受到的傷害降低40%
+				[NEWLINE][ICON_BULLET]每座與原始首都不同大陸的城市使全國+5%[ICON_GOLD]金錢
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]每處碼頭、船塢使全國+4%[ICON_PRODUCTION]產能
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_TYRE_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每處碼頭、船塢使全國+10%[ICON_PRODUCTION]產能
+				[NEWLINE][ICON_BULLET]沿海城市受到的傷害降低40%
+				[NEWLINE][ICON_BULLET]每座與原始首都不同大陸的城市使全國+5%[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_TYRE_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]每處碼頭、船塢使全國+4%[ICON_PRODUCTION]產能
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CSUA_DAMAGE_REDUCTION_SP">
+			<Text>[COLOR_CYAN]城邦傷害減免[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CSUA_DAMAGE_REDUCTION_TT_SP">
+			<Text>該城市因其城邦的獨特能力而減免受到的傷害</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

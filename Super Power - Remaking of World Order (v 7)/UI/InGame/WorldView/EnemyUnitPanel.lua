@@ -409,6 +409,18 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				end
             end
 
+			-- CityState UA (Tyre): cities matching the UA take a percent less damage. The DLL applies this
+			-- inside CvCity::changeDamage, after the flat adjustments above, so mirror that order here.
+			-- math.floor matches the DLL's integer division (Lua's / is float division and would leak a
+			-- fractional damage value into the number shown and into the health bar preview).
+			local iCSUADamageReduction = pCity:GetCSUADamageReductionPercent()
+			if iCSUADamageReduction > 0 and iMyDamageInflicted > 0 then
+				iMyDamageInflicted = math.floor(iMyDamageInflicted * (100 - iCSUADamageReduction) / 100)
+				if iMyDamageInflicted < 1 then
+					iMyDamageInflicted = 1
+				end
+			end
+
 			if pMyUnit:GetForcedDamageValue() > 0 then
 				iTheirDamageInflicted = pMyUnit:GetForcedDamageValue()
 			end
@@ -504,6 +516,14 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				controlTable = g_TheirCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_CHANGE_DAMAGEVALUE_SUPPORT_SP");
 				controlTable.Value:SetText(ChangeDamageValue .. " :[COLOR_CYAN]".. "[ENDCOLOR]");
+            end
+
+			-- CityState UA damage reduction (Tyre): the percent this city shrugs off before damage lands
+			if iCSUADamageReduction > 0 then
+				controlTable = g_TheirCombatDataIM:GetInstance();
+				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_CSUA_DAMAGE_REDUCTION_SP");
+				controlTable.Text:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_EUPANEL_CSUA_DAMAGE_REDUCTION_TT_SP"));
+				controlTable.Value:SetText("[COLOR_CYAN]-" .. iCSUADamageReduction .. "%[ENDCOLOR]");
             end
 
 			-- Their Strength

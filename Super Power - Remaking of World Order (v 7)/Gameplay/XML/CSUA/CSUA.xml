@@ -450,6 +450,18 @@
 			<Type>EFFECT_CSUA_SINGAPORE_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_SINGAPORE_FRIEND_HELP</Help>
 		</Row>
+		<!-- 推罗（盟友）：每处码头/船坞→全国产能+10%（按建筑逐个计数，同城两类叠加为+20%）；
+		     沿海城市受到伤害-40%（核爆伤害绕过此减免）；
+		     每座与原始首都不同大陆的城市→全国金钱+5%（明细见下方对应表） -->
+		<Row>
+			<Type>EFFECT_CSUA_TYRE_ALLY</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_TYRE_ALLY_HELP</Help>
+		</Row>
+		<!-- 推罗（朋友）：每处码头/船坞→全国产能+4%（按建筑逐个计数，同城两类叠加为+8%） -->
+		<Row>
+			<Type>EFFECT_CSUA_TYRE_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_TYRE_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1686,6 +1698,13 @@
 			<AllyEffectType>EFFECT_CSUA_SINGAPORE_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_SINGAPORE_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_TYRE</Type>
+			<Description>TXT_KEY_CITYSTATE_TYRE</Description>
+			<Help>TXT_KEY_CSUA_TYRE_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_TYRE_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_TYRE_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -2006,6 +2025,12 @@
 		<Row>
 			<Type>SPECIAL_CITY_PUPPET</Type>
 		</Row>
+		<Row>
+			<Type>SPECIAL_CITY_TYRE_COASTAL</Type>
+		</Row>
+		<Row>
+			<Type>SPECIAL_CITY_TYRE_OTHER_CONTINENT</Type>
+		</Row>
 	 </CityStateUAEffect_SpecialCityTypes>
 	 <!-- 波哥大：开发了黄金/白银/珍珠/宝石/琥珀/玉石其一的城市（纯 OR） -->
 	 <CityStateUAEffect_SpecialCityTypeConditionsOr>
@@ -2067,6 +2092,16 @@
 		<Row>
 			<SpecialCityType>SPECIAL_CITY_PUPPET</SpecialCityType>
 			<ConditionType>IS_PUPPET</ConditionType>
+		</Row>
+		<!-- 推罗：临海城市（湖泊不算沿海） -->
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_TYRE_COASTAL</SpecialCityType>
+			<ConditionType>IS_COASTAL</ConditionType>
+		</Row>
+		<!-- 推罗：与原始首都不在同一大陆（连续陆块）的城市 -->
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_TYRE_OTHER_CONTINENT</SpecialCityType>
+			<ConditionType>IS_OTHER_CONTINENT</ConditionType>
 		</Row>
 	 </CityStateUAEffect_SpecialCityTypeConditionsAnd>
 	 <!-- 符合特殊城市类型的城市获得产出百分比加成；同一城市匹配多个特殊城市类型时，同种产出的修正【累加】 -->
@@ -2156,6 +2191,13 @@
 			<YieldType>YIELD_TOURISM</YieldType>
 			<YieldMod>5</YieldMod>
 		</Row>
+		<!-- 推罗（盟友）：每拥有一座与原始首都不同大陆的城市，全国金钱+5% -->
+		<Row>
+			<EffectType>EFFECT_CSUA_TYRE_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_TYRE_OTHER_CONTINENT</SpecialCityType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>5</YieldMod>
+		</Row>
 	 </CityStateUAEffect_SpecialCityCountYieldModifiers>
 	 <!-- 布加勒斯特：每拥有一座世界奇观，全国文化/魅力+X%（YieldMod 为普通百分比，Cap 0=无上限） -->
 	 <CityStateUAEffect_WorldWonderYieldModifiers>
@@ -2225,6 +2267,15 @@
 			<YieldMod>1</YieldMod>
 		</Row>
 	 </CityStateUAEffect_SpecialCityPopulationYieldModifiers>
+	 <!-- 推罗（盟友）：符合特殊城市类型的城市（沿海）受到的所有伤害降低 Percent%（普通百分比，40=-40%），
+	      多条命中累加后由代码钳制在90；仅对受到伤害生效，回血不受影响 -->
+	 <CityStateUAEffect_SpecialCityDamageReduction>
+		<Row>
+			<EffectType>EFFECT_CSUA_TYRE_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_TYRE_COASTAL</SpecialCityType>
+			<Percent>40</Percent>
+		</Row>
+	 </CityStateUAEffect_SpecialCityDamageReduction>
 	 <!-- 新加坡（盟友/朋友）：每拥有一座持有该建筑类的城市（城市规模/腐败档位的假建筑每城恰好1个，
 	      故建筑类计数即城市数），全国所有城市获得 YieldMod% 产出。YieldMod 为普通百分比（10=每座+10%），
 	      数值不封顶。 -->
@@ -2257,6 +2308,33 @@
 			<EffectType>EFFECT_CSUA_SINGAPORE_FRIEND</EffectType>
 			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_LARGE</BuildingClassType>
 			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>4</YieldMod>
+		</Row>
+		<!-- 推罗（盟友）：每处码头/船坞→全国产能+10%。按建筑类逐个计数（真实建筑，非每城唯一的假建筑），
+		     同一城市同时拥有码头与船坞时两类叠加为 +20%，此为设计内行为 -->
+		<Row>
+			<EffectType>EFFECT_CSUA_TYRE_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_WOOD_DOCK</BuildingClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>10</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_TYRE_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_SHIPYARD</BuildingClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>10</YieldMod>
+		</Row>
+		<!-- 推罗（朋友）：每处码头/船坞→全国产能+4%（同城叠加同理） -->
+		<Row>
+			<EffectType>EFFECT_CSUA_TYRE_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_WOOD_DOCK</BuildingClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>4</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_TYRE_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_SHIPYARD</BuildingClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
 			<YieldMod>4</YieldMod>
 		</Row>
 	 </CityStateUAEffect_BuildingClassGlobalYieldModifiers>
