@@ -32,3 +32,4 @@ include("UnitSpecialButtons_SP8");
 include("Policy_FreeBuildingClass");
 -- CSD
 include("NewCityStateDiplomaticRule");
+include("CSUA_RefreshOnLoad");
