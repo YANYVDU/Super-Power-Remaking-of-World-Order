@@ -18920,5 +18920,30 @@
 				[NEWLINE][ICON_BULLET]朋友每有一个轻重骑兵，单位维护费[ICON_GOLD]-2，至多降低为0
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_HANOI_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]敌人在盟友境内时，其[ICON_WAR]固定伤害与固定免伤失效
+				[NEWLINE][ICON_BULLET]盟友每完成过一次战争和谈，全国+5%[ICON_CULTURE]文化产出
+				[NEWLINE][ICON_BULLET]盟友每被宣战过一次，全国境内敌军-10%[ICON_STRENGTH]战斗力（最多-50%）
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]敌人在朋友境内时，其[ICON_WAR]固定伤害与固定免伤只能生效50%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HANOI_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]敌人在盟友境内时，其[ICON_WAR]固定伤害与固定免伤失效
+				[NEWLINE][ICON_BULLET]盟友每完成过一次战争和谈，全国+5%[ICON_CULTURE]文化产出
+				[NEWLINE][ICON_BULLET]盟友每被宣战过一次，全国境内敌军-10%[ICON_STRENGTH]战斗力（最多-50%）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HANOI_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]敌人在朋友境内时，其[ICON_WAR]固定伤害与固定免伤只能生效50%
+			</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

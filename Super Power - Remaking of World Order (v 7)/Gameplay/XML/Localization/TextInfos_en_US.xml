@@ -20451,5 +20451,30 @@
 				[NEWLINE][ICON_BULLET]For each light or heavy cavalry unit the friend owns, unit maintenance is reduced by [ICON_GOLD]2 gold (cannot go below 0)
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_HANOI_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]While enemy units are inside the ally's territory, their [ICON_WAR]fixed damage and fixed damage reduction are nullified
+				[NEWLINE][ICON_BULLET]For each war peace treaty the ally has completed, the ally gains +5% [ICON_CULTURE]Culture nation-wide
+				[NEWLINE][ICON_BULLET]For each time the ally has been declared war on, enemy units inside the ally's territory lose 10% [ICON_STRENGTH]Combat Strength (up to 50%)
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]While enemy units are inside the friend's territory, their [ICON_WAR]fixed damage and fixed damage reduction only work at 50%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HANOI_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]While enemy units are inside the ally's territory, their [ICON_WAR]fixed damage and fixed damage reduction are nullified
+				[NEWLINE][ICON_BULLET]For each war peace treaty the ally has completed, the ally gains +5% [ICON_CULTURE]Culture nation-wide
+				[NEWLINE][ICON_BULLET]For each time the ally has been declared war on, enemy units inside the ally's territory lose 10% [ICON_STRENGTH]Combat Strength (up to 50%)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HANOI_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]While enemy units are inside the friend's territory, their [ICON_WAR]fixed damage and fixed damage reduction only work at 50%
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

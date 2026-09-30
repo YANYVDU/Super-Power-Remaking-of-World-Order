@@ -482,6 +482,18 @@
 			<UnitMaintenancePerCavalry>2</UnitMaintenancePerCavalry>
 			<Help>TXT_KEY_EFFECT_CSUA_BUDAPEST_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_HANOI_ALLY</Type>
+			<EnemyFixedDamageModifierInBorders>100</EnemyFixedDamageModifierInBorders>
+			<CulturePerWarPeace>5</CulturePerWarPeace>
+			<EnemyCombatModifierInBordersPerBeenDoW>-10</EnemyCombatModifierInBordersPerBeenDoW>
+			<Help>TXT_KEY_EFFECT_CSUA_HANOI_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_HANOI_FRIEND</Type>
+			<EnemyFixedDamageModifierInBorders>50</EnemyFixedDamageModifierInBorders>
+			<Help>TXT_KEY_EFFECT_CSUA_HANOI_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -1772,6 +1784,13 @@
 			<Help>TXT_KEY_CSUA_BUDAPEST_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_BUDAPEST_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_BUDAPEST_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_HANOI</Type>
+			<Description>TXT_KEY_CITYSTATE_HANOI</Description>
+			<Help>TXT_KEY_CSUA_HANOI_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_HANOI_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_HANOI_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
