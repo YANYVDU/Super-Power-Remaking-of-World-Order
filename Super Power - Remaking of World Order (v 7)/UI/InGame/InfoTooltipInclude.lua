@@ -970,6 +970,62 @@ local function GetSpecialistYields( city, specialist )
 	return tip
 end
 
+local g_csuaBCYieldCache = nil
+local function GetCSUABuildingClassYieldCache()
+	if g_csuaBCYieldCache then
+		return g_csuaBCYieldCache
+	end
+	if not Game then
+		return { index = {}, yieldNames = {} }
+	end
+
+	local index = {}
+	local function findOrAddEntry( byClass, civType, civName )
+		for i = 1, #byClass do
+			if byClass[i].civType == civType then return byClass[i] end
+		end
+		local entry = { civType = civType, name = civName or civType, ally = {}, friend = {} }
+		byClass[ #byClass + 1 ] = entry
+		return entry
+	end
+	local strBase = "SELECT m.Type AS CivType, m.ShortDescription AS CivName,"
+		.. " y.BuildingClassType AS BuildingClassType, y.YieldType AS YieldType, y.YieldMod AS YieldMod"
+		.. " FROM MinorCivilizations m"
+		.. " JOIN CityStateUAs ua ON ua.Type = m.UAType"
+		.. " JOIN %s y ON y.EffectType = ua.%s"
+	local function collectRows( strTable, strEffectColumn, strStance, bGlobal )
+		pcall( function()
+			for row in DB.Query( format( strBase, strTable, strEffectColumn ) ) do
+				local buildingClassType = row.BuildingClassType
+				if buildingClassType ~= nil and row.YieldType ~= nil then
+					local byClass = index[ buildingClassType ]
+					if byClass == nil then
+						byClass = {}
+						index[ buildingClassType ] = byClass
+					end
+					local entry = findOrAddEntry( byClass, row.CivType, row.CivName )
+					local list = entry[ strStance ]
+					list[ #list + 1 ] = { yieldType = row.YieldType, mod = row.YieldMod, global = bGlobal }
+				end
+			end
+		end )
+	end
+	collectRows( "CityStateUAEffect_BuildingClassYieldModifiers", "AllyEffectType", "ally", false )
+	collectRows( "CityStateUAEffect_BuildingClassYieldModifiers", "FriendEffectType", "friend", false )
+	collectRows( "CityStateUAEffect_BuildingClassGlobalYieldModifiers", "AllyEffectType", "ally", true )
+	collectRows( "CityStateUAEffect_BuildingClassGlobalYieldModifiers", "FriendEffectType", "friend", true )
+
+	local yieldNames = {}
+	pcall( function()
+		for row in DB.Query( "SELECT Type, Description FROM Yields" ) do
+			yieldNames[ row.Type ] = L( row.Description )
+		end
+	end )
+
+	g_csuaBCYieldCache = { index = index, yieldNames = yieldNames }
+	return g_csuaBCYieldCache
+end
+
 function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader, bNoMaintenance, city )
 	local building = GameInfo.Buildings[ buildingID ]
 	if not building then
@@ -1397,6 +1453,59 @@ function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader, bNoMa
 			insert( tips, L(yield.Description) .. ": " .. tip )
 		end
 	end
+
+	if Game and activePlayer and buildingClassType then
+		local csuaCache = GetCSUABuildingClassYieldCache()
+		local csuaEntries = csuaCache.index[ buildingClassType ]
+		if csuaEntries ~= nil then
+			local strColon = ": "
+			local strSep = ", "
+			local iMajor = Game.GetActivePlayer()
+			local minorPlayers = {}
+			for iPlayer = 0, GameDefines.MAX_CIV_PLAYERS - 1 do
+				local pPlayer = Players[ iPlayer ]
+				if pPlayer ~= nil and pPlayer:IsMinorCiv() then
+					minorPlayers[ pPlayer:GetMinorCivType() ] = pPlayer
+				end
+			end
+
+			local function csuaYieldList( rows )
+				local parts = {}
+				for i = 1, #rows do
+					local e = rows[i]
+					local strYield = csuaCache.yieldNames[ e.yieldType ] or e.yieldType or "?"
+					local strPart = format( "%+i%%%s%s", e.mod or 0, YieldIcons[ e.yieldType ] or "", strYield )
+					if e.global then
+						strPart = strPart .. L"TXT_KEY_CSUA_UI_GLOBAL"
+					end
+					parts[ #parts + 1 ] = strPart
+				end
+				return concat( parts, strSep )
+			end
+
+			local function csuaAddRow( entry, rows, strSuffixKey, bActive )
+				if rows == nil or #rows == 0 then return end
+				local strPrefix = "[ICON_BULLET]"
+				if not bActive then
+					strPrefix = strPrefix .. "[COLOR_CYAN]" .. L( entry.name ) .. L( strSuffixKey ) .. "[ENDCOLOR]" .. strColon
+				end
+				insert( tips, strPrefix .. csuaYieldList( rows ) )
+			end
+
+			for i = 1, #csuaEntries do
+				local entry = csuaEntries[i]
+				local pMinor = minorPlayers[ entry.civType ]
+				local bAllies = pMinor ~= nil and iMajor >= 0 and pMinor:IsAllies( iMajor )
+				local bFriends = pMinor ~= nil and iMajor >= 0 and pMinor:IsFriends( iMajor )
+
+				csuaAddRow( entry, entry.ally, "TXT_KEY_CSUA_UI_ALLY", bAllies )
+				if not bAllies then
+					csuaAddRow( entry, entry.friend, "TXT_KEY_CSUA_UI_FRIEND", bFriends )
+				end
+			end
+		end
+	end
+
 	-- Culture leftovers
 	if cultureChange ~= 0 then
 		tip = format(" %+i[ICON_CULTURE]", cultureChange )

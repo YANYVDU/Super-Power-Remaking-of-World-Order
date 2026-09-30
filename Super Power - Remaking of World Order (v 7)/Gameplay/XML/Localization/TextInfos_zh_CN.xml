@@ -18780,5 +18780,14 @@
 				[NEWLINE][ICON_BULLET]朋友每拥有1座世界奇观，全局[ICON_HAPPINESS_1]快乐+1
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_UI_ALLY">
+			<Text>（盟友）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_UI_FRIEND">
+			<Text>（朋友）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_UI_GLOBAL">
+			<Text>（全国）</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

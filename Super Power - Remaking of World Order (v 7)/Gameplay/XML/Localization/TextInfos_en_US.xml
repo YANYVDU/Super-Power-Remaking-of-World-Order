@@ -20311,5 +20311,14 @@
 				[NEWLINE][ICON_BULLET]For each World Wonder the friend owns, the nation gains +1 global [ICON_HAPPINESS_1]Happiness
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_UI_ALLY">
+			<Text> (Ally)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_UI_FRIEND">
+			<Text> (Friend)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_UI_GLOBAL">
+			<Text> (Empire)</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
