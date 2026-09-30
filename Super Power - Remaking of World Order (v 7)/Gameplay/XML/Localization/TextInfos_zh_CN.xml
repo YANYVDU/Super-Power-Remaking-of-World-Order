@@ -18893,5 +18893,32 @@
 				[NEWLINE][ICON_BULLET]朋友的城市建造的单位获得额外15经验（购买无效）
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_BUDAPEST_HELP">
+			<Text>
+				[ICON_CITY_STATE]布达佩斯
+				[NEWLINE]
+				[NEWLINE]盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有一个轻重骑兵，单位维护费[ICON_GOLD]-4，至多降低为0
+				[NEWLINE][ICON_BULLET]盟友的单位对受伤单位造成的伤害固定+4（攻防都+4）
+				[NEWLINE][ICON_BULLET]盟友的陆军免疫渡河作战惩罚
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有一个轻重骑兵，单位维护费[ICON_GOLD]-2，至多降低为0
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUDAPEST_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有一个轻重骑兵，单位维护费[ICON_GOLD]-4，至多降低为0
+				[NEWLINE][ICON_BULLET]盟友的单位对受伤单位造成的伤害固定+4（攻防都+4）
+				[NEWLINE][ICON_BULLET]盟友的陆军免疫渡河作战惩罚
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUDAPEST_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有一个轻重骑兵，单位维护费[ICON_GOLD]-2，至多降低为0
+			</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

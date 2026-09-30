@@ -470,6 +470,18 @@
 			<MilitaryUnitProductionXP>15</MilitaryUnitProductionXP>
 			<Help>TXT_KEY_EFFECT_CSUA_BELGRADE_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_BUDAPEST_ALLY</Type>
+			<UnitMaintenancePerCavalry>4</UnitMaintenancePerCavalry>
+			<WoundedFixedDamage>4</WoundedFixedDamage>
+			<LandUnitsImmuneRiverCrossing>true</LandUnitsImmuneRiverCrossing>
+			<Help>TXT_KEY_EFFECT_CSUA_BUDAPEST_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_BUDAPEST_FRIEND</Type>
+			<UnitMaintenancePerCavalry>2</UnitMaintenancePerCavalry>
+			<Help>TXT_KEY_EFFECT_CSUA_BUDAPEST_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -1753,6 +1765,13 @@
 			<Help>TXT_KEY_CSUA_BELGRADE_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_BELGRADE_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_BELGRADE_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_BUDAPEST</Type>
+			<Description>TXT_KEY_CITYSTATE_BUDAPEST</Description>
+			<Help>TXT_KEY_CSUA_BUDAPEST_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_BUDAPEST_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_BUDAPEST_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
