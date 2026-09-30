@@ -18674,5 +18674,30 @@
 		<Row Tag="TXT_KEY_VP_CULTURE_CS_UA_CULTURE_BONUS">
 			<Text>[NEWLINE]（來自城邦獨特能力：該文明累積文化值 +{1_Num}%）</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_BELGRADE_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市建造的單位獲得額外30經驗（購買無效）
+				[NEWLINE][ICON_BULLET]盟友的單位控制區域（ZOC）範圍+1
+				[NEWLINE][ICON_BULLET]盟友單位為城市提供的[ICON_STRENGTH]城防+200%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的城市建造的單位獲得額外15經驗（購買無效）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BELGRADE_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市建造的單位獲得額外30經驗（購買無效）
+				[NEWLINE][ICON_BULLET]盟友的單位控制區域（ZOC）範圍+1
+				[NEWLINE][ICON_BULLET]盟友單位為城市提供的[ICON_STRENGTH]城防+200%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BELGRADE_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的城市建造的單位獲得額外15經驗（購買無效）
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

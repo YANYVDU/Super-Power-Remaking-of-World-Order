@@ -458,6 +458,18 @@
 			<CultureVictoryProgressModifier>20</CultureVictoryProgressModifier>
 			<Help>TXT_KEY_EFFECT_CSUA_QUEBEC_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_BELGRADE_ALLY</Type>
+			<MilitaryUnitProductionXP>30</MilitaryUnitProductionXP>
+			<GarrisonCityDefenseModifier>200</GarrisonCityDefenseModifier>
+			<ZOCRangeBonus>1</ZOCRangeBonus>
+			<Help>TXT_KEY_EFFECT_CSUA_BELGRADE_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_BELGRADE_FRIEND</Type>
+			<MilitaryUnitProductionXP>15</MilitaryUnitProductionXP>
+			<Help>TXT_KEY_EFFECT_CSUA_BELGRADE_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -1734,6 +1746,13 @@
 			<Help>TXT_KEY_CSUA_QUEBEC_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_QUEBEC_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_QUEBEC_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_BELGRADE</Type>
+			<Description>TXT_KEY_CITYSTATE_BELGRADE</Description>
+			<Help>TXT_KEY_CSUA_BELGRADE_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_BELGRADE_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_BELGRADE_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>

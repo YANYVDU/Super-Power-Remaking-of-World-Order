@@ -20399,5 +20399,30 @@
 		<Row Tag="TXT_KEY_VP_CULTURE_CS_UA_CULTURE_BONUS">
 			<Text>[NEWLINE](+{1_Num}% Culture from a City-State unique ability)</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_BELGRADE_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Units built in the ally's cities gain +30 XP (purchases excluded)
+				[NEWLINE][ICON_BULLET]The ally's units exert Zone of Control at +1 range
+				[NEWLINE][ICON_BULLET]The [ICON_STRENGTH]city defense provided by the ally's garrisoned units is increased by +200%
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Units built in the friend's cities gain +15 XP (purchases excluded)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BELGRADE_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Units built in the ally's cities gain +30 XP (purchases excluded)
+				[NEWLINE][ICON_BULLET]The ally's units exert Zone of Control at +1 range
+				[NEWLINE][ICON_BULLET]The [ICON_STRENGTH]city defense provided by the ally's garrisoned units is increased by +200%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BELGRADE_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Units built in the friend's cities gain +15 XP (purchases excluded)
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
