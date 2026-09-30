@@ -2366,6 +2366,15 @@ function RefreshPlayerInfluence()
 
                     local iInfluence = pSelectedPlayer:GetInfluenceOn(iPlayer);
                     local iCulture = pPlayer:GetJONSCultureEverGenerated();
+                    -- CSUA (Quebec-style): the target's lifetime culture is inflated when another
+                    -- civilization computes its culture-victory progress against it. Fold the same
+                    -- inflation into the displayed percent and culture bar so this tab matches the
+                    -- influence level column (CvPlayerCulture::GetInfluenceLevel already applies it).
+                    local iCSInfluenceMod = pPlayer:GetCSUACultureVictoryProgressModifier();
+                    if (iCSInfluenceMod > 0) then
+                        iCulture = iCulture * (100 + iCSInfluenceMod) / 100;
+                    end
+                    playerInfluence.CultureInfluenceMod = iCSInfluenceMod;
                     local iPercent = 0;
 
                     if (iCulture > 0) then
@@ -2380,6 +2389,9 @@ function RefreshPlayerInfluence()
                         playerInfluence.PlayerId = iPlayer;
                         playerInfluence.PlayerName = Locale.Lookup(pPlayer:GetCivilizationShortDescriptionKey());
                         playerInfluence.InfluenceToolTip = Locale.Lookup("TXT_KEY_CO_THIRD_PARTY_CULTURE_INFLUENCE", pSelectedPlayer:GetCivilizationShortDescriptionKey(), iPercent * 100, pPlayer:GetCivilizationShortDescriptionKey());
+                        if (iCSInfluenceMod > 0) then
+                            playerInfluence.InfluenceToolTip = playerInfluence.InfluenceToolTip .. Locale.Lookup("TXT_KEY_VP_CULTURE_CS_UA_CULTURE_BONUS", iCSInfluenceMod);
+                        end
                     else
                         playerInfluence.PlayerId = -1;
                         playerInfluence.PlayerName = Locale.Lookup("TXT_KEY_RO_WR_UNKNOWN_CIV");
@@ -2595,7 +2607,11 @@ function SortAndDisplayPlayerInfluence()
         instance.MyTourism:SetToolTipString("[ICON_TOURISM] " .. playerInfluence.Influence);
 
         instance.TheirCulture:SetSizeVal((playerInfluence.Culture / maxCultureInfluence) * maxBarWidth, 8);
-        instance.TheirCulture:SetToolTipString("[ICON_CULTURE] " .. playerInfluence.Culture);
+        local strCultureTip = "[ICON_CULTURE] " .. playerInfluence.Culture;
+        if (playerInfluence.CultureInfluenceMod or 0) > 0 then
+            strCultureTip = strCultureTip .. Locale.Lookup("TXT_KEY_VP_CULTURE_CS_UA_CULTURE_BONUS", playerInfluence.CultureInfluenceMod);
+        end
+        instance.TheirCulture:SetToolTipString(strCultureTip);
 
         instance.TourismIcon:SetOffsetVal(influenceWidth + 16, 2);
         instance.TourismBar:SetOffsetVal(influenceWidth + 28, 18);

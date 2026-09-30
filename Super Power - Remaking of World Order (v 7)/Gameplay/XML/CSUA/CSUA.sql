@@ -58,6 +58,7 @@ UPDATE MinorCivilizations SET UAType = 'CSUA_TYRE' WHERE Type = 'MINOR_CIV_TYRE'
 UPDATE MinorCivilizations SET UAType = 'CSUA_UR' WHERE Type = 'MINOR_CIV_UR';
 UPDATE MinorCivilizations SET UAType = 'CSUA_MOMBASA' WHERE Type = 'MINOR_CIV_MOMBASA';
 UPDATE MinorCivilizations SET UAType = 'CSUA_MOGADISHU' WHERE Type = 'MINOR_CIV_MOGADISHU';
+UPDATE MinorCivilizations SET UAType = 'CSUA_QUEBEC' WHERE Type = 'MINOR_CIV_QUEBEC_CITY';
 
 -- Yerevan CS UA: +1 culture to ANY improved plot that borders a holy site (per-ImprovementType rows).
 -- Mirror of SP_AdjacentImprovementYieldChangesForNewImproments (NewSpecialistRule.sql): fully enumerate

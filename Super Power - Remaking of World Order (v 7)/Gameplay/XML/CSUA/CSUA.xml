@@ -448,6 +448,16 @@
 			<Type>EFFECT_CSUA_MOGADISHU_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_MOGADISHU_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_QUEBEC_ALLY</Type>
+			<CultureVictoryProgressModifier>50</CultureVictoryProgressModifier>
+			<Help>TXT_KEY_EFFECT_CSUA_QUEBEC_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_QUEBEC_FRIEND</Type>
+			<CultureVictoryProgressModifier>20</CultureVictoryProgressModifier>
+			<Help>TXT_KEY_EFFECT_CSUA_QUEBEC_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -743,6 +753,42 @@
 			<BuildingClassType>BUILDINGCLASS_PAGODA</BuildingClassType>
 			<DomainType>DOMAIN_AIR</DomainType>
 			<XP>5</XP>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_QUEBEC_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_WALLS</BuildingClassType>
+			<DomainType>DOMAIN_LAND</DomainType>
+			<XP>10</XP>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_QUEBEC_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType>
+			<DomainType>DOMAIN_LAND</DomainType>
+			<XP>10</XP>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_QUEBEC_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CASTLE</BuildingClassType>
+			<DomainType>DOMAIN_LAND</DomainType>
+			<XP>10</XP>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_QUEBEC_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_ARMORY</BuildingClassType>
+			<DomainType>DOMAIN_LAND</DomainType>
+			<XP>10</XP>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_QUEBEC_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_ARSENAL</BuildingClassType>
+			<DomainType>DOMAIN_LAND</DomainType>
+			<XP>10</XP>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_QUEBEC_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_MILITARY_BASE</BuildingClassType>
+			<DomainType>DOMAIN_LAND</DomainType>
+			<XP>10</XP>
 		</Row>
 	 </CityStateUAEffect_PurchasedBuildingXP>
 	 <CityStateUAEffect_UnitBornYield>
@@ -1682,6 +1728,13 @@
 			<AllyEffectType>EFFECT_CSUA_MOGADISHU_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_MOGADISHU_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_QUEBEC</Type>
+			<Description>TXT_KEY_CITYSTATE_QUEBEC_CITY</Description>
+			<Help>TXT_KEY_CSUA_QUEBEC_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_QUEBEC_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_QUEBEC_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -2267,6 +2320,20 @@
 			<Cap>0</Cap>
 		</Row>
 	 </CityStateUAEffect_DiplomatAbroadYieldModifiers>
+	 <CityStateUAEffect_UnknownInfluenceYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_QUEBEC_ALLY</EffectType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>4</YieldMod>
+			<Cap>40</Cap>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_QUEBEC_ALLY</EffectType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>4</YieldMod>
+			<Cap>40</Cap>
+		</Row>
+	 </CityStateUAEffect_UnknownInfluenceYieldModifiers>
 	 <CityStateUAEffect_LeagueVoteYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_KIEV_ALLY</EffectType>

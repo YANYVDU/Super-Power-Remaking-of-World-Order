@@ -18646,5 +18646,33 @@
 				[NEWLINE][ICON_BULLET]朋友每有一條通往城邦的[ICON_INTERNATIONAL_TRADE]國際商路，全國+2%[ICON_GOLD]金錢
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_QUEBEC_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]其他文明計算對盟友的文化勝利進度時，盟友的累積[ICON_CULTURE]文化值額外+50%
+				[NEWLINE][ICON_BULLET]每有一個文明對盟友的影響程度為默默無聞，盟友全國+4%[ICON_PRODUCTION]產能和[ICON_FOOD]食物（上限+40%）
+				[NEWLINE][ICON_BULLET]盟友購買城牆、軍營、城堡、軍械所、兵工廠、軍事基地時，全部存活陸軍+10經驗
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]其他文明計算對朋友的文化勝利進度時，朋友的累積[ICON_CULTURE]文化值額外+20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_QUEBEC_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]其他文明計算對盟友的文化勝利進度時，盟友的累積[ICON_CULTURE]文化值額外+50%
+				[NEWLINE][ICON_BULLET]每有一個文明對盟友的影響程度為默默無聞，盟友全國+4%[ICON_PRODUCTION]產能和[ICON_FOOD]食物（上限+40%）
+				[NEWLINE][ICON_BULLET]盟友購買城牆、軍營、城堡、軍械所、兵工廠、軍事基地時，全部存活陸軍+10經驗
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_QUEBEC_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]其他文明計算對朋友的文化勝利進度時，朋友的累積[ICON_CULTURE]文化值額外+20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_VP_CULTURE_CS_UA_CULTURE_BONUS">
+			<Text>[NEWLINE]（來自城邦獨特能力：該文明累積文化值 +{1_Num}%）</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
