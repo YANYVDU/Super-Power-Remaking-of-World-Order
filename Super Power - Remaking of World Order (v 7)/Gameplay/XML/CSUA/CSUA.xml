@@ -202,7 +202,6 @@
 			<CoupChanceModifier>12</CoupChanceModifier>
 			<Help>TXT_KEY_EFFECT_CSUA_SOFIA_FRIEND_HELP</Help>
 		</Row>
-		<!-- 西顿：盟友的单位攻城时无视城市30%来自建筑的城防；盟友的军事城邦提供的每回合免费单位经验+100%，且对海军和空军也生效；朋友无视15% -->
 		<Row>
 			<Type>EFFECT_CSUA_SIDON_ALLY</Type>
 			<CityAttackIgnoreBuildingDefensePercent>30</CityAttackIgnoreBuildingDefensePercent>
@@ -215,20 +214,17 @@
 			<CityAttackIgnoreBuildingDefensePercent>15</CityAttackIgnoreBuildingDefensePercent>
 			<Help>TXT_KEY_EFFECT_CSUA_SIDON_FRIEND_HELP</Help>
 		</Row>
-		<!-- 耶路撒冷：盟友每掌控一座圣城，其为领袖的宗教+40%宗教压力；每有一座城市信仰该宗教，盟友首都+1%科研；盟友免疫其他文明的谴责 -->
 		<Row>
 			<Type>EFFECT_CSUA_JERUSALEM_ALLY</Type>
 			<ReligiousPressureModifierPerHolyCity>40</ReligiousPressureModifierPerHolyCity>
 			<DenounceImmunity>true</DenounceImmunity>
 			<Help>TXT_KEY_EFFECT_CSUA_JERUSALEM_ALLY_HELP</Help>
 		</Row>
-		<!-- 耶路撒冷：朋友每掌控一座圣城，其为领袖的宗教+20%宗教压力 -->
 		<Row>
 			<Type>EFFECT_CSUA_JERUSALEM_FRIEND</Type>
 			<ReligiousPressureModifierPerHolyCity>20</ReligiousPressureModifierPerHolyCity>
 			<Help>TXT_KEY_EFFECT_CSUA_JERUSALEM_FRIEND_HELP</Help>
 		</Row>
-		<!-- 梵蒂冈：盟友为领袖的宗教获得教廷承认，半数以上城市信奉该宗教的文明+1代表票并为盟友每追随国提供1张；该宗教传播速度+50%；每信教城市圣城+1%魅力 -->
 		<Row>
 			<Type>EFFECT_CSUA_VATICAN_ALLY</Type>
 			<ReligionSpreadSpeedModifier>50</ReligionSpreadSpeedModifier>
@@ -236,13 +232,11 @@
 			<PapalRecognitionAllyVotes>1</PapalRecognitionAllyVotes>
 			<Help>TXT_KEY_EFFECT_CSUA_VATICAN_ALLY_HELP</Help>
 		</Row>
-		<!-- 梵蒂冈：朋友为领袖的宗教传播速度+20% -->
 		<Row>
 			<Type>EFFECT_CSUA_VATICAN_FRIEND</Type>
 			<ReligionSpreadSpeedModifier>20</ReligionSpreadSpeedModifier>
 			<Help>TXT_KEY_EFFECT_CSUA_VATICAN_FRIEND_HELP</Help>
 		</Row>
-		<!-- 甘托克：盟友每有1座城市信仰其为领袖的宗教+1全局快乐；每回合可用信仰（金钱1/4价）购买任意城邦影响力1次 -->
 		<Row>
 			<Type>EFFECT_CSUA_GANGTOK_ALLY</Type>
 			<HappinessPerFollowingCity>100</HappinessPerFollowingCity>
@@ -250,32 +244,27 @@
 			<FaithInfluencePurchasePerTurnLimit>1</FaithInfluencePurchasePerTurnLimit>
 			<Help>TXT_KEY_EFFECT_CSUA_GANGTOK_ALLY_HELP</Help>
 		</Row>
-		<!-- 甘托克：朋友每有2座城市信仰其为领袖的宗教+1全局快乐 -->
 		<Row>
 			<Type>EFFECT_CSUA_GANGTOK_FRIEND</Type>
 			<HappinessPerFollowingCity>50</HappinessPerFollowingCity>
 			<Help>TXT_KEY_EFFECT_CSUA_GANGTOK_FRIEND_HELP</Help>
 		</Row>
-		<!-- 维滕贝格：盟友可花费高额信仰购买一个自选信条加入其为领袖的宗教（每盟友一次）；该宗教被审判官/大先知清理时保留40%信众 -->
 		<Row>
 			<Type>EFFECT_CSUA_WITTENBERG_ALLY</Type>
 			<FaithBeliefPurchase>true</FaithBeliefPurchase>
 			<InquisitorRetentionPercent>40</InquisitorRetentionPercent>
 			<Help>TXT_KEY_EFFECT_CSUA_WITTENBERG_ALLY_HELP</Help>
 		</Row>
-		<!-- 维滕贝格：朋友无额外效果占位 -->
 		<Row>
 			<Type>EFFECT_CSUA_WITTENBERG_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_WITTENBERG_FRIEND_HELP</Help>
 		</Row>
-		<!-- 拉本塔：盟友可购买空闲神系信条加入其为领袖的宗教（价格翻倍、无上限）；每件杰作/文物+4%伟人点数 -->
 		<Row>
 			<Type>EFFECT_CSUA_LAVENTA_ALLY</Type>
 			<FaithPantheonPurchase>true</FaithPantheonPurchase>
 			<GreatPersonRateModifierPerGreatWork>4</GreatPersonRateModifierPerGreatWork>
 			<Help>TXT_KEY_EFFECT_CSUA_LAVENTA_ALLY_HELP</Help>
 		</Row>
-		<!-- 拉本塔：朋友每件杰作/文物+2%伟人点数 -->
 		<Row>
 			<Type>EFFECT_CSUA_LAVENTA_FRIEND</Type>
 			<GreatPersonRateModifierPerGreatWork>2</GreatPersonRateModifierPerGreatWork>
@@ -309,17 +298,14 @@
 			<Type>EFFECT_CSUA_SYDNEY_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_SYDNEY_FRIEND_HELP</Help>
 		</Row>
-		<!-- 霍尔木兹：盟友每处有市民工作的海关+20%金钱；每单位富余石油+4%国际商路金钱（额外+20石油见下方建筑机制） -->
 		<Row>
 			<Type>EFFECT_CSUA_HORMUZ_ALLY</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_HORMUZ_ALLY_HELP</Help>
 		</Row>
-		<!-- 霍尔木兹：朋友每处有市民工作的海关+8%金钱 -->
 		<Row>
 			<Type>EFFECT_CSUA_HORMUZ_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_HORMUZ_FRIEND_HELP</Help>
 		</Row>
-		<!-- 温哥华：盟友每座沿海城市+3全局快乐；每点快乐全国食物/魅力+1%（各自上限50%）；朋友每座沿海城市+1全局快乐 -->
 		<Row>
 			<Type>EFFECT_CSUA_VANCOUVER_ALLY</Type>
 			<CoastalCityHappiness>300</CoastalCityHappiness>
@@ -338,19 +324,15 @@
 			<Type>EFFECT_CSUA_IFE_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_IFE_FRIEND_HELP</Help>
 		</Row>
-		<!-- 埃里温（盟友）：每点识字率→全国产能+1%；每处被市民工作的宗教圣地→全局快乐+3且其邻近改良+1文化；每诞生一位大先知→全国信仰+5% -->
 		<Row>
 			<Type>EFFECT_CSUA_YEREVAN_ALLY</Type>
 			<HolySiteHappiness>300</HolySiteHappiness>
 			<Help>TXT_KEY_EFFECT_CSUA_YEREVAN_ALLY_HELP</Help>
 		</Row>
-		<!-- 埃里温（朋友）：每2点识字率→全国产能+1%（每点+0.5%） -->
 		<Row>
 			<Type>EFFECT_CSUA_YEREVAN_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_YEREVAN_FRIEND_HELP</Help>
 		</Row>
-		<!-- 波哥大（盟友/朋友）：开发指定奢侈的城市获得文化百分比加成，拥有黄金国的城市获得旅游百分比加成，
-		     每拥有一座开发指定奢侈的城市全国旅游+5%（仅盟友）。明细见下方 SpecialCity* 表 -->
 		<Row>
 			<Type>EFFECT_CSUA_BOGOTA_ALLY</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_BOGOTA_ALLY_HELP</Help>
@@ -359,29 +341,24 @@
 			<Type>EFFECT_CSUA_BOGOTA_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_BOGOTA_FRIEND_HELP</Help>
 		</Row>
-		<!-- 布拉迪斯拉发（盟友）：首都及第二首都+50%文化，每诞生过一位伟人全国科研与产能+1% -->
 		<Row>
 			<Type>EFFECT_CSUA_BRATISLAVA_ALLY</Type>
 			<CapitalAndSecondCapitalCultureModifier>50</CapitalAndSecondCapitalCultureModifier>
 			<Help>TXT_KEY_EFFECT_CSUA_BRATISLAVA_ALLY_HELP</Help>
 		</Row>
-		<!-- 布拉迪斯拉发（朋友）：首都及第二首都+20%文化 -->
 		<Row>
 			<Type>EFFECT_CSUA_BRATISLAVA_FRIEND</Type>
 			<CapitalAndSecondCapitalCultureModifier>20</CapitalAndSecondCapitalCultureModifier>
 			<Help>TXT_KEY_EFFECT_CSUA_BRATISLAVA_FRIEND_HELP</Help>
 		</Row>
-		<!-- 里加（盟友）：沿河城市+15%金钱和食物；沿河且沿海城市额外+15%金钱、食物、文化、产能。明细见下方 SpecialCity* 表 -->
 		<Row>
 			<Type>EFFECT_CSUA_RIGA_ALLY</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_RIGA_ALLY_HELP</Help>
 		</Row>
-		<!-- 里加（朋友）：沿河城市+6%金钱和食物 -->
 		<Row>
 			<Type>EFFECT_CSUA_RIGA_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_RIGA_FRIEND_HELP</Help>
 		</Row>
-		<!-- 马尼拉（盟友）：国际商路金钱+25%；盟友每有一条国际商路，所有国际商路金钱额外+2%；盟友每有一种提供快乐的奢侈品，全国食物+2%（上限+50%） -->
 		<Row>
 			<Type>EFFECT_CSUA_MANILA_ALLY</Type>
 			<TradeRouteGoldPercentInternational>25</TradeRouteGoldPercentInternational>
@@ -390,14 +367,11 @@
 			<FoodModifierPerHappyLuxuryCap>50</FoodModifierPerHappyLuxuryCap>
 			<Help>TXT_KEY_EFFECT_CSUA_MANILA_ALLY_HELP</Help>
 		</Row>
-		<!-- 马尼拉（朋友）：国际商路金钱+10% -->
 		<Row>
 			<Type>EFFECT_CSUA_MANILA_FRIEND</Type>
 			<TradeRouteGoldPercentInternational>10</TradeRouteGoldPercentInternational>
 			<Help>TXT_KEY_EFFECT_CSUA_MANILA_FRIEND_HELP</Help>
 		</Row>
-		<!-- 布加勒斯特（盟友）：每世界奇观→全国文化与魅力+4%；每接收/离开一个国际移民→接收速率+5%（上限+100%）、离开速率-5%（上限-90%）；
-		     每有一个在他国的外交官→全国产能与科研+5%。明细见下方 WorldWonder / DiplomatAbroad 表 -->
 		<Row>
 			<Type>EFFECT_CSUA_BUCHAREST_ALLY</Type>
 			<ImmigrationRatePerImmigrant>5</ImmigrationRatePerImmigrant>
@@ -406,77 +380,58 @@
 			<EmigrationRateMax>90</EmigrationRateMax>
 			<Help>TXT_KEY_EFFECT_CSUA_BUCHAREST_ALLY_HELP</Help>
 		</Row>
-		<!-- 布加勒斯特（朋友）：每世界奇观→全国文化与魅力+2% -->
 		<Row>
 			<Type>EFFECT_CSUA_BUCHAREST_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_BUCHAREST_FRIEND_HELP</Help>
 		</Row>
-		<!-- 基辅（盟友）：每完成一个国家奇观→全国伟人点数+2%；每与一个文明宣布友好→世界议会选票+1；
-		     每张世界议会选票→全国文化+1%（明细见下方 LeagueVote 表） -->
 		<Row>
 			<Type>EFFECT_CSUA_KIEV_ALLY</Type>
 			<GreatPersonRateModifierPerNationalWonder>2</GreatPersonRateModifierPerNationalWonder>
 			<LeagueVotesPerDoF>1</LeagueVotesPerDoF>
 			<Help>TXT_KEY_EFFECT_CSUA_KIEV_ALLY_HELP</Help>
 		</Row>
-		<!-- 基辅（朋友）：每完成一个国家奇观→全国伟人点数+1% -->
 		<Row>
 			<Type>EFFECT_CSUA_KIEV_FRIEND</Type>
 			<GreatPersonRateModifierPerNationalWonder>1</GreatPersonRateModifierPerNationalWonder>
 			<Help>TXT_KEY_EFFECT_CSUA_KIEV_FRIEND_HELP</Help>
 		</Row>
-		<!-- 吉隆坡（盟友）：傀儡城市不再提高科研阈值；每5点傀儡城市人口→全国文化+2%、魅力+1%
-		     （人口明细见下方 SpecialCityPopulation 表） -->
 		<Row>
 			<Type>EFFECT_CSUA_KUALA_LUMPUR_ALLY</Type>
 			<PuppetNoTechCostPenalty>true</PuppetNoTechCostPenalty>
 			<Help>TXT_KEY_EFFECT_CSUA_KUALA_LUMPUR_ALLY_HELP</Help>
 		</Row>
-		<!-- 吉隆坡（朋友）：傀儡城市只提高一半的科研阈值 -->
 		<Row>
 			<Type>EFFECT_CSUA_KUALA_LUMPUR_FRIEND</Type>
 			<PuppetTechCostPartial>50</PuppetTechCostPartial>
 			<Help>TXT_KEY_EFFECT_CSUA_KUALA_LUMPUR_FRIEND_HELP</Help>
 		</Row>
-		<!-- 新加坡（盟友）：每座大型城市→全国金钱与科研+10%；每座特大城市→全国产能+20%；
-		     每座一级城市→科研阈值-2%（明细见下方 BuildingClassGlobalYieldModifiers /
-		     BuildingClassTechCostModifiers 表） -->
 		<Row>
 			<Type>EFFECT_CSUA_SINGAPORE_ALLY</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_SINGAPORE_ALLY_HELP</Help>
 		</Row>
-		<!-- 新加坡（朋友）：每座大型城市→全国金钱与科研+4% -->
 		<Row>
 			<Type>EFFECT_CSUA_SINGAPORE_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_SINGAPORE_FRIEND_HELP</Help>
 		</Row>
-		<!-- 推罗（盟友）：每处码头/船坞→全国产能+10%（按建筑逐个计数，同城两类叠加为+20%）；
-		     沿海城市受到伤害-40%（核爆伤害绕过此减免）；
-		     每座与原始首都不同大陆的城市→全国金钱+5%（明细见下方对应表） -->
 		<Row>
 			<Type>EFFECT_CSUA_TYRE_ALLY</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_TYRE_ALLY_HELP</Help>
 		</Row>
-		<!-- 推罗（朋友）：每处码头/船坞→全国产能+4%（按建筑逐个计数，同城两类叠加为+8%） -->
 		<Row>
 			<Type>EFFECT_CSUA_TYRE_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_TYRE_FRIEND_HELP</Help>
 		</Row>
-		<!-- 乌尔（盟友）：每拥有一座世界奇观→全局快乐+2；每拥有一件杰作或文物→全国文化+2%；
-		     每拥有一座国家奇观→拥有该奇观的城市科研与产能各+5%（国家奇观/杰作明细见下方对应表） -->
 		<Row>
 			<Type>EFFECT_CSUA_UR_ALLY</Type>
 			<WorldWonderHappiness>200</WorldWonderHappiness>
 			<Help>TXT_KEY_EFFECT_CSUA_UR_ALLY_HELP</Help>
 		</Row>
-		<!-- 乌尔（朋友）：每拥有一座世界奇观→全局快乐+1 -->
 		<Row>
 			<Type>EFFECT_CSUA_UR_FRIEND</Type>
 			<WorldWonderHappiness>100</WorldWonderHappiness>
 			<Help>TXT_KEY_EFFECT_CSUA_UR_FRIEND_HELP</Help>
 		</Row>
 	 </CityStateUAEffects>
-	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
 			<EffectType>EFFECT_CSUA_ZURICH_ALLY</EffectType>
@@ -489,7 +444,6 @@
 			<Points>1</Points>
 		</Row>
 	 </CityStateUAEffect_GreatPersonPoints>
-	 <!-- 每诞生(100/YieldMod)个UnitClassType的单位，SpecialistType的YieldType产出+1 -->
 	 <CityStateUAEffect_BornGreatPersonSpecialistYield>
 		<Row>
 			<EffectType>EFFECT_CSUA_ZURICH_ALLY</EffectType>
@@ -513,7 +467,6 @@
 			<YieldMod>200</YieldMod>
 		</Row>
 	 </CityStateUAEffect_BornGreatPersonSpecialistYield>
-	 <!-- 安特卫普：每诞生大商业家降低盟友影响力下限 -->
 	 <CityStateUAEffect_BornGreatPersonAllyInfluenceMod>
 			<Row>
 				<EffectType>EFFECT_CSUA_ANTWERP_ALLY</EffectType>
@@ -521,7 +474,6 @@
 				<ModPerBorn>-1</ModPerBorn>
 			</Row>
 	 </CityStateUAEffect_BornGreatPersonAllyInfluenceMod>
-	 <!-- 苏黎世：科研建筑+大科学家点数 / 安特卫普：经济建筑+大商业家点数 -->
 	 <CityStateUAEffect_BuildingGreatPersonPoints>
 		<Row>
 			<EffectType>EFFECT_CSUA_ZURICH_ALLY</EffectType>
@@ -596,7 +548,6 @@
 			<Points>1</Points>
 		</Row>
 	 </CityStateUAEffect_BuildingGreatPersonPoints>
-	 <!-- 布鲁塞尔：艺术、文学、音乐家点数积累速率 -->
 	 <CityStateUAEffect_SpecialistPointRate>
 		<Row>
 			<EffectType>EFFECT_CSUA_BRUSSELS_ALLY</EffectType>
@@ -629,7 +580,6 @@
 			<Rate>15</Rate>
 		</Row>
 	 </CityStateUAEffect_SpecialistPointRate>
-	 <!-- 布鲁塞尔：每拥有一件杰作，首都获得大音乐家点数 -->
 	 <CityStateUAEffect_GreatWorkGreatPersonPoints>
 		<Row>
 			<EffectType>EFFECT_CSUA_BRUSSELS_ALLY</EffectType>
@@ -653,7 +603,6 @@
 			<CapitalOnly>true</CapitalOnly>
 		</Row>
 	 </CityStateUAEffect_GreatWorkGreatPersonPoints>
-	 <!-- 布鲁塞尔：大音乐家演唱会产出魅力加成 -->
 	 <CityStateUAEffect_GreatPersonOneShotModifier>
 		<Row>
 			<EffectType>EFFECT_CSUA_BRUSSELS_ALLY</EffectType>
@@ -661,7 +610,6 @@
 			<Modifier>20</Modifier>
 		</Row>
 	 </CityStateUAEffect_GreatPersonOneShotModifier>
-	 <!-- 科伦坡：通往该城邦的国际商路每时代固定产出加成 -->
 	 <CityStateUAEffect_InternalTRToUCSPerEraYield>
 		<Row>
 			<EffectType>EFFECT_CSUA_COLOMBO_ALLY</EffectType>
@@ -674,7 +622,6 @@
 			<YieldValue>6</YieldValue>
 		</Row>
 	 </CityStateUAEffect_InternalTRToUCSPerEraYield>
-	 <!-- 科伦坡：盟友的城市有连接科伦坡的商路时，信仰基础产出的百分比作为额外科研/魅力（不消耗原信仰） -->
 	 <CityStateUAEffect_YieldToYieldViaTRToUCS>
 		<Row>
 			<EffectType>EFFECT_CSUA_COLOMBO_ALLY</EffectType>
@@ -689,7 +636,6 @@
 			<Percent>15</Percent>
 		</Row>
 	 </CityStateUAEffect_YieldToYieldViaTRToUCS>
-	 <!-- 瓦莱塔：购买指定建筑类别后，全国指定领域单位+XP经验（领域必须指定单一值） -->
 	 <CityStateUAEffect_PurchasedBuildingXP>
 		<Row>
 			<EffectType>EFFECT_CSUA_VALLETTA_ALLY</EffectType>
@@ -782,7 +728,6 @@
 			<XP>5</XP>
 		</Row>
 	 </CityStateUAEffect_PurchasedBuildingXP>
-	 <!-- 单位诞生产出（产出与单位均自由指定）：诞生指定UnitClassType单位时，获得等同于对指定MinorCivType城邦影响力*YieldMod%的YieldType产出（支持金币/文化/信仰/黄金时代点数/科研/魅力） -->
 	 <CityStateUAEffect_UnitBornYield>
 		<Row>
 			<EffectType>EFFECT_CSUA_VALLETTA_ALLY</EffectType>
@@ -806,7 +751,6 @@
 			<YieldMod>100</YieldMod>
 		</Row>
 	 </CityStateUAEffect_UnitBornYield>
-	 <!-- 墨尔本：城市拥有指定已改良资源，该资源对应的产出获得百分比加成 -->
 	 <CityStateUAEffect_ResourceYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_MELBOURNE_ALLY</EffectType>
@@ -833,7 +777,6 @@
 			<YieldMod>20</YieldMod>
 		</Row>
 	 </CityStateUAEffect_ResourceYieldModifiers>
-	 <!-- 墨尔本：指定的娱乐/经济建筑为城市提供产能和金钱百分比加成 -->
 	 <CityStateUAEffect_BuildingClassYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_MELBOURNE_ALLY</EffectType>
@@ -998,7 +941,6 @@
 			<YieldMod>50</YieldMod>
 		</Row>
 	 </CityStateUAEffect_BuildingClassYieldModifiers>
-	 <!-- 布拉格：己方间谍驻守的城市，对应产出获得百分比加成 -->
 	 <CityStateUAEffect_SpyGarrisonYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_PRAGUE_ALLY</EffectType>
@@ -1006,7 +948,6 @@
 			<YieldMod>20</YieldMod>
 		</Row>
 	 </CityStateUAEffect_SpyGarrisonYieldModifiers>
-	 <!-- 塔那那利佛：每处有市民工作的指定改良设施，城市对应产出获得百分比加成 -->
 	 <CityStateUAEffect_ImprovementYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_ANTANANARIVO_ALLY</EffectType>
@@ -1063,7 +1004,6 @@
 			<YieldMod>2</YieldMod>
 		</Row>
 	 </CityStateUAEffect_ImprovementYieldModifiers>
-	 <!-- 桑给巴尔：每处有市民工作的指定改良设施，城市本地快乐+固定值 -->
 	 <CityStateUAEffect_ImprovementHappiness>
 		<Row>
 			<EffectType>EFFECT_CSUA_ZANZIBAR_ALLY</EffectType>
@@ -1071,7 +1011,6 @@
 			<Happiness>2</Happiness>
 		</Row>
 	 </CityStateUAEffect_ImprovementHappiness>
-	 <!-- 比布鲁斯：指定的科研建筑为城市提供科研百分比加成 -->
 	 <CityStateUAEffect_BuildingClassYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_BYBLOS_ALLY</EffectType>
@@ -1116,7 +1055,6 @@
 			<YieldMod>8</YieldMod>
 		</Row>
 	 </CityStateUAEffect_BuildingClassYieldModifiers>
-	 <!-- 比布鲁斯：盟友城市有通往比布鲁斯的商路时，金钱基础产出的百分比作为额外科研（不消耗原金钱） -->
 	 <CityStateUAEffect_YieldToYieldViaTRToUCS>
 		<Row>
 			<EffectType>EFFECT_CSUA_BYBLOS_ALLY</EffectType>
@@ -1125,7 +1063,6 @@
 			<Percent>10</Percent>
 		</Row>
 	 </CityStateUAEffect_YieldToYieldViaTRToUCS>
-	 <!-- 比布鲁斯：每处有市民工作的伐木场为城市提供金钱百分比加成 -->
 	 <CityStateUAEffect_ImprovementYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_BYBLOS_ALLY</EffectType>
@@ -1134,7 +1071,6 @@
 			<YieldMod>5</YieldMod>
 		</Row>
 	 </CityStateUAEffect_ImprovementYieldModifiers>
-	 <!-- 惠灵顿：宫殿（首都）与一级腐败假建筑为城市提供产能和食物百分比加成 -->
 	 <CityStateUAEffect_BuildingClassYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_WELLINGTON_ALLY</EffectType>
@@ -1173,7 +1109,6 @@
 			<YieldMod>8</YieldMod>
 		</Row>
 	 </CityStateUAEffect_BuildingClassYieldModifiers>
-	 <!-- 惠灵顿：每处有市民工作的牧场为城市提供食物和金钱百分比加成 -->
 	 <CityStateUAEffect_ImprovementYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_WELLINGTON_ALLY</EffectType>
@@ -1188,7 +1123,6 @@
 			<YieldMod>3</YieldMod>
 		</Row>
 	 </CityStateUAEffect_ImprovementYieldModifiers>
-	 <!-- 开普敦：盟友城市有通往开普敦的商路时，金钱基础产出的百分比作为额外食物（不消耗原金钱） -->
 	 <CityStateUAEffect_YieldToYieldViaTRToUCS>
 		<Row>
 			<EffectType>EFFECT_CSUA_CAPE_TOWN_ALLY</EffectType>
@@ -1203,7 +1137,6 @@
 			<Percent>8</Percent>
 		</Row>
 	 </CityStateUAEffect_YieldToYieldViaTRToUCS>
-	 <!-- 开普敦：指定的海上贸易建筑为城市提供金钱和产能百分比加成 -->
 	 <CityStateUAEffect_BuildingClassYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_CAPE_TOWN_ALLY</EffectType>
@@ -1254,7 +1187,6 @@
 			<YieldMod>5</YieldMod>
 		</Row>
 	 </CityStateUAEffect_BuildingClassYieldModifiers>
-	 <!-- 热那亚：银行、证券交易所、金融公司额外金钱产出 -->
 	 <CityStateUAEffect_BuildingClassYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_GENOA_ALLY</EffectType>
@@ -1353,7 +1285,6 @@
 			<YieldMod>4</YieldMod>
 		</Row>
 	 </CityStateUAEffect_BuildingClassYieldModifiers>
-	 <!-- 热那亚：每拥有一个朋友城邦，全国产出+YieldMod/100%（YieldType 指定产出类型，100=+1%）；此处为科研+1%/朋友 -->
 	 <CityStateUAEffect_FriendCityStateYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_GENOA_ALLY</EffectType>
@@ -1361,7 +1292,6 @@
 			<YieldMod>100</YieldMod>
 		</Row>
 	 </CityStateUAEffect_FriendCityStateYieldModifiers>
-	 <!-- 热那亚：每拥有一个盟友城邦，全国产出+YieldMod/100%（YieldType 指定产出类型，100=+1%）；此处为科研+2%/盟友 -->
 	 <CityStateUAEffect_AllyCityStateYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_GENOA_ALLY</EffectType>
@@ -1369,7 +1299,6 @@
 			<YieldMod>200</YieldMod>
 		</Row>
 	 </CityStateUAEffect_AllyCityStateYieldModifiers>
-	 <!-- 维尔纽斯：每拥有一个已解锁社会政策，全国产出+YieldMod/100%（YieldType 指定产出类型，100=+1%） -->
 	 <CityStateUAEffect_PolicyYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_VILNIUS_ALLY</EffectType>
@@ -1387,7 +1316,6 @@
 			<YieldMod>100</YieldMod>
 		</Row>
 	 </CityStateUAEffect_PolicyYieldModifiers>
-	 <!-- 耶路撒冷：每有一座城市信仰盟友为领袖的宗教，盟友首都+YieldType产出百分比加成（Modifier=100 => +1%） -->
 	 <CityStateUAEffect_CapitalYieldModifierPerFollowingCity>
 		<Row>
 			<EffectType>EFFECT_CSUA_JERUSALEM_ALLY</EffectType>
@@ -1395,7 +1323,6 @@
 			<Modifier>100</Modifier>
 		</Row>
 	 </CityStateUAEffect_CapitalYieldModifierPerFollowingCity>
-	 <!-- 梵蒂冈：每有一座城市信仰盟友为领袖的宗教，该宗教圣城+YieldType产出百分比加成（Modifier=100 => +1%） -->
 	 <CityStateUAEffect_HolyCityYieldModifierPerFollowingCity>
 		<Row>
 			<EffectType>EFFECT_CSUA_VATICAN_ALLY</EffectType>
@@ -1403,7 +1330,6 @@
 			<Modifier>100</Modifier>
 		</Row>
 	 </CityStateUAEffect_HolyCityYieldModifierPerFollowingCity>
-	 <!-- 维滕贝格：每有一座城市信仰盟友为领袖的宗教，盟友首都+YieldType产出百分比加成（Modifier=100 => +1%） -->
 	 <CityStateUAEffect_CapitalYieldModifierPerFollowingCity>
 		<Row>
 			<EffectType>EFFECT_CSUA_WITTENBERG_ALLY</EffectType>
@@ -1748,7 +1674,6 @@
 			<Quantity>20</Quantity>
 		</Row>
 	</Building_ResourceQuantity>
-	 <!-- 甘托克：盟友城市每处有市民工作的宗教圣地为城市提供+10%信仰 -->
 	 <CityStateUAEffect_ImprovementYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_GANGTOK_ALLY</EffectType>
@@ -1757,7 +1682,6 @@
 			<YieldMod>10</YieldMod>
 		</Row>
 	 </CityStateUAEffect_ImprovementYieldModifiers>
-	 <!-- 悉尼：盟友/朋友每接受过一个国际移民，全国+X%文化（Modifier=每移民百分比×100） -->
 	 <CityStateUAEffect_ImmigrantYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_SYDNEY_ALLY</EffectType>
@@ -1770,7 +1694,6 @@
 			<Modifier>200</Modifier>
 		</Row>
 	 </CityStateUAEffect_ImmigrantYieldModifiers>
-	 <!-- 悉尼：盟友每次接收国际移民获得当前国库1%金钱（上限=100×当前时代×游戏速度修正） -->
 	 <CityStateUAEffect_ImmigrantCashReward>
 		<Row>
 			<EffectType>EFFECT_CSUA_SYDNEY_ALLY</EffectType>
@@ -1778,7 +1701,6 @@
 			<CashCapBase>100</CashCapBase>
 		</Row>
 	 </CityStateUAEffect_ImmigrantCashReward>
-	 <!-- 悉尼：盟友的歌剧院、悉尼歌剧院提供+33%旅游 -->
 	 <CityStateUAEffect_BuildingClassYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_SYDNEY_ALLY</EffectType>
@@ -1793,7 +1715,6 @@
 			<YieldMod>33</YieldMod>
 		</Row>
 	 </CityStateUAEffect_BuildingClassYieldModifiers>
-	 <!-- 霍尔木兹：每处有市民工作的海关为城市提供金钱百分比加成（盟友+20%，朋友+8%） -->
 	 <CityStateUAEffect_ImprovementYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_HORMUZ_ALLY</EffectType>
@@ -1808,7 +1729,6 @@
 			<YieldMod>8</YieldMod>
 		</Row>
 	 </CityStateUAEffect_ImprovementYieldModifiers>
-	 <!-- 霍尔木兹：每单位富余战略资源（石油）提高国际商路金钱百分比（Modifier=基点，400=+4%） -->
 	 <CityStateUAEffect_TradeRouteGoldPerSurplusResource>
 		<Row>
 			<EffectType>EFFECT_CSUA_HORMUZ_ALLY</EffectType>
@@ -1816,7 +1736,6 @@
 			<Modifier>400</Modifier>
 		</Row>
 	 </CityStateUAEffect_TradeRouteGoldPerSurplusResource>
-	 <!-- 温哥华：盟友每点净快乐提供全国产出百分比（YieldMod基点=每点+1%，Cap=此值%上限；快乐为负时按0，两块效果自然协同被Cap封顶） -->
 	 <CityStateUAEffect_HappinessYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_VANCOUVER_ALLY</EffectType>
@@ -1888,7 +1807,6 @@
 			<YieldType>YIELD_FAITH</YieldType>
 			<YieldMod>200</YieldMod>
 		</Row>
-		<!-- 乌尔（盟友）：每拥有一件杰作或文物→全国文化+2%，覆盖全部4类伟大作品 -->
 		<Row>
 			<EffectType>EFFECT_CSUA_UR_ALLY</EffectType>
 			<GreatWorkClassType>GREAT_WORK_ART</GreatWorkClassType>
@@ -1933,8 +1851,6 @@
 			<YieldMod>50</YieldMod>
 		</Row>
 	 </CityStateUAEffect_LiteracyYieldModifiers>
-	 <!-- 布拉迪斯拉发：每诞生过一位伟人，全国科研与产能+1%（YieldMod=基点，100=+1%）。
-	      该表按 UnitClassType 匹配，故"任意伟人"需枚举全部 9 类伟人单位类 × 2 产出 × 盟友/朋友 -->
 	 <CityStateUAEffect_BornGreatPersonYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_YEREVAN_ALLY</EffectType>
@@ -2051,9 +1967,6 @@
 			<YieldMod>100</YieldMod>
 		</Row>
 	 </CityStateUAEffect_BornGreatPersonYieldModifiers>
-	 <!-- 埃里温"圣地邻近改良+1文化"的 CityStateUAEffect_AdjacentImprovementYieldChanges 数据由 CSUA.sql 用
-	      INSERT...SELECT FROM Improvements + AFTER INSERT 触发器全量枚举生成（对齐 SP_AdjacentImprovementYieldChangesForNewImproments）-->
-	 <!-- 波哥大：命名特殊城市类型（被多个效果复用）。判定 = And 表全部命中 且（Or 表为空 或 任一命中） -->
 	 <CityStateUAEffect_SpecialCityTypes>
 		<Row>
 			<Type>SPECIAL_CITY_BOGOTA_LUXURY</Type>
@@ -2077,7 +1990,6 @@
 			<Type>SPECIAL_CITY_TYRE_OTHER_CONTINENT</Type>
 		</Row>
 	 </CityStateUAEffect_SpecialCityTypes>
-	 <!-- 波哥大：开发了黄金/白银/珍珠/宝石/琥珀/玉石其一的城市（纯 OR） -->
 	 <CityStateUAEffect_SpecialCityTypeConditionsOr>
 		<Row>
 			<SpecialCityType>SPECIAL_CITY_BOGOTA_LUXURY</SpecialCityType>
@@ -2109,21 +2021,17 @@
 			<ConditionType>HAS_RESOURCE</ConditionType>
 			<Value>RESOURCE_JADE</Value>
 		</Row>
-		<!-- 波哥大：城市疆域内含黄金国 -->
 		<Row>
 			<SpecialCityType>SPECIAL_CITY_BOGOTA_EL_DORADO</SpecialCityType>
 			<ConditionType>HAS_FEATURE</ConditionType>
 			<Value>FEATURE_EL_DORADO</Value>
 		</Row>
-		<!-- 里加：城市中心地块沿河 -->
 		<Row>
 			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER</SpecialCityType>
 			<ConditionType>IS_RIVER</ConditionType>
 		</Row>
 	 </CityStateUAEffect_SpecialCityTypeConditionsOr>
-	 <!-- 里加：沿河且沿海的城市类型使用 AND 条件 -->
 	 <CityStateUAEffect_SpecialCityTypeConditionsAnd>
-		<!-- 里加：城市中心地块沿河 且 临海（湖泊不算沿海） -->
 		<Row>
 			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
 			<ConditionType>IS_RIVER</ConditionType>
@@ -2132,25 +2040,19 @@
 			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
 			<ConditionType>IS_COASTAL</ConditionType>
 		</Row>
-		<!-- 吉隆坡：傀儡城市（被吞并的城市不算）。IS_PUPPET 无 Value；条件表按「And 全部命中」判定，
-		     故此处必须写一行，否则 Or 表为空会被读成「无限制」而匹配所有城市 -->
 		<Row>
 			<SpecialCityType>SPECIAL_CITY_PUPPET</SpecialCityType>
 			<ConditionType>IS_PUPPET</ConditionType>
 		</Row>
-		<!-- 推罗：临海城市（湖泊不算沿海） -->
 		<Row>
 			<SpecialCityType>SPECIAL_CITY_TYRE_COASTAL</SpecialCityType>
 			<ConditionType>IS_COASTAL</ConditionType>
 		</Row>
-		<!-- 推罗：与原始首都不在同一大陆（连续陆块）的城市 -->
 		<Row>
 			<SpecialCityType>SPECIAL_CITY_TYRE_OTHER_CONTINENT</SpecialCityType>
 			<ConditionType>IS_OTHER_CONTINENT</ConditionType>
 		</Row>
 	 </CityStateUAEffect_SpecialCityTypeConditionsAnd>
-	 <!-- 符合特殊城市类型的城市获得产出百分比加成；同一城市匹配多个特殊城市类型时，同种产出的修正【累加】 -->
-	 <!-- 例：里加沿河且沿海城市同时命中 RIVER 与 RIVER_COASTAL，金钱/食物各 +15%+15% = +30% -->
 	 <CityStateUAEffect_SpecialCityYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_BOGOTA_ALLY</EffectType>
@@ -2176,7 +2078,6 @@
 			<YieldType>YIELD_TOURISM</YieldType>
 			<YieldMod>40</YieldMod>
 		</Row>
-		<!-- 里加（盟友）：沿河城市+15%金钱和食物 -->
 		<Row>
 			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER</SpecialCityType>
@@ -2189,7 +2090,6 @@
 			<YieldType>YIELD_FOOD</YieldType>
 			<YieldMod>15</YieldMod>
 		</Row>
-		<!-- 里加（盟友）：沿河且沿海城市额外+15%金钱、食物、文化、产能（与上面叠加，合计金钱/食物+30%） -->
 		<Row>
 			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
@@ -2214,7 +2114,6 @@
 			<YieldType>YIELD_PRODUCTION</YieldType>
 			<YieldMod>15</YieldMod>
 		</Row>
-		<!-- 里加（朋友）：沿河城市+6%金钱和食物（沿海不额外给） -->
 		<Row>
 			<EffectType>EFFECT_CSUA_RIGA_FRIEND</EffectType>
 			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER</SpecialCityType>
@@ -2228,7 +2127,6 @@
 			<YieldMod>6</YieldMod>
 		</Row>
 	 </CityStateUAEffect_SpecialCityYieldModifiers>
-	 <!-- 波哥大：每拥有一座符合特殊城市类型的城市，全国城市获得产出百分比加成（仅盟友） -->
 	 <CityStateUAEffect_SpecialCityCountYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_BOGOTA_ALLY</EffectType>
@@ -2236,7 +2134,6 @@
 			<YieldType>YIELD_TOURISM</YieldType>
 			<YieldMod>5</YieldMod>
 		</Row>
-		<!-- 推罗（盟友）：每拥有一座与原始首都不同大陆的城市，全国金钱+5% -->
 		<Row>
 			<EffectType>EFFECT_CSUA_TYRE_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_TYRE_OTHER_CONTINENT</SpecialCityType>
@@ -2244,7 +2141,6 @@
 			<YieldMod>5</YieldMod>
 		</Row>
 	 </CityStateUAEffect_SpecialCityCountYieldModifiers>
-	 <!-- 布加勒斯特：每拥有一座世界奇观，全国文化/魅力+X%（YieldMod 为普通百分比，Cap 0=无上限） -->
 	 <CityStateUAEffect_WorldWonderYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_BUCHAREST_ALLY</EffectType>
@@ -2271,7 +2167,6 @@
 			<Cap>0</Cap>
 		</Row>
 	 </CityStateUAEffect_WorldWonderYieldModifiers>
-	 <!-- 布加勒斯特：每有一个派驻他国（不含城邦）的外交官，全国产能/科研+X%（YieldMod 为普通百分比，Cap 0=无上限） -->
 	 <CityStateUAEffect_DiplomatAbroadYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_BUCHAREST_ALLY</EffectType>
@@ -2286,7 +2181,6 @@
 			<Cap>0</Cap>
 		</Row>
 	 </CityStateUAEffect_DiplomatAbroadYieldModifiers>
-	 <!-- 基辅：每持有一张世界议会选票，全国文化+X%（YieldMod 为万分比，100=每票+1%） -->
 	 <CityStateUAEffect_LeagueVoteYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_KIEV_ALLY</EffectType>
@@ -2294,8 +2188,6 @@
 			<YieldMod>100</YieldMod>
 		</Row>
 	 </CityStateUAEffect_LeagueVoteYieldModifiers>
-	 <!-- 吉隆坡（盟友）：每5点生活在傀儡城市中的人口，全国文化+2%、魅力+1%
-	      （YieldMod 为普通百分比；PerPopulation 为人口步长，向下取整） -->
 	 <CityStateUAEffect_SpecialCityPopulationYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_KUALA_LUMPUR_ALLY</EffectType>
@@ -2312,8 +2204,6 @@
 			<YieldMod>1</YieldMod>
 		</Row>
 	 </CityStateUAEffect_SpecialCityPopulationYieldModifiers>
-	 <!-- 推罗（盟友）：符合特殊城市类型的城市（沿海）受到的所有伤害降低 Percent%（普通百分比，40=-40%），
-	      多条命中累加后由代码钳制在90；仅对受到伤害生效，回血不受影响 -->
 	 <CityStateUAEffect_SpecialCityDamageReduction>
 		<Row>
 			<EffectType>EFFECT_CSUA_TYRE_ALLY</EffectType>
@@ -2321,9 +2211,6 @@
 			<Percent>40</Percent>
 		</Row>
 	 </CityStateUAEffect_SpecialCityDamageReduction>
-	 <!-- 新加坡（盟友/朋友）：每拥有一座持有该建筑类的城市（城市规模/腐败档位的假建筑每城恰好1个，
-	      故建筑类计数即城市数），全国所有城市获得 YieldMod% 产出。YieldMod 为普通百分比（10=每座+10%），
-	      数值不封顶。 -->
 	 <CityStateUAEffect_BuildingClassGlobalYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_SINGAPORE_ALLY</EffectType>
@@ -2355,8 +2242,6 @@
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<YieldMod>4</YieldMod>
 		</Row>
-		<!-- 推罗（盟友）：每处码头/船坞→全国产能+10%。按建筑类逐个计数（真实建筑，非每城唯一的假建筑），
-		     同一城市同时拥有码头与船坞时两类叠加为 +20%，此为设计内行为 -->
 		<Row>
 			<EffectType>EFFECT_CSUA_TYRE_ALLY</EffectType>
 			<BuildingClassType>BUILDINGCLASS_WOOD_DOCK</BuildingClassType>
@@ -2369,7 +2254,6 @@
 			<YieldType>YIELD_PRODUCTION</YieldType>
 			<YieldMod>10</YieldMod>
 		</Row>
-		<!-- 推罗（朋友）：每处码头/船坞→全国产能+4%（同城叠加同理） -->
 		<Row>
 			<EffectType>EFFECT_CSUA_TYRE_FRIEND</EffectType>
 			<BuildingClassType>BUILDINGCLASS_WOOD_DOCK</BuildingClassType>
@@ -2383,8 +2267,6 @@
 			<YieldMod>4</YieldMod>
 		</Row>
 	 </CityStateUAEffect_BuildingClassGlobalYieldModifiers>
-	 <!-- 新加坡（盟友）：每拥有一座一级腐败城市，城市数科研阈值降低 TechCostMod%（普通百分比，2=每座-2%），
-	      全部行累加后由代码钳制在100，阈值不会归负 -->
 	 <CityStateUAEffect_BuildingClassTechCostModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_SINGAPORE_ALLY</EffectType>

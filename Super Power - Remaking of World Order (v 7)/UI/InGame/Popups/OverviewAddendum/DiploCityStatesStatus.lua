@@ -125,7 +125,6 @@ function GetCsControl(im, iCs, iPlayer)
 	local iInfluence, sInfluenceText, iNeededInfluence, sInfluenceToolTip = getInfluence(pCs, pPlayer)
 	controlTable.CsInfluence:SetText(sInfluenceText)
 
-	-- SP: 追加城邦独特 UA 描述到影响力 tooltip（基于 MinorCivilizations.UAType -> CityStateUAs.Help）
 	sInfluenceToolTip = sInfluenceToolTip or "";
 	local strUAHelp = GetCityStateUAHelpText(iPlayer, iCs);
 	if (strUAHelp ~= "") then

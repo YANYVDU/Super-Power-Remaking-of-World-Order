@@ -1282,7 +1282,7 @@ for addin in Modding.GetActivatedModEntryPoints("InGameUIAddin") do
 	
 	table.insert(g_uiAddins, ContextPtr:LoadNewContext(path));
 end
--- DLC NO .modinfo，SPInit WILL NOT LOADEDE
+-- DLC without .modinfo: SPInit will not be loaded
 if not bAddinsLoaded then
 	table.insert(g_uiAddins, ContextPtr:LoadNewContext("SPInit"));
 end

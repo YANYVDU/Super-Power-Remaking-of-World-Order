@@ -7,7 +7,6 @@
 
   <!-- Belief category section header (pedia-style: "+" on the left, click to expand/collapse) -->
   <Instance Name="SectionInstance">
-    <!-- 上下白色隔断线由 Stack 负责布局（参考外交总览的隔断写法，Instance 直接子元素会被 Stack 忽略定位） -->
     <Stack Anchor="L,T" Offset="0,0" Size="418,40" StackGrowth="Bottom" Padding="0" ID="SectionStack">
       <Box Anchor="L,T" Offset="0,0" Size="418,2" Color="255,255,255,200"/>
       <Button Anchor="L,T" Offset="0,0" Size="418,36" Color="0,0,0,0" ID="SectionButton">

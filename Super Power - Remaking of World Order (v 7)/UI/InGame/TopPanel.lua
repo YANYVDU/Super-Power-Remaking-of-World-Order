@@ -65,16 +65,12 @@ function UpdateData()
 			-----------------------------
 			local iTotalGold = pPlayer:GetGold();
 			local iGoldPerTurn = pPlayer:CalculateGoldRate();
-			-- 附庸金币税走 ChangeGold 即时结算、不经 CalculateGoldRate，这里补上收/缴税，
-			-- 使顶部每回合数字与实际国库变化一致。
 			if pPlayer.GetGoldFromVassals then
 				iGoldPerTurn = iGoldPerTurn + pPlayer:GetGoldFromVassals();
 			end
 			if pPlayer.GetGoldToOverlord then
 				iGoldPerTurn = iGoldPerTurn - pPlayer:GetGoldToOverlord();
 			end
-			-- 经济援助花费同样走 ChangeGold 即时结算、不经 CalculateGoldRate，这里补扣，
-			-- 使顶部每回合数字与实际国库变化一致（Super Power V11）。
 			if Game.IsEconomicAidActive() then
 				local iAidCount = 0;
 				for iMinor = GameDefines.MAX_MAJOR_CIVS, GameDefines.MAX_CIV_PLAYERS - 1 do
@@ -145,8 +141,6 @@ function UpdateData()
 				strGoldenAgeStr = Locale.ConvertTextKey("TXT_KEY_TOP_PANEL_GOLDEN_AGES_OFF");
 			else
 				if (pPlayer:GetGoldenAgeTurns() > 0) then
-					-- 兼容性修复：GameInfo.Civilizations[...].SpecialGAText 在部分 UI 环境下会报 "Cannot find key"，
-					-- 改用 DB.Query 直接查询数据库（总是返回全部列），失败时回退默认文本。
 					local xmlGoldenAgeStr = "TXT_KEY_GOLDEN_AGE_ANNOUNCE";
 					for row in DB.Query("SELECT SpecialGAText FROM Civilizations WHERE ID=" .. pPlayer:GetCivilizationType()) do
 						if row.SpecialGAText ~= nil and row.SpecialGAText ~= "" then
@@ -1233,7 +1227,6 @@ function GoldenAgeTipHandler( control )
 		if (pPlayer:IsGoldenAgeCultureBonusDisabled()) then
 			strText = strText ..  Locale.ConvertTextKey("TXT_KEY_TP_GOLDEN_AGE_EFFECT_NO_CULTURE");
 		elseif pPlayer:GetGoldenAgeTurns() > 0 then
-			-- 兼容性修复：与 SpecialGAText 相同，GameInfo 列访问不可靠，改用 DB.Query。
 			local strGoldenAgeHelp = "TXT_KEY_TP_GOLDEN_AGE_EFFECT";
 			for row in DB.Query("SELECT SpecialGAHelpText FROM Civilizations WHERE ID=" .. pPlayer:GetCivilizationType()) do
 				if row.SpecialGAHelpText ~= nil and row.SpecialGAHelpText ~= "" then
@@ -1402,8 +1395,6 @@ function CultureTipHandler( control )
 		end
 		
 		-- Culture from Golden Age
-		-- 附庸文化税已计入 GetTotalJONSCulturePerTurn()（+FromVassals -ToOverlord），
-		-- 反推黄金时代文化前须剔除，否则会被税污染。
 		local iCultureFromVassals = 0;
 		local iCultureToOverlord = 0;
 		if pPlayer.GetCultureFromVassals then

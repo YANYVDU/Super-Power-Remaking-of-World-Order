@@ -660,7 +660,6 @@ function OnDisplay()
 	local iBeliefPurchaseCost = Game.GetCityStateFaithBeliefPurchaseCost(g_iMinorCivID);
 	local bShowBeliefPurchaseButton = (iBeliefPurchaseCost > 0);
 	local bEnableBeliefPurchaseButton = bShowBeliefPurchaseButton and (pActivePlayer:GetFaith() >= iBeliefPurchaseCost);
-	-- 按钮直接显示信仰价格，避免改动数据库文本（热读取即生效）
 	local strBeliefPurchaseButton = Locale.Lookup("TXT_KEY_POP_CSTATE_BELIEF_PURCHASE") .. " (" .. iBeliefPurchaseCost .. "[ICON_FAITH])";
 	local strBeliefPurchaseTT = Locale.Lookup("TXT_KEY_POP_CSTATE_BELIEF_PURCHASE_TT", iBeliefPurchaseCost);
 	if (bShowBeliefPurchaseButton and not bEnableBeliefPurchaseButton) then
@@ -832,13 +831,11 @@ function OnBeliefPurchaseButtonClicked()
 	local pActivePlayer = Players[iActivePlayer];
 	local iCost = Game.GetCityStateFaithBeliefPurchaseCost(g_iMinorCivID);
 	if (iCost > 0 and pActivePlayer:GetFaith() >= iCost) then
-		-- 信条加入的是盟友为领袖的宗教（玩家创立的宗教），而非城邦的宗教
 		local religionID = pActivePlayer:GetReligionCreatedByPlayer();
 		local religionName = "";
 		if (religionID ~= -1) then
 			religionName = Locale.Lookup(GameInfo.Religions[religionID].Description);
 		end
-		-- Lua 全局变量不跨 context 共享，参数须通过 LuaEvents 传入选择弹窗
 		local beliefContext = ContextPtr:LoadNewContext("InGame/Popups/ChooseBeliefPopup");
 		LuaEvents.CSUABeliefPopupOpen( g_iMinorCivID, iCost, religionName );
 		UIManager:QueuePopup( beliefContext, PopupPriority.SocialPolicy );
@@ -855,13 +852,11 @@ function OnPantheonPurchaseButtonClicked()
 	local pActivePlayer = Players[iActivePlayer];
 	local iCost = Game.GetCityStateFaithPantheonPurchaseCost(g_iMinorCivID);
 	if (iCost > 0 and pActivePlayer:GetFaith() >= iCost) then
-		-- 空闲神系加入的是盟友为领袖的宗教（玩家创立的宗教），而非城邦的宗教
 		local religionID = pActivePlayer:GetReligionCreatedByPlayer();
 		local religionName = "";
 		if (religionID ~= -1) then
 			religionName = Locale.Lookup(GameInfo.Religions[religionID].Description);
 		end
-		-- Lua 全局变量不跨 context 共享，参数须通过 LuaEvents 传入选择弹窗（Mode="pantheon"）
 		local pantheonContext = ContextPtr:LoadNewContext("InGame/Popups/ChooseBeliefPopup");
 		LuaEvents.CSUABeliefPopupOpen( g_iMinorCivID, iCost, religionName, "pantheon" );
 		UIManager:QueuePopup( pantheonContext, PopupPriority.SocialPolicy );

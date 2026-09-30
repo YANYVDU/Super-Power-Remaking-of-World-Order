@@ -1,10 +1,5 @@
 ------------------------------------------------------
 -- CityStateStatusHelper.lua (SP override)
--- 基于原版 Expansion2 版本，覆盖目的：
---   将影响力计量条与状态判定从固定 FRIENDSHIP_THRESHOLD_ALLIES(=60)
---   改为按玩家动态计算的 GetMinorCivAlliesThreshold()，
---   以同步 commit 437c0e3 引入的 MinorCivAlliesThresholdExtra 机制
---   (时代加成 / 政策 / 特性 / 建筑修正)。
 ------------------------------------------------------
 
 include( "IconSupport" );
@@ -45,8 +40,6 @@ ktQuestsDisplayOrder = {
 
 ------------------------------------------------------
 
--- SP: 动态获取 iMajor 对该城邦的盟友影响力阈值
--- 退回到固定 GameDefines 值以兼容旧 DLL（无 GetMinorCivAlliesThreshold 方法时）
 local function GetPosInfRange(iMajor)
 	local pMajor = Players[iMajor];
 	if pMajor and pMajor.GetMinorCivAlliesThreshold then
@@ -55,9 +48,6 @@ local function GetPosInfRange(iMajor)
 	return math.abs(GameDefines["FRIENDSHIP_THRESHOLD_ALLIES"] - GameDefines["FRIENDSHIP_THRESHOLD_NEUTRAL"]);
 end
 
--- SP: 获取城邦 UA Help 文本（基于 MinorCivilizations.UAType -> CityStateUAs 拆分 Ally/Friend Help）
--- 查询当前影响力等级，将当前关系对应的 effect help 用 [COLOR_POSITIVE_TEXT] 包裹
--- 无 UA / 表未加载 / 任何异常均返回空字符串
 function GetCityStateUAHelpText(iMajor, iMinor)
 	local pMinor = Players[iMinor];
 	if pMinor == nil or not pMinor:IsMinorCiv() then
@@ -303,7 +293,6 @@ function GetCityStateStatusToolTip(iMajor, iMinor, bFullInfo)
 	local strShortDescKey = pMinor:GetCivilizationShortDescriptionKey();
 	local iInfluence = pMinor:GetMinorCivFriendshipWithMajor(iMajor);
 	local iInfluenceChangeThisTurn = pMinor:GetFriendshipChangePerTurnTimes100(iMajor) / 100;
-	-- SP: 超限时正增长（含负影响力恢复）同样被 RisePenalty 打折，与实际结算(ChangeFriendshipWithMajorTimes100)保持一致
 	if (iInfluenceChangeThisTurn > 0 and pMajor.GetDiplomaticOverextensionRisePenalty) then
 		local iRisePenalty = pMajor:GetDiplomaticOverextensionRisePenalty();
 		if (iRisePenalty ~= 0) then
@@ -312,10 +301,8 @@ function GetCityStateStatusToolTip(iMajor, iMinor, bFullInfo)
 	end
 	local iInfluenceAnchor = pMinor:GetMinorCivFriendshipAnchorWithMajor(iMajor);
 
-	-- SP: 动态盟友阈值
 	local iAlliesThreshold = pMajor:GetMinorCivAlliesThreshold();
 
-	-- SP: 城邦 UA Help 文本（拆分为 Ally/Friend Help，高亮当前关系，拼接到影响力状态文本之后）
 	local strUAHelp = GetCityStateUAHelpText(iMajor, iMinor);
 
 	local strStatusTT = "";
@@ -378,7 +365,6 @@ function GetCityStateStatusToolTip(iMajor, iMinor, bFullInfo)
 		strStatusTT = strStatusTT .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_NEUTRAL_CSTATE_TT", strShortDescKey);
 	end
 
-	-- SP: 追加城邦 UA Help 文本（基于 MinorCivilizations.UAType -> CityStateUAs.Help）
 	if (strUAHelp ~= "") then
 		strStatusTT = strStatusTT .. "[NEWLINE][NEWLINE]" .. strUAHelp;
 	end
@@ -594,7 +580,6 @@ function GetAllyToolTip(iActivePlayer, iMinor)
 			end
 		-- No ally
 		else
-			-- SP: 动态盟友阈值
 			local iAlliesThreshold = pActivePlayer:GetMinorCivAlliesThreshold();
 			local iInfUntilAllied = iAlliesThreshold - iActivePlayerInf;
 			sToolTip = Locale.ConvertTextKey("TXT_KEY_CITY_STATE_ALLY_NOBODY_TT", iInfUntilAllied);

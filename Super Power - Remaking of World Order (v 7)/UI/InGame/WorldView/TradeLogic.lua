@@ -537,7 +537,7 @@ function DoUpdateButtons( diploMessage )
 		Controls.CancelButton:SetHide( false )
 		Controls.ProposeButton:SetHide( false )
 
-		-- SP: 咨询外交官 shows only when we have a spy stationed as a diplomat in their capital.
+		-- SP: ConsultDiplomat shows only when we have a spy stationed as a diplomat in their capital.
 		-- It shares the bottom button slot with "What do you want" (WhatDoYouWantButton).
 		-- These controls only exist in the leader-head DiploTrade context; skip entirely otherwise.
 		if Controls.ConsultDiplomatButton then
@@ -1714,7 +1714,7 @@ end
 
 ----------------------------------------------------------------
 ----------------------------------------------------------------
--- SP: 咨询外交官 - reveals the AI's trade bottom line, gated by the rank
+-- SP: ConsultDiplomat - reveals the AI's trade bottom line, gated by the rank
 -- of the spy we have stationed as a diplomat in their capital.
 function OnConsultDiplomat()
 
@@ -2368,7 +2368,7 @@ Controls.ThemDeclareWarDuration:LocalizeAndSetText( "TXT_KEY_DIPLO_TURNS", g_iPe
 Controls.UsTablePeaceTreaty:LocalizeAndSetText( "TXT_KEY_DIPLO_PEACE_TREATY", g_iPeaceDuration )
 Controls.ThemTablePeaceTreaty:LocalizeAndSetText( "TXT_KEY_DIPLO_PEACE_TREATY", g_iPeaceDuration )
 
--- SP: 咨询外交官 + 外交谈判 buttons. These controls only exist in the leader-head (DiploTrade) context,
+-- SP: ConsultDiplomat + DiplomacyBargain buttons. These controls only exist in the leader-head (DiploTrade) context,
 -- so guard them: this same TradeLogic.lua is also included by the vanilla WorldView SimpleDiploTrade,
 -- whose XML has neither control.
 if Controls.ConsultDiplomatButton and Controls.DiplomacyBargainButton then
