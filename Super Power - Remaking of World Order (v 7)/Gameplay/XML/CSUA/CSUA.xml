@@ -494,6 +494,18 @@
 			<EnemyFixedDamageModifierInBorders>50</EnemyFixedDamageModifierInBorders>
 			<Help>TXT_KEY_EFFECT_CSUA_HANOI_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_MBANZA_KONGO_ALLY</Type>
+			<UnitProductionModifierPerCity>10</UnitProductionModifierPerCity>
+			<ManpowerPerCity>4</ManpowerPerCity>
+			<CombatBonusPerTechDifference>10</CombatBonusPerTechDifference>
+			<Help>TXT_KEY_EFFECT_CSUA_MBANZA_KONGO_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_MBANZA_KONGO_FRIEND</Type>
+			<UnitProductionModifierPerCity>4</UnitProductionModifierPerCity>
+			<Help>TXT_KEY_EFFECT_CSUA_MBANZA_KONGO_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -1791,6 +1803,13 @@
 			<Help>TXT_KEY_CSUA_HANOI_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_HANOI_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_HANOI_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_MBANZA_KONGO</Type>
+			<Description>TXT_KEY_CITYSTATE_MBANZA_KONGO</Description>
+			<Help>TXT_KEY_CSUA_MBANZA_KONGO_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_MBANZA_KONGO_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_MBANZA_KONGO_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>

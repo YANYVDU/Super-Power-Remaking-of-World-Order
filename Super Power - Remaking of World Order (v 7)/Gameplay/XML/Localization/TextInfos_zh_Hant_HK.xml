@@ -18751,5 +18751,30 @@
 				[NEWLINE][ICON_BULLET]敵人在朋友境內時，其[ICON_WAR]固定傷害與固定免傷只能生效50%
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_MBANZA_KONGO_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有一座城市，全國[ICON_PRODUCTION]軍事單位組建速度+10%
+				[NEWLINE][ICON_BULLET]盟友每座城市額外提供4[ICON_RES_MANPOWER]人力
+				[NEWLINE][ICON_BULLET]盟友在對抗科技數量更多的文明時，每個科技數量差距+10%[ICON_STRENGTH]戰鬥力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有一座城市，全國[ICON_PRODUCTION]軍事單位組建速度+4%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MBANZA_KONGO_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有一座城市，全國[ICON_PRODUCTION]軍事單位組建速度+10%
+				[NEWLINE][ICON_BULLET]盟友每座城市額外提供4[ICON_RES_MANPOWER]人力
+				[NEWLINE][ICON_BULLET]盟友在對抗科技數量更多的文明時，每個科技數量差距+10%[ICON_STRENGTH]戰鬥力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MBANZA_KONGO_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有一座城市，全國[ICON_PRODUCTION]軍事單位組建速度+4%
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

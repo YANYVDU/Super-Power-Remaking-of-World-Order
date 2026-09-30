@@ -20476,5 +20476,30 @@
 				[NEWLINE][ICON_BULLET]While enemy units are inside the friend's territory, their [ICON_WAR]fixed damage and fixed damage reduction only work at 50%
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_MBANZA_KONGO_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]For each city the ally owns, the nation gains +10% [ICON_PRODUCTION]Military Unit Production
+				[NEWLINE][ICON_BULLET]For each city the ally owns, the empire gains +4 [ICON_RES_MANPOWER]Manpower
+				[NEWLINE][ICON_BULLET]When fighting a civilization that has researched more technologies, the ally gains +10% [ICON_STRENGTH]Combat Strength per technology of difference
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]For each city the friend owns, the nation gains +4% [ICON_PRODUCTION]Military Unit Production
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MBANZA_KONGO_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]For each city the ally owns, the nation gains +10% [ICON_PRODUCTION]Military Unit Production
+				[NEWLINE][ICON_BULLET]For each city the ally owns, the empire gains +4 [ICON_RES_MANPOWER]Manpower
+				[NEWLINE][ICON_BULLET]When fighting a civilization that has researched more technologies, the ally gains +10% [ICON_STRENGTH]Combat Strength per technology of difference
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MBANZA_KONGO_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]For each city the friend owns, the nation gains +4% [ICON_PRODUCTION]Military Unit Production
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

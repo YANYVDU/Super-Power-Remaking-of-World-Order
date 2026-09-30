@@ -18945,5 +18945,30 @@
 				[NEWLINE][ICON_BULLET]敌人在朋友境内时，其[ICON_WAR]固定伤害与固定免伤只能生效50%
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_MBANZA_KONGO_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有一座城市，全国[ICON_PRODUCTION]军事单位组建速度+10%
+				[NEWLINE][ICON_BULLET]盟友每座城市额外提供4[ICON_RES_MANPOWER]人力
+				[NEWLINE][ICON_BULLET]盟友在对抗科技数量更多的文明时，每个科技数量差距+10%[ICON_STRENGTH]战斗力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有一座城市，全国[ICON_PRODUCTION]军事单位组建速度+4%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MBANZA_KONGO_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有一座城市，全国[ICON_PRODUCTION]军事单位组建速度+10%
+				[NEWLINE][ICON_BULLET]盟友每座城市额外提供4[ICON_RES_MANPOWER]人力
+				[NEWLINE][ICON_BULLET]盟友在对抗科技数量更多的文明时，每个科技数量差距+10%[ICON_STRENGTH]战斗力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MBANZA_KONGO_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有一座城市，全国[ICON_PRODUCTION]军事单位组建速度+4%
+			</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>
