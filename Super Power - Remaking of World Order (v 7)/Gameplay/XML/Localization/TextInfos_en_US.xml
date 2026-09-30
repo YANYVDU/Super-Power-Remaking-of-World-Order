@@ -20286,5 +20286,30 @@
 		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_TOTAL">
 			<Text>[COLOR_POSITIVE_TEXT]Total Research Threshold: +{1_Num}%[ENDCOLOR]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_UR_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]For each World Wonder the ally owns, the nation gains +2 global [ICON_HAPPINESS_1]Happiness
+				[NEWLINE][ICON_BULLET]For each Great Work or Artifact the ally owns, the nation gains +2% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]National Wonders owned by the ally provide +5% [ICON_PRODUCTION]Production and +5% [ICON_RESEARCH]Science to the city holding them
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]For each World Wonder the friend owns, the nation gains +1 global [ICON_HAPPINESS_1]Happiness
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_UR_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]For each World Wonder the ally owns, the nation gains +2 global [ICON_HAPPINESS_1]Happiness
+				[NEWLINE][ICON_BULLET]For each Great Work or Artifact the ally owns, the nation gains +2% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]National Wonders owned by the ally provide +5% [ICON_PRODUCTION]Production and +5% [ICON_RESEARCH]Science to the city holding them
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_UR_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]For each World Wonder the friend owns, the nation gains +1 global [ICON_HAPPINESS_1]Happiness
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

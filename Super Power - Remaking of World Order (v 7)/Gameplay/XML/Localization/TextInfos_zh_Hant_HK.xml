@@ -18561,5 +18561,30 @@
 		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_TOTAL">
 			<Text>[COLOR_POSITIVE_TEXT]科研閾值合計：+{1_Num}%[ENDCOLOR]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_UR_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每擁有1座世界奇觀，全局[ICON_HAPPINESS_1]快樂+2
+				[NEWLINE][ICON_BULLET]盟友每擁有1件傑作或文物，全國[ICON_CULTURE]文化+2%
+				[NEWLINE][ICON_BULLET]盟友的國家奇觀將為所在城市提供5%[ICON_PRODUCTION]產能與[ICON_RESEARCH]科研加成
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每擁有1座世界奇觀，全局[ICON_HAPPINESS_1]快樂+1
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_UR_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每擁有1座世界奇觀，全局[ICON_HAPPINESS_1]快樂+2
+				[NEWLINE][ICON_BULLET]盟友每擁有1件傑作或文物，全國[ICON_CULTURE]文化+2%
+				[NEWLINE][ICON_BULLET]盟友的國家奇觀將為所在城市提供5%[ICON_PRODUCTION]產能與[ICON_RESEARCH]科研加成
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_UR_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每擁有1座世界奇觀，全局[ICON_HAPPINESS_1]快樂+1
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

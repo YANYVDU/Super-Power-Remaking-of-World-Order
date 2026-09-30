@@ -462,6 +462,19 @@
 			<Type>EFFECT_CSUA_TYRE_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_TYRE_FRIEND_HELP</Help>
 		</Row>
+		<!-- 乌尔（盟友）：每拥有一座世界奇观→全局快乐+2；每拥有一件杰作或文物→全国文化+2%；
+		     每拥有一座国家奇观→拥有该奇观的城市科研与产能各+5%（国家奇观/杰作明细见下方对应表） -->
+		<Row>
+			<Type>EFFECT_CSUA_UR_ALLY</Type>
+			<WorldWonderHappiness>200</WorldWonderHappiness>
+			<Help>TXT_KEY_EFFECT_CSUA_UR_ALLY_HELP</Help>
+		</Row>
+		<!-- 乌尔（朋友）：每拥有一座世界奇观→全局快乐+1 -->
+		<Row>
+			<Type>EFFECT_CSUA_UR_FRIEND</Type>
+			<WorldWonderHappiness>100</WorldWonderHappiness>
+			<Help>TXT_KEY_EFFECT_CSUA_UR_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1705,6 +1718,13 @@
 			<AllyEffectType>EFFECT_CSUA_TYRE_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_TYRE_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_UR</Type>
+			<Description>TXT_KEY_CITYSTATE_UR</Description>
+			<Help>TXT_KEY_CSUA_UR_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_UR_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_UR_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -1866,6 +1886,31 @@
 			<EffectType>EFFECT_CSUA_IFE_ALLY</EffectType>
 			<GreatWorkClassType>GREAT_WORK_MUSIC</GreatWorkClassType>
 			<YieldType>YIELD_FAITH</YieldType>
+			<YieldMod>200</YieldMod>
+		</Row>
+		<!-- 乌尔（盟友）：每拥有一件杰作或文物→全国文化+2%，覆盖全部4类伟大作品 -->
+		<Row>
+			<EffectType>EFFECT_CSUA_UR_ALLY</EffectType>
+			<GreatWorkClassType>GREAT_WORK_ART</GreatWorkClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>200</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_UR_ALLY</EffectType>
+			<GreatWorkClassType>GREAT_WORK_ARTIFACT</GreatWorkClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>200</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_UR_ALLY</EffectType>
+			<GreatWorkClassType>GREAT_WORK_LITERATURE</GreatWorkClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>200</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_UR_ALLY</EffectType>
+			<GreatWorkClassType>GREAT_WORK_MUSIC</GreatWorkClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
 			<YieldMod>200</YieldMod>
 		</Row>
 	 </CityStateUAEffect_GreatWorkYieldModifiers>

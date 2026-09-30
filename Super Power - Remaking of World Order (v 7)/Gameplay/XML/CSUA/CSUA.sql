@@ -55,6 +55,7 @@ UPDATE MinorCivilizations SET UAType = 'CSUA_KIEV' WHERE Type = 'MINOR_CIV_KIEV'
 UPDATE MinorCivilizations SET UAType = 'CSUA_KUALA_LUMPUR' WHERE Type = 'MINOR_CIV_KUALA_LUMPUR';
 UPDATE MinorCivilizations SET UAType = 'CSUA_SINGAPORE' WHERE Type = 'MINOR_CIV_SINGAPORE';
 UPDATE MinorCivilizations SET UAType = 'CSUA_TYRE' WHERE Type = 'MINOR_CIV_TYRE';
+UPDATE MinorCivilizations SET UAType = 'CSUA_UR' WHERE Type = 'MINOR_CIV_UR';
 
 -- Yerevan CS UA: +1 culture to ANY improved plot that borders a holy site (per-ImprovementType rows).
 -- Mirror of SP_AdjacentImprovementYieldChangesForNewImproments (NewSpecialistRule.sql): fully enumerate
@@ -72,6 +73,36 @@ WHEN New.Type != 'IMPROVEMENT_INCA_CITY' AND New.Type NOT LIKE 'IMPROVEMENT_POLY
 BEGIN
 	INSERT INTO CityStateUAEffect_AdjacentImprovementYieldChanges(EffectType,ImprovementType,AdjacentImprovementType,YieldType,Yield)
 	VALUES ('EFFECT_CSUA_YEREVAN_ALLY', New.Type, 'IMPROVEMENT_HOLY_SITE', 'YIELD_CULTURE', 1);
+END;
+
+-- Ur CS UA: each national wonder owned grants the city that holds it +5% science and +5% production
+-- (city-level; consumed in CvCity::GetBaseYieldRateModifier via CityStateUAEffect_BuildingClassYieldModifiers).
+-- "National wonder" is a per-player limited building class: MaxPlayerInstances > 0 (NULL compares false in
+-- SQLite, so dummy classes with no limit set are excluded). This is the same set as isNationalWonderClass,
+-- so it matches the Kiev national-wonder count (the palace and the SP specialist dummy classes are included
+-- by design).
+-- Runs after CSUA.xml in load order, so EFFECT_CSUA_UR_ALLY already exists (FK-safe).
+INSERT INTO CityStateUAEffect_BuildingClassYieldModifiers(EffectType,BuildingClassType,YieldType,YieldMod)
+SELECT 'EFFECT_CSUA_UR_ALLY', Type, 'YIELD_SCIENCE', 5
+FROM BuildingClasses
+WHERE MaxPlayerInstances > 0;
+
+INSERT INTO CityStateUAEffect_BuildingClassYieldModifiers(EffectType,BuildingClassType,YieldType,YieldMod)
+SELECT 'EFFECT_CSUA_UR_ALLY', Type, 'YIELD_PRODUCTION', 5
+FROM BuildingClasses
+WHERE MaxPlayerInstances > 0;
+
+-- Ur CS UA: the enumeration above only covers building classes that already exist when this file runs,
+-- so add rows for any national-wonder class inserted afterwards (a new national wonder added by another
+-- mod/file would otherwise silently miss the +5%). Mirrors the Yerevan trigger above.
+CREATE TRIGGER IF NOT EXISTS SP_CSUA_UrNationalWonderForNewBuildingClasses
+AFTER INSERT ON BuildingClasses
+WHEN New.MaxPlayerInstances > 0
+BEGIN
+	INSERT INTO CityStateUAEffect_BuildingClassYieldModifiers(EffectType,BuildingClassType,YieldType,YieldMod)
+	VALUES ('EFFECT_CSUA_UR_ALLY', New.Type, 'YIELD_SCIENCE', 5);
+	INSERT INTO CityStateUAEffect_BuildingClassYieldModifiers(EffectType,BuildingClassType,YieldType,YieldMod)
+	VALUES ('EFFECT_CSUA_UR_ALLY', New.Type, 'YIELD_PRODUCTION', 5);
 END;
 
 -- MinorCivAlliesThresholdExtra: per-era ally threshold increase (Rule 8)
