@@ -18595,5 +18595,8 @@
 		<Row Tag="TXT_KEY_CSUA_UI_GLOBAL">
 			<Text>（全國）</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_COLOR_LEGEND">
+			<Text>顏色前綴:</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

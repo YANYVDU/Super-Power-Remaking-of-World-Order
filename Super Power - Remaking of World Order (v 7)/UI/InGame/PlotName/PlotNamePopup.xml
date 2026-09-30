@@ -6,7 +6,7 @@
 			<Label Anchor="L,T" Offset="4,4" Font="TwCenMT20" FontStyle="Shadow" Color0="Beige" Color1="0.0.0.160" String="TXT_KEY_PLOT_NAME_TITLE"/>
 			<EditBox ID="NameInput" EditMode="1" Anchor="L,T" Offset="4,36" Size="296,28" Font="TwCenMT16" MaxLength="64"/>
 			<!-- Color legend header -->
-			<Label Anchor="L,T" Offset="4,72" Font="TwCenMT14" FontStyle="Shadow" Color0="Beige" Color1="0.0.0.160" String="颜色前缀:"/>
+			<Label Anchor="L,T" Offset="4,72" Font="TwCenMT14" FontStyle="Shadow" Color0="Beige" Color1="0.0.0.160" String="TXT_KEY_PLOT_NAME_COLOR_LEGEND"/>
 			<!-- Row 1 -->
 			<Label Anchor="L,T" Offset="4,90" Font="TwCenMT14" FontStyle="Shadow" Color0="255.0.0.255" Color1="0.0.0.160" String=".R Abc"/>
 			<Label Anchor="L,T" Offset="46,90" Font="TwCenMT14" FontStyle="Shadow" Color0="0.255.0.255" Color1="0.0.0.160" String=".G Abc"/>

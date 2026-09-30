@@ -18789,5 +18789,8 @@
 		<Row Tag="TXT_KEY_CSUA_UI_GLOBAL">
 			<Text>（全国）</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_COLOR_LEGEND">
+			<Text>颜色前缀:</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>
