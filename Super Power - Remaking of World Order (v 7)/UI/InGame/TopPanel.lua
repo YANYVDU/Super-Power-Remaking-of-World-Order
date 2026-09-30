@@ -670,6 +670,24 @@ function ScienceTipHandler( control )
 			strText = strText .. "[NEWLINE][NEWLINE]";
 			strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_TECH_CITY_COST", Game.GetNumCitiesTechCostMod());
 		end
+
+		-- Research threshold breakdown: list every source and its value
+		if pPlayer.GetResearchThresholdMod ~= nil then
+			local iModPerCity, iEffCities, iPuppetDiscount, iBCPercent, iGAPercent, iTotal = pPlayer:GetResearchThresholdMod();
+			strText = strText .. "[NEWLINE][NEWLINE]";
+			strText = strText .. Locale.ConvertTextKey("TXT_KEY_SP_TP_TECH_THRESHOLD_TITLE");
+			strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_TECH_THRESHOLD_BASE", iModPerCity, iEffCities, iModPerCity * iEffCities);
+			if iPuppetDiscount > 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_TECH_THRESHOLD_PUPPET", iPuppetDiscount);
+			end
+			if iBCPercent > 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_TECH_THRESHOLD_BUILDING", iBCPercent);
+			end
+			if iGAPercent ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_TECH_THRESHOLD_GOLDENAGE", iGAPercent);
+			end
+			strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_TECH_THRESHOLD_TOTAL", iTotal);
+		end
 	end
 	
 	tipControlTable.TooltipLabel:SetText( strText );

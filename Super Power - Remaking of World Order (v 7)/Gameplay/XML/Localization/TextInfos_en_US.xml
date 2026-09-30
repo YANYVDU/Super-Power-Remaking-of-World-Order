@@ -20268,5 +20268,23 @@
 		<Row Tag="TXT_KEY_EUPANEL_CSUA_DAMAGE_REDUCTION_TT_SP">
 			<Text>This city takes less damage because of a City-State's unique ability</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_TITLE">
+			<Text>[COLOR_POSITIVE_TEXT]Research Threshold Sources[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_BASE">
+			<Text>City Count: +{1_Num}% per City x {2_Num} Effective Cities = +{3_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_PUPPET">
+			<Text>City-State Effect (Puppet Cities): -{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_BUILDING">
+			<Text>City-State Effect (Building Discount): -{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_GOLDENAGE">
+			<Text>Golden Age Modifier: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_TOTAL">
+			<Text>[COLOR_POSITIVE_TEXT]Total Research Threshold: +{1_Num}%[ENDCOLOR]</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

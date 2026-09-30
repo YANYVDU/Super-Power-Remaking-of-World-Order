@@ -18543,5 +18543,23 @@
 		<Row Tag="TXT_KEY_EUPANEL_CSUA_DAMAGE_REDUCTION_TT_SP">
 			<Text>該城市因其城邦的獨特能力而減免受到的傷害</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_TITLE">
+			<Text>[COLOR_POSITIVE_TEXT]科研閾值來源[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_BASE">
+			<Text>城市數量：每座城市 +{1_Num}% × {2_Num} 座有效城市 = +{3_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_PUPPET">
+			<Text>城邦效果（傀儡城市）：-{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_BUILDING">
+			<Text>城邦效果（建築折扣）：-{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_GOLDENAGE">
+			<Text>黃金時代修正：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_TOTAL">
+			<Text>[COLOR_POSITIVE_TEXT]科研閾值合計：+{1_Num}%[ENDCOLOR]</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
