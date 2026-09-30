@@ -438,6 +438,18 @@
 			<PuppetTechCostPartial>50</PuppetTechCostPartial>
 			<Help>TXT_KEY_EFFECT_CSUA_KUALA_LUMPUR_FRIEND_HELP</Help>
 		</Row>
+		<!-- 新加坡（盟友）：每座大型城市→全国金钱与科研+10%；每座特大城市→全国产能+20%；
+		     每座一级城市→科研阈值-2%（明细见下方 BuildingClassGlobalYieldModifiers /
+		     BuildingClassTechCostModifiers 表） -->
+		<Row>
+			<Type>EFFECT_CSUA_SINGAPORE_ALLY</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_SINGAPORE_ALLY_HELP</Help>
+		</Row>
+		<!-- 新加坡（朋友）：每座大型城市→全国金钱与科研+4% -->
+		<Row>
+			<Type>EFFECT_CSUA_SINGAPORE_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_SINGAPORE_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <!-- 提供点数的类型和数值 -->
 	 <CityStateUAEffect_GreatPersonPoints>
@@ -1667,6 +1679,13 @@
 			<AllyEffectType>EFFECT_CSUA_KUALA_LUMPUR_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_KUALA_LUMPUR_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_SINGAPORE</Type>
+			<Description>TXT_KEY_CITYSTATE_SINGAPORE</Description>
+			<Help>TXT_KEY_CSUA_SINGAPORE_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_SINGAPORE_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_SINGAPORE_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -2206,4 +2225,48 @@
 			<YieldMod>1</YieldMod>
 		</Row>
 	 </CityStateUAEffect_SpecialCityPopulationYieldModifiers>
+	 <!-- 新加坡（盟友/朋友）：每拥有一座持有该建筑类的城市（城市规模/腐败档位的假建筑每城恰好1个，
+	      故建筑类计数即城市数），全国所有城市获得 YieldMod% 产出。YieldMod 为普通百分比（10=每座+10%），
+	      数值不封顶。 -->
+	 <CityStateUAEffect_BuildingClassGlobalYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_SINGAPORE_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_LARGE</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>10</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_SINGAPORE_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_LARGE</BuildingClassType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>10</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_SINGAPORE_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_XL</BuildingClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldMod>20</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_SINGAPORE_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_LARGE</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>4</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_SINGAPORE_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_LARGE</BuildingClassType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<YieldMod>4</YieldMod>
+		</Row>
+	 </CityStateUAEffect_BuildingClassGlobalYieldModifiers>
+	 <!-- 新加坡（盟友）：每拥有一座一级腐败城市，城市数科研阈值降低 TechCostMod%（普通百分比，2=每座-2%），
+	      全部行累加后由代码钳制在100，阈值不会归负 -->
+	 <CityStateUAEffect_BuildingClassTechCostModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_SINGAPORE_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_HALL_LV1</BuildingClassType>
+			<TechCostMod>2</TechCostMod>
+		</Row>
+	 </CityStateUAEffect_BuildingClassTechCostModifiers>
 </GameData>

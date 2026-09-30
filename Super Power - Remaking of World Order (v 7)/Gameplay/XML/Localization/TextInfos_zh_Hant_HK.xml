@@ -18487,5 +18487,30 @@
 				[NEWLINE][ICON_BULLET]傀儡城市只提高一半的新科技[ICON_RESEARCH]科研成本
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_SINGAPORE_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每座大型城市使全國+10%[ICON_GOLD]金錢與[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]每座特大城市使全國+20%[ICON_PRODUCTION]產能
+				[NEWLINE][ICON_BULLET]每座[ICON_CITYBANNER_CITY_LV1]一級城市使城市數帶來的額外[ICON_RESEARCH]科研成本降低2%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]每座大型城市使全國+4%[ICON_GOLD]金錢與[ICON_RESEARCH]科研
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SINGAPORE_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每座大型城市使全國+10%[ICON_GOLD]金錢與[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]每座特大城市使全國+20%[ICON_PRODUCTION]產能
+				[NEWLINE][ICON_BULLET]每座[ICON_CITYBANNER_CITY_LV1]一級城市使城市數帶來的額外[ICON_RESEARCH]科研成本降低2%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SINGAPORE_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]每座大型城市使全國+4%[ICON_GOLD]金錢與[ICON_RESEARCH]科研
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
