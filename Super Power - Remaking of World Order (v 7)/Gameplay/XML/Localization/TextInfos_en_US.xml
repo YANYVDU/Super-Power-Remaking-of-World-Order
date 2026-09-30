@@ -20346,5 +20346,30 @@
 				[NEWLINE][ICON_BULLET]Friend's cities that send out both a land and a sea [ICON_INTERNATIONAL_TRADE]international trade route gain +6% [ICON_GOLD]Gold, [ICON_CULTURE]Culture and [ICON_FOOD]Food
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_MOGADISHU_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each [ICON_INTERNATIONAL_TRADE]international trade route the ally sends to a city-state grants +5% [ICON_GOLD]Gold nation-wide
+				[NEWLINE][ICON_BULLET]Each of the ally's cities that sends out an [ICON_INTERNATIONAL_TRADE]international trade route converts 20% of its [ICON_GOLD]Gold into [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]If the ally's research agreement is broken because the other side declared war, the ally gains a bonus equal to 2x the reward its accumulated research contribution would yield
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Each [ICON_INTERNATIONAL_TRADE]international trade route the friend sends to a city-state grants +2% [ICON_GOLD]Gold nation-wide
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MOGADISHU_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each [ICON_INTERNATIONAL_TRADE]international trade route the ally sends to a city-state grants +5% [ICON_GOLD]Gold nation-wide
+				[NEWLINE][ICON_BULLET]Each of the ally's cities that sends out an [ICON_INTERNATIONAL_TRADE]international trade route converts 20% of its [ICON_GOLD]Gold into [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]If the ally's research agreement is broken because the other side declared war, the ally gains a bonus equal to 2x the reward its accumulated research contribution would yield
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MOGADISHU_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Each [ICON_INTERNATIONAL_TRADE]international trade route the friend sends to a city-state grants +2% [ICON_GOLD]Gold nation-wide
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

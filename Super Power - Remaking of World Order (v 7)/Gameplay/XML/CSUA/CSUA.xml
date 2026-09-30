@@ -439,6 +439,15 @@
 			<Type>EFFECT_CSUA_MOMBASA_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_MOMBASA_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_MOGADISHU_ALLY</Type>
+			<ResearchAgreementBreakBonusPercent>200</ResearchAgreementBreakBonusPercent>
+			<Help>TXT_KEY_EFFECT_CSUA_MOGADISHU_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_MOGADISHU_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_MOGADISHU_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -1666,6 +1675,13 @@
 			<AllyEffectType>EFFECT_CSUA_MOMBASA_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_MOMBASA_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_MOGADISHU</Type>
+			<Description>TXT_KEY_CITYSTATE_MOGADISHU</Description>
+			<Help>TXT_KEY_CSUA_MOGADISHU_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_MOGADISHU_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_MOGADISHU_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -2344,4 +2360,25 @@
 			<TechCostMod>2</TechCostMod>
 		</Row>
 	 </CityStateUAEffect_BuildingClassTechCostModifiers>
+	 <CityStateUAEffect_YieldToYieldViaTRToUCS>
+		<Row>
+			<EffectType>EFFECT_CSUA_MOGADISHU_ALLY</EffectType>
+			<InYieldType>YIELD_GOLD</InYieldType>
+			<OutYieldType>YIELD_CULTURE</OutYieldType>
+			<Percent>20</Percent>
+			<RequireRouteToThisCS>0</RequireRouteToThisCS>
+		</Row>
+	 </CityStateUAEffect_YieldToYieldViaTRToUCS>
+	 <CityStateUAEffect_CityStateTradeRouteYieldModifiersGlobal>
+		<Row>
+			<EffectType>EFFECT_CSUA_MOGADISHU_ALLY</EffectType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>5</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MOGADISHU_FRIEND</EffectType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>2</YieldMod>
+		</Row>
+	 </CityStateUAEffect_CityStateTradeRouteYieldModifiersGlobal>
 </GameData>
