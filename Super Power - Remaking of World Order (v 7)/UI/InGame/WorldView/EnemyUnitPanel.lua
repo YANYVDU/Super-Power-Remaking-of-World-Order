@@ -319,6 +319,27 @@ function GetFormattedText(strLocalizedText, iValue, bForMe, bPercent, strOptiona
 end
 
 --------------------------------------------------------------------------------
+-- Hanoi CS UA helper: scale a fixed-damage value by the owning unit's inside-borders scale.
+-- Mirrors the DLL's integer division (value * scale / 100, truncating toward zero) so the preview
+-- matches the real combat result. Returns the value unchanged when there is nothing to scale.
+--------------------------------------------------------------------------------
+function GetCSUAScaledFixedDamage(pUnit, pPlot, iValue)
+	if iValue == 0 or pUnit == nil or pPlot == nil then
+		return iValue
+	end
+	local iScale = pUnit:GetCSUAFixedDamageScale(pPlot)
+	if iScale == 100 then
+		return iValue
+	end
+	local iResult = iValue * iScale / 100
+	if iResult >= 0 then
+		return math.floor(iResult)
+	else
+		return math.ceil(iResult)
+	end
+end
+
+--------------------------------------------------------------------------------
 -- Refresh Combat Odds
 --------------------------------------------------------------------------------
 function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
@@ -399,7 +420,7 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 			end
 
 			--Fixed damage increase
-			iMyDamageInflicted = iMyDamageInflicted + pMyUnit:GetDamageFixValueToCity(pCity)
+			iMyDamageInflicted = iMyDamageInflicted + GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyUnit:GetDamageFixValueToCity(pCity))
 
 			--Forced damage reduction
 			if pCity:GetChangeDamageValue() ~= 0 then
@@ -421,12 +442,14 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				end
 			end
 
-			if pMyUnit:GetForcedDamageValue() > 0 then
-				iTheirDamageInflicted = pMyUnit:GetForcedDamageValue()
+			local iMyForcedDamage = GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyUnit:GetForcedDamageValue())
+			if iMyForcedDamage > 0 then
+				iTheirDamageInflicted = iMyForcedDamage
 			end
 
-			if pMyUnit:GetChangeDamageValue() ~= 0 then
-				iTheirDamageInflicted= iTheirDamageInflicted + pMyUnit:GetChangeDamageValue()
+			local iMyChangeDamage = GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyUnit:GetChangeDamageValue())
+			if iMyChangeDamage ~= 0 then
+				iTheirDamageInflicted= iTheirDamageInflicted + iMyChangeDamage
 				if iTheirDamageInflicted < 0 then
 					iTheirDamageInflicted = 0
 				end
@@ -529,14 +552,14 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 			-- Their Strength
 			Controls.TheirStrengthValue:SetText(Locale.ToNumber(iTheirStrength / 100, "#.##"));
 
-			local UnitFixDamageValue = pMyUnit:GetDamageFixValueToCity(pCity)
+			local UnitFixDamageValue = GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyUnit:GetDamageFixValueToCity(pCity))
             if UnitFixDamageValue ~= 0 then
                 controlTable = g_MyCombatDataIM:GetInstance();
                 controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_FIXVALUE_SP");
                 controlTable.Value:SetText(": [COLOR_CYAN]".. UnitFixDamageValue .. "[ENDCOLOR]");
             end
 
-			local UnitChangeDamageValue = pMyUnit:GetChangeDamageValue()
+			local UnitChangeDamageValue = GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyUnit:GetChangeDamageValue())
             if UnitChangeDamageValue ~= 0 and pMyUnit:GetDomainType() ~= DomainTypes.DOMAIN_AIR then
                 controlTable = g_MyCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_CHANGE_DAMAGEVALUE_SUPPORT_SP");
@@ -787,8 +810,8 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_EXTRA_PERCENT");
 				controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true));
 			end
-			-- Extra Combat Percent From Building
-			iModifier = pMyUnit:GetCombatModifierFromBuilding();
+			-- Extra Combat Percent From Building / CSUA inside-borders modifier
+			iModifier = pMyUnit:GetCombatModifierFromBuilding() + pMyUnit:GetCSUACombatModifierInBorders(pToPlot);
 			if (iModifier ~= 0) then
 				controlTable = g_MyCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_STRATEGIC_ENVIRONMENT_COMBAT_MOD");
@@ -1090,28 +1113,32 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 			end
 
 			--Fixed damage increase
-			iMyDamageInflicted = iMyDamageInflicted + pMyUnit:GetDamageFixValueToUnit(pTheirUnit)
-			iTheirDamageInflicted = iTheirDamageInflicted + pTheirUnit:GetDamageFixValueToUnit(pMyUnit, false)
+			iMyDamageInflicted = iMyDamageInflicted + GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyUnit:GetDamageFixValueToUnit(pTheirUnit))
+			iTheirDamageInflicted = iTheirDamageInflicted + GetCSUAScaledFixedDamage(pTheirUnit, pToPlot, pTheirUnit:GetDamageFixValueToUnit(pMyUnit, false))
 
-			if pTheirUnit:GetForcedDamageValue() ~= 0 then
-				if pTheirUnit:GetForcedDamageValue() > 0 then
-					iMyDamageInflicted = pTheirUnit:GetForcedDamageValue()
+			local iTheirForcedDamage = GetCSUAScaledFixedDamage(pTheirUnit, pToPlot, pTheirUnit:GetForcedDamageValue())
+			if iTheirForcedDamage ~= 0 then
+				if iTheirForcedDamage > 0 then
+					iMyDamageInflicted = iTheirForcedDamage
 				end
 			end
-			if pTheirUnit:GetChangeDamageValue() ~= 0 then
-				iMyDamageInflicted = iMyDamageInflicted + pTheirUnit:GetChangeDamageValue()
+			local iTheirChangeDamage = GetCSUAScaledFixedDamage(pTheirUnit, pToPlot, pTheirUnit:GetChangeDamageValue())
+			if iTheirChangeDamage ~= 0 then
+				iMyDamageInflicted = iMyDamageInflicted + iTheirChangeDamage
 				if iMyDamageInflicted < 0 then
 					iMyDamageInflicted = 0
 				end
 			end
 
-			if pMyUnit:GetForcedDamageValue() ~= 0 then
-				if pMyUnit:GetForcedDamageValue() > 0 then
-					iTheirDamageInflicted = pMyUnit:GetForcedDamageValue()
+			local iMyForcedDamage = GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyUnit:GetForcedDamageValue())
+			if iMyForcedDamage ~= 0 then
+				if iMyForcedDamage > 0 then
+					iTheirDamageInflicted = iMyForcedDamage
 				end
 			end
-			if pMyUnit:GetChangeDamageValue() ~= 0 then
-				iTheirDamageInflicted = iTheirDamageInflicted + pMyUnit:GetChangeDamageValue()
+			local iMyChangeDamage = GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyUnit:GetChangeDamageValue())
+			if iMyChangeDamage ~= 0 then
+				iTheirDamageInflicted = iTheirDamageInflicted + iMyChangeDamage
 				if iTheirDamageInflicted < 0 then
 					iTheirDamageInflicted = 0
 				end
@@ -1256,15 +1283,16 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 			-------------------------
 			-- force damage --
 			-------------------------
-			local UnitFixDamageValue = pMyUnit:GetDamageFixValueToUnit(pTheirUnit)
+			local UnitFixDamageValue = GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyUnit:GetDamageFixValueToUnit(pTheirUnit))
             if UnitFixDamageValue ~= 0 then
                 controlTable = g_MyCombatDataIM:GetInstance();
                 controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_FIXVALUE_SP");
                 controlTable.Value:SetText(": [COLOR_CYAN]".. UnitFixDamageValue .. "[ENDCOLOR]");
             end
 
-			if(pMyUnit:GetChangeDamageValue() < 0 and pMyUnit:GetDomainType() ~= DomainTypes.DOMAIN_AIR) then
-			    local ChangeDamageValue=pMyUnit:GetChangeDamageValue()
+			local MyChangeDamageValue = GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyUnit:GetChangeDamageValue())
+			if(MyChangeDamageValue < 0 and pMyUnit:GetDomainType() ~= DomainTypes.DOMAIN_AIR) then
+			    local ChangeDamageValue=MyChangeDamageValue
 				controlTable = g_MyCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_CHANGE_DAMAGEVALUE_SUPPORT_SP");
 				controlTable.Value:SetText(": [COLOR_CYAN]".. ChangeDamageValue .. "[ENDCOLOR]");
@@ -1432,8 +1460,8 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_EXTRA_PERCENT");
 				controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true));
 			end
-			-- Extra Combat Percent From Building
-			iModifier = pMyUnit:GetCombatModifierFromBuilding();
+			-- Extra Combat Percent From Building / CSUA inside-borders modifier
+			iModifier = pMyUnit:GetCombatModifierFromBuilding() + pMyUnit:GetCSUACombatModifierInBorders(pToPlot);
 			if (iModifier ~= 0) then
 				controlTable = g_MyCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_STRATEGIC_ENVIRONMENT_COMBAT_MOD");
@@ -2057,15 +2085,16 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 			-------------------------
 			-- force damage --
 			-------------------------
-			local UnitFixDamageValue = pTheirUnit:GetDamageFixValueToUnit(pMyUnit, false)
+			local UnitFixDamageValue = GetCSUAScaledFixedDamage(pTheirUnit, pToPlot, pTheirUnit:GetDamageFixValueToUnit(pMyUnit, false))
 			if UnitFixDamageValue ~= 0 then
 				controlTable = g_TheirCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_FIXVALUE_SP");
                 controlTable.Value:SetText("[COLOR_CYAN]" .. UnitFixDamageValue .. "[ENDCOLOR] :");
 			end
 
-			if(pTheirUnit:GetChangeDamageValue() < 0 and pTheirUnit:GetDomainType() ~= DomainTypes.DOMAIN_AIR) then
-			    local ChangeDamageValue=pTheirUnit:GetChangeDamageValue()
+			local TheirChangeDamageValue = GetCSUAScaledFixedDamage(pTheirUnit, pToPlot, pTheirUnit:GetChangeDamageValue())
+			if(TheirChangeDamageValue < 0 and pTheirUnit:GetDomainType() ~= DomainTypes.DOMAIN_AIR) then
+			    local ChangeDamageValue=TheirChangeDamageValue
 				controlTable = g_TheirCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_CHANGE_DAMAGEVALUE_SUPPORT_SP");
 				controlTable.Value:SetText("[COLOR_CYAN]" .. ChangeDamageValue .. "[ENDCOLOR] :");
@@ -2473,8 +2502,8 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 					--				strString.append(GetLocalizedText("TXT_KEY_COMBAT_PLOT_EXTRA_STRENGTH", iModifier));
 				end
 
-				-- Extra Combat Percent From Building
-				iModifier = pTheirUnit:GetCombatModifierFromBuilding();
+				-- Extra Combat Percent From Building / CSUA inside-borders modifier
+				iModifier = pTheirUnit:GetCombatModifierFromBuilding() + pTheirUnit:GetCSUACombatModifierInBorders(pToPlot);
 				if (iModifier ~= 0) then
 					controlTable = g_TheirCombatDataIM:GetInstance();
 					controlTable.Text:LocalizeAndSetText("TXT_KEY_STRATEGIC_ENVIRONMENT_COMBAT_MOD");
@@ -2739,13 +2768,16 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 	local iTheirPlayer = theirUnit:GetOwner();
 	local pTheirPlayer = Players[iTheirPlayer];
 
-	if theirUnit:GetForcedDamageValue() ~= 0 then
-        if theirUnit:GetForcedDamageValue() > 0 then
-            myCityDamageInflicted = theirUnit:GetForcedDamageValue()
+	local pCSUABattlePlot = theirUnit:GetPlot()
+	local iTheirForcedDamage = GetCSUAScaledFixedDamage(theirUnit, pCSUABattlePlot, theirUnit:GetForcedDamageValue())
+	if iTheirForcedDamage ~= 0 then
+        if iTheirForcedDamage > 0 then
+            myCityDamageInflicted = iTheirForcedDamage
         end
     end
-    if theirUnit:GetChangeDamageValue() ~= 0 then
-        myCityDamageInflicted = myCityDamageInflicted + theirUnit:GetChangeDamageValue()
+    local iTheirChangeDamage = GetCSUAScaledFixedDamage(theirUnit, pCSUABattlePlot, theirUnit:GetChangeDamageValue())
+    if iTheirChangeDamage ~= 0 then
+        myCityDamageInflicted = myCityDamageInflicted + iTheirChangeDamage
         if myCityDamageInflicted < 0 then
             myCityDamageInflicted = 0
         end
@@ -2787,8 +2819,8 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 	-------------------------
     -- force damage --
     -------------------------
-    if theirUnit:GetChangeDamageValue() < 0 and theirUnit:GetDomainType() ~= DomainTypes.DOMAIN_AIR then
-        local ChangeDamageValue = theirUnit:GetChangeDamageValue()
+    if iTheirChangeDamage < 0 and theirUnit:GetDomainType() ~= DomainTypes.DOMAIN_AIR then
+        local ChangeDamageValue = iTheirChangeDamage
         controlTable = g_TheirCombatDataIM:GetInstance();
 		controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_CHANGE_DAMAGEVALUE_SUPPORT_SP");
 		controlTable.Value:SetText(ChangeDamageValue .. " :[COLOR_CYAN]" .. "[ENDCOLOR]");
@@ -3080,8 +3112,8 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 			controlTable.Value:SetText(GetFormattedText(strText, iModifier, false, true));
 			--				strString.append(GetLocalizedText("TXT_KEY_COMBAT_PLOT_EXTRA_STRENGTH", iModifier));
 		end
-		-- Extra Combat Percent From Building
-		iModifier = theirUnit:GetCombatModifierFromBuilding();
+		-- Extra Combat Percent From Building / CSUA inside-borders modifier
+		iModifier = theirUnit:GetCombatModifierFromBuilding() + theirUnit:GetCSUACombatModifierInBorders(theirPlot);
 		if (iModifier ~= 0) then
 			controlTable = g_TheirCombatDataIM:GetInstance();
 			controlTable.Text:LocalizeAndSetText("TXT_KEY_STRATEGIC_ENVIRONMENT_COMBAT_MOD");

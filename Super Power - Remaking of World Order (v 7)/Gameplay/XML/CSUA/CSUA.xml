@@ -484,14 +484,14 @@
 		</Row>
 		<Row>
 			<Type>EFFECT_CSUA_HANOI_ALLY</Type>
-			<EnemyFixedDamageModifierInBorders>100</EnemyFixedDamageModifierInBorders>
+			<EnemyFixedDamageModifierInBorders>-100</EnemyFixedDamageModifierInBorders>
 			<CulturePerWarPeace>5</CulturePerWarPeace>
 			<EnemyCombatModifierInBordersPerBeenDoW>-10</EnemyCombatModifierInBordersPerBeenDoW>
 			<Help>TXT_KEY_EFFECT_CSUA_HANOI_ALLY_HELP</Help>
 		</Row>
 		<Row>
 			<Type>EFFECT_CSUA_HANOI_FRIEND</Type>
-			<EnemyFixedDamageModifierInBorders>50</EnemyFixedDamageModifierInBorders>
+			<EnemyFixedDamageModifierInBorders>-50</EnemyFixedDamageModifierInBorders>
 			<Help>TXT_KEY_EFFECT_CSUA_HANOI_FRIEND_HELP</Help>
 		</Row>
 		<Row>
