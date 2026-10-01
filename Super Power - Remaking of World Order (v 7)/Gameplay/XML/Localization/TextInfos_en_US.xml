@@ -20554,5 +20554,36 @@
 				[NEWLINE][ICON_BULLET]Land trade routes from friendly cities grant +20% [ICON_GOLD]Gold, plus an additional +20% if the origin city sits on Hills
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_MILAN_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]For every 2 [ICON_HAPPINESS_1]Happiness from [ICON_GOLD]Luxury Resources the ally has, +1% [ICON_TOURISM]Tourism and [ICON_GOLD]Gold nationwide
+				[NEWLINE][ICON_BULLET]Ally units take 25% less damage when fighting enemies that have not researched Rifling
+				[NEWLINE][ICON_BULLET]Ally Workshops additionally provide +15% [ICON_GOLD]Gold to the city
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]For every 4 [ICON_HAPPINESS_1]Happiness from [ICON_GOLD]Luxury Resources the friend has, +1% [ICON_TOURISM]Tourism and [ICON_GOLD]Gold nationwide
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MILAN_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]For every 2 [ICON_HAPPINESS_1]Happiness from [ICON_GOLD]Luxury Resources the ally has, +1% [ICON_TOURISM]Tourism and [ICON_GOLD]Gold nationwide
+				[NEWLINE][ICON_BULLET]Ally units take 25% less damage when fighting enemies that have not researched Rifling
+				[NEWLINE][ICON_BULLET]Ally Workshops additionally provide +15% [ICON_GOLD]Gold to the city
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MILAN_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]For every 4 [ICON_HAPPINESS_1]Happiness from [ICON_GOLD]Luxury Resources the friend has, +1% [ICON_TOURISM]Tourism and [ICON_GOLD]Gold nationwide
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_SP">
+			<Text>[COLOR_CYAN]City-State Damage Reduction[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_TT_SP">
+			<Text>This unit takes less damage because of a City-State's unique ability</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

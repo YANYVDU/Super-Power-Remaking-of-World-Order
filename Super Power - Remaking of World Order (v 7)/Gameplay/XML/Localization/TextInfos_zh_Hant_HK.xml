@@ -18829,5 +18829,36 @@
 				[NEWLINE][ICON_BULLET]朋友的城市發出的陸地商路[ICON_GOLD]金錢+20%，若坐落於丘陵則再+20%
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_MILAN_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有2點來自[ICON_GOLD]奢侈品的[ICON_HAPPINESS_1]快樂，全國[ICON_TOURISM]魅力和[ICON_GOLD]金錢+1%
+				[NEWLINE][ICON_BULLET]盟友的單位對抗沒有膛線科技的敵人時，受到傷害-25%
+				[NEWLINE][ICON_BULLET]盟友的工坊額外為城市提供+15%[ICON_GOLD]金錢
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有4點來自[ICON_GOLD]奢侈品的[ICON_HAPPINESS_1]快樂，全國[ICON_TOURISM]魅力和[ICON_GOLD]金錢+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MILAN_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有2點來自[ICON_GOLD]奢侈品的[ICON_HAPPINESS_1]快樂，全國[ICON_TOURISM]魅力和[ICON_GOLD]金錢+1%
+				[NEWLINE][ICON_BULLET]盟友的單位對抗沒有膛線科技的敵人時，受到傷害-25%
+				[NEWLINE][ICON_BULLET]盟友的工坊額外為城市提供+15%[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MILAN_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有4點來自[ICON_GOLD]奢侈品的[ICON_HAPPINESS_1]快樂，全國[ICON_TOURISM]魅力和[ICON_GOLD]金錢+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_SP">
+			<Text>[COLOR_CYAN]城邦傷害減免[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_TT_SP">
+			<Text>該單位因其城邦的獨特能力而減免受到的傷害</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

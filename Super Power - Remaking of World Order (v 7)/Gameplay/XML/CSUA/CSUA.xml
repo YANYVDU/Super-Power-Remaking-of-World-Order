@@ -520,6 +520,14 @@
 			<Type>EFFECT_CSUA_KABUL_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_KABUL_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_MILAN_ALLY</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_MILAN_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_MILAN_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_MILAN_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -1870,6 +1878,13 @@
 			<AllyEffectType>EFFECT_CSUA_KABUL_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_KABUL_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_MILAN</Type>
+			<Description>TXT_KEY_CITYSTATE_MILAN</Description>
+			<Help>TXT_KEY_CSUA_MILAN_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_MILAN_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_MILAN_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -2713,4 +2728,41 @@
 			<YieldMod>1</YieldMod>
 		</Row>
 	 </CityStateUAEffect_InternationalLandTradeRouteYieldPerEra>
+	 <CityStateUAEffect_BuildingClassYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_MILAN_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_WORKSHOP</BuildingClassType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>15</YieldMod>
+		</Row>
+	 </CityStateUAEffect_BuildingClassYieldModifiers>
+	 <CityStateUAEffect_LuxuryHappinessYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_MILAN_ALLY</EffectType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<YieldMod>50</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MILAN_ALLY</EffectType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>50</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MILAN_FRIEND</EffectType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<YieldMod>25</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MILAN_FRIEND</EffectType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldMod>25</YieldMod>
+		</Row>
+	 </CityStateUAEffect_LuxuryHappinessYieldModifiers>
+	 <CityStateUAEffect_CombatDamageReductionVsNoTech>
+		<Row>
+			<EffectType>EFFECT_CSUA_MILAN_ALLY</EffectType>
+			<TechType>TECH_RIFLING</TechType>
+			<Percent>25</Percent>
+		</Row>
+	 </CityStateUAEffect_CombatDamageReductionVsNoTech>
 </GameData>

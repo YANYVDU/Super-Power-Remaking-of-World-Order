@@ -455,6 +455,13 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				end
             end
 
+			-- Milan CS UA: mirror the DLL's damage-taken scale so the unit's predicted damage taken from
+			-- the city matches the real resolution (the city itself is never protected by this effect).
+			local iMilanUnitScale = pMyUnit:GetCSUADamageTakenScale(nil, pCity)
+			if iMilanUnitScale ~= 100 then
+				iTheirDamageInflicted = iTheirDamageInflicted * iMilanUnitScale / 100
+			end
+
 			-- City's max HP
 			local maxCityHitPoints = pCity:GetMaxHitPoints();
 			if (iMyDamageInflicted > maxCityHitPoints) then
@@ -548,6 +555,14 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				controlTable.Text:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_EUPANEL_CSUA_DAMAGE_REDUCTION_TT_SP"));
 				controlTable.Value:SetText("[COLOR_CYAN]-" .. iCSUADamageReduction .. "%[ENDCOLOR]");
             end
+
+			-- Milan CS UA: show the damage-taken reduction granted by the city-state ability
+			if iMilanUnitScale ~= 100 then
+				controlTable = g_MyCombatDataIM:GetInstance();
+				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_SP");
+				controlTable.Text:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_TT_SP"));
+				controlTable.Value:SetText("[COLOR_CYAN]-" .. (100 - iMilanUnitScale) .. "%[ENDCOLOR]");
+			end
 
 			-- Their Strength
 			Controls.TheirStrengthValue:SetText(Locale.ToNumber(iTheirStrength / 100, "#.##"));
@@ -1160,6 +1175,16 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				end
 			end
 
+			-- Milan CS UA: mirror the DLL's damage-taken scale so the preview matches the real result
+			local iTheirScale = pTheirUnit:GetCSUADamageTakenScale(pMyUnit, nil)
+			if iTheirScale ~= 100 then
+				iMyDamageInflicted = iMyDamageInflicted * iTheirScale / 100
+			end
+			local iMyScale = pMyUnit:GetCSUADamageTakenScale(pTheirUnit, nil)
+			if iMyScale ~= 100 then
+				iTheirDamageInflicted = iTheirDamageInflicted * iMyScale / 100
+			end
+
 			local iMyDie = false; --Modified
 			local iTheyDie = false;
 			-- Don't give numbers greater than a Unit's max HP
@@ -1245,6 +1270,20 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 
 				-- Also add an entry in their stack, so that the gaps match up
 				controlTable = g_TheirCombatDataIM:GetInstance();
+			end
+
+			-- Milan CS UA: show the damage-taken reduction granted by the city-state ability
+			if iMyScale ~= 100 then
+				controlTable = g_MyCombatDataIM:GetInstance();
+				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_SP");
+				controlTable.Text:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_TT_SP"));
+				controlTable.Value:SetText("[COLOR_CYAN]-" .. (100 - iMyScale) .. "%[ENDCOLOR]");
+			end
+			if iTheirScale ~= 100 then
+				controlTable = g_TheirCombatDataIM:GetInstance();
+				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_SP");
+				controlTable.Text:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_TT_SP"));
+				controlTable.Value:SetText("[COLOR_CYAN]-" .. (100 - iTheirScale) .. "%[ENDCOLOR]");
 			end
 
 			-- My Damage
@@ -2823,6 +2862,13 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
         end
     end
 
+	-- Milan CS UA: the attacking unit may take reduced damage from the city. Mirrors the DLL's
+	-- damage-taken scale (the city itself is never protected by this effect).
+	local iMilanCityAttackerScale = theirUnit:GetCSUADamageTakenScale(nil, myCity)
+	if iMilanCityAttackerScale ~= 100 then
+		myCityDamageInflicted = myCityDamageInflicted * iMilanCityAttackerScale / 100
+	end
+
 	if (myCityDamageInflicted > theirUnitMaxHP) then
 		myCityDamageInflicted = theirUnitMaxHP;
 	end
@@ -2865,6 +2911,14 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 		controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_CHANGE_DAMAGEVALUE_SUPPORT_SP");
 		controlTable.Value:SetText(ChangeDamageValue .. " :[COLOR_CYAN]" .. "[ENDCOLOR]");
     end
+
+	-- Milan CS UA: show the damage-taken reduction granted by the city-state ability
+	if iMilanCityAttackerScale ~= 100 then
+		controlTable = g_TheirCombatDataIM:GetInstance();
+		controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_SP");
+		controlTable.Text:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_TT_SP"));
+		controlTable.Value:SetText("[COLOR_CYAN]-" .. (100 - iMilanCityAttackerScale) .. "%[ENDCOLOR]");
+	end
 
 	-- Show some bonuses
 	if (theirUnit:IsCombatUnit()) then
