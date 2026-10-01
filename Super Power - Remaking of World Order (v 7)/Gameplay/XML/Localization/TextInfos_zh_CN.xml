@@ -19000,5 +19000,28 @@
 				[NEWLINE][ICON_BULLET]蓄水池、引水渠、自来水系统、医院、污水处理厂、医学实验室为城市+3%[ICON_FOOD]食物
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_KABUL_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市发出的陆地商路[ICON_GOLD]金钱+50%，若坐落于丘陵则再+50%
+				[NEWLINE][ICON_BULLET]盟友每有一条通往其他文明的陆上国际商路，全国[ICON_CULTURE]文化和[ICON_PEACE]信仰+1%（随时代提高）
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的城市发出的陆地商路[ICON_GOLD]金钱+20%，若坐落于丘陵则再+20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KABUL_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市发出的陆地商路[ICON_GOLD]金钱+50%，若坐落于丘陵则再+50%
+				[NEWLINE][ICON_BULLET]盟友每有一条通往其他文明的陆上国际商路，全国[ICON_CULTURE]文化和[ICON_PEACE]信仰+1%（随时代提高）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KABUL_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的城市发出的陆地商路[ICON_GOLD]金钱+20%，若坐落于丘陵则再+20%
+			</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

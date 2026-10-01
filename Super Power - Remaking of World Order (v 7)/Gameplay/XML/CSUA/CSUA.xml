@@ -512,6 +512,14 @@
 			<Type>EFFECT_CSUA_RAGUSA_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_RAGUSA_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_KABUL_ALLY</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_KABUL_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_KABUL_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_KABUL_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -1855,6 +1863,13 @@
 			<AllyEffectType>EFFECT_CSUA_RAGUSA_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_RAGUSA_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_KABUL</Type>
+			<Description>TXT_KEY_CITYSTATE_KABUL</Description>
+			<Help>TXT_KEY_CSUA_KABUL_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_KABUL_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_KABUL_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -2674,4 +2689,28 @@
 			<Happiness>2</Happiness>
 		</Row>
 	 </CityStateUAEffect_BuildingClassHappiness>
+	 <CityStateUAEffect_LandTradeRouteGoldModifier>
+		<Row>
+			<EffectType>EFFECT_CSUA_KABUL_ALLY</EffectType>
+			<YieldMod>50</YieldMod>
+			<HillsBonus>50</HillsBonus>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KABUL_FRIEND</EffectType>
+			<YieldMod>20</YieldMod>
+			<HillsBonus>20</HillsBonus>
+		</Row>
+	 </CityStateUAEffect_LandTradeRouteGoldModifier>
+	 <CityStateUAEffect_InternationalLandTradeRouteYieldPerEra>
+		<Row>
+			<EffectType>EFFECT_CSUA_KABUL_ALLY</EffectType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>1</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KABUL_ALLY</EffectType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<YieldMod>1</YieldMod>
+		</Row>
+	 </CityStateUAEffect_InternationalLandTradeRouteYieldPerEra>
 </GameData>
