@@ -539,6 +539,17 @@
 			<Type>EFFECT_CSUA_MONACO_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_MONACO_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_KYZYL_ALLY</Type>
+			<LandTradeRouteDistancePerTradeSlot>10</LandTradeRouteDistancePerTradeSlot>
+			<TradeRouteGoldPercentNonNeighbor>100</TradeRouteGoldPercentNonNeighbor>
+			<Help>TXT_KEY_EFFECT_CSUA_KYZYL_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_KYZYL_FRIEND</Type>
+			<LandTradeRouteDistancePerTradeSlot>4</LandTradeRouteDistancePerTradeSlot>
+			<Help>TXT_KEY_EFFECT_CSUA_KYZYL_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -1939,6 +1950,13 @@
 			<AllyEffectType>EFFECT_CSUA_MONACO_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_MONACO_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_KYZYL</Type>
+			<Description>TXT_KEY_CITYSTATE_KYZYL</Description>
+			<Help>TXT_KEY_CSUA_KYZYL_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_KYZYL_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_KYZYL_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -2280,6 +2298,9 @@
 		<Row>
 			<Type>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</Type>
 		</Row>
+		<Row>
+			<Type>SPECIAL_CITY_NO_INTERNATIONAL_TR</Type>
+		</Row>
 	 </CityStateUAEffect_SpecialCityTypes>
 	 <CityStateUAEffect_SpecialCityTypeConditionsOr>
 		<Row>
@@ -2346,6 +2367,10 @@
 		<Row>
 			<SpecialCityType>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</SpecialCityType>
 			<ConditionType>HAS_LAND_AND_SEA_INTERNATIONAL_TR</ConditionType>
+		</Row>
+		<Row>
+			<SpecialCityType>SPECIAL_CITY_NO_INTERNATIONAL_TR</SpecialCityType>
+			<ConditionType>NO_INTERNATIONAL_TR</ConditionType>
 		</Row>
 	 </CityStateUAEffect_SpecialCityTypeConditionsAnd>
 	 <CityStateUAEffect_SpecialCityYieldModifiers>
@@ -2456,6 +2481,18 @@
 			<SpecialCityType>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</SpecialCityType>
 			<YieldType>YIELD_FOOD</YieldType>
 			<YieldMod>6</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KYZYL_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_NO_INTERNATIONAL_TR</SpecialCityType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldMod>20</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_KYZYL_ALLY</EffectType>
+			<SpecialCityType>SPECIAL_CITY_NO_INTERNATIONAL_TR</SpecialCityType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<YieldMod>20</YieldMod>
 		</Row>
 	 </CityStateUAEffect_SpecialCityYieldModifiers>
 	 <CityStateUAEffect_SpecialCityCountYieldModifiers>

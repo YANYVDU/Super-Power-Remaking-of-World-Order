@@ -19075,5 +19075,30 @@
 		<Row Tag="TXT_KEY_CSUA_GOLD_GAMBLE_REFUND">
 			<Text>[COLOR_POSITIVE_TEXT]本回合下注：[ENDCOLOR]已下注——返还馈赠金额的 {1_Num}%。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_KYZYL_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有1[ICON_INTERNATIONAL_TRADE]商路上限，陆地商路距离+10%
+				[NEWLINE][ICON_BULLET]盟友通往非邻国的[ICON_INTERNATIONAL_TRADE]商路，+100%[ICON_GOLD]金钱
+				[NEWLINE][ICON_BULLET]盟友既未发出也未接收[ICON_INTERNATIONAL_TRADE]国际商路的城市，+20%[ICON_CULTURE]文化、[ICON_PEACE]信仰
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有1[ICON_INTERNATIONAL_TRADE]商路上限，陆地商路距离+4%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KYZYL_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有1[ICON_INTERNATIONAL_TRADE]商路上限，陆地商路距离+10%
+				[NEWLINE][ICON_BULLET]盟友通往非邻国的[ICON_INTERNATIONAL_TRADE]商路，+100%[ICON_GOLD]金钱
+				[NEWLINE][ICON_BULLET]盟友既未发出也未接收[ICON_INTERNATIONAL_TRADE]国际商路的城市，+20%[ICON_CULTURE]文化、[ICON_PEACE]信仰
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KYZYL_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有1[ICON_INTERNATIONAL_TRADE]商路上限，陆地商路距离+4%
+			</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

@@ -20606,5 +20606,30 @@
 		<Row Tag="TXT_KEY_CSUA_GOLD_GAMBLE_REFUND">
 			<Text>[COLOR_POSITIVE_TEXT]Wager this turn:[ENDCOLOR] placed — refunded {1_Num}% of your gift.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_KYZYL_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each trade route slot the ally has grants +10% land trade route distance
+				[NEWLINE][ICON_BULLET]The ally's [ICON_INTERNATIONAL_TRADE]trade routes to non-neighbor nations gain +100% [ICON_GOLD]Gold
+				[NEWLINE][ICON_BULLET]Each of the ally's cities that neither sends nor receives an [ICON_INTERNATIONAL_TRADE]international trade route gains +20% [ICON_CULTURE]Culture and [ICON_PEACE]Faith
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Each trade route slot the friend has grants +4% land trade route distance
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KYZYL_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Each trade route slot the ally has grants +10% land trade route distance
+				[NEWLINE][ICON_BULLET]The ally's [ICON_INTERNATIONAL_TRADE]trade routes to non-neighbor nations gain +100% [ICON_GOLD]Gold
+				[NEWLINE][ICON_BULLET]Each of the ally's cities that neither sends nor receives an [ICON_INTERNATIONAL_TRADE]international trade route gains +20% [ICON_CULTURE]Culture and [ICON_PEACE]Faith
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KYZYL_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Each trade route slot the friend has grants +4% land trade route distance
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
