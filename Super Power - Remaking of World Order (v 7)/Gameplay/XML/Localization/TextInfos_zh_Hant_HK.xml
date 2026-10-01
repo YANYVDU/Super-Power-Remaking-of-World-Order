@@ -18781,5 +18781,30 @@
 				城邦盟友加成
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_RAGUSA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]蓄水池、引水渠、自來水系統、醫院、污水處理廠、醫學實驗室為城市+8%[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]這些建築各為城市額外+2[ICON_HAPPINESS_1]本地快樂
+				[NEWLINE][ICON_BULLET]城市可以獲得的[ICON_HAPPINESS_1]本地快樂上限+50%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]蓄水池、引水渠、自來水系統、醫院、污水處理廠、醫學實驗室為城市+3%[ICON_FOOD]食物
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_RAGUSA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]蓄水池、引水渠、自來水系統、醫院、污水處理廠、醫學實驗室為城市+8%[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]這些建築各為城市額外+2[ICON_HAPPINESS_1]本地快樂
+				[NEWLINE][ICON_BULLET]城市可以獲得的[ICON_HAPPINESS_1]本地快樂上限+50%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_RAGUSA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]蓄水池、引水渠、自來水系統、醫院、污水處理廠、醫學實驗室為城市+3%[ICON_FOOD]食物
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

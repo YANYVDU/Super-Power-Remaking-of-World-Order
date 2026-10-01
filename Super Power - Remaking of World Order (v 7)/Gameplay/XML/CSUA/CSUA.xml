@@ -503,6 +503,15 @@
 			<UnitProductionModifierPerCity>4</UnitProductionModifierPerCity>
 			<Help>TXT_KEY_EFFECT_CSUA_MBANZA_KONGO_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_RAGUSA_ALLY</Type>
+			<LocalHappinessCapModifier>50</LocalHappinessCapModifier>
+			<Help>TXT_KEY_EFFECT_CSUA_RAGUSA_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_RAGUSA_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_RAGUSA_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -1839,6 +1848,13 @@
 			<AllyEffectType>EFFECT_CSUA_MBANZA_KONGO_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_MBANZA_KONGO_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_RAGUSA</Type>
+			<Description>TXT_KEY_CITYSTATE_RAGUSA</Description>
+			<Help>TXT_KEY_CSUA_RAGUSA_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_RAGUSA_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_RAGUSA_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -2552,4 +2568,110 @@
 			<YieldMod>2</YieldMod>
 		</Row>
 	 </CityStateUAEffect_CityStateTradeRouteYieldModifiersGlobal>
+	 <CityStateUAEffect_BuildingClassYieldModifiers>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CISTERN</BuildingClassType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>8</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_AQUEDUCT</BuildingClassType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>8</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_TAP_WATER_SUPPLY</BuildingClassType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>8</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>8</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_WATER_TREATMENT_FACTORY</BuildingClassType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>8</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_MEDICAL_LAB</BuildingClassType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>8</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CISTERN</BuildingClassType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>3</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_AQUEDUCT</BuildingClassType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>3</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_TAP_WATER_SUPPLY</BuildingClassType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>3</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>3</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_WATER_TREATMENT_FACTORY</BuildingClassType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>3</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_MEDICAL_LAB</BuildingClassType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldMod>3</YieldMod>
+		</Row>
+	 </CityStateUAEffect_BuildingClassYieldModifiers>
+	 <CityStateUAEffect_BuildingClassHappiness>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CISTERN</BuildingClassType>
+			<Happiness>2</Happiness>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_AQUEDUCT</BuildingClassType>
+			<Happiness>2</Happiness>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_TAP_WATER_SUPPLY</BuildingClassType>
+			<Happiness>2</Happiness>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
+			<Happiness>2</Happiness>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_WATER_TREATMENT_FACTORY</BuildingClassType>
+			<Happiness>2</Happiness>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_RAGUSA_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_MEDICAL_LAB</BuildingClassType>
+			<Happiness>2</Happiness>
+		</Row>
+	 </CityStateUAEffect_BuildingClassHappiness>
 </GameData>

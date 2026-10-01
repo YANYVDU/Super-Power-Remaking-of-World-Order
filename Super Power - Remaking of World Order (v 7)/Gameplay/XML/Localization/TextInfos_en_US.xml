@@ -20506,5 +20506,30 @@
 				City-State Ally Bonus
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_RAGUSA_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Cistern, Aqueduct, Tap Water Supply, Hospital, Water Treatment Factory and Medical Lab grant the city +8% [ICON_FOOD]Food
+				[NEWLINE][ICON_BULLET]Those buildings each grant the city +2 [ICON_HAPPINESS_1]Local Happiness
+				[NEWLINE][ICON_BULLET]The city's [ICON_HAPPINESS_1]Local Happiness cap is increased by 50%
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]Cistern, Aqueduct, Tap Water Supply, Hospital, Water Treatment Factory and Medical Lab grant the city +3% [ICON_FOOD]Food
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_RAGUSA_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]Cistern, Aqueduct, Tap Water Supply, Hospital, Water Treatment Factory and Medical Lab grant the city +8% [ICON_FOOD]Food
+				[NEWLINE][ICON_BULLET]Those buildings each grant the city +2 [ICON_HAPPINESS_1]Local Happiness
+				[NEWLINE][ICON_BULLET]The city's [ICON_HAPPINESS_1]Local Happiness cap is increased by 50%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_RAGUSA_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]Cistern, Aqueduct, Tap Water Supply, Hospital, Water Treatment Factory and Medical Lab grant the city +3% [ICON_FOOD]Food
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
