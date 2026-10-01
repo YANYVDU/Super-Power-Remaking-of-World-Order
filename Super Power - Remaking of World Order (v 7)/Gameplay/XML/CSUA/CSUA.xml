@@ -472,14 +472,12 @@
 		</Row>
 		<Row>
 			<Type>EFFECT_CSUA_BUDAPEST_ALLY</Type>
-			<UnitMaintenancePerCavalry>4</UnitMaintenancePerCavalry>
 			<WoundedFixedDamage>4</WoundedFixedDamage>
 			<LandUnitsImmuneRiverCrossing>true</LandUnitsImmuneRiverCrossing>
 			<Help>TXT_KEY_EFFECT_CSUA_BUDAPEST_ALLY_HELP</Help>
 		</Row>
 		<Row>
 			<Type>EFFECT_CSUA_BUDAPEST_FRIEND</Type>
-			<UnitMaintenancePerCavalry>2</UnitMaintenancePerCavalry>
 			<Help>TXT_KEY_EFFECT_CSUA_BUDAPEST_FRIEND_HELP</Help>
 		</Row>
 		<Row>
@@ -685,6 +683,29 @@
 			<Modifier>20</Modifier>
 		</Row>
 	 </CityStateUAEffect_GreatPersonOneShotModifier>
+	 <!-- Budapest: each owned unit holding PromotionType changes total unit maintenance by MaintenanceChange gold (negative = cheaper, positive = more expensive) -->
+	 <CityStateUAEffect_UnitMaintenanceByPromotion>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUDAPEST_ALLY</EffectType>
+			<PromotionType>PROMOTION_HITANDRUN</PromotionType>
+			<MaintenanceChange>-4</MaintenanceChange>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUDAPEST_ALLY</EffectType>
+			<PromotionType>PROMOTION_KNIGHT_COMBAT</PromotionType>
+			<MaintenanceChange>-4</MaintenanceChange>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUDAPEST_FRIEND</EffectType>
+			<PromotionType>PROMOTION_HITANDRUN</PromotionType>
+			<MaintenanceChange>-2</MaintenanceChange>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUDAPEST_FRIEND</EffectType>
+			<PromotionType>PROMOTION_KNIGHT_COMBAT</PromotionType>
+			<MaintenanceChange>-2</MaintenanceChange>
+		</Row>
+	 </CityStateUAEffect_UnitMaintenanceByPromotion>
 	 <CityStateUAEffect_InternalTRToUCSPerEraYield>
 		<Row>
 			<EffectType>EFFECT_CSUA_COLOMBO_ALLY</EffectType>
