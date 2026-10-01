@@ -274,6 +274,7 @@
 			<Type>EFFECT_CSUA_KATHMANDU_ALLY</Type>
 			<FaithRefundPerDonationPercent>50</FaithRefundPerDonationPercent>
 			<Help>TXT_KEY_EFFECT_CSUA_KATHMANDU_ALLY_HELP</Help>
+			<GoldGiftTooltip>TXT_KEY_CSUA_KATHMANDU_DONATION_TT</GoldGiftTooltip>
 		</Row>
 		<Row>
 			<Type>EFFECT_CSUA_KATHMANDU_FRIEND</Type>
@@ -528,6 +529,16 @@
 			<Type>EFFECT_CSUA_MILAN_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_MILAN_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_MONACO_ALLY</Type>
+			<GoldenAgeBuildingMaintenanceMod>-50</GoldenAgeBuildingMaintenanceMod>
+			<Help>TXT_KEY_EFFECT_CSUA_MONACO_ALLY_HELP</Help>
+			<GoldGiftTooltip>TXT_KEY_CSUA_MONACO_DONATION_TT</GoldGiftTooltip>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_MONACO_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_MONACO_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -756,6 +767,42 @@
 			<Percent>15</Percent>
 		</Row>
 	 </CityStateUAEffect_YieldToYieldViaTRToUCS>
+	 <CityStateUAEffect_YieldToYield>
+		<Row>
+			<EffectType>EFFECT_CSUA_MONACO_ALLY</EffectType>
+			<InYieldType>YIELD_TOURISM</InYieldType>
+			<OutYieldType>YIELD_GOLD</OutYieldType>
+			<Mod>100</Mod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MONACO_FRIEND</EffectType>
+			<InYieldType>YIELD_TOURISM</InYieldType>
+			<OutYieldType>YIELD_GOLD</OutYieldType>
+			<Mod>40</Mod>
+		</Row>
+	 </CityStateUAEffect_YieldToYield>
+	 <CityStateUAEffect_GoldDonationGamble>
+		<Row>
+			<EffectType>EFFECT_CSUA_MONACO_ALLY</EffectType>
+			<Weight>3500</Weight>
+			<Multiplier>100</Multiplier>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MONACO_ALLY</EffectType>
+			<Weight>1500</Weight>
+			<Multiplier>200</Multiplier>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MONACO_ALLY</EffectType>
+			<Weight>400</Weight>
+			<Multiplier>300</Multiplier>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_MONACO_ALLY</EffectType>
+			<Weight>100</Weight>
+			<Multiplier>1000</Multiplier>
+		</Row>
+	 </CityStateUAEffect_GoldDonationGamble>
 	 <CityStateUAEffect_PurchasedBuildingXP>
 		<Row>
 			<EffectType>EFFECT_CSUA_VALLETTA_ALLY</EffectType>
@@ -1884,6 +1931,13 @@
 			<Help>TXT_KEY_CSUA_MILAN_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_MILAN_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_MILAN_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_MONACO</Type>
+			<Description>TXT_KEY_CITYSTATE_MONACO</Description>
+			<Help>TXT_KEY_CSUA_MONACO_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_MONACO_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_MONACO_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>

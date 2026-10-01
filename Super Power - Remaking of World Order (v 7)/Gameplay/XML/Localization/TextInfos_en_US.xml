@@ -20585,5 +20585,26 @@
 		<Row Tag="TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_TT_SP">
 			<Text>This unit takes less damage because of a City-State's unique ability</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_MONACO_HELP">
+			<Text>[ICON_CITY_STATE]Monaco[NEWLINE][NEWLINE]Ally Effects:[NEWLINE][ICON_BULLET]100% of the ally's city [ICON_TOURISM] Tourism is converted into [ICON_GOLD] Gold[NEWLINE][ICON_BULLET]The ally's first [ICON_GOLD] Gold gift to Monaco each turn is a wager: 45% nothing, 35% full refund, 15% double, 4% triple, 1% tenfold[NEWLINE][ICON_BULLET]While the ally is in a Golden Age, building maintenance is reduced by 50%[NEWLINE][NEWLINE]Friend Effects:[NEWLINE][ICON_BULLET]40% of the friend's city [ICON_TOURISM] Tourism is converted into [ICON_GOLD] Gold</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MONACO_ALLY_HELP">
+			<Text>Ally Effects:[NEWLINE][ICON_BULLET]100% of the ally's city [ICON_TOURISM] Tourism is converted into [ICON_GOLD] Gold[NEWLINE][ICON_BULLET]The ally's first [ICON_GOLD] Gold gift to Monaco each turn is a wager: 45% nothing, 35% full refund, 15% double, 4% triple, 1% tenfold[NEWLINE][ICON_BULLET]While the ally is in a Golden Age, building maintenance is reduced by 50%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MONACO_FRIEND_HELP">
+			<Text>Friend Effects:[NEWLINE][ICON_BULLET]40% of the friend's city [ICON_TOURISM] Tourism is converted into [ICON_GOLD] Gold</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MONACO_DONATION_TT">
+			<Text>[COLOR_POSITIVE_TEXT]Wager:[ENDCOLOR] your first [ICON_GOLD] Gold gift to Monaco each turn is a bet.[NEWLINE]45% nothing, 35% full refund, 15% double, 4% triple, 1% tenfold.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_GOLD_GAMBLE_NOT_PLACED">
+			<Text>[COLOR_POSITIVE_TEXT]Wager this turn:[ENDCOLOR] not yet placed.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_GOLD_GAMBLE_NO_PAYOUT">
+			<Text>[COLOR_POSITIVE_TEXT]Wager this turn:[ENDCOLOR] placed — no payout.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_GOLD_GAMBLE_REFUND">
+			<Text>[COLOR_POSITIVE_TEXT]Wager this turn:[ENDCOLOR] placed — refunded {1_Num}% of your gift.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

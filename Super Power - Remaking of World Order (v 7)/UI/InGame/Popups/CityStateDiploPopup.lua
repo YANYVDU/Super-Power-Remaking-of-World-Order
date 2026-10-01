@@ -987,6 +987,86 @@ local iGoldGiftLarge = GameDefines["MINOR_GOLD_GIFT_LARGE"];
 local iGoldGiftMedium = GameDefines["MINOR_GOLD_GIFT_MEDIUM"];
 local iGoldGiftSmall = GameDefines["MINOR_GOLD_GIFT_SMALL"];
 
+-- Resolve the UA effect currently granting to iMajor from this city-state (ally takes priority over
+-- friend). Returns the effect type string, or nil if the city-state grants nothing to iMajor.
+local function ResolveCityStateUAEffect(iMinor, iMajor)
+	if (GameInfo.CityStateUAs == nil) then
+		return nil;
+	end
+	local pMinor = Players[iMinor];
+	if (pMinor == nil or not pMinor:IsMinorCiv()) then
+		return nil;
+	end
+	local kMinor = GameInfo.MinorCivilizations[pMinor:GetMinorCivType()];
+	if (kMinor == nil or kMinor.UAType == nil or kMinor.UAType == "") then
+		return nil;
+	end
+	local kUA = GameInfo.CityStateUAs[kMinor.UAType];
+	if (kUA == nil) then
+		return nil;
+	end
+	local sEffect = nil;
+	if (pMinor:IsAllies(iMajor)) then
+		sEffect = kUA.AllyEffectType;
+	elseif (pMinor:IsFriends(iMajor)) then
+		sEffect = kUA.FriendEffectType;
+	end
+	if (sEffect == nil or sEffect == "") then
+		return nil;
+	end
+	return sEffect;
+end
+
+-- City-State UA gold-gift note: keyed to THIS city-state's UA effect (ally/friend), so it is shown only
+-- on the panel of a city-state that actually grants one (e.g. Kathmandu faith refund, Monaco wager),
+-- instead of keying off the active player's aggregated CSUA state. Returns the text, or nil if none.
+local function GetCityStateUADonationTT(iMinor, iMajor)
+	if (GameInfo.CityStateUAEffects == nil) then
+		return nil;
+	end
+	local sEffect = ResolveCityStateUAEffect(iMinor, iMajor);
+	if (sEffect == nil) then
+		return nil;
+	end
+	local kEffect = GameInfo.CityStateUAEffects[sEffect];
+	if (kEffect == nil or kEffect.GoldGiftTooltip == nil or kEffect.GoldGiftTooltip == "") then
+		return nil;
+	end
+	return Locale.ConvertTextKey(kEffect.GoldGiftTooltip);
+end
+
+-- City-State UA gold-gift wager status (Monaco): tells whether this turn's first donation to THIS
+-- city-state has been wagered and, if so, its result. Shown only for city-states whose UA effect
+-- defines a GoldDonationGamble row. Returns the text, or nil if none.
+local function GetCityStateUAGambleStatusTT(iMinor, iMajor)
+	if (GameInfo.CityStateUAEffect_GoldDonationGamble == nil) then
+		return nil;
+	end
+	local sEffect = ResolveCityStateUAEffect(iMinor, iMajor);
+	if (sEffect == nil) then
+		return nil;
+	end
+	local bHasGamble = false;
+	for row in GameInfo.CityStateUAEffect_GoldDonationGamble() do
+		if (row.EffectType == sEffect) then
+			bHasGamble = true;
+			break;
+		end
+	end
+	if (not bHasGamble) then
+		return nil;
+	end
+	local pMinor = Players[iMinor];
+	if (not pMinor:GetMinorCivGoldGambleUsedThisTurn(iMajor)) then
+		return Locale.ConvertTextKey("TXT_KEY_CSUA_GOLD_GAMBLE_NOT_PLACED");
+	end
+	local iMultiplier = pMinor:GetMinorCivGoldGambleLastMultiplier(iMajor);
+	if (iMultiplier <= 0) then
+		return Locale.ConvertTextKey("TXT_KEY_CSUA_GOLD_GAMBLE_NO_PAYOUT");
+	end
+	return Locale.ConvertTextKey("TXT_KEY_CSUA_GOLD_GAMBLE_REFUND", iMultiplier);
+end
+
 function PopulateGiftChoices()
 	local pPlayer = Players[g_iMinorCivID];
 
@@ -1139,10 +1219,18 @@ function PopulateGiftChoices()
 		strInfoTT = strInfoTT .. "[NEWLINE][NEWLINE]";
 		strInfoTT = strInfoTT .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_PERMANENT_ALLY_GIFT_WARNING", Players[iPermanentAlly]:GetCivilizationShortDescriptionKey());
 	end
-	local iFaithRefundPercent = Players[iActivePlayer]:GetCSUAFaithRefundPerDonationPercent();
-	if (iFaithRefundPercent > 0) then
+	-- City-State UA gold-gift note (Kathmandu refund, Monaco wager, ...): shown only for the city-state
+	-- being viewed, not for every city-state while the active player happens to be allied with one.
+	local sDonationTT = GetCityStateUADonationTT(g_iMinorCivID, iActivePlayer);
+	if (sDonationTT ~= nil) then
 		strInfoTT = strInfoTT .. "[NEWLINE][NEWLINE]";
-		strInfoTT = strInfoTT .. Locale.ConvertTextKey("TXT_KEY_CSUA_KATHMANDU_DONATION_TT");
+		strInfoTT = strInfoTT .. sDonationTT;
+	end
+	-- Monaco wager: report this turn's first-donation outcome on this city-state's own panel.
+	local sGambleTT = GetCityStateUAGambleStatusTT(g_iMinorCivID, iActivePlayer);
+	if (sGambleTT ~= nil) then
+		strInfoTT = strInfoTT .. "[NEWLINE][NEWLINE]";
+		strInfoTT = strInfoTT .. sGambleTT;
 	end
 	Controls.SmallGiftButton:SetToolTipString(strInfoTT);
 	Controls.MediumGiftButton:SetToolTipString(strInfoTT);

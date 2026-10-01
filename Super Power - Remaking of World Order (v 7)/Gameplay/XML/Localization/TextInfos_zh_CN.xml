@@ -19054,5 +19054,26 @@
 		<Row Tag="TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_TT_SP">
 			<Text>该单位因其城邦的独特能力而减免受到的伤害</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_MONACO_HELP">
+			<Text>[ICON_CITY_STATE]摩纳哥[NEWLINE][NEWLINE]盟友效果：[NEWLINE][ICON_BULLET]盟友城市100%的魅力将转化为城市的[ICON_GOLD]金钱产出[NEWLINE][ICON_BULLET]盟友每回合对摩纳哥的首次[ICON_GOLD]金钱馈赠视为下注——45% 无收益、35% 全额返还、15% 双倍、4% 三倍返还、1% 十倍返还[NEWLINE][ICON_BULLET]盟友黄金时代内来自建筑的维护费-50%[NEWLINE][NEWLINE]朋友效果：[NEWLINE][ICON_BULLET]朋友城市40%的魅力将转化为城市的[ICON_GOLD]金钱产出</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MONACO_ALLY_HELP">
+			<Text>盟友效果：[NEWLINE][ICON_BULLET]盟友城市100%的魅力将转化为城市的[ICON_GOLD]金钱产出[NEWLINE][ICON_BULLET]盟友每回合对摩纳哥的首次[ICON_GOLD]金钱馈赠视为下注——45% 无收益、35% 全额返还、15% 双倍、4% 三倍返还、1% 十倍返还[NEWLINE][ICON_BULLET]盟友黄金时代内来自建筑的维护费-50%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MONACO_FRIEND_HELP">
+			<Text>朋友效果：[NEWLINE][ICON_BULLET]朋友城市40%的魅力将转化为城市的[ICON_GOLD]金钱产出</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MONACO_DONATION_TT">
+			<Text>[COLOR_POSITIVE_TEXT]下注：[ENDCOLOR]你每回合对摩纳哥的首次[ICON_GOLD]金钱馈赠即为一注。[NEWLINE]45% 无收益、35% 全额返还、15% 双倍、4% 三倍返还、1% 十倍返还。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_GOLD_GAMBLE_NOT_PLACED">
+			<Text>[COLOR_POSITIVE_TEXT]本回合下注：[ENDCOLOR]尚未下注。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_GOLD_GAMBLE_NO_PAYOUT">
+			<Text>[COLOR_POSITIVE_TEXT]本回合下注：[ENDCOLOR]已下注——无收益。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_GOLD_GAMBLE_REFUND">
+			<Text>[COLOR_POSITIVE_TEXT]本回合下注：[ENDCOLOR]已下注——返还馈赠金额的 {1_Num}%。</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>
