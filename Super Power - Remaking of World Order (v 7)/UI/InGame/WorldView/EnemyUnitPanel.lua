@@ -810,11 +810,19 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_EXTRA_PERCENT");
 				controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true));
 			end
-			-- Extra Combat Percent From Building / CSUA inside-borders modifier
-			iModifier = pMyUnit:GetCombatModifierFromBuilding() + pMyUnit:GetCSUACombatModifierInBorders(pToPlot);
+			-- Extra Combat Percent From Building
+			iModifier = pMyUnit:GetCombatModifierFromBuilding();
 			if (iModifier ~= 0) then
 				controlTable = g_MyCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_STRATEGIC_ENVIRONMENT_COMBAT_MOD");
+				controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true));
+			end
+
+			-- City-State ally bonus: every CSUA combat strength modifier (tech difference + inside-borders)
+			iModifier = pMyUnit:GetCSUACombatModifier(nil, pToPlot);
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();
+				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_BONUS_CSUA_ALLY");
 				controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true));
 			end
 
@@ -1460,11 +1468,19 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_EXTRA_PERCENT");
 				controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true));
 			end
-			-- Extra Combat Percent From Building / CSUA inside-borders modifier
-			iModifier = pMyUnit:GetCombatModifierFromBuilding() + pMyUnit:GetCSUACombatModifierInBorders(pToPlot);
+			-- Extra Combat Percent From Building
+			iModifier = pMyUnit:GetCombatModifierFromBuilding();
 			if (iModifier ~= 0) then
 				controlTable = g_MyCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_STRATEGIC_ENVIRONMENT_COMBAT_MOD");
+				controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true));
+			end
+
+			-- City-State ally bonus: every CSUA combat strength modifier (tech difference + inside-borders)
+			iModifier = pMyUnit:GetCSUACombatModifier(pTheirUnit, pToPlot);
+			if (iModifier ~= 0) then
+				controlTable = g_MyCombatDataIM:GetInstance();
+				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_BONUS_CSUA_ALLY");
 				controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true));
 			end
 
@@ -2502,13 +2518,21 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 					--				strString.append(GetLocalizedText("TXT_KEY_COMBAT_PLOT_EXTRA_STRENGTH", iModifier));
 				end
 
-				-- Extra Combat Percent From Building / CSUA inside-borders modifier
-				iModifier = pTheirUnit:GetCombatModifierFromBuilding() + pTheirUnit:GetCSUACombatModifierInBorders(pToPlot);
+				-- Extra Combat Percent From Building
+				iModifier = pTheirUnit:GetCombatModifierFromBuilding();
 				if (iModifier ~= 0) then
 					controlTable = g_TheirCombatDataIM:GetInstance();
 					controlTable.Text:LocalizeAndSetText("TXT_KEY_STRATEGIC_ENVIRONMENT_COMBAT_MOD");
 					controlTable.Value:SetText(GetFormattedText(strText, iModifier, false, true));
 					--				strString.append(GetLocalizedText("TXT_KEY_COMBAT_PLOT_EXTRA_STRENGTH", iModifier));
+				end
+
+				-- City-State ally bonus: every CSUA combat strength modifier (tech difference + inside-borders)
+				iModifier = pTheirUnit:GetCSUACombatModifier(pMyUnit, pToPlot);
+				if (iModifier ~= 0) then
+					controlTable = g_TheirCombatDataIM:GetInstance();
+					controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_BONUS_CSUA_ALLY");
+					controlTable.Value:SetText(GetFormattedText(strText, iModifier, false, true));
 				end
 
 				-- Bonus for fighting in one's lands
@@ -3112,13 +3136,21 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 			controlTable.Value:SetText(GetFormattedText(strText, iModifier, false, true));
 			--				strString.append(GetLocalizedText("TXT_KEY_COMBAT_PLOT_EXTRA_STRENGTH", iModifier));
 		end
-		-- Extra Combat Percent From Building / CSUA inside-borders modifier
-		iModifier = theirUnit:GetCombatModifierFromBuilding() + theirUnit:GetCSUACombatModifierInBorders(theirPlot);
+		-- Extra Combat Percent From Building
+		iModifier = theirUnit:GetCombatModifierFromBuilding();
 		if (iModifier ~= 0) then
 			controlTable = g_TheirCombatDataIM:GetInstance();
 			controlTable.Text:LocalizeAndSetText("TXT_KEY_STRATEGIC_ENVIRONMENT_COMBAT_MOD");
 			controlTable.Value:SetText(GetFormattedText(strText, iModifier, false, true));
 			--				strString.append(GetLocalizedText("TXT_KEY_COMBAT_PLOT_EXTRA_STRENGTH", iModifier));
+		end
+
+		-- City-State ally bonus: every CSUA combat strength modifier (tech difference + inside-borders)
+		iModifier = theirUnit:GetCSUACombatModifier(nil, theirPlot);
+		if (iModifier ~= 0) then
+			controlTable = g_TheirCombatDataIM:GetInstance();
+			controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_BONUS_CSUA_ALLY");
+			controlTable.Value:SetText(GetFormattedText(strText, iModifier, false, true));
 		end
 
 		-- Bonus for fighting in one's lands

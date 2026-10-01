@@ -20501,5 +20501,10 @@
 				[NEWLINE][ICON_BULLET]For each city the friend owns, the nation gains +4% [ICON_PRODUCTION]Military Unit Production
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_BONUS_CSUA_ALLY">
+			<Text>
+				City-State Ally Bonus
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

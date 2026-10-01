@@ -18776,5 +18776,10 @@
 				[NEWLINE][ICON_BULLET]朋友每有一座城市，全國[ICON_PRODUCTION]軍事單位組建速度+4%
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_BONUS_CSUA_ALLY">
+			<Text>
+				城邦盟友加成
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

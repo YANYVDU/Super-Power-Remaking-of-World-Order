@@ -495,7 +495,6 @@
 		<Row>
 			<Type>EFFECT_CSUA_MBANZA_KONGO_ALLY</Type>
 			<UnitProductionModifierPerCity>10</UnitProductionModifierPerCity>
-			<ManpowerPerCity>4</ManpowerPerCity>
 			<CombatBonusPerTechDifference>10</CombatBonusPerTechDifference>
 			<Help>TXT_KEY_EFFECT_CSUA_MBANZA_KONGO_ALLY_HELP</Help>
 		</Row>
@@ -909,6 +908,14 @@
 			<YieldMod>20</YieldMod>
 		</Row>
 	 </CityStateUAEffect_ResourceYieldModifiers>
+	 <!-- Mbanza Kongo: each owned city provides 4 Manpower -->
+	 <CityStateUAEffect_ResourcePerCity>
+		<Row>
+			<EffectType>EFFECT_CSUA_MBANZA_KONGO_ALLY</EffectType>
+			<ResourceType>RESOURCE_MANPOWER</ResourceType>
+			<Quantity>4</Quantity>
+		</Row>
+	 </CityStateUAEffect_ResourcePerCity>
 	 <CityStateUAEffect_BuildingClassYieldModifiers>
 		<Row>
 			<EffectType>EFFECT_CSUA_MELBOURNE_ALLY</EffectType>
