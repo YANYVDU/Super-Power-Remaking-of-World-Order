@@ -550,6 +550,16 @@
 			<LandTradeRouteDistancePerTradeSlot>4</LandTradeRouteDistancePerTradeSlot>
 			<Help>TXT_KEY_EFFECT_CSUA_KYZYL_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_BUENOS_AIRES_ALLY</Type>
+			<GPNoDeathAfterGreatWork>true</GPNoDeathAfterGreatWork>
+			<GPConcertTourismRetentionPercent>50</GPConcertTourismRetentionPercent>
+			<Help>TXT_KEY_EFFECT_CSUA_BUENOS_AIRES_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_BUENOS_AIRES_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_BUENOS_AIRES_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -560,6 +570,11 @@
 		<Row>
 			<EffectType>EFFECT_CSUA_ANTWERP_ALLY</EffectType>
 			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUENOS_AIRES_ALLY</EffectType>
+			<SpecialistType>SPECIALIST_MUSICIAN</SpecialistType>
 			<Points>1</Points>
 		</Row>
 	 </CityStateUAEffect_GreatPersonPoints>
@@ -664,6 +679,60 @@
 			<EffectType>EFFECT_CSUA_ANTWERP_FRIEND</EffectType>
 			<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
 			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUENOS_AIRES_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_TOWN</BuildingClassType>
+			<SpecialistType>SPECIALIST_MUSICIAN</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUENOS_AIRES_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_SMALL</BuildingClassType>
+			<SpecialistType>SPECIALIST_MUSICIAN</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUENOS_AIRES_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_MEDIUM</BuildingClassType>
+			<SpecialistType>SPECIALIST_MUSICIAN</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUENOS_AIRES_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_LARGE</BuildingClassType>
+			<SpecialistType>SPECIALIST_MUSICIAN</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUENOS_AIRES_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_XL</BuildingClassType>
+			<SpecialistType>SPECIALIST_MUSICIAN</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUENOS_AIRES_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_XXL</BuildingClassType>
+			<SpecialistType>SPECIALIST_MUSICIAN</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUENOS_AIRES_ALLY</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_GLOBAL</BuildingClassType>
+			<SpecialistType>SPECIALIST_MUSICIAN</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUENOS_AIRES_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_SMALL</BuildingClassType>
+			<SpecialistType>SPECIALIST_MUSICIAN</SpecialistType>
+			<Points>1</Points>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUENOS_AIRES_FRIEND</EffectType>
+			<BuildingClassType>BUILDINGCLASS_CITY_SIZE_MEDIUM</BuildingClassType>
+			<SpecialistType>SPECIALIST_MUSICIAN</SpecialistType>
 			<Points>1</Points>
 		</Row>
 	 </CityStateUAEffect_BuildingGreatPersonPoints>
@@ -1957,6 +2026,13 @@
 			<AllyEffectType>EFFECT_CSUA_KYZYL_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_KYZYL_FRIEND</FriendEffectType>
 		</Row>
+		<Row>
+			<Type>CSUA_BUENOS_AIRES</Type>
+			<Description>TXT_KEY_CITYSTATE_BUENOS_AIRES</Description>
+			<Help>TXT_KEY_CSUA_BUENOS_AIRES_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_BUENOS_AIRES_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_BUENOS_AIRES_FRIEND</FriendEffectType>
+		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>
 		<Row>
@@ -2136,6 +2212,12 @@
 			<GreatWorkClassType>GREAT_WORK_MUSIC</GreatWorkClassType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<YieldMod>200</YieldMod>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_BUENOS_AIRES_ALLY</EffectType>
+			<GreatWorkClassType>GREAT_WORK_MUSIC</GreatWorkClassType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<YieldMod>500</YieldMod>
 		</Row>
 	 </CityStateUAEffect_GreatWorkYieldModifiers>
 	 <CityStateUAEffect_GoldenAgeYieldModifiers>

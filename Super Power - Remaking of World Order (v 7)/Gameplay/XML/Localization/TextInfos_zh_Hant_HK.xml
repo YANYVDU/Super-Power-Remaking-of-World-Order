@@ -18906,5 +18906,30 @@
 				[NEWLINE][ICON_BULLET]朋友每有1[ICON_INTERNATIONAL_TRADE]商路上限，陸地商路距離+4%
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_BUENOS_AIRES_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市+1[ICON_GREAT_MUSICIAN]大音樂家點數，盟友城市的每個城市規模假建築各提供1[ICON_GREAT_MUSICIAN]大音樂家點數
+				[NEWLINE][ICON_BULLET]盟友的[ICON_GREAT_MUSICIAN]大音樂家在產出[ICON_GREAT_WORK]音樂傑作後不會立刻死亡，而是喪失傑作產出能力並保留50%的[ICON_TOURISM]演唱會魅力
+				[NEWLINE][ICON_BULLET]盟友每個[ICON_GREAT_WORK]音樂傑作提高全國5%[ICON_TOURISM]魅力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市規模達到小型城市時+1[ICON_GREAT_MUSICIAN]大音樂家點數，達到中型城市時額外+1[ICON_GREAT_MUSICIAN]大音樂家點數
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUENOS_AIRES_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市+1[ICON_GREAT_MUSICIAN]大音樂家點數，盟友城市的每個城市規模假建築各提供1[ICON_GREAT_MUSICIAN]大音樂家點數
+				[NEWLINE][ICON_BULLET]盟友的[ICON_GREAT_MUSICIAN]大音樂家在產出[ICON_GREAT_WORK]音樂傑作後不會立刻死亡，而是喪失傑作產出能力並保留50%的[ICON_TOURISM]演唱會魅力
+				[NEWLINE][ICON_BULLET]盟友每個[ICON_GREAT_WORK]音樂傑作提高全國5%[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUENOS_AIRES_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市規模達到小型城市時+1[ICON_GREAT_MUSICIAN]大音樂家點數，達到中型城市時額外+1[ICON_GREAT_MUSICIAN]大音樂家點數
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
