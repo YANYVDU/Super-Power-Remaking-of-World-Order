@@ -1124,6 +1124,14 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 			iMyDamageInflicted = iMyDamageInflicted + GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyUnit:GetDamageFixValueToUnit(pTheirUnit))
 			iTheirDamageInflicted = iTheirDamageInflicted + GetCSUAScaledFixedDamage(pTheirUnit, pToPlot, pTheirUnit:GetDamageFixValueToUnit(pMyUnit, false))
 
+			-- Budapest CS UA: the ally's units deal extra flat damage against an already-wounded target
+			if pTheirUnit:GetDamage() > 0 then
+				iMyDamageInflicted = iMyDamageInflicted + GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyPlayer:GetCSUAWoundedFixedDamage())
+			end
+			if pMyUnit:GetDamage() > 0 then
+				iTheirDamageInflicted = iTheirDamageInflicted + GetCSUAScaledFixedDamage(pTheirUnit, pToPlot, pTheirPlayer:GetCSUAWoundedFixedDamage())
+			end
+
 			local iTheirForcedDamage = GetCSUAScaledFixedDamage(pTheirUnit, pToPlot, pTheirUnit:GetForcedDamageValue())
 			if iTheirForcedDamage ~= 0 then
 				if iTheirForcedDamage > 0 then
@@ -1292,6 +1300,10 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 			-- force damage --
 			-------------------------
 			local UnitFixDamageValue = GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyUnit:GetDamageFixValueToUnit(pTheirUnit))
+			-- Budapest CS UA: the ally's units deal extra flat damage against an already-wounded target
+			if pTheirUnit:GetDamage() > 0 then
+				UnitFixDamageValue = UnitFixDamageValue + GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyPlayer:GetCSUAWoundedFixedDamage())
+			end
             if UnitFixDamageValue ~= 0 then
                 controlTable = g_MyCombatDataIM:GetInstance();
                 controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_FIXVALUE_SP");
@@ -2102,6 +2114,10 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 			-- force damage --
 			-------------------------
 			local UnitFixDamageValue = GetCSUAScaledFixedDamage(pTheirUnit, pToPlot, pTheirUnit:GetDamageFixValueToUnit(pMyUnit, false))
+			-- Budapest CS UA: the ally's units deal extra flat damage against an already-wounded target
+			if pMyUnit:GetDamage() > 0 then
+				UnitFixDamageValue = UnitFixDamageValue + GetCSUAScaledFixedDamage(pTheirUnit, pToPlot, pTheirPlayer:GetCSUAWoundedFixedDamage())
+			end
 			if UnitFixDamageValue ~= 0 then
 				controlTable = g_TheirCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_FIXVALUE_SP");
