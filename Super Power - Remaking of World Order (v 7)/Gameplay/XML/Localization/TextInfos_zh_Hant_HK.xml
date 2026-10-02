@@ -5974,8 +5974,9 @@
 		<Replace Tag="TXT_KEY_TRAIT_CITY_STATE_FRIENDSHIP">
 			<Text>
 				[ICON_BULLET]對城邦[ICON_INFLUENCE]影響力衰減速度減半，恢復速度加倍。
-				[NEWLINE][ICON_BULLET]軍隊在城邦境內停留時不會影響關系。對於能夠勒索的城邦每回合額外獲得5點[ICON_INFLUENCE]影響力（標準速度下）。
+				[NEWLINE][ICON_BULLET]軍隊在城邦境內停留時不會影響關系。對於能夠勒索的城邦每回合額外獲得3點[ICON_INFLUENCE]影響力（標準速度下）。
 				[NEWLINE][ICON_BULLET]每個同盟城邦為軍事單位+3%戰鬥力，上限為30%。
+				[NEWLINE][ICON_BULLET]+2[ICON_DIPLOMATIC_PRESTIGE]外交威望。
 			</Text>
 		</Replace>
 

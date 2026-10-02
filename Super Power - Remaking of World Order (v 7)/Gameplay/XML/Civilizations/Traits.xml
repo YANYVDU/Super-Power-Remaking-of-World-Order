@@ -173,10 +173,11 @@
 			<Description>TXT_KEY_TRAIT_CITY_STATE_FRIENDSHIP</Description>
 			<ShortDescription>TXT_KEY_TRAIT_CITY_STATE_FRIENDSHIP_SHORT</ShortDescription>
 			<CityStateFriendshipModifier>100</CityStateFriendshipModifier>
-			<AfraidMinorPerTurnInfluence>500</AfraidMinorPerTurnInfluence>
+			<AfraidMinorPerTurnInfluence>300</AfraidMinorPerTurnInfluence>
 			<AngerFreeIntrusionOfCityStates>true</AngerFreeIntrusionOfCityStates>
 			<AllyCityStateCombatModifier>3</AllyCityStateCombatModifier>
 			<AllyCityStateCombatModifierMax>30</AllyCityStateCombatModifierMax>
+			<DiplomaticPrestige>2</DiplomaticPrestige>
 		</Row>
 		<Row>
 			<Type>TRAIT_SLAYER_OF_TIAMAT</Type>
