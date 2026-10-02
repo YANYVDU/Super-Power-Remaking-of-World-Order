@@ -17681,7 +17681,7 @@
 		<Text>
 			盟友效果：
 			[NEWLINE][ICON_BULLET]盟友信仰購買大美術家、大文學家、大音樂家所需的[ICON_PEACE]信仰降低30%
-			[NEWLINE][ICON_BULLET]盟友每擁有一件[ICON_GREAT_WORK_ART]傑作或文物，全國+2%[ICON_PEACE]信仰
+			[NEWLINE][ICON_BULLET]盟友每擁有一件[ICON_GREAT_WORK]傑作或文物，全國+2%[ICON_PEACE]信仰
 			[NEWLINE][ICON_BULLET]盟友在[ICON_GOLDEN_AGE]黃金時代內，全國額外+25%[ICON_PEACE]信仰
 			[NEWLINE]
 			[NEWLINE]朋友效果：
@@ -17692,7 +17692,7 @@
 		<Text>
 			盟友效果：
 			[NEWLINE][ICON_BULLET]盟友信仰購買大美術家、大文學家、大音樂家所需的[ICON_PEACE]信仰降低30%
-			[NEWLINE][ICON_BULLET]盟友每擁有一件[ICON_GREAT_WORK_ART]傑作或文物，全國+2%[ICON_PEACE]信仰
+			[NEWLINE][ICON_BULLET]盟友每擁有一件[ICON_GREAT_WORK]傑作或文物，全國+2%[ICON_PEACE]信仰
 			[NEWLINE][ICON_BULLET]盟友在[ICON_GOLDEN_AGE]黃金時代內，全國額外+25%[ICON_PEACE]信仰
 		</Text>
 	</Row>

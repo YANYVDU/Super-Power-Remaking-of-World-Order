@@ -19406,7 +19406,7 @@
 		<Text>
 			Ally Effects:
 			[NEWLINE][ICON_BULLET]Faith-buying Great Artists, Writers, and Musicians costs 30% less [ICON_PEACE]Faith
-			[NEWLINE][ICON_BULLET]Each [ICON_GREAT_WORK_ART]Great Work or Artifact owned grants +2% [ICON_PEACE]Faith empire-wide
+			[NEWLINE][ICON_BULLET]Each [ICON_GREAT_WORK]Great Work or Artifact owned grants +2% [ICON_PEACE]Faith empire-wide
 			[NEWLINE][ICON_BULLET]During a [ICON_GOLDEN_AGE]Golden Age, generate +25% [ICON_PEACE]Faith empire-wide
 			[NEWLINE]
 			[NEWLINE]Friend Effects:
@@ -19417,7 +19417,7 @@
 		<Text>
 			Ally Effects:
 			[NEWLINE][ICON_BULLET]Faith-buying Great Artists, Writers, and Musicians costs 30% less [ICON_PEACE]Faith
-			[NEWLINE][ICON_BULLET]Each [ICON_GREAT_WORK_ART]Great Work or Artifact owned grants +2% [ICON_PEACE]Faith empire-wide
+			[NEWLINE][ICON_BULLET]Each [ICON_GREAT_WORK]Great Work or Artifact owned grants +2% [ICON_PEACE]Faith empire-wide
 			[NEWLINE][ICON_BULLET]During a [ICON_GOLDEN_AGE]Golden Age, generate +25% [ICON_PEACE]Faith empire-wide
 		</Text>
 	</Row>

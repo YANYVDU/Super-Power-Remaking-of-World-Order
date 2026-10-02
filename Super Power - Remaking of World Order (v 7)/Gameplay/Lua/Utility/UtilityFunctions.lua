@@ -54,7 +54,11 @@ function AICanBeBoss(player)
 				humanCount = humanCount + 1
 				local HumanCapital  = pPlayer:GetCapitalCity()
 				local ThisAICapital = player:GetCapitalCity()
-				CapitalDistance = CapitalDistance + Map.PlotDistance(HumanCapital:GetX(), HumanCapital:GetY(), ThisAICapital:GetX(), ThisAICapital:GetY())
+				-- This AI may have lost its capital, in which case the caller still expects us to
+				-- return a distance instead of erroring out on a nil plot.
+				if ThisAICapital ~= nil then
+					CapitalDistance = CapitalDistance + Map.PlotDistance(HumanCapital:GetX(), HumanCapital:GetY(), ThisAICapital:GetX(), ThisAICapital:GetY())
+				end
 			end
 		end
 	end
@@ -120,6 +124,12 @@ function GetUpgradeUnit(player, sUnitType)
 
 	return nil
 end
+
+-- Forward declarations: the _Base/_MP global-effect handlers are defined further down this file
+-- but are invoked from the launch handlers below. A `local function` is not visible before its
+-- definition, so without these declarations the calls resolve to nil globals and silently fail.
+local SatelliteEffectsGlobal_Base
+local SatelliteEffectsGlobal_MP
 
 local function SatelliteLaunchEffects_Base(unit, city, player)
 	if unit == nil or city == nil or player == nil or player:GetNumCities() == 0

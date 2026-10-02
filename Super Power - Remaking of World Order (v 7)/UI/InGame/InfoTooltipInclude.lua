@@ -1465,7 +1465,12 @@ function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader, bNoMa
 			for iPlayer = 0, GameDefines.MAX_CIV_PLAYERS - 1 do
 				local pPlayer = Players[ iPlayer ]
 				if pPlayer ~= nil and pPlayer:IsMinorCiv() then
-					minorPlayers[ pPlayer:GetMinorCivType() ] = pPlayer
+					-- GetMinorCivType() returns the integer MinorCivTypes id, but the entries built from
+					-- the SQL query are keyed by MinorCivilizations.Type (a string), so translate here.
+					local kMinorInfo = GameInfo.MinorCivilizations[ pPlayer:GetMinorCivType() ]
+					if kMinorInfo ~= nil then
+						minorPlayers[ kMinorInfo.Type ] = pPlayer
+					end
 				end
 			end
 

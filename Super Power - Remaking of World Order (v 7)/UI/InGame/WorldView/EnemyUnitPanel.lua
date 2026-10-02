@@ -459,7 +459,7 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 			-- the city matches the real resolution (the city itself is never protected by this effect).
 			local iMilanUnitScale = pMyUnit:GetCSUADamageTakenScale(nil, pCity)
 			if iMilanUnitScale ~= 100 then
-				iTheirDamageInflicted = iTheirDamageInflicted * iMilanUnitScale / 100
+				iTheirDamageInflicted = math.floor(iTheirDamageInflicted * iMilanUnitScale / 100)
 			end
 
 			-- City's max HP
@@ -1178,11 +1178,11 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 			-- Milan CS UA: mirror the DLL's damage-taken scale so the preview matches the real result
 			local iTheirScale = pTheirUnit:GetCSUADamageTakenScale(pMyUnit, nil)
 			if iTheirScale ~= 100 then
-				iMyDamageInflicted = iMyDamageInflicted * iTheirScale / 100
+				iMyDamageInflicted = math.floor(iMyDamageInflicted * iTheirScale / 100)
 			end
 			local iMyScale = pMyUnit:GetCSUADamageTakenScale(pTheirUnit, nil)
 			if iMyScale ~= 100 then
-				iTheirDamageInflicted = iTheirDamageInflicted * iMyScale / 100
+				iTheirDamageInflicted = math.floor(iTheirDamageInflicted * iMyScale / 100)
 			end
 
 			local iMyDie = false; --Modified
@@ -2866,7 +2866,7 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 	-- damage-taken scale (the city itself is never protected by this effect).
 	local iMilanCityAttackerScale = theirUnit:GetCSUADamageTakenScale(nil, myCity)
 	if iMilanCityAttackerScale ~= 100 then
-		myCityDamageInflicted = myCityDamageInflicted * iMilanCityAttackerScale / 100
+		myCityDamageInflicted = math.floor(myCityDamageInflicted * iMilanCityAttackerScale / 100)
 	end
 
 	if (myCityDamageInflicted > theirUnitMaxHP) then
