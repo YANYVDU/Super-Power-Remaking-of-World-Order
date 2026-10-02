@@ -1186,6 +1186,7 @@ function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader, bNoMa
 		GreatGeneralRateModifier = L"TXT_KEY_GGRM2" .. "%+i%%[ICON_GREAT_GENERAL]",-- TOTO
 		GreatPersonExpendGold = L"TXT_KEY_GPEG1" .. "%+i[ICON_GOLD]",		-- TOTO
 		GoldenAgeModifier = L"TXT_KEY_REPLAY_DATA_GOLDAGETURNS" .. ":" .. "%+i%% ",
+		GoldenAgeMeterMod = L"TXT_KEY_GOLDEN_AGE_THRESHOLD_SP" .. "%+i%%",
 		UnitUpgradeCostMod = L"TXT_KEY_UUCM1" .. "%+i%%[ICON_GOLD]",		-- TOTO
 		Experience = L("TXT_KEY_EXPERIENCE_POPUP", "%i"),			-- TOTO
 		GlobalExperience = L"TXT_KEY_GLOBAL1" .. L("TXT_KEY_EXPERIENCE_POPUP", "%i"),-- TOTO
@@ -1244,6 +1245,7 @@ function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader, bNoMa
 		EspionageModifier = L"TXT_KEY_EM561" .. "%+i%%",			-- TOTO
 		GlobalEspionageModifier = L"TXT_KEY_GLOBAL1" .. L"TXT_KEY_EM561" .. "%+i%%",-- TOTO
 		ExtraSpies = L"TXT_KEY_ES123123" .. " %+i" .. "[ICON_SPY]",		-- TOTO
+		SpyPoints = L"TXT_KEY_SPY_POINTS_GAIN_SP" .. "%+i",
 		SpyRankChange = L"TXT_KEY_SC_10" .. "[ICON_SPY]" .. "^%i",		-- TOTO
 		InstantSpyRankChange = L"TXT_KEY_ISC_10" .. "[ICON_SPY]" .. "^%i",	-- TOTO
 		TradeRouteRecipientBonus = "[ICON_INTERNATIONAL_TRADE]" .. L"TXT_KEY_TRADE_TO_OTHER_CITY_BONUS" .. " %+i"..g_currencyIcon.."[ICON_ARROW_LEFT]",

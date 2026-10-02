@@ -17083,6 +17083,12 @@
 		<Row Tag="TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL">
 			<Text>[ICON_DIPLOMATIC_PRESTIGE]外交威望：</Text>
 		</Row>
+		<Row Tag="TXT_KEY_GOLDEN_AGE_THRESHOLD_SP">
+			<Text>[ICON_GOLDEN_AGE]黄金时代阈值：</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_POINTS_GAIN_SP">
+			<Text>[ICON_SPY]间谍点数：</Text>
+		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CORRUPTION">
 			<Text>{1_num}来自腐败</Text>
 		</Row>
