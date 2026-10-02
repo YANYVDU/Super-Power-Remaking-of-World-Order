@@ -10589,6 +10589,7 @@
 			<Text>
 				[ICON_BULLET]+2 [ICON_PRODUCTION] Production for all cities(increase with Era). 
 				[NEWLINE][ICON_BULLET]+15% [ICON_PRODUCTION] Production towards any buildings in all cities.
+				[NEWLINE][ICON_BULLET]Conquering a [ICON_CITY_STATE] City-State's original capital grants its ally-tier Unique Ability.
 			</Text>
 		</Replace>
 
@@ -10649,9 +10650,8 @@
 		<Replace Tag="TXT_KEY_TRAIT_CITY_STATE_FRIENDSHIP">
 			<Text>
 				[ICON_BULLET]City-State[ICON_INFLUENCE]Influence degrades at half and recovers at twice the normal rate.
-				[NEWLINE][ICON_BULLET]City-States do not become upset by intruding units and + 3 [ICON_INFLUENCE] Influence (at Standard speed) per turn with City-States you could demand tribute from.
+				[NEWLINE][ICON_BULLET]+2 [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige; City-States do not become upset by intruding units and + 3 [ICON_INFLUENCE] Influence (at Standard speed) per turn with City-States you could demand tribute from.
 				[NEWLINE][ICON_BULLET] Each allied city-state gives military units +3% combat power, up to 30%.
-				[NEWLINE][ICON_BULLET]+2 [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige.
 			</Text>
 		</Replace>
 

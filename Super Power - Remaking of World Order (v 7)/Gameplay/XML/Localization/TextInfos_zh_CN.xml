@@ -6014,6 +6014,7 @@
 			<Text>
 				[ICON_BULLET]所有城市+2[ICON_PRODUCTION]产能（随时代增加）。
 				[NEWLINE][ICON_BULLET]城市建造建筑时+15%[ICON_PRODUCTION]产能。
+				[NEWLINE][ICON_BULLET]征服[ICON_CITY_STATE]城邦的原始首都后，可获得该城邦的盟友级独特能力。
 			</Text>
 		</Replace>
 
@@ -6077,10 +6078,9 @@
 		<Replace Tag="TXT_KEY_TRAIT_CITY_STATE_FRIENDSHIP">
 			<Text>
 				[ICON_BULLET]对城邦[ICON_INFLUENCE]影响力衰减速度减半，恢复速度加倍。
-				[NEWLINE][ICON_BULLET]军队在城邦境内停留时不会影响关系。
+				[NEWLINE][ICON_BULLET]+2额外[ICON_DIPLOMATIC_PRESTIGE]外交威望，军队在城邦境内停留时不会影响关系。
 				[NEWLINE][ICON_BULLET]对于能够勒索的城邦每回合额外获得3点[ICON_INFLUENCE]影响力（标准速度下）。
 				[NEWLINE][ICON_BULLET]每个同盟城邦为军事单位+3%战斗力，上限为30%。
-				[NEWLINE][ICON_BULLET]+2[ICON_DIPLOMATIC_PRESTIGE]外交威望。
 			</Text>
 		</Replace>
 

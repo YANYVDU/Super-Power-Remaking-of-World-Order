@@ -88,6 +88,7 @@
 			<Description>TXT_KEY_TRAIT_CAPITAL_BUILDINGS_CHEAPER</Description>
 			<ShortDescription>TXT_KEY_TRAIT_CAPITAL_BUILDINGS_CHEAPER_SHORT</ShortDescription>
 			<FreeBuilding>BUILDING_TB_CAPITAL_BUILDINGS_CHEAPER</FreeBuilding>
+			<GainConqueredCityStateUA>true</GainConqueredCityStateUA>
 		</Row>
 		<Row>
 			<Type>TRAIT_ENHANCED_GOLDEN_AGES</Type>
