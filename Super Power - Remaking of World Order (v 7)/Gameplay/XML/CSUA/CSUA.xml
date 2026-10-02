@@ -560,6 +560,18 @@
 			<Type>EFFECT_CSUA_BUENOS_AIRES_FRIEND</Type>
 			<Help>TXT_KEY_EFFECT_CSUA_BUENOS_AIRES_FRIEND_HELP</Help>
 		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_ALMATY_ALLY</Type>
+			<CanPillageNeutralTradeRoute>true</CanPillageNeutralTradeRoute>
+			<PlunderTradeRouteGold>200</PlunderTradeRouteGold>
+			<PlunderTradeRouteXP>15</PlunderTradeRouteXP>
+			<PlunderTradeRouteOpinionPenalty>10</PlunderTradeRouteOpinionPenalty>
+			<Help>TXT_KEY_EFFECT_CSUA_ALMATY_ALLY_HELP</Help>
+		</Row>
+		<Row>
+			<Type>EFFECT_CSUA_ALMATY_FRIEND</Type>
+			<Help>TXT_KEY_EFFECT_CSUA_ALMATY_FRIEND_HELP</Help>
+		</Row>
 	 </CityStateUAEffects>
 	 <CityStateUAEffect_GreatPersonPoints>
 		<Row>
@@ -821,6 +833,27 @@
 			<MaintenanceChange>-2</MaintenanceChange>
 		</Row>
 	 </CityStateUAEffect_UnitMaintenanceByPromotion>
+	 <!-- Almaty: a unit holding PromotionType gains extra max HP = ownerKills x ownerSurplus ResourceType x Percent / 100 (evaluated live in CvUnit::GetMaxHitPoints) -->
+	 <CityStateUAEffect_KillMaxHpByPromotion>
+		<Row>
+			<EffectType>EFFECT_CSUA_ALMATY_ALLY</EffectType>
+			<PromotionType>PROMOTION_HITANDRUN</PromotionType>
+			<ResourceType>RESOURCE_HORSE</ResourceType>
+			<Percent>20</Percent>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ALMATY_ALLY</EffectType>
+			<PromotionType>PROMOTION_KNIGHT_COMBAT</PromotionType>
+			<ResourceType>RESOURCE_HORSE</ResourceType>
+			<Percent>20</Percent>
+		</Row>
+		<Row>
+			<EffectType>EFFECT_CSUA_ALMATY_FRIEND</EffectType>
+			<PromotionType>PROMOTION_HITANDRUN</PromotionType>
+			<ResourceType>RESOURCE_HORSE</ResourceType>
+			<Percent>12</Percent>
+		</Row>
+	 </CityStateUAEffect_KillMaxHpByPromotion>
 	 <CityStateUAEffect_InternalTRToUCSPerEraYield>
 		<Row>
 			<EffectType>EFFECT_CSUA_COLOMBO_ALLY</EffectType>
@@ -2032,6 +2065,13 @@
 			<Help>TXT_KEY_CSUA_BUENOS_AIRES_HELP</Help>
 			<AllyEffectType>EFFECT_CSUA_BUENOS_AIRES_ALLY</AllyEffectType>
 			<FriendEffectType>EFFECT_CSUA_BUENOS_AIRES_FRIEND</FriendEffectType>
+		</Row>
+		<Row>
+			<Type>CSUA_ALMATY</Type>
+			<Description>TXT_KEY_CITYSTATE_ALMATY</Description>
+			<Help>TXT_KEY_CSUA_ALMATY_HELP</Help>
+			<AllyEffectType>EFFECT_CSUA_ALMATY_ALLY</AllyEffectType>
+			<FriendEffectType>EFFECT_CSUA_ALMATY_FRIEND</FriendEffectType>
 		</Row>
 	</CityStateUAs>
 	<MinorCivilization_FreeBuildingClasses>

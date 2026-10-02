@@ -18931,5 +18931,37 @@
 				[NEWLINE][ICON_BULLET]朋友城市規模達到小型城市時+1[ICON_GREAT_MUSICIAN]大音樂家點數，達到中型城市時額外+1[ICON_GREAT_MUSICIAN]大音樂家點數
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_ALMATY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的騎射單位、重騎兵單位獲得 擊殺數 x 多餘馬匹數量 x 20% 的額外最大[ICON_HP_SP]生命值
+				[NEWLINE][ICON_BULLET]盟友的單位可以掠奪中立國家的商路；掠奪任意國家的商路時可獲得200[ICON_GOLD]金錢（隨時代提升）和15經驗
+				[NEWLINE][ICON_BULLET]掠奪中立國家（未交戰）會累積外交紅臉：每次-10，每回合減免1
+				[NEWLINE][ICON_BULLET]額外為盟友提供15[ICON_RES_HORSE]馬匹
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的騎射單位獲得 擊殺數 x 多餘馬匹數量 x 12% 的額外最大[ICON_HP_SP]生命值
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ALMATY_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的騎射單位、重騎兵單位獲得 擊殺數 x 多餘馬匹數量 x 20% 的額外最大[ICON_HP_SP]生命值
+				[NEWLINE][ICON_BULLET]盟友的單位可以掠奪中立國家的商路；掠奪任意國家的商路時可獲得200[ICON_GOLD]金錢（隨時代提升）和15經驗
+				[NEWLINE][ICON_BULLET]掠奪中立國家（未交戰）會累積外交紅臉：每次-10，每回合減免1
+				[NEWLINE][ICON_BULLET]額外為盟友提供15[ICON_RES_HORSE]馬匹
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ALMATY_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的騎射單位獲得 擊殺數 x 多餘馬匹數量 x 12% 的額外最大[ICON_HP_SP]生命值
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CSUA_PLUNDERED_TRADE_ROUTE">
+			<Text>
+				掠奪商路
+			</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

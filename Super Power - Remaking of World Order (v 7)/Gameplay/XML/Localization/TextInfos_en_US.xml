@@ -20656,5 +20656,37 @@
 				[NEWLINE][ICON_BULLET]+1 [ICON_GREAT_MUSICIAN]Great Musician point in the friend's cities at Small City scale, and +1 more at Medium City scale
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_ALMATY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]The ally's hit-and-run and heavy cavalry units gain extra maximum [ICON_HP_SP] HP equal to (kills x surplus horses x 20%)
+				[NEWLINE][ICON_BULLET]The ally's units may plunder the trade routes of neutral nations; plundering any nation's trade route grants 200 [ICON_GOLD] gold (scaling with era) and 15 XP
+				[NEWLINE][ICON_BULLET]Plundering a neutral (not at war) nation accumulates a diplomatic penalty: -10 each time, reduced by 1 per turn
+				[NEWLINE][ICON_BULLET]Provides the ally with 15 extra [ICON_RES_HORSE] Horses
+				[NEWLINE]
+				[NEWLINE]Friend Effects:
+				[NEWLINE][ICON_BULLET]The friend's hit-and-run units gain extra maximum [ICON_HP_SP] HP equal to (kills x surplus horses x 12%)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ALMATY_ALLY_HELP">
+			<Text>
+				Ally Effects:
+				[NEWLINE][ICON_BULLET]The ally's hit-and-run and heavy cavalry units gain extra maximum [ICON_HP_SP] HP equal to (kills x surplus horses x 20%)
+				[NEWLINE][ICON_BULLET]The ally's units may plunder the trade routes of neutral nations; plundering any nation's trade route grants 200 [ICON_GOLD] gold (scaling with era) and 15 XP
+				[NEWLINE][ICON_BULLET]Plundering a neutral (not at war) nation accumulates a diplomatic penalty: -10 each time, reduced by 1 per turn
+				[NEWLINE][ICON_BULLET]Provides the ally with 15 extra [ICON_RES_HORSE] Horses
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ALMATY_FRIEND_HELP">
+			<Text>
+				Friend Effects:
+				[NEWLINE][ICON_BULLET]The friend's hit-and-run units gain extra maximum [ICON_HP_SP] HP equal to (kills x surplus horses x 12%)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CSUA_PLUNDERED_TRADE_ROUTE">
+			<Text>
+				Plundered Trade Routes
+			</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
