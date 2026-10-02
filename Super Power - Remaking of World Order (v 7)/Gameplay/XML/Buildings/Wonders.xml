@@ -2796,7 +2796,28 @@
 			<WonderSplashImage>Place_of_Nations_splash.dds</WonderSplashImage>
 			<WonderSplashAnchor>L,T</WonderSplashAnchor>
 		</Row>
-		
+
+		<Row>
+			<Type>BUILDING_APADANA_PALACE</Type>
+			<BuildingClass>BUILDINGCLASS_APADANA_PALACE</BuildingClass>
+			<Cost>200</Cost>
+			<PrereqTech>TECH_ENGINEERING</PrereqTech>
+			<Description>TXT_KEY_WONDER_APADANA_PALACE</Description>
+			<Civilopedia>TXT_KEY_WONDER_APADANA_PALACE_PEDIA</Civilopedia>
+			<Help>TXT_KEY_BUILDING_APADANA_PALACE_HELP</Help>
+			<Quote>TXT_KEY_WONDER_APADANA_PALACE_QUOTE</Quote>
+			<NukeImmune>true</NukeImmune>
+			<GoldenAgeMeterMod>-10</GoldenAgeMeterMod>
+			<SpyPoints>3</SpyPoints>
+			<HurryCostModifier>-1</HurryCostModifier>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>100</ConquestProb>
+			<IconAtlas>SP11_EXTRA_ATLAS</IconAtlas>
+			<PortraitIndex>2</PortraitIndex>
+			<WonderSplashImage>Apadana_Palace_splash.dds</WonderSplashImage>
+			<WonderSplashAnchor>L,T</WonderSplashAnchor>
+		</Row>
+
 	</Buildings>
 
 
@@ -3241,6 +3262,11 @@
 			<BuildingType>BUILDING_PLACE_OF_NATIONS</BuildingType>
 			<ResourceType>RESOURCE_MANPOWER</ResourceType>
 			<Cost>4</Cost>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_APADANA_PALACE</BuildingType>
+			<ResourceType>RESOURCE_MANPOWER</ResourceType>
+			<Cost>2</Cost>
 		</Row>
 	</Building_ResourceQuantityRequirements>
 

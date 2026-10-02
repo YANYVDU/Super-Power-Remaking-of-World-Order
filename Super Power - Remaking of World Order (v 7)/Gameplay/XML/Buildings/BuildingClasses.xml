@@ -1180,6 +1180,12 @@
 			<Description>TXT_KEY_WONDER_PLACE_OF_NATIONS</Description>
 			<MaxGlobalInstances>1</MaxGlobalInstances>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_APADANA_PALACE</Type>
+			<DefaultBuilding>BUILDING_APADANA_PALACE</DefaultBuilding>
+			<Description>TXT_KEY_WONDER_APADANA_PALACE</Description>
+			<MaxGlobalInstances>1</MaxGlobalInstances>
+		</Row>
 
 
 	</BuildingClasses>

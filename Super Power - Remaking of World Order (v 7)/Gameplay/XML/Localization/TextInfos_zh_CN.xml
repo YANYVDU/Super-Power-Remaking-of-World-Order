@@ -2003,6 +2003,31 @@
 			如今，万国宫每年举办超过8000场国际会议，是人权、裁军、贸易和人道主义事务等全球议题的核心舞台。它象征着人类对和平与合作的永恒追求。</Text>
 		</Row>
 
+		<!--****************************Apadana Palace*************************************-->
+
+		<!-- Description tags -->
+		<Row Tag="TXT_KEY_WONDER_APADANA_PALACE">
+			<Text>阿帕达纳宫</Text>
+		</Row>
+		<!-- Help tags -->
+		<Row Tag="TXT_KEY_BUILDING_APADANA_PALACE_HELP">
+			<Text>
+				[ICON_BULLET]+11[ICON_GOLDEN_AGE]黄金时代点数。
+				[NEWLINE][ICON_BULLET]黄金时代开启阈值降低10%。
+				[NEWLINE][ICON_BULLET]+3[ICON_SPY]间谍点数。
+			</Text>
+		</Row>
+		<!-- Quote tags -->
+		<Row Tag="TXT_KEY_WONDER_APADANA_PALACE_QUOTE">
+			<Text>[NEWLINE]“无论雨雪、黑夜还是烈日，都不能阻挡信使全速完成他的使命。”[NEWLINE] —— 希罗多德[NEWLINE]</Text>
+		</Row>
+		<!-- Pedia tags -->
+		<Row Tag="TXT_KEY_WONDER_APADANA_PALACE_PEDIA">
+			<Text>阿帕达纳宫（Apadana）坐落于古波斯帝国都城波斯波利斯的巨大石台之上，由大流士一世于公元前六世纪末下令建造，是帝国最宏伟的觐见大殿。“阿帕达纳”源自古波斯语，意为“柱廊大厅”，专供“万王之王”接见外国使节、举行庆典与颁赐恩赏之用。
+				宫殿的殿顶由七十二根高达二十米的石柱支撑，柱头雕刻着双头牛与狮鹫。东西两侧的台阶上，绵延数百米的浮雕长卷刻画了来自帝国二十三个行省与属国的使节列队朝贡的盛况：他们带着金冠、骏马、香料与珍禽，依次登上台阶，向波斯之王献上敬意。这幅“万国来朝”图卷，至今仍是古代世界最震撼人心的政治艺术。
+				阿帕达纳宫同时也是帝国驿道网络的枢纽。凭借贯通全境的“御道”与严密的驿站制度，国王的诏令数日内便可传遍数千公里的疆域。正如希罗多德所记载的那样——无论雨雪、黑夜还是烈日，都无法阻挡信使全速完成他的使命。</Text>
+		</Row>
+
 		<!--****************************National Wonders*************************************-->
 
 		<Replace Tag="TXT_KEY_BUILDING_HEROIC_EPIC_HELP">
