@@ -17138,7 +17138,7 @@
 				[NEWLINE][ICON_BULLET]盟友每一條[ICON_INTERNATIONAL_TRADE]跨大陸國際商路，來自[ICON_CITIZEN]人口的不滿降低3%(至多-90%)
 				[NEWLINE]
 				[NEWLINE]朋友效果：
-				[NEWLINE][ICON_BULLET]盟友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔2格，該商路[ICON_GOLD]金錢收益+1%
+				[NEWLINE][ICON_BULLET]朋友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔2格，該商路[ICON_GOLD]金錢收益+1%
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_ALLY_HELP">
@@ -17151,7 +17151,7 @@
 		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_FRIEND_HELP">
 			<Text>
 				朋友效果：
-				[NEWLINE][ICON_BULLET]盟友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔2格，該商路[ICON_GOLD]金錢收益+1%
+				[NEWLINE][ICON_BULLET]朋友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔2格，該商路[ICON_GOLD]金錢收益+1%
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_BRUSSELS_HELP">

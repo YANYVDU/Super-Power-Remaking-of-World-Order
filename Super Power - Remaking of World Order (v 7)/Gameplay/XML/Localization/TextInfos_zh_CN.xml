@@ -17332,7 +17332,7 @@
 				[NEWLINE][ICON_BULLET]盟友每有一条[ICON_INTERNATIONAL_TRADE]跨大陆国际商路，来自[ICON_CITIZEN]人口的不满降低3%(至多-90%)
 				[NEWLINE]
 				[NEWLINE]朋友效果：
-				[NEWLINE][ICON_BULLET]盟友发出的[ICON_INTERNATIONAL_TRADE]国际商路起点和终点城市每间隔2格，该商路[ICON_GOLD]金钱收益+1%
+				[NEWLINE][ICON_BULLET]朋友发出的[ICON_INTERNATIONAL_TRADE]国际商路起点和终点城市每间隔2格，该商路[ICON_GOLD]金钱收益+1%
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_ALLY_HELP">
