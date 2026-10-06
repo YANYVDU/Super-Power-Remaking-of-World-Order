@@ -18995,5 +18995,8 @@
 				掠奪商路
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EO_EX_ECONOMIC_AID_TT">
+			<Text>每回合向受援城邦支付的[ICON_GOLD]金錢。[NEWLINE][ICON_BULLET]直接從國庫扣除，不受金幣率影響[NEWLINE][ICON_BULLET]受援城邦每座每回合收取一次</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

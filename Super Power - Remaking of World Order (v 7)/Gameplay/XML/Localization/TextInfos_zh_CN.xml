@@ -17345,7 +17345,7 @@
 		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_FRIEND_HELP">
 			<Text>
 				朋友效果：
-				[NEWLINE][ICON_BULLET]盟友发出的[ICON_INTERNATIONAL_TRADE]国际商路起点和终点城市每间隔2格，该商路[ICON_GOLD]金钱收益+1%
+				[NEWLINE][ICON_BULLET]朋友发出的[ICON_INTERNATIONAL_TRADE]国际商路起点和终点城市每间隔2格，该商路[ICON_GOLD]金钱收益+1%
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_BRUSSELS_HELP">
@@ -19188,6 +19188,9 @@
 			<Text>
 				掠夺商路
 			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_EX_ECONOMIC_AID_TT">
+			<Text>每回合向受援城邦支付的[ICON_GOLD]金钱。[NEWLINE][ICON_BULLET]直接从国库扣除，不受金币率影响[NEWLINE][ICON_BULLET]受援城邦每座每回合收取一次</Text>
 		</Row>
 	</Language_zh_CN>
 </GameData>

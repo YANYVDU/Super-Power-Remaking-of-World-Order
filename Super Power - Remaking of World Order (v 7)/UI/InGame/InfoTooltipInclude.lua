@@ -3785,7 +3785,8 @@ if Game then
 		--]]
 
 		-- Gold (can be seen in diplo relation ship)
-		insert( tips, format( "%i%s(%+i)", player:GetGold(), g_currencyIcon, player:CalculateGoldRate() ) )
+		-- Economic Aid is not part of CalculateGoldRate(); net it out so the figure is what the player really gets.
+		insert( tips, format( "%i%s(%+i)", player:GetGold(), g_currencyIcon, player:CalculateGoldRate() - player:GetEconomicAidExpensePerTurn() ) )
 
 
 		--------------------------------------------------------------------

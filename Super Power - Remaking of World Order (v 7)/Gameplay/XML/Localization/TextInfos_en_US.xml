@@ -20718,5 +20718,8 @@
 				Plundered Trade Routes
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EO_EX_ECONOMIC_AID_TT">
+			<Text>[ICON_GOLD]Gold paid each turn to the city-states you aid.[NEWLINE][ICON_BULLET]Deducted straight from the treasury, regardless of your gold rate[NEWLINE][ICON_BULLET]Charged once per turn for each aided city-state</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

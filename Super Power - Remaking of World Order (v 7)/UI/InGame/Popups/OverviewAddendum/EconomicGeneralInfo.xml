@@ -191,6 +191,11 @@
 					<Label Offset="10,0" Font="TwCenMT18" Anchor="L,C" String="TXT_KEY_EO_DIPLOMACY"/>
 					<Label Offset="10,0" Font="TwCenMT18" Anchor="R,C" ID="DiploExpenseValue"/>
 				</Box>
+				<!-- Economic Aid (Super Power V11) -->
+				<Box Size="215,24" Anchor="c,c" Color="0.0.0.0" ID="EconomicAidExpense" ToolTip="TXT_KEY_EO_EX_ECONOMIC_AID_TT">
+					<Label Offset="10,0" Font="TwCenMT18" Anchor="L,C" String="TXT_KEY_POP_CSTATE_ECONOMIC_AID"/>
+					<Label Offset="10,0" Font="TwCenMT18" Anchor="R,C" ID="EconomicAidExpenseValue"/>
+				</Box>
 			</Stack>
 		</ScrollPanel>
 		<ScrollPanel Anchor="L,T" Offset="245,28" Size="720,440" Vertical="1" AutoScrollBar="1" ID="MainScroll">

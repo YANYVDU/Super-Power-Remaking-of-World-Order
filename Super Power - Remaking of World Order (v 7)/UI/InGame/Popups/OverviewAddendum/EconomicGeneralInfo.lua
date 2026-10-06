@@ -449,8 +449,14 @@ function UpdateGPT()
 
     Controls.TotalGoldValue:SetText( Locale.ToNumber( pPlayer:GetGold(), "#.##" ) );
     
+    -- Economic Aid is not part of CalculateGoldRate(): CvPlayer::doTurnPostDiplomacy() withdraws it straight
+    -- from the treasury. Show the figure the player really nets, and fold the same amount into
+    -- the total expense below so this panel's Gross - Expense == Net still adds up.
+    -- The science-loss check further down stays on the raw rate so it matches
+    -- GetScienceFromBudgetDeficitTimes100().
+    local iEconomicAidExpense = pPlayer:GetEconomicAidExpensePerTurn();
     local netGPT = pPlayer:CalculateGoldRateTimes100() / 100;
-    Controls.NetGoldValue:SetText( Locale.ToNumber( netGPT, "#.##" ) );
+    Controls.NetGoldValue:SetText( Locale.ToNumber( netGPT - iEconomicAidExpense, "#.##" ) );
     
     if( netGPT < 0 ) then
         Controls.ScienceLost:SetHide( false );
@@ -461,7 +467,9 @@ function UpdateGPT()
     
     Controls.GrossGoldValue:SetText( "[COLOR_POSITIVE_TEXT]" .. Locale.ToNumber( pPlayer:CalculateGrossGoldTimes100() / 100, "#.##" ) .. "[ENDCOLOR]" );
     
-    Controls.TotalExpenseValue:SetText( "[COLOR_NEGATIVE_TEXT]" .. Locale.ToNumber( pPlayer:CalculateInflatedCosts(), "#.##" ) .. "[ENDCOLOR]" );
+    -- Economic Aid is a real per-turn outflow, so it belongs in the total; without this the
+    -- Gross - Expense == Net identity above would be off by exactly the aid amount.
+    Controls.TotalExpenseValue:SetText( "[COLOR_NEGATIVE_TEXT]" .. Locale.ToNumber( pPlayer:CalculateInflatedCosts() + iEconomicAidExpense, "#.##" ) .. "[ENDCOLOR]" );
 
 	-- Cities
     Controls.CityIncomeValue:SetText( Locale.ToNumber( pPlayer:GetGoldFromCitiesTimes100() / 100, "#.##" ) );
@@ -655,7 +663,13 @@ function UpdateGPT()
     else
         Controls.DiploExpenseValue:SetText( 0 );
     end
-    
+
+    -- Economic Aid: itemised out of TotalExpenseValue above so the player can see where the money
+    -- goes. The expense rows still do not sum to that total, for two pre-existing reasons: unit
+    -- supply is inside CalculateInflatedCosts() but has no row of its own, and the Diplo row
+    -- mirrors a term that is already netted inside GrossGold rather than being a separate expense.
+    Controls.EconomicAidExpenseValue:SetText( Locale.ToNumber( iEconomicAidExpense, "#.##" ) );
+
     Controls.GoldScroll:CalculateInternalSize();
 end
 

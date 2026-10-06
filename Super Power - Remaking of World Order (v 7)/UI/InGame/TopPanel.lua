@@ -71,16 +71,9 @@ function UpdateData()
 			if pPlayer.GetGoldToOverlord then
 				iGoldPerTurn = iGoldPerTurn - pPlayer:GetGoldToOverlord();
 			end
-			if Game.IsEconomicAidActive() then
-				local iAidCount = 0;
-				for iMinor = GameDefines.MAX_MAJOR_CIVS, GameDefines.MAX_CIV_PLAYERS - 1 do
-					local pMinor = Players[iMinor];
-					if (pMinor ~= nil and pMinor:IsAlive() and pMinor:IsMinorCiv() and pMinor:IsEconomicAidFromMajor(iPlayerID)) then
-						iAidCount = iAidCount + 1;
-					end
-				end
-				iGoldPerTurn = iGoldPerTurn - Game.GetEconomicAidWorldEra() * iAidCount;
-			end
+			-- Economic Aid expense: computed in C++ (CvPlayer::GetEconomicAidExpensePerTurn)
+			-- so the top bar, the breakdown tooltip and the trade screen all agree.
+			iGoldPerTurn = iGoldPerTurn - pPlayer:GetEconomicAidExpensePerTurn();
 			
 			-- Accounting for positive or negative GPT - there's obviously a better way to do this.  If you see this comment and know how, it's up to you ;)
 			-- Text is White when you can buy a Plot
@@ -718,19 +711,9 @@ function GoldTipHandler( control )
 		iGoldPerTurnFromReligion = 0;
 	end
 
-	-- Economic Aid per-turn expense (Super Power V11): era coefficient per aided city-state
-	local iEconomicAidExpense = 0;
-	if (Game.IsEconomicAidActive()) then
-		local iAidGold = Game.GetEconomicAidWorldEra();
-		local iAidCount = 0;
-		for iMinor = GameDefines.MAX_MAJOR_CIVS, GameDefines.MAX_CIV_PLAYERS - 1 do
-			local pMinor = Players[iMinor];
-			if (pMinor ~= nil and pMinor:IsAlive() and pMinor:IsMinorCiv() and pMinor:IsEconomicAidFromMajor(iPlayerID)) then
-				iAidCount = iAidCount + 1;
-			end
-		end
-		iEconomicAidExpense = iAidGold * iAidCount;
-	end
+	-- Economic Aid per-turn expense (Super Power V11): computed in C++ so the top bar
+	-- and this breakdown always report the same number.
+	local iEconomicAidExpense = pPlayer:GetEconomicAidExpensePerTurn();
 
 	local fTradeRouteGold = (pPlayer:GetGoldFromCitiesTimes100() - pPlayer:GetGoldFromCitiesMinusTradeRoutesTimes100()) / 100;
 	local fGoldPerTurnFromCities = pPlayer:GetGoldFromCitiesMinusTradeRoutesTimes100() / 100;

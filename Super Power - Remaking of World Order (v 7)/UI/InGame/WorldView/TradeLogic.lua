@@ -60,6 +60,22 @@ local g_bAIMakingOffer = false
 local g_iDealDuration = Game.GetDealDuration()
 local g_iPeaceDuration = Game.GetPeaceDuration and Game.GetPeaceDuration() or GameDefines.PEACE_TREATY_LENGTH or 10
 
+----------------------------------------------------------------
+-- Super Power V11: tradable GPT must exclude the Economic Aid expense.
+-- Economic Aid gold is withdrawn straight from the treasury at turn start
+-- (CvPlayer::doTurnPostDiplomacy()), so CalculateGoldRate() never reflects it.
+-- The formula and its floor at 0 live in C++ (CvPlayer::GetTradableGoldRate), which is the same
+-- value CvDeal::IsPossibleToTradeItem validates against. This wrapper only guards the player
+-- lookup, so the trade screen cannot drift apart from what the engine will actually accept.
+----------------------------------------------------------------
+local function GetTradableGoldRate( playerID )
+	local player = Players[ playerID ]
+	if player == nil then
+		return 0
+	end
+	return player:GetTradableGoldRate()
+end
+
 local g_iUs = -1 --Game.GetActivePlayer()
 local g_iThem = -1
 local g_UsPocketResources = {}
@@ -818,14 +834,18 @@ function ResetDisplay( diploMessage )
 									IsCiv5BNW and not isEnabled and "[COLOR_WARNING_TEXT]"..L"TXT_KEY_DIPLO_NEED_DOF_TT_ONE_LINE".."[ENDCOLOR]" )
 
 		-- Us pocket Gold Per Turn
+		-- Gated on the same netted rate the pocket displays, so a player whose Economic Aid
+		-- expense exceeds their gold rate cannot open a pocket that would only offer 0.
+		local iUsTradableGPT = GetTradableGoldRate( ourPlayerID )
 		SetEnabledAndText( Controls.UsPocketGoldPerTurn,
-							deal:IsPossibleToTradeItem( ourPlayerID, theirPlayerID, TradeableItems.TRADE_ITEM_GOLD_PER_TURN, 1, g_iDealDuration ), -- 1 here is 1 GPT, which is the minimum possible
-							ourPlayer:CalculateGoldRate() .. " " .. L"TXT_KEY_DIPLO_GOLD_PER_TURN" )
+							iUsTradableGPT >= 1 and deal:IsPossibleToTradeItem( ourPlayerID, theirPlayerID, TradeableItems.TRADE_ITEM_GOLD_PER_TURN, 1, g_iDealDuration ), -- 1 here is 1 GPT, which is the minimum possible
+							iUsTradableGPT .. " " .. L"TXT_KEY_DIPLO_GOLD_PER_TURN" )
 
 		-- Them pocket Gold Per Turn
+		local iThemTradableGPT = GetTradableGoldRate( theirPlayerID )
 		SetEnabledAndText( Controls.ThemPocketGoldPerTurn,
-							deal:IsPossibleToTradeItem( theirPlayerID, ourPlayerID, TradeableItems.TRADE_ITEM_GOLD_PER_TURN, 1, g_iDealDuration ), -- 1 here is 1 GPT, which is the minimum possible
-							theirPlayer:CalculateGoldRate() .. " " .. L"TXT_KEY_DIPLO_GOLD_PER_TURN" )
+							iThemTradableGPT >= 1 and deal:IsPossibleToTradeItem( theirPlayerID, ourPlayerID, TradeableItems.TRADE_ITEM_GOLD_PER_TURN, 1, g_iDealDuration ), -- 1 here is 1 GPT, which is the minimum possible
+							iThemTradableGPT .. " " .. L"TXT_KEY_DIPLO_GOLD_PER_TURN" )
 
 
 		----------------------------------------------------------------------------------
@@ -1141,12 +1161,12 @@ function DisplayDeal(...)
 					Controls.UsTableGoldPerTurn:SetHide( false )
 					Controls.UsGoldPerTurnTurns:LocalizeAndSetText( "TXT_KEY_DIPLO_TURNS", duration )
 					Controls.UsGoldPerTurnAmount:SetText( data1 )
-					Controls.UsTableGoldPerTurn:LocalizeAndSetToolTip( "TXT_KEY_DIPLO_CURRENT_GPT", ourPlayer:CalculateGoldRate() - data1 )
+					Controls.UsTableGoldPerTurn:LocalizeAndSetToolTip( "TXT_KEY_DIPLO_CURRENT_GPT", GetTradableGoldRate( ourPlayer:GetID() ) - data1 )
 				else
 					Controls.ThemTableGoldPerTurn:SetHide( false )
 					Controls.ThemGoldPerTurnTurns:LocalizeAndSetText( "TXT_KEY_DIPLO_TURNS", duration )
 					Controls.ThemGoldPerTurnAmount:SetText( data1 )
-					Controls.ThemTableGoldPerTurn:LocalizeAndSetToolTip( "TXT_KEY_DIPLO_CURRENT_GPT", theirPlayer:CalculateGoldRate() - data1 )
+					Controls.ThemTableGoldPerTurn:LocalizeAndSetToolTip( "TXT_KEY_DIPLO_CURRENT_GPT", GetTradableGoldRate( theirPlayer:GetID() ) - data1 )
 				end
 
 			elseif TradeableItems.TRADE_ITEM_CITIES == itemType then
@@ -1849,7 +1869,7 @@ do
 	local function AddGoldPerTurnTrade( control, playerID, goldPerTurn )
 		local player = Players[ playerID ]
 		if player then
-			g_Deal:AddGoldPerTurnTrade( playerID, min( goldPerTurn, player:CalculateGoldRate() ), g_iDealDuration )
+			g_Deal:AddGoldPerTurnTrade( playerID, min( goldPerTurn, GetTradableGoldRate( playerID ) ), g_iDealDuration )
 			control:TakeFocus()
 			return DoUIDealChangedByHuman()
 		end
@@ -1866,8 +1886,10 @@ do
 	local function ChangeGoldPerTurnTrade( string, control, playerID, parentControl )
 		local player = Players[ playerID ]
 		if player then
-			local goldRate = player:CalculateGoldRate()
-			local goldPerTurn = min( tonumber( string ) or 0, goldRate )
+			local goldRate = GetTradableGoldRate( playerID )
+			-- Clamp the typed value too: min() alone would keep a typed negative, which
+			-- CvDeal rejects (CvAssertMsg(iAmount >= 0)) and which reverses the GPT flow.
+			local goldPerTurn = math.max( 0, min( tonumber( string ) or 0, goldRate ) )
 			control:SetText( goldPerTurn )
 			g_Deal:ChangeGoldPerTurnTrade( playerID, goldPerTurn, g_iDealDuration )
 			parentControl:LocalizeAndSetToolTip( "TXT_KEY_DIPLO_CURRENT_GPT", goldRate - goldPerTurn )
