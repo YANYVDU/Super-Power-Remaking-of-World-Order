@@ -19706,7 +19706,7 @@
 			<Text>
 				Ally effect:
 				[NEWLINE][ICON_BULLET]+10% [ICON_GOLD] Gold from religious buildings (Pagoda, Cathedral, Mosque, Monastery, Inquisition)
-				[NEWLINE][ICON_BULLET]The first [ICON_GOLD] Gold donation each turn refunds 50% of the amount as [ICON_PEACE] Faith
+				[NEWLINE][ICON_BULLET]The first [ICON_GOLD] Gold donation to Kathmandu each turn refunds 50% of the amount as [ICON_PEACE] Faith
 				[NEWLINE][ICON_BULLET]Unlocks the Everest Camp special building (only in cities adjacent to a Mountain; +50% [ICON_GOLD] Gold and [ICON_TOURISM] Tourism)
 				[NEWLINE]
 				[NEWLINE]Friend effect:
@@ -19717,7 +19717,7 @@
 			<Text>
 				Ally effect:
 				[NEWLINE][ICON_BULLET]+10% [ICON_GOLD] Gold from religious buildings (Pagoda, Cathedral, Mosque, Monastery, Inquisition)
-				[NEWLINE][ICON_BULLET]The first [ICON_GOLD] Gold donation each turn refunds 50% of the amount as [ICON_PEACE] Faith
+				[NEWLINE][ICON_BULLET]The first [ICON_GOLD] Gold donation to Kathmandu each turn refunds 50% of the amount as [ICON_PEACE] Faith
 				[NEWLINE][ICON_BULLET]Unlocks the Everest Camp special building (only in cities adjacent to a Mountain; +50% [ICON_GOLD] Gold and [ICON_TOURISM] Tourism)
 			</Text>
 		</Row>
@@ -19737,7 +19737,7 @@
 			<Text>Build the Everest Camp in a city adjacent to a Mountain to greatly boost its Gold and Tourism output. Only an ally of Kathmandu may construct it.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_KATHMANDU_DONATION_TT">
-			<Text>As an ally of Kathmandu, the first [ICON_GOLD] Gold donation you make each turn refunds 50% of the amount as [ICON_PEACE] Faith.</Text>
+			<Text>As an ally of Kathmandu, the first [ICON_GOLD] Gold donation you make to Kathmandu each turn refunds 50% of the amount as [ICON_PEACE] Faith.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_GENEVA_HELP">
 			<Text>
@@ -20541,7 +20541,7 @@
 				Ally Effects:
 				[NEWLINE][ICON_BULLET]Cistern, Aqueduct, Tap Water Supply, Hospital, Water Treatment Factory and Medical Lab grant the city +8% [ICON_FOOD]Food
 				[NEWLINE][ICON_BULLET]Those buildings each grant the city +2 [ICON_HAPPINESS_1]Local Happiness
-				[NEWLINE][ICON_BULLET]The city's [ICON_HAPPINESS_1]Local Happiness cap is increased by 50%
+				[NEWLINE][ICON_BULLET]The city's [ICON_HAPPINESS_1]Local Happiness cap is increased by 20%
 				[NEWLINE]
 				[NEWLINE]Friend Effects:
 				[NEWLINE][ICON_BULLET]Cistern, Aqueduct, Tap Water Supply, Hospital, Water Treatment Factory and Medical Lab grant the city +3% [ICON_FOOD]Food
@@ -20552,7 +20552,7 @@
 				Ally Effects:
 				[NEWLINE][ICON_BULLET]Cistern, Aqueduct, Tap Water Supply, Hospital, Water Treatment Factory and Medical Lab grant the city +8% [ICON_FOOD]Food
 				[NEWLINE][ICON_BULLET]Those buildings each grant the city +2 [ICON_HAPPINESS_1]Local Happiness
-				[NEWLINE][ICON_BULLET]The city's [ICON_HAPPINESS_1]Local Happiness cap is increased by 50%
+				[NEWLINE][ICON_BULLET]The city's [ICON_HAPPINESS_1]Local Happiness cap is increased by 20%
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_RAGUSA_FRIEND_HELP">
@@ -20616,16 +20616,16 @@
 			<Text>This unit takes less damage because of a City-State's unique ability</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_MONACO_HELP">
-			<Text>[ICON_CITY_STATE]Monaco[NEWLINE][NEWLINE]Ally Effects:[NEWLINE][ICON_BULLET]100% of the ally's city [ICON_TOURISM] Tourism is converted into [ICON_GOLD] Gold[NEWLINE][ICON_BULLET]The ally's first [ICON_GOLD] Gold gift to Monaco each turn is a wager: 45% nothing, 35% full refund, 15% double, 4% triple, 1% tenfold[NEWLINE][ICON_BULLET]While the ally is in a Golden Age, building maintenance is reduced by 50%[NEWLINE][NEWLINE]Friend Effects:[NEWLINE][ICON_BULLET]40% of the friend's city [ICON_TOURISM] Tourism is converted into [ICON_GOLD] Gold</Text>
+			<Text>[ICON_CITY_STATE]Monaco[NEWLINE][NEWLINE]Ally Effects:[NEWLINE][ICON_BULLET]100% of the ally's city [ICON_TOURISM] Tourism is converted into [ICON_GOLD] Gold[NEWLINE][ICON_BULLET]The ally's first [ICON_GOLD] Gold gift to Monaco each turn is a wager: 20% nothing, 25% half refund, 35% full refund, 15% double, 4% triple, 1% tenfold[NEWLINE][ICON_BULLET]While the ally is in a Golden Age, building maintenance is reduced by 50%[NEWLINE][NEWLINE]Friend Effects:[NEWLINE][ICON_BULLET]40% of the friend's city [ICON_TOURISM] Tourism is converted into [ICON_GOLD] Gold</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_MONACO_ALLY_HELP">
-			<Text>Ally Effects:[NEWLINE][ICON_BULLET]100% of the ally's city [ICON_TOURISM] Tourism is converted into [ICON_GOLD] Gold[NEWLINE][ICON_BULLET]The ally's first [ICON_GOLD] Gold gift to Monaco each turn is a wager: 45% nothing, 35% full refund, 15% double, 4% triple, 1% tenfold[NEWLINE][ICON_BULLET]While the ally is in a Golden Age, building maintenance is reduced by 50%</Text>
+			<Text>Ally Effects:[NEWLINE][ICON_BULLET]100% of the ally's city [ICON_TOURISM] Tourism is converted into [ICON_GOLD] Gold[NEWLINE][ICON_BULLET]The ally's first [ICON_GOLD] Gold gift to Monaco each turn is a wager: 20% nothing, 25% half refund, 35% full refund, 15% double, 4% triple, 1% tenfold[NEWLINE][ICON_BULLET]While the ally is in a Golden Age, building maintenance is reduced by 50%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_MONACO_FRIEND_HELP">
 			<Text>Friend Effects:[NEWLINE][ICON_BULLET]40% of the friend's city [ICON_TOURISM] Tourism is converted into [ICON_GOLD] Gold</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_MONACO_DONATION_TT">
-			<Text>[COLOR_POSITIVE_TEXT]Wager:[ENDCOLOR] your first [ICON_GOLD] Gold gift to Monaco each turn is a bet.[NEWLINE]45% nothing, 35% full refund, 15% double, 4% triple, 1% tenfold.</Text>
+			<Text>[COLOR_POSITIVE_TEXT]Wager:[ENDCOLOR] your first [ICON_GOLD] Gold gift to Monaco each turn is a bet.[NEWLINE]20% nothing, 25% half refund, 35% full refund, 15% double, 4% triple, 1% tenfold.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_GOLD_GAMBLE_NOT_PLACED">
 			<Text>[COLOR_POSITIVE_TEXT]Wager this turn:[ENDCOLOR] not yet placed.</Text>

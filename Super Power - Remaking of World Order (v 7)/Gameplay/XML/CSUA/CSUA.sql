@@ -131,3 +131,7 @@ UPDATE Eras SET MinorCivAlliesThresholdExtra = 440 WHERE Type = 'ERA_WORLDWAR'; 
 UPDATE Eras SET MinorCivAlliesThresholdExtra = 540 WHERE Type = 'ERA_POSTMODERN';   -- 600 - 60 = 540
 UPDATE Eras SET MinorCivAlliesThresholdExtra = 690 WHERE Type = 'ERA_INFORMATION';  -- 750 - 60 = 690
 UPDATE Eras SET MinorCivAlliesThresholdExtra = 840 WHERE Type = 'ERA_FUTURE';       -- 900 - 60 = 840
+
+-- Diplomatic Overextension: unhappiness penalty per ally held over the prestige limit
+-- (SP overrides the MPDLL default of 3)
+UPDATE Defines SET Value = 15 WHERE Name = 'DIPLOMATIC_OVEREXTENSION_UNHAPPINESS_MODIFIER';

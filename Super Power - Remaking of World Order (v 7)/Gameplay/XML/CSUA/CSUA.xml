@@ -506,7 +506,7 @@
 		</Row>
 		<Row>
 			<Type>EFFECT_CSUA_RAGUSA_ALLY</Type>
-			<LocalHappinessCapModifier>50</LocalHappinessCapModifier>
+			<LocalHappinessCapModifier>20</LocalHappinessCapModifier>
 			<Help>TXT_KEY_EFFECT_CSUA_RAGUSA_ALLY_HELP</Help>
 		</Row>
 		<Row>
@@ -895,6 +895,11 @@
 		</Row>
 	 </CityStateUAEffect_YieldToYield>
 	 <CityStateUAEffect_GoldDonationGamble>
+		<Row>
+			<EffectType>EFFECT_CSUA_MONACO_ALLY</EffectType>
+			<Weight>2500</Weight>
+			<Multiplier>50</Multiplier>
+		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_MONACO_ALLY</EffectType>
 			<Weight>3500</Weight>

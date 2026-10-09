@@ -18177,7 +18177,7 @@
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]宗教建筑（佛塔、大教堂、清真寺、修道院、裁判所）为城市+10%[ICON_GOLD]金钱
-				[NEWLINE][ICON_BULLET]每回合首次[ICON_GOLD]金钱捐献返还50%[ICON_PEACE]信仰
+				[NEWLINE][ICON_BULLET]每回合向加德满都的首次[ICON_GOLD]金钱捐献返还50%[ICON_PEACE]信仰
 				[NEWLINE][ICON_BULLET]解锁特殊建筑珠穆朗玛营地（仅可在邻近山脉的城市建造；城市+50%[ICON_GOLD]金钱与[ICON_TOURISM]旅游）
 				[NEWLINE]
 				[NEWLINE]朋友效果：
@@ -18188,7 +18188,7 @@
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]宗教建筑（佛塔、大教堂、清真寺、修道院、裁判所）为城市+10%[ICON_GOLD]金钱
-				[NEWLINE][ICON_BULLET]每回合首次[ICON_GOLD]金钱捐献返还50%[ICON_PEACE]信仰
+				[NEWLINE][ICON_BULLET]每回合向加德满都的首次[ICON_GOLD]金钱捐献返还50%[ICON_PEACE]信仰
 				[NEWLINE][ICON_BULLET]解锁特殊建筑珠穆朗玛营地（仅可在邻近山脉的城市建造；城市+50%[ICON_GOLD]金钱与[ICON_TOURISM]旅游）
 			</Text>
 		</Row>
@@ -18208,7 +18208,7 @@
 			<Text>在邻近山脉的城市建造珠穆朗玛营地，可大幅提升该城市的金钱与旅游产出。仅加德满都的盟友可建造。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_KATHMANDU_DONATION_TT">
-			<Text>作为加德满都的盟友，你每回合首次[ICON_GOLD]金钱捐献将返还50%的[ICON_PEACE]信仰。</Text>
+			<Text>作为加德满都的盟友，你每回合向加德满都的首次[ICON_GOLD]金钱捐献将返还50%的[ICON_PEACE]信仰。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_GENEVA_HELP">
 			<Text>
@@ -19012,7 +19012,7 @@
 				盟友效果：
 				[NEWLINE][ICON_BULLET]蓄水池、引水渠、自来水系统、医院、污水处理厂、医学实验室为城市+8%[ICON_FOOD]食物
 				[NEWLINE][ICON_BULLET]这些建筑各为城市额外+2[ICON_HAPPINESS_1]本地快乐
-				[NEWLINE][ICON_BULLET]城市可以获得的[ICON_HAPPINESS_1]本地快乐上限+50%
+				[NEWLINE][ICON_BULLET]城市可以获得的[ICON_HAPPINESS_1]本地快乐上限+20%
 				[NEWLINE]
 				[NEWLINE]朋友效果：
 				[NEWLINE][ICON_BULLET]蓄水池、引水渠、自来水系统、医院、污水处理厂、医学实验室为城市+3%[ICON_FOOD]食物
@@ -19023,7 +19023,7 @@
 				盟友效果：
 				[NEWLINE][ICON_BULLET]蓄水池、引水渠、自来水系统、医院、污水处理厂、医学实验室为城市+8%[ICON_FOOD]食物
 				[NEWLINE][ICON_BULLET]这些建筑各为城市额外+2[ICON_HAPPINESS_1]本地快乐
-				[NEWLINE][ICON_BULLET]城市可以获得的[ICON_HAPPINESS_1]本地快乐上限+50%
+				[NEWLINE][ICON_BULLET]城市可以获得的[ICON_HAPPINESS_1]本地快乐上限+20%
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_RAGUSA_FRIEND_HELP">
@@ -19087,16 +19087,16 @@
 			<Text>该单位因其城邦的独特能力而减免受到的伤害</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_MONACO_HELP">
-			<Text>[ICON_CITY_STATE]摩纳哥[NEWLINE][NEWLINE]盟友效果：[NEWLINE][ICON_BULLET]盟友城市100%的魅力将转化为城市的[ICON_GOLD]金钱产出[NEWLINE][ICON_BULLET]盟友每回合对摩纳哥的首次[ICON_GOLD]金钱馈赠视为下注——45% 无收益、35% 全额返还、15% 双倍、4% 三倍返还、1% 十倍返还[NEWLINE][ICON_BULLET]盟友黄金时代内来自建筑的维护费-50%[NEWLINE][NEWLINE]朋友效果：[NEWLINE][ICON_BULLET]朋友城市40%的魅力将转化为城市的[ICON_GOLD]金钱产出</Text>
+			<Text>[ICON_CITY_STATE]摩纳哥[NEWLINE][NEWLINE]盟友效果：[NEWLINE][ICON_BULLET]盟友城市100%的魅力将转化为城市的[ICON_GOLD]金钱产出[NEWLINE][ICON_BULLET]盟友每回合对摩纳哥的首次[ICON_GOLD]金钱馈赠视为下注——20% 无收益、25% 返还一半、35% 全额返还、15% 双倍、4% 三倍返还、1% 十倍返还[NEWLINE][ICON_BULLET]盟友黄金时代内来自建筑的维护费-50%[NEWLINE][NEWLINE]朋友效果：[NEWLINE][ICON_BULLET]朋友城市40%的魅力将转化为城市的[ICON_GOLD]金钱产出</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_MONACO_ALLY_HELP">
-			<Text>盟友效果：[NEWLINE][ICON_BULLET]盟友城市100%的魅力将转化为城市的[ICON_GOLD]金钱产出[NEWLINE][ICON_BULLET]盟友每回合对摩纳哥的首次[ICON_GOLD]金钱馈赠视为下注——45% 无收益、35% 全额返还、15% 双倍、4% 三倍返还、1% 十倍返还[NEWLINE][ICON_BULLET]盟友黄金时代内来自建筑的维护费-50%</Text>
+			<Text>盟友效果：[NEWLINE][ICON_BULLET]盟友城市100%的魅力将转化为城市的[ICON_GOLD]金钱产出[NEWLINE][ICON_BULLET]盟友每回合对摩纳哥的首次[ICON_GOLD]金钱馈赠视为下注——20% 无收益、25% 返还一半、35% 全额返还、15% 双倍、4% 三倍返还、1% 十倍返还[NEWLINE][ICON_BULLET]盟友黄金时代内来自建筑的维护费-50%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_MONACO_FRIEND_HELP">
 			<Text>朋友效果：[NEWLINE][ICON_BULLET]朋友城市40%的魅力将转化为城市的[ICON_GOLD]金钱产出</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_MONACO_DONATION_TT">
-			<Text>[COLOR_POSITIVE_TEXT]下注：[ENDCOLOR]你每回合对摩纳哥的首次[ICON_GOLD]金钱馈赠即为一注。[NEWLINE]45% 无收益、35% 全额返还、15% 双倍、4% 三倍返还、1% 十倍返还。</Text>
+			<Text>[COLOR_POSITIVE_TEXT]下注：[ENDCOLOR]你每回合对摩纳哥的首次[ICON_GOLD]金钱馈赠即为一注。[NEWLINE]20% 无收益、25% 返还一半、35% 全额返还、15% 双倍、4% 三倍返还、1% 十倍返还。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_GOLD_GAMBLE_NOT_PLACED">
 			<Text>[COLOR_POSITIVE_TEXT]本回合下注：[ENDCOLOR]尚未下注。</Text>
