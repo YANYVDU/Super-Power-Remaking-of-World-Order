@@ -2160,7 +2160,7 @@
 		<Row>
 			<EffectType>EFFECT_CSUA_HORMUZ_ALLY</EffectType>
 			<ResourceType>RESOURCE_OIL</ResourceType>
-			<Modifier>400</Modifier>
+			<Modifier>100</Modifier>
 		</Row>
 	 </CityStateUAEffect_TradeRouteGoldPerSurplusResource>
 	 <CityStateUAEffect_HappinessYieldModifiers>

@@ -19974,7 +19974,7 @@
 				Ally effect:
 				[NEWLINE][ICON_BULLET]Each Customs House worked by an ally city provides +20% [ICON_GOLD] Gold in that city
 				[NEWLINE][ICON_BULLET]The ally receives an additional 20 [ICON_RES_OIL] Oil
-				[NEWLINE][ICON_BULLET]Each unit of surplus [ICON_RES_OIL] Oil provides +4% Gold from international trade routes
+				[NEWLINE][ICON_BULLET]Each unit of surplus [ICON_RES_OIL] Oil provides +1% Gold from international trade routes
 				[NEWLINE]
 				[NEWLINE]Friend effect:
 				[NEWLINE][ICON_BULLET]Each Customs House worked by a friend city provides +8% [ICON_GOLD] Gold in that city
@@ -19985,7 +19985,7 @@
 				Ally effect:
 				[NEWLINE][ICON_BULLET]Each Customs House worked by an ally city provides +20% [ICON_GOLD] Gold in that city
 				[NEWLINE][ICON_BULLET]The ally receives an additional 20 [ICON_RES_OIL] Oil
-				[NEWLINE][ICON_BULLET]Each unit of surplus [ICON_RES_OIL] Oil provides +4% Gold from international trade routes
+				[NEWLINE][ICON_BULLET]Each unit of surplus [ICON_RES_OIL] Oil provides +1% Gold from international trade routes
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_HORMUZ_FRIEND_HELP">

@@ -18445,7 +18445,7 @@
 				盟友效果：
 				[NEWLINE][ICON_BULLET]盟友城市每处有人工作的海关提高20%[ICON_GOLD]金钱产出
 				[NEWLINE][ICON_BULLET]额外为盟友提供20[ICON_RES_OIL]石油
-				[NEWLINE][ICON_BULLET]每单位富余[ICON_RES_OIL]石油提高4%国际商路[ICON_GOLD]金钱
+				[NEWLINE][ICON_BULLET]每单位富余[ICON_RES_OIL]石油提高1%国际商路[ICON_GOLD]金钱
 				[NEWLINE]
 				[NEWLINE]朋友效果：
 				[NEWLINE][ICON_BULLET]朋友城市每处有人工作的海关提高8%[ICON_GOLD]金钱产出
@@ -18456,7 +18456,7 @@
 				盟友效果：
 				[NEWLINE][ICON_BULLET]盟友城市每处有人工作的海关提高20%[ICON_GOLD]金钱产出
 				[NEWLINE][ICON_BULLET]额外为盟友提供20[ICON_RES_OIL]石油
-				[NEWLINE][ICON_BULLET]每单位富余[ICON_RES_OIL]石油提高4%国际商路[ICON_GOLD]金钱
+				[NEWLINE][ICON_BULLET]每单位富余[ICON_RES_OIL]石油提高1%国际商路[ICON_GOLD]金钱
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_HORMUZ_FRIEND_HELP">
