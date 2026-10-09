@@ -75,7 +75,7 @@
 			<Type>EFFECT_CSUA_DUBAI_ALLY</Type>
 			<HappinessPerGoldDonated>1</HappinessPerGoldDonated>
 			<GoldDonationInterval>1000</GoldDonationInterval>
-			<WonderProductionPerDonationHappiness>100</WonderProductionPerDonationHappiness>
+			<WonderProductionPerDonationHappiness>300</WonderProductionPerDonationHappiness>
 			<IdeologyPressurePerDonationHappiness>5</IdeologyPressurePerDonationHappiness>
 			<Help>TXT_KEY_EFFECT_CSUA_DUBAI_ALLY_HELP</Help>
 		</Row>
