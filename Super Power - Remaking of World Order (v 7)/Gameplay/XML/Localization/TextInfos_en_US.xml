@@ -20459,18 +20459,18 @@
 				[ICON_CITY_STATE]Budapest
 				[NEWLINE]
 				[NEWLINE]Ally Effects:
-				[NEWLINE][ICON_BULLET]For each heavy cavalry or hit-and-run unit the ally owns, unit maintenance is reduced by [ICON_GOLD]4 gold (cannot go below 0)
+				[NEWLINE][ICON_BULLET]For each heavy cavalry or hit-and-run unit the ally owns, unit maintenance is reduced by [ICON_GOLD]8 gold (cannot go below 0)
 				[NEWLINE][ICON_BULLET]The ally's units deal a fixed +4 extra damage against wounded units (both when attacking and defending)
 				[NEWLINE][ICON_BULLET]The ally's land units are immune to the river-crossing combat penalty
 				[NEWLINE]
 				[NEWLINE]Friend Effects:
-				[NEWLINE][ICON_BULLET]For each heavy cavalry or hit-and-run unit the friend owns, unit maintenance is reduced by [ICON_GOLD]2 gold (cannot go below 0)
+				[NEWLINE][ICON_BULLET]For each heavy cavalry or hit-and-run unit the friend owns, unit maintenance is reduced by [ICON_GOLD]3 gold (cannot go below 0)
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_BUDAPEST_ALLY_HELP">
 			<Text>
 				Ally Effects:
-				[NEWLINE][ICON_BULLET]For each heavy cavalry or hit-and-run unit the ally owns, unit maintenance is reduced by [ICON_GOLD]4 gold (cannot go below 0)
+				[NEWLINE][ICON_BULLET]For each heavy cavalry or hit-and-run unit the ally owns, unit maintenance is reduced by [ICON_GOLD]8 gold (cannot go below 0)
 				[NEWLINE][ICON_BULLET]The ally's units deal a fixed +4 extra damage against wounded units (both when attacking and defending)
 				[NEWLINE][ICON_BULLET]The ally's land units are immune to the river-crossing combat penalty
 			</Text>
@@ -20478,7 +20478,7 @@
 		<Row Tag="TXT_KEY_EFFECT_CSUA_BUDAPEST_FRIEND_HELP">
 			<Text>
 				Friend Effects:
-				[NEWLINE][ICON_BULLET]For each heavy cavalry or hit-and-run unit the friend owns, unit maintenance is reduced by [ICON_GOLD]2 gold (cannot go below 0)
+				[NEWLINE][ICON_BULLET]For each heavy cavalry or hit-and-run unit the friend owns, unit maintenance is reduced by [ICON_GOLD]3 gold (cannot go below 0)
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_HANOI_HELP">

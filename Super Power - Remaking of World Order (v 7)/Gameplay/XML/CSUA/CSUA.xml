@@ -815,22 +815,22 @@
 		<Row>
 			<EffectType>EFFECT_CSUA_BUDAPEST_ALLY</EffectType>
 			<PromotionType>PROMOTION_HITANDRUN</PromotionType>
-			<MaintenanceChange>-4</MaintenanceChange>
+			<MaintenanceChange>-8</MaintenanceChange>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_BUDAPEST_ALLY</EffectType>
 			<PromotionType>PROMOTION_KNIGHT_COMBAT</PromotionType>
-			<MaintenanceChange>-4</MaintenanceChange>
+			<MaintenanceChange>-8</MaintenanceChange>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_BUDAPEST_FRIEND</EffectType>
 			<PromotionType>PROMOTION_HITANDRUN</PromotionType>
-			<MaintenanceChange>-2</MaintenanceChange>
+			<MaintenanceChange>-3</MaintenanceChange>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_BUDAPEST_FRIEND</EffectType>
 			<PromotionType>PROMOTION_KNIGHT_COMBAT</PromotionType>
-			<MaintenanceChange>-2</MaintenanceChange>
+			<MaintenanceChange>-3</MaintenanceChange>
 		</Row>
 	 </CityStateUAEffect_UnitMaintenanceByPromotion>
 	 <!-- Almaty: a unit holding PromotionType gains extra max HP = ownerKills x ownerSurplus ResourceType x Percent / 100 (evaluated live in CvUnit::GetMaxHitPoints) -->

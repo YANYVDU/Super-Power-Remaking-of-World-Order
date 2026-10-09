@@ -18736,18 +18736,18 @@
 				[ICON_CITY_STATE]布達佩斯
 				[NEWLINE]
 				[NEWLINE]盟友效果：
-				[NEWLINE][ICON_BULLET]盟友每有一個重騎兵和騎射單位，單位維護費[ICON_GOLD]-4，至多降低為0
+				[NEWLINE][ICON_BULLET]盟友每有一個重騎兵和騎射單位，單位維護費[ICON_GOLD]-8，至多降低為0
 				[NEWLINE][ICON_BULLET]盟友的單位對受傷單位造成的傷害固定+4（攻防都+4）
 				[NEWLINE][ICON_BULLET]盟友的陸軍免疫渡河作戰懲罰
 				[NEWLINE]
 				[NEWLINE]朋友效果：
-				[NEWLINE][ICON_BULLET]朋友每有一個重騎兵和騎射單位，單位維護費[ICON_GOLD]-2，至多降低為0
+				[NEWLINE][ICON_BULLET]朋友每有一個重騎兵和騎射單位，單位維護費[ICON_GOLD]-3，至多降低為0
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_BUDAPEST_ALLY_HELP">
 			<Text>
 				盟友效果：
-				[NEWLINE][ICON_BULLET]盟友每有一個重騎兵和騎射單位，單位維護費[ICON_GOLD]-4，至多降低為0
+				[NEWLINE][ICON_BULLET]盟友每有一個重騎兵和騎射單位，單位維護費[ICON_GOLD]-8，至多降低為0
 				[NEWLINE][ICON_BULLET]盟友的單位對受傷單位造成的傷害固定+4（攻防都+4）
 				[NEWLINE][ICON_BULLET]盟友的陸軍免疫渡河作戰懲罰
 			</Text>
@@ -18755,7 +18755,7 @@
 		<Row Tag="TXT_KEY_EFFECT_CSUA_BUDAPEST_FRIEND_HELP">
 			<Text>
 				朋友效果：
-				[NEWLINE][ICON_BULLET]朋友每有一個重騎兵和騎射單位，單位維護費[ICON_GOLD]-2，至多降低為0
+				[NEWLINE][ICON_BULLET]朋友每有一個重騎兵和騎射單位，單位維護費[ICON_GOLD]-3，至多降低為0
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_HANOI_HELP">
