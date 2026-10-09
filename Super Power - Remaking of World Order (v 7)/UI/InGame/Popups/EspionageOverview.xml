@@ -254,9 +254,9 @@
 				<!-- Super Power V11: Spy Points progress meter (Great General style) -->
 				<Box Size="600,50" Offset="0,0" Anchor="C,T" Color="0,0,0,0" ID="SpyPointsBox" Hidden="1">
 					<Label Anchor="L,T" Offset="14,2" Font="TwCenMT16" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_SPY_POINTS_TITLE" ID="SpyPointsTitle"/>
-					<Image Anchor="C,B" Offset="0,0" Size="360,29" Texture="MeterBarGreatPersonBack.dds">
-						<TextureBar Anchor="L,C" Size="360,29" Texture="MeterBarGreatPersonGold.dds" Direction="Right" ID="SpyPointsMeter"/>
-						<Image Anchor="L,C" Size="360,29" Offset="0,0" Texture="MeterBarFrame.dds"/>
+					<Image Anchor="C,B" Offset="0,0" Size="214,29" Texture="MeterBarGreatPersonBack.dds">
+						<TextureBar Anchor="L,C" Size="214,29" Texture="MeterBarGreatPersonGold.dds" Direction="Right" ID="SpyPointsMeter"/>
+						<Image Anchor="L,C" Size="214,29" Offset="0,0" Texture="MeterBarFrame.dds"/>
 						<Label Offset="0,0" Anchor="C,C" Font="TwCenMT16" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" ID="SpyPointsLabel"/>
 					</Image>
 				</Box>
