@@ -1441,6 +1441,36 @@ function CultureTipHandler( control )
 				strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_CULTURE_CITY_COST");
 			end
 		end
+
+		-- Policy cost breakdown: list every source and its value
+		if pPlayer.GetPolicyCostModifierBreakdown ~= nil then
+			local iTotal, iPolicies, iBuildings, iMinorCivs, iTraits, iCulturedCS, iCorruption, iUncapped, iCap = pPlayer:GetPolicyCostModifierBreakdown();
+			strText = strText .. "[NEWLINE][NEWLINE]";
+			strText = strText .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_TITLE");
+			strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_BASE", pPlayer:GetNextPolicyCost());
+			if iPolicies ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_POLICIES", iPolicies);
+			end
+			if iBuildings ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_BUILDING", iBuildings);
+			end
+			if iMinorCivs ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_MINORCIV", iMinorCivs);
+			end
+			if iTraits ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_TRAITS", iTraits);
+			end
+			if iCulturedCS ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_CULTURED_CS", iCulturedCS);
+			end
+			if iCorruption ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_CORRUPTION", iCorruption);
+			end
+			if iTotal ~= iUncapped then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_CAP", iCap);
+			end
+			strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_TOTAL", iTotal);
+		end
 	end
 	
 	tipControlTable.TooltipLabel:SetText( strText );

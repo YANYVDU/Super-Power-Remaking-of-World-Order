@@ -18787,6 +18787,36 @@
 		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_TOTAL">
 			<Text>[COLOR_POSITIVE_TEXT]科研阈值合计：+{1_Num}%[ENDCOLOR]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_TITLE">
+			<Text>[COLOR_POSITIVE_TEXT]政策成本来源[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_BASE">
+			<Text>下一项[ICON_CULTURE]政策成本：{1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_POLICIES">
+			<Text>已推行政策：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_BUILDING">
+			<Text>建筑：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_MINORCIV">
+			<Text>城邦：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_TRAITS">
+			<Text>文明特性：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_CULTURED_CS">
+			<Text>文化城邦盟友：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_CORRUPTION">
+			<Text>腐败：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_CAP">
+			<Text>受减免下限限制（{1_Num}%）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_TOTAL">
+			<Text>[COLOR_POSITIVE_TEXT]政策成本修正合计：{1_Num}%[ENDCOLOR]</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_UR_HELP">
 			<Text>
 				盟友效果：

@@ -20316,6 +20316,36 @@
 		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_TOTAL">
 			<Text>[COLOR_POSITIVE_TEXT]Total Research Threshold: +{1_Num}%[ENDCOLOR]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_TITLE">
+			<Text>[COLOR_POSITIVE_TEXT]Policy Cost Sources[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_BASE">
+			<Text>Next [ICON_CULTURE]Policy Cost: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_POLICIES">
+			<Text>Policies Adopted: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_BUILDING">
+			<Text>Buildings: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_MINORCIV">
+			<Text>City-States: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_TRAITS">
+			<Text>Civilization Traits: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_CULTURED_CS">
+			<Text>Allied Cultured City-States: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_CORRUPTION">
+			<Text>Corruption: {1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_CAP">
+			<Text>Limited by the Discount Cap ({1_Num}%)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_TOTAL">
+			<Text>[COLOR_POSITIVE_TEXT]Total Policy Cost Modifier: {1_Num}%[ENDCOLOR]</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_UR_HELP">
 			<Text>
 				Ally Effects:
