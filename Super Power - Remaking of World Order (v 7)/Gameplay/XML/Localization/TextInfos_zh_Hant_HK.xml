@@ -17616,24 +17616,24 @@
 		<Row Tag="TXT_KEY_CSUA_CAPE_TOWN_HELP">
 			<Text>
 				盟友效果：
-				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，20%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，15%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
 				[NEWLINE][ICON_BULLET]燈塔、港口、海運碼頭、國際自由港為城市+10%[ICON_GOLD]金錢、5%[ICON_PRODUCTION]產能
 				[NEWLINE]
 				[NEWLINE]朋友效果：
-				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，8%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，6%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_CAPE_TOWN_ALLY_HELP">
 			<Text>
 				盟友效果：
-				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，20%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，15%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
 				[NEWLINE][ICON_BULLET]燈塔、港口、海運碼頭、國際自由港為城市+10%[ICON_GOLD]金錢、5%[ICON_PRODUCTION]產能
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_CAPE_TOWN_FRIEND_HELP">
 			<Text>
 				朋友效果：
-				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，8%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，6%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_GENOA_HELP">

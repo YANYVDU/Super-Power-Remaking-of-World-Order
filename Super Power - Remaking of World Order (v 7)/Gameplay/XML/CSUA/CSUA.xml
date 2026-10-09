@@ -1457,13 +1457,13 @@
 			<EffectType>EFFECT_CSUA_CAPE_TOWN_ALLY</EffectType>
 			<InYieldType>YIELD_GOLD</InYieldType>
 			<OutYieldType>YIELD_FOOD</OutYieldType>
-			<Percent>20</Percent>
+			<Percent>15</Percent>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_CAPE_TOWN_FRIEND</EffectType>
 			<InYieldType>YIELD_GOLD</InYieldType>
 			<OutYieldType>YIELD_FOOD</OutYieldType>
-			<Percent>8</Percent>
+			<Percent>6</Percent>
 		</Row>
 	 </CityStateUAEffect_YieldToYieldViaTRToUCS>
 	 <CityStateUAEffect_BuildingClassYieldModifiers>
