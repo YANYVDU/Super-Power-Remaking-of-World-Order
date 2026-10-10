@@ -616,6 +616,15 @@
 			<Set Value="5"/>
 			<Where Name="ESPIONAGE_INFLUENCE_LOST_FOR_RIGGED_ELECTION" />
 		</Update>
+		<!--Rigged election rank scaling: winner gain += rank^2 * this, loser loss += ownInfluence * this% * winnerRank-->
+		<Update>
+			<Set Value="5"/>
+			<Where Name="ESPIONAGE_RIGGED_ELECTION_WIN_RANK_SQUARE_BONUS" />
+		</Update>
+		<Update>
+			<Set Value="2"/>
+			<Where Name="ESPIONAGE_RIGGED_ELECTION_LOSS_PERCENT_PER_RANK" />
+		</Update>
 
 		<!--International Trade-->
 		<Update>
