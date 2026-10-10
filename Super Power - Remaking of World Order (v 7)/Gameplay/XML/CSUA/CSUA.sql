@@ -122,15 +122,15 @@ END;
 -- MinorCivAlliesThresholdExtra: per-era ally threshold increase (Rule 8)
 -- Formula: threshold = FRIENDSHIP_THRESHOLD_ALLIES(60) + MinorCivAlliesThresholdExtra
 UPDATE Eras SET MinorCivAlliesThresholdExtra = 0   WHERE Type = 'ERA_ANCIENT';     --  60 - 60 = 0
-UPDATE Eras SET MinorCivAlliesThresholdExtra = 30  WHERE Type = 'ERA_CLASSICAL';    --  90 - 60 = 30
-UPDATE Eras SET MinorCivAlliesThresholdExtra = 90  WHERE Type = 'ERA_MEDIEVAL';     -- 150 - 60 = 90
-UPDATE Eras SET MinorCivAlliesThresholdExtra = 180 WHERE Type = 'ERA_RENAISSANCE';  -- 240 - 60 = 180
-UPDATE Eras SET MinorCivAlliesThresholdExtra = 240 WHERE Type = 'ERA_INDUSTRIAL';   -- 300 - 60 = 240
-UPDATE Eras SET MinorCivAlliesThresholdExtra = 340 WHERE Type = 'ERA_MODERN';       -- 400 - 60 = 340
-UPDATE Eras SET MinorCivAlliesThresholdExtra = 440 WHERE Type = 'ERA_WORLDWAR';     -- 500 - 60 = 440
-UPDATE Eras SET MinorCivAlliesThresholdExtra = 540 WHERE Type = 'ERA_POSTMODERN';   -- 600 - 60 = 540
-UPDATE Eras SET MinorCivAlliesThresholdExtra = 690 WHERE Type = 'ERA_INFORMATION';  -- 750 - 60 = 690
-UPDATE Eras SET MinorCivAlliesThresholdExtra = 840 WHERE Type = 'ERA_FUTURE';       -- 900 - 60 = 840
+UPDATE Eras SET MinorCivAlliesThresholdExtra = 20  WHERE Type = 'ERA_CLASSICAL';    --  80 - 60 = 20
+UPDATE Eras SET MinorCivAlliesThresholdExtra = 60  WHERE Type = 'ERA_MEDIEVAL';     -- 120 - 60 = 60
+UPDATE Eras SET MinorCivAlliesThresholdExtra = 120 WHERE Type = 'ERA_RENAISSANCE';  -- 180 - 60 = 120
+UPDATE Eras SET MinorCivAlliesThresholdExtra = 180 WHERE Type = 'ERA_INDUSTRIAL';   -- 240 - 60 = 180
+UPDATE Eras SET MinorCivAlliesThresholdExtra = 240 WHERE Type = 'ERA_MODERN';       -- 300 - 60 = 240
+UPDATE Eras SET MinorCivAlliesThresholdExtra = 340 WHERE Type = 'ERA_WORLDWAR';     -- 400 - 60 = 340
+UPDATE Eras SET MinorCivAlliesThresholdExtra = 440 WHERE Type = 'ERA_POSTMODERN';   -- 500 - 60 = 440
+UPDATE Eras SET MinorCivAlliesThresholdExtra = 540 WHERE Type = 'ERA_INFORMATION';  -- 600 - 60 = 540
+UPDATE Eras SET MinorCivAlliesThresholdExtra = 740 WHERE Type = 'ERA_FUTURE';       -- 800 - 60 = 740
 
 -- Diplomatic Overextension: unhappiness penalty per ally held over the prestige limit
 -- (SP overrides the MPDLL default of 3)
