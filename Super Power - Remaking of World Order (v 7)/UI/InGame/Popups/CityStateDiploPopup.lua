@@ -620,6 +620,10 @@ function OnDisplay()
 		Controls.RevokeAidButton:SetToolTipString(strRevokeAidTT);
 	end
 
+	-- Aid point spending (Super Power V11): entry point to the aid-point submenu, shown only
+	-- while the active player has aid points banked with this city-state.
+	RefreshAidPoints();
+
 	if (Game.IsOption(GameOptionTypes.GAMEOPTION_ALWAYS_WAR)) then
 		Controls.PeaceButton:SetHide(true);
 	end
@@ -704,12 +708,14 @@ function OnDisplay()
 	SetButtonSize(Controls.BeliefPurchaseLabel, Controls.BeliefPurchaseButton, Controls.BeliefPurchaseAnim, Controls.BeliefPurchaseButtonHL);
 	SetButtonSize(Controls.PantheonPurchaseLabel, Controls.PantheonPurchaseButton, Controls.PantheonPurchaseAnim, Controls.PantheonPurchaseButtonHL);
 	SetButtonSize(Controls.InfluenceLabel, Controls.InfluenceButton, Controls.InfluenceAnim, Controls.InfluenceButtonHL);
+	SetButtonSize(Controls.AidSpendLabel, Controls.AidSpendButton, Controls.AidSpendAnim, Controls.AidSpendButtonHL);
 
 	Controls.GiveStack:SetHide(true);
 	Controls.TakeStack:SetHide(true);
 	Controls.InfluenceStack:SetHide(true);
+	Controls.AidSpendStack:SetHide(true);
 	Controls.ButtonStack:SetHide(false);
-	
+
 	UpdateButtonStack();
 end
 
@@ -808,6 +814,146 @@ function OnRevokeAidButtonClicked ()
 	end
 end
 Controls.RevokeAidButton:RegisterCallback( Mouse.eLClick, OnRevokeAidButtonClicked );
+
+----------------------------------------------------------------
+-- Aid Point Spending submenu (Super Power V11)
+----------------------------------------------------------------
+-- Refresh the banked aid-point total shown on the main menu button.
+function RefreshAidPoints()
+	local pPlayer = Players[g_iMinorCivID];
+	local iActivePlayer = Game.GetActivePlayer();
+	local iPoints = pPlayer:GetEconomicAidPoints(iActivePlayer);
+	local bShow = (iPoints > 0);
+	Controls.AidSpendButton:SetHide(not bShow);
+	if (bShow) then
+		Controls.AidSpendLabel:SetText(Locale.Lookup("TXT_KEY_POP_CSTATE_AID_SPEND", iPoints));
+		Controls.AidSpendButton:SetToolTipString(Locale.Lookup("TXT_KEY_POP_CSTATE_AID_SPEND_TT", iPoints));
+	end
+	return iPoints;
+end
+
+function OnAidSpendButtonClicked()
+	Controls.ButtonStack:SetHide(true);
+	Controls.AidSpendStack:SetHide(false);
+	UpdateAidSpendChoices();
+end
+Controls.AidSpendButton:RegisterCallback( Mouse.eLClick, OnAidSpendButtonClicked );
+
+function OnCloseAidSpend()
+	Controls.AidSpendStack:SetHide(true);
+	Controls.ButtonStack:SetHide(false);
+	UpdateButtonStack();
+end
+Controls.ExitAidSpendButton:RegisterCallback( Mouse.eLClick, OnCloseAidSpend );
+
+-- One aid-point action row: hidden when not applicable, warning-colored when unaffordable.
+function SetupAidSpendButton(label, button, anim, hl, text, tt, bEnabled, bVisible)
+	button:SetHide(not bVisible);
+	anim:SetHide(not bEnabled);
+	if (bVisible) then
+		if (not bEnabled) then
+			text = "[COLOR_WARNING_TEXT]" .. text .. "[ENDCOLOR]";
+		end
+		label:SetText(text);
+		button:SetToolTipString(tt);
+		SetButtonSize(label, button, anim, hl);
+	end
+end
+
+function UpdateAidSpendChoices()
+	local pPlayer = Players[g_iMinorCivID];
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	local iPoints = pPlayer:GetEconomicAidPoints(iActivePlayer);
+
+	-- Reroll quests (available at any city-state)
+	local iRerollCost = Game.GetAidPointCostRerollQuests();
+	SetupAidSpendButton(Controls.RerollQuestLabel, Controls.RerollQuestButton, Controls.RerollQuestAnim, Controls.RerollQuestButtonHL,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_REROLL") .. " (" .. iRerollCost .. ")",
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_REROLL_TT", iRerollCost),
+		(iPoints >= iRerollCost), (iRerollCost > 0));
+
+	-- Bully gold with aid points (needs a bully we can currently pull off)
+	local iBullyCost = Game.GetBullyGoldAidPointCost(g_iMinorCivID, iActivePlayer);
+	local iBullyGold = pPlayer:GetMinorCivBullyGoldAmount(iActivePlayer);
+	local bCanBully = pPlayer:CanMajorBullyGold(iActivePlayer);
+	SetupAidSpendButton(Controls.BullyAidLabel, Controls.BullyAidButton, Controls.BullyAidAnim, Controls.BullyAidButtonHL,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_BULLY", iBullyGold) .. " (" .. iBullyCost .. ")",
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_BULLY_TT", iBullyCost),
+		(iPoints >= iBullyCost), (bCanBully and iBullyCost > 0));
+
+	-- Preselect the gifted military unit (military city-states only)
+	local iUnitCost = Game.GetAidPointCostPendingGiftUnit();
+	local bMilitaristic = (pPlayer:GetMinorCivTrait() == MinorCivTraitTypes.MINOR_CIV_TRAIT_MILITARISTIC);
+	local sGiftUnitText = Locale.Lookup("TXT_KEY_POP_CSTATE_AID_GIFT_UNIT") .. " (" .. iUnitCost .. ")";
+	-- Preview the already preselected gift unit, so the player knows what is coming
+	local ePendingGift = pPlayer:GetPendingGiftUnit(iActivePlayer);
+	if (ePendingGift and ePendingGift >= 0 and GameInfo.Units[ePendingGift] ~= nil) then
+		sGiftUnitText = sGiftUnitText .. " - " .. Locale.Lookup(GameInfo.Units[ePendingGift].Description);
+	end
+	SetupAidSpendButton(Controls.GiftUnitAidLabel, Controls.GiftUnitAidButton, Controls.GiftUnitAidAnim, Controls.GiftUnitAidButtonHL,
+		sGiftUnitText,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_GIFT_UNIT_TT", iUnitCost),
+		(iPoints >= iUnitCost), (bMilitaristic and iUnitCost > 0));
+
+	-- Preselect the next gifted Great Person (patronage finisher only)
+	local iGPCost = Game.GetAidPointCostNextGreatPerson();
+	local bHasFinisher = pActivePlayer:HasPolicy(GameInfoTypes["POLICY_PATRONAGE_FINISHER"]);
+	SetupAidSpendButton(Controls.NextGPLabel, Controls.NextGPButton, Controls.NextGPAnim, Controls.NextGPButtonHL,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_NEXT_GP") .. " (" .. iGPCost .. ")",
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_NEXT_GP_TT", iGPCost),
+		(iPoints >= iGPCost), (bHasFinisher and iGPCost > 0));
+
+	UpdateButtonStack();
+	-- Rows hidden above stay in the stack's layout unless it is recalculated by hand.
+	Controls.AidSpendStack:CalculateSize();
+	Controls.AidSpendStack:ReprocessAnchoring();
+end
+
+----------------------------------------------------------------
+-- Aid Point Spending actions (Super Power V11)
+----------------------------------------------------------------
+-- Reroll this city-state's personal quests
+function OnRerollQuestClicked()
+	local iActivePlayer = Game.GetActivePlayer();
+	local bSuccess = Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorRerollQuestsFromMajor", iActivePlayer, g_iMinorCivID);
+	if (bSuccess) then
+		UpdateActiveQuests();
+		RefreshAidPoints();
+		OnCloseAidSpend();
+	end
+end
+Controls.RerollQuestButton:RegisterCallback( Mouse.eLClick, OnRerollQuestClicked );
+
+-- Bully gold paying with aid points (no influence loss, no diplomatic penalty)
+function OnBullyAidClicked()
+	local iActivePlayer = Game.GetActivePlayer();
+	local iBullyGold = Players[g_iMinorCivID]:GetMinorCivBullyGoldAmount(iActivePlayer);
+	Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorBullyGoldWithAidPointsFromMajor", iActivePlayer, g_iMinorCivID, iBullyGold);
+	RefreshAidPoints();
+	OnCloseAidSpend();
+end
+Controls.BullyAidButton:RegisterCallback( Mouse.eLClick, OnBullyAidClicked );
+
+-- Preselect the gifted military unit
+function OnGiftUnitAidClicked()
+	local iCost = Game.GetAidPointCostPendingGiftUnit();
+	local unitContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
+	LuaEvents.AidPointChoicePopupOpen("unit", g_iMinorCivID, iCost);
+	UIManager:QueuePopup( unitContext, PopupPriority.SocialPolicy );
+	UIManager:DequeuePopup( ContextPtr );
+end
+Controls.GiftUnitAidButton:RegisterCallback( Mouse.eLClick, OnGiftUnitAidClicked );
+
+-- Preselect the next gifted Great Person (aid points are charged to this city-state)
+function OnNextGPClicked()
+	local iCost = Game.GetAidPointCostNextGreatPerson();
+	local gpContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
+	LuaEvents.AidPointChoicePopupOpen("greatperson", g_iMinorCivID, iCost);
+	UIManager:QueuePopup( gpContext, PopupPriority.SocialPolicy );
+	UIManager:DequeuePopup( ContextPtr );
+end
+Controls.NextGPButton:RegisterCallback( Mouse.eLClick, OnNextGPClicked );
 
 ----------------------------------------------------------------
 -- Buyout
@@ -1496,7 +1642,16 @@ function PopulateTakeChoices()
 	iBullyUnitInfluenceLost = pPlayer:GetMinorBullyInfluenceLoss(iActivePlayer, iBullyUnitInfluenceLost);
 	
 	local iBullyGold = pPlayer:GetMinorCivBullyGoldAmount(iActivePlayer);
+	-- Super Power V11: bullying gold also seizes a share of the city-state's own treasury
+	local iTreasurySharePercent = Game.GetBullyTreasurySharePercent();
+	local iTreasuryShare = 0;
+	if (iTreasurySharePercent > 0) then
+		iTreasuryShare = math.floor(pPlayer:GetGold() * iTreasurySharePercent / 100);
+	end
 	buttonText = Locale.Lookup("TXT_KEY_POPUP_MINOR_BULLY_GOLD_AMOUNT", iBullyGold, iBullyGoldInfluenceLost);
+	if (iTreasuryShare > 0) then
+		buttonText = buttonText .. Locale.Lookup("TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE", iTreasuryShare);
+	end
 	ttText = pPlayer:GetMajorBullyGoldDetails(iActivePlayer);
 	if (not pPlayer:CanMajorBullyGold(iActivePlayer)) then
 		buttonText = "[COLOR_WARNING_TEXT]" .. buttonText .. "[ENDCOLOR]";
@@ -1647,3 +1802,19 @@ Controls.NoBully:RegisterCallback( Mouse.eLClick, OnNoBully );
 -- 'Active' (local human) player has changed
 -------------------------------------------------
 Events.GameplaySetActivePlayer.Add(OnCloseButtonClicked);
+
+-------------------------------------------------
+-- Aid Point Spending choice result (Super Power V11)
+-------------------------------------------------
+-- Raised by AidPointChoicePopup once the player confirms a unit / Great Person choice.
+LuaEvents.AidPointChoiceSelected.Add(function(mode, minorID, unitType)
+	if (minorID ~= g_iMinorCivID) then
+		return;
+	end
+	local iActivePlayer = Game.GetActivePlayer();
+	if (mode == "unit") then
+		Game.SendAndExecuteLuaFunction("CvLuaGame::lDoSetPendingGiftUnitFromMajor", iActivePlayer, minorID, unitType);
+	elseif (mode == "greatperson") then
+		Game.SendAndExecuteLuaFunction("CvLuaGame::lDoSetNextGreatPersonChoiceFromMajor", iActivePlayer, unitType, minorID);
+	end
+end);

@@ -19032,5 +19032,56 @@
 		<Row Tag="TXT_KEY_EO_EX_ECONOMIC_AID_TT">
 			<Text>每回合向受援城邦支付的[ICON_GOLD]金錢。[NEWLINE][ICON_BULLET]直接從國庫扣除，不受金幣率影響[NEWLINE][ICON_BULLET]受援城邦每座每回合收取一次</Text>
 		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_SPEND">
+			<Text>援建點數：{1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_SPEND_TT">
+			<Text>你在該城邦累積了 {1_Num} 點援建點數。[NEWLINE]每個主要文明對城邦進行經濟援助期間，每回合為其累積 1 點援建點數。可消耗援建點數執行以下操作。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_REROLL">
+			<Text>刷新任務</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_REROLL_TT">
+			<Text>消耗 {1_Num} 點援建點數，立即放棄該城邦目前交給你的個人任務，並重新抽取新任務。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_BULLY">
+			<Text>以援建點勒索 {1_Num}[ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_BULLY_TT">
+			<Text>消耗 {1_Num} 點援建點數，向城邦勒索[ICON_GOLD]金錢而不損失任何影響力，也不會引起其他文明的外交糾紛。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_GIFT_UNIT">
+			<Text>指定贈送單位</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_GIFT_UNIT_TT">
+			<Text>消耗 {1_Num} 點援建點數，指定該軍事城邦下次贈送給你的單位類型。[NEWLINE][ICON_BULLET]指定後可在城邦介面提前預覽[NEWLINE][ICON_BULLET]送來的單位額外獲得 +15 初始經驗</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_NEXT_GP">
+			<Text>指定下一個偉人</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_NEXT_GP_TT">
+			<Text>消耗 {1_Num} 點援建點數，指定贊助政策贈送的下一個偉人類型，援建點數從該城邦扣除。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE">
+			<Text>[NEWLINE]（另獲城邦金庫 {1_Num}[ICON_GOLD]）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_UNIT_TITLE">
+			<Text>選擇贈送單位</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_GP_TITLE">
+			<Text>選擇下一個偉人</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_COST">
+			<Text>將消耗 {1_Num} 點援建點數</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_SELECTED">
+			<Text>已選擇：{1_Str}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_CONFIRM">
+			<Text>確認</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_CANCEL">
+			<Text>取消</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

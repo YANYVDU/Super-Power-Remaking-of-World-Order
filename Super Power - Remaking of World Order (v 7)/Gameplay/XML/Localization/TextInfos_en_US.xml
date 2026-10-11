@@ -20755,5 +20755,56 @@
 		<Row Tag="TXT_KEY_EO_EX_ECONOMIC_AID_TT">
 			<Text>[ICON_GOLD]Gold paid each turn to the city-states you aid.[NEWLINE][ICON_BULLET]Deducted straight from the treasury, regardless of your gold rate[NEWLINE][ICON_BULLET]Charged once per turn for each aided city-state</Text>
 		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_SPEND">
+			<Text>Aid Points: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_SPEND_TT">
+			<Text>You have accumulated {1_Num} Aid Points with this City-State.[NEWLINE]A major civilization builds up 1 Aid Point per turn with a City-State while it is providing economic aid to it. Aid Points can be spent on the actions below.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_REROLL">
+			<Text>Reroll Quests</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_REROLL_TT">
+			<Text>Spend {1_Num} Aid Points to immediately discard the personal quests this City-State currently has for you and draw new ones.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_BULLY">
+			<Text>Bully {1_Num}[ICON_GOLD] with Aid Points</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_BULLY_TT">
+			<Text>Spend {1_Num} Aid Points to demand [ICON_GOLD]Gold from the City-State without losing any Influence and without angering other civilizations.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_GIFT_UNIT">
+			<Text>Choose Gifted Unit</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_GIFT_UNIT_TT">
+			<Text>Spend {1_Num} Aid Points to choose the unit type this Militaristic City-State will gift you next.[NEWLINE][ICON_BULLET]Once chosen it can be previewed in the City-State screen[NEWLINE][ICON_BULLET]The gifted unit arrives with +15 Experience</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_NEXT_GP">
+			<Text>Choose Next Great Person</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_NEXT_GP_TT">
+			<Text>Spend {1_Num} Aid Points to choose the type of the next Great Person granted by the Patronage finisher. The points are charged to this City-State.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE">
+			<Text>[NEWLINE](+{1_Num}[ICON_GOLD] seized from their treasury)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_UNIT_TITLE">
+			<Text>Choose Gifted Unit</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_GP_TITLE">
+			<Text>Choose Next Great Person</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_COST">
+			<Text>Costs {1_Num} Aid Points</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_SELECTED">
+			<Text>Selected: {1_Str}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_CONFIRM">
+			<Text>Confirm</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_CANCEL">
+			<Text>Cancel</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

@@ -419,6 +419,22 @@
 			<Set Value="500"/>
 		</Update>
 		<Update>
+			<Where Name="SP_AID_POINT_COST_REROLL_QUESTS"/>
+			<Set Value="20"/>
+		</Update>
+		<Update>
+			<Where Name="SP_AID_POINT_COST_NEXT_GREAT_PERSON"/>
+			<Set Value="50"/>
+		</Update>
+		<Update>
+			<Where Name="SP_AID_POINT_COST_PENDING_GIFT_UNIT"/>
+			<Set Value="10"/>
+		</Update>
+		<Update>
+			<Where Name="SP_BULLY_TREASURY_SHARE_PERCENT"/>
+			<Set Value="25"/>
+		</Update>
+		<Update>
 			<Where Name="SP_RELIGION_PRESSURE_SELF_FOUNDER_MOD"/>
 			<Set Value="33"/>
 		</Update>
