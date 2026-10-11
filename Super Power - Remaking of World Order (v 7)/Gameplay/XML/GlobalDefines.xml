@@ -470,6 +470,12 @@
 			<Set Value="3"/>
 			<Where Name="EXPERIENCE_ATTACKING_CITY_AIR" />
 		</Update>
+		<!-- XP for the sweeping aircraft (attack side), covers all three air sweep paths:
+		     vs an air interceptor, vs ground AA, and vs a ground target. -->
+		<Update>
+			<Set Value="4"/>
+			<Where Name="EXPERIENCE_ATTACKING_AIR_SWEEP" />
+		</Update>
 		<Update>
 			<Set Value="6"/>
 			<Where Name="EXPERIENCE_ATTACKING_CITY_MELEE" />

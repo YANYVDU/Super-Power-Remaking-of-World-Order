@@ -1080,8 +1080,21 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 		local pFromPlot = pMyUnit:GetPlot();
 		local pToPlot = pTheirUnit:GetPlot();
 
-		-- Ranged Unit
-		if (pMyUnit:Range() > 0 and pMyUnit:GetBaseRangedCombatStrength() > 0 and melee == false) then
+		-- Air sweep: the interceptor is chosen by the DLL, and the exchange uses the sweep /
+		-- interception strengths instead of the ranged attack ones, so that an interceptor
+		-- without any ranged combat strength (e.g. a destroyer) is still priced correctly.
+		local bAirSweep = (interfaceMode == InterfaceModeTypes.INTERFACEMODE_AIR_SWEEP and pMyUnit:GetDomainType() == DomainTypes.DOMAIN_AIR);
+
+		-- Air Sweep
+		if (bAirSweep) then
+			iMyStrength = pMyUnit:GetAirSweepCombatStrength(pTheirUnit);
+			iTheirStrength = pTheirUnit:GetInterceptionCombatStrength(pMyUnit);
+			bRanged = true;
+			bInterceptPossible = true;
+			iNumVisibleAAUnits = pMyUnit:GetInterceptorCount(pToPlot, pTheirUnit, true, true);
+
+			-- Ranged Unit
+		elseif (pMyUnit:Range() > 0 and pMyUnit:GetBaseRangedCombatStrength() > 0 and melee == false) then
 			iMyStrength = pMyUnit:GetMaxRangedCombatStrength(pTheirUnit, nil, true, true);
 			bRanged = true;
 
@@ -1097,8 +1110,14 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 			local iTheirDamageInflicted = 0;
 			local iTheirFireSupportCombatDamage = 0;
 
+			-- Air Sweep Strike (both directions; mirrors GenerateAirSweepCombatInfo)
+			if (bAirSweep) then
+
+				iMyDamageInflicted = pMyUnit:GetAirSweepDamageToInterceptor(pTheirUnit, false);
+				iTheirDamageInflicted = pMyUnit:GetAirSweepDamageFromInterceptor(pTheirUnit, false);
+
 			-- Ranged Strike
-			if (bRanged) then
+			elseif (bRanged) then
 
 				iMyDamageInflicted = pMyUnit:GetRangeCombatDamage(pTheirUnit, nil, false);
 
@@ -1134,6 +1153,11 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				iTheirDamageInflicted = pTheirUnit:GetCombatDamage(iTheirStrength, iMyStrength, pTheirUnit:GetDamage(), false, false, false);
 				iTheirDamageInflicted = iTheirDamageInflicted + iTheirFireSupportCombatDamage;
 			end
+
+			-- CSUA flat damage and damage-taken scaling play no part in an air sweep exchange
+			local iMyScale = 100;
+			local iTheirScale = 100;
+			if (not bAirSweep) then
 
 			--Fixed damage increase
 			iMyDamageInflicted = iMyDamageInflicted + GetCSUAScaledFixedDamage(pMyUnit, pToPlot, pMyUnit:GetDamageFixValueToUnit(pTheirUnit))
@@ -1176,14 +1200,16 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 			end
 
 			-- Milan CS UA: mirror the DLL's damage-taken scale so the preview matches the real result
-			local iTheirScale = pTheirUnit:GetCSUADamageTakenScale(pMyUnit, nil)
+			iTheirScale = pTheirUnit:GetCSUADamageTakenScale(pMyUnit, nil)
 			if iTheirScale ~= 100 then
 				iMyDamageInflicted = math.floor(iMyDamageInflicted * iTheirScale / 100)
 			end
-			local iMyScale = pMyUnit:GetCSUADamageTakenScale(pTheirUnit, nil)
+			iMyScale = pMyUnit:GetCSUADamageTakenScale(pTheirUnit, nil)
 			if iMyScale ~= 100 then
 				iTheirDamageInflicted = math.floor(iTheirDamageInflicted * iMyScale / 100)
 			end
+
+			end -- not bAirSweep
 
 			local iMyDie = false; --Modified
 			local iTheyDie = false;
@@ -1243,7 +1269,11 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 
 			if (eCombatPrediction == CombatPredictionTypes.COMBAT_PREDICTION_RANGED) then
 				Controls.RangedAttackIndicator:SetHide(false);
-				Controls.RangedAttackButtonLabel:SetText(Locale.ToUpper(Locale.ConvertTextKey("TXT_KEY_INTERFACEMODE_RANGE_ATTACK")));
+				if (bAirSweep) then
+					Controls.RangedAttackButtonLabel:SetText(Locale.ToUpper(Locale.ConvertTextKey("TXT_KEY_INTERFACEMODE_AIR_SWEEP")));
+				else
+					Controls.RangedAttackButtonLabel:SetText(Locale.ToUpper(Locale.ConvertTextKey("TXT_KEY_INTERFACEMODE_RANGE_ATTACK")));
+				end
 			elseif (eCombatPrediction == CombatPredictionTypes.COMBAT_PREDICTION_STALEMATE) then
 				Controls.StalemateIndicator:SetHide(false);
 			elseif (eCombatPrediction == CombatPredictionTypes.COMBAT_PREDICTION_TOTAL_DEFEAT) then
@@ -3533,7 +3563,36 @@ function OnMouseOverHex(hexX, hexY)
 
 		if (pHeadUnit ~= nil) then
 
-			if (pHeadUnit:IsCombatUnit() and (pHeadUnit:IsRanged() and pHeadUnit:IsEmbarked()) == false) and
+			-- Air sweep: the sweep only aims at a plot, and the DLL then picks the best interceptor
+			-- in range, which is usually NOT the unit standing on the hovered plot. Preview the
+			-- exchange that would really happen.
+			if (UI.GetInterfaceMode() == InterfaceModeTypes.INTERFACEMODE_AIR_SWEEP and
+				pHeadUnit:GetDomainType() == DomainTypes.DOMAIN_AIR) then
+
+				local iTeam = Game.GetActiveTeam()
+				local pTeam = Teams[iTeam]
+
+				-- Don't show info for stuff we can't see
+				if (pPlot:IsRevealed(iTeam, false) and pPlot:IsVisible(iTeam, false)) then
+
+					local pInterceptor = pHeadUnit:GetBestInterceptor(pPlot, nil, false, false);
+
+					if (pInterceptor ~= nil and not pInterceptor:IsInvisible(iTeam, false) and
+						(pTeam:IsAtWar(pInterceptor:GetTeam()) or (UIManager:GetAlt() and pInterceptor:GetOwner() ~= iTeam))) then
+
+						UpdateUnitPortrait(pInterceptor);
+						UpdateUnitPromotions(pInterceptor);
+						UpdateUnitStats(pInterceptor);
+						UpdateCombatOddsUnitVsUnit(pHeadUnit, pInterceptor);
+
+						Controls.MyCombatResultsStack:SetHide(false);
+						Controls.TheirCombatResultsStack:SetHide(false);
+
+						g_bShowPanel = true;
+					end
+				end
+
+			elseif (pHeadUnit:IsCombatUnit() and (pHeadUnit:IsRanged() and pHeadUnit:IsEmbarked()) == false) and
 				((pHeadUnit:IsRanged() and pHeadUnit:IsRangeAttackOnlyInDomain() and not pPlot:IsWater()) == false) then
 
 				local iTeam = Game.GetActiveTeam()
