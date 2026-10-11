@@ -445,46 +445,6 @@
 			<Where Name="MINOR_FRIENDSHIP_DROP_DISHONOR_PLEDGE_TO_PROTECT" />
 		</Update>
 		<Update>
-			<Set Value="60"/>
-			<Where Name="MINOR_QUEST_FRIENDSHIP_CONTEST_CULTURE" />
-		</Update>
-		<Update>
-			<Set Value="60"/>
-			<Where Name="MINOR_QUEST_FRIENDSHIP_CONTEST_FAITH" />
-		</Update>
-		<Update>
-			<Set Value="60"/>
-			<Where Name="MINOR_QUEST_FRIENDSHIP_CONTEST_TECHS" />
-		</Update>
-		<Update>
-			<Set Value="80"/>
-			<Where Name="MINOR_QUEST_FRIENDSHIP_DENOUNCE_MAJOR" />
-		</Update>
-		<Update>
-			<Set Value="80"/>
-			<Where Name="MINOR_QUEST_FRIENDSHIP_SPREAD_RELIGION" />
-		</Update>
-		<Update>
-			<Set Value="60"/>
-			<Where Name="MINOR_QUEST_FRIENDSHIP_TRADE_ROUTE" />
-		</Update>
-		<Update>
-			<Set Value="30"/>
-			<Where Name="MINOR_QUEST_FRIENDSHIP_FIND_PLAYER" />
-		</Update>
-		<Update>
-			<Set Value="40"/>
-			<Where Name="MINOR_QUEST_FRIENDSHIP_FIND_NATURAL_WONDER" />
-		</Update>
-		<Update>
-			<Set Value="100"/>
-			<Where Name="MINOR_QUEST_FRIENDSHIP_CONSTRUCT_WONDER" />
-		</Update>
-		<Update>
-			<Set Value="90"/>
-			<Where Name="MINOR_QUEST_FRIENDSHIP_GREAT_PERSON" />
-		</Update>
-		<Update>
 			<Set Value="18.8"/>
 			<Where Name="GOLD_GIFT_FRIENDSHIP_DIVISOR" />
 		</Update>
@@ -503,6 +463,10 @@
 		<Update>
 			<Set Value="5"/>
 			<Where Name="MINOR_CIV_GLOBAL_QUEST_RAND_TURNS_BETWEEN" />
+		</Update>
+		<Update>
+			<Set Value="20"/>
+			<Where Name="MINOR_CIV_PERSONAL_QUEST_FIRST_POSSIBLE_TURN" />
 		</Update>
 		<Update>
 			<Set Value="80"/>
@@ -1118,5 +1082,102 @@
 			<Where Name="MAX_MINOR_ADDITIONAL_ALLIES_GP_CHANGE" />
 		</Update>
 	</Defines>
-	
+
+	<!-- Quest influence rewards. These were previously set through the MINOR_QUEST_FRIENDSHIP_* defines,
+	     but those are ignored now that MOD_EVENTS_QUESTS is enabled and the reward is read from Quests.Friendship. -->
+	<Quests>
+		<Update>
+			<Set Friendship="60"/>
+			<Where Type="MINOR_CIV_QUEST_CONTEST_CULTURE"/>
+		</Update>
+		<Update>
+			<Set Friendship="60"/>
+			<Where Type="MINOR_CIV_QUEST_CONTEST_FAITH"/>
+		</Update>
+		<Update>
+			<Set Friendship="60"/>
+			<Where Type="MINOR_CIV_QUEST_CONTEST_TECHS"/>
+		</Update>
+		<Update>
+			<Set Friendship="80"/>
+			<Where Type="MINOR_CIV_QUEST_DENOUNCE_MAJOR"/>
+		</Update>
+		<Update>
+			<Set Friendship="80"/>
+			<Where Type="MINOR_CIV_QUEST_SPREAD_RELIGION"/>
+		</Update>
+		<Update>
+			<Set Friendship="60"/>
+			<Where Type="MINOR_CIV_QUEST_TRADE_ROUTE"/>
+		</Update>
+		<Update>
+			<Set Friendship="30"/>
+			<Where Type="MINOR_CIV_QUEST_FIND_PLAYER"/>
+		</Update>
+		<Update>
+			<Set Friendship="100"/>
+			<Where Type="MINOR_CIV_QUEST_CONSTRUCT_WONDER"/>
+		</Update>
+		<Update>
+			<Set Friendship="90"/>
+			<Where Type="MINOR_CIV_QUEST_GREAT_PERSON"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="60" Duration="30" RewardCulture="50"/>
+			<Where Type="MINOR_CIV_QUEST_RESEARCH_TECH"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="100"/>
+			<Where Type="MINOR_CIV_QUEST_CONSTRUCT_NATIONAL_WONDER"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="60"/>
+			<Where Type="MINOR_CIV_QUEST_SPREAD_BUILDING"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="30" RewardGold="30"/>
+			<Where Type="MINOR_CIV_QUEST_FIND_CITY_STATE"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="60"/>
+			<Where Type="MINOR_CIV_QUEST_DISCONNECT_TRADE_ROUTE"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="80" RewardGold="50"/>
+			<Where Type="MINOR_CIV_QUEST_BECOME_ALLY"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="60" RewardGold="40"/>
+			<Where Type="MINOR_CIV_QUEST_RIG_ELECTION"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="60" RewardGold="50" RewardAidPoints="5"/>
+			<Where Type="MINOR_CIV_QUEST_DECLARE_WAR"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="120" RewardSpy="1"/>
+			<Where Type="MINOR_CIV_QUEST_CAPTURE_ORIGINAL_CAPITAL"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="60" RewardLeagueVotes="2"/>
+			<Where Type="MINOR_CIV_QUEST_LEAGUE_PROTECT_CITY_STATE"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="60" RewardGold="40"/>
+			<Where Type="MINOR_CIV_QUEST_LEAGUE_SANCTION"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="60" RewardGold="40"/>
+			<Where Type="MINOR_CIV_QUEST_LEAGUE_REPEAL_EMBARGO"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="60" RewardCulture="50" RewardAidPoints="30"/>
+			<Where Type="MINOR_CIV_QUEST_DONATE_GOLD"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="60" RewardCulture="50"/>
+			<Where Type="MINOR_CIV_QUEST_RESEARCH_AGREEMENT"/>
+		</Update>
+	</Quests>
+
 </GameData>

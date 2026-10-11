@@ -20815,6 +20815,216 @@
 		<Row Tag="TXT_KEY_RESOLUTION_INTERNATIONAL_LAW_PROTECTION_HELP">
 			<Text>Place a met [ICON_CITY_STATE]City-State under international law protection. While this resolution is in effect, any civilization may attack enemy units that are at war with that City-State and standing inside its territory, without declaring war. Repeal this resolution to restore the normal rules of engagement.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_RESEARCH_TECH">
+			<Text>The scholars of {2_MinorCivName:textkey} are stuck on a key problem. They ask you to research {1_TechName:textkey} soon, so both nations can share the breakthrough.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_RESEARCH_TECH">
+			<Text>{2_MinorCivName:textkey} wants {1_TechName:textkey} researched</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_RESEARCH_TECH">
+			<Text>Your research into {1_TechName:textkey} has inspired the scholars of {2_MinorCivName:textkey}. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_RESEARCH_TECH">
+			<Text>Researched {1_TechName:textkey} for {2_MinorCivName:textkey}!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_RESEARCH_TECH_FORMAL">
+			<Text>They want a breakthrough in that field, and ask you to research {1_TechName:textkey}.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CONSTRUCT_NATIONAL_WONDER">
+			<Text>The citizens of {2_MinorCivName:textkey} admire great public works. They ask you to build {1_BuildingName:textkey}, so both nations may share in its glory.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CONSTRUCT_NATIONAL_WONDER">
+			<Text>{2_MinorCivName:textkey} wants {1_BuildingName:textkey}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CONSTRUCT_NATIONAL_WONDER">
+			<Text>You completed {1_BuildingName:textkey}, to the delight of the citizens of {2_MinorCivName:textkey}. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CONSTRUCT_NATIONAL_WONDER">
+			<Text>Built {1_BuildingName:textkey} for {2_MinorCivName:textkey}!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONSTRUCT_NATIONAL_WONDER_FORMAL">
+			<Text>They want you to build {1_BuildingName:textkey}, a symbol of your shared prosperity.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_SPREAD_BUILDING">
+			<Text>The citizens of {3_MinorCivName:textkey} believe that if all {2_NumCities} of your cities had {1_BuildingName:textkey}, trade between your two nations would flourish.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_SPREAD_BUILDING">
+			<Text>Build {1_BuildingName:textkey} in {2_NumCities} cities</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_SPREAD_BUILDING">
+			<Text>{1_BuildingName:textkey} is now widespread enough to satisfy {2_MinorCivName:textkey}. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_SPREAD_BUILDING">
+			<Text>Spread {1_BuildingName:textkey} for {2_MinorCivName:textkey}!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_SPREAD_BUILDING_FORMAL">
+			<Text>They want you to build {1_BuildingName:textkey} in {2_NumCities} of your cities.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_FIND_CITY_STATE">
+			<Text>The scouts of {2_MinorCivName:textkey} hear that the lands of {1_CivName:textkey} remain uncharted. They want you to lift the veil on that territory.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_FIND_CITY_STATE">
+			<Text>{2_MinorCivName:textkey} wants you to find {1_CivName:textkey}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_FIND_CITY_STATE">
+			<Text>You have charted the lands of {1_CivName:textkey}, and {2_MinorCivName:textkey} is grateful for the intelligence. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_FIND_CITY_STATE">
+			<Text>Found {1_CivName:textkey} for {2_MinorCivName:textkey}!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_FIND_CITY_STATE_FORMAL">
+			<Text>They want you to find the lands of {1_CivName:textkey}.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_DISCONNECT_TRADE_ROUTE">
+			<Text>The citizens of {2_MinorCivName:textkey} are uneasy about your trade route to {1_OtherCivName:textkey} - they are on poor terms with that city-state and will not see your caravans enrich a rival. They ask you to cut the route.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_DISCONNECT_TRADE_ROUTE">
+			<Text>{2_MinorCivName:textkey} wants your trade route to {1_OtherCivName:textkey} cut</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_DISCONNECT_TRADE_ROUTE">
+			<Text>You cut your trade route to {1_OtherCivName:textkey}, to the satisfaction of {2_MinorCivName:textkey}. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_DISCONNECT_TRADE_ROUTE">
+			<Text>Cut the trade route to {1_OtherCivName:textkey} for {2_MinorCivName:textkey}!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_DISCONNECT_TRADE_ROUTE_FORMAL">
+			<Text>They are on poor terms with {1_OtherCivName:textkey} and want you to stop funding a rival with your trade routes.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_BECOME_ALLY">
+			<Text>The citizens of {2_MinorCivName:textkey} feel that {1_CivName:textkey} has had too much sway over them, and that your alliance is the better bet. They want you to become their ally.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_BECOME_ALLY">
+			<Text>{2_MinorCivName:textkey} wants you to become their ally</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_BECOME_ALLY">
+			<Text>You have become the ally of {1_MinorCivName:textkey}. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_BECOME_ALLY">
+			<Text>Became the ally of {1_MinorCivName:textkey}!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_BECOME_ALLY_FORMAL">
+			<Text>They believe your alliance is the stronger one, and want you to become their ally.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_RIG_ELECTION">
+			<Text>The citizens of {1_MinorCivName:textkey} need your help - rival parties are gaining ground in their capital. They want you to send a spy to rig the election and break their grip.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_RIG_ELECTION">
+			<Text>{1_MinorCivName:textkey} wants you to rig their election</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_RIG_ELECTION">
+			<Text>Your spy has meddled in the election of {1_MinorCivName:textkey}. Win or lose, the attempt itself has earned their gratitude. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_RIG_ELECTION">
+			<Text>Rigged the election in {1_MinorCivName:textkey}!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_RIG_ELECTION_FORMAL">
+			<Text>They want a spy sent to rig the election in their capital and break the rival parties.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_DECLARE_WAR">
+			<Text>{2_MinorCivName:textkey} is at war with {1_CivName:textkey} and wants you to join the fight against their common enemy.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_DECLARE_WAR">
+			<Text>{2_MinorCivName:textkey} wants you to declare war on {1_CivName:textkey}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_DECLARE_WAR">
+			<Text>You have declared war on {1_CivName:textkey}, joining the cause of {2_MinorCivName:textkey}. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_DECLARE_WAR">
+			<Text>Declared war on {1_CivName:textkey} for {2_MinorCivName:textkey}!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_DECLARE_WAR_FORMAL">
+			<Text>They are at war with {1_CivName:textkey} and want you to join the fight.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>The citizens of {2_MinorCivName:textkey} have suffered long under {1_CivName:textkey}. They want you to capture their original capital and break this old enemy for good. The first to succeed will gain the service of a master spy - a prize offered only once.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>{2_MinorCivName:textkey} wants {1_CivName:textkey}'s original capital captured</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>You have captured the original capital of {1_CivName:textkey}, and the old enemy of {2_MinorCivName:textkey} has fallen. A master spy has come to serve you. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>Captured {1_CivName:textkey}'s original capital for {2_MinorCivName:textkey}!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CAPTURE_ORIGINAL_CAPITAL_FORMAL">
+			<Text>They want you to capture the original capital of {1_CivName:textkey} and defeat this old enemy. The reward is a master spy, offered only once per game.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_LEAGUE_PROTECT_CITY_STATE">
+			<Text>The citizens of {1_MinorCivName:textkey} fear the war will reach their homes. They want you to pass a resolution in the World Congress placing them under international law protection.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_LEAGUE_PROTECT_CITY_STATE">
+			<Text>{1_MinorCivName:textkey} wants to be placed under international law protection</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_LEAGUE_PROTECT_CITY_STATE">
+			<Text>You have placed {1_MinorCivName:textkey} under international law protection, shielding their land from the war. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_LEAGUE_PROTECT_CITY_STATE">
+			<Text>{1_MinorCivName:textkey} is under international law protection!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_LEAGUE_PROTECT_CITY_STATE_FORMAL">
+			<Text>They want to be placed under international law protection in the World Congress, safe from the war.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_LEAGUE_SANCTION">
+			<Text>The citizens of {2_MinorCivName:textkey} have had enough of {1_CivName:textkey}'s aggression. They want you to propose a trade sanction in the World Congress and choke off their economy.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_LEAGUE_SANCTION">
+			<Text>{2_MinorCivName:textkey} wants {1_CivName:textkey} sanctioned</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_LEAGUE_SANCTION">
+			<Text>You pushed the World Congress to sanction {1_CivName:textkey}, easing the pressure on {2_MinorCivName:textkey}. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_LEAGUE_SANCTION">
+			<Text>Sanctioned {1_CivName:textkey} for {2_MinorCivName:textkey}!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_LEAGUE_SANCTION_FORMAL">
+			<Text>They want {1_CivName:textkey} hit with a trade sanction to apply economic pressure.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_LEAGUE_REPEAL_EMBARGO">
+			<Text>The city-state embargo has cut {1_MinorCivName:textkey}'s trade routes, leaving goods to pile up and livelihoods to wither. They want you to propose repealing the embargo in the World Congress.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_LEAGUE_REPEAL_EMBARGO">
+			<Text>{1_MinorCivName:textkey} wants the city-state embargo repealed</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_LEAGUE_REPEAL_EMBARGO">
+			<Text>You pushed the World Congress to repeal the city-state embargo, and the trade routes of {1_MinorCivName:textkey} flow again. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_LEAGUE_REPEAL_EMBARGO">
+			<Text>Repealed the city-state embargo for {1_MinorCivName:textkey}!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_LEAGUE_REPEAL_EMBARGO_FORMAL">
+			<Text>Their trade routes are strangled by the city-state embargo and they want you to open them.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_DONATE_GOLD">
+			<Text>{2_MinorCivName:textkey} is in dire straits - an empty treasury and a suffering people. They ask you to lend a hand with a gift of {1_GoldAmount}[ICON_GOLD]Gold to see them through. (Allies of Gangtok may pay in [ICON_PEACE]Faith instead.)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_DONATE_GOLD">
+			<Text>{2_MinorCivName:textkey} wants {1_GoldAmount}[ICON_GOLD]Gold</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_DONATE_GOLD">
+			<Text>Your generous gift has carried {1_MinorCivName:textkey} through its hardship. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_DONATE_GOLD">
+			<Text>Donated Gold to {1_MinorCivName:textkey}!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_DONATE_GOLD_FORMAL">
+			<Text>They want a gift of {1_GoldAmount}[ICON_GOLD]Gold to see them through hard times.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_RESEARCH_AGREEMENT">
+			<Text>The scholars of {2_MinorCivName:textkey} want to keep pace with the cutting edge. They want you to sign a research agreement with {1_CivName:textkey}, so knowledge flows between your nations.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_RESEARCH_AGREEMENT">
+			<Text>{2_MinorCivName:textkey} wants a research agreement with {1_CivName:textkey}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_RESEARCH_AGREEMENT">
+			<Text>You have signed a research agreement with {1_CivName:textkey}, giving the scholars of {2_MinorCivName:textkey} a window onto the frontier. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_RESEARCH_AGREEMENT">
+			<Text>Signed a research agreement with {1_CivName:textkey} for {2_MinorCivName:textkey}!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_RESEARCH_AGREEMENT_FORMAL">
+			<Text>They want you to sign a research agreement with {1_CivName:textkey} and join the frontier of research.</Text>
+		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_MASTER_SPY_BORN">
 			<Text>{1_CivName:textkey} has gained the service of a [COLOR_POSITIVE_TEXT]Master Spy[ENDCOLOR] - an agent of unmatched skill who will never serve another nation.</Text>
 		</Row>

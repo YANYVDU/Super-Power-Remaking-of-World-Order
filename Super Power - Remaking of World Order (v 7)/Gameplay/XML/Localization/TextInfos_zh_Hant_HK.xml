@@ -19092,6 +19092,216 @@
 		<Row Tag="TXT_KEY_RESOLUTION_INTERNATIONAL_LAW_PROTECTION_HELP">
 			<Text>將一個已會面的[ICON_CITY_STATE]城邦置於國際法保護之下。決議生效期間，任何文明均可攻擊該城邦領土內與其交戰的敵方單位，而無需宣戰。廢除該決議即可恢復正常交戰規則。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_RESEARCH_TECH">
+			<Text>{2_MinorCivName:textkey}的學者正卡在一道關鍵難題上，他們希望你盡快研發{1_TechName:textkey}，好讓兩地共享這份突破。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_RESEARCH_TECH">
+			<Text>{2_MinorCivName:textkey}希望研發{1_TechName:textkey}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_RESEARCH_TECH">
+			<Text>你研發出了{1_TechName:textkey}，{2_MinorCivName:textkey}的學者深受鼓舞。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_RESEARCH_TECH">
+			<Text>為{2_MinorCivName:textkey}研發了{1_TechName:textkey}！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_RESEARCH_TECH_FORMAL">
+			<Text>他們希望在這個領域取得關鍵突破，請你研發{1_TechName:textkey}。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CONSTRUCT_NATIONAL_WONDER">
+			<Text>{2_MinorCivName:textkey}的市民仰慕宏偉的公共建築，他們希望你建造{1_BuildingName:textkey}，讓兩國共享這份榮耀。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CONSTRUCT_NATIONAL_WONDER">
+			<Text>{2_MinorCivName:textkey}希望建造{1_BuildingName:textkey}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CONSTRUCT_NATIONAL_WONDER">
+			<Text>你建成了{1_BuildingName:textkey}，{2_MinorCivName:textkey}的市民為這份成就喝采。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CONSTRUCT_NATIONAL_WONDER">
+			<Text>為{2_MinorCivName:textkey}建造了{1_BuildingName:textkey}！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONSTRUCT_NATIONAL_WONDER_FORMAL">
+			<Text>他們希望你建造{1_BuildingName:textkey}，以此彰顯兩國的共同榮耀。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_SPREAD_BUILDING">
+			<Text>{3_MinorCivName:textkey}的市民認為，若你的{2_NumCities}座城市都擁有{1_BuildingName:textkey}，兩地之間的往來將更加繁榮。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_SPREAD_BUILDING">
+			<Text>在{2_NumCities}座城市中建造{1_BuildingName:textkey}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_SPREAD_BUILDING">
+			<Text>{1_BuildingName:textkey}已普及到足夠的城市，{2_MinorCivName:textkey}對此十分滿意。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_SPREAD_BUILDING">
+			<Text>為{2_MinorCivName:textkey}普及了{1_BuildingName:textkey}！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_SPREAD_BUILDING_FORMAL">
+			<Text>他們希望你在{2_NumCities}座城市中建造{1_BuildingName:textkey}。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_FIND_CITY_STATE">
+			<Text>{2_MinorCivName:textkey}的斥候聽說{1_CivName:textkey}的領地至今無人探明，他們希望你去揭開那片土地的面紗。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_FIND_CITY_STATE">
+			<Text>{2_MinorCivName:textkey}希望你去發現{1_CivName:textkey}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_FIND_CITY_STATE">
+			<Text>你探明了{1_CivName:textkey}的領地，{2_MinorCivName:textkey}對你的情報十分感激。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_FIND_CITY_STATE">
+			<Text>為{2_MinorCivName:textkey}發現了{1_CivName:textkey}！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_FIND_CITY_STATE_FORMAL">
+			<Text>他們希望你找到{1_CivName:textkey}的領地。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_DISCONNECT_TRADE_ROUTE">
+			<Text>{2_MinorCivName:textkey}的市民對你在{1_OtherCivName:textkey}的商路深感不安——他們與那個城邦素來不睦，不願看著你的商隊替對手輸血。他們請求你切斷這條商路。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_DISCONNECT_TRADE_ROUTE">
+			<Text>{2_MinorCivName:textkey}希望你切斷通往{1_OtherCivName:textkey}的商路</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_DISCONNECT_TRADE_ROUTE">
+			<Text>你切斷了通往{1_OtherCivName:textkey}的商路，{2_MinorCivName:textkey}的市民對此十分滿意。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_DISCONNECT_TRADE_ROUTE">
+			<Text>為{2_MinorCivName:textkey}切斷了通往{1_OtherCivName:textkey}的商路！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_DISCONNECT_TRADE_ROUTE_FORMAL">
+			<Text>他們與{1_OtherCivName:textkey}不睦，希望你不要用商路資助對方。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_BECOME_ALLY">
+			<Text>{2_MinorCivName:textkey}的市民認為，{1_CivName:textkey}對他們的影響已經太深，而你的聯盟才更值得依靠。他們希望你成為他們的盟友。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_BECOME_ALLY">
+			<Text>{2_MinorCivName:textkey}希望你成為他們的盟友</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_BECOME_ALLY">
+			<Text>你成為了{1_MinorCivName:textkey}的盟友。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_BECOME_ALLY">
+			<Text>與{1_MinorCivName:textkey}結為盟友！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_BECOME_ALLY_FORMAL">
+			<Text>他們認為你的聯盟更值得依靠，希望你成為他們的盟友。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_RIG_ELECTION">
+			<Text>{1_MinorCivName:textkey}的市民希望你能出手相助——他們境內的其他政黨勢力坐大，需要你派一名間諜去操弄選舉，讓他們失勢。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_RIG_ELECTION">
+			<Text>{1_MinorCivName:textkey}希望你在他們的選舉中動手腳</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_RIG_ELECTION">
+			<Text>你的間諜在{1_MinorCivName:textkey}的選舉中動了手腳，無論成敗，他們的市民都對這份援手心存感激。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_RIG_ELECTION">
+			<Text>在{1_MinorCivName:textkey}操弄了選舉！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_RIG_ELECTION_FORMAL">
+			<Text>他們希望你派間諜操弄境內的選舉，打擊其他政黨。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_DECLARE_WAR">
+			<Text>{2_MinorCivName:textkey}正與{1_CivName:textkey}交戰，他們希望你能加入這場戰爭，一同對抗共同的敵人。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_DECLARE_WAR">
+			<Text>{2_MinorCivName:textkey}希望你對{1_CivName:textkey}宣戰</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_DECLARE_WAR">
+			<Text>你向{1_CivName:textkey}宣戰，加入了{2_MinorCivName:textkey}的陣營。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_DECLARE_WAR">
+			<Text>為{2_MinorCivName:textkey}對{1_CivName:textkey}宣戰！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_DECLARE_WAR_FORMAL">
+			<Text>他們正與{1_CivName:textkey}交戰，希望你加入這場戰爭。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>{2_MinorCivName:textkey}的市民受夠了{1_CivName:textkey}的欺壓，他們希望你攻佔對方的原始首都，徹底擊垮這個宿敵。首位完成者將獲得一位王牌間諜的效忠，此機會全遊戲僅有一次。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>{2_MinorCivName:textkey}希望你攻佔{1_CivName:textkey}的原始首都</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>你攻佔了{1_CivName:textkey}的原始首都，{2_MinorCivName:textkey}的宿敵就此倒下。一位王牌間諜慕名前來效忠。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>為{2_MinorCivName:textkey}攻佔了{1_CivName:textkey}的原始首都！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CAPTURE_ORIGINAL_CAPITAL_FORMAL">
+			<Text>他們希望你攻佔{1_CivName:textkey}的原始首都，徹底擊敗這個宿敵。獎勵為一位王牌間諜，全遊戲僅此一次。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_LEAGUE_PROTECT_CITY_STATE">
+			<Text>{1_MinorCivName:textkey}的市民擔心戰火會燒到自己的家園，他們希望你在世界議會上通過決議，將他們置於國際法保護之下。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_LEAGUE_PROTECT_CITY_STATE">
+			<Text>{1_MinorCivName:textkey}希望被置於國際法保護之下</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_LEAGUE_PROTECT_CITY_STATE">
+			<Text>你將{1_MinorCivName:textkey}置於國際法保護之下，他們的國土從此免受戰火侵擾。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_LEAGUE_PROTECT_CITY_STATE">
+			<Text>{1_MinorCivName:textkey}已處於國際法保護之下！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_LEAGUE_PROTECT_CITY_STATE_FORMAL">
+			<Text>他們希望在世界議會上被置於國際法保護之下，免受戰火波及。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_LEAGUE_SANCTION">
+			<Text>{2_MinorCivName:textkey}的市民對{1_CivName:textkey}的橫行霸道忍無可忍，他們希望你在世界議會上提起貿易制裁，掐斷對方的經濟命脈。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_LEAGUE_SANCTION">
+			<Text>{2_MinorCivName:textkey}希望對{1_CivName:textkey}實施制裁</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_LEAGUE_SANCTION">
+			<Text>你推動世界議會對{1_CivName:textkey}實施了貿易制裁，{2_MinorCivName:textkey}承受的經濟壓力得以緩解。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_LEAGUE_SANCTION">
+			<Text>為{2_MinorCivName:textkey}制裁了{1_CivName:textkey}！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_LEAGUE_SANCTION_FORMAL">
+			<Text>他們希望對{1_CivName:textkey}實施貿易制裁，進行經濟施壓。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_LEAGUE_REPEAL_EMBARGO">
+			<Text>{1_MinorCivName:textkey}的商路被城邦禁運切斷，貨物堆積、生計維艱。他們希望你在世界議會上提倡廢除這項禁運。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_LEAGUE_REPEAL_EMBARGO">
+			<Text>{1_MinorCivName:textkey}希望廢除城邦禁運</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_LEAGUE_REPEAL_EMBARGO">
+			<Text>你推動世界議會廢除了城邦禁運，{1_MinorCivName:textkey}的商路重新暢通。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_LEAGUE_REPEAL_EMBARGO">
+			<Text>為{1_MinorCivName:textkey}廢除了城邦禁運！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_LEAGUE_REPEAL_EMBARGO_FORMAL">
+			<Text>他們的商路因城邦禁運受阻，希望你幫忙打通。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_DONATE_GOLD">
+			<Text>{2_MinorCivName:textkey}正陷入困境，國庫空虛、民生凋敝。他們希望你能伸出援手，捐贈{1_GoldAmount}[ICON_GOLD]金錢幫他們渡過難關。（甘托克的盟友可用[ICON_PEACE]信仰替代金錢。）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_DONATE_GOLD">
+			<Text>{2_MinorCivName:textkey}希望獲得{1_GoldAmount}[ICON_GOLD]金錢</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_DONATE_GOLD">
+			<Text>你的慷慨捐贈幫{1_MinorCivName:textkey}渡過了難關。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_DONATE_GOLD">
+			<Text>向{1_MinorCivName:textkey}捐贈了金錢！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_DONATE_GOLD_FORMAL">
+			<Text>他們希望你捐贈{1_GoldAmount}[ICON_GOLD]金錢，助其渡過難關。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_RESEARCH_AGREEMENT">
+			<Text>{2_MinorCivName:textkey}的學者希望跟上最前沿的研究，他們希望你能與{1_CivName:textkey}簽訂科研協定，讓知識在兩國之間流動。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_RESEARCH_AGREEMENT">
+			<Text>{2_MinorCivName:textkey}希望與{1_CivName:textkey}簽訂科研協定</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_RESEARCH_AGREEMENT">
+			<Text>你與{1_CivName:textkey}簽訂了科研協定，{2_MinorCivName:textkey}的學者得以接觸前沿成果。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_RESEARCH_AGREEMENT">
+			<Text>為{2_MinorCivName:textkey}與{1_CivName:textkey}簽訂了科研協定！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_RESEARCH_AGREEMENT_FORMAL">
+			<Text>他們希望你與{1_CivName:textkey}簽訂科研協定，共同參與前沿研發。</Text>
+		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_MASTER_SPY_BORN">
 			<Text>{1_CivName:textkey}獲得了一位[COLOR_POSITIVE_TEXT]王牌間諜[ENDCOLOR]的效忠——這位技藝超群的密探將再不會為其他國家所用。</Text>
 		</Row>

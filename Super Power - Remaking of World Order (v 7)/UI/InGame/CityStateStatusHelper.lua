@@ -36,6 +36,21 @@ ktQuestsDisplayOrder = {
 	MinorCivQuestTypes.MINOR_CIV_QUEST_CONSTRUCT_WONDER,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_CONNECT_RESOURCE,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_ROUTE,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_TECH,
+	-- SP extended quests
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CONSTRUCT_NATIONAL_WONDER,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_SPREAD_BUILDING,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_FIND_CITY_STATE,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_DISCONNECT_TRADE_ROUTE,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_BECOME_ALLY,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_RIG_ELECTION,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_DECLARE_WAR,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CAPTURE_ORIGINAL_CAPITAL,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_PROTECT_CITY_STATE,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_SANCTION,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_REPEAL_EMBARGO,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_DONATE_GOLD,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_AGREEMENT,
 }
 
 ------------------------------------------------------
@@ -649,6 +664,35 @@ function GetActiveQuestText(iMajor, iMinor)
 				sIconText = sIconText .. GameInfo.Religions[iQuestData1].IconString;
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_TRADE_ROUTE) then
 				sIconText = sIconText .. "[ICON_INTERNATIONAL_TRADE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_TECH) then
+				sIconText = sIconText .. "[ICON_RESEARCH]";
+			-- SP extended quests
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONSTRUCT_NATIONAL_WONDER) then
+				sIconText = sIconText .. "[ICON_GOLDEN_AGE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_SPREAD_BUILDING) then
+				sIconText = sIconText .. "[ICON_INVEST]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_FIND_CITY_STATE) then
+				sIconText = sIconText .. "[ICON_CITY_STATE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DISCONNECT_TRADE_ROUTE) then
+				sIconText = sIconText .. "[ICON_TRADE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_BECOME_ALLY) then
+				sIconText = sIconText .. "[ICON_INFLUENCE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RIG_ELECTION) then
+				sIconText = sIconText .. "[ICON_SPY]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DECLARE_WAR) then
+				sIconText = sIconText .. "[ICON_WAR]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CAPTURE_ORIGINAL_CAPITAL) then
+				sIconText = sIconText .. "[ICON_CAPITAL]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_PROTECT_CITY_STATE) then
+				sIconText = sIconText .. "[ICON_PEACE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_SANCTION) then
+				sIconText = sIconText .. "[ICON_DENOUNCE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_REPEAL_EMBARGO) then
+				sIconText = sIconText .. "[ICON_INTERNATIONAL_TRADE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DONATE_GOLD) then
+				sIconText = sIconText .. "[ICON_GOLD]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_AGREEMENT) then
+				sIconText = sIconText .. "[ICON_DIPLOMAT]";
 			end
 		end
 	end
@@ -777,6 +821,35 @@ function GetActiveQuestToolTip(iMajor, iMinor)
 				sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_SPREAD_RELIGION_FORMAL", Game.GetReligionName(iQuestData1) );
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_TRADE_ROUTE) then
 				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_TRADE_ROUTE_FORMAL");
+			-- SP extended quests
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_TECH) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_RESEARCH_TECH_FORMAL", GameInfo.Techs[iQuestData1].Description);
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONSTRUCT_NATIONAL_WONDER) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_CONSTRUCT_NATIONAL_WONDER_FORMAL", GameInfo.Buildings[iQuestData1].Description);
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_SPREAD_BUILDING) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_SPREAD_BUILDING_FORMAL", GameInfo.Buildings[iQuestData1].Description, iQuestData2);
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_FIND_CITY_STATE) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_FIND_CITY_STATE_FORMAL", Players[iQuestData1]:GetNameKey());
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DISCONNECT_TRADE_ROUTE) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_DISCONNECT_TRADE_ROUTE_FORMAL", Players[iQuestData1]:GetNameKey());
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_BECOME_ALLY) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_BECOME_ALLY_FORMAL");
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RIG_ELECTION) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_RIG_ELECTION_FORMAL");
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DECLARE_WAR) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_DECLARE_WAR_FORMAL", Players[iQuestData1]:GetCivilizationShortDescriptionKey());
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CAPTURE_ORIGINAL_CAPITAL) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_CAPTURE_ORIGINAL_CAPITAL_FORMAL", Players[iQuestData1]:GetCivilizationShortDescriptionKey());
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_PROTECT_CITY_STATE) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_LEAGUE_PROTECT_CITY_STATE_FORMAL");
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_SANCTION) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_LEAGUE_SANCTION_FORMAL", Players[iQuestData1]:GetCivilizationShortDescriptionKey());
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_REPEAL_EMBARGO) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_LEAGUE_REPEAL_EMBARGO_FORMAL");
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DONATE_GOLD) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_DONATE_GOLD_FORMAL", iQuestData1);
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_AGREEMENT) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_RESEARCH_AGREEMENT_FORMAL", Players[iQuestData1]:GetCivilizationShortDescriptionKey());
 			end
 
 			if (iTurnsRemaining >= 0) then
