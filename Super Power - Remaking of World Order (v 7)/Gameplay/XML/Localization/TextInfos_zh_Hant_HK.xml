@@ -19083,5 +19083,14 @@
 		<Row Tag="TXT_KEY_AID_CHOICE_CANCEL">
 			<Text>取消</Text>
 		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_DECISION_CITY_CSD">
+			<Text>選擇一個城邦</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_INTERNATIONAL_LAW_PROTECTION">
+			<Text>國際法保護</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_INTERNATIONAL_LAW_PROTECTION_HELP">
+			<Text>將一個已會面的[ICON_CITY_STATE]城邦置於國際法保護之下。決議生效期間，任何文明均可攻擊該城邦領土內與其交戰的敵方單位，而無需宣戰。廢除該決議即可恢復正常交戰規則。</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

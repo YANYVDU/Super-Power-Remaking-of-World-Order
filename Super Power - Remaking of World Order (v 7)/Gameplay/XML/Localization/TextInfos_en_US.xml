@@ -20806,5 +20806,14 @@
 		<Row Tag="TXT_KEY_AID_CHOICE_CANCEL">
 			<Text>Cancel</Text>
 		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_DECISION_CITY_CSD">
+			<Text>Choose a City-State</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_INTERNATIONAL_LAW_PROTECTION">
+			<Text>International Law Protection</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_INTERNATIONAL_LAW_PROTECTION_HELP">
+			<Text>Place a met [ICON_CITY_STATE]City-State under international law protection. While this resolution is in effect, any civilization may attack enemy units that are at war with that City-State and standing inside its territory, without declaring war. Repeal this resolution to restore the normal rules of engagement.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
