@@ -134,3 +134,21 @@ BEGIN
 END;
 
 UPDATE SPTriggerControler SET Enabled = 1 WHERE TriggerType = 'Minor_Units_Overrides_Trigger';
+
+
+-- ==================== City-State Building Purchases ====================
+-- Data for the MPDLL table MinorCivilization_PurchaseBuildingClasses: each turn a city-state
+-- spends its own gold to buy one building class from this global list in the first of its cities
+-- that still lacks it (a city already constructing it is skipped). Only defensive buildings and
+-- buildings that raise the trade route income of the other (major civilization) end of the route
+-- are listed. The list is scanned in order and the first affordable entry is bought, so the
+-- order doubles as the purchase priority (defense first, trade routes after).
+DELETE FROM MinorCivilization_PurchaseBuildingClasses;
+INSERT INTO MinorCivilization_PurchaseBuildingClasses (BuildingClassType) VALUES
+('BUILDINGCLASS_WALLS'),
+('BUILDINGCLASS_CASTLE'),
+('BUILDINGCLASS_ARSENAL'),
+('BUILDINGCLASS_MILITARY_BASE'),
+('BUILDINGCLASS_CARAVANSARY'),
+('BUILDINGCLASS_HARBOR'),
+('BUILDINGCLASS_SEAPORT');
