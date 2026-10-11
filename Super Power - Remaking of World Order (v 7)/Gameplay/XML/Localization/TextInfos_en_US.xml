@@ -7736,9 +7736,11 @@
 				[NEWLINE][ICON_BULLET]Gain [ICON_GOLD] Gold for killing enemy units (50% of its [ICON_STRENGTH] Combat Strength), and Notifications will be provided when new Barbarian Encampments spawn in revealed territory.
 				[NEWLINE][ICON_BULLET]World Wonder Unlocked: The Statue of Zeus.
 				[NEWLINE][ICON_BULLET]National Wonder Unlocked: Heroic Epic.
+				[NEWLINE][ICON_BULLET]Base [ICON_INFLUENCE] Influence with Militaristic City-States increased by 10; units gifted by City-States gain +10 Experience.
 				[NEWLINE][NEWLINE]Finishing Bonus:
 				[NEWLINE][ICON_BULLET]Gain [ICON_CULTURE] Culture when you kill an enemy unit (50% of its [ICON_STRENGTH] Combat Strength). [ICON_GREAT_GENERAL] Great Generals are earned 50% faster.
-				[NEWLINE][ICON_BULLET]It also allows the purchase of Great Generals with [ICON_PEACE] Faith starting in the Industrial Era.</Text>
+				[NEWLINE][ICON_BULLET]It also allows the purchase of Great Generals with [ICON_PEACE] Faith starting in the Industrial Era.
+				[NEWLINE][ICON_BULLET]Units gifted by City-States gain the [COLOR_POSITIVE_TEXT]Free from Body Count[ENDCOLOR] promotion.</Text>
 		</Replace>
 		
 		<Row Tag="TXT_KEY_POLICY_HORSEMAN_TRAINING">
@@ -7818,9 +7820,11 @@
 				[NEWLINE][ICON_BULLET][ICON_PEACE] Faith increased by 25% in all cities which have built a World Wonder. 
 				[NEWLINE][ICON_BULLET]World Wonder Unlocked: The Great Mosque of Djenne.
 				[NEWLINE][ICON_BULLET]National Wonder Unlocked: National Epic.
+				[NEWLINE][ICON_BULLET]Base [ICON_INFLUENCE] Influence with City-States following your religion increased by 5.
 				[NEWLINE][NEWLINE]Finishing Bonus:
 				[NEWLINE][ICON_BULLET]The rate at which [ICON_GREAT_PEOPLE] Great People are born is increased by 25%.
 				[NEWLINE][ICON_BULLET]One free Social Policy.
+				[NEWLINE][ICON_BULLET]+1 [ICON_INFLUENCE] Influence per turn with City-States following the religion you founded.
 			</Text>
 		</Replace>
 		

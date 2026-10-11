@@ -6949,10 +6949,12 @@
 				[NEWLINE][ICON_BULLET]消灭敌方单位时可获得[ICON_GOLD]金钱奖励（相当于敌方50%的战斗力）。
 				[NEWLINE][ICON_BULLET]已探索区域内产生新的蛮族营地时会出现提示消息。
 				[NEWLINE][ICON_BULLET]允许建造宙斯神像和英雄史诗。
+				[NEWLINE][ICON_BULLET]对军事城邦的基准[ICON_INFLUENCE]影响力提高10；[ICON_CITY_STATE]城邦赠送的单位额外+10经验。
 				[NEWLINE][NEWLINE]推行所有荣誉政策：
 				[NEWLINE][ICON_BULLET]消灭敌方单位时可获得[ICON_CULTURE]文化奖励（相当于敌方50%的战斗力）。
 				[NEWLINE][ICON_BULLET]获得[ICON_GREAT_GENERAL]陆军统帅的速度+50%。
 				[NEWLINE][ICON_BULLET]在工业时代后可以用[ICON_PEACE]信仰购买陆军统帅。
+				[NEWLINE][ICON_BULLET][ICON_CITY_STATE]城邦赠送的单位获得晋升：[COLOR_POSITIVE_TEXT]境外人力[ENDCOLOR]。
 			</Text>
 		</Replace>
 
@@ -7044,9 +7046,11 @@
 				[NEWLINE][ICON_BULLET]使拥有主流宗教的城市也获得流行度居第二位的宗教的神系信条所提供的奖励。
 				[NEWLINE][ICON_BULLET]拥有世界奇观的城市+25%[ICON_PEACE]信仰。
 				[NEWLINE][ICON_BULLET]允许建造婆罗浮屠和民族史诗。
+				[NEWLINE][ICON_BULLET]与信奉自己宗教的[ICON_CITY_STATE]城邦的基准[ICON_INFLUENCE]影响力提高5。
 				[NEWLINE][NEWLINE]推行所有虔信政策：
 				[NEWLINE][ICON_BULLET][ICON_GREAT_PEOPLE]伟人诞生速度+25%
 				[NEWLINE][ICON_BULLET]获得一个[COLOR_POSITIVE_TEXT]免费政策[ENDCOLOR]。
+				[NEWLINE][ICON_BULLET]与信奉自己所创宗教的[ICON_CITY_STATE]城邦，每回合[ICON_INFLUENCE]影响力+1。
 			</Text>
 		</Replace>
 
