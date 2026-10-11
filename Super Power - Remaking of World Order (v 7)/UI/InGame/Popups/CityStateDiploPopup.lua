@@ -877,8 +877,19 @@ function UpdateAidSpendChoices()
 	local iBullyCost = Game.GetBullyGoldAidPointCost(g_iMinorCivID, iActivePlayer);
 	local iBullyGold = pPlayer:GetMinorCivBullyGoldAmount(iActivePlayer);
 	local bCanBully = pPlayer:CanMajorBullyGold(iActivePlayer);
+	-- Super Power V11: the aid-point bully also seizes a share of the city-state treasury (see PopulateTakeChoices)
+	local iAidTreasurySharePercent = Game.GetBullyTreasurySharePercent();
+	local iAidTreasuryShare = 0;
+	if (iAidTreasurySharePercent > 0) then
+		iAidTreasuryShare = math.floor(pPlayer:GetGold() * iAidTreasurySharePercent / 100);
+	end
+	-- Keep the point cost on the first line, the treasury share (which starts with a newline) below it
+	local sBullyAidText = Locale.Lookup("TXT_KEY_POP_CSTATE_AID_BULLY", iBullyGold) .. " (" .. iBullyCost .. ")";
+	if (iAidTreasuryShare > 0) then
+		sBullyAidText = sBullyAidText .. Locale.Lookup("TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE", iAidTreasuryShare);
+	end
 	SetupAidSpendButton(Controls.BullyAidLabel, Controls.BullyAidButton, Controls.BullyAidAnim, Controls.BullyAidButtonHL,
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_BULLY", iBullyGold) .. " (" .. iBullyCost .. ")",
+		sBullyAidText,
 		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_BULLY_TT", iBullyCost),
 		(iPoints >= iBullyCost), (bCanBully and iBullyCost > 0));
 
