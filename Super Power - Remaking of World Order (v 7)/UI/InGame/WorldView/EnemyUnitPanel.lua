@@ -1804,7 +1804,7 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true));
 			end
 
-			--Range Suppression Bouns
+			--Ranged Suppression
 			iModifier = pMyUnit:GetUnitRangeSuppressModifier(pTheirUnit);
 			if (iModifier ~= 0) then
 				controlTable = g_MyCombatDataIM:GetInstance();
@@ -2320,7 +2320,7 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 					controlTable.Value:SetText(GetFormattedText(strText, iModifier, false, true));
 				end
 
-				--Range Suppression Bouns
+				--Ranged Suppression
 				iModifier = pTheirUnit:GetUnitRangeSuppressModifier(pMyUnit);
 				if (iModifier ~= 0) then
 					controlTable = g_TheirCombatDataIM:GetInstance();		

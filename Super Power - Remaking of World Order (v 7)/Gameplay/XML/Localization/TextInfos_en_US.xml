@@ -15155,6 +15155,7 @@
 				[NEWLINE][ICON_BULLET]This is a Land-based Aircraft so it cannot land on [COLOR_NEGATIVE_TEXT]Aircraft Carriers[ENDCOLOR].
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]Strong vs [COLOR_POSITIVE_TEXT]Attack Aircrafts[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Strategic Bombers[ENDCOLOR].
+				[NEWLINE][ICON_BULLET]+10% [COLOR_POSITIVE_TEXT]Ranged Suppression[ENDCOLOR] per point of Range advantage when fighting other [COLOR_POSITIVE_TEXT]Aircraft[ENDCOLOR].
 				[NEWLINE][ICON_BULLET]Cannot attack [COLOR_NEGATIVE_TEXT]Land Units nor Naval Units[ENDCOLOR].
 			</Text>
 		</Row>
@@ -15210,6 +15211,7 @@
 				[NEWLINE][ICON_BULLET]This is a Land-based Aircraft so it cannot land on [COLOR_NEGATIVE_TEXT]Aircraft Carriers[ENDCOLOR].
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]Strong vs [COLOR_POSITIVE_TEXT]Infantry Units[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Naval Units[ENDCOLOR].
+				[NEWLINE][ICON_BULLET]+10% [COLOR_POSITIVE_TEXT]Ranged Suppression[ENDCOLOR] per point of Range advantage when fighting other [COLOR_POSITIVE_TEXT]Aircraft[ENDCOLOR].
 				[NEWLINE][ICON_BULLET]Weak vs [COLOR_NEGATIVE_TEXT]Fighters[ENDCOLOR] and [COLOR_NEGATIVE_TEXT]Anit-Air Units[ENDCOLOR].
 			</Text>
 		</Row>
@@ -15269,6 +15271,7 @@
 				[NEWLINE][ICON_BULLET]Strong attacking [COLOR_POSITIVE_TEXT]Cities[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Citadels[ENDCOLOR].
 				[NEWLINE][ICON_BULLET]This Aircraft is too large to land on [COLOR_NEGATIVE_TEXT]Aircraft Carriers[ENDCOLOR].
 				[NEWLINE]
+				[NEWLINE][ICON_BULLET]+10% [COLOR_POSITIVE_TEXT]Ranged Suppression[ENDCOLOR] per point of Range advantage when fighting other [COLOR_POSITIVE_TEXT]Aircraft[ENDCOLOR].
 				[NEWLINE][ICON_BULLET]Weak vs [COLOR_NEGATIVE_TEXT]Fighters[ENDCOLOR].
 				[NEWLINE][ICON_BULLET]Cannot attack [COLOR_NEGATIVE_TEXT]Stealth Units[ENDCOLOR].
 			</Text>
@@ -15591,6 +15594,7 @@
 				[NEWLINE][ICON_BULLET]Can still Intercept after performing an Air Sweep.
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]Strong vs [COLOR_POSITIVE_TEXT]Infantry Units[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Naval Units[ENDCOLOR].
+				[NEWLINE][ICON_BULLET]+10% [COLOR_POSITIVE_TEXT]Ranged Suppression[ENDCOLOR] per point of Range advantage when fighting other [COLOR_POSITIVE_TEXT]Aircraft[ENDCOLOR].
 			</Text>
 		</Row>
 
@@ -17646,7 +17650,7 @@
 			<Text>Height Bouns</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EUPANEL_RANGE_SUPPRESS">
-			<Text>Range Suppression Bouns</Text>
+			<Text>Ranged Suppression</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EUPANEL_BONUS_MELEE">
 			<Text>Melee Attack Bouns</Text>
