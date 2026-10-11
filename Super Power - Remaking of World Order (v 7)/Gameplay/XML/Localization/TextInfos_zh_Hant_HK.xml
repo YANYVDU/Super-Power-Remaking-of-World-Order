@@ -19092,5 +19092,11 @@
 		<Row Tag="TXT_KEY_RESOLUTION_INTERNATIONAL_LAW_PROTECTION_HELP">
 			<Text>將一個已會面的[ICON_CITY_STATE]城邦置於國際法保護之下。決議生效期間，任何文明均可攻擊該城邦領土內與其交戰的敵方單位，而無需宣戰。廢除該決議即可恢復正常交戰規則。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_MASTER_SPY_BORN">
+			<Text>{1_CivName:textkey}獲得了一位[COLOR_POSITIVE_TEXT]王牌間諜[ENDCOLOR]的效忠——這位技藝超群的密探將再不會為其他國家所用。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_MASTER_SPY_BORN">
+			<Text>{1_CivName:textkey}獲得了一位[COLOR_POSITIVE_TEXT]王牌間諜[ENDCOLOR]！</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

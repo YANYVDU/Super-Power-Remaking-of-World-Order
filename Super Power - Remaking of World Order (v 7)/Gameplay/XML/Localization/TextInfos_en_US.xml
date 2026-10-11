@@ -20815,5 +20815,11 @@
 		<Row Tag="TXT_KEY_RESOLUTION_INTERNATIONAL_LAW_PROTECTION_HELP">
 			<Text>Place a met [ICON_CITY_STATE]City-State under international law protection. While this resolution is in effect, any civilization may attack enemy units that are at war with that City-State and standing inside its territory, without declaring war. Repeal this resolution to restore the normal rules of engagement.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_MASTER_SPY_BORN">
+			<Text>{1_CivName:textkey} has gained the service of a [COLOR_POSITIVE_TEXT]Master Spy[ENDCOLOR] - an agent of unmatched skill who will never serve another nation.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_MASTER_SPY_BORN">
+			<Text>{1_CivName:textkey} has gained a [COLOR_POSITIVE_TEXT]Master Spy[ENDCOLOR]!</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
