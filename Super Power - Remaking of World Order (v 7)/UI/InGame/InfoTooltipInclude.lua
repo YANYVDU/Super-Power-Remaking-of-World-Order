@@ -1627,11 +1627,11 @@ function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader, bNoMa
 		end
 		if (building.SpecialistCount or 0) ~= 0 then
 			if IsCiv5 then
-				local numSpecialistsInBuilding = city and city:GetNumSpecialistsInBuilding( buildingID ) or building.SpecialistCount
-				if numSpecialistsInBuilding ~= building.SpecialistCount then
-					numSpecialistsInBuilding = numSpecialistsInBuilding.."/"..building.SpecialistCount
-				end
-				insert( tips, L( "TXT_KEY_CITYVIEW_BUILDING_SPECIALIST_YIELD", numSpecialistsInBuilding, specialist.Description, GetSpecialistYields( city, specialist ) ) )
+				-- MOD: a Specialist is no longer tied to the building it was assigned from, so
+				-- advertise the slots the building supplies rather than a per-building occupant
+				-- count. Old behaviour removed: read city:GetNumSpecialistsInBuilding(buildingID)
+				-- and showed it as "occupied/total".
+				insert( tips, L( "TXT_KEY_CITYVIEW_BUILDING_SPECIALIST_YIELD", building.SpecialistCount, specialist.Description, GetSpecialistYields( city, specialist ) ) )
 			else
 				insert( tips, format( "%i[ICON_CITIZEN]%s /%s", building.SpecialistCount, UnitColor( L(specialist.Description or "???") ), GetSpecialistYields( city, specialist ) ) )
 			end
