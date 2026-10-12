@@ -21035,5 +21035,11 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_MASTER_SPY_BORN">
 			<Text>{1_CivName:textkey} has gained a [COLOR_POSITIVE_TEXT]Master Spy[ENDCOLOR]!</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_BONUS_AIR_SWEEP_STRENGTH">
+			<Text>Air Sweep [ICON_STRENGTH]Strength Modifier</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_BONUS_INTERCEPTION_STRENGTH">
+			<Text>Interception [ICON_STRENGTH]Strength Modifier</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

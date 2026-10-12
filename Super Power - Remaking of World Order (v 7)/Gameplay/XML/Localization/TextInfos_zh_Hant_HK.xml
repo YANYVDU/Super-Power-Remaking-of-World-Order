@@ -19312,5 +19312,11 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_MASTER_SPY_BORN">
 			<Text>{1_CivName:textkey}獲得了一位[COLOR_POSITIVE_TEXT]王牌間諜[ENDCOLOR]！</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_BONUS_AIR_SWEEP_STRENGTH">
+			<Text>遊獵[ICON_STRENGTH]戰鬥力修正</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_BONUS_INTERCEPTION_STRENGTH">
+			<Text>攔截[ICON_STRENGTH]戰鬥力修正</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

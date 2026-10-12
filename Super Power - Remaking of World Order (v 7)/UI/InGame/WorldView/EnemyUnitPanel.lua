@@ -1362,6 +1362,30 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 			end
 
 			----------------------------------------------------------------------------
+			-- AIR SWEEP / INTERCEPTION STRENGTH MODIFIERS
+			-- These two never appear in the promotion table above, so without them a
+			-- sweeping aircraft carrying PROMOTION_AIR_SWEEP (+400%) shows a strength
+			-- several times larger than its listed bonuses can explain.
+			----------------------------------------------------------------------------
+			if (bAirSweep) then
+
+				local iSweepCombatMod = pMyUnit:AirSweepCombatMod();
+				if (iSweepCombatMod ~= 0) then
+					controlTable = g_MyCombatDataIM:GetInstance();
+					controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_BONUS_AIR_SWEEP_STRENGTH");
+					controlTable.Value:SetText(GetFormattedText(strText, iSweepCombatMod, true, true));
+				end
+
+				local iInterceptionCombatMod = pTheirUnit:InterceptionCombatMod();
+				if (iInterceptionCombatMod ~= 0) then
+					controlTable = g_TheirCombatDataIM:GetInstance();
+					controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_BONUS_INTERCEPTION_STRENGTH");
+					controlTable.Value:SetText(GetFormattedText(strText, iInterceptionCombatMod, false, true));
+				end
+
+			end
+
+			----------------------------------------------------------------------------
 			-- BONUSES MY UNIT GETS
 			----------------------------------------------------------------------------
 
