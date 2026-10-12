@@ -2938,12 +2938,12 @@
 		<Row>
 			<EffectType>EFFECT_CSUA_KABUL_ALLY</EffectType>
 			<YieldType>YIELD_CULTURE</YieldType>
-			<YieldMod>1</YieldMod>
+			<YieldMod>3</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_KABUL_ALLY</EffectType>
 			<YieldType>YIELD_FAITH</YieldType>
-			<YieldMod>1</YieldMod>
+			<YieldMod>3</YieldMod>
 		</Row>
 	 </CityStateUAEffect_InternationalLandTradeRouteYieldPerEra>
 	 <CityStateUAEffect_BuildingClassYieldModifiers>

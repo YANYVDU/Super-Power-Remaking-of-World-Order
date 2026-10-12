@@ -20609,7 +20609,7 @@
 			<Text>
 				Ally Effects:
 				[NEWLINE][ICON_BULLET]Land trade routes from allied cities grant +50% [ICON_GOLD]Gold, plus an additional +50% if the origin city sits on Hills
-				[NEWLINE][ICON_BULLET]Each international land trade route to another civilization grants +1% [ICON_CULTURE]Culture and [ICON_PEACE]Faith nationwide (increases with era)
+				[NEWLINE][ICON_BULLET]Each international land trade route to another civilization grants +3% [ICON_CULTURE]Culture and [ICON_PEACE]Faith nationwide (increases with era)
 				[NEWLINE]
 				[NEWLINE]Friend Effects:
 				[NEWLINE][ICON_BULLET]Land trade routes from friendly cities grant +20% [ICON_GOLD]Gold, plus an additional +20% if the origin city sits on Hills
@@ -20619,7 +20619,7 @@
 			<Text>
 				Ally Effects:
 				[NEWLINE][ICON_BULLET]Land trade routes from allied cities grant +50% [ICON_GOLD]Gold, plus an additional +50% if the origin city sits on Hills
-				[NEWLINE][ICON_BULLET]Each international land trade route to another civilization grants +1% [ICON_CULTURE]Culture and [ICON_PEACE]Faith nationwide (increases with era)
+				[NEWLINE][ICON_BULLET]Each international land trade route to another civilization grants +3% [ICON_CULTURE]Culture and [ICON_PEACE]Faith nationwide (increases with era)
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_KABUL_FRIEND_HELP">
