@@ -416,6 +416,11 @@
 			<Set Value="4800"/>
 			<Where Name="INTERCEPTION_SAME_STRENGTH_POSSIBLE_EXTRA_DAMAGE" />
 		</Update>
+		<!-- Air sweep: a sweeping aircraft takes 50% of the normal damage from an interceptor -->
+		<Update>
+			<Set Value="50"/>
+			<Where Name="AIR_SWEEP_INTERCEPTION_DAMAGE_MOD" />
+		</Update>
 
 		<!-- City Combat Defines -->
 

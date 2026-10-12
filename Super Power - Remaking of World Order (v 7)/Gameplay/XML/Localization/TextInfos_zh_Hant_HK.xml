@@ -12680,16 +12680,22 @@
 			</Text>
 		</Row>
 
+		<Replace Tag="TXT_KEY_PROMOTION_AIR_SWEEP">
+			<Text>空中掃蕩</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_AIR_SWEEP_HELP">
+			<Text>能夠進行空中掃蕩以消滅攔截單位，遊獵時+400%[ICON_STRENGTH]戰鬥力。</Text>
+		</Replace>
+
 		<Replace Tag="TXT_KEY_PROMOTION_ANTI_AIR">
 			<Text>防空火力</Text>
 		</Replace>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_HELP">
 			<Text>
 				可以攔截試圖轟炸附近單位的敵軍飛機。
-				[NEWLINE][ICON_BULLET]每回合能夠進行對空攔截。
+				[NEWLINE][ICON_BULLET]每回合能夠進行一次對空攔截。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]和[COLOR_POSITIVE_TEXT]直升機[ENDCOLOR]單位擁有戰鬥力加成。
-				[NEWLINE][ICON_BULLET]攔截[COLOR_NEGATIVE_TEXT]戰略轟炸機[ENDCOLOR]時效果不佳。
 			</Text>
 		</Row>
 
@@ -13217,7 +13223,7 @@
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_II_HELP">
 			<Text>
 				制空戰鬥機，專爲奪取戰場制空權與攔截敵方空中目標而設計。
-				[NEWLINE][ICON_BULLET]每回合能夠攔截一次。
+				[NEWLINE][ICON_BULLET]每回合能夠攔截敵方飛機和導彈兩次。
 				[NEWLINE][ICON_BULLET]每回合能夠執行“空中遊獵”指令且遊獵時+75%戰鬥力。
 				[NEWLINE][ICON_BULLET]執行遊獵後仍然可以執行攔截。
 				[NEWLINE][ICON_BULLET]不能轉場到航空母艦上。
@@ -13629,7 +13635,7 @@
 				[NEWLINE][ICON_BULLET]每回合擁有兩次[COLOR_POSITIVE_TEXT]攔截[ENDCOLOR]或[COLOR_POSITIVE_TEXT]遊獵[ENDCOLOR]的機會。
 				[NEWLINE][ICON_BULLET]能夠在遊獵後繼續攔截。
 				[NEWLINE]
-				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]地面[ENDCOLOR]和[COLOR_POSITIVE_TEXT]海面[ENDCOLOR]單位擁有戰鬥力加成。
+				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]、[COLOR_POSITIVE_TEXT]轟炸機[ENDCOLOR]、[COLOR_POSITIVE_TEXT]地面[ENDCOLOR]和[COLOR_POSITIVE_TEXT]海面[ENDCOLOR]單位擁有戰鬥力加成。
 				[NEWLINE][ICON_BULLET]與[COLOR_POSITIVE_TEXT]空軍單位[ENDCOLOR]作戰時，射程每多 1 點，+10%[COLOR_POSITIVE_TEXT]遠程壓制[ENDCOLOR]。
 			</Text>
 		</Row>
@@ -14001,7 +14007,7 @@
 		</Replace>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_HELICOPTER_HELP">
 			<Text>
-				[ICON_BULLET]對[COLOR_POSITIVE_TEXT]艦載機[ENDCOLOR]、[COLOR_POSITIVE_TEXT]空優單位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]+200%[ICON_STRENGTH]戰鬥力。[NEWLINE][ICON_BULLET]能夠攔截敵方飛機，被遊獵時不會受傷。
+				[ICON_BULLET]對[COLOR_POSITIVE_TEXT]艦載機[ENDCOLOR]、[COLOR_POSITIVE_TEXT]空優單位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]和[COLOR_POSITIVE_TEXT]直升機[ENDCOLOR]+200%[ICON_STRENGTH]戰鬥力。[NEWLINE][ICON_BULLET]能夠攔截敵方飛機，被遊獵時不會受傷。
 			</Text>
 		</Row>
 
@@ -14068,7 +14074,7 @@
 			<Text>王牌飛行員</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_ACE_FIGHTER_HELP">
-			<Text>拦截加100%战力，每回合無限遊獵次數。</Text>
+			<Text>攔截加100%戰力，每回合無限遊獵次數。</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_PROMOTION_BANTU">
@@ -14115,7 +14121,7 @@
 			<Text>九三式魚雷</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_MULTIPURPOSE_DESTROYER_HELP">
-			<Text>+1攻擊次數（可疊加）。[NEWLINE]對潛艇和空軍單位+100%[ICON_STRENGTH]戰鬥力。+2[ICON_MOVES]移動力</Text>
+			<Text>+1攻擊次數（可疊加）。[NEWLINE]對潛艇和空軍單位+100%[ICON_STRENGTH]戰鬥力。+2[ICON_MOVES]移動力。[NEWLINE]攔截敵方飛機時+150%[ICON_STRENGTH]戰鬥力。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_GOLDEN_PERSONAL_GUARD">
 			<Text>黃金親衛</Text>
@@ -16992,10 +16998,9 @@
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_III_HELP">
 			<Text>
 				可以攔截試圖轟炸附近單位的敵軍飛機。
-				[NEWLINE][ICON_BULLET]每回合能夠進行對空攔截。
+				[NEWLINE][ICON_BULLET]每回合能夠進行一次對空攔截。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]擁有戰鬥力加成。
-				[NEWLINE][ICON_BULLET]攔截[COLOR_NEGATIVE_TEXT]戰略轟炸機[ENDCOLOR]時效果不佳。
 			</Text>
 		</Row>
 		<!-- Plot Naming -->

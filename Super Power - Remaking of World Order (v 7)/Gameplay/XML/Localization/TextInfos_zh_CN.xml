@@ -12851,6 +12851,13 @@
 			</Text>
 		</Row>
 
+		<Replace Tag="TXT_KEY_PROMOTION_AIR_SWEEP">
+			<Text>空中游猎</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_AIR_SWEEP_HELP">
+			<Text>能够进行空中游猎消灭拦截单位，游猎时+400%[ICON_STRENGTH]战斗力。</Text>
+		</Replace>
+
 		<Replace Tag="TXT_KEY_PROMOTION_ANTI_AIR">
 			<Text>防空火力</Text>
 		</Replace>
@@ -12860,7 +12867,6 @@
 				[NEWLINE][ICON_BULLET]每回合能够进行一次对空拦截。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]对[COLOR_POSITIVE_TEXT]攻击机[ENDCOLOR]和[COLOR_POSITIVE_TEXT]直升机[ENDCOLOR]单位拥有战斗力加成。
-				[NEWLINE][ICON_BULLET]拦截[COLOR_NEGATIVE_TEXT]战略轰炸机[ENDCOLOR]时效果不佳。
 			</Text>
 		</Row>
 
@@ -13387,7 +13393,7 @@
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_II_HELP">
 			<Text>
 				制空战斗机，专为夺取战场制空权与拦截敌方空中目标而设计。
-				[NEWLINE][ICON_BULLET]每回合能够拦截一次。
+				[NEWLINE][ICON_BULLET]每回合能够拦截敌方飞机和导弹两次。
 				[NEWLINE][ICON_BULLET]每回合能够执行“空中游猎”指令且游猎时+75%战斗力。
 				[NEWLINE][ICON_BULLET]执行游猎后仍然可以执行拦截。
 				[NEWLINE][ICON_BULLET]不能转场到航空母舰上。
@@ -13804,7 +13810,7 @@
 				[NEWLINE][ICON_BULLET]每回合拥有两次[COLOR_POSITIVE_TEXT]拦截[ENDCOLOR]或[COLOR_POSITIVE_TEXT]游猎[ENDCOLOR]的机会。
 				[NEWLINE][ICON_BULLET]能够在游猎后继续拦截。
 				[NEWLINE]
-				[NEWLINE][ICON_BULLET]对[COLOR_POSITIVE_TEXT]地面[ENDCOLOR]和[COLOR_POSITIVE_TEXT]海面[ENDCOLOR]单位拥有战斗力加成。
+				[NEWLINE][ICON_BULLET]对[COLOR_POSITIVE_TEXT]攻击机[ENDCOLOR]、[COLOR_POSITIVE_TEXT]轰炸机[ENDCOLOR]、[COLOR_POSITIVE_TEXT]地面[ENDCOLOR]和[COLOR_POSITIVE_TEXT]海面[ENDCOLOR]单位拥有战斗力加成。
 				[NEWLINE][ICON_BULLET]与[COLOR_POSITIVE_TEXT]空军单位[ENDCOLOR]作战时，射程每多 1 点，+10%[COLOR_POSITIVE_TEXT]远程压制[ENDCOLOR]。
 			</Text>
 		</Row>
@@ -14176,7 +14182,7 @@
 		</Replace>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_HELICOPTER_HELP">
 			<Text>
-				[ICON_BULLET]对[COLOR_POSITIVE_TEXT]舰载机[ENDCOLOR]、[COLOR_POSITIVE_TEXT]空优单位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]攻击机[ENDCOLOR]+200%[ICON_STRENGTH]战斗力。[NEWLINE][ICON_BULLET]能够拦截敌方飞机，被游猎时不会受伤。
+				[ICON_BULLET]对[COLOR_POSITIVE_TEXT]舰载机[ENDCOLOR]、[COLOR_POSITIVE_TEXT]空优单位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]攻击机[ENDCOLOR]和[COLOR_POSITIVE_TEXT]直升机[ENDCOLOR]+200%[ICON_STRENGTH]战斗力。[NEWLINE][ICON_BULLET]能够拦截敌方飞机，被游猎时不会受伤。
 			</Text>
 		</Row>
 
@@ -14291,7 +14297,7 @@
 			<Text>九三式鱼雷</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_MULTIPURPOSE_DESTROYER_HELP">
-			<Text>+1攻击次数（可叠加）。[NEWLINE]对潜艇和空军单位+100%[ICON_STRENGTH]战斗力。+2[ICON_MOVES]移动力。</Text>
+			<Text>+1攻击次数（可叠加）。[NEWLINE]对潜艇和空军单位+100%[ICON_STRENGTH]战斗力。+2[ICON_MOVES]移动力。[NEWLINE]拦截敌方飞机时+150%[ICON_STRENGTH]战斗力。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_GOLDEN_PERSONAL_GUARD">
 			<Text>黄金亲卫</Text>
@@ -17189,7 +17195,6 @@
 				[NEWLINE][ICON_BULLET]每回合能够进行一次对空拦截。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]对[COLOR_POSITIVE_TEXT]攻击机[ENDCOLOR]单位拥有战斗力加成。
-				[NEWLINE][ICON_BULLET]拦截[COLOR_NEGATIVE_TEXT]战略轰炸机[ENDCOLOR]时效果不佳。
 			</Text>
 		</Row>
 		<!-- Plot Naming -->
