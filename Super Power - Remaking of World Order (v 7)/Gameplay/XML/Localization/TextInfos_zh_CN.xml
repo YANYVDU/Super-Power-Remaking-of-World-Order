@@ -17872,7 +17872,7 @@
 		<Text>
 			盟友效果：
 			[NEWLINE][ICON_BULLET]盟友每座沿海城市提供+3[ICON_HAPPINESS_1]全局快乐
-			[NEWLINE][ICON_BULLET]盟友每有1点快乐，全国+1%[ICON_FOOD]食物、+1%[ICON_TOURISM]魅力（各自上限50%）
+			[NEWLINE][ICON_BULLET]盟友每有2点快乐，全国+1%[ICON_FOOD]食物、+1%[ICON_TOURISM]魅力（各自上限50%）
 			[NEWLINE]
 			[NEWLINE]朋友效果：
 			[NEWLINE][ICON_BULLET]朋友每座沿海城市提供+1[ICON_HAPPINESS_1]全局快乐
@@ -17882,7 +17882,7 @@
 		<Text>
 			盟友效果：
 			[NEWLINE][ICON_BULLET]盟友每座沿海城市提供+3[ICON_HAPPINESS_1]全局快乐
-			[NEWLINE][ICON_BULLET]盟友每有1点快乐，全国+1%[ICON_FOOD]食物、+1%[ICON_TOURISM]魅力（各自上限50%）
+			[NEWLINE][ICON_BULLET]盟友每有2点快乐，全国+1%[ICON_FOOD]食物、+1%[ICON_TOURISM]魅力（各自上限50%）
 		</Text>
 	</Row>
 	<Row Tag="TXT_KEY_EFFECT_CSUA_VANCOUVER_FRIEND_HELP">

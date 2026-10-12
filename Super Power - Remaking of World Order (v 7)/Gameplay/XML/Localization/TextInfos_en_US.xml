@@ -19402,7 +19402,7 @@
 		<Text>
 			Ally bonuses:
 			[NEWLINE][ICON_BULLET]+3[ICON_HAPPINESS_1] global happiness for the ally per coastal city
-			[NEWLINE][ICON_BULLET]+1%[ICON_FOOD] food and +1%[ICON_TOURISM] tourism nationwide for the ally per point of happiness (each capped at 50%)
+			[NEWLINE][ICON_BULLET]+1%[ICON_FOOD] food and +1%[ICON_TOURISM] tourism nationwide for the ally per 2 points of happiness (each capped at 50%)
 			[NEWLINE]
 			[NEWLINE]Friend bonuses:
 			[NEWLINE][ICON_BULLET]+1[ICON_HAPPINESS_1] global happiness for the friend per coastal city
@@ -19412,7 +19412,7 @@
 		<Text>
 			Ally bonuses:
 			[NEWLINE][ICON_BULLET]+3[ICON_HAPPINESS_1] global happiness per coastal city
-			[NEWLINE][ICON_BULLET]+1%[ICON_FOOD] food and +1%[ICON_TOURISM] tourism nationwide per point of happiness (each capped at 50%)
+			[NEWLINE][ICON_BULLET]+1%[ICON_FOOD] food and +1%[ICON_TOURISM] tourism nationwide per 2 points of happiness (each capped at 50%)
 		</Text>
 	</Row>
 	<Row Tag="TXT_KEY_EFFECT_CSUA_VANCOUVER_FRIEND_HELP">

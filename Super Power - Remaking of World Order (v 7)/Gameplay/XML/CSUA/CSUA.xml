@@ -2167,13 +2167,13 @@
 		<Row>
 			<EffectType>EFFECT_CSUA_VANCOUVER_ALLY</EffectType>
 			<YieldType>YIELD_FOOD</YieldType>
-			<YieldMod>100</YieldMod>
+			<YieldMod>50</YieldMod>
 			<Cap>50</Cap>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_VANCOUVER_ALLY</EffectType>
 			<YieldType>YIELD_TOURISM</YieldType>
-			<YieldMod>100</YieldMod>
+			<YieldMod>50</YieldMod>
 			<Cap>50</Cap>
 		</Row>
 	 </CityStateUAEffect_HappinessYieldModifiers>
