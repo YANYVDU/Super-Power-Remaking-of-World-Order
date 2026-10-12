@@ -939,8 +939,10 @@ Controls.RerollQuestButton:RegisterCallback( Mouse.eLClick, OnRerollQuestClicked
 -- Bully gold paying with aid points (no influence loss, no diplomatic penalty)
 function OnBullyAidClicked()
 	local iActivePlayer = Game.GetActivePlayer();
-	local iBullyGold = Players[g_iMinorCivID]:GetMinorCivBullyGoldAmount(iActivePlayer);
-	Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorBullyGoldWithAidPointsFromMajor", iActivePlayer, g_iMinorCivID, iBullyGold);
+	-- The gold amount is looked up inside the DLL from synced state. Passing a value computed here
+	-- would make the broadcast arguments differ between clients whenever they are a moment apart,
+	-- which breaks the dedup key and lets the call run (and the gold land) on more than one client.
+	Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorBullyGoldWithAidPointsFromMajor", iActivePlayer, g_iMinorCivID);
 	RefreshAidPoints();
 	OnCloseAidSpend();
 end

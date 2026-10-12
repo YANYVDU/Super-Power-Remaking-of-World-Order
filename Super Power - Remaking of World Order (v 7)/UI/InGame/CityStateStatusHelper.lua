@@ -823,7 +823,7 @@ function GetActiveQuestToolTip(iMajor, iMinor)
 				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_TRADE_ROUTE_FORMAL");
 			-- SP extended quests
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_TECH) then
-				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_RESEARCH_TECH_FORMAL", GameInfo.Techs[iQuestData1].Description);
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_RESEARCH_TECH_FORMAL", GameInfo.Technologies[iQuestData1].Description);
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONSTRUCT_NATIONAL_WONDER) then
 				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_CONSTRUCT_NATIONAL_WONDER_FORMAL", GameInfo.Buildings[iQuestData1].Description);
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_SPREAD_BUILDING) then
