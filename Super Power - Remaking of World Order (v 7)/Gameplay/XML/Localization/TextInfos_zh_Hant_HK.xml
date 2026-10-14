@@ -19071,6 +19071,12 @@
 		<Row Tag="TXT_KEY_POP_CSTATE_AID_NEXT_GP_TT">
 			<Text>消耗 {1_Num} 點援建點數，指定贊助政策贈送的下一個偉人類型，援建點數從該城邦扣除。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS">
+			<Text>推動議會加速</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS_TT">
+			<Text>消耗 {1_Num} 點援建點數，使下一次世界議會/聯合國會議提前 {2_Num} 回合召開。[NEWLINE][ICON_BULLET]會議倒數為所有文明共有，加速對所有文明同時生效[NEWLINE][ICON_BULLET]會議進行期間無法加速；距下次會議剩餘 {2_Num} 回合或更少時無法使用</Text>
+		</Row>
 		<Row Tag="TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE">
 			<Text>[NEWLINE]（另獲城邦金庫 {1_Num}[ICON_GOLD]）</Text>
 		</Row>

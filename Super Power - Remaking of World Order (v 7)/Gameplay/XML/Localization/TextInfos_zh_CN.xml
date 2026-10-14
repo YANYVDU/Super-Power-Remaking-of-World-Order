@@ -19265,6 +19265,12 @@
 		<Row Tag="TXT_KEY_POP_CSTATE_AID_NEXT_GP_TT">
 			<Text>消耗 {1_Num} 点援建点数，指定赞助政策赠送的下一个伟人类型，援建点数从该城邦扣除。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS">
+			<Text>推动议会加速</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS_TT">
+			<Text>消耗 {1_Num} 点援建点数，使下一次世界议会/联合国会议提前 {2_Num} 回合召开。[NEWLINE][ICON_BULLET]会议倒计时为所有文明共有，加速对所有文明同时生效[NEWLINE][ICON_BULLET]会议进行期间无法加速；距下次会议剩余 {2_Num} 回合或更少时无法使用</Text>
+		</Row>
 		<Row Tag="TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE">
 			<Text>[NEWLINE]（另获城邦金库 {1_Num}[ICON_GOLD]）</Text>
 		</Row>

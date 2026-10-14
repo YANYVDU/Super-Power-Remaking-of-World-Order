@@ -20795,6 +20795,12 @@
 		<Row Tag="TXT_KEY_POP_CSTATE_AID_NEXT_GP_TT">
 			<Text>Spend {1_Num} Aid Points to choose the type of the next Great Person granted by the Patronage finisher. The points are charged to this City-State.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS">
+			<Text>Hasten Congress Session</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS_TT">
+			<Text>Spend {1_Num} Aid Points to pull the next World Congress / United Nations session forward by {2_Num} turns.[NEWLINE][ICON_BULLET]The countdown is shared by every civilization, so all of them benefit[NEWLINE][ICON_BULLET]Unavailable while a session is in progress, or when {2_Num} or fewer turns remain</Text>
+		</Row>
 		<Row Tag="TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE">
 			<Text>[NEWLINE](+{1_Num}[ICON_GOLD] seized from their treasury)</Text>
 		</Row>

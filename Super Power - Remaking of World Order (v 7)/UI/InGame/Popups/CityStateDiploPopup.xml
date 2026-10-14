@@ -282,6 +282,16 @@
               </AlphaAnim>
             </ShowOnMouseOver>
           </Button>
+          <!-- HASTEN NEXT WORLD CONGRESS / UNITED NATIONS SESSION -->
+          <Button Size="500,32" Hidden="1" Anchor="C,C" Offset="0,0" ID="HastenCongressButton" ToolTip="TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS_TT">
+            <Label Anchor="C,C" Offset="0,0" ID="HastenCongressLabel" String="TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS"/>
+            <Image Anchor="C,B" Offset="0,0" Texture="bar500x2.dds" Size="500.1"/>
+            <ShowOnMouseOver>
+              <AlphaAnim ID="HastenCongressAnim" Anchor="C,C" Offset="0,0" Size="500,35" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+                <Grid ID="HastenCongressButtonHL" Size="500,35" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL"/>
+              </AlphaAnim>
+            </ShowOnMouseOver>
+          </Button>
           <!-- EXIT AID SPEND BUTTON (Back to Main Menu)-->
           <Button Size="500,32" Hidden="0" Anchor="C,C" Offset="0,0" ID="ExitAidSpendButton">
             <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_BACK_BUTTON"/>

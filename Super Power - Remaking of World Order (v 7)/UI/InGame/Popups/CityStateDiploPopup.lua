@@ -915,6 +915,18 @@ function UpdateAidSpendChoices()
 		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_NEXT_GP_TT", iGPCost),
 		(iPoints >= iGPCost), (bHasFinisher and iGPCost > 0));
 
+	-- Hasten the next World Congress / United Nations session (only between sessions, and only when
+	-- the remaining turns can absorb the whole pull - the DLL refuses a partial one and charges nothing)
+	local iHastenCost = Game.GetAidPointCostHastenCongress();
+	local iHastenTurns = Game.GetAidPointHastenCongressTurns();
+	local pLeague = Game.GetActiveLeague();
+	local bHasten = (pLeague ~= nil) and (iHastenCost > 0) and (iHastenTurns > 0)
+		and (not pLeague:IsInSession()) and (pLeague:GetTurnsUntilSession() > iHastenTurns);
+	SetupAidSpendButton(Controls.HastenCongressLabel, Controls.HastenCongressButton, Controls.HastenCongressAnim, Controls.HastenCongressButtonHL,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS") .. " (" .. iHastenCost .. ")",
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS_TT", iHastenCost, iHastenTurns),
+		(iPoints >= iHastenCost), bHasten);
+
 	UpdateButtonStack();
 	-- Rows hidden above stay in the stack's layout unless it is recalculated by hand.
 	Controls.AidSpendStack:CalculateSize();
@@ -967,6 +979,18 @@ function OnNextGPClicked()
 	UIManager:DequeuePopup( ContextPtr );
 end
 Controls.NextGPButton:RegisterCallback( Mouse.eLClick, OnNextGPClicked );
+
+-- Pull the next World Congress / United Nations session forward (the countdown is global, so
+-- every player's session moves up - it is broadcast so all clients stay in sync)
+function OnHastenCongressClicked()
+	local iActivePlayer = Game.GetActivePlayer();
+	local bSuccess = Game.SendAndExecuteLuaFunction("CvLuaGame::lDoHastenCongressWithAidPointsFromMajor", iActivePlayer, g_iMinorCivID);
+	if (bSuccess) then
+		RefreshAidPoints();
+		OnCloseAidSpend();
+	end
+end
+Controls.HastenCongressButton:RegisterCallback( Mouse.eLClick, OnHastenCongressClicked );
 
 ----------------------------------------------------------------
 -- Buyout
