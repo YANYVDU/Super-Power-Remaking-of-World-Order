@@ -8524,6 +8524,18 @@
 		<Row Tag="TXT_KEY_BELIEF_MARSH_BELIEF">
 			<Text>沼泽+3[ICON_PEACE]信仰、+1[ICON_CULTURE]文化</Text>
 		</Row>
+		<Row Tag="TXT_KEY_BELIEF_DELPHI_ORACLE_SHORT">
+			<Text>德尔斐神谕</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_DELPHI_ORACLE">
+			<Text>每座信仰该宗教的城市为其所属玩家+1[ICON_SPY]间谍点数，神庙+1[ICON_CULTURE]文化</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_CONFESSION_SHORT">
+			<Text>告解圣事</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_CONFESSION">
+			<Text>本宗教的创立者每回合+2[ICON_SPY]间谍点数，信仰该宗教的城市管理成本-100</Text>
+		</Row>
 		<Row Tag="TXT_KEY_BELIEF_RIVER_CRAFTSMAN_SHORT">
 			<Text>河图洛书</Text>
 		</Row>

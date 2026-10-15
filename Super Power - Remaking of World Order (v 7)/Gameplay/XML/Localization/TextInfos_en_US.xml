@@ -9341,6 +9341,18 @@
 		<Row Tag="TXT_KEY_BELIEF_MARSH_BELIEF">
 			<Text>+3 [ICON_PEACE] Faith and +1 [ICON_CULTURE] Culture from Marsh tiles</Text>
 		</Row>
+		<Row Tag="TXT_KEY_BELIEF_DELPHI_ORACLE_SHORT">
+			<Text>Delphic Oracle</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_DELPHI_ORACLE">
+			<Text>+1 [ICON_SPY] Spy Point per turn for the owner of each city following this Religion, +1 [ICON_CULTURE] Culture from Temples</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_CONFESSION_SHORT">
+			<Text>Confession</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_CONFESSION">
+			<Text>The founder of this Religion gains +2 [ICON_SPY] Spy Points per turn, and cities following this Religion have -100 Corruption Score</Text>
+		</Row>
 		<Row Tag="TXT_KEY_BELIEF_SNOW_BELIEF_SHORT">
 			<Text>Snow Spirit</Text>
 		</Row>

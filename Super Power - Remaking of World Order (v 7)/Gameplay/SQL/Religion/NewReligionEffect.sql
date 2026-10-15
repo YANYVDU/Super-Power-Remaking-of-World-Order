@@ -231,6 +231,11 @@ SELECT 'BELIEF_ANCESTOR_WORSHIP','BUILDINGCLASS_SHRINE','YIELD_FAITH',1;
 INSERT INTO Belief_CorruptionScoreYieldRate (BeliefType,YieldType,Rate)
 SELECT 'BELIEF_SERENS_GOVERNANCE','YIELD_FAITH',100;
 
+--BELIEF_DELPHI_ORACLE
+UPDATE Beliefs SET SpyPointsPerCity = 1 WHERE Type = 'BELIEF_DELPHI_ORACLE';
+INSERT INTO Belief_BuildingClassYieldChanges (BeliefType,BuildingClassType,YieldType,YieldChange)
+SELECT 'BELIEF_DELPHI_ORACLE','BUILDINGCLASS_TEMPLE','YIELD_CULTURE',1;
+
 --***********************************************************************************************--
 --Founder
 --***********************************************************************************************--
@@ -277,6 +282,9 @@ INSERT INTO Belief_ImprovementYieldChanges (BeliefType,ImprovementType,YieldType
 SELECT 'BELIEF_RELIGIOUS_SCIENCE','IMPROVEMENT_HOLY_SITE','YIELD_SCIENCE',4;
 
 --BELIEF_RELIGIOUS_COLONIZATION
+
+--BELIEF_CONFESSION
+UPDATE Beliefs SET SpyPoints = 2, CityCorruptionScoreChange = -100 WHERE Type = 'BELIEF_CONFESSION';
 
 --***********************************************************************************************--
 --Follower

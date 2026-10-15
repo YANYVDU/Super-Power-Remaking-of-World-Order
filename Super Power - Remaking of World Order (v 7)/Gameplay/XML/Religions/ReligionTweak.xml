@@ -178,5 +178,19 @@
 			<ShortDescription>TXT_KEY_BELIEF_SAGES_LEGACY_SHORT</ShortDescription>
 			<Reformation>true</Reformation>
 		</Row>
+
+		<Row>
+			<Type>BELIEF_DELPHI_ORACLE</Type>
+			<Description>TXT_KEY_BELIEF_DELPHI_ORACLE</Description>
+			<ShortDescription>TXT_KEY_BELIEF_DELPHI_ORACLE_SHORT</ShortDescription>
+			<Pantheon>true</Pantheon>
+		</Row>
+
+		<Row>
+			<Type>BELIEF_CONFESSION</Type>
+			<Description>TXT_KEY_BELIEF_CONFESSION</Description>
+			<ShortDescription>TXT_KEY_BELIEF_CONFESSION_SHORT</ShortDescription>
+			<Founder>true</Founder>
+		</Row>
 	</Beliefs>
 </GameData>
