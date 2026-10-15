@@ -8426,6 +8426,12 @@
 		<Row Tag="TXT_KEY_BELIEF_CONFESSION">
 			<Text>本宗教的創立者每回合+2[ICON_SPY]間諜點數，信仰該宗教的城市管理成本-100</Text>
 		</Row>
+		<Row Tag="TXT_KEY_BELIEF_PAPAL_LEGATE_SHORT">
+			<Text>宗座特使</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_PAPAL_LEGATE">
+			<Text>+1[ICON_DIPLOMATIC_PRESTIGE]外交威望；對城邦的[ICON_INFLUENCE]影響力恢復速度+50%、衰減速度-25%</Text>
+		</Row>
 		<Row Tag="TXT_KEY_BELIEF_RIVER_CRAFTSMAN_SHORT">
 			<Text>河圖洛書</Text>
 		</Row>

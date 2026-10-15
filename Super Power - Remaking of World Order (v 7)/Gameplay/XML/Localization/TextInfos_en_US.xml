@@ -9353,6 +9353,12 @@
 		<Row Tag="TXT_KEY_BELIEF_CONFESSION">
 			<Text>The founder of this Religion gains +2 [ICON_SPY] Spy Points per turn, and cities following this Religion have -100 Corruption Score</Text>
 		</Row>
+		<Row Tag="TXT_KEY_BELIEF_PAPAL_LEGATE_SHORT">
+			<Text>Papal Legate</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_PAPAL_LEGATE">
+			<Text>+1 [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige; City-State [ICON_INFLUENCE] Influence recovers 50% faster and degrades 25% slower</Text>
+		</Row>
 		<Row Tag="TXT_KEY_BELIEF_SNOW_BELIEF_SHORT">
 			<Text>Snow Spirit</Text>
 		</Row>
