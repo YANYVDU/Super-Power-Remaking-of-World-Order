@@ -1551,7 +1551,7 @@
 
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP" />
-			<Set Text="来自腐败的[ICON_HAPPINESS_4]不满-50%。在世界议会中获得额外2个代表。" />
+			<Set Text="来自腐败的[ICON_HAPPINESS_4]不满-25%。降低15%成为城邦盟友所需的[ICON_INFLUENCE]影响力下限。在世界议会中获得额外2个代表。" />
 		</Update>
 
 		<Update>

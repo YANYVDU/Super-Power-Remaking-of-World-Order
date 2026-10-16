@@ -4105,7 +4105,7 @@
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP" />
 			<Set
-				Text="-50% extra [ICON_HAPPINESS_4] Unhappiness from Corruption. Gain 2 additional Delegates in the World Congress." />
+				Text="-25% extra [ICON_HAPPINESS_4] Unhappiness from Corruption. -15% [ICON_INFLUENCE] Influence required to become an Ally of a City-State. Gain 2 additional Delegates in the World Congress." />
 		</Update>
 		
 		

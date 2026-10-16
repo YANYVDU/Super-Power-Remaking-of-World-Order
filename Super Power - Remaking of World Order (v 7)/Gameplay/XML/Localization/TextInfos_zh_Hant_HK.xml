@@ -1508,7 +1508,7 @@
 
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP" />
-			<Set Text="來自腐敗的[ICON_HAPPINESS_4]不滿-50%。在世界議會中獲得額外2個代表。" />
+			<Set Text="來自腐敗的[ICON_HAPPINESS_4]不滿-25%。降低15%成為城邦盟友所需的[ICON_INFLUENCE]影響力下限。在世界議會中獲得額外2個代表。" />
 		</Update>
 
 		<Update>
