@@ -1766,17 +1766,20 @@ function OnConsultDiplomat()
 	local iValueTheyreOffering = advice.iValueTheyreOffering or 0
 	local iAmountOverWeWillRequest = advice.iAmountOverWeWillRequest or 0
 	local iAmountUnderWeWillOffer = advice.iAmountUnderWeWillOffer or 0
-	local bCantMatchOffer = advice.bCantMatchOffer or false
+	-- Use the AI's own acceptance verdict: bCantMatchOffer only covers "the AI wants more than
+	-- we offer", so it reports "they accept" on any deal that shortchanges them (asking for a
+	-- city, for instance), which the AI in fact rejects.
+	local bAcceptable = advice.bAcceptable or false
 
 	local text
 
 	if iRank == 3 then
 		-- Master Spy: full itemized detail
 		local acceptable
-		if bCantMatchOffer then
-			acceptable = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_CANT_MATCH" )
-		else
+		if bAcceptable then
 			acceptable = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_ACCEPTABLE" )
+		else
+			acceptable = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_CANT_MATCH" )
 		end
 		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_MASTER",
 			tostring(iValueImOffering), tostring(iValueTheyreOffering),
