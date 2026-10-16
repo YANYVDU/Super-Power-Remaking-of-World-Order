@@ -406,6 +406,7 @@
 			<NumGoldPerEra>400</NumGoldPerEra>
 			<NumInfluencePerEra>40</NumInfluencePerEra>
 			<CanBuyCityState>true</CanBuyCityState>
+			<GainAllyCityStateUAOnBuy>true</GainAllyCityStateUAOnBuy>
 			<UnitArtInfo>ART_DEF_UNIT_U_VENETIAN_MERCHANT</UnitArtInfo>
 			<UnitArtInfoEraVariation>true</UnitArtInfoEraVariation>
 			<UnitFlagAtlas>EXPANSION2_UNIT_FLAG_ATLAS</UnitFlagAtlas>

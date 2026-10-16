@@ -19541,5 +19541,8 @@
 		<Row Tag="TXT_KEY_EUPANEL_BONUS_INTERCEPTION_STRENGTH">
 			<Text>拦截[ICON_STRENGTH]战斗力修正</Text>
 		</Row>
+		<Replace Tag="TXT_KEY_UNIT_HELP_VENETIAN_MERCHANT">
+			<Text>威尼斯的特殊伟人单位，替代大商业家。除了可以进行贸易任务外，还可以立刻购买城邦，将其变为威尼斯的傀儡城市。收购[ICON_CITY_STATE]城邦后，可永久获得该城邦的盟友级独特能力。</Text>
+		</Replace>
 	</Language_zh_CN>
 </GameData>

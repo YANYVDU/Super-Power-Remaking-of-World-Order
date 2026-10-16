@@ -21071,5 +21071,8 @@
 		<Row Tag="TXT_KEY_EUPANEL_BONUS_INTERCEPTION_STRENGTH">
 			<Text>Interception [ICON_STRENGTH]Strength Modifier</Text>
 		</Row>
+		<Replace Tag="TXT_KEY_UNIT_HELP_VENETIAN_MERCHANT">
+			<Text>This Venetian unique Great Person replaces the Great Merchant. Aside from the ability to Conduct a Trade Mission, the Merchant of Venice can purchase City-States outright, bringing them under Venetian control as a Puppet. Buying out a [ICON_CITY_STATE] City-State permanently grants its ally-tier Unique Ability.</Text>
+		</Replace>
 	</Language_en_US>
 </GameData>
