@@ -18054,6 +18054,24 @@
 		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_SPEED_TT">
 			<Text>[ICON_BULLET]来自间谍速度: {1_Num}</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_PROGRESS_TT">
+			<Text>[COLOR_POSITIVE_TEXT]王牌间谍晋升条件[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_REQ_TECH_TT">
+			<Text>[ICON_BULLET]窃取科技：{1_Done}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_REQ_KILL_TT">
+			<Text>[ICON_BULLET]击杀敌方间谍：{1_Done}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_REQ_COUP_TT">
+			<Text>[ICON_BULLET]发动城邦政变：{1_Done}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_DONE">
+			<Text>[COLOR_POSITIVE_TEXT]已完成[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_NOT_DONE">
+			<Text>[COLOR_NEGATIVE_TEXT]未完成[ENDCOLOR]</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_GANGTOK_HELP">
 			<Text>
 				盟友效果：

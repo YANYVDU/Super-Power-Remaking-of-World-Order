@@ -19584,6 +19584,24 @@
 		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_SPEED_TT">
 			<Text>[ICON_BULLET]From spy speed: {1_Num}</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_PROGRESS_TT">
+			<Text>[COLOR_POSITIVE_TEXT]Master Spy promotion requirements[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_REQ_TECH_TT">
+			<Text>[ICON_BULLET]Steal a technology: {1_Done}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_REQ_KILL_TT">
+			<Text>[ICON_BULLET]Kill an enemy spy: {1_Done}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_REQ_COUP_TT">
+			<Text>[ICON_BULLET]Stage a city-state coup: {1_Done}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_DONE">
+			<Text>[COLOR_POSITIVE_TEXT]Done[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_NOT_DONE">
+			<Text>[COLOR_NEGATIVE_TEXT]Not yet[ENDCOLOR]</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_GANGTOK_HELP">
 			<Text>
 				Ally Effects:

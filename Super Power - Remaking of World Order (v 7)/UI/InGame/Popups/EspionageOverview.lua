@@ -109,6 +109,29 @@ local function GetGatheringIntelTooltip(pPlayer, agent, city)
 	return strTT;
 end
 
+-- Super Power V11: append the Master Spy promotion checklist to a spy's rank tooltip.
+-- Shown for every spy below Master Spy so the promotion conditions are discoverable in-game.
+local function AppendMasterSpyProgress(szTooltip, agent)
+	-- A Master Spy is already the top rank - nothing left to progress towards
+	if (agent == nil or agent.Rank == "TXT_KEY_SPY_RANK_3" or agent.State == "TXT_KEY_SPY_STATE_DEAD") then
+		return szTooltip;
+	end
+
+	local function szRequirementState(bDone)
+		if (bDone == true) then
+			return Locale.ConvertTextKey("TXT_KEY_EO_SPY_MASTER_DONE");
+		end
+		return Locale.ConvertTextKey("TXT_KEY_EO_SPY_MASTER_NOT_DONE");
+	end
+
+	szTooltip = szTooltip .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_EO_SPY_MASTER_PROGRESS_TT");
+	szTooltip = szTooltip .. "[NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_EO_SPY_MASTER_REQ_TECH_TT", szRequirementState(agent.HasStolenTech));
+	szTooltip = szTooltip .. "[NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_EO_SPY_MASTER_REQ_KILL_TT", szRequirementState(agent.HasKilledSpy));
+	szTooltip = szTooltip .. "[NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_EO_SPY_MASTER_REQ_COUP_TT", szRequirementState(agent.HasCoupSuccess));
+
+	return szTooltip;
+end
+
 g_Tabs = {
 	["Overview"] = {
 		Panel = Controls.OverviewPanel,
@@ -427,7 +450,7 @@ function RelocateAgent(agentID, city)
 	Controls.AgentName:LocalizeAndSetText(agent.Name);
 	Controls.AgentName:LocalizeAndSetToolTip("TXT_KEY_EO_SPY_NAMEPLATE_TT", agent.Rank, agent.Name); 
 	
-	local szSpyRankTooltip = activePlayer:GetInfluenceSpyRankTooltip (agent.Name, agent.Rank, -1);
+	local szSpyRankTooltip = AppendMasterSpyProgress(activePlayer:GetInfluenceSpyRankTooltip (agent.Name, agent.Rank, -1), agent);
 	Controls.AgentRank:SetToolTipString(szSpyRankTooltip);
 	Controls.AgentIcon:SetToolTipString(szSpyRankTooltip);
 	Controls.AgentLocationActionsPanel:SetHide(false);
@@ -459,7 +482,7 @@ function RelocateAgent(agentID, city)
 			Controls.AgentLocationIcon:LocalizeAndSetToolTip("TXT_KEY_EO_SPY_LOCATION_TT", agent.Rank, agent.Name, city:GetName());
 			Controls.AgentLocation:LocalizeAndSetToolTip("TXT_KEY_EO_SPY_LOCATION_TT", agent.Rank, agent.Name, city:GetName());
 	
-			szSpyRankTooltip = activePlayer:GetInfluenceSpyRankTooltip (agent.Name, agent.Rank, plot:GetOwner());
+			szSpyRankTooltip = AppendMasterSpyProgress(activePlayer:GetInfluenceSpyRankTooltip (agent.Name, agent.Rank, plot:GetOwner()), agent);
 			Controls.AgentRank:SetToolTipString(szSpyRankTooltip);
 			Controls.AgentIcon:SetToolTipString(szSpyRankTooltip);
 		end
@@ -619,7 +642,7 @@ function RefreshAgents()
 		end
 		agentEntry.AgentName:LocalizeAndSetText(v.Name);
 		agentEntry.AgentName:LocalizeAndSetToolTip("TXT_KEY_EO_SPY_NAMEPLATE_TT", v.Rank, v.Name);
-		local szSpyRankTooltip = pActivePlayer:GetInfluenceSpyRankTooltip (v.Name, v.Rank, -1);
+		local szSpyRankTooltip = AppendMasterSpyProgress(pActivePlayer:GetInfluenceSpyRankTooltip (v.Name, v.Rank, -1), v);
 		agentEntry.AgentRank:SetToolTipString(szSpyRankTooltip);
 
 		if (v.IsDiplomat) then
@@ -674,7 +697,7 @@ function RefreshAgents()
 					agentEntry.AgentLocationIcon:LocalizeAndSetToolTip("TXT_KEY_EO_SPY_LOCATION_TT", v.Rank, v.Name, city:GetName());
 					agentEntry.AgentLocation:LocalizeAndSetToolTip("TXT_KEY_EO_SPY_LOCATION_TT", v.Rank, v.Name, city:GetName());
 		
-					szSpyRankTooltip = pActivePlayer:GetInfluenceSpyRankTooltip (v.Name, v.Rank, plot:GetOwner());
+					szSpyRankTooltip = AppendMasterSpyProgress(pActivePlayer:GetInfluenceSpyRankTooltip (v.Name, v.Rank, plot:GetOwner()), v);
 					agentEntry.AgentRank:SetToolTipString(szSpyRankTooltip);
 					agentEntry.AgentIcon:SetToolTipString(szSpyRankTooltip);
 				end
