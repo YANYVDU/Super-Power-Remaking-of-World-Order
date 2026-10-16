@@ -914,13 +914,23 @@ function UpdateAidSpendChoices()
 		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_GIFT_UNIT_TT", iUnitCost),
 		(iPoints >= iUnitCost), (bMilitaristic and iUnitCost > 0));
 
-	-- Preselect the next gifted Great Person (patronage finisher only)
+	-- Preselect the next gifted Great Person (patronage finisher only). Only one pick can be
+	-- pending at a time (CvPlayer::m_eNextGreatPersonChoice), so the button is disabled until the
+	-- finisher releases it - picking again would silently overwrite the pending one and charge
+	-- another 50 aid points with nothing to show for it.
 	local iGPCost = Game.GetAidPointCostNextGreatPerson();
 	local bHasFinisher = pActivePlayer:HasPolicy(GameInfoTypes["POLICY_PATRONAGE_FINISHER"]);
+	local ePendingGP = pActivePlayer:GetNextGreatPersonChoice();
+	local bHasPendingGP = (ePendingGP ~= nil and ePendingGP >= 0);
+	local strGPText = Locale.Lookup("TXT_KEY_POP_CSTATE_AID_NEXT_GP") .. " (" .. iGPCost .. ")";
+	-- Preview the pending pick, so the player can see what the button is holding
+	if (bHasPendingGP and GameInfo.Units[ePendingGP] ~= nil) then
+		strGPText = strGPText .. " - " .. Locale.Lookup(GameInfo.Units[ePendingGP].Description);
+	end
 	SetupAidSpendButton(Controls.NextGPLabel, Controls.NextGPButton, Controls.NextGPAnim, Controls.NextGPButtonHL,
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_NEXT_GP") .. " (" .. iGPCost .. ")",
+		strGPText,
 		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_NEXT_GP_TT", iGPCost),
-		(iPoints >= iGPCost), (bHasFinisher and iGPCost > 0));
+		(iPoints >= iGPCost and not bHasPendingGP), (bHasFinisher and iGPCost > 0));
 
 	-- Hasten the next World Congress / United Nations session (only between sessions, and only when
 	-- the remaining turns can absorb the whole pull - the DLL refuses a partial one and charges nothing)
@@ -979,6 +989,13 @@ Controls.GiftUnitAidButton:RegisterCallback( Mouse.eLClick, OnGiftUnitAidClicked
 
 -- Preselect the next gifted Great Person (aid points are charged to this city-state)
 function OnNextGPClicked()
+	-- SetupAidSpendButton only greys the button out, so refuse here too: a second pick would
+	-- overwrite the pending one and burn another 50 aid points.
+	local ePendingGP = Players[Game.GetActivePlayer()]:GetNextGreatPersonChoice();
+	if (ePendingGP ~= nil and ePendingGP >= 0) then
+		return;
+	end
+
 	local iCost = Game.GetAidPointCostNextGreatPerson();
 	local gpContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
 	LuaEvents.AidPointChoicePopupOpen("greatperson", g_iMinorCivID, iCost);
