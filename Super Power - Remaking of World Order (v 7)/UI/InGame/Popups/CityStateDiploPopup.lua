@@ -635,20 +635,27 @@ function OnDisplay()
 		Controls.WarButton:SetHide(true);
 	end
 	
-	-- Buyout (Austria UA)
+	-- Buyout (Austria UA). Super Power V11: the buyout also burns aid points banked with this
+	-- city-state, and annexing permanently grants us its ally-tier unique ability.
 	local iBuyoutCost = pPlayer:GetBuyoutCost(iActivePlayer);
+	local iAnnexAidCost = Game.GetAidPointCostAnnexCityState();
+	local iAnnexAidPoints = pPlayer:GetEconomicAidPoints(iActivePlayer);
 	local strButtonLabel = Locale.ConvertTextKey( "TXT_KEY_POP_CSTATE_BUYOUT");
-	local strToolTip = Locale.ConvertTextKey( "TXT_KEY_POP_CSTATE_BUYOUT_TT", iBuyoutCost );
+	local strToolTip = Locale.ConvertTextKey( "TXT_KEY_POP_CSTATE_BUYOUT_TT", iBuyoutCost, iAnnexAidCost );
 	if (pPlayer:CanMajorBuyout(iActivePlayer) and not bWar) then
 		Controls.BuyoutButton:SetHide(false);
 		Controls.BuyoutAnim:SetHide(false);
 	elseif (pActivePlayer:IsAbleToAnnexCityStates() and not bWar) then
-		if (pPlayer:GetAlly() == iActivePlayer) then
-			local iAllianceTurns = pPlayer:GetAlliedTurns();
-			strButtonLabel = "[COLOR_WARNING_TEXT]" .. strButtonLabel .. "[ENDCOLOR]";
-			strToolTip = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_ALLY_TT", GameDefines.MINOR_CIV_BUYOUT_TURNS, iAllianceTurns, iBuyoutCost);
+		strButtonLabel = "[COLOR_WARNING_TEXT]" .. strButtonLabel .. "[ENDCOLOR]";
+		if (pPlayer:GetAlly() ~= iActivePlayer) then
+			strToolTip = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_TT", GameDefines.MINOR_CIV_BUYOUT_TURNS, iBuyoutCost);
+		elseif (pPlayer:GetAlliedTurns() < GameDefines.MINOR_CIV_BUYOUT_TURNS) then
+			strToolTip = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_ALLY_TT", GameDefines.MINOR_CIV_BUYOUT_TURNS, pPlayer:GetAlliedTurns(), iBuyoutCost);
+		elseif (iAnnexAidCost > 0 and iAnnexAidPoints < iAnnexAidCost) then
+			-- Everything else is satisfied and only the aid points are short: say exactly that,
+			-- instead of falling through to the generic "must be allied for N turns" text.
+			strToolTip = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_AID_TT", iBuyoutCost, iAnnexAidCost, iAnnexAidPoints);
 		else
-			strButtonLabel = "[COLOR_WARNING_TEXT]" .. strButtonLabel .. "[ENDCOLOR]";
 			strToolTip = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_TT", GameDefines.MINOR_CIV_BUYOUT_TURNS, iBuyoutCost);
 		end
 		--antonjs: todo: disable button entirely, in case bWar doesn't update in time for the callback to disallow buyout in wartime

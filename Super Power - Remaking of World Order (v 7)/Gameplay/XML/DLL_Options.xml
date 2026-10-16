@@ -442,6 +442,12 @@
 			<Where Name="SP_BULLY_TREASURY_SHARE_PERCENT"/>
 			<Set Value="25"/>
 		</Update>
+		<!-- Austria UA: extra aid points (on top of the gold) paid to buy a city-state out.
+		     Keep this value identical to the MPDLL default in CustomModOptions.xml. -->
+		<Update>
+			<Where Name="SP_AID_POINT_COST_ANNEX_CITY_STATE"/>
+			<Set Value="50"/>
+		</Update>
 		<Update>
 			<Where Name="SP_RELIGION_PRESSURE_SELF_FOUNDER_MOD"/>
 			<Set Value="33"/>

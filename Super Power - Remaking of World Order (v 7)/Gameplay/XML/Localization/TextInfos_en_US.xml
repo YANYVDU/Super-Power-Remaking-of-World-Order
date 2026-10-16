@@ -10808,7 +10808,7 @@
 
 		<Replace Tag="TXT_KEY_TRAIT_ANNEX_CITY_STATE">
 			<Text>
-				[ICON_BULLET]Can spend [ICON_GOLD] Gold to annex or puppet a City-State that has been your ally for 8 turns. 
+				[ICON_BULLET]Can spend [ICON_GOLD] Gold plus 50 Aid Points to annex or puppet a City-State that has been your ally for 8 turns, permanently keeping that City-State's ally-tier Unique Ability.
 				[NEWLINE][ICON_BULLET]Each old Capital of City-State -2 Lv. at most of its City Hall (non-puppet).
 				[NEWLINE][ICON_BULLET]Unlock the special trading options [Diplomatic Marriage] and [Dual Empire Treaty] (see the Encyclopedia Diplomacy page for details).
 			</Text>
@@ -21074,5 +21074,11 @@
 		<Replace Tag="TXT_KEY_UNIT_HELP_VENETIAN_MERCHANT">
 			<Text>This Venetian unique Great Person replaces the Great Merchant. Aside from the ability to Conduct a Trade Mission, the Merchant of Venice can purchase City-States outright, bringing them under Venetian control as a Puppet. Buying out a [ICON_CITY_STATE] City-State permanently grants its ally-tier Unique Ability.</Text>
 		</Replace>
+		<Replace Tag="TXT_KEY_POP_CSTATE_BUYOUT_TT">
+			<Text>You may spend {1_BuyoutCost} [ICON_GOLD] Gold and {2_AidPoints} Aid Points to acquire this City-State through diplomatic marriage, making it and all of its units part of your empire.  This will not incur the diplomatic penalties or the Unhappiness penalties of conquering the City-State.  The bonuses and World Congress delegates you receive from friendship with this City-State, however, will be lost.[NEWLINE][NEWLINE]Annexing permanently grants you this City-State's ally-tier Unique Ability.</Text>
+		</Replace>
+		<Row Tag="TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_AID_TT">
+			<Text>You may spend {1_BuyoutCost} [ICON_GOLD] Gold and {2_AidPoints} Aid Points to acquire this City-State through diplomatic marriage, making it and all of its units part of your empire.  This will not incur the diplomatic penalties or the Unhappiness penalties of conquering the City-State.  The bonuses and World Congress delegates you receive from friendship with this City-State, however, will be lost.[NEWLINE][NEWLINE][COLOR_WARNING_TEXT]You need {2_AidPoints} Aid Points banked with this City-State to annex it; you have {3_HavePoints}.[ENDCOLOR]</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

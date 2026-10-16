@@ -258,6 +258,7 @@
 			<Description>TXT_KEY_TRAIT_ANNEX_CITY_STATE</Description>
 			<ShortDescription>TXT_KEY_TRAIT_ANNEX_CITY_STATE_SHORT</ShortDescription>
 			<AbleToAnnexCityStates>true</AbleToAnnexCityStates>
+			<GainAnnexedCityStateUA>true</GainAnnexedCityStateUA>
 			<CanDiplomaticMarriage>true</CanDiplomaticMarriage>
 			<AbleToDualEmpire>true</AbleToDualEmpire>
 		</Row>

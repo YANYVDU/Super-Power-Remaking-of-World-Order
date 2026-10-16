@@ -6214,7 +6214,7 @@
 
 		<Replace Tag="TXT_KEY_TRAIT_ANNEX_CITY_STATE">
 			<Text>
-				[ICON_BULLET]可以通过[ICON_GOLD]金钱来购买与奥地利同盟8回合的城邦。
+				[ICON_BULLET]可以通过[ICON_GOLD]金钱来购买与奥地利同盟8回合的城邦，额外消耗 50 点援建点数；吞并后永久获得该城邦的盟友级独特能力。
 				[NEWLINE][ICON_BULLET]城邦故都所在城市（非傀儡）的市政厅管理成本最多可-2级。
 				[NEWLINE][ICON_BULLET]解锁特色交易选项【外交联姻】和【二元帝国协定】（详情见百科外交页）。
 			</Text>
@@ -19544,5 +19544,11 @@
 		<Replace Tag="TXT_KEY_UNIT_HELP_VENETIAN_MERCHANT">
 			<Text>威尼斯的特殊伟人单位，替代大商业家。除了可以进行贸易任务外，还可以立刻购买城邦，将其变为威尼斯的傀儡城市。收购[ICON_CITY_STATE]城邦后，可永久获得该城邦的盟友级独特能力。</Text>
 		</Replace>
+		<Replace Tag="TXT_KEY_POP_CSTATE_BUYOUT_TT">
+			<Text>你可以花费{1_BuyoutCost}[ICON_GOLD]金钱和 {2_AidPoints} 点援建点数来和城邦联姻，使城邦及其所有单位成为你文明的一部分。这不会像征服城邦那样带来外交和不满度惩罚，但是会失去城邦的奖励和城邦在联合国投给你的选票。[NEWLINE][NEWLINE]吞并后，你将永久获得该城邦的盟友级独特能力。</Text>
+		</Replace>
+		<Row Tag="TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_AID_TT">
+			<Text>你可以花费{1_BuyoutCost}[ICON_GOLD]金钱和 {2_AidPoints} 点援建点数来和城邦联姻，使城邦及其所有单位成为你文明的一部分。这不会像征服城邦那样带来外交和不满度惩罚，但是会失去城邦的奖励和城邦在联合国投给你的选票。[NEWLINE][NEWLINE][COLOR_WARNING_TEXT]你需要在该城邦累积 {2_AidPoints} 点援建点数才能吞并该城邦，目前只有 {3_HavePoints} 点。[ENDCOLOR]</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>
