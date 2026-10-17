@@ -1758,12 +1758,6 @@
 			<Text>[COLOR_NEGATIVE_TEXT]Pillaged improvements[ENDCOLOR] and [COLOR_HIGHLIGHT_TEXT]unimproved resources[ENDCOLOR] are repaired/improved by automation!</Text>
 		</Row>
 
-		<Row Tag="TXT_KEY_SP_NOTIFICATION_AUTO_BUILDING_REPLACEMENT">
-			<Text>The new Technology has automatically upgraded the obsolete building {@2_BuildingName} in your city {@1_CityName} to its succeeding building: </Text>
-		</Row>
-		<Row Tag="TXT_KEY_SP_NOTIFICATION_AUTO_RAILROAD_REPLACEMENT">
-			<Text>You have researched the [ICON_RESEARCH] [COLOR_RESEARCH_STORED]	Railroad Technology[ENDCOLOR], so all Road tiles in your current territory have been replaced by [COLOR_POSITIVE_TEXT]Railroad[ENDCOLOR]!</Text>
-		</Row>
 
 		<Row Tag="TXT_KEY_MISC_AUTO_BUILDING_UPGRADEMENT">
 			<Text>The new Technology has automatically replaced the {1_Building} in your cities to its succeeding building: {2_Building}.</Text>

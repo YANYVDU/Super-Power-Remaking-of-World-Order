@@ -5301,12 +5301,6 @@
 			</Text>
 		</Row>
 
-		<Row Tag="TXT_KEY_SP_NOTIFICATION_AUTO_BUILDING_REPLACEMENT">
-			<Text>新科技使{@1_CityName}市内的古建筑{@2_BuildingName}自动升级为：</Text>
-		</Row>
-		<Row Tag="TXT_KEY_SP_NOTIFICATION_AUTO_RAILROAD_REPLACEMENT">
-			<Text>你研发了[ICON_RESEARCH][COLOR_RESEARCH_STORED]铁路技术[ENDCOLOR]，所有领土内的道路自动升级为[COLOR_POSITIVE_TEXT]铁路[ENDCOLOR]！</Text>
-		</Row>
 
 
 
