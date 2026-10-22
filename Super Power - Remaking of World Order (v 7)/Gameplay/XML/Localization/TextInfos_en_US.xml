@@ -14911,6 +14911,7 @@
 				[NEWLINE][ICON_BULLET]Cannot receive [COLOR_NEGATIVE_TEXT]Terrain Bonus[ENDCOLOR].
 				[NEWLINE][ICON_BULLET]Cannot [COLOR_NEGATIVE_TEXT]Pillage[ENDCOLOR]
 				[NEWLINE][ICON_BULLET]Cannot [COLOR_NEGATIVE_TEXT]Capture[ENDCOLOR] Cities.
+				[NEWLINE][ICON_BULLET]Does not block foreign [COLOR_POSITIVE_TEXT]Expansion Units[ENDCOLOR] (Settlers, etc).
 			</Text>
 		</Row>
 
@@ -15108,6 +15109,7 @@
 				[NEWLINE][ICON_BULLET]-25% [ICON_STRENGTH] Combat Strength when fighting outside [COLOR_NEGATIVE_TEXT]Friendly Territory[ENDCOLOR].
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]Weak vs [COLOR_NEGATIVE_TEXT]Regular Army[ENDCOLOR] and [COLOR_NEGATIVE_TEXT]Special Forces[ENDCOLOR].
+				[NEWLINE][ICON_BULLET]Does not block foreign [COLOR_POSITIVE_TEXT]Expansion Units[ENDCOLOR] (Settlers, etc).
 			</Text>
 		</Row>
 

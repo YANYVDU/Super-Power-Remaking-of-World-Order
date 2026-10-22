@@ -30,6 +30,7 @@
 			<PortraitIndex>0</PortraitIndex>
 			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
 			<TrainPopulationConsume>1</TrainPopulationConsume>
+			<ExpansionUnit>1</ExpansionUnit>
 		</Row>
 
 		<Row>
@@ -414,6 +415,7 @@
 			<IconAtlas>EXPANSION2_UNIT_ATLAS</IconAtlas>
 			<PortraitIndex>12</PortraitIndex>
 			<MoveRate>GREAT_PERSON</MoveRate>
+			<ExpansionUnit>1</ExpansionUnit>
 		</Row>
 		
 		
