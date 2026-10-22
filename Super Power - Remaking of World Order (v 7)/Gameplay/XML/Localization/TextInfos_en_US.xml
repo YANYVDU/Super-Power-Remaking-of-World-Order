@@ -21095,5 +21095,20 @@
 		<Row Tag="TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_AID_TT">
 			<Text>You may spend {1_BuyoutCost} [ICON_GOLD] Gold and {2_AidPoints} Aid Points to acquire this City-State through diplomatic marriage, making it and all of its units part of your empire.  This will not incur the diplomatic penalties or the Unhappiness penalties of conquering the City-State.  The bonuses and World Congress delegates you receive from friendship with this City-State, however, will be lost.[NEWLINE][NEWLINE][COLOR_WARNING_TEXT]You need {2_AidPoints} Aid Points banked with this City-State to annex it; you have {3_HavePoints}.[ENDCOLOR]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_BUTTON">
+			<Text>Full Rank</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_TITLE">
+			<Text>World Rankings</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_CIV">
+			<Text>Civilization</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_YOU">
+			<Text> (You)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_TT">
+			<Text>View the full world ranking for this category</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

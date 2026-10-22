@@ -19565,5 +19565,20 @@
 		<Row Tag="TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_AID_TT">
 			<Text>你可以花费{1_BuyoutCost}[ICON_GOLD]金钱和 {2_AidPoints} 点援建点数来和城邦联姻，使城邦及其所有单位成为你文明的一部分。这不会像征服城邦那样带来外交和不满度惩罚，但是会失去城邦的奖励和城邦在联合国投给你的选票。[NEWLINE][NEWLINE][COLOR_WARNING_TEXT]你需要在该城邦累积 {2_AidPoints} 点援建点数才能吞并该城邦，目前只有 {3_HavePoints} 点。[ENDCOLOR]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_BUTTON">
+			<Text>完整排名</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_TITLE">
+			<Text>全球排名</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_CIV">
+			<Text>文明</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_YOU">
+			<Text>（你）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_TT">
+			<Text>查看该项指标的完整全球排名</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>
