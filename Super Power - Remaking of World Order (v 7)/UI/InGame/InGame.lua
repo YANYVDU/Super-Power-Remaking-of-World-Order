@@ -9,6 +9,9 @@
 -------------------------------------------------
 include( "FLuaVector" );
 include( "InstanceManager" );
+-- SP_CanUseBoxWalk / SP_ForEachPlotInRange are defined in Bombardment.lua.
+-- If that file is ever replaced, keep those two functions or the rebase and
+-- paradrop range previews will fail.
 include( "Bombardment");
 
 local g_InstanceManager = InstanceManager:new( "AlertMessageInstance", "AlertMessageLabel", Controls.AlertStack );
@@ -83,12 +86,11 @@ function( wParam, lParam )
         
     elseif ( wParam == Keys.Z and UIManager:GetControl() and UI:DebugFlag() and not PreGame.IsMultiplayerGame() and not PreGame.IsHotSeatGame()) then
         Game.ToggleDebugMode();
-		local pPlot;
 		local team = Game.GetActiveTeam();
 		local bIsDebug = Game.IsDebugMode();
 
 		for iPlotLoop = 0, Map.GetNumPlots()-1, 1 do
-			pPlot = Map.GetPlotByIndex(iPlotLoop);
+			local pPlot = Map.GetPlotByIndex(iPlotLoop);
 
 			if (pPlot:GetVisibilityCount() > 0) then
 				pPlot:ChangeVisibilityCount(team, -1, -1, true, true);
@@ -596,35 +598,28 @@ function ShowRebaseRangeIndicator()
 	end
 	
 	local iRange= pHeadSelectedUnit:Range();
-	
-	print("iRange: " .. iRange);
-	
+
 	iRange = iRange * GameDefines.AIR_UNIT_REBASE_RANGE_MULTIPLIER;
 	iRange = iRange / 100;
+	-- Becomes a float when the multiplier is not a multiple of 100. The box
+	-- walk truncates dx in C++, which would both repeat and skip columns.
+	iRange = math.floor(iRange);
 
-	print("iRange: " .. iRange);
-	
 	local thisPlot = pHeadSelectedUnit:GetPlot();
 	local thisX = pHeadSelectedUnit:GetX();
 	local thisY = pHeadSelectedUnit:GetY();
-	
-	for iDX = -iRange, iRange, 1 do
-		for iDY = -iRange, iRange, 1 do
-			local pTargetPlot = Map.GetPlotXY(thisX, thisY, iDX, iDY);
-			if pTargetPlot ~= nil then
-				local plotX = pTargetPlot:GetX();
-				local plotY = pTargetPlot:GetY();
-				local plotDistance = Map.PlotDistance(thisX, thisY, plotX, plotY);
-				if plotDistance <= iRange then
-					local hexID = ToHexFromGrid( Vector2( plotX, plotY) );
-					--Events.SerialEventHexHighlight( hexID, true, turn1Color, pathBorderStyle );
-					if pHeadSelectedUnit:CanRebaseAt(thisPlot,plotX,plotY) then
-						Events.SerialEventHexHighlight( hexID, true, turn2Color, "GroupBorder" );
-					end
-				end
+
+	SP_ForEachPlotInRange(thisX, thisY, iRange, function(pPlot)
+		local plotX = pPlot:GetX();
+		local plotY = pPlot:GetY();
+		if Map.PlotDistance(thisX, thisY, plotX, plotY) <= iRange then
+			local hexID = ToHexFromGrid( Vector2( plotX, plotY) );
+			--Events.SerialEventHexHighlight( hexID, true, turn1Color, pathBorderStyle );
+			if pHeadSelectedUnit:CanRebaseAt(thisPlot,plotX,plotY) then
+				Events.SerialEventHexHighlight( hexID, true, turn2Color, "GroupBorder" );
 			end
 		end
-	end
+	end);
 
 end
 
@@ -642,26 +637,19 @@ function ShowParadropRangeIndicator()
 	local thisPlot = pHeadSelectedUnit:GetPlot();
 	if pHeadSelectedUnit:CanParadrop(thisPlot, false) then
 		local iRange= pHeadSelectedUnit:GetDropRange();
-		print("irange: "..tostring(iRange))
 		local thisX = pHeadSelectedUnit:GetX();
 		local thisY = pHeadSelectedUnit:GetY();
-		
-		for iDX = -iRange, iRange, 1 do
-			for iDY = -iRange, iRange, 1 do
-				local pTargetPlot = Map.GetPlotXY(thisX, thisY, iDX, iDY);
-				if pTargetPlot ~= nil then
-					local plotX = pTargetPlot:GetX();
-					local plotY = pTargetPlot:GetY();
-					local plotDistance = Map.PlotDistance(thisX, thisY, plotX, plotY);
-					if plotDistance <= iRange then
-						if pHeadSelectedUnit:CanParadropAt(thisPlot, plotX, plotY) then
-							local hexID = ToHexFromGrid( Vector2( plotX, plotY) );
-							Events.SerialEventHexHighlight( hexID, true, turn1Color, pathBorderStyle );
-						end
-					end
+
+		SP_ForEachPlotInRange(thisX, thisY, iRange, function(pPlot)
+			local plotX = pPlot:GetX();
+			local plotY = pPlot:GetY();
+			if Map.PlotDistance(thisX, thisY, plotX, plotY) <= iRange then
+				if pHeadSelectedUnit:CanParadropAt(thisPlot, plotX, plotY) then
+					local hexID = ToHexFromGrid( Vector2( plotX, plotY) );
+					Events.SerialEventHexHighlight( hexID, true, turn1Color, pathBorderStyle );
 				end
 			end
-		end
+		end);
 	end
 end
 
@@ -670,9 +658,6 @@ function HideParadropRangeIndicator()
 end
 
 function ShowAirliftRangeIndicator()
-
-	print ("In ShowAirliftRangeIndicator()");
-	
 	local pHeadSelectedUnit = UI.GetHeadSelectedUnit();
 	if not pHeadSelectedUnit then
 		return;
@@ -681,7 +666,7 @@ function ShowAirliftRangeIndicator()
 	local thisPlot = pHeadSelectedUnit:GetPlot();
 	if pHeadSelectedUnit:CanAirlift(thisPlot, false) then		
 		for iPlotLoop = 0, Map.GetNumPlots()-1, 1 do
-			pPlot = Map.GetPlotByIndex(iPlotLoop);
+			local pPlot = Map.GetPlotByIndex(iPlotLoop);
 			local plotX = pPlot:GetX();
 			local plotY = pPlot:GetY();
 			if pHeadSelectedUnit:CanAirliftAt(thisPlot, plotX, plotY) then
@@ -693,8 +678,6 @@ function ShowAirliftRangeIndicator()
 end
 
 function HideAirliftRangeIndicator()
-	print ("In HideAirliftRangeIndicator()");
-	
 	ClearUnitHexHighlights();
 end
 
