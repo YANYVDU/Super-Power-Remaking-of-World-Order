@@ -12706,6 +12706,7 @@
 			<Text>
 				可以攔截試圖轟炸附近單位的敵軍飛機。
 				[NEWLINE][ICON_BULLET]每回合能夠進行一次對空攔截。
+				[NEWLINE][ICON_BULLET]攔截時+100%[ICON_STRENGTH]戰鬥力。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]和[COLOR_POSITIVE_TEXT]直升機[ENDCOLOR]單位擁有戰鬥力加成。
 			</Text>

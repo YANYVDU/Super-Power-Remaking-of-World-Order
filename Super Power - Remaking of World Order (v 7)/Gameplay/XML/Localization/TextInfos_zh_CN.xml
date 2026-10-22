@@ -12877,6 +12877,7 @@
 			<Text>
 				可以拦截试图轰炸附近单位的敌军飞机。
 				[NEWLINE][ICON_BULLET]每回合能够进行一次对空拦截。
+				[NEWLINE][ICON_BULLET]拦截时+100%[ICON_STRENGTH]战斗力。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]对[COLOR_POSITIVE_TEXT]攻击机[ENDCOLOR]和[COLOR_POSITIVE_TEXT]直升机[ENDCOLOR]单位拥有战斗力加成。
 			</Text>

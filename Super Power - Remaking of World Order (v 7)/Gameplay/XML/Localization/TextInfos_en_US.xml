@@ -14596,6 +14596,7 @@
 			<Text>
 				Will intercept enemy aircraft which try to bomb nearby Units.
 				[NEWLINE][ICON_BULLET]Can intercept enemy aircrafts once per turn.
+				[NEWLINE][ICON_BULLET]+100% [ICON_STRENGTH]Combat Strength when intercepting.
 				[NEWLINE][ICON_BULLET]Strong vs [COLOR_POSITIVE_TEXT]Helicopter[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Attack Aircrafts[ENDCOLOR].
 			</Text>
 		</Row>

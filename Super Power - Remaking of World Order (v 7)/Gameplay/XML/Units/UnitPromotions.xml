@@ -2194,6 +2194,7 @@
 			<OrderPriority>11</OrderPriority>
 			<PortraitIndex>63</PortraitIndex>
 			<InterceptChanceChange>100</InterceptChanceChange>
+			<InterceptionCombatModifier>100</InterceptionCombatModifier>
 			<IconAtlas>SP_PROMOTION_ATLAS</IconAtlas>
 			<PediaType>PEDIA_UNIT_CATEGORY</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_ANTI_AIR</PediaEntry>
