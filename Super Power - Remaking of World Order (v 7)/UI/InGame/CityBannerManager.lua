@@ -459,6 +459,13 @@ function RefreshCityBanner(cityBanner, iActiveTeam, iActivePlayer)
 					sCityScaleIconTT = sCityScaleIconTT
 						.. "[NEWLINE][NEWLINE]"
 						.. Locale.ConvertTextKey("TXT_KEY_CITY_NO_UTILITY_HELP")
+					-- WHO resolution: the city keeps part of its surplus even without the building
+					local iWHOKept = (Game.GetLeagueWHOSanitationFoodKeptPercent and Game.GetLeagueWHOSanitationFoodKeptPercent()) or 0
+					if iWHOKept > 0 then
+						sCityScaleIconTT = sCityScaleIconTT
+							.. "[NEWLINE]"
+							.. Locale.ConvertTextKey("TXT_KEY_WHO_FOOD_KEPT_HELP", iWHOKept)
+					end
 				end
 				if sCityScaleIconTT ~= nil then
 					controls.CityScaleIcon:SetHide(false)

@@ -3251,6 +3251,11 @@ if Game then
 		if yieldID == YieldTypes.YIELD_FOOD then
 			insertLocalizedBulletIfNonZero( tips, "TXT_KEY_FOOD_FROM_TRADE_ROUTES", city:GetYieldRate( yieldID, false ) - city:GetYieldRate( yieldID, true ) )
 			strModifiersString = "[NEWLINE][ICON_BULLET]" .. L( "TXT_KEY_YIELD_EATEN_BY_POP_PULS", city:FoodConsumption( true, 0 ), yieldIconString, city:GetFoodConsumptionPerPopTimes100() / 100) .. strModifiersString
+			-- WHO resolution: show the reduced per-citizen food consumption
+			local iWHOFoodMod = (Game.GetLeagueWHOFoodConsumptionModifier and Game.GetLeagueWHOFoodConsumptionModifier()) or 0
+			if iWHOFoodMod ~= 0 then
+				insert( tips, "[ICON_BULLET]" .. L( "TXT_KEY_WHO_FOOD_CONSUMPTION_HELP", -iWHOFoodMod ) )
+			end
 		end
 
 		-- Modifiers
@@ -3315,6 +3320,10 @@ if Game then
 
 		tipText = GetYieldTooltipHelper( city, YieldTypes.YIELD_FOOD ) .. "[NEWLINE][NEWLINE]" .. tipText .. "  " .. foodStoredTimes100 / 100 .. "[ICON_FOOD]/ " .. foodThreshold .. "[ICON_FOOD][NEWLINE]"
 
+		-- WHO resolution: cities without the required sanitation building still keep some surplus
+		local iWHOKept = (Game.GetLeagueWHOSanitationFoodKeptPercent and Game.GetLeagueWHOSanitationFoodKeptPercent()) or 0
+		local bWHOKeptApplies = iWHOKept > 0 and not city:CanGrowNormally()
+
 		if foodPerTurnTimes100 == 0 then
 
 			tipText = tipText .. L"TXT_KEY_CITYVIEW_STAGNATION_TEXT"
@@ -3328,7 +3337,11 @@ if Game then
 			local foodMaxKept = city:GetMaxFoodKeptPercent()
 			if foodMaxKept > 0 and foodPerTurnTimes100 > 0 then
 				if foodMaxKept > 100 then foodMaxKept = 100 end
-				tipText = tipText .. "[NEWLINE]" .. L( "TXT_KEY_FOOD_MAX_KEPT", foodMaxKept)
+				if bWHOKeptApplies then
+					tipText = tipText .. "[NEWLINE]" .. L( "TXT_KEY_WHO_FOOD_KEPT_HELP", iWHOKept )
+				else
+					tipText = tipText .. "[NEWLINE]" .. L( "TXT_KEY_FOOD_MAX_KEPT", foodMaxKept)
+				end
 				tipText = tipText .. "[NEWLINE]" .. L( "TXT_KEY_FOOD_KEPT_NOW", city:GetFoodKept())
 			end
 		end

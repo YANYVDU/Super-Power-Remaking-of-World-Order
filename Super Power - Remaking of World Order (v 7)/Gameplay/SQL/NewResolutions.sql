@@ -22,3 +22,9 @@ SELECT 'RESOLUTION_INTERNATIONAL_LAW_PROTECTION', 'TXT_KEY_RESOLUTION_INTERNATIO
 -- plus 0.25% (25 basis points) for each international trade route it runs.
 INSERT INTO Resolutions(Type, Description, Help, VoterDecision, ProposerDecision, TechPrereqAnyMember, WorldBankInterestBasisPoints, WorldBankRouteInterestBasisPoints, WorldBankIntervalTurns)
 SELECT 'RESOLUTION_WORLD_BANK', 'TXT_KEY_RESOLUTION_WORLD_BANK', 'TXT_KEY_RESOLUTION_WORLD_BANK_HELP', 'RESOLUTION_DECISION_YES_OR_NO', 'RESOLUTION_DECISION_NONE', 'TECH_COMPUTERS', 300, 25, 10;
+
+-- World Health Organization: every citizen eats 10% less food, and cities without the sanitation
+-- building required by their scale still keep 10% of their surplus.
+INSERT INTO Resolutions(Type, Description, Help, VoterDecision, ProposerDecision, TechPrereqAnyMember, WHOFoodConsumptionModifier, WHOSanitationFoodKeptPercent)
+SELECT 'RESOLUTION_WHO', 'TXT_KEY_RESOLUTION_WHO', 'TXT_KEY_RESOLUTION_WHO_HELP', 'RESOLUTION_DECISION_YES_OR_NO', 'RESOLUTION_DECISION_NONE', 'TECH_BIOLOGY', -10, 10;
+

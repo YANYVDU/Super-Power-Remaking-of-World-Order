@@ -19586,11 +19586,23 @@
 		<Row Tag="TXT_KEY_RESOLUTION_WORLD_BANK_HELP">
 			<Text>所有文明每10个回合获得相当于其国库[ICON_GOLD]金钱3%的结息，每拥有一条国际商路，该次结息比例额外+0.25%。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_WHO">
+			<Text>世界卫生组织</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_WHO_HELP">
+			<Text>所有文明的城市每个人口消耗的[ICON_FOOD]食物降低10%。城市缺少相应规模的公共卫生医疗设施时，仍可保留相当于正常情况10%的[ICON_FOOD]余粮积累。</Text>
+		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_WORLD_BANK_INTEREST">
 			<Text>世界银行支付了 [ICON_GOLD]+{1_Num} 的国库利息。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_WORLD_BANK_INTEREST_S">
 			<Text>世界银行结息</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHO_FOOD_KEPT_HELP">
+			<Text>世界卫生组织：城市缺少公共卫生医疗设施时，仍保留正常情况 {1_Num}% 的[ICON_FOOD]余粮。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHO_FOOD_CONSUMPTION_HELP">
+			<Text>世界卫生组织：每个人口消耗的[ICON_FOOD]食物减少 {1_Num}%。</Text>
 		</Row>
 	</Language_zh_CN>
 </GameData>

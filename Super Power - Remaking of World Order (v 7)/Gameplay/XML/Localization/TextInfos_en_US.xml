@@ -21116,11 +21116,23 @@
 		<Row Tag="TXT_KEY_RESOLUTION_WORLD_BANK_HELP">
 			<Text>Every 10 turns, all civilizations receive interest equal to 3% of their [ICON_GOLD]Gold treasury. Each international trade route they run adds 0.25% to that rate.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_WHO">
+			<Text>World Health Organization</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_WHO_HELP">
+			<Text>Each citizen in every city consumes 10% less [ICON_FOOD]Food. Cities lacking the public health building required for their size still retain 10% of their normal [ICON_FOOD]surplus.</Text>
+		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_WORLD_BANK_INTEREST">
 			<Text>The World Bank paid [ICON_GOLD]+{1_Num} in treasury interest.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_WORLD_BANK_INTEREST_S">
 			<Text>World Bank interest</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHO_FOOD_KEPT_HELP">
+			<Text>World Health Organization: cities lacking the public health building still retain {1_Num}% of their normal [ICON_FOOD]surplus.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHO_FOOD_CONSUMPTION_HELP">
+			<Text>World Health Organization: each citizen consumes {1_Num}% less [ICON_FOOD]Food.</Text>
 		</Row>
 	</Language_en_US>
 </GameData>
