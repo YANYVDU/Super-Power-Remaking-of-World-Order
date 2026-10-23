@@ -19398,6 +19398,12 @@
 		<Row Tag="TXT_KEY_RESOLUTION_WHO_HELP">
 			<Text>所有文明的城市每人口消耗的[ICON_FOOD]食物降低10%。城市缺少相應規模的公共衛生醫療設施時，仍可保留相當於正常情況10%的[ICON_FOOD]餘糧積累。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_IMO">
+			<Text>國際海事組織</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_IMO_HELP">
+			<Text>所有文明的海洋國際商路額外+20%[ICON_GOLD]金錢（與海運本身的加成疊加）。城邦、野蠻人以及分數低於平均值的文明不能劫掠商船，即使處於戰爭狀態。</Text>
+		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_WORLD_BANK_INTEREST">
 			<Text>世界銀行支付了 [ICON_GOLD]+{1_Num} 的國庫利息。</Text>
 		</Row>

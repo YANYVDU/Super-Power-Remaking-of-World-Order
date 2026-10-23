@@ -28,3 +28,7 @@ SELECT 'RESOLUTION_WORLD_BANK', 'TXT_KEY_RESOLUTION_WORLD_BANK', 'TXT_KEY_RESOLU
 INSERT INTO Resolutions(Type, Description, Help, VoterDecision, ProposerDecision, TechPrereqAnyMember, WHOFoodConsumptionModifier, WHOSanitationFoodKeptPercent)
 SELECT 'RESOLUTION_WHO', 'TXT_KEY_RESOLUTION_WHO', 'TXT_KEY_RESOLUTION_WHO_HELP', 'RESOLUTION_DECISION_YES_OR_NO', 'RESOLUTION_DECISION_NONE', 'TECH_BIOLOGY', -10, 10;
 
+-- International Maritime Organization: ocean international trade routes earn 20% more gold,
+-- and city-states, barbarians and below-average civs may not plunder them even at war.
+INSERT INTO Resolutions(Type, Description, Help, VoterDecision, ProposerDecision, TechPrereqAnyMember, IMOOceanRouteGoldModifier, IMOForbidWeakPlunder)
+SELECT 'RESOLUTION_IMO', 'TXT_KEY_RESOLUTION_IMO', 'TXT_KEY_RESOLUTION_IMO_HELP', 'RESOLUTION_DECISION_YES_OR_NO', 'RESOLUTION_DECISION_NONE', 'TECH_RADIO', 20, 1;

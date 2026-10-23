@@ -21122,6 +21122,12 @@
 		<Row Tag="TXT_KEY_RESOLUTION_WHO_HELP">
 			<Text>Each citizen in every city consumes 10% less [ICON_FOOD]Food. Cities lacking the public health building required for their size still retain 10% of their normal [ICON_FOOD]surplus.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_IMO">
+			<Text>International Maritime Organization</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_IMO_HELP">
+			<Text>Ocean international trade routes yield an additional 20% [ICON_GOLD]Gold, stacking with the existing sea route bonus. City-states, barbarians and civilizations below the average score cannot plunder trade routes, even at war.</Text>
+		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_WORLD_BANK_INTEREST">
 			<Text>The World Bank paid [ICON_GOLD]+{1_Num} in treasury interest.</Text>
 		</Row>
