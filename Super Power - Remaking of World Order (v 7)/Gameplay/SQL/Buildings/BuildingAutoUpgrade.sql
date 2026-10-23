@@ -1,9 +1,10 @@
--- SP 建筑自动升级规则（对应 MPDLL 的 Building_AutoUpgrade 表）
--- 人类玩家始终升级；AI 仅在神级开启
+-- SP building auto-upgrade rules (consumed by MPDLL's Building_AutoUpgrade table)
+-- Human players always upgrade; the AI upgrades only on Deity
 UPDATE HandicapInfos SET AIAutoBuildingUpgrade = 1 WHERE Type = 'HANDICAP_DEITY';
 
--- 同一 UpgradeGroup 在每座城市内只升级一次；SPriority 越小越优先，
--- 城市同时拥有多个 OldBuildingClass 时取优先级最高者作为通知中的旧建筑
+-- Each UpgradeGroup upgrades only once per city; lower SPriority wins, and when a
+-- city owns several OldBuildingClasses the highest-priority one is reported as the
+-- old building in the notification
 INSERT INTO Building_AutoUpgrade (TechType, UpgradeGroup, OldBuildingClass, NewBuildingClass, SPriority) VALUES
 ('TECH_DYNAMITE',          'SP_DYNA_FACTORY',    'BUILDINGCLASS_STONE_WORKS', 'BUILDINGCLASS_MINGING_FACTORY',   10),
 ('TECH_DYNAMITE',          'SP_DYNA_FACTORY',    'BUILDINGCLASS_SAWMILL',     'BUILDINGCLASS_MINGING_FACTORY',   20),
