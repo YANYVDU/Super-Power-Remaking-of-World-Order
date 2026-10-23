@@ -35,10 +35,12 @@ function NewBuildingEffects(iPlayer, iCity, iBuilding, bGold, bFaith)
 
 		if oCity ~= nil then
 			-- CityName Change
-			if oCity:GetName() == Locale.ConvertTextKey("TXT_KEY_CITY_NAME_SHENDU") then
+			-- Compare the raw name key, not GetName(): that one returns the localized text, so a
+			-- multiplayer game with clients in different languages would take different branches here.
+			if oCity:GetNameKey() == "TXT_KEY_CITY_NAME_SHENDU" then
 				oCity:SetName("TXT_KEY_CITY_NAME_LOYANG");
 			end
-			if pCity:GetName() == Locale.ConvertTextKey("TXT_KEY_CITY_NAME_LOYANG") then
+			if pCity:GetNameKey() == "TXT_KEY_CITY_NAME_LOYANG" then
 				pCity:SetName("TXT_KEY_CITY_NAME_SHENDU");
 			end
 
