@@ -61,7 +61,15 @@ function OnPopup( popupInfo )
 	strTitle = Locale.ConvertTextKey("{" .. strShortDescKey.. ":upper}");
 
 	local iActivePlayer = Game.GetActivePlayer();
-	
+
+	-- City-State Unique Ability: this layout has no dedicated UA row, so expose the description
+	-- through the hover text of the top icon and the city-state name.
+	local strUAHelp = GetCityStateUAHelpText(iActivePlayer, iPlayer);
+	if (strUAHelp ~= "") then
+		Controls.TitleIcon:SetToolTipString(strUAHelp);
+		Controls.TitleLabel:SetToolTipString(strUAHelp);
+	end
+
 	if (bMessage) then
 		
 		local strStatusText = GetCityStateStatusText(iActivePlayer, iPlayer);
