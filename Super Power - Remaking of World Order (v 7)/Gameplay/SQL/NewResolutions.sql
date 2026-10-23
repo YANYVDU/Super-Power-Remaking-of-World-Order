@@ -17,3 +17,8 @@ VALUES (10, 'RESOLUTION_DECISION_CITY_CSD', 'TXT_KEY_RESOLUTION_DECISION_CITY_CS
 -- that city-state and standing inside its territory may be attacked by any civ without declaring war.
 INSERT INTO Resolutions(Type, Description, Help, VoterDecision, ProposerDecision, InternationalLawProtection)
 SELECT 'RESOLUTION_INTERNATIONAL_LAW_PROTECTION', 'TXT_KEY_RESOLUTION_INTERNATIONAL_LAW_PROTECTION', 'TXT_KEY_RESOLUTION_INTERNATIONAL_LAW_PROTECTION_HELP', 'RESOLUTION_DECISION_YES_OR_NO', 'RESOLUTION_DECISION_CITY_CSD', 1;
+
+-- World Bank: every 10 turns every civ earns 3% treasury interest (300 basis points),
+-- plus 0.25% (25 basis points) for each international trade route it runs.
+INSERT INTO Resolutions(Type, Description, Help, VoterDecision, ProposerDecision, TechPrereqAnyMember, WorldBankInterestBasisPoints, WorldBankRouteInterestBasisPoints, WorldBankIntervalTurns)
+SELECT 'RESOLUTION_WORLD_BANK', 'TXT_KEY_RESOLUTION_WORLD_BANK', 'TXT_KEY_RESOLUTION_WORLD_BANK_HELP', 'RESOLUTION_DECISION_YES_OR_NO', 'RESOLUTION_DECISION_NONE', 'TECH_COMPUTERS', 300, 25, 10;

@@ -19386,5 +19386,17 @@
 		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_TT">
 			<Text>檢視該項指標的完整全球排名</Text>
 		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_WORLD_BANK">
+			<Text>世界銀行</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_WORLD_BANK_HELP">
+			<Text>所有文明每10個回合獲得相當於其國庫[ICON_GOLD]金錢3%的結息，每擁有一條國際商路，該次結息比例額外+0.25%。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_WORLD_BANK_INTEREST">
+			<Text>世界銀行支付了 [ICON_GOLD]+{1_Num} 的國庫利息。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_WORLD_BANK_INTEREST_S">
+			<Text>世界銀行結息</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

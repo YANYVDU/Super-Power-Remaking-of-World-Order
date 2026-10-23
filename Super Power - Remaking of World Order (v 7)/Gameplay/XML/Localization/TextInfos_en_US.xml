@@ -21110,5 +21110,17 @@
 		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_TT">
 			<Text>View the full world ranking for this category</Text>
 		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_WORLD_BANK">
+			<Text>World Bank</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_WORLD_BANK_HELP">
+			<Text>Every 10 turns, all civilizations receive interest equal to 3% of their [ICON_GOLD]Gold treasury. Each international trade route they run adds 0.25% to that rate.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_WORLD_BANK_INTEREST">
+			<Text>The World Bank paid [ICON_GOLD]+{1_Num} in treasury interest.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_WORLD_BANK_INTEREST_S">
+			<Text>World Bank interest</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
