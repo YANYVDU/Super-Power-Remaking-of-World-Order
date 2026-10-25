@@ -19610,5 +19610,155 @@
 		<Row Tag="TXT_KEY_WHO_FOOD_CONSUMPTION_HELP">
 			<Text>世界卫生组织：每个人口消耗的[ICON_FOOD]食物减少 {1_Num}%。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V11">
+			<Text>v11 更新记录</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V11_0">
+			<Text>SP 11.0 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V11_0_HELP">
+			<Text>新版本完整名称为Super Power V11 - Pillars of Sovereignty/超级大国V11 — 主权支柱[NEWLINE]本次更新内容较多，主要包含以下内容：[NEWLINE]一.大版本核心-城邦UA（CSUA）[NEWLINE]1.现在58个城邦全部拥有独特UA，可以为其盟友或朋友在游戏中提供强大助力；[NEWLINE]游戏百科、悬停城邦城市条等各处新增了城邦UA的展示，城邦在游戏中的重要性将大幅提高。[NEWLINE]2.单人游戏开局设置-高级选项新增允许自选本局游戏内必定会出现的城邦；[NEWLINE]3.由于城邦盟友的大幅加强，新增数个对城邦盟友数量的平衡机制：[NEWLINE]a.外交威望机制：[NEWLINE]玩家会根据自身时代获得基础外交威望(远古0，此后每个时代1)[NEWLINE]部分政策、信条、奇观、领袖特性、城邦UA、世界议会项目会提供额外的外交威望；[NEWLINE]当玩家拥有的盟邦数量超过其当前外交威望时，每超限一个，获得惩罚：[NEWLINE]（1）从任何渠道获得的影响力-10%（超限十个后无法提高对任何城邦的影响力）;[NEWLINE]（2）全国来自人口的不满+15%；[NEWLINE]（3）城邦影响力自然衰减速度增加10%；[NEWLINE]b.经济援助机制：[NEWLINE]从游戏开局起，所有城邦会持续循环开启经济援助，每轮持续20回合（受游戏速度修正），一轮结束后立即开启下一轮；[NEWLINE]主要文明可在城邦外交界面宣布参与城邦的经济援助（类似宣布保护），参与期间每回合支付回合金（数额随世界时代提升，[NEWLINE]远古时代为1，此后每个时代+1），如果没有手动退出，经济援助会默认自动续约，外交总览——城邦界面可以通过勾选，哪些城邦援助中断后下次开启自动签约；[NEWLINE]（1）非盟友参与：每回合对该城邦+1影响力，中途退出无惩罚；[NEWLINE]（2）盟友参与：每回合维持影响力不衰减，若盟友未参与援助则每回合-1影响力；[NEWLINE]（3）盟友中途退出：立刻-20影响力，此后每回合-1影响力，本轮结束前不可重新参与；[NEWLINE]（4）非盟友中途退出：无惩罚，本轮结束前不可重新参与；[NEWLINE]（5）与城邦开战会自动终止援助并按退出结算；城邦或玩家被灭国则援助关系直接终止；[NEWLINE]（6）经济援助的金钱会进入城邦国库，城邦被勒索时将会额外上供15%国库现金；[NEWLINE]（7）城邦宫殿新增效果：每拥有10现金，境内敌军降低1%战斗力；[NEWLINE]c.动态影响力下限机制：[NEWLINE]（1）成为城邦盟友需要的影响力不再是固定60点，而是会随时代提升；[NEWLINE]（2）当前门槛：远古60，古典90，中古150，启蒙240，工业300，电气400，全战500，原子600，信息750，未来900；[NEWLINE]（3）在所有影响力达到盟友门槛的文明中，影响力最高的文明会成为城邦盟友；[NEWLINE]（4）现在大商业家和威尼斯商人提供的影响力随时代增加（40），郑和宝船为10；[NEWLINE]（5）紫禁城现在会降低15%成为城邦盟友需要的影响力下限，作为平衡，其降低腐败不满的效果从50%削弱为25%；[NEWLINE]d.援建点数机制：[NEWLINE]（1）为城邦提供经济援助期间，玩家可以每回合获得1点援建点数；[NEWLINE]（2）援建点数约等于另类的影响力，但仅限于在该城邦消费；[NEWLINE]（3）完成城邦的现金需求任务，可以额外获得大量援建点数；[NEWLINE]（4）援建点数的用途包括：刷新该城邦给予的任务、抵消勒索城邦带来的不良影响、[NEWLINE]指定城邦下次赠送的单位、 推动世界议会/联合国加速进行。[NEWLINE]e.新的城邦任务：[NEWLINE]（1）完成指定国家奇观；无特殊奖励[NEWLINE]（2）全国x个城市普及某个建筑（不会随机到需要沿海/沿河或者特殊资源的建筑）；无特殊奖励[NEWLINE]（3）发现指定城市/城邦（工业时代后不再触发）；奖励吃游戏速度修正的现金[NEWLINE]（4）断绝和某城邦的商路（有商路通往城邦时才可能触发，且判定同索取贡礼）；无特殊奖励[NEWLINE]模拟场景：发布任务的城邦与我们建立商路的城邦关系不好，不希望我们的商路过去协助他们的敌对城邦发展；[NEWLINE]（5）希望玩家成为指定城邦的盟友(玩家外交威望余量&gt;=2时才能触发）；奖励吃游戏速度修正的现金[NEWLINE]模拟场景：发布任务的城邦认为我们的联盟不够强大，需要吸纳更多城邦加入；[NEWLINE]（6）在任务期限内研发某个指定科技（30x游戏速度修正回合内，研发下一个时代的某个随机科技）；奖励吃游戏速度修正的文化[NEWLINE]模拟场景：发布任务的城邦希望我们在该领域取得关键突破；[NEWLINE]（7）派驻一位间谍到该城邦完成一次选举操控任务（不必成功，失败也算，启蒙时代后才会发布）；奖励吃游戏速度修正的现金[NEWLINE]模拟场景：发布任务的城邦希望我们打击它们境内的其他政党；[NEWLINE]（8）对指定玩家宣战（只有该玩家对该城邦宣战时触发，且对所有未与城邦和该文明宣战的文明发布）；奖励吃游戏速度修正的[NEWLINE]模拟场景：发布任务的城邦希望我们加入他们对敌对文明的战争；[NEWLINE]（9）攻占某个玩家的原始首都（对所有与该城邦不处于交战且与该文明宣战的文明发布）；唯一奖励-一个王牌间谍，[NEWLINE]当某个玩家完成该任务后此任务本局游戏不会再被发布，所有未完成该任务的玩家被回收该任务。[NEWLINE]模拟场景：发布任务的城邦希望我们彻底击败他们的敌国；[NEWLINE]（10）在世界议会上宣布该城邦受国际法保护（该城邦境内的他国敌军可以被任何文明攻击，而无需对军队所属国宣战），[NEWLINE]世界议会开启后才能触发，任务持续到下次提案结束。奖励：2张额外世界议会选票；[NEWLINE]模拟场景：发布任务的城邦希望我们保护他们的国土免遭战火；[NEWLINE]（11）在世界议会上对某个文明提起贸易制裁（同8.）。奖励吃游戏速度修正的现金[NEWLINE]模拟场景：发布任务的城邦希望我们对敌对文明进行经济施压；[NEWLINE]（12）在世界议会提议废除城邦禁运（只在城邦禁运生效时触发）。奖励吃游戏速度修正的现金[NEWLINE]模拟场景：发布任务的城邦希望我们可以帮助他们打通外汇路径；[NEWLINE]（13）在任务期限内对该城邦完成一次巨额捐赠（5000金钱或者甘托克盟友用信仰替代）。奖励吃游戏速度修正的文化和30援助点数[NEWLINE]模拟场景：发布任务的城邦希望我们提供援助以帮助其度过难关。[NEWLINE]（14）与指定文明签订科研协定（双方未开战且对该城邦影响力均大于60时触发）。奖励吃游戏速度修正的文化[NEWLINE]模拟场景：发布任务的城邦希望我们更多参与前沿科技研发；[NEWLINE]f.城邦相关文明修正：[NEWLINE]（1）威尼斯商人收购城邦后，将永久获得该城邦的盟友级独特能力；[NEWLINE]（2）希腊UA新增外交威望+2，但获得影响力的效果下调；[NEWLINE]（3）罗马新增UA：征服城邦原始首都后永久获得该城邦的盟友级独特能力；[NEWLINE]（4）奥地利UA改动：吞并城邦现在需要额外花费50援建点数，[NEWLINE]吞并后将永久获得该城邦的盟友级独特能力；[NEWLINE]二.间谍系统扩充[NEWLINE]1.新增第4级间谍等级——王牌间谍：[NEWLINE]间谍等级现为「新进间谍→正式探员→高级特工→王牌间谍」;[NEWLINE]高级特工必须已经完成过以下三件事，才能晋升为王牌间谍：[NEWLINE]（1）成功窃取过一项科技；[NEWLINE]（2）击杀过一名敌方间谍；[NEWLINE]（3）成功策划过一次城邦政变。[NEWLINE]每当有文明诞生王牌间谍时，都会向所有文明发出公告；除晋升外，也可通过城邦任务奖励直接获得王牌间谍；间谍总览界面中，王牌间谍以最高等级的金色图标显示。[NEWLINE]2.王牌间谍的谍战能力：[NEWLINE]a.政变强化：由王牌间谍发动的城邦政变，影响力赤字减半；[NEWLINE]b.政变防御：盟友的王牌间谍在该城邦担任反间谍时，敌方对该城邦的政变必定失败；[NEWLINE]c.从容脱身：王牌间谍执行任务时，被发现的判定-100；[NEWLINE]d.反间谍：己方每有1名王牌间谍担任反间谍，我方对敌方间谍的侦测判定+10。[NEWLINE]3.王牌间谍的跨领域能力：[NEWLINE]a.选票议价：驻在他国首都的王牌间谍外交官，使该国出售世界议会选票的价格降低80%；[NEWLINE]b.整肃吏治：己方每有1名王牌间谍担任反间谍，全国城市腐败-5%；[NEWLINE]c.移民引导：驻在移民来源国的王牌间谍外交官，使该国流向我国的移民速度+100%；[NEWLINE]d.外交威望：驻外的王牌间谍外交官每人提供+1外交威望；[NEWLINE]e.议会话语权：王牌间谍外交官在世界议会中价值3张选票（外交官选票未解锁时不提供）。[NEWLINE]4.间谍点数机制：[NEWLINE]（1）新增间谍点数，类似大军事家点数，由建筑、政策、信条、领袖特性每回合提供；[NEWLINE]（2）累积达到阈值后自动获得一名新间谍，每获得一名间谍阈值都会提高，[NEWLINE]且提高幅度随累计间谍数分段加大，第一个间谍阈值为100，后续每次需求+50；[NEWLINE]（3）间谍总览界面新增间谍点数进度条，建筑提示框中也会显示间谍点数产出。[NEWLINE]5.咨询外交官：[NEWLINE]与AI的交易界面新增【咨询外交官】按钮，可揭示该国对本交易的底线评估，详细程度取决于驻扎在该国首都的外交官等级：[NEWLINE]正式探员显示价值比值，高级特工显示总评分与差额，王牌间谍显示完整的逐项明细。[NEWLINE]6.外交谈判：[NEWLINE]派驻外交官到某国首都后，可在交易界面发起【外交谈判】，有概率触发外交合作，使本回合我方回合金对该国的价值提升20%，触发后进入冷却；[NEWLINE]若通过外交谈判达成的交易被判定为不正当获利，驻该国的外交官将被降级为最低等级的新进间谍。[NEWLINE]7.选举操控按间谍等级缩放：[NEWLINE]（1）赢得城邦选举的影响力奖励为「40 + 间谍等级²×5」（正式探员45、高级特工60、王牌间谍85）；[NEWLINE]（2）落败方的影响力损失为「5 + 自身影响力×2%×获胜间谍等级」；[NEWLINE]（3）永久盟友城邦不再参与选举结算，胜负双方均不受影响。[NEWLINE]8.情报搜集明细：[NEWLINE]间谍总览界面重做，间谍在敌方城市搜集情报时，每回合产出的来源会逐项列出[NEWLINE]（基础产出、该城市建筑、该文明建筑/奇观、该文明政策、我方政策、城邦UA、间谍等级、间谍速度等）。[NEWLINE]三.功能整合[NEWLINE]1.专家槽位整合(MPDLL)[NEWLINE]同类建筑可以同时提供专家槽了，现在专家槽不再绑定建筑类；[NEWLINE]2.空战整合[NEWLINE]现在点击游猎按钮看到的是真实的游猎VS拦截的战斗预览，修复了没有远程攻击能力的拦截单位，空战伤害有误的问题，[NEWLINE]修改了游猎拦截的战斗力计算规则：[NEWLINE]（1）游猎与拦截统一按「远程攻击」结算（原版拦截方按域使用防御值，导致海上拦截单位被一击秒杀、而游猎飞机毫发无损）；[NEWLINE]（2）没有远程攻击力的单位，以自身基础近战力量的50%进行拦截；[NEWLINE]（3）游猎与拦截的晋升加成改为与其它修正加法叠加（原先乘在最终力量上，会连带放大域加成、战略资源惩罚等修正）；[NEWLINE]（4）游猎规则从Lua移入DLL，预览给出双向伤害，并列出游猎/拦截力量修正的明细；[NEWLINE]（5）空优战机、舰载战机、攻击机、战略轰炸机新增：与空军单位作战时，射程每多1点+10%远程压制；[NEWLINE]（6）游猎飞机从拦截单位受到的伤害降为正常的50%；游猎方获得4点攻击经验（对空中拦截、地面防空、地面目标三条路径均适用）；[NEWLINE]（7）修复了地面单位的叠打会误伤空袭方航母的问题；[NEWLINE]（8）修正了多项防空与空中作战晋升的说明文本，使其与实际数值一致（如空优战机每回合可拦截两次、空中游猎的+400%游猎力量、反直升机对直升机的加成等）。[NEWLINE]（9）防空火力晋升新增：拦截时增加100%战斗力；[NEWLINE]3.国际移民整合[NEWLINE]现在国际移民已内置进入MPDLL实现，同时修改了国际移民的进度UI；[NEWLINE]4.建筑升级整合[NEWLINE]现在建筑升级改为MPDLL实现，且不再逐个城市逐个建筑通知玩家，只会在右侧统一通知有哪些建筑升级了。[NEWLINE]测试：现在八级难度的AI也能自动触发建筑升级效果；[NEWLINE]四.新增UI[NEWLINE]1.悬浮顶部科研将展示科研阈值来源，悬浮文化将展示政策阈值来源，悬浮快乐中增加部分快乐UI；[NEWLINE]2.没有人口位于专家槽位时，也能正确展示城市每回合伟人进度了；[NEWLINE]3.游戏百科主页内置超级大国更新日志；[NEWLINE]4.预览商路时将展示更详细的金钱收益来源；[NEWLINE]5.信息报表可以查看各项数据的完整排名表了；[NEWLINE]五.奢侈品贬值[NEWLINE]部分奢侈品的快乐将随时代推进降低，至多降低为1。此改动为后续奢侈品加工引入的前置1；[NEWLINE]六.平民通行规则修改[NEWLINE]1.平民无限堆叠维持不变；[NEWLINE]2.移民和威尼斯商人现在视为“扩张单位”；[NEWLINE]3.所有正规军单位现在可以和以前一样阻拦其他国家的“扩张单位”了；[NEWLINE]4.同队玩家、城邦盟友、城邦朋友不会阻拦玩家的“扩张单位”；[NEWLINE]5.其他平民单位维持自由通行不变；[NEWLINE]6.海运时规则维持现状；[NEWLINE]七.新增的其他内容[NEWLINE]1.新世界奇观：阿帕达纳宫，提供3间谍点数；[NEWLINE]2.新增信条：[NEWLINE]（1）德尔斐神谕（神系）：每座信仰该宗教的城市为其所属玩家+1间谍点数，神庙+1文化；[NEWLINE]（2）告解圣事（创立者）：本宗教的创立者每回合+2间谍点数，信仰该宗教的城市管理成本-100；[NEWLINE]（3）宗座特使（创立者）：+1外交威望，对城邦的影响力恢复速度+50%、衰减速度-25%。[NEWLINE]3.虔信、荣誉的政策改动：[NEWLINE]（1）虔信开门新增：与你同主流宗教的城邦的基准影响力提高5；[NEWLINE]（2）虔信关门新增：与信奉自己所创宗教的城邦，每回合影响力+1；[NEWLINE]（3）荣誉开门新增：对军事城邦的基准影响力提高10，城邦赠送的单位额外+10经验；[NEWLINE]（4）荣誉关门新增：城邦赠送的单位获得晋升【境外人力】。[NEWLINE]4.现在玩家创立的宗教对于本国城市宗教压力+33%；[NEWLINE]5.AI不再浪费信仰购买大仙缓解宗教压力，而是使用宗教裁判官；[NEWLINE]6.现在城邦会使用现金购买商路加成建筑和城防建筑了；[NEWLINE]7.现在允许正规军阻挠他国类移民单位（移民、威尼斯商人）通行了；[NEWLINE]8.世界议会新增：世界银行、世界卫生组织、世界海事组织议题。[NEWLINE][NEWLINE]八.bug修复：[NEWLINE]1.现在玩家签订的开放边境条例由队伍级修改为玩家级，队友开边自己不再跟着开边；[NEWLINE]2.修复了自选遗迹导致的联机重载bug；[NEWLINE]3.修复了负数信仰产出的情况下，虔信中二改为降低快乐的bug；[NEWLINE]4.修复了城邦的建筑不会对玩家商路产生收益的bug；[NEWLINE]5.修复了联机读档会空过回合的bug；</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CONTEST_WORLD_WONDERS">
+			<Text>{3_MinorCivName:textkey}的民众渴望亲眼见证人类文明的宏伟造物，以此作为评断一个民族智慧的标尺。谁能在{2_TurnsDuration}回合内建成最多的[ICON_GOLDEN_AGE]世界奇观，便能获得他们的[ICON_INFLUENCE]友谊与丰厚的赏金。[COLOR_POSITIVE_TEXT]剩余{1_TurnsRemaining}回合。[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CONTEST_WORLD_WONDERS">
+			<Text>{1_MinorCivName:textkey}渴望伟大的世界奇观！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CONTEST_WORLD_WONDERS">
+			<Text>你以一座座宏伟奇观征服了{1_MinorCivName:textkey}的想象力！他们为你的成就献上厚礼，你的[ICON_INFLUENCE]影响力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。成功的文明（允许并列）：[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CONTEST_WORLD_WONDERS">
+			<Text>{1_MinorCivName:textkey}为你的奇观伟业倾倒！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_FORMAL">
+			<Text>他们在寻找最擅长建造世界奇观的文明。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_WINNING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_FORMAL} 目前你以[ICON_GOLDEN_AGE][COLOR_POSITIVE_TEXT]{1_PlayerScore}[ENDCOLOR]座领先。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_LOSING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_FORMAL} 目前领先者已建成[ICON_GOLDEN_AGE]{1_LeaderScore}座，你建成了[ICON_GOLDEN_AGE][COLOR_POSITIVE_TEXT]{2_PlayerScore}[ENDCOLOR]座。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CONTEST_CONVERTS">
+			<Text>{3_MinorCivName:textkey}的民众在信仰上陷入迷茫，渴望有传道者指引方向。谁能在{2_TurnsDuration}回合内通过[ICON_MISSIONARY]传教士或[ICON_PROPHET]大先知转化最多的信徒，便能获得他们的[ICON_INFLUENCE]友谊与[ICON_PEACE]信仰的馈赠。[COLOR_POSITIVE_TEXT]剩余{1_TurnsRemaining}回合。[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CONTEST_CONVERTS">
+			<Text>{1_MinorCivName:textkey}渴望信仰的指引！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CONTEST_CONVERTS">
+			<Text>你传播的福音令{1_MinorCivName:textkey}的民众心悦诚服！他们以[ICON_PEACE]信仰回报你的传道，你的[ICON_INFLUENCE]影响力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。成功的文明（允许并列）：[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CONTEST_CONVERTS">
+			<Text>{1_MinorCivName:textkey}为你的布道感动！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_FORMAL">
+			<Text>他们在寻找最善于传播信仰的文明。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_WINNING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_FORMAL} 目前你已转化[ICON_PEACE][COLOR_POSITIVE_TEXT]{1_PlayerScore}[ENDCOLOR]名信徒，遥遥领先。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_LOSING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_FORMAL} 目前领先者已转化[ICON_PEACE]{1_LeaderScore}名信徒，你转化了[ICON_PEACE][COLOR_POSITIVE_TEXT]{2_PlayerScore}[ENDCOLOR]名。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CONTEST_GREAT_PEOPLE">
+			<Text>{3_MinorCivName:textkey}相信伟人的思想能让整个民族受益，因此关注着各文明的才智之士。谁能在{2_TurnsDuration}回合内诞生最多的[ICON_GREAT_PEOPLE]伟人，便能获得他们的[ICON_INFLUENCE]友谊，并换来一项免费科技。[COLOR_POSITIVE_TEXT]剩余{1_TurnsRemaining}回合。[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CONTEST_GREAT_PEOPLE">
+			<Text>{1_MinorCivName:textkey}渴望伟大的头脑！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CONTEST_GREAT_PEOPLE">
+			<Text>你境内人才辈出的盛况令{1_MinorCivName:textkey}赞叹不已！他们与你分享了一项免费科技，你的[ICON_INFLUENCE]影响力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。成功的文明（允许并列）：[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CONTEST_GREAT_PEOPLE">
+			<Text>{1_MinorCivName:textkey}为你的贤才辈出而赞叹！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_FORMAL">
+			<Text>他们在寻找最盛产伟人的文明。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_WINNING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_FORMAL} 目前你以[ICON_GREAT_PEOPLE][COLOR_POSITIVE_TEXT]{1_PlayerScore}[ENDCOLOR]位领先。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_LOSING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_FORMAL} 目前领先者已诞生[ICON_GREAT_PEOPLE]{1_LeaderScore}位，你诞生了[ICON_GREAT_PEOPLE][COLOR_POSITIVE_TEXT]{2_PlayerScore}[ENDCOLOR]位。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CONTEST_CITIES_FOUNDED">
+			<Text>{3_MinorCivName:textkey}的民众挤在日渐拥挤的港口，渴望到远方开拓新的家园。谁能在{2_TurnsDuration}回合内建立最多的新城市，便能获得他们的[ICON_INFLUENCE]友谊，并让他们传授的航海技艺使你的每座城市增长[ICON_FOOD]1人口。[COLOR_POSITIVE_TEXT]剩余{1_TurnsRemaining}回合。[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CONTEST_CITIES_FOUNDED">
+			<Text>{1_MinorCivName:textkey}的民众渴望新的家园！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CONTEST_CITIES_FOUNDED">
+			<Text>你为无地者开辟家园的壮举令{1_MinorCivName:textkey}深感钦佩！他们的移民涌入你的城市，每座城市增长1[ICON_FOOD]人口，你的[ICON_INFLUENCE]影响力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。成功的文明（允许并列）：[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CONTEST_CITIES_FOUNDED">
+			<Text>{1_MinorCivName:textkey}为你的开拓精神喝彩！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_FORMAL">
+			<Text>他们在寻找最善于开拓新城市的文明。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_WINNING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_FORMAL} 目前你已建立[COLOR_POSITIVE_TEXT]{1_PlayerScore}[ENDCOLOR]座新城市，遥遥领先。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_LOSING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_FORMAL} 目前领先者已建立{1_LeaderScore}座新城市，你建立了[COLOR_POSITIVE_TEXT]{2_PlayerScore}[ENDCOLOR]座。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CONTEST_CITIES_CAPTURED">
+			<Text>{3_MinorCivName:textkey}崇敬勇猛的征服者，并愿意把他们的战术倾囊相授。谁能在{2_TurnsDuration}回合内攻占最多的他国城市，便能获得他们的[ICON_INFLUENCE]友谊，并让你的所有现存军事单位获得[COLOR_POSITIVE_TEXT]100[ENDCOLOR]经验。[COLOR_POSITIVE_TEXT]剩余{1_TurnsRemaining}回合。[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CONTEST_CITIES_CAPTURED">
+			<Text>{1_MinorCivName:textkey}崇敬勇武的征服者！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CONTEST_CITIES_CAPTURED">
+			<Text>你的赫赫武功令{1_MinorCivName:textkey}心悦诚服！他们派出教官训练你的军队，所有现存军事单位获得[COLOR_POSITIVE_TEXT]100[ENDCOLOR]经验，你的[ICON_INFLUENCE]影响力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。成功的文明（允许并列）：[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CONTEST_CITIES_CAPTURED">
+			<Text>{1_MinorCivName:textkey}为你的征服伟业臣服！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_FORMAL">
+			<Text>他们在寻找最勇猛的征服者。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_WINNING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_FORMAL} 目前你已攻占[ICON_WAR][COLOR_POSITIVE_TEXT]{1_PlayerScore}[ENDCOLOR]座城市，遥遥领先。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_LOSING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_FORMAL} 目前领先者已攻占[ICON_WAR]{1_LeaderScore}座城市，你攻占了[ICON_WAR][COLOR_POSITIVE_TEXT]{2_PlayerScore}[ENDCOLOR]座。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_ENDED_CONTEST_WORLD_WONDERS">
+			<Text>另一个文明的奇观建设成就令{1_MinorCivName:textkey}叹服。你的奇观建设进度不足，你的[ICON_INFLUENCE]影响力维持原状。完成任务的文明（允许并列）:[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_WORLD_WONDERS">
+			<Text>{1_MinorCivName:textkey}把目光投向了别处</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_ENDED_CONTEST_CONVERTS">
+			<Text>另一个文明的传教成果折服了{1_MinorCivName:textkey}。你的传道努力不足，你的[ICON_INFLUENCE]影响力维持原状。完成任务的文明（允许并列）:[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_CONVERTS">
+			<Text>{1_MinorCivName:textkey}把目光投向了别处</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_ENDED_CONTEST_GREAT_PEOPLE">
+			<Text>另一个文明的贤才辈出令{1_MinorCivName:textkey}赞叹。你的伟人成就不足，你的[ICON_INFLUENCE]影响力维持原状。完成任务的文明（允许并列）:[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_GREAT_PEOPLE">
+			<Text>{1_MinorCivName:textkey}把目光投向了别处</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_ENDED_CONTEST_CITIES_FOUNDED">
+			<Text>另一个文明的开拓速度让{1_MinorCivName:textkey}刮目相看。你建立的新城市不足，你的[ICON_INFLUENCE]影响力维持原状。完成任务的文明（允许并列）:[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_CITIES_FOUNDED">
+			<Text>{1_MinorCivName:textkey}把目光投向了别处</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_ENDED_CONTEST_CITIES_CAPTURED">
+			<Text>另一个文明的赫赫武功令{1_MinorCivName:textkey}倾倒。你的攻城战果不足，你的[ICON_INFLUENCE]影响力维持原状。完成任务的文明（允许并列）:[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_CITIES_CAPTURED">
+			<Text>{1_MinorCivName:textkey}把目光投向了别处</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_ENDED_CONTEST_NO_WINNER">
+			<Text>{1_MinorCivName:textkey}发起的竞赛无人达标，没有任何文明获得奖励。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_NO_WINNER">
+			<Text>{1_MinorCivName:textkey}的竞赛无人达标</Text>
+		</Row>
 	</Language_zh_CN>
 </GameData>

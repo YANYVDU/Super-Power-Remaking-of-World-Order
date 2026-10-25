@@ -1178,6 +1178,26 @@
 			<Set Enabled="1" Friendship="60" RewardCulture="50"/>
 			<Where Type="MINOR_CIV_QUEST_RESEARCH_AGREEMENT"/>
 		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="50" RewardGold="100"/>
+			<Where Type="MINOR_CIV_QUEST_CONTEST_WORLD_WONDERS"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="50" RewardFaith="50"/>
+			<Where Type="MINOR_CIV_QUEST_CONTEST_CONVERTS"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="50" RewardFreeTech="1"/>
+			<Where Type="MINOR_CIV_QUEST_CONTEST_GREAT_PEOPLE"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="50" RewardPopulation="1"/>
+			<Where Type="MINOR_CIV_QUEST_CONTEST_CITIES_FOUNDED"/>
+		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="50" RewardUnitXP="100"/>
+			<Where Type="MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED"/>
+		</Update>
 	</Quests>
 
 </GameData>

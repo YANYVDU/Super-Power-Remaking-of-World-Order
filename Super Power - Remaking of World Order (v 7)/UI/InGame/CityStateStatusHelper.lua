@@ -19,6 +19,11 @@ ktQuestsDisplayOrder = {
 	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CULTURE,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_FAITH,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_TECHS,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_WORLD_WONDERS,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CONVERTS,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_GREAT_PEOPLE,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_FOUNDED,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_INVEST,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_KILL_CAMP,
 	-- Then personal support quests
@@ -654,6 +659,16 @@ function GetActiveQuestText(iMajor, iMinor)
 				sIconText = sIconText .. "[ICON_PEACE]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_TECHS) then
 				sIconText = sIconText .. "[ICON_RESEARCH]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_WORLD_WONDERS) then
+				sIconText = sIconText .. "[ICON_GOLDEN_AGE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CONVERTS) then
+				sIconText = sIconText .. "[ICON_PEACE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_GREAT_PEOPLE) then
+				sIconText = sIconText .. "[ICON_GREAT_PEOPLE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_FOUNDED) then
+				sIconText = sIconText .. "[ICON_FOOD]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED) then
+				sIconText = sIconText .. "[ICON_WAR]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_INVEST) then
 				sIconText = sIconText .. "[ICON_INVEST]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_BULLY_CITY_STATE) then
@@ -810,6 +825,46 @@ function GetActiveQuestToolTip(iMajor, iMinor)
 					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_TECHS_WINNING_FORMAL", iMajorScore );
 				else
 					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_TECHS_LOSING_FORMAL", iLeaderScore, iMajorScore );
+				end
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_WORLD_WONDERS) then
+				local iLeaderScore = pMinor:GetMinorCivContestValueForLeader(MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_WORLD_WONDERS);
+				local iMajorScore = pMinor:GetMinorCivContestValueForPlayer(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_WORLD_WONDERS);
+				if (pMinor:IsMinorCivContestLeader(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_WORLD_WONDERS)) then
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_WINNING_FORMAL", iMajorScore );
+				else
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_LOSING_FORMAL", iLeaderScore, iMajorScore );
+				end
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CONVERTS) then
+				local iLeaderScore = pMinor:GetMinorCivContestValueForLeader(MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CONVERTS);
+				local iMajorScore = pMinor:GetMinorCivContestValueForPlayer(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CONVERTS);
+				if (pMinor:IsMinorCivContestLeader(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CONVERTS)) then
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_WINNING_FORMAL", iMajorScore );
+				else
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_LOSING_FORMAL", iLeaderScore, iMajorScore );
+				end
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_GREAT_PEOPLE) then
+				local iLeaderScore = pMinor:GetMinorCivContestValueForLeader(MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_GREAT_PEOPLE);
+				local iMajorScore = pMinor:GetMinorCivContestValueForPlayer(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_GREAT_PEOPLE);
+				if (pMinor:IsMinorCivContestLeader(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_GREAT_PEOPLE)) then
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_WINNING_FORMAL", iMajorScore );
+				else
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_LOSING_FORMAL", iLeaderScore, iMajorScore );
+				end
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_FOUNDED) then
+				local iLeaderScore = pMinor:GetMinorCivContestValueForLeader(MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_FOUNDED);
+				local iMajorScore = pMinor:GetMinorCivContestValueForPlayer(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_FOUNDED);
+				if (pMinor:IsMinorCivContestLeader(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_FOUNDED)) then
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_WINNING_FORMAL", iMajorScore );
+				else
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_LOSING_FORMAL", iLeaderScore, iMajorScore );
+				end
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED) then
+				local iLeaderScore = pMinor:GetMinorCivContestValueForLeader(MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED);
+				local iMajorScore = pMinor:GetMinorCivContestValueForPlayer(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED);
+				if (pMinor:IsMinorCivContestLeader(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED)) then
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_WINNING_FORMAL", iMajorScore );
+				else
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_LOSING_FORMAL", iLeaderScore, iMajorScore );
 				end
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_INVEST) then
 				sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_INVEST_FORMAL" );
