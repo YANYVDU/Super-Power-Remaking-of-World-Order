@@ -21045,10 +21045,10 @@
 			<Text>Their trade routes are strangled by the city-state embargo and they want you to open them.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_DONATE_GOLD">
-			<Text>{2_MinorCivName:textkey} is in dire straits - an empty treasury and a suffering people. They ask you to lend a hand with a gift of {1_GoldAmount}[ICON_GOLD]Gold to see them through. (Allies of Gangtok may pay in [ICON_PEACE]Faith instead.)</Text>
+			<Text>{2_MinorCivName:textkey} is in dire straits - an empty treasury and a suffering people. They ask you to lend a hand by donating a total of {1_GoldAmount}[ICON_GOLD]Gold before the quest expires. (Allies of Gangtok may pay in [ICON_PEACE]Faith instead.)</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_DONATE_GOLD">
-			<Text>{2_MinorCivName:textkey} wants {1_GoldAmount}[ICON_GOLD]Gold</Text>
+			<Text>{2_MinorCivName:textkey} wants a total of {1_GoldAmount}[ICON_GOLD]Gold</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_DONATE_GOLD">
 			<Text>Your generous gift has carried {1_MinorCivName:textkey} through its hardship. Your [ICON_INFLUENCE]Influence with them has increased by [COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR].</Text>
@@ -21057,7 +21057,7 @@
 			<Text>Donated Gold to {1_MinorCivName:textkey}!</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CITY_STATE_QUEST_DONATE_GOLD_FORMAL">
-			<Text>They want a gift of {1_GoldAmount}[ICON_GOLD]Gold to see them through hard times.</Text>
+			<Text>They want a total of {1_GoldAmount}[ICON_GOLD]Gold donated to them over the quest period.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_RESEARCH_AGREEMENT">
 			<Text>The scholars of {2_MinorCivName:textkey} want to keep pace with the cutting edge. They want you to sign a research agreement with {1_CivName:textkey}, so knowledge flows between your nations.</Text>
@@ -21289,6 +21289,243 @@
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_NO_WINNER">
 			<Text>No one met {1_MinorCivName:textkey}'s challenge</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUESTS">
+			<Text>City-State Quests</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUESTS_HELP">
+			<Text>City-States periodically give quests to civilizations they have met. Completing one grants Influence, and some also award Gold, Culture, Faith, Science, Population, unit experience or a special unit.[NEWLINE][NEWLINE]Quests fall into three groups by how they are handed out: Personal quests are offered to a single civilization; Global quests are offered to every civilization that has met the City-State and all participants share the same progress and outcome; Emergency requests are issued on the spot when the City-State is in danger and do not occupy a regular quest slot. Gold, Culture and Faith rewards scale with the current era and game speed; the other rewards are flat. Contest quests run for 30 turns and are won by whoever has the most growth or achievements, with ties allowed.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_ROUTE">
+			<Text>Establish a Road Connection</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_ROUTE_HELP">
+			<Text>Requirement: have a city within 8 tiles of the city-state on the same landmass, then connect your [ICON_CAPITAL]Capital to its capital with a Road.[NEWLINE]Reward: +50[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_KILL_CAMP">
+			<Text>Clear a Barbarian Camp</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_KILL_CAMP_HELP">
+			<Text>Requirement: destroy a Barbarian Encampment near the city-state. The quest marks its location.[NEWLINE]Reward: +50[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONNECT_RESOURCE">
+			<Text>Connect a Resource</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONNECT_RESOURCE_HELP">
+			<Text>Requirement: connect the resource requested by the city-state to your trade network.[NEWLINE]Reward: +40[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONSTRUCT_WONDER">
+			<Text>Build a World Wonder</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONSTRUCT_WONDER_HELP">
+			<Text>Requirement: build the World Wonder requested by the city-state, chosen from wonders you can still build.[NEWLINE]Reward: +100[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_GREAT_PERSON">
+			<Text>Generate a Great Person</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_GREAT_PERSON_HELP">
+			<Text>Requirement: generate a Great Person of the type requested by the city-state.[NEWLINE]Reward: +90[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_KILL_CITY_STATE">
+			<Text>Destroy a City-State</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_KILL_CITY_STATE_HELP">
+			<Text>Requirement: destroy another city-state named by this city-state.[NEWLINE]Note: this quest is disabled in the current mod.[NEWLINE]Reward: +80[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_PLAYER">
+			<Text>Find a Civilization</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_PLAYER_HELP">
+			<Text>Requirement: find and make contact with the major civilization named by the city-state.[NEWLINE]Reward: +30[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_NATURAL_WONDER">
+			<Text>Discover a Natural Wonder</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_NATURAL_WONDER_HELP">
+			<Text>Requirement: discover a Natural Wonder.[NEWLINE]Reward: +40[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_GIVE_GOLD">
+			<Text>Gift Gold</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_GIVE_GOLD_HELP">
+			<Text>Requirement: gift the requested amount of Gold to the city-state within 30 turns.[NEWLINE]Reward: +20[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_PLEDGE_TO_PROTECT">
+			<Text>Pledge to Protect</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_PLEDGE_TO_PROTECT_HELP">
+			<Text>Requirement: pledge to protect the city-state within 30 turns.[NEWLINE]Reward: +20[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CULTURE">
+			<Text>Culture Contest</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CULTURE_HELP">
+			<Text>Requirement: have the largest Culture growth over 30 turns.[NEWLINE]Only the leader is rewarded; ties are shared.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_FAITH">
+			<Text>Faith Contest</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_FAITH_HELP">
+			<Text>Requirement: have the largest Faith growth over 30 turns. Only the leader is rewarded; ties are shared.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_TECHS">
+			<Text>Technology Contest</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_TECHS_HELP">
+			<Text>Requirement: discover the most technologies over 30 turns. Only the leader is rewarded; ties are shared.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_INVEST">
+			<Text>Invest in the City-State</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_INVEST_HELP">
+			<Text>Requirement: gift Gold to the city-state during the quest; it settles automatically when the quest ends.[NEWLINE]Reward: Gold gifts grant extra Influence while the quest is active. There is no extra payout at the end.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_BULLY_CITY_STATE">
+			<Text>Bully a City-State</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_BULLY_CITY_STATE_HELP">
+			<Text>Requirement: successfully demand tribute from the city-state named by this city-state within 30 turns.[NEWLINE]Reward: +40[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DENOUNCE_MAJOR">
+			<Text>Denounce a Civilization</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DENOUNCE_MAJOR_HELP">
+			<Text>Requirement: publicly denounce the major civilization named by the city-state within 30 turns.[NEWLINE]Reward: +80[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_SPREAD_RELIGION">
+			<Text>Spread Your Religion</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_SPREAD_RELIGION_HELP">
+			<Text>Requirement: make your founded religion the majority religion in the capital of the city-state.[NEWLINE]Reward: +80[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_TRADE_ROUTE">
+			<Text>Establish a Trade Route</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_TRADE_ROUTE_HELP">
+			<Text>Requirement: establish a land or sea trade route to the city-state.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RESEARCH_TECH">
+			<Text>Research a Technology</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RESEARCH_TECH_HELP">
+			<Text>Requirement: research the technology requested by the city-state within 30 turns.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence and +50[ICON_CULTURE] Culture (scales with era and game speed).</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONSTRUCT_NATIONAL_WONDER">
+			<Text>Build a National Wonder</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONSTRUCT_NATIONAL_WONDER_HELP">
+			<Text>Requirement: build the National Wonder requested by the city-state within 30 turns, chosen from national wonders you can still build.[NEWLINE]Reward: +100[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_SPREAD_BUILDING">
+			<Text>Spread a Building</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_SPREAD_BUILDING_HELP">
+			<Text>Requirement: build the requested building in the requested number of your cities within 30 turns.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_CITY_STATE">
+			<Text>Find a City-State</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_CITY_STATE_HELP">
+			<Text>Requirement: find the territory of the city-state named by this city-state before the Industrial Era.[NEWLINE]Reward: +30[ICON_INFLUENCE] Influence and +30[ICON_GOLD] Gold (scales with era and game speed).</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DISCONNECT_TRADE_ROUTE">
+			<Text>Cut a Trade Route</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DISCONNECT_TRADE_ROUTE_HELP">
+			<Text>Requirement: cut your trade route to the city-state named by this city-state within 30 turns.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_BECOME_ALLY">
+			<Text>Become Our Ally</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_BECOME_ALLY_HELP">
+			<Text>Requirement: become the ally of this city-state within 30 turns. You need at least 2 spare Diplomatic Prestige when the quest is offered, and the city-state must already have another ally.[NEWLINE]Reward: +80[ICON_INFLUENCE] Influence and +50[ICON_GOLD] Gold (scales with era and game speed).</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RIG_ELECTION">
+			<Text>Rig an Election</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RIG_ELECTION_HELP">
+			<Text>Requirement: use a spy to rig one election in this city-state within 30 turns. Success and failure both count. Requires the Enlightenment Era or later.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence and +40[ICON_GOLD] Gold (scales with era and game speed).</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DECLARE_WAR">
+			<Text>Join the War</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DECLARE_WAR_HELP">
+			<Text>Requirement: declare war on the enemy named by the city-state within 30 turns.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence, +50[ICON_GOLD] Gold (scales with era and game speed) and +5 Aid Points.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>Capture an Original Capital</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CAPTURE_ORIGINAL_CAPITAL_HELP">
+			<Text>Requirement: capture the original capital of the civilization named by the city-state within 60 turns.[NEWLINE]The Master Spy is awarded only once per game; the first civilization to finish claims it.[NEWLINE]Reward: +120[ICON_INFLUENCE] Influence and 1 Master Spy[ICON_SPY].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_PROTECT_CITY_STATE">
+			<Text>International Protection</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_PROTECT_CITY_STATE_HELP">
+			<Text>Requirement: pass a World Congress resolution placing the city-state under international protection. You must be a League member and the city-state must not already be protected.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence and 2 extra World Congress votes.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_SANCTION">
+			<Text>Trade Sanction</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_SANCTION_HELP">
+			<Text>Requirement: pass a World Congress resolution sanctioning the civilization named by the city-state.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence and +40[ICON_GOLD] Gold (scales with era and game speed).</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_REPEAL_EMBARGO">
+			<Text>Repeal the City-State Embargo</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_REPEAL_EMBARGO_HELP">
+			<Text>Requirement: pass a World Congress resolution repealing the city-state embargo.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence and +40[ICON_GOLD] Gold (scales with era and game speed).</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DONATE_GOLD">
+			<Text>Large Donation</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DONATE_GOLD_HELP">
+			<Text>Requirement: donate a total of 5000[ICON_GOLD] to the city-state within 30 turns. You need at least 5000[ICON_GOLD] when the quest is offered.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence, +50[ICON_CULTURE] Culture (scales with era and game speed) and +30 Aid Points.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RESEARCH_AGREEMENT">
+			<Text>Sign a Research Agreement</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RESEARCH_AGREEMENT_HELP">
+			<Text>Requirement: sign a Research Agreement with the civilization named by the city-state within 30 turns.[NEWLINE]Reward: +60[ICON_INFLUENCE] Influence and +50[ICON_CULTURE] Culture (scales with era and game speed).</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_WORLD_WONDERS">
+			<Text>World Wonder Contest</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_WORLD_WONDERS_HELP">
+			<Text>Requirement: complete the most World Wonders over 30 turns, counting wonders finished during the contest.[NEWLINE]Only the leader is rewarded; ties are shared.[NEWLINE]Reward: +50[ICON_INFLUENCE] Influence and +100[ICON_GOLD] Gold (scales with era and game speed).</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CONVERTS">
+			<Text>Conversion Contest</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CONVERTS_HELP">
+			<Text>Requirement: convert the most followers with Missionaries or Great Prophets over 30 turns, counting the net gain of your religion's followers.[NEWLINE]Only the leader is rewarded; ties are shared.[NEWLINE]Reward: +50[ICON_INFLUENCE] Influence and +50[ICON_PEACE] Faith (scales with era and game speed).</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_GREAT_PEOPLE">
+			<Text>Great People Contest</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_GREAT_PEOPLE_HELP">
+			<Text>Requirement: produce the most Great People over 30 turns. Production, purchases, free units and city-state gifts all count.[NEWLINE]Only the leader is rewarded; ties are shared.[NEWLINE]Reward: +50[ICON_INFLUENCE] Influence and 1 free technology[ICON_RESEARCH].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CITIES_FOUNDED">
+			<Text>City Founding Contest</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CITIES_FOUNDED_HELP">
+			<Text>Requirement: found the most new cities over 30 turns.[NEWLINE]Only Maritime city-states can offer this contest, and only as their first global quest; if it is not drawn then, it never appears in that game.[NEWLINE]Only the leader is rewarded; ties are shared.[NEWLINE]Reward: +50[ICON_INFLUENCE] Influence and +1[ICON_FOOD] Population in every city.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CITIES_CAPTURED">
+			<Text>City Capture Contest</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CITIES_CAPTURED_HELP">
+			<Text>Requirement: capture the most cities from other civilizations over 30 turns. City-state cities count; retaking your own city does not.[NEWLINE]Only Militaristic city-states offer this contest.[NEWLINE]Only the leader is rewarded; ties are shared.[NEWLINE]Reward: +50[ICON_INFLUENCE] Influence and +100 experience for every existing military unit.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUEST_GROUP_PERSONAL">
+			<Text>Personal Quests</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUEST_GROUP_GLOBAL">
+			<Text>Global Quests</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUEST_GROUP_EMERGENCY">
+			<Text>Emergency Requests</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

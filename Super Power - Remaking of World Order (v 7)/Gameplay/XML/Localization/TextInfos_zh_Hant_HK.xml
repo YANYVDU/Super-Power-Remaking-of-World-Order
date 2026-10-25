@@ -19321,10 +19321,10 @@
 			<Text>他們的商路因城邦禁運受阻，希望你幫忙打通。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_DONATE_GOLD">
-			<Text>{2_MinorCivName:textkey}正陷入困境，國庫空虛、民生凋敝。他們希望你能伸出援手，捐贈{1_GoldAmount}[ICON_GOLD]金錢幫他們渡過難關。（甘托克的盟友可用[ICON_PEACE]信仰替代金錢。）</Text>
+			<Text>{2_MinorCivName:textkey}正陷入困境，國庫空虛、民生凋敝。他們希望你能伸出援手，在任務期限內累計捐贈{1_GoldAmount}[ICON_GOLD]金錢，幫他們渡過難關。（甘托克的盟友可用[ICON_PEACE]信仰替代金錢。）</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_DONATE_GOLD">
-			<Text>{2_MinorCivName:textkey}希望獲得{1_GoldAmount}[ICON_GOLD]金錢</Text>
+			<Text>{2_MinorCivName:textkey}希望你在任務期限內累計捐贈{1_GoldAmount}[ICON_GOLD]金錢</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_DONATE_GOLD">
 			<Text>你的慷慨捐贈幫{1_MinorCivName:textkey}渡過了難關。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。</Text>
@@ -19333,7 +19333,7 @@
 			<Text>向{1_MinorCivName:textkey}捐贈了金錢！</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CITY_STATE_QUEST_DONATE_GOLD_FORMAL">
-			<Text>他們希望你捐贈{1_GoldAmount}[ICON_GOLD]金錢，助其渡過難關。</Text>
+			<Text>他們希望你累計捐贈{1_GoldAmount}[ICON_GOLD]金錢，助其渡過難關。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_RESEARCH_AGREEMENT">
 			<Text>{2_MinorCivName:textkey}的學者希望跟上最前沿的研究，他們希望你能與{1_CivName:textkey}簽訂科研協定，讓知識在兩國之間流動。</Text>
@@ -19565,6 +19565,243 @@
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_NO_WINNER">
 			<Text>{1_MinorCivName:textkey}的競賽無人達標</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUESTS">
+			<Text>城邦任務</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUESTS_HELP">
+			<Text>城邦會週期性向已與其接觸的文明發布任務。完成任務可獲得影響力，部分任務還會提供金幣、文化、信仰、科技、人口、單位經驗或特殊單位等額外獎勵。[NEWLINE][NEWLINE]任務按發布方式分為三類：個人任務只發布給你一人；全球任務對已接觸該城邦的所有文明發布，所有參與者共享同一進度與結果；緊急求援在城邦遇險時臨時發布，不佔用常規任務名額。金幣、文化與信仰獎勵會隨目前時代和遊戲速度提高；其他獎勵為固定值。競爭任務持續 30 回合，由成長或成果最多的一方獨得，允許並列。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_ROUTE">
+			<Text>建立道路連接</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_ROUTE_HELP">
+			<Text>要求：在該城邦附近（同區域且距離 8 格以內）擁有城市，並用道路將你的[ICON_CAPITAL]首都與該城邦的首都連接起來。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_KILL_CAMP">
+			<Text>清除蠻族營地</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_KILL_CAMP_HELP">
+			<Text>要求：摧毀該城邦附近的一處蠻族營地，任務會標記營地的位置。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONNECT_RESOURCE">
+			<Text>連接資源</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONNECT_RESOURCE_HELP">
+			<Text>要求：將該城邦指定的一種資源接入你的貿易網路。[NEWLINE]獎勵：影響力 +40[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONSTRUCT_WONDER">
+			<Text>建造世界奇觀</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONSTRUCT_WONDER_HELP">
+			<Text>要求：建造該城邦指定的世界奇觀（從你尚可建造的奇觀中選擇）。[NEWLINE]獎勵：影響力 +100[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_GREAT_PERSON">
+			<Text>培養偉人</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_GREAT_PERSON_HELP">
+			<Text>要求：培養該城邦指定類型的偉人。[NEWLINE]獎勵：影響力 +90[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_KILL_CITY_STATE">
+			<Text>摧毀城邦</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_KILL_CITY_STATE_HELP">
+			<Text>要求：摧毀該城邦指定的另一座城邦。[NEWLINE]備註：此任務在目前模組中已停用。[NEWLINE]獎勵：影響力 +80[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_PLAYER">
+			<Text>尋找文明</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_PLAYER_HELP">
+			<Text>要求：找到並接觸該城邦指定的主要文明。[NEWLINE]獎勵：影響力 +30[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_NATURAL_WONDER">
+			<Text>發現自然奇觀</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_NATURAL_WONDER_HELP">
+			<Text>要求：發現一處自然奇觀。[NEWLINE]獎勵：影響力 +40[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_GIVE_GOLD">
+			<Text>贈送金幣</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_GIVE_GOLD_HELP">
+			<Text>要求：在 30 回合內向該城邦贈送金幣，累計達到其要求的數額。[NEWLINE]獎勵：影響力 +20[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_PLEDGE_TO_PROTECT">
+			<Text>宣誓保護</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_PLEDGE_TO_PROTECT_HELP">
+			<Text>要求：在 30 回合內宣誓保護該城邦。[NEWLINE]獎勵：影響力 +20[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CULTURE">
+			<Text>文化競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CULTURE_HELP">
+			<Text>要求：在 30 回合內取得最多的文化成長。[NEWLINE]只有領先者獲得獎勵；若多人並列領先，則並列者均可獲獎。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_FAITH">
+			<Text>信仰競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_FAITH_HELP">
+			<Text>要求：在 30 回合內取得最多的信仰成長。只有領先者獲獎，允許並列。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_TECHS">
+			<Text>科技競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_TECHS_HELP">
+			<Text>要求：在 30 回合內研究最多的科技。只有領先者獲獎，允許並列。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_INVEST">
+			<Text>投資城邦</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_INVEST_HELP">
+			<Text>要求：在任務期間向該城邦贈送金幣進行投資，任務到期時自動結算。[NEWLINE]獎勵：任務期間金幣贈禮帶來的影響力收益暫時提高（無額外結算獎勵）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_BULLY_CITY_STATE">
+			<Text>勒索城邦</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_BULLY_CITY_STATE_HELP">
+			<Text>要求：在 30 回合內成功向該城邦指定的城邦索要貢禮。[NEWLINE]獎勵：影響力 +40[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DENOUNCE_MAJOR">
+			<Text>譴責文明</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DENOUNCE_MAJOR_HELP">
+			<Text>要求：在 30 回合內公開譴責該城邦指定的主要文明。[NEWLINE]獎勵：影響力 +80[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_SPREAD_RELIGION">
+			<Text>傳播宗教</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_SPREAD_RELIGION_HELP">
+			<Text>要求：讓你創立的宗教成為該城邦首都的主流宗教。[NEWLINE]獎勵：影響力 +80[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_TRADE_ROUTE">
+			<Text>建立商路</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_TRADE_ROUTE_HELP">
+			<Text>要求：建立一條通往該城邦的陸路或海路商路。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RESEARCH_TECH">
+			<Text>研發科技</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RESEARCH_TECH_HELP">
+			<Text>要求：在 30 回合內研發該城邦指定的科技。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，文化 +50[ICON_CULTURE]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONSTRUCT_NATIONAL_WONDER">
+			<Text>建造國家奇觀</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONSTRUCT_NATIONAL_WONDER_HELP">
+			<Text>要求：在 30 回合內建造該城邦指定的國家奇觀（從你尚可建造的國家奇觀中選擇）。[NEWLINE]獎勵：影響力 +100[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_SPREAD_BUILDING">
+			<Text>普及建築</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_SPREAD_BUILDING_HELP">
+			<Text>要求：在 30 回合內，於該城邦指定數量的城市中建造指定建築。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_CITY_STATE">
+			<Text>發現城邦</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_CITY_STATE_HELP">
+			<Text>要求：在工業時代之前找到該城邦指定城邦的領土。[NEWLINE]獎勵：影響力 +30[ICON_INFLUENCE]，金幣 +30[ICON_GOLD]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DISCONNECT_TRADE_ROUTE">
+			<Text>切斷商路</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DISCONNECT_TRADE_ROUTE_HELP">
+			<Text>要求：在 30 回合內切斷你與該城邦指定城邦之間的商路。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_BECOME_ALLY">
+			<Text>成為盟友</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_BECOME_ALLY_HELP">
+			<Text>要求：在 30 回合內成為該城邦的盟友。發布時你需擁有至少 2 點富餘外交威望，且該城邦目前已有其他盟友。[NEWLINE]獎勵：影響力 +80[ICON_INFLUENCE]，金幣 +50[ICON_GOLD]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RIG_ELECTION">
+			<Text>操縱選舉</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RIG_ELECTION_HELP">
+			<Text>要求：在 30 回合內派間諜對該城邦進行一次選舉操縱，成功或失敗均計入。需處於啟蒙時代或更晚。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，金幣 +40[ICON_GOLD]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DECLARE_WAR">
+			<Text>加入戰爭</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DECLARE_WAR_HELP">
+			<Text>要求：在 30 回合內向該城邦指定的敵國宣戰。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，金幣 +50[ICON_GOLD]（隨時代與遊戲速度提高），援建點數 +5。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>攻佔原始首都</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CAPTURE_ORIGINAL_CAPITAL_HELP">
+			<Text>要求：在 60 回合內攻佔該城邦指定文明的原始首都。[NEWLINE]王牌間諜獎勵全遊戲僅發放一次，任何文明率先完成即獨佔。[NEWLINE]獎勵：影響力 +120[ICON_INFLUENCE]，並獲得 1 名王牌間諜[ICON_SPY]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_PROTECT_CITY_STATE">
+			<Text>國際法保護</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_PROTECT_CITY_STATE_HELP">
+			<Text>要求：在世界議會通過決議，將該城邦置於國際法保護之下。你需為議會成員，且該城邦尚未受保護。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，世界議會額外 2 票。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_SANCTION">
+			<Text>貿易制裁</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_SANCTION_HELP">
+			<Text>要求：在世界議會通過針對該城邦指定文明的貿易制裁決議。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，金幣 +40[ICON_GOLD]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_REPEAL_EMBARGO">
+			<Text>廢除城邦禁運</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_REPEAL_EMBARGO_HELP">
+			<Text>要求：在世界議會通過廢除城邦禁運的決議。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，金幣 +40[ICON_GOLD]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DONATE_GOLD">
+			<Text>巨額捐贈</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DONATE_GOLD_HELP">
+			<Text>要求：在 30 回合內累計向該城邦捐贈 5000[ICON_GOLD]。發布時你需擁有至少 5000[ICON_GOLD]。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，文化 +50[ICON_CULTURE]（隨時代與遊戲速度提高），援建點數 +30。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RESEARCH_AGREEMENT">
+			<Text>簽訂科研協定</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RESEARCH_AGREEMENT_HELP">
+			<Text>要求：在 30 回合內與該城邦指定的文明簽訂科研協定。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，文化 +50[ICON_CULTURE]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_WORLD_WONDERS">
+			<Text>世界奇觀競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_WORLD_WONDERS_HELP">
+			<Text>要求：在 30 回合內建成世界奇觀數量最多（按任務期間新建成的數量計算）。[NEWLINE]只有領先者獲得獎勵；若多人並列領先，則並列者均可獲獎。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]，金幣 +100[ICON_GOLD]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CONVERTS">
+			<Text>傳教競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CONVERTS_HELP">
+			<Text>要求：在 30 回合內用傳教士或大先知轉化最多信徒（按本教信徒淨增數計算）。[NEWLINE]只有領先者獲得獎勵；允許並列。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]，信仰 +50[ICON_PEACE]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_GREAT_PEOPLE">
+			<Text>偉人競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_GREAT_PEOPLE_HELP">
+			<Text>要求：在 30 回合內誕生的偉人數量最多（生產、購買、免費獲得與城邦饋贈均計入）。[NEWLINE]只有領先者獲得獎勵；允許並列。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]，1 項免費科技[ICON_RESEARCH]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CITIES_FOUNDED">
+			<Text>建城競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CITIES_FOUNDED_HELP">
+			<Text>要求：在 30 回合內建立的新城市數量最多。[NEWLINE]只有航海型城邦在其首個全球任務中可能發布此競賽，錯過則本局不再出現。[NEWLINE]只有領先者獲得獎勵；允許並列。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]，你的每座城市 +1[ICON_FOOD]人口。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CITIES_CAPTURED">
+			<Text>攻城競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CITIES_CAPTURED_HELP">
+			<Text>要求：在 30 回合內攻佔的他國城市數量最多（城邦城市計入；奪回自己的城市不計）。[NEWLINE]僅軍事型城邦會發布此競賽。[NEWLINE]只有領先者獲得獎勵；允許並列。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]，所有現存軍事單位獲得 +100 經驗。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUEST_GROUP_PERSONAL">
+			<Text>個人任務</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUEST_GROUP_GLOBAL">
+			<Text>全球任務</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUEST_GROUP_EMERGENCY">
+			<Text>緊急求援</Text>
 		</Row>
 	</Language_zh_Hant_HK>
 </GameData>
