@@ -135,3 +135,7 @@ UPDATE Eras SET MinorCivAlliesThresholdExtra = 840 WHERE Type = 'ERA_FUTURE';   
 -- Diplomatic Overextension: unhappiness penalty per ally held over the prestige limit
 -- (SP overrides the MPDLL default of 3)
 UPDATE Defines SET Value = 15 WHERE Name = 'DIPLOMATIC_OVEREXTENSION_UNHAPPINESS_MODIFIER';
+
+-- Diplomatic Overextension: influence decay speed penalty per ally held over the prestige limit
+-- (SP overrides the MPDLL default of 10)
+UPDATE Defines SET Value = 50 WHERE Name = 'DIPLOMATIC_OVEREXTENSION_DECAY_MODIFIER';
