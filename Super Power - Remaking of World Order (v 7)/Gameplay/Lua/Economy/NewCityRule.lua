@@ -62,14 +62,6 @@ function CheckCapital(iPlayerID)
                         end
                     end
 
-                    -- Move Policy Buildings & Count Buildings
-                    local policFreeBCCapital = GameInfo.Policy_FreeBuildingClassCapital {BuildingClassType = building.BuildingClass} ()
-                    if pOCapital:IsHasBuilding(building.ID) and
-                        (policFreeBCCapital ~= nil) then
-                        local i = pOCapital:GetNumBuilding(building.ID);
-                        pOCapital:SetNumRealBuilding(building.ID, 0);
-                        pNCapital:SetNumRealBuilding(building.ID, i);
-                    end
                 end
             end
             print("Captial Moved!")
