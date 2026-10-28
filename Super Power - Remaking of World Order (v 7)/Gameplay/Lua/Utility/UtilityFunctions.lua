@@ -80,20 +80,17 @@ function PlotIsVisibleToHuman(plot) --------------------Is the plot can be seen 
 	if Players[Game.GetActivePlayer()]:IsObserver() and not Game.IsGameMultiPlayer() then
 		return false
 	end
+	-- Check every human player: returning on the first one would ignore the rest in multiplayer,
+	-- letting the AI cheat on plots that another human can see.
 	for playerID, HumanPlayer in pairs(Players) do
-		if HumanPlayer:IsHuman() then
-			local HumanPlayerTeamIndex = HumanPlayer:GetTeam()
-			if plot:IsVisible(HumanPlayerTeamIndex) then
-				--print ("Human can see this plot! So stop Cheating!")	
+		if HumanPlayer ~= nil and HumanPlayer:IsHuman() then
+			if plot:IsVisible(HumanPlayer:GetTeam()) then
+				--print ("Human can see this plot! So stop Cheating!")
 				return true
-			else
-				--print ("Human CANNOT see this plot! Let's Cheat!")
-				return false
 			end
-
-			break
 		end
 	end
+	return false
 end
 
 function isFriendlyCity(pUnit, pCity) --------------Is the plot a Friendly City?
