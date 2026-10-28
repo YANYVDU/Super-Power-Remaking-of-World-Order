@@ -63,12 +63,12 @@ function OnPopup( popupInfo )
 	local iActivePlayer = Game.GetActivePlayer();
 
 	-- City-State Unique Ability: this layout has no dedicated UA row, so expose the description
-	-- through the hover text of the top icon and the city-state name.
+	-- through the hover text of the top icon and the city-state name. Always set it, including the
+	-- empty string: the popup reuses its controls, so skipping the call would leave the previous
+	-- city-state's text behind when the new city-state has no UA (e.g. one added by a submod).
 	local strUAHelp = GetCityStateUAHelpText(iActivePlayer, iPlayer);
-	if (strUAHelp ~= "") then
-		Controls.TitleIcon:SetToolTipString(strUAHelp);
-		Controls.TitleLabel:SetToolTipString(strUAHelp);
-	end
+	Controls.TitleIcon:SetToolTipString(strUAHelp);
+	Controls.TitleLabel:SetToolTipString(strUAHelp);
 
 	if (bMessage) then
 		
