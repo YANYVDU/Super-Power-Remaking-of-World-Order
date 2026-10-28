@@ -169,7 +169,7 @@ function PolicyBuildingOnCityCapture(oldPlayerID, bCapital, iX, iY, newPlayerID,
 					-- If the city has the building, remove it
 					if(cityToRemove:IsHasBuilding(buildingTypeID)) then
 						-- Remove any specialists from the building
-						local iCount = GameInfo.Buildings[buildingType].SpecialistCount;
+						local iCount = GameInfo.Buildings[buildingTypeID].SpecialistCount;
 						local i = 0;
 						while(cityToRemove:GetNumSpecialistsInBuilding(buildingTypeID) > 0 and i < iCount) do
 							local iSpecialist = GameInfoTypes[GameInfo.Buildings[buildingTypeID].SpecialistType];
