@@ -22,6 +22,20 @@ local m_bFullRankVisible = false;
 
 
 ----------------------------------------------------------------
+-- Locale.ToNumber prints NaN and infinity verbatim, and comparisons involving NaN are always
+-- false: a NaN score would be counted as rank 1 by GetRank, so it showed up as a second entry
+-- tied for first place. Clamp every table value to a finite number before it reaches the UI or
+-- the ranking comparison.
+----------------------------------------------------------------
+function GetFiniteValue( value )
+    if (type(value) ~= "number" or value ~= value or value == math.huge or value == -math.huge) then
+        return 0;
+    end
+    return value;
+end
+
+
+----------------------------------------------------------------
 ----------------------------------------------------------------
 function BuildTables()
     for i = 0, GameDefines.MAX_MAJOR_CIVS do
@@ -34,14 +48,14 @@ function BuildTables()
         m_ApprovalTable[ i ] = 0;
         m_LiteracyTable[ i ] = 0;
 
-        m_PopulationTable[ i ] = GetPopulationValue( i );
-        m_FoodTable[ i ] = GetFoodValue( i );
-        m_ProductionTable[ i ] = GetProductionValue( i );
-        m_GoldTable[ i ] = GetGoldValue( i );
-        m_LandTable[ i ] = GetLandValue( i );
-        m_ArmyTable[ i ] = GetArmyValue( i );
-        m_ApprovalTable[ i ] = GetApprovalValue( i );
-        m_LiteracyTable[ i ] = GetLiteracyValue( i );
+        m_PopulationTable[ i ] = GetFiniteValue( GetPopulationValue( i ) );
+        m_FoodTable[ i ] = GetFiniteValue( GetFoodValue( i ) );
+        m_ProductionTable[ i ] = GetFiniteValue( GetProductionValue( i ) );
+        m_GoldTable[ i ] = GetFiniteValue( GetGoldValue( i ) );
+        m_LandTable[ i ] = GetFiniteValue( GetLandValue( i ) );
+        m_ArmyTable[ i ] = GetFiniteValue( GetArmyValue( i ) );
+        m_ApprovalTable[ i ] = GetFiniteValue( GetApprovalValue( i ) );
+        m_LiteracyTable[ i ] = GetFiniteValue( GetLiteracyValue( i ) );
     end
 end
 
@@ -77,6 +91,10 @@ function GetAverage( table, iPlayer )
             count = count + 1;
             accum = accum + table[i];
         end
+    end
+
+    if (count == 0) then
+        return 0;
     end
 
     return accum / count;
@@ -146,7 +164,7 @@ function BuildFullRankList()
     for i = 0, GameDefines.MAX_MAJOR_CIVS do
         local pPlayer = Players[i];
         if (pPlayer ~= nil and pPlayer:IsAlive() and not pPlayer:IsMinorCiv()) then
-            tSorted[ #tSorted + 1 ] = { ID = i, Value = m_FullRankTable[i] or 0 };
+            tSorted[ #tSorted + 1 ] = { ID = i, Value = GetFiniteValue( m_FullRankTable[i] ) };
         end
     end
 
@@ -401,7 +419,12 @@ end
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 function GetArmyValue( iPlayer )
-    return math.sqrt( Players[iPlayer]:GetMilitaryMight() ) * 2000;
+    local iMight = Players[iPlayer]:GetMilitaryMight();
+    -- A negative might has no meaning and math.sqrt would return NaN
+    if (iMight == nil or iMight < 0) then
+        return 0;
+    end
+    return math.sqrt( iMight ) * 2000;
 end
 
 
