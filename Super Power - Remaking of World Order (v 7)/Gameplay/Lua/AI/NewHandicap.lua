@@ -216,7 +216,9 @@ function CheckHumanScore(playerID)
     if Game.GetElapsedGameTurns() % 10 ~= 0 then
         return;
     end
-    print("Check Human Score every 10 turns!");
+    if playerID == Game.GetActivePlayer() then
+        print("Check Human Score every 10 turns!");
+    end
 
     local HumanScore = HumanPlayer:GetScore()
     if Game.IsGameMultiPlayer() then
