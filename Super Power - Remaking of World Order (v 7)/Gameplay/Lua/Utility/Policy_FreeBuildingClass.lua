@@ -173,7 +173,7 @@ function PolicyBuildingOnCityCapture(oldPlayerID, bCapital, iX, iY, newPlayerID,
 						local i = 0;
 						while(cityToRemove:GetNumSpecialistsInBuilding(buildingTypeID) > 0 and i < iCount) do
 							local iSpecialist = GameInfoTypes[GameInfo.Buildings[buildingTypeID].SpecialistType];
-							cityToRemove:DoTask(TaskTypes.TASK_REMOVE_SPECIALIST, iSpecialist, buildingTypeID, playerID);
+							cityToRemove:DoTask(TaskTypes.TASK_REMOVE_SPECIALIST, iSpecialist, buildingTypeID);
 							i = i + 1;
 						end
 						-- Remove the building
