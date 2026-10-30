@@ -1508,7 +1508,7 @@
 
 		<Update>
 			<Where Tag="TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP" />
-			<Set Text="來自腐敗的[ICON_HAPPINESS_4]不滿-50%。在世界議會中獲得額外2個代表。" />
+			<Set Text="來自腐敗的[ICON_HAPPINESS_4]不滿-25%。降低15%成為城邦盟友所需的[ICON_INFLUENCE]影響力下限。在世界議會中獲得額外2個代表。" />
 		</Update>
 
 		<Update>
@@ -1958,6 +1958,31 @@
 			<Text>萬國宮（Palace of Nations）位於瑞士日內瓦，始建於1929年，最初是為國際聯盟建造的總部。國際聯盟是第一次世界大戰後成立的第一個全球性國際組織，旨在通過外交手段和平解決國際爭端。雖然國聯最終未能阻止第二次世界大戰的爆發，但它為後來的聯合國奠定了基礎。
 				萬國宮坐落在日內瓦湖畔的阿里亞納公園內，建築群宏偉壯觀，融合了新古典主義與現代主義風格。其主會議廳可容納2000名代表，見證了無數次改變世界格局的外交談判。二戰後，萬國宮成為聯合國日內瓦辦事處，是僅次於紐約聯合國總部的第二大聯合國中心。
 				如今，萬國宮每年舉辦超過8000場國際會議，是人權、裁軍、貿易和人道主義事務等全球議題的核心舞台。它象徵著人類對和平與合作的永恆追求。</Text>
+		</Row>
+
+	<!--****************************Apadana Palace*************************************-->
+
+		<!-- Description tags -->
+		<Row Tag="TXT_KEY_WONDER_APADANA_PALACE">
+			<Text>阿帕達納宮</Text>
+		</Row>
+		<!-- Help tags -->
+		<Row Tag="TXT_KEY_BUILDING_APADANA_PALACE_HELP">
+			<Text>
+				[ICON_BULLET]+11[ICON_GOLDEN_AGE]黃金時代點數。
+				[NEWLINE][ICON_BULLET]黃金時代開啟閾值降低10%。
+				[NEWLINE][ICON_BULLET]+3[ICON_SPY]間諜點數。
+			</Text>
+		</Row>
+		<!-- Quote tags -->
+		<Row Tag="TXT_KEY_WONDER_APADANA_PALACE_QUOTE">
+			<Text>[NEWLINE]「無論雨雪、黑夜還是烈日，都不能阻擋信使全速完成他的使命。」[NEWLINE] —— 希羅多德[NEWLINE]</Text>
+		</Row>
+		<!-- Pedia tags -->
+		<Row Tag="TXT_KEY_WONDER_APADANA_PALACE_PEDIA">
+			<Text>阿帕達納宮（Apadana）坐落於古波斯帝國都城波斯波利斯的巨大石臺之上，由大流士一世於公元前六世紀末下令建造，是帝國最宏偉的覲見大殿。「阿帕達納」源自古波斯語，意為「柱廊大廳」，專供「萬王之王」接見外國使節、舉行慶典與頒賜恩賞之用。
+				宮殿的殿頂由七十二根高達二十米的石柱支撐，柱頭雕刻著雙頭牛與獅鷲。東西兩側的臺階上，綿延數百米的浮雕長卷刻畫了來自帝國二十三個行省與屬國的使節列隊朝貢的盛況：他們帶著金冠、駿馬、香料與珍禽，依次登上臺階，向波斯之王獻上敬意。這幅「萬國來朝」圖卷，至今仍是古代世界最震撼人心的政治藝術。
+				阿帕達納宮同時也是帝國驛道網絡的樞紐。憑藉貫通全境的「御道」與嚴密的驛站制度，國王的詔令數日內便可傳遍數千公里的疆域。正如希羅多德所記載的那樣——無論雨雪、黑夜還是烈日，都無法阻擋信使全速完成他的使命。</Text>
 		</Row>
 
 	<!--****************************National Wonders*************************************-->
@@ -5041,6 +5066,21 @@
 				[NEWLINE]---------------------------[NEWLINE]
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_ACTUAL_RATE">
+			<Text>
+				[ICON_TEAM_1]實際速率：每回合 {1_Num} 移民進度
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_PROGRESS">
+			<Text>
+				[ICON_TEAM_1]國際移民進度：{1_Num} / {2_Num}（{3_Num}%）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_IMMIGRATION_TURNS_LEFT">
+			<Text>
+				按目前速率估算，約 {1_Num} 回合後發生下一次[ICON_CITIZEN]人口遷移。
+			</Text>
+		</Row>
 
 
 		<Row Tag="TXT_KEY_CO_SP_MOVE_IN_OPENBORDER">
@@ -5154,14 +5194,23 @@
 				[COLOR_NEGATIVE_TEXT]因[ICON_RES_CONSUMER]商品或[ICON_RES_ELECTRICITY]電力短缺，無法接收移民！[ENDCOLOR]
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_IN_UNHAPPY_STOPPED">
+			<Text>
+				[COLOR_NEGATIVE_TEXT]因該國處於[ICON_HAPPINESS_4]不滿狀態，無法接收移民！[ENDCOLOR]
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_RATE_ZERO_STOPPED">
+			<Text>
+				[COLOR_NEGATIVE_TEXT]當前移民增益與減益相互抵消，速率為 0，進度停滯。[ENDCOLOR]
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_GAP_ZERO_STOPPED">
+			<Text>
+				[COLOR_NEGATIVE_TEXT]雙方[ICON_TOURISM]文化影響等級相同（{1_Num} 級 / {2_Num} 級），彼此之間沒有移民流動。[ENDCOLOR]
+			</Text>
+		</Row>
 
 
-		<Row Tag="TXT_KEY_SP_NOTIFICATION_AUTO_BUILDING_REPLACEMENT">
-			<Text>新科技使{@1_CityName}市內的古建築{@2_BuildingName}自動升級為：</Text>
-		</Row>
-		<Row Tag="TXT_KEY_SP_NOTIFICATION_AUTO_RAILROAD_REPLACEMENT">
-			<Text>你研發了[ICON_RESEARCH][COLOR_RESEARCH_STORED]鐵路技術[ENDCOLOR]，所有領土內的道路自動升級為[COLOR_POSITIVE_TEXT]鐵路[ENDCOLOR]！</Text>
-		</Row>
 
 
 		<Row Tag="TXT_KEY_SP_NOTIFICATION_LACKING_CONSUMER_GOODS_WARNING">
@@ -5856,6 +5905,7 @@
 			<Text>
 				[ICON_BULLET]所有城市+2[ICON_PRODUCTION]產能（隨時代增加）。
 				[NEWLINE][ICON_BULLET]城市建造建築時+15%[ICON_PRODUCTION]產能。
+				[NEWLINE][ICON_BULLET]征服[ICON_CITY_STATE]城邦的原始首都後，可獲得該城邦的盟友級獨特能力。
 			</Text>
 		</Replace>
 
@@ -5919,7 +5969,7 @@
 		<Replace Tag="TXT_KEY_TRAIT_CITY_STATE_FRIENDSHIP">
 			<Text>
 				[ICON_BULLET]對城邦[ICON_INFLUENCE]影響力衰減速度減半，恢復速度加倍。
-				[NEWLINE][ICON_BULLET]軍隊在城邦境內停留時不會影響關系。對於能夠勒索的城邦每回合額外獲得5點[ICON_INFLUENCE]影響力（標準速度下）。
+				[NEWLINE][ICON_BULLET]+2額外[ICON_DIPLOMATIC_PRESTIGE]外交威望，軍隊在城邦境內停留時不會影響關系。對於能夠勒索的城邦每回合額外獲得3點[ICON_INFLUENCE]影響力（標準速度下）。
 				[NEWLINE][ICON_BULLET]每個同盟城邦為軍事單位+3%戰鬥力，上限為30%。
 			</Text>
 		</Replace>
@@ -6054,7 +6104,7 @@
 
 		<Replace Tag="TXT_KEY_TRAIT_ANNEX_CITY_STATE">
 			<Text>
-				[ICON_BULLET]可以通過[ICON_GOLD]金錢來購買與奧地利同盟8回合的城邦。
+				[ICON_BULLET]可以通過[ICON_GOLD]金錢來購買與奧地利同盟8回合的城邦，額外消耗 50 點援建點數；吞併後永久獲得該城邦的盟友級獨特能力。
 				[NEWLINE][ICON_BULLET]城邦故都所在城市（非傀儡）的市政廳管理成本最多可-2級。
 				[NEWLINE][ICON_BULLET]解鎖特色交易選項【外交聯姻】和【二元帝國協定】（詳情請見百科外交頁）。
 			</Text>
@@ -6787,10 +6837,12 @@
 				[NEWLINE][ICON_BULLET]消滅敵方單位時可獲得[ICON_GOLD]金錢獎勵（相當於敵方50%的戰鬥力）
 				[NEWLINE][ICON_BULLET]已探索區域內產生新的蠻族營地時會出現提示消息。
 				[NEWLINE][ICON_BULLET]允許建造宙斯神像和英雄史詩。
+				[NEWLINE][ICON_BULLET]對軍事城邦的基準[ICON_INFLUENCE]影響力提高10；[ICON_CITY_STATE]城邦贈送的單位額外+10經驗。
 				[NEWLINE][NEWLINE]推行所有榮譽政策：
 				[NEWLINE][ICON_BULLET]消滅敵方單位時可獲得[ICON_CULTURE]文化獎勵（相當於敵方50%的戰鬥力）。
 				[NEWLINE][ICON_BULLET]獲得[ICON_GREAT_GENERAL]陸軍統帥的速度+50%。
 				[NEWLINE][ICON_BULLET]在工業時代後可以用[ICON_PEACE]信仰購買陸軍統帥。
+				[NEWLINE][ICON_BULLET][ICON_CITY_STATE]城邦贈送的單位獲得晉升：[COLOR_POSITIVE_TEXT]境外人力[ENDCOLOR]。
 			</Text>
 		</Replace>
 
@@ -6881,9 +6933,11 @@
 				[NEWLINE][ICON_BULLET]使擁有主流宗教的城市也獲得流行度居第二位的宗教的神系信條所提供的獎勵。
 				[NEWLINE][ICON_BULLET]所有建造了世界奇觀的城市+25%[ICON_PEACE]信仰。
 				[NEWLINE][ICON_BULLET]允許建造婆羅浮屠和民族史詩。
+				[NEWLINE][ICON_BULLET]與信奉你主流宗教的[ICON_CITY_STATE]城邦的基準[ICON_INFLUENCE]影響力提高5。
 				[NEWLINE][NEWLINE]推行所有虔信政策：
 				[NEWLINE][ICON_BULLET][ICON_GREAT_PEOPLE]偉人誕生速度+25%
 				[NEWLINE][ICON_BULLET]獲得一個[COLOR_POSITIVE_TEXT]免費政策[ENDCOLOR]。
+				[NEWLINE][ICON_BULLET]與信奉自己所創宗教的[ICON_CITY_STATE]城邦，每回合[ICON_INFLUENCE]影響力+1。
 			</Text>
 		</Replace>
 
@@ -8353,6 +8407,24 @@
 		</Row>
 		<Row Tag="TXT_KEY_BELIEF_MARSH_BELIEF">
 			<Text>沼澤+3[ICON_PEACE]信仰、+1[ICON_CULTURE]文化</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_DELPHI_ORACLE_SHORT">
+			<Text>德爾斐神諭</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_DELPHI_ORACLE">
+			<Text>每座信仰該宗教的城市為其擁有者+1[ICON_SPY]間諜點數，神廟+1[ICON_CULTURE]文化</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_CONFESSION_SHORT">
+			<Text>告解聖事</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_CONFESSION">
+			<Text>本宗教的創立者每回合+2[ICON_SPY]間諜點數，信仰該宗教的城市管理成本-100</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_PAPAL_LEGATE_SHORT">
+			<Text>宗座特使</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BELIEF_PAPAL_LEGATE">
+			<Text>+1[ICON_DIPLOMATIC_PRESTIGE]外交威望；對城邦的[ICON_INFLUENCE]影響力恢復速度+50%、衰減速度-25%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BELIEF_RIVER_CRAFTSMAN_SHORT">
 			<Text>河圖洛書</Text>
@@ -12620,16 +12692,23 @@
 			</Text>
 		</Row>
 
+		<Replace Tag="TXT_KEY_PROMOTION_AIR_SWEEP">
+			<Text>空中掃蕩</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_PROMOTION_AIR_SWEEP_HELP">
+			<Text>能夠進行空中掃蕩以消滅攔截單位，遊獵時+400%[ICON_STRENGTH]戰鬥力。</Text>
+		</Replace>
+
 		<Replace Tag="TXT_KEY_PROMOTION_ANTI_AIR">
 			<Text>防空火力</Text>
 		</Replace>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_HELP">
 			<Text>
 				可以攔截試圖轟炸附近單位的敵軍飛機。
-				[NEWLINE][ICON_BULLET]每回合能夠進行對空攔截。
+				[NEWLINE][ICON_BULLET]每回合能夠進行一次對空攔截。
+				[NEWLINE][ICON_BULLET]攔截時+100%[ICON_STRENGTH]戰鬥力。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]和[COLOR_POSITIVE_TEXT]直升機[ENDCOLOR]單位擁有戰鬥力加成。
-				[NEWLINE][ICON_BULLET]攔截[COLOR_NEGATIVE_TEXT]戰略轟炸機[ENDCOLOR]時效果不佳。
 			</Text>
 		</Row>
 
@@ -12937,6 +13016,7 @@
 				[NEWLINE][ICON_BULLET]能夠在[COLOR_POSITIVE_TEXT]境外友方地域[ENDCOLOR]恢複且恢複時額外+15點生命值。
 				[NEWLINE][ICON_BULLET]沒有地形防禦加成。
 				[NEWLINE][ICON_BULLET]不能[COLOR_NEGATIVE_TEXT]掠奪[ENDCOLOR]和[COLOR_NEGATIVE_TEXT]占領[ENDCOLOR]城市。
+				[NEWLINE][ICON_BULLET]不會阻攔他國[COLOR_POSITIVE_TEXT]擴張單位[ENDCOLOR]（移民等）通行。
 			</Text>
 		</Row>
 
@@ -13101,6 +13181,7 @@
 				[NEWLINE][ICON_BULLET]境外作戰-25%[ICON_STRENGTH]戰鬥力。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]被[COLOR_NEGATIVE_TEXT]正規軍[ENDCOLOR]和[COLOR_NEGATIVE_TEXT]特戰[ENDCOLOR]單位克制。
+				[NEWLINE][ICON_BULLET]不會阻攔他國[COLOR_POSITIVE_TEXT]擴張單位[ENDCOLOR]（移民等）通行。
 			</Text>
 		</Row>
 
@@ -13157,12 +13238,13 @@
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_II_HELP">
 			<Text>
 				制空戰鬥機，專爲奪取戰場制空權與攔截敵方空中目標而設計。
-				[NEWLINE][ICON_BULLET]每回合能夠攔截一次。
+				[NEWLINE][ICON_BULLET]每回合能夠攔截敵方飛機和導彈兩次。
 				[NEWLINE][ICON_BULLET]每回合能夠執行“空中遊獵”指令且遊獵時+75%戰鬥力。
 				[NEWLINE][ICON_BULLET]執行遊獵後仍然可以執行攔截。
 				[NEWLINE][ICON_BULLET]不能轉場到航空母艦上。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]和[COLOR_POSITIVE_TEXT]轟炸機[ENDCOLOR]單位擁有戰鬥力加成。
+				[NEWLINE][ICON_BULLET]與[COLOR_POSITIVE_TEXT]空軍單位[ENDCOLOR]作戰時，射程每多 1 點，+10%[COLOR_POSITIVE_TEXT]遠程壓制[ENDCOLOR]。
 				[NEWLINE][ICON_BULLET]無法攻擊[COLOR_NEGATIVE_TEXT]地面[ENDCOLOR]和[COLOR_NEGATIVE_TEXT]海面[ENDCOLOR]單位。
 			</Text>
 		</Row>
@@ -13215,6 +13297,7 @@
 				[NEWLINE][ICON_BULLET]不能轉場到航空母艦上。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]地面[ENDCOLOR]和[COLOR_POSITIVE_TEXT]海面[ENDCOLOR]單位擁有戰鬥力加成。
+				[NEWLINE][ICON_BULLET]與[COLOR_POSITIVE_TEXT]空軍單位[ENDCOLOR]作戰時，射程每多 1 點，+10%[COLOR_POSITIVE_TEXT]遠程壓制[ENDCOLOR]。
 				[NEWLINE][ICON_BULLET]被[COLOR_NEGATIVE_TEXT]戰鬥機[ENDCOLOR]和[COLOR_NEGATIVE_TEXT]防空[ENDCOLOR]單位克制。
 			</Text>
 		</Row>
@@ -13267,6 +13350,7 @@
 				[NEWLINE][ICON_BULLET]能對[COLOR_POSITIVE_TEXT]城市和固定炮台[ENDCOLOR]造成巨大傷害。
 				[NEWLINE][ICON_BULLET]不能轉場到航空母艦上。
 				[NEWLINE]
+				[NEWLINE][ICON_BULLET]與[COLOR_POSITIVE_TEXT]空軍單位[ENDCOLOR]作戰時，射程每多 1 點，+10%[COLOR_POSITIVE_TEXT]遠程壓制[ENDCOLOR]。
 				[NEWLINE][ICON_BULLET]被[COLOR_NEGATIVE_TEXT]戰鬥機[ENDCOLOR]單位克制。
 				[NEWLINE][ICON_BULLET]不能攻擊[COLOR_NEGATIVE_TEXT]隱形[ENDCOLOR]單位。
 			</Text>
@@ -13566,7 +13650,8 @@
 				[NEWLINE][ICON_BULLET]每回合擁有兩次[COLOR_POSITIVE_TEXT]攔截[ENDCOLOR]或[COLOR_POSITIVE_TEXT]遊獵[ENDCOLOR]的機會。
 				[NEWLINE][ICON_BULLET]能夠在遊獵後繼續攔截。
 				[NEWLINE]
-				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]地面[ENDCOLOR]和[COLOR_POSITIVE_TEXT]海面[ENDCOLOR]單位擁有戰鬥力加成。
+				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]、[COLOR_POSITIVE_TEXT]轟炸機[ENDCOLOR]、[COLOR_POSITIVE_TEXT]地面[ENDCOLOR]和[COLOR_POSITIVE_TEXT]海面[ENDCOLOR]單位擁有戰鬥力加成。
+				[NEWLINE][ICON_BULLET]與[COLOR_POSITIVE_TEXT]空軍單位[ENDCOLOR]作戰時，射程每多 1 點，+10%[COLOR_POSITIVE_TEXT]遠程壓制[ENDCOLOR]。
 			</Text>
 		</Row>
 
@@ -13937,7 +14022,7 @@
 		</Replace>
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_HELICOPTER_HELP">
 			<Text>
-				[ICON_BULLET]對[COLOR_POSITIVE_TEXT]艦載機[ENDCOLOR]、[COLOR_POSITIVE_TEXT]空優單位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]+200%[ICON_STRENGTH]戰鬥力。[NEWLINE][ICON_BULLET]能夠攔截敵方飛機，被遊獵時不會受傷。
+				[ICON_BULLET]對[COLOR_POSITIVE_TEXT]艦載機[ENDCOLOR]、[COLOR_POSITIVE_TEXT]空優單位[ENDCOLOR]和[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]和[COLOR_POSITIVE_TEXT]直升機[ENDCOLOR]+200%[ICON_STRENGTH]戰鬥力。[NEWLINE][ICON_BULLET]能夠攔截敵方飛機，被遊獵時不會受傷。
 			</Text>
 		</Row>
 
@@ -14004,7 +14089,7 @@
 			<Text>王牌飛行員</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_ACE_FIGHTER_HELP">
-			<Text>拦截加100%战力，每回合無限遊獵次數。</Text>
+			<Text>攔截加100%戰力，每回合無限遊獵次數。</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_PROMOTION_BANTU">
@@ -14051,7 +14136,7 @@
 			<Text>九三式魚雷</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_MULTIPURPOSE_DESTROYER_HELP">
-			<Text>+1攻擊次數（可疊加）。[NEWLINE]對潛艇和空軍單位+100%[ICON_STRENGTH]戰鬥力。+2[ICON_MOVES]移動力</Text>
+			<Text>+1攻擊次數（可疊加）。[NEWLINE]對潛艇和空軍單位+100%[ICON_STRENGTH]戰鬥力。+2[ICON_MOVES]移動力。[NEWLINE]攔截敵方飛機時+150%[ICON_STRENGTH]戰鬥力。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_GOLDEN_PERSONAL_GUARD">
 			<Text>黃金親衛</Text>
@@ -15667,6 +15752,12 @@
 		<Row Tag="TXT_KEY_TP_GOLDEN_AGE_ADDITION_RELIGION">
 			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR]來自宗教。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_TP_GOLD_ECONOMIC_AID">
+			<Text>{1_Num}用於經濟援助。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TP_GOLD_TO_RELIGION">
+			<Text>{1_Num}用於宗教。</Text>
+		</Row>
 		<Row Tag="TXT_KEY_TP_GOLDEN_AGE_ADDITION_TRAIT">
 			<Text>[ICON_BULLET][COLOR_POSITIVE_TEXT]+{1_Num}[ENDCOLOR]來自領袖特性。</Text>
 		</Row>
@@ -15853,7 +15944,7 @@
 			<Text>高度加成</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EUPANEL_RANGE_SUPPRESS">
-			<Text>射程壓制</Text>
+			<Text>遠程壓制</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EUPANEL_BONUS_MELEE">
 			<Text>近戰攻擊加成</Text>
@@ -16828,6 +16919,12 @@
 		<Row Tag="TXT_KEY_DIPLOMATIC_PRESTIGE_LABEL">
 			<Text>[ICON_DIPLOMATIC_PRESTIGE]外交威望 ：</Text>
 		</Row>
+		<Row Tag="TXT_KEY_GOLDEN_AGE_THRESHOLD_SP">
+			<Text>[ICON_GOLDEN_AGE]黃金時代閾值：</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_POINTS_GAIN_SP">
+			<Text>[ICON_SPY]間諜點數：</Text>
+		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_CORRUPTION">
 			<Text>{1_num}来自腐敗</Text>
 		</Row>
@@ -16916,10 +17013,9 @@
 		<Row Tag="TXT_KEY_PROMOTION_ANTI_AIR_III_HELP">
 			<Text>
 				可以攔截試圖轟炸附近單位的敵軍飛機。
-				[NEWLINE][ICON_BULLET]每回合能夠進行對空攔截。
+				[NEWLINE][ICON_BULLET]每回合能夠進行一次對空攔截。
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET]對[COLOR_POSITIVE_TEXT]攻擊機[ENDCOLOR]擁有戰鬥力加成。
-				[NEWLINE][ICON_BULLET]攔截[COLOR_NEGATIVE_TEXT]戰略轟炸機[ENDCOLOR]時效果不佳。
 			</Text>
 		</Row>
 		<!-- Plot Naming -->
@@ -17070,7 +17166,7 @@
 				[NEWLINE][ICON_BULLET]盟友每一條[ICON_INTERNATIONAL_TRADE]跨大陸國際商路，來自[ICON_CITIZEN]人口的不滿降低3%(至多-90%)
 				[NEWLINE]
 				[NEWLINE]朋友效果：
-				[NEWLINE][ICON_BULLET]盟友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔2格，該商路[ICON_GOLD]金錢收益+1%
+				[NEWLINE][ICON_BULLET]朋友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔2格，該商路[ICON_GOLD]金錢收益+1%
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_ALLY_HELP">
@@ -17083,7 +17179,7 @@
 		<Row Tag="TXT_KEY_EFFECT_CSUA_PANAMA_FRIEND_HELP">
 			<Text>
 				朋友效果：
-				[NEWLINE][ICON_BULLET]盟友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔2格，該商路[ICON_GOLD]金錢收益+1%
+				[NEWLINE][ICON_BULLET]朋友發出的[ICON_INTERNATIONAL_TRADE]國際商路起點和終點城市每間隔2格，該商路[ICON_GOLD]金錢收益+1%
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_BRUSSELS_HELP">
@@ -17144,7 +17240,7 @@
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]每向杜拜捐贈過1000[ICON_GOLD]現金，全域[ICON_HAPPINESS_1]快樂+1
-				[NEWLINE][ICON_BULLET]此來源的每點快樂提供全域奇觀建造速率+1%
+				[NEWLINE][ICON_BULLET]此來源的每點快樂提供全域奇觀建造速率+4%
 				[NEWLINE][ICON_BULLET]此來源的每點快樂提高自身5%對其他意識形態的輿論壓力
 				[NEWLINE]
 				[NEWLINE]朋友效果：
@@ -17155,7 +17251,7 @@
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]每向杜拜捐贈過1000[ICON_GOLD]現金，全域[ICON_HAPPINESS_1]快樂+1
-				[NEWLINE][ICON_BULLET]此來源的每點快樂提供全域奇觀建造速率+1%
+				[NEWLINE][ICON_BULLET]此來源的每點快樂提供全域奇觀建造速率+4%
 				[NEWLINE][ICON_BULLET]此來源的每點快樂提高自身5%對其他意識形態的輿論壓力
 			</Text>
 		</Row>
@@ -17317,6 +17413,109 @@
 				[NEWLINE][ICON_BULLET]城牆、城堡為城市+10%[ICON_CULTURE]文化
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_SOFIA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]策劃政變成功率+30%（可突破85%上限，最高必定成功）
+				[NEWLINE][ICON_BULLET]政變失敗的間諜不會死亡，而是返回避難所
+				[NEWLINE][ICON_BULLET]每擁有1個[ICON_SPY]間諜，盜取[ICON_RESEARCH]科技速度+5%，擊殺他國[ICON_SPY]間諜的機率+5%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]策劃政變成功率+12%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SOFIA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]策劃政變成功率+30%（可突破85%上限，最高必定成功）
+				[NEWLINE][ICON_BULLET]政變失敗的間諜不會死亡，而是返回避難所
+				[NEWLINE][ICON_BULLET]每擁有1個[ICON_SPY]間諜，盜取[ICON_RESEARCH]科技速度+5%，擊殺他國[ICON_SPY]間諜的機率+5%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SOFIA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]策劃政變成功率+12%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_SIDON_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你的單位進攻城市時無視該城市30%來自建築的[ICON_STRENGTH]城防
+				[NEWLINE][ICON_BULLET]軍事城邦盟友提供的每回合單位經驗+100%，且對海軍和空軍也生效
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]你的單位進攻城市時無視該城市15%來自建築的[ICON_STRENGTH]城防
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SIDON_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你的單位進攻城市時無視該城市30%來自建築的[ICON_STRENGTH]城防
+				[NEWLINE][ICON_BULLET]軍事城邦盟友提供的每回合單位經驗+100%，且對海軍和空軍也生效
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SIDON_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]你的單位進攻城市時無視該城市15%來自建築的[ICON_STRENGTH]城防
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_JERUSALEM_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你每掌控一座聖城，你創立的宗教+40%宗教壓力
+				[NEWLINE][ICON_BULLET]全世界每有一座城市信仰你創立的宗教，你的[ICON_CAPITAL]首都+1%[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]其他文明對你的譴責無效
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]你每掌控一座聖城，你創立的宗教+20%宗教壓力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_JERUSALEM_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你每掌控一座聖城，你創立的宗教+40%宗教壓力
+				[NEWLINE][ICON_BULLET]全世界每有一座城市信仰你創立的宗教，你的[ICON_CAPITAL]首都+1%[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]其他文明對你的譴責無效
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_JERUSALEM_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]你每掌控一座聖城，你創立的宗教+20%宗教壓力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_VATICAN_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你創立的宗教獲得「教廷承認」
+				[NEWLINE][ICON_BULLET]世界議會中，有半數以上城市信奉該宗教的文明可額外獲得1張代表票，每個這樣的文明並為盟友提供1張代表票
+				[NEWLINE][ICON_BULLET]該宗教傳播速度加快50%
+				[NEWLINE][ICON_BULLET]全世界每有一座城市信奉該宗教，其聖城+1%[ICON_TOURISM]魅力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]你創立的宗教傳播速度加快20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VATICAN_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]你創立的宗教獲得「教廷承認」
+				[NEWLINE][ICON_BULLET]世界議會中，有半數以上城市信奉該宗教的文明可額外獲得1張代表票，每個這樣的文明並為盟友提供1張代表票
+				[NEWLINE][ICON_BULLET]該宗教傳播速度加快50%
+				[NEWLINE][ICON_BULLET]全世界每有一座城市信奉該宗教，其聖城+1%[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_VATICAN_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]你創立的宗教傳播速度加快20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_PAPAL_RECOGNITION_VOTES">
+			<Text>[NEWLINE][ICON_BULLET]{1_NumVotes} 來自教廷承認</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CSUA_CAHOKIA_HELP">
 			<Text>
 				盟友效果：
@@ -17445,24 +17644,24 @@
 		<Row Tag="TXT_KEY_CSUA_CAPE_TOWN_HELP">
 			<Text>
 				盟友效果：
-				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，20%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，15%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
 				[NEWLINE][ICON_BULLET]燈塔、港口、海運碼頭、國際自由港為城市+10%[ICON_GOLD]金錢、5%[ICON_PRODUCTION]產能
 				[NEWLINE]
 				[NEWLINE]朋友效果：
-				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，8%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，6%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_CAPE_TOWN_ALLY_HELP">
 			<Text>
 				盟友效果：
-				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，20%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，15%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
 				[NEWLINE][ICON_BULLET]燈塔、港口、海運碼頭、國際自由港為城市+10%[ICON_GOLD]金錢、5%[ICON_PRODUCTION]產能
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_CAPE_TOWN_FRIEND_HELP">
 			<Text>
 				朋友效果：
-				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，8%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]城市有通往開普敦的商路時，6%[ICON_GOLD]金錢轉化為[ICON_FOOD]食物
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_GENOA_HELP">
@@ -17490,7 +17689,80 @@
 				[NEWLINE][ICON_BULLET]朋友城市的[ICON_GOLD]銀行、[ICON_GOLD]證券交易所、[ICON_GOLD]金融公司額外提供+8%[ICON_GOLD]金錢
 			</Text>
 		</Row>
-		<Row Tag="TXT_KEY_CSUA_VILNIUS_HELP">
+		<Row Tag="TXT_KEY_CSUA_VANCOUVER_HELP">
+		<Text>
+			盟友效果：
+			[NEWLINE][ICON_BULLET]盟友每座沿海城市提供+3[ICON_HAPPINESS_1]全局快樂
+			[NEWLINE][ICON_BULLET]盟友每有2點快樂，全國+1%[ICON_FOOD]食物、+1%[ICON_TOURISM]魅力（各自上限50%）
+			[NEWLINE]
+			[NEWLINE]朋友效果：
+			[NEWLINE][ICON_BULLET]朋友每座沿海城市提供+1[ICON_HAPPINESS_1]全局快樂
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_VANCOUVER_ALLY_HELP">
+		<Text>
+			盟友效果：
+			[NEWLINE][ICON_BULLET]盟友每座沿海城市提供+3[ICON_HAPPINESS_1]全局快樂
+			[NEWLINE][ICON_BULLET]盟友每有2點快樂，全國+1%[ICON_FOOD]食物、+1%[ICON_TOURISM]魅力（各自上限50%）
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_VANCOUVER_FRIEND_HELP">
+		<Text>
+			朋友效果：
+			[NEWLINE][ICON_BULLET]朋友每座沿海城市提供+1[ICON_HAPPINESS_1]全局快樂
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_CSUA_YEREVAN_HELP">
+		<Text>
+			盟友效果：
+			[NEWLINE][ICON_BULLET]盟友每點識字率，全國[ICON_PRODUCTION]產能+1%
+			[NEWLINE][ICON_BULLET]盟友每處有市民工作的宗教聖地，提供+3[ICON_HAPPINESS_1]全局快樂，且其鄰近的改良地塊每處+1[ICON_CULTURE]文化
+			[NEWLINE][ICON_BULLET]盟友每誕生過一位大先知，全國+5%[ICON_PEACE]信仰
+			[NEWLINE]
+			[NEWLINE]朋友效果：
+			[NEWLINE][ICON_BULLET]朋友每2點識字率，全國[ICON_PRODUCTION]產能+1%
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_YEREVAN_ALLY_HELP">
+		<Text>
+			盟友效果：
+			[NEWLINE][ICON_BULLET]盟友每點識字率，全國[ICON_PRODUCTION]產能+1%
+			[NEWLINE][ICON_BULLET]盟友每處有市民工作的宗教聖地，提供+3[ICON_HAPPINESS_1]全局快樂，且其鄰近的改良地塊每處+1[ICON_CULTURE]文化
+			[NEWLINE][ICON_BULLET]盟友每誕生過一位大先知，全國+5%[ICON_PEACE]信仰
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_YEREVAN_FRIEND_HELP">
+		<Text>
+			朋友效果：
+			[NEWLINE][ICON_BULLET]朋友每2點識字率，全國[ICON_PRODUCTION]產能+1%
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_CSUA_IFE_HELP">
+		<Text>
+			盟友效果：
+			[NEWLINE][ICON_BULLET]盟友信仰購買大美術家、大文學家、大音樂家所需的[ICON_PEACE]信仰降低30%
+			[NEWLINE][ICON_BULLET]盟友每擁有一件[ICON_GREAT_WORK]傑作或文物，全國+2%[ICON_PEACE]信仰
+			[NEWLINE][ICON_BULLET]盟友在[ICON_GOLDEN_AGE]黃金時代內，全國額外+25%[ICON_PEACE]信仰
+			[NEWLINE]
+			[NEWLINE]朋友效果：
+			[NEWLINE][ICON_BULLET]朋友信仰購買大美術家、大文學家、大音樂家所需的[ICON_PEACE]信仰降低10%
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_IFE_ALLY_HELP">
+		<Text>
+			盟友效果：
+			[NEWLINE][ICON_BULLET]盟友信仰購買大美術家、大文學家、大音樂家所需的[ICON_PEACE]信仰降低30%
+			[NEWLINE][ICON_BULLET]盟友每擁有一件[ICON_GREAT_WORK]傑作或文物，全國+2%[ICON_PEACE]信仰
+			[NEWLINE][ICON_BULLET]盟友在[ICON_GOLDEN_AGE]黃金時代內，全國額外+25%[ICON_PEACE]信仰
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_EFFECT_CSUA_IFE_FRIEND_HELP">
+		<Text>
+			朋友效果：
+			[NEWLINE][ICON_BULLET]朋友信仰購買大美術家、大文學家、大音樂家所需的[ICON_PEACE]信仰降低10%
+		</Text>
+	</Row>
+	<Row Tag="TXT_KEY_CSUA_VILNIUS_HELP">
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]盟友每擁有1個已解鎖的社會政策，全國+2%[ICON_GOLD]金錢、+1%[ICON_RESEARCH]科研
@@ -17536,6 +17808,2000 @@
 		</Row>
 		<Row Tag="TXT_KEY_SP_CITY_STATE_HAS_UA">
 			<Text>[COLOR_CYAN]專屬UA[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID">
+			<Text>經濟援助</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_REVOKE">
+			<Text>退出經濟援助</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_TT">
+			<Text>宣佈對該城邦提供經濟援助：[NEWLINE][ICON_BULLET]每回合支付 [ICON_GOLD]{1_num} 金幣[NEWLINE][ICON_BULLET]盟友：影響力保持不變（未援助則每回合 -1 影響力）[NEWLINE][ICON_BULLET]非盟友：每回合 +1 影響力[NEWLINE][ICON_BULLET]本輪內退出後不可再次參加</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_REVOKE_TT">
+			<Text>停止對該城邦的經濟援助。[NEWLINE][COLOR_WARNING_TEXT]盟友退出將立刻扣除 20 影響力，且本輪內不可再次參加[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_DISABLED_LOCKED_TT">
+			<Text>[NEWLINE][COLOR_WARNING_TEXT]本輪內已退出或終止，本輪無法再次參加[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_DISABLED_CLOSED_TT">
+			<Text>[NEWLINE][COLOR_WARNING_TEXT]該城邦還未開始經濟建設，需等到下一輪[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TOOLTIP_ECONOMIC_AID_ACTIVE">
+			<Text>經濟援助中</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_ECONOMIC_AID_ROUND_STATUS">
+			<Text>[ICON_GOLD]經濟援助 · 第 {1_Round} 輪 · 剩餘 {2_TurnsLeft} 回合</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_BASE_TT">
+			<Text>[ICON_BULLET]基礎產出: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_CITY_TT">
+			<Text>[ICON_BULLET]來自該城市建築: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_BUILDING_TT">
+			<Text>[ICON_BULLET]來自該文明建築/奇觀: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_THEIR_POLICY_TT">
+			<Text>[ICON_BULLET]來自該文明政策: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_MY_POLICY_TT">
+			<Text>[ICON_BULLET]來自我方政策: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_CSUA_TT">
+			<Text>[ICON_BULLET]來自城邦UA: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_RANK_TT">
+			<Text>[ICON_BULLET]來自間諜等級: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_GATHERING_INTEL_SPEED_TT">
+			<Text>[ICON_BULLET]來自間諜速度: {1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_PROGRESS_TT">
+			<Text>[COLOR_POSITIVE_TEXT]王牌間諜晉升條件[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_REQ_TECH_TT">
+			<Text>[ICON_BULLET]竊取科技：{1_Done}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_REQ_KILL_TT">
+			<Text>[ICON_BULLET]擊殺敵方間諜：{1_Done}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_REQ_COUP_TT">
+			<Text>[ICON_BULLET]發動城邦政變：{1_Done}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_DONE">
+			<Text>[COLOR_POSITIVE_TEXT]已完成[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_SPY_MASTER_NOT_DONE">
+			<Text>[COLOR_NEGATIVE_TEXT]未完成[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_GANGTOK_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]全世界每有1座城市信仰盟友創立的宗教，盟友+1[ICON_HAPPINESS_1]全局快樂
+				[NEWLINE][ICON_BULLET]盟友每回合可使用[ICON_PEACE]信仰向任意城邦購買1次[ICON_INFLUENCE]影響力，價格為對應金錢贈禮的1/4
+				[NEWLINE][ICON_BULLET]盟友城市中，每個有市民工作的[ICON_PEACE]宗教聖地為該城市+10%[ICON_PEACE]信仰
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]全世界每有2座城市信仰朋友創立的宗教，朋友+1[ICON_HAPPINESS_1]全局快樂
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GANGTOK_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]全世界每有1座城市信仰盟友創立的宗教，盟友+1[ICON_HAPPINESS_1]全局快樂
+				[NEWLINE][ICON_BULLET]盟友每回合可使用[ICON_PEACE]信仰向任意城邦購買1次[ICON_INFLUENCE]影響力，價格為對應金錢贈禮的1/4
+				[NEWLINE][ICON_BULLET]盟友城市中，每個有市民工作的[ICON_PEACE]宗教聖地為該城市+10%[ICON_PEACE]信仰
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GANGTOK_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]全世界每有2座城市信仰朋友創立的宗教，朋友+1[ICON_HAPPINESS_1]全局快樂
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_FAITH_GIFT_TT">
+			<Text>作為甘托克的盟友，你每回合可使用[ICON_PEACE]信仰向任意城邦購買1次[ICON_INFLUENCE]影響力，價格為對應金錢贈禮的1/4。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POPUP_MINOR_FAITH_GIFT_AMOUNT">
+			<Text>{1_NumFaith}[ICON_PEACE]信仰——將會增加{2_NumFriendship}[ICON_INFLUENCE]影響力。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONFIRM_REVOKE_ECONOMIC_AID">
+			<Text>真的要停止對{1_CityStateName}的經濟援助嗎？[NEWLINE][COLOR_WARNING_TEXT]盟友退出將立刻扣除20[ICON_INFLUENCE]影響力，且本輪內不可再次參加[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DO_CS_STATUS_AID_AUTO_RENEW">
+			<Text>自動續約</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DO_CS_STATUS_AID_AUTO_RENEW_TT">
+			<Text>勾選後，每輪經濟援助開始時自動重新對該城邦提供[ICON_GOLD]經濟援助。若因退出、戰爭或城邦關閉而中斷，將在條件允許的下一輪自動續約。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_WITTENBERG_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每有1座城市信仰盟友為領袖的宗教，盟友首都+1%[ICON_PEACE]信仰
+				[NEWLINE][ICON_BULLET]盟友可花費高額[ICON_PEACE]信仰，為其領導的宗教購買1個自選信條（每盟友限1次）
+				[NEWLINE][ICON_BULLET]該宗教的城市被審判官或大先知清除宗教時，保留40%信眾
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]每有2座城市信仰盟友為領袖的宗教，朋友首都+1%[ICON_PEACE]信仰
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_WITTENBERG_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每有1座城市信仰盟友為領袖的宗教，盟友首都+1%[ICON_PEACE]信仰
+				[NEWLINE][ICON_BULLET]盟友可花費高額[ICON_PEACE]信仰，為其領導的宗教購買1個自選信條（每盟友限1次）
+				[NEWLINE][ICON_BULLET]該宗教的城市被審判官或大先知清除宗教時，保留40%信眾
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_WITTENBERG_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]每有2座城市信仰盟友為領袖的宗教，朋友首都+1%[ICON_PEACE]信仰
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_BELIEF_PURCHASE">
+			<Text>購買信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_BELIEF_PURCHASE_TT">
+			<Text>作為維滕貝格的盟友，你可花費{1_Num}[ICON_PEACE]信仰，為其領導的宗教購買1個自選信條（每盟友限1次，信條效果完整生效）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_TITLE">
+			<Text>購買信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SUBTITLE">
+			<Text>為 {1_ReligionName} 購買1個信條，花費{2_Num}[ICON_PEACE]信仰。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SUBTITLE_NO_RELIGION">
+			<Text>購買1個信條，花費{1_Num}[ICON_PEACE]信仰。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_PANTHEON">
+			<Text>神系信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_FOLLOWER">
+			<Text>追隨者信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_FOUNDER">
+			<Text>創立者信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_ENHANCER">
+			<Text>強化信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_BELIEF_SECTION_REFORMATION">
+			<Text>改革信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CONFIRM_BELIEF_PURCHASE">
+			<Text>購買信條"{1_Belief}"？該信條將加入其領導的宗教，效果立即生效，且購買後不可撤銷。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_BELIEF_PURCHASED">
+			<Text>你已將「{1_BeliefName}」信條加入{2_ReligionName}。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_BELIEF_PURCHASED_S">
+			<Text>信條購買完成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_BELIEF_PURCHASED_BROADCAST">
+			<Text>{1_CivName}已將「{3_BeliefName}」信條加入{2_ReligionName}。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_LAVENTA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每擁有1件傑作或文物，所有偉人點數積累速度+4%
+				[NEWLINE][ICON_BULLET]盟友可花費[ICON_PEACE]信仰，購買1個空閒（未被佔用）的神系信條加入其為領袖的宗教（基礎500[ICON_PEACE]，每次購買價格翻倍，無上限）
+				[NEWLINE][ICON_BULLET]每次購買後，盟友對所有已見城邦提高其富餘快樂×0.5的影響力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每擁有1件傑作或文物，所有偉人點數積累速度+2%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_LAVENTA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每擁有1件傑作或文物，所有偉人點數積累速度+4%
+				[NEWLINE][ICON_BULLET]盟友可花費[ICON_PEACE]信仰，購買1個空閒（未被佔用）的神系信條加入其為領袖的宗教（基礎500[ICON_PEACE]，每次購買價格翻倍，無上限）
+				[NEWLINE][ICON_BULLET]每次購買後，盟友對所有已見城邦提高其富餘快樂×0.5的影響力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_LAVENTA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每擁有1件傑作或文物，所有偉人點數積累速度+2%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_PANTHEON_PURCHASE">
+			<Text>購買空閒神系信條</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_PANTHEON_PURCHASE_TT">
+			<Text>作為拉本塔的盟友，你可花費{1_Num}[ICON_PEACE]信仰，購買1個空閒（未被佔用）的神系信條加入其為領袖的宗教。基礎價格500[ICON_PEACE]，每次購買翻倍。每次購買後，你對所有已見城邦提高富餘快樂×0.5的影響力。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_PANTHEON_SUBTITLE">
+			<Text>為 {1_ReligionName} 購買1個空閒神系信條，花費{2_Num}[ICON_PEACE]信仰。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_PANTHEON_PURCHASED">
+			<Text>你已將「{1_BeliefName}」神系信條加入{2_ReligionName}。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_PANTHEON_PURCHASED_S">
+			<Text>神系信條購買完成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CSUA_PANTHEON_PURCHASED_BROADCAST">
+			<Text>{1_CivName}已將「{3_BeliefName}」神系信條加入{2_ReligionName}。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_KATHMANDU_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]宗教建築（佛塔、大教堂、清真寺、修道院、裁判所）為城市+10%[ICON_GOLD]金錢
+				[NEWLINE][ICON_BULLET]每回合向加德滿都的首次[ICON_GOLD]金錢捐獻返還50%[ICON_PEACE]信仰
+				[NEWLINE][ICON_BULLET]解鎖特殊建築珠穆朗瑪營地（僅可在鄰近山脈的城市建造；城市+50%[ICON_GOLD]金錢與[ICON_TOURISM]旅遊）
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]宗教建築（佛塔、大教堂、清真寺、修道院、裁判所）為城市+4%[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KATHMANDU_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]宗教建築（佛塔、大教堂、清真寺、修道院、裁判所）為城市+10%[ICON_GOLD]金錢
+				[NEWLINE][ICON_BULLET]每回合向加德滿都的首次[ICON_GOLD]金錢捐獻返還50%[ICON_PEACE]信仰
+				[NEWLINE][ICON_BULLET]解鎖特殊建築珠穆朗瑪營地（僅可在鄰近山脈的城市建造；城市+50%[ICON_GOLD]金錢與[ICON_TOURISM]旅遊）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KATHMANDU_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]宗教建築（佛塔、大教堂、清真寺、修道院、裁判所）為城市+4%[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_EVEREST_CAMP">
+			<Text>珠穆朗瑪營地</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_EVEREST_CAMP_HELP">
+			<Text>所在城市+50%[ICON_GOLD]金錢與+50%[ICON_TOURISM]旅遊。僅可在鄰近山脈的城市建造，且僅限加德滿都的盟友。不可購買。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_EVEREST_CAMP_STRATEGY">
+			<Text>在鄰近山脈的城市建造珠穆朗瑪營地，可大幅提升該城市的金錢與旅遊產出。僅加德滿都的盟友可建造。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_KATHMANDU_DONATION_TT">
+			<Text>作為加德滿都的盟友，你每回合向加德滿都的首次[ICON_GOLD]金錢捐獻將返還50%的[ICON_PEACE]信仰。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_GENEVA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]為領袖的宗教獲得「世界認可」：每有2個主要文明的主流宗教為該宗教，盟友+1[ICON_DIPLOMATIC_PRESTIGE]外交威望
+				[NEWLINE][ICON_BULLET]每有3座城市信仰該宗教，盟友每回合對所有已見面城邦+1[ICON_INFLUENCE]影響力
+				[NEWLINE][ICON_BULLET]盟友每次誕生[ICON_PROPHET]大先知，獲得等同於其對日內瓦影響力×2的[ICON_GOLD]金錢
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每次誕生[ICON_PROPHET]大先知，獲得等同於其對日內瓦影響力的[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GENEVA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]為領袖的宗教獲得「世界認可」：每有2個主要文明的主流宗教為該宗教，盟友+1[ICON_DIPLOMATIC_PRESTIGE]外交威望
+				[NEWLINE][ICON_BULLET]每有3座城市信仰該宗教，盟友每回合對所有已見面城邦+1[ICON_INFLUENCE]影響力
+				[NEWLINE][ICON_BULLET]盟友每次誕生[ICON_PROPHET]大先知，獲得等同於其對日內瓦影響力×2的[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_GENEVA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每次誕生[ICON_PROPHET]大先知，獲得等同於其對日內瓦影響力的[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_CS_ENEMY_COMBAT_PER_GOLD">
+			<Text>每100[ICON_GOLD]金幣削減{1_Modifier}%[ICON_STRENGTH]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_POINTS_TITLE">
+			<Text>間諜點數</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_POINTS_PROGRESS">
+			<Text>{1_Progress}/{2_Threshold}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_POINTS_PROGRESS_TT">
+			<Text>{1_Progress}/{2_Threshold} 間諜點數後獲得下一位間諜[NEWLINE][COLOR_POSITIVE_TEXT]每回合 +{3_PerTurn}[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_RANK_3">
+			<Text>王牌間諜</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_DIPLOMAT">
+			<Text>諮詢外交官</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_NO_DIPLOMAT">
+			<Text>我們未派駐外交官到該國首都。派駐間諜擔任外交官即可諮詢其交易底線。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_MASTER">
+			<Text>外交官評估（王牌間諜）：我們給予他們 {2_TheyreOffering}，他們給予我們 {1_ImOffering}。他們在此交易中的淨收益為 {3_NetValue}。他們接受的淨收益區間為 {5_Lower} 至 {4_Upper}。[NEWLINE]結論：{6_Acceptance}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_AGENT">
+			<Text>外交官評估（高級特工）：他們在此交易中的淨收益為 {1_NetValue}。他們接受的淨收益區間為 {3_Lower} 至 {2_Upper}。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_ROUGH">
+			<Text>外交官大致判斷（正式探員）：他們的淨收益約占交易總額的 {1_Percent}%。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_ACCEPTABLE">
+			<Text>他們接受此交易</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_CANT_MATCH">
+			<Text>他們仍要求的比我們提供的更多</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_BUTTON">
+			<Text>外交談判</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_NO_DIPLOMAT">
+			<Text>我們未派駐外交官到該國首都。派駐間諜擔任外交官方可透過談判提升回合金在本回合內的價值。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_COOLDOWN">
+			<Text>外交談判冷卻中，還需 {1_Cooldown} 回合。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_SUCCESS">
+			<Text>外交談判成功！本回合內我方回合金對該國的價值提升 20%。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_FAILURE">
+			<Text>外交談判未能說服對方，本次嘗試未獲效果。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CONSULT_TT">
+			<Text>派駐外交官（目前等級 {1_Rank}）可查看該國對本交易的底線評估。等級越高，評估越詳細。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_TT">
+			<Text>外交談判：有 {1_Chance}% 機率觸發「外交合作」，使本回合我方回合金對該國的價值提升 20%。觸發後冷卻 {2_Cooldown} 回合。（本回合內或交易成功後效果消除）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_TT_CD">
+			<Text>外交談判正在冷卻，還需 {1_Cooldown} 回合才能再次嘗試。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_DEMOTED">
+			<Text>你在{1_Civ}的外交官因在交易中不正當獲利，已被降級為一級間諜。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_BARGAIN_DEMOTED_SHORT">
+			<Text>外交官被降級</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_LOG">
+			<Text>超级大国更新记录</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_LOG_HELP">
+			<Text>记录超级大国各版本的改动内容。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V7">
+			<Text>v7 更新记录</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V8">
+			<Text>v8 更新记录</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V9">
+			<Text>v9 更新记录</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10">
+			<Text>v10 更新记录</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V7_0">
+			<Text>SP 7.0 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V7_0_HELP">
+			<Text>SP 7.0 更新 (2021.07.16)[NEWLINE]1.内核 - DLL-VMC 更新到 v.96，且两个MOD合并为一；[NEWLINE]2.内核 - 开启 AI Smart v.3；[NEWLINE]3.政策 - 寡头政体，律法统治，郡县制度，绅缙阶层：取消对首都的额外加成；[NEWLINE]4.政策 - 传统关门：黄金时代阈值降低效果减少到25%；[NEWLINE]5.政策 - 权利法案 变更为：所有专家建筑+1点对应产出，市政厅维护费减半；[NEWLINE]6.政策 - 地方分权 与 权利法案 互换位置，新增：镇守城市的单位无需维护费；[NEWLINE]7.政策 - 代议制 新增：每座城市+1%全局文化；[NEWLINE]8.政策 - 自主关门：将赠送自选伟人改为赠送一个免费的大工程师；[NEWLINE]9.政策 - 军事操练 变更为：赠送一个大军事家，大军事家产生速率+50%，陆地远程单位远程攻防力+15%（原先为25%）；[NEWLINE]10.政策 - 尚武精神 变更为：军营，军械所，兵工厂，军事基地+1产能，冶铁坊，马厩，城墙，城堡+2文化，傀儡城市+6金，生产军事单位产能+15%；[NEWLINE]11.政策 - 虔信开门：随机信条 变更为 所有建造了世界奇观的城市+25%信仰；[NEWLINE]12.政策 - 虔信关门 新增：伟人诞生速率+25%；[NEWLINE]13.政策 - 教会组织 更名 道德经 加强，变更为： 宗教建筑+1文化（大小庙，大教堂，清真寺，佛塔，修道院，裁判所），宗教奇观+4文化（宗庙，圣殿，圣索菲亚，杰内大清真寺，吴哥窟，婆罗浮屠，圣母院，西斯廷教堂）；[NEWLINE]14.政策 - 神权政治 变更为：全国文化产出+10%，所有城市获得一个文学家席位；[NEWLINE]15.政策 - 赞助关门：新增同盟不再额外提升赠送伟人的速率；[NEWLINE]16.政策 - 艺术伦理 新增：每2项已采用的政策+1快乐；[NEWLINE]17.政策 - 艺术天才 新增：进入全战时代前，建造奇观时+25%产能积累速率；[NEWLINE]18.政策 - 贸易保护 新增：举行“我们爱领袖日！”的城市+3本地快乐；[NEWLINE]19.政策 - 联合工会 新增：客栈+2文化；[NEWLINE]20.政策 - 重商主义：商业家产出的商品由 +50% 变更为 额外+3；[NEWLINE]21.政策 - 创业精神：大商业家的诞生速率+25% 变更为 所有商业家+1科研；[NEWLINE]22.政策 - 商船舰队 新增：所有沿海城市+3商品；[NEWLINE]23.政策 - 海事管理 新增：建造或购买远洋海军时，获得其力量值的文化；[NEWLINE]24.政策 - 航海学校 新增：新训练的海军单位+15经验；[NEWLINE]25.政策 - 自由1级 - 经济联盟 取消所有专家+1粮的效果；[NEWLINE]26.政策 - 自由3级 - 自由贸易：每条商路+10金，商业家产出的商品数量额外+3；[NEWLINE]27.政策 - 自由3级 - 言论自由 改名“民主灯塔”：每25点满意度+5%科研的上限提升50%。移民迁入速率+100%；[NEWLINE]28.政策 - 自由3级 - 媒体文化：每处广播塔、电视台和有线网络可以使城市魅力产出提高25%。民用单位可以进入未开边国家的境内，赠送一个大音乐家，大音乐家+3移动力；[NEWLINE]29.政策 - 秩序：文化大革命 变为3级政策，无产阶级专政 变为2级政策，上山下乡运动 变为1级政策；[NEWLINE]30.政策 - 秩序1级 - 计划经济：由每城+4电+4商品 增加到 +6电+6商品；[NEWLINE]31.政策 - 秩序1级 - 上山下乡运动：每处矿井、伐木场、农田、圩田、梯田、牧场、贸易站+1文化；[NEWLINE]32.政策 - 秩序3级 - 文化大革命：向其他意识形态国家输出的魅力+50%，向同一意识形态的其他国家输出的魅力+25%；[NEWLINE]33.政策 - 秩序3级 - 航天先驱：可以用大工程师加速建造太空部件。每位科学家+2产能、工程师+2科研。首都旁出现一位大科学家；[NEWLINE]34.政策 - 秩序3级 - 铁幕 改名“国际主义” 新增：抵消自身受到的公共舆论不满，使其他意识形态文明的公共舆论不满翻倍；[NEWLINE]35.政策 - 独裁2级 - 全面战争：所有城市+5人力。城市在升级到大城市前，因城市规模造成的商品和电力消耗减少一个等级；[NEWLINE]36.政策 - 独裁3级 - 威权政府 新增：公共舆论不满减半；[NEWLINE]37.城邦 - 同盟城邦按时代提供的商品下调，由 4,8,14,20 调整为 4,6,9,12；[NEWLINE]38.城邦 - 航海城邦：友好关系下不再给分城提供粮食，主城启蒙前给1粮，启蒙后2粮；同盟关系下主城再给5粮，分城1粮；[NEWLINE]39.奇观 - 摩索拉斯陵墓 新增：建造建筑时+10%产能积累；[NEWLINE]40.奇观 - 三峡大坝 提供的电力增加到+100电；[NEWLINE]41.奇观 - 阿斯旺水电站 提供的电力增加到+72电；[NEWLINE]42.奇观 - 胡佛水坝 提供的电力增加到+56电；[NEWLINE]43.奇观 - 鲁尔工业区 - 二级扩容机组 建造所需产能变为35；[NEWLINE]44.奇观 - 母亲在召唤 新增：文明开启一次黄金时代；[NEWLINE]45.奇观 - 普洛拉度假村 新增：非占领城市的市民导致的不满-10%；[NEWLINE]46.宗教 - 创立者信条 至高教皇 对信仰此宗教的城邦的影响力下限值+35；[NEWLINE]47.宗教 - 追随者信条 宗教艺术 增加；圣母院+2魅力；[NEWLINE]48.宗教 - 宗教裁判所：城中的每种异教+3信仰、+2金钱。+1快乐。AI也会建造宗教裁判所；[NEWLINE]49.宗教 - 强化信条 神圣殿堂：圣城中25%来自于世界奇观、自然奇观和地面设施文化产出增加到该城市的魅力产出中。来自杰作的魅力产出+25%。圣城宗教压力+100%；[NEWLINE]50.宗教 - 改革信条 荣神益人 取消 伟人诞生速率+25%；增加 所有城市每位专业人员+1信仰；[NEWLINE]51.宗教 - 改革信条 圣地朝拜 增加：宗教圣地，制造工厂，海关，学园+5文化；[NEWLINE]52.城防 - 城市基础力从5提升至20，基础血量从100提升至150；[NEWLINE]53.城防 - 军械所提升的城防增加到10；[NEWLINE]54.城防 - 城堡提升的城防减少到35，但提供的生命值增加到50（日本UB提供的城防不变，生命值也增加到50）；[NEWLINE]55.城防 - 取消码头提供的城防和生命值；[NEWLINE]56.文明 - 日本的织田信长UA武士道 增加：强化宗教时添加一条未选的随机神系；[NEWLINE]57.文明 - 易洛魁的海华沙：UA林间潜行 增加：建成农场时，地块上的森林不会被移除（其他文明种田移除森林将更改为建成时进行）；恢复UU莫霍克武士，替代民兵（冶金学），拥有2级后备晋升，并且在境内获得隐身效果；[NEWLINE]58.单位 - 末日机甲自带“军团”&amp;“集团军”晋升；[NEWLINE]59.提督在未研发导航术之前不可进入大洋（同时取消坏血症效果）；[NEWLINE]60.蛮族兵种池中的蛮族剑士恢复为默认的乡兵；[NEWLINE]61.商业家提供的基础商品由+4变为+6；[NEWLINE]62.所有免费伟人不再增加阈值；[NEWLINE]63.为国际移民事件添加计数器：当某个文明计数器归零或达到回归值的两倍时发生一次国际移民事件，发生事件后计数器归位，不会将多余的数值累计到下一次事件。计数器每回合累计值为魅力界面移民迁入速度的值，发生国际移民事件的回归值分别为：快速15，标速20，史诗30，马拉松50；[NEWLINE]64.补充百科中有关“国际移民”的游戏概念；[NEWLINE]65.开山采石 变更为 挖掘隧道；[NEWLINE]66.SP 选项变更为默认常关；[NEWLINE]67.商业政策背景图修复；[NEWLINE]68.单位面板：增加射程显示（并标示间接火力）；[NEWLINE]69.海运模型问题修复，登陆单位至少拥有1点移动；[NEWLINE]70.本方拥有的暴乱中的或者人口小于4的城市不能主动交易给非初始拥有者；[NEWLINE]71.为未知资源增加提示信息；在鱼群和天然气上修建设施即时清除资源图标；[NEWLINE]72.顶部面板中不再明确显示有超过20可用量的战略资源；[NEWLINE]73.新增“记录模式”（单人模式）：对使用其他MOD &amp; 读档次数进行计数；[NEWLINE]74.新增“军团模式”：[NEWLINE]AI拥有兵工厂后允许建立“军团”，即可以将两个相同单位“合并”成一个单位，战斗力+10%，血量上限+100%；[NEWLINE]AI拥有军事基地后允许建立“集团军”，在“军团”基础上允许再合入一个相同的单位，战斗力+40%，血量上限再+100%；[NEWLINE]AI新造|新刷单位优先补充旧单位的损失，其次在条件满足的情况下合入旧单位（根据游戏难度合入概率依次为8级100%，7级90%...），最后才会真正产生一个新单位；[NEWLINE]人类玩家也可以组建军团和集团军，不过只能在有兵工厂和军事基地的城市范围内通过消耗大军（陆军）或提督（海军）实现；[NEWLINE]引入“兵力”点设定，兵力决定你总共能拥有的军事单位数量，兵力点满后获取军事单位将变得非常困难，新建军事单位也会被清除，AI兵力点满后也将停止刷出单位，分三个游戏选项档：[NEWLINE]高：除小镇以外的每个城市规模等级提供4兵力点，玩家初始24点，AI初始32点 —— 适合高配置玩家；[NEWLINE]中：除小镇以外的每个城市规模等级提供2兵力点，玩家初始12点，AI初始16点 —— 适合中配置玩家；[NEWLINE]低：除小镇以外的每个城市规模等级提供1兵力点，玩家初始 6点，AI初始 8点 —— 适合低配置玩家或和平主义者；[NEWLINE]（平民、要塞及空军单位不计入，也不进行单位合并操作，不过舰载机会跟随载具获得相应加成）[NEWLINE]75.完善“军团模式”配套的单位战损等级系统；[NEWLINE]76.单位面板&amp;敌方单位面板的名称栏中新增“军团模式”以及相关战损情况的标示；[NEWLINE]77.敌方单位面板可多显示一个晋升；[NEWLINE]78.全新的背景和Logo；[NEWLINE]79.其他细节优化及BUG修复。[NEWLINE]注：[NEWLINE]“军团”或“集团军”作战时，如果单位损伤提示出现+XXHP，请勿惊慌，此为正常现象，是单位的战损等级提升的表现；[NEWLINE]“军团”或“集团军”如果有一定的战损等级，在恢复HP至一个战损等级满血时，会自动降低一级战损，并多回5点血量；[NEWLINE]SP - RWO兼容模组：既可用于缺少“远古奇迹DLC”的群友使用，也可用作嫁接基于旧SP-CoC(6β-5.8x)制作的模组使用。[NEWLINE][NEWLINE]附加更新 (2021.07.27)[NEWLINE]1.单位 - 舰载机：晋升完全根据其载具而定，转场会重置晋升；[NEWLINE]2.单位 - 火力点：自带“军团”晋升；空军基地：自带“军团”&amp;“集团军”晋升；[NEWLINE]3.奇观 - 吴哥窟：补充对“宗教裁判所”的加成；[NEWLINE]4.晋升 - 集团军：增加的战斗力减少到+15%；[NEWLINE]5.自动化：获得“自动化”科技后，不再间隔一定回合“自动”改良地块，而是通过有建造设施能力的单位“手动”执行；[NEWLINE]6.军团模式：修复大军&amp;提督在未开启“军团模式”也可以提升单位编制的问题；[NEWLINE]7.军团模式：单位面板中海军的“军团”附加名变更为“舰队”、“集团军”附加名变更为“大舰队”（日本的“大舰队”则为“联合舰队”）；使用提督提升海军编制也做相应变更；[NEWLINE]8.军团模式：AI新单位优先补充现有单位损失强度修正：[NEWLINE]可同时补充3个单位的损失，可供补充的单位损失需要&gt;=30，和新单位同类且当前能够移动；[NEWLINE]补充方式——一次性补30点伤害，同时被补充单位的移动力减半（如果兵力充足且需要补充的单位数不满2时，不进行补充）；[NEWLINE]9.其他细节优化及BUG修复。[NEWLINE][NEWLINE]SP 7.0 RC 更新 (2021.08.03)[NEWLINE]1.改良设施 - 隧道：挖掘所用时间减半，额外提供2金钱、2产能；[NEWLINE]2.国际移民：基准移民速率更改为两个文明影响等级之差；发生国际移民事件的回归值调整为：快速10，标速15，史诗23，马拉松35；[NEWLINE]3.军团模式：大军&amp;提督可直接提升单位编制（无需合并其他单位），其提升的编制水平在文明还没有兵工厂的情况下最多到“军团”级别；[NEWLINE]4.军团模式：同地格同种单位可以自行合成“军团”和“集团军”，总数由文明的已建的兵工厂和军事基地数量而定（除了“高”是2倍以外，其他2档都是1倍）；[NEWLINE]5.军团模式：AI在诞生大军&amp;提督时会自动提升任一非民兵军事单位的编制；[NEWLINE]6.文化总览：根据新的“国际移民”机制更改相应提示。[NEWLINE][NEWLINE]SP 7.0 RC 更新 (2021.08.21)[NEWLINE]1.修复数据错漏；[NEWLINE]2.提升“SP - RWO 兼容模组”的兼容性；[NEWLINE]3.新增“SP - RWO 代位模组” —— 用于使用了 SP DLC 同时需要加载基于 SP MOD 的 SubMOD 的情况。[NEWLINE][NEWLINE]SP 7.0f 更新 (2022.10.06)[NEWLINE]1.内核 - DLL-VMC 更新到 v.97；[NEWLINE]2.国际移民：回归值调整 —— 快速100，标速200，史诗400，马拉松800；[NEWLINE]3.政策 - 自由1级 - 前卫艺术：伟人诞生时，对所有文明的魅力提升从500调整为300；[NEWLINE]4.未开启“军团模式”下的“记录模式”：移除所有单位的“军团”和“集团军”晋升；[NEWLINE]5.MOD 模式可通过使用“SP - RWO 代位模组”切换为 DLC 模式。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V8_0">
+			<Text>SP 8.0 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V8_0_HELP">
+			<Text>SP 8.0 更新 (2023.2.1)[NEWLINE]一.政策调整[NEWLINE]1.传统政策：左二寡头政体首都加4锤回调[NEWLINE]2.传统政策：右一绅缙阶层首都加4粮回调[NEWLINE]3.传统政策：右一绅缙阶层加强，梯田、圩田、卡斯巴哈、蹄皮帐篷+1粮食。[NEWLINE]4.传统政策：中二郡县制度首都加4文化回调[NEWLINE][NEWLINE]5.自主政策：左一集体统治加强，进入启蒙时代后，训练移民的速度额外增加+50%，国内移民进入城市不会清空粮食积累。[NEWLINE]6.自主政策：中一公民制度加强，新建城市获得一次性的25产能（标准速度下）。[NEWLINE]7.自主政策：右一精英政治加强，城市建造完成建筑或国家奇观后（购买无效），获得一次性的科研、文化产出（数值相当于建筑产能（随速度变化）的10%）。[NEWLINE]8.自主政策：左二地方分权，修复驻军免维护费不生效的bug。[NEWLINE]9.自主政策：中二共和政体加强，每座城市+1%全局粮食和产能加成。[NEWLINE]10.自主政策：左三权利法案重做，专家建筑的每个专家槽提供1点对应的基础产出（按默认建筑算），市政厅维护费减半。[NEWLINE][NEWLINE]11.荣誉政策：左一胡服骑射加强，重骑兵和装甲单位攻击时造成的伤害固定+5。[NEWLINE]12.荣誉政策：中二军事操练加强，攻城单位和空军单位对城市额外造成相当于10%城市最大生命值的伤害。陆军远程与游猎单位对单位造成伤害固定+5。[NEWLINE]13.荣誉政策：右二尚武精神加强，攻占城市赠送法院（需要数学，有ub会赠送ub）。[NEWLINE][NEWLINE]14.赞助政策：左一炮舰外交加强，勒索城邦的军事分数影响翻倍，勒索城邦消耗的影响力下降到1/4，可为最近的城市提供城邦一回合的粮食、产能、文化和科研。[NEWLINE]15.赞助政策：中一领事制度加强，完成城邦任务时获得一次性的文化奖励（=任务影响力*（2+每个时代（远古为0，古典为1，依此类推））/ 2）。[NEWLINE]16.赞助政策：右一商人公会加强，连接城邦的商路提供相当于城邦10%的科研和文化产出。[NEWLINE][NEWLINE]17.商业政策：左二贸易保护的道路/铁路维护费-50%效果移至左一大篷车队[NEWLINE]18.商业政策：左二贸易保护的爱国王日+3本地笑脸效果移至中二消费主义[NEWLINE]19.商业政策：左二贸易保护新增效果，国内商路可为目的地城市提供科研和文化，数值相当于5%起始城市的产出。[NEWLINE]20.商业政策：右二重商主义加强，充足商品的增益buff+20%（也改变上限，采用政策后上限为60%）。[NEWLINE][NEWLINE]21.海事政策：海事开门新增效果，所有海军单位无需导航即可进入大洋。[NEWLINE]22.海事政策：左一海事设施，新增海上设施修建速度+50%。[NEWLINE]23.海事政策：中一商船舰队，新增效果：可使用信仰购买商船，标准速度下500信仰。[NEWLINE]24.海事政策：左二航海学校训练远洋海军提供文化的效果移至右二航海学校。[NEWLINE]25.海事政策：左二航海学校调整，灯塔、港口、码头分别提供3%科研和产能；海运码头、船坞分别提供5%科研和产能。新增效果：灯塔、港口、码头、海运码头、船坞+4金钱。[NEWLINE][NEWLINE]二.文明调整[NEWLINE]1.迦太基UA加强，每位专家改为+2锤。[NEWLINE]2.迦太基UW迦太基集市加强，建造花费从(100+30*城市数量)锤下调到(60+30*城市数量)（同大竞技场），仅需本城拥有马戏团；若开启商业政策，购买打折再加5%，若开启海事政策，海军单位+10%战斗力。[NEWLINE]3.迦太基UB内港加强：前置不需要灯塔。改为替代码头，删除原港口的属性，在码头的基础上:[NEWLINE]a.后移至航海解锁[NEWLINE]b.半价[NEWLINE]c.可通过水域建立城市连接[NEWLINE]d.本城海军单位+15经验[NEWLINE]e.每4人口+1金钱[NEWLINE]f.提供一个工程师槽[NEWLINE]4.桑海UB石油公司加强：工业化解锁；所需产能从450降至300。[NEWLINE]5.桑海UU远征舰队加强，基础移动从6提升至8，不可继承，额外获得补给1-2级。[NEWLINE]6.葡萄牙UB商站加强：为本城奢侈资源和环礁+1产能（同灯塔），免维护费，所需产能从35下降至25，商船经过拥有商站的城市地块时，获得金钱=5*(2+时代)。[NEWLINE]7.葡萄牙UU拿乌加强：移动力+2；目前出售异国商品的次数为2，新增能力，当位于拥有商站的城市并且满移动力时，可以补充一次异国商品，上限为2。[NEWLINE]8.日本UU武士改成替代长剑并将名字改为旗本武士[NEWLINE]a.产能需求和资源需求同长剑[NEWLINE]b.保留特战单位3移动、无视地形的属性[NEWLINE]c.可以建立道场[NEWLINE]d.夹击加成+5%（可继承）。[NEWLINE]e.消灭敌人时获得相当于单位战斗力50%的文化（不可继承）。[NEWLINE]f.航空过期[NEWLINE]9.中国园林的+1本地快乐改成+2全局快乐，免维护费。每一个中国园林为城市规模提供加成（仍然保留减全局不满效果）：[NEWLINE]a.1-25人口的城市，每个城市规模+1粮食和+1产能和+1黄金时代点。[NEWLINE]b.26人口以上的城市：每提升一个城市规模，+1科研和+1文化。[NEWLINE]10.肖松尼UU探路者删除，肖松尼的普通侦察兵拥有土著语言晋升。[NEWLINE]11.肖松尼新增UI，“野兽驯养”，火药解锁，不能在沙漠、雪地和已有资源地块建造，建造花费同种树，不能相邻建造，建成后，本地块随机获得松露、毛皮、野牛、野鹿和象牙资源中的一种。[NEWLINE]12.肖松尼UB猎场加强，城市所有的松露、毛皮、野牛、野鹿和象牙资源+1食物、+2产能、+1金。[NEWLINE]13.希腊UA加强：每一个同盟城邦为单位提供+3%战斗力，最高为30%。[NEWLINE]14.希腊UB加强：每一个奥林匹克竞技场能使对城邦的基准影响力上升1，最大为20。[NEWLINE]15.阿兹特克UU海军陆战队删除。不论文明，普通海军陆战队及之后的特战单位拥有原”防暴部队“晋升。[NEWLINE]16.阿兹特克新增UW: 休伊神庙，替代圣殿，在普通圣殿的基础上：[NEWLINE]a.允许使用信仰购买美洲战士和雄鹰战士[NEWLINE]b.本城建造的陆军单位+15经验[NEWLINE]c.可将军事单位移动到本城献祭，获得相当于其战斗力300%的信仰和文化。该单位有20%的概率存活，并且获得晋升【战神齐洛波奇特利之力】，+50生命值上限，战斗力+10%。[NEWLINE]d.不需要所有城市建成大庙。[NEWLINE]17.阿兹特克雄鹰战士加强：自带猎杀1-2级晋升。[NEWLINE]18.印尼UA新增效果，每种多余奢侈（当前拥有的数量&gt;=2）可+5%完成城邦任务的影响力，最高为40%。[NEWLINE]19.德国UA优化，加成效果立刻生效，同时更加流畅[NEWLINE]20.德国UU虎式直升机更换为双薪剑士，属性同长剑，对同格单位可造成100%穿透伤害（可继承），消灭敌人时获得相当于单位战斗力50%的金钱（不可继承）。[NEWLINE][NEWLINE]三.专家和伟人[NEWLINE]1.科学家科研产出从+4改为+3。[NEWLINE]2.烧大科学家的回合数从4下降至2。[NEWLINE]3.学院为相邻改良设施+1科研，为烧大科提供+5%加成。[NEWLINE]4.圣地为相邻改良设施+1信仰。[NEWLINE]5.锻造厂为相邻改良设施+1锤。[NEWLINE]6.海关为相邻改良设施+3金币。[NEWLINE]7.工程师提供+2电力。(研发电力科技后)[NEWLINE]8.文化专家的文化产出从+3改为+4。[NEWLINE]9.每一级文化基金会为文化专家+2文化，-2金。[NEWLINE]10.文化杰作可提供2%全局文化和魅力，每个文化杰作可增强10%的大文强度。[NEWLINE]11.大商业家、大工程师、大科学家独立计算阈值。[NEWLINE][NEWLINE]五.其他调整[NEWLINE]1.研发炸药后可在一回合内毁灭城市。[NEWLINE]2.修复铁器+25%工人速率未生效的bug。[NEWLINE]3.开局新增选项，开启赠送民兵单位，同时默认情况下不允许赠送城邦民兵[NEWLINE]4.绿洲可建造贸易站和农场。[NEWLINE]5.内运商路的粮锤基础产出受到出发城市的加成，出发城市的每25点粮/锤，为目的城市+1基础粮/锤。[NEWLINE]6.在丛林上建城可获得一次性产能。[NEWLINE]7.修改单位克制的实现方式，使用晋升对晋升的加成。[NEWLINE]8.战斗预测UI正确显示攻击者造成的超过自身最大生命值的伤害，或是受到的超过敌方最大生命值的伤害。[NEWLINE]9.建筑UI显示建筑带来的政策阈值变化。[NEWLINE]10.支持已损失生命值&gt;100的单位正常进行战斗。[NEWLINE]11.支持多个工人在同一地块上同时工作，在单人模式下，任意工人完成工作后将尝试唤醒同地块上的其它工人（不需要再取消工人任务后选择下一个工人工作）[NEWLINE]12.海军不能组建军团，AI不会刷出海军军团。[NEWLINE]13.海军和陆军的克制系数（包括精准晋升，除了特战对民兵）系数减半。[NEWLINE]14.陆军游猎造价减少至70%。[NEWLINE]15.石工坊移除无法在平原地形建造的限制。[NEWLINE]16.统一所有意识形态以外的政策文本风格，使其更加简洁明了。[NEWLINE]17.增加大量接口[NEWLINE][NEWLINE]六.单位模型调整[NEWLINE]1.斯巴达300勇士模型替换；[NEWLINE]2.弓骑兵模型替换；[NEWLINE]3.重炮模型替换；[NEWLINE]4.动员兵模型替换；[NEWLINE]5.现代民兵模型替换；[NEWLINE]6.护卫舰模型替换；[NEWLINE]7.摩托化步兵模型替换；[NEWLINE]8.核动力航母模型替换；[NEWLINE]9.超级核动力航母模型替换；[NEWLINE]10.主战坦克模型替换；[NEWLINE]11.导弹动效删除；[NEWLINE][NEWLINE]SP 8.0 更新 (2023.2.2)[NEWLINE]1. 修复了未采用自主中二（共和政体）也可获得效果的问题。[NEWLINE]2. 增加了葡萄牙商站的商路过境收益的文本描述。[NEWLINE]3. 为迦太基内港的文本增加军事建筑标志。[NEWLINE]4. 修复了海事左一（海上设施）导致鱼类养殖无法与渔船相邻修建的问题。[NEWLINE]5. 自主右一（精英政治）现在对修建国家奇观也有效。[NEWLINE]6. 修复了赞助左一（炮舰外交）政策产出提示消息总是在首都弹出的问题。[NEWLINE][NEWLINE]SP 8.0 更新 (2023.2.11)[NEWLINE]1.自主开门效果加强，各级腐败距离+x[NEWLINE]2.使用Release版本dll[NEWLINE][NEWLINE]SP 8.0 更新 (2023.2.14)[NEWLINE]1.修复平民也会显示组建军团按钮的bug[NEWLINE]2.组建军团按钮描述中增加剩余可组建军团和集团军数量的提示[NEWLINE]3.自主精英政治加强，现在对于建造移民也有效[NEWLINE]4.中华园林城市规模加成削弱[NEWLINE]5.商路面板增加文化显示</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V9_0">
+			<Text>SP 9.0 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V9_0_HELP">
+			<Text>SP 9.0 更新 (2023.4.20)[NEWLINE]一.政策调整[NEWLINE]1.传统政策：政策对首都的产能粮食文化固定加成取消，君主政体新增首都每人口+1基础产能、文化、粮食、科研[NEWLINE]2.自主政策-公民制度：新增效果，启用该政策时所有城市获得25锤[NEWLINE]3.独裁政策-军国主义：新增效果：攻占城市时，若已经占领该玩家的原始首都，无抵抗。[NEWLINE]4.独裁政策-威权政府重做，原效果合并到个人崇拜，新效果为：每一个占领的原始首都，为军事单位固定+4固定攻击伤害。[NEWLINE]5.独裁政策-闪电战：新增效果，陆军单位可以使用敌军境内道路[NEWLINE]6.独裁政策-全面战争：新增效果，军事单位建造速度+25%。[NEWLINE]7.独裁政策-边境工事：新增效果，建造军营、军械所、兵工厂、军事基地、码头、船坞、马厩、金属锻造厂、冶铁坊、炼焦厂、回收中心、石油精炼厂、增殖反应堆、煤液化工厂、煤灰提炼厂的速度+100%。[NEWLINE][NEWLINE]二.文明调整[NEWLINE]1.波斯，总督宫+4黄金时代长度[NEWLINE]袖珍潜艇替换为天堂花园：替代花园，15人口要求，黄金时代+2%战斗力-3%黄金时代阈值[NEWLINE]2.亚述，飞毛腿导弹替换为阿苏尔神庙：替代神庙，组建作战单位+15%产能，歼灭位于城市6格内敌人时，获得目标单位50%战斗力的食物、信仰。[NEWLINE]3.印度，人丁兴旺新增效果：城市中每个主流宗教的信徒+1%食物[NEWLINE]莫卧儿清真寺新增效果：建造所需人口降低至15,来自本城的宗教压力加倍[NEWLINE]4.奥斯曼，眼镜蛇防空车替换为攻城工坊：替代木材加工厂，本城组建的攻城单位获得晋升【乌尔班大炮】，攻击城市时，有40%的概率摧毁以下的一座军事建筑，按优先级为军营、军械所、城墙、城堡[NEWLINE]5.瑞典，鹰狮战斗机解锁科技由隐形提前至机动战术。[NEWLINE]6.埃及，777特战队替换为UU马穆鲁克，替代骑士：位于城市时可禁止其他文明进行传教。可通过信仰购买。攻击可获取对等伤害的信仰。（只对攻击单位生效）[NEWLINE]天狼星神庙新增效果：基础科研产出+1。[NEWLINE]7.丹麦，阿布萨隆支援舰替换为UB诺曼营地，替代城墙：组建陆军单位、海军单位+15初始经验。每当攻占或摧毁一座城市，每座诺曼营地为所在城市提供一次性粮食或者产能产出(具体数值和时代、诺曼营地数相关)。[NEWLINE]维京狂暴变更效果：攻占城市或摧毁营寨所获金钱由3倍→2倍。[NEWLINE]8.印加，山地路网新增效果：平民单位可进入山脉地块，移民可在山脉上建立城市，山城额外+10城市防御，并获得额外食物、科研产出，额外产出等同于：1+当前时代×1。[NEWLINE]黄金花园新增效果：建造不受地形限制。[NEWLINE]9.波利尼西亚，海路探寻新增效果：移民可在沿岸海滨建立城市，海城获得额外产能、文化产出，额外产出等同于：1+当前时代×1。陆军以海运状态攻城，海城组建陆军初始为海运状态。[NEWLINE]10.祖鲁，南非号角主战坦克替换为伊扎卡，替代露天剧场：在露天剧场的基础上：造价从50锤降低至40锤，军事单位训练速度+15%。军事单位升级时，每一个伊扎克提供+（1+2*时代）的文化。[NEWLINE]11.俄罗斯，俄罗斯精神新增效果：城市自然扩张时，获取一次性科研（随时代增加）。城市+1工作范围上限。研发工业化后即可选择意识形态。[NEWLINE]芭蕾舞剧院新增效果：产能花费降低，由140→100。建造不受前置建筑限制。[NEWLINE]12.埃塞俄比亚，以弱胜强变更效果：每位专家提供文化由+1→+2。[NEWLINE]13.法国，大炮兵连自带破阵一级与破阵二级晋升[NEWLINE]14.威尼斯，UA新增效果：可向同盟城邦购买粮食，每回合仅限一次，粮食数量相当于首都涨人口阈值的30%，1粮食需要3金币。威尼斯作为AI时，首都每回合获得相当于涨人口阈值的(难度*4%)的粮食。[NEWLINE]UW圣马可广场新增效果：市民工作范围+1。[NEWLINE][NEWLINE]三.信条调整[NEWLINE]1.神系-创世母神：原爱神；每座城市+1快乐，每次增长人口时获得6信仰（标准速度下）[NEWLINE]2.神系-苍天之神：牧场+1文化，牛+1信仰、羊+1食物、马+1产能[NEWLINE]3.神系-大地母亲：香料、柑橘、香蕉、棉花+1信仰、食物[NEWLINE]4.神系-丰产仪式：粮仓+2信仰，小麦+1食物[NEWLINE]5.神系-风暴之神：雪地地块+1食物+2信仰、无森林冻土+2信仰[NEWLINE]6.神系-工匠之神：玉石、琥珀、珊瑚、天青石+1信仰、产能[NEWLINE]7.神系-燧明天火：原极光之舞，每座城市+1产能、+1信仰[NEWLINE]8.神系-神灵之碑：不变[NEWLINE]9.神系-祖先崇拜：神祠+1信仰文化，建造工业时代之前的奇观+10%产能[NEWLINE]10.神系-守护女神：城墙+2信仰，城堡+4文化[NEWLINE]11.神系-沙漠神话：荒漠地块+1信仰，绿洲+1文化+1信仰[NEWLINE]12.神系-神化君王：宫殿+3信仰，1级城市+1食物、产能、文化[NEWLINE]13.神系-狩猎女神：猎场+1食物信仰，野鹿+1产能，野牛+1食物[NEWLINE]14.神系-神圣道路：丛林+1文化信仰[NEWLINE]15.神系-海神：渔船+1文化，捕捞船+1文化+1信仰[NEWLINE]16.神系-口头传说：种植园+1文化金钱，丝绸、茶叶+1文化[NEWLINE]17.神系-太阳神：橄榄、蔗糖、香水、烟草+1信仰、科研[NEWLINE]18.神系-神圣水域：沿河城市+1快乐、湖泊、海滨+1信仰[NEWLINE]19.神系-战神：战胜敌人获得50%战斗力的信仰，兵营、军械所+2信仰[NEWLINE]20.神系-神使：有道路连接的城市+2科研信仰[NEWLINE]21.神系-宗教移民：城市+2文化，边界扩张+50%-改名土地狂热[NEWLINE]22.新增神系-纯洁女神：青春泉+4食物信仰+2产能科研、维多利亚湖+4文化信仰+2产能科研。[NEWLINE]23.强化信条-传教热情：传教士传教能力+25%，圣城诞生的传教士传教次数+2[NEWLINE]24.强化信条-弥赛亚：大先知的能力增强25%，催生大先知所需信仰减少25%，大先知可以进入未开边国家[NEWLINE]25.强化信条-神圣殿堂：删除圣城压力和杰作魅力加成[NEWLINE]26.强化信条-宗教文本：宗教传播速度+25%（研发印刷机后+50%），圣城3信仰+1文化[NEWLINE]27.强化信条-宗教统一：宗教以双倍的速度传播至友好的城邦，完成相同信仰城邦任务获得影响力+50%[NEWLINE]28.强化信条-信仰守护者：在信仰该宗教的己方城市附近+20%战斗力，圣城生产的单位+15经验[NEWLINE]29.强化信条-正义之战：在信仰该宗教的敌方城市附近+20%战斗力，且攻占该城抵抗减半[NEWLINE]30.新增强化信条-神圣历法：黄金时代长度+33%、每种信仰购买的建筑+3黄金时代点数[NEWLINE]31.新增强化信条-正统教会：圣城压力+200%，大先知诞生时，每座信教城市都会为你提供一次性文化产出（时代+1）*10[NEWLINE]32.创立者信条-入会仪式：数值削弱，基准180，史诗243[NEWLINE]33.新增创立者信条-宗教殖民：在圣城可以使用信仰购买移民，采用自主“集体统治”政策后购买价格下降，系数为400-200[NEWLINE]34.新增创立者信条-宗教科学：信仰该宗教的城市+2科研，圣地+2科研[NEWLINE]35.改革信条-转化异教：下城会转化约40%异教徒，每个成功转化的异教徒提供（时代+1）*10点金钱、文化、信仰[NEWLINE]36.改革信条-慈善使命：城邦关系下限增加到30[NEWLINE]37.改革信条-文庙私塾：科研加成最大值调整为30[NEWLINE]38.追随者信条-宗教社团：产能加成上限提升到20%[NEWLINE]39.创立者信条-什一税：系数调整为2个信徒1金币[NEWLINE]40.创立者信条-热爱和平：调整为他国城市6个信徒+1快乐[NEWLINE]41.追随者信条-禁欲主义：神祠+1快乐（无需人口条件）[NEWLINE]42.追随者信条-兼爱非攻：和平时期文化加成系数调整为25%[NEWLINE]43.追随者信条-信仰宗师：城市有专家+2信仰,+1文化科研产能[NEWLINE]44.追随者信条-合唱音乐：5人口城市神庙文化产出系数调整为4[NEWLINE]45.创立者信条-普世宗教：外国3个信徒1信仰[NEWLINE]46.创立者信条-世界教会：外国3个信徒1文化[NEWLINE]47.神系-石圈：新增大理石+1锤[NEWLINE]48.神系-河童传说：新增沼泽+1文化[NEWLINE][NEWLINE]四.其他调整[NEWLINE]1.修复军团合成可能导致单位面板出错的问题以及集团军仍然显示合成按钮的bug[NEWLINE]2.默认开启军团模式，兵力规模为原来的(中)，同时完善了军团的百科[NEWLINE]3.修复8.0中企业号无法生成的问题，企业号生成改为只对航母和核动力航母这两类有效[NEWLINE]4.修复俘虏单位等级不重置，同时经验下降为1/4[NEWLINE]5.修复溢出瓶bug，现在溢出瓶上限可以达到2000w,基本不会有问题了[NEWLINE]6.完善政策切换机制[NEWLINE]7.修复代议制第一回合阈值可能异常的问题[NEWLINE]8.将逻些和香港替换[NEWLINE]8.其他文本问题修复以及百科更新[NEWLINE]9.其他bug修复[NEWLINE]10.部分UI调整和bug修复[NEWLINE][NEWLINE]2023.4.22[NEWLINE]1.修复地球图闪退bug[NEWLINE]2.修复海运模式可以升级的bug[NEWLINE]3.波利尼西亚海城训练浮空单位和陆地商队不再转换成海运[NEWLINE]4.预置了战略视图修复[NEWLINE]5.由于原版的驻守单位圆环UI在sp中问题较多，将其删除[NEWLINE]6.修复远程单位防御时战斗力预览可能错误的问题[NEWLINE]7.修复河洛图书快乐加到哺育世界的问题[NEWLINE][NEWLINE]2023.4.23[NEWLINE]1.修复溅射和穿透无效的问题[NEWLINE]2.修复了传统右三的数值bug[NEWLINE]3.在城市面板的人口增长进度条旁边增加了强权的扩地进度条[NEWLINE]4.修复了威尼斯首都粮食加成的lua报错[NEWLINE][NEWLINE]4.25[NEWLINE]1. 修复飞机对火药步兵不正确的伤害[NEWLINE]2. 修复阿兹特克UW献祭对远程单位战斗力的判定 感谢@还好[NEWLINE]3. 修复种咖啡和野兽驯养的AI倾向， 感谢@还好[NEWLINE]4. 修复开局AI未建城但是建立神系导致的闪退问题@Jarvis[NEWLINE][NEWLINE]4.26[NEWLINE]1.修正了异教转换的系数[NEWLINE]2.修正了入会仪式的文本，所有繁体信条文本去除句号[NEWLINE]3.删除了单位驻守城市的圆环UI[NEWLINE]4.修复了鲁尔工业区被其他ai建造时提示图标的错误[NEWLINE]5.修复了独裁统一战线卖掉市政厅保留军事建筑无效的问题][NEWLINE][NEWLINE]4.27[NEWLINE]1.修复了一些datebase报错[NEWLINE]2.加上了之前没有加上的一些dll开关[NEWLINE]3.修复UA对地形加成在建造改良设施时没有计算的问题</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V9_1">
+			<Text>SP 9.1 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V9_1_HELP">
+			<Text>2023.6.?[NEWLINE]1.允许黄金时代积累黄金时代点数和开启新一轮黄金时代，暂定黄金时代点数以50%速率积累[NEWLINE]2.莫霍克的境内隐形改为森林、丛林隐形，应用dll接口[NEWLINE]3.宗教科学圣地+4科研，宗教殖民花费下降至160-320[NEWLINE]4.允许xml设定单位关联的额外经验加成，增加海军旗舰的经验获取速率[NEWLINE]5.城墙城堡不再过时，同时榴弹炮开始的攻城单位获得晋升【强力火炮】，攻城时按照城堡、城墙的顺序摧毁一座建筑[NEWLINE]6.奥斯曼的攻城工坊不再过时[NEWLINE]7.同步旗本武士和其他长剑UU（去除名字的绿色，改成膛线过时）[NEWLINE]8.将战车骑手UU（埃及战车、驴骑）改为火药过时[NEWLINE]9.亚述攻城塔的工兵晋升增加66%对城市攻击加成[NEWLINE]10.补上重步复杂地形25%加成以和描述一致[NEWLINE]11.替换部分三角形的晋升图标，统一部分同心圆套圈的图标[NEWLINE]12.UI面板在晋升升级丢失时增加提示（红色点）[NEWLINE]13.补全伟人设施效果：制造中心为所在城市增加10%奇观产能、海关+15商品、圣地为周围单位+5hp恢复，且会清除停留的单位负面晋升[NEWLINE]14.增加了杰作提供大文烧文化加成的提示（UI修改）[NEWLINE]15.取消陆军远程在没有后勤补给前攻击一次后只能移动到临近区块的设定[NEWLINE]16.使用dll实现艺术天才的奇观加成，并不再限定时代[NEWLINE]17.使用dll实现国际主义，更改不满翻倍效果为其他意识形态文明的公共舆论压力翻倍[NEWLINE]18.使用dll实现资本主义，并将效果应用到所有商路[NEWLINE]19.使用dll实现信条对城市国家奇观、自然奇观、设施的文化转换魅力效果，同时神圣殿堂的魅力效果可以正确对所有己方信教城市生效了[NEWLINE]20.使用dll实现强化信条弥赛亚效果，同时效果只对新生大仙有效，增加效果大仙移动无视地形[NEWLINE]21.使用dll实现玄甲军效果，势如破竹改为每对一支敌方部队造成30以上的伤害，则自身恢复25%最大生命并返还1移动力、1攻击次数[NEWLINE][NEWLINE]22.修正迟滞和阻碍的文本提示，同时交换部分效果，即迟滞为移动力上限-1，阻碍为不能近战攻击[NEWLINE]23.修正负面产出也受到加成的问题[NEWLINE]24.替换西北风模型，以修复缺失攻击和死亡动画[NEWLINE]25.删除SP的野蛮人相关加成设定，以修复战斗面板的加成和实际不符问题[NEWLINE]26.修复溅射文本的显示错误[NEWLINE]27.修复军械所过时科技描述和实际不符的问题[NEWLINE]28.修复部分晋升加成和实际加成不符的问题[NEWLINE]29.修复阿尔忒弥斯神庙的纪念碑重叠问题[NEWLINE]30.打开VMC开关以修复解放城市后海军传送问题[NEWLINE][NEWLINE]31.使用dll实现战争人口伤亡相关代码[NEWLINE]32.使用dll实现溅射和穿透相关代码[NEWLINE]33.使用dll实现debuff的赋予、清除相关代码[NEWLINE]34.使用dll实现重骑兵冲锋晋升效果[NEWLINE]35.使用dll实现定位晋升效果[NEWLINE]36.使用dll实现攻坚、乌尔班大炮等摧毁建筑的晋升代码[NEWLINE]37.使用dll实现城市规模相关代码[NEWLINE]38.使用dll实现专家提供资源的代码，同时提高拓展性[NEWLINE]39.使用dll实现设施创建资源和新设施相关代码，同时创建资源的设施不允许在已有资源的地块上建造（包括未探明资源）[NEWLINE]40.使用dll实现大陆霸主、异域霸主相关代码[NEWLINE]41.使用dll实现海运模式登录保留1点移动力代码[NEWLINE]42.使用dll实现快速学习初始经验加成代码[NEWLINE]43.使用dll实现大炮兵连升级移除架设的代码[NEWLINE]44.使用dll实现建筑一次性产出相关代码[NEWLINE]45.使用dll实现中国的黄金时代加成[NEWLINE]46.使用dll实现政策对海上设施修建速度的加成[NEWLINE]47.使用dll实现信条对新增人口的一次性产出效果[NEWLINE]48.使用dll实现科技对摧毁城市的加成[NEWLINE]49.使用dll实现机动战术的固定伤害加成[NEWLINE]50.使用dll实现虔信开门的信仰加成效果[NEWLINE]51.使用dll实现单位捕获效果[NEWLINE]52.使用dll实现教法社会效果，并增加来源提示[NEWLINE]53.使用dll实现消费主义的爱国王日快乐加成[NEWLINE]54.使用dll修复特战单位攻城有概率失败的bug[NEWLINE]55.使用dll实现政策对城市规模的资源加成、政策使城市提供战略资源[NEWLINE]56.使用dll实现政策使得城市数量提供全局加成[NEWLINE]57.使用dll实现资源BUFF(全局不满、城市连接收益、全局百分比产出、购买打折)[NEWLINE]58.使用dll实现富裕笑脸提供的产出百分比（包括政策加成）[NEWLINE]59.使用dll实现政策给所有城市提供一次性粮食[NEWLINE]60.使用dl实现政策对占领城市的抵抗回合变化[NEWLINE]61.使用dll实现城市空血时受到远程攻击减少人口效果[NEWLINE]62.使用dll实现舰载机和西北风的虎式武装直升机的经验传递效果[NEWLINE]63.使用dll实现重骑兵/坦克攻城损失移动力效果[NEWLINE]64.使用dll实现UA对所有平民提供免费晋升[NEWLINE]65.使用dll实现UA对特定单位类型提供免费晋升[NEWLINE]66.使用dll实现信条对传教士的传教次数加成[NEWLINE]67.使用dll实现信条对宗教圣城的宗教压力加成[NEWLINE]68.使用dll实现信条对宗教圣城单位的初始经验加成[NEWLINE]69.删除大量无意义代码/注释代码[NEWLINE]70. 删除俘虏伊斯兰先知恢复所有传教次数的设定[NEWLINE]71. AI智商优化：如果城市空血，AI远程单位会近战占领城市[NEWLINE]72. 电力、商品、笑脸、人力等充足buff都会立刻生效，无须过回合[NEWLINE]72. 关于电力加成/惩罚的公式更新说明（实际和7.0f版本一致，可能7.0时期有过暗改）[NEWLINE]电力buff/debuff生效的条件：[NEWLINE]1. 进入电气时代[NEWLINE]2. 研发的科技数量&gt;50[NEWLINE]3. 增益buff在电力&gt;=25时生效，公式为电力/城市数量，向下取整，上限为min(50%, (科技数量-50) * 5%)[NEWLINE]4. 电力不足的惩罚debuff在电力&lt;0时生效，公式为电力缺口*城市数量，下限为max(-75%, -(科技数量-50) * 5%)[NEWLINE]73. 自由3级政策民主灯塔科研效果变更：改为每25点笑脸提供5%全局科研。[NEWLINE]74. 自由资本主义文本修正，商路提供3%科研，不论是否是国际[NEWLINE]75. 西班牙UA加强，野牛和牛资源加成不需要游乐场前置[NEWLINE][NEWLINE]6.24[NEWLINE]1.修复v6过回合速度的问题[NEWLINE][NEWLINE]6.25[NEWLINE]1.修复玄甲军特效判定[NEWLINE][NEWLINE]6.26[NEWLINE]1.削弱玄甲军生命恢复，改为击杀额外恢复10点[NEWLINE]2.替换荣誉政策晋升图标、独裁权威征服政策图标、宙斯神像晋升图标[NEWLINE]3.回滚蛮族加成更改，并修复加成错误显示的问题[NEWLINE]4.文本修复</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V9_2">
+			<Text>SP 9.2 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V9_2_HELP">
+			<Text>2023.7.27[NEWLINE]1.腐败效果内置dll并增加腐败分数显示，删除关闭腐败的开关[NEWLINE]2.自主右三效果内置dll[NEWLINE]3.优化dll获取文化的代码，并修复部分文化接口可能无效的问题[NEWLINE]4.优化dll获取魅力的代码[NEWLINE]5.优化dll统计建筑数量的代码[NEWLINE]6.删除记录模式[NEWLINE][NEWLINE]7.祖鲁伊扎卡获得文化削弱[NEWLINE]8.自主开门的距离增加改为腐败分数-15% (一级城市范围大致不变)[NEWLINE]9.新增神系智慧女神：城市+1科研+1大科学家点数，首都效果加倍[NEWLINE]10.神系隧明天火新增城市+1大工程师点数[NEWLINE]11.神系神灵之碑新增首都+1文化[NEWLINE]12.神系神话君王新增首都+1锤子粮食[NEWLINE]13.神系-祖先崇拜去除奇观加成的时代限制[NEWLINE]14.创立者信条宗教科学新增圣城+2大科学家点数[NEWLINE]15.创立者信条葬礼仪式新增全国城市+3黄金时代点数，同时修正全局快乐的文本描述[NEWLINE]16.创立者信条至高教皇新增城邦影响力恢复速率+300%[NEWLINE]17.替换掷矛突击、乌尔班大炮、移动无视地形、战神齐洛波奇特利之力、首都加成、猎杀残敌的图标[NEWLINE]18.核电站、核电扩容机组都改为消耗1铀，同时核电扩容机组可以建造在任何沿水城市(海、河、湖)[NEWLINE]19.肖肖尼的野兽驯养要求临近淡水，Tipi可以开发野兽资源[NEWLINE]20.增加了城市面板中杰作数量对全局文化魅力加成的描述[NEWLINE]21.大军（陆/海）免疫溅射和穿透[NEWLINE]22.世界议会新增议案：冷战-无法与非同一意识形态的文明以及非结盟城邦建立国际商路。已结盟的城邦影响力不会衰退。[NEWLINE][NEWLINE]23.精英狙击手自带破阵1-2级，免疫穿透溅射[NEWLINE]24.火星车项目和单位降价至原75%。基础属性：攻击距离4环，移动力1，无须架设，仍然自带间接火力。不再拥有覆盖火力晋升，改为火星车特色晋升，有独特升级线：[NEWLINE]【火星车】- 基础晋升：一环40%溅射，50%穿透（不限同格单位数量，下同）,溅射、穿透单位提供+1XP[NEWLINE]【铳筒1级】：1环30%溅射[NEWLINE]【铳筒2级】：1、2环20%溅射[NEWLINE]【铳筒3级】：1、2、3环10%溅射[NEWLINE]【神箭机1级】：+25%穿透，若目标单位生命值&lt;50，造成弹幕效果[NEWLINE]【神箭机2级】：+25%穿透，若目标单位生命值&lt;50，造成破阵效果[NEWLINE]【神箭机3级】：+25%穿透，若目标单位生命值&lt;50，造成补给丧失效果[NEWLINE]25.移除铁道跑和火箭炮的远程攻击准备[NEWLINE][NEWLINE]26.删除ai刷晋升代码，改为经验加成，大体强度不变（等待测试），解决刷错误/删除晋升的问题[NEWLINE]27.替换城邦屏蔽建筑的代码，并修复部分奇观没有屏蔽的问题[NEWLINE]28.修复城市面板建筑列表的一个报错[NEWLINE]29.修复印加梯田不计算临近的山脉城市额外产出的问题[NEWLINE]30.修复只拥有神系的城市在虔信开门后可能获得双倍信条效果的问题[NEWLINE]31.修复交换城市地块导致锁定人口失效的问题[NEWLINE]32.修复自主地方分权单位数量可能计算错误的问题[NEWLINE]33.修复双击火药步兵第一轮远程攻击杀敌后失去所有移动力的问题[NEWLINE]34.修正城市面板中的魅力来源统计，将国际影响移至顶部UI[NEWLINE]35.增加顶部科研UI的资源加成提示[NEWLINE]36.地块浮动信息显示地块坐标，当浮动信息延迟为0时，隐藏右下角地块信息UI[NEWLINE]37.减少国际移民要求，大致为7.0三倍，但仍然默认关闭</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V9_3">
+			<Text>SP 9.3 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V9_3_HELP">
+			<Text>2023.9.10[NEWLINE]1.删除下列假建筑/政策并使用dll接口更加高效地实现效果：[NEWLINE]勃兰登堡门、英雄史诗、鹿特丹港、新天鹅堡、国家大剧院、国家广播电台、东方明珠塔假建筑、[NEWLINE]中国、西班牙、祖鲁UA、法国UA、阿拉伯大仙假建筑、[NEWLINE]教法社会、政策增加商路、航天先驱、艺术伦理、传统关门、文化大GM、创业精神、警察国家、经院哲学假建筑、[NEWLINE]地下教会假建筑、神圣历法假政策[NEWLINE]2.修复玛雅伟人在伯克历&gt;8后就能重复选择的问题，并恢复大仙可选[NEWLINE]3.使用TNL的城市UI，并整合sp7.0-9.2的更改以及SP的城市侧重、全局指令[NEWLINE]4.进一步完善城市面板的基础产出来源显示[NEWLINE]5.使用强权的帮助信息UI，以更加详细地显示单位和建筑效果[NEWLINE]6.友谊声明到期后新增红字提示[NEWLINE]7.允许使用define定义人口增长提示的最大人口数，通过手动update值MAX_POPULATION_INCREASE_NOTIOFACATION即可设置[NEWLINE]8.种植丛林提前到青霉素，且造价下降1/5[NEWLINE]9.限制每种绿水海军数量为10[NEWLINE]10.ai刷堡垒不会错误清除地貌，同时修复ai不能刷海上堡垒的bug[NEWLINE]11.文化大GM替换为科学社会主义，效果不变[NEWLINE]12.独裁二级-警察国家效果更改:法院、治安署、审计署、警察局和地检署+3本地快乐。建造这些建筑+200%产能积累。[NEWLINE]13.秩序二级-移民安置:删除余粮加成描述（没有效果），隐藏效果移民不满+200%改为-100%并增加描述[NEWLINE]14.开启外交关系的数字提示[NEWLINE]15.新增沿海建筑显示要求的最小海域大小[NEWLINE][NEWLINE]16.印加掷石手改为替代复合弓，造价更低(65-&gt;50)，新增自带晋升滚滚落石:一环+15%溅射伤害[NEWLINE]17.诸葛弩自带机动能力[NEWLINE]18.法国UA增强:[NEWLINE]a.新增效果首次征服主要文明的原始首都后，获得一条免费的社会政策，并向所有已谋面文明传播一次性的旅游产出。[NEWLINE]b.原杰作魅力加成实际效果为+50%，修正为真正+1基础魅力[NEWLINE]19.匈人增强:[NEWLINE]a.UA新增效果:焚毁城市时每减少1人口位于该城市地块的己方单位+2最大生命值，上限150，升级可继承。[NEWLINE]b.UU骑射手:每杀死一个敌军单位，基础近战和远程战斗力+2[NEWLINE]（战斗力加成可继承，但是升级后不能再增长）。[NEWLINE]20.阿拉伯的绿洲加成开发后也有效[NEWLINE]21.易洛魁莫霍克战士解锁提前到火药[NEWLINE]22.印尼UA参数调整:+5%-&gt;10%,上限40%-&gt;100%[NEWLINE]23.桑海UA加强:沿河城市-200离心倾向(相当于两格)[NEWLINE][NEWLINE]24.在坐标信息中新增两个参数，第三个坐标表示地块"高度"(seeFromLevel)，第四个表示"视野穿越高度"(SeeThroughLevel)(当单位所在地块的高度大于目标地块中间地块的视野穿越高度时，目标地块可见/可远程攻击)[NEWLINE]25.删除ai作弊晋升的侦察属性以避免ai跨障碍攻击，同时空中侦察由一回合刷新一次改为移动即刷新，目前侦察属性仅企业号晋升“飞驰的幽灵”以及黑鸟晋升“空中侦察”拥有，与持有该属性的单位同格远程攻击可以无视障碍（相当于带上间接火力）[NEWLINE]26.优化部分代码[NEWLINE]27.修正一些文本错误:风力发电站、芭蕾舞剧院等[NEWLINE]28.给SP增加远古奇观DLC的前置依赖[NEWLINE][NEWLINE]2023.9.11[NEWLINE]1.修复合并军团后匈人的单位特殊属性可能消失的问题，同时合并军团匈人单位的独有属性会叠加(但血量不会超过150的上限)[NEWLINE]2.现在合并军团只允许同格有两个单位的时候显示（两个相同类型军事单位单位或者一个大军一个军事单位），同时部分原因导致不能合成军团时增加提示，升级军团固定保留选择的那一个军事单位[NEWLINE]3.提高军团模式下兵工厂和军事基地提供的军团集团军名额，现为1 2 3[NEWLINE][NEWLINE]2023.9.13[NEWLINE]1.允许交换城市地块同时切换所属地块得链接城市[NEWLINE][NEWLINE]2023.9.18[NEWLINE]1.修复乌尔班大炮晋升陆军远程也能获得的问题[NEWLINE]2.修正磨坊的简体中文数值描述[NEWLINE]3.修复新城建立后旧城地块被切换可能导致旧城人口锁不住的问题[NEWLINE]4.修复烧城可能导致城市人口负几百的问题[NEWLINE]5.修复堡垒升级的当回合设施丢失的问题[NEWLINE]6.修复sp顶部栏中兵力资源详情可用兵力显示负数的问题[NEWLINE][NEWLINE]2023.9.19[NEWLINE]1.修复战斗增加基础力接口对于移动消灭平民/空军单位也有效的问题[NEWLINE][NEWLINE]2023.9.30[NEWLINE]1.修复伟人可以给平民合成军团以及读档后能合成军团的单位面板崩溃的问题</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V9_4">
+			<Text>SP 9.4 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V9_4_HELP">
+			<Text>2023.10.18[NEWLINE]V9.4[NEWLINE]1.删除一些废弃建筑（如腓尼基商会和弃用的冶铁坊假建筑）[NEWLINE]2.中国:[NEWLINE]a.UA重做：黄金时代加成删除，改为黄金时代中，涨人口所需粮食阈值-20%，研花费-20%（同其他因素叠乘，如游戏速度），消除由城市数量带来的科研阈值增长[NEWLINE]b.UB造纸坊新增效果：每一个造纸坊-2%建造单位、建筑、项目花费（同其他因素叠乘），这一项的上限是-50%。[NEWLINE]c.UB中国园林：删除+2全局快乐[NEWLINE]d.UU诸葛弩：额外加一移动力调整为+0.25[NEWLINE][NEWLINE]3.桑海UB重做：删除石油公司新增旺加拉集市(Wangara Entrepot)：替代市场，本地商业家+3金钱，每个旺加拉集市建成获得150金币（标速下），增加2点所有陆地商路基础金[NEWLINE]4.修复匈人亚述的攻城U不能获得荣誉中二晋升的问题[NEWLINE][NEWLINE]5.移除重装步兵的复杂地形25%加成[NEWLINE]6.狙击手自带杀敌+3远程力、远程攻击时额外获得3点经验[NEWLINE]7.鹦鹉螺号自带侦察晋升线[NEWLINE]8.远程单位对开阔敌军+25%攻击力[NEWLINE]9.远程单位所在地块每一点超出目标地块高度获得25%加成，至多50%[NEWLINE]10.为核火炮添加海运能力[NEWLINE]11.所有堡垒删除军团/集团军晋升，单位血量调整为100、200、300（和之前保持一致），新增境内作战+25%战斗力，修复境外作战减成无效的问题，数值调整为-25%，删除拥有防御加成的描述[NEWLINE]12.末日机甲删除军团/集团军晋升，血量调整为400，攻击/防御时额外获得7/5点经验，自带5格视野[NEWLINE]13.单兵核武不允许近战，同时dll允许Suicide对远程攻击生效[NEWLINE]14.离子炮效果整合进dll，同时离子炮伤害不再对平民生效、人造意志不免疫[NEWLINE]15.弹幕、破阵、重炮、近战、神机箭的固定血量全部变更为百分比，删除攻坚、破阵、重炮三级的注释代码[NEWLINE][NEWLINE]16.新增神系商贾信使：象牙、松露、毛皮+2金钱、+2黄金时代点数[NEWLINE]17.口头传说新增：染料+1文化[NEWLINE][NEWLINE]18.赞助-经院哲学系数调整为33%[NEWLINE]19.自主左二重做：删除驻军效果，所有城市+4文化、+1快乐[NEWLINE]20.自主中二：食物改为+4[NEWLINE]21.自主左三：新增每座城市+1全局科研金钱[NEWLINE][NEWLINE]22.城邦扩地最大为5格[NEWLINE]23.科技顶部栏显示RA信息[NEWLINE]24.引入强权的科技帮助信息UI，并增加部分效果显示、优化加载[NEWLINE]25.修正商品电力的debuff公式，百科增加人力商品电力资源的具体公式描述[NEWLINE]26.在外交交易面板中新增城市交易的限制提示，同时给外交信息增加一些划分线[NEWLINE]27.补上过去删除的商品电力人力缺乏提示(商品电力每回合仅一次)，商品电力缺乏时会显示全国负面buff数值[NEWLINE]28.占领一座可以夷平和解放的城市，弹窗优先显示“查看城市”并替代原来的“摧毁城市”[NEWLINE][NEWLINE]29.删除建城动画、优化了autoplay下的游戏运行和地块显示[NEWLINE][NEWLINE]30.军团模式内置DLL：[NEWLINE]a.现在兵力以及军团/集团军名额动态刷新[NEWLINE]b.删除旧兵力惩罚，改为兵力不足时无法购买/建造军事单位（城市建造面板有提示）、无法在战斗中捕获军事单位，兵力&lt;0仍然会删除新单位[NEWLINE]c.军团规模参数变化，默认情况下为100%、低50%、高150%，现在基础兵力为24、每个城市规模提供4，兵工厂提供2军团名额、军事基地提供2军团、集团军名额，基数都会受到规模参数影响[NEWLINE]d.顶部栏在兵力不足时新增提示，效果类似补给上限[NEWLINE]e.再次修复现有合成军团按钮的bug[NEWLINE][NEWLINE]31.删除国际移民的11个假建筑并使用dll内置计数变量，国际移民参数再次下调至现在的2/3，仍然保持默认关闭[NEWLINE]32.优化建筑的NullifyInfluenceModifier接口，同时新增政策同效果接口，删除独裁个人崇拜假建筑并用新接口替代，对外影响中新增提示对方无视科技加成[NEWLINE][NEWLINE]2023.10.19[NEWLINE]1.修复自主右一建造建筑后产能按照基础花费计算而非真实花费计算的问题[NEWLINE]2.再次修复城邦赠送单位的接口[NEWLINE][NEWLINE]2023.10.23[NEWLINE]1.修复ai扩地警告到期后自动续期一个同意周期的问题[NEWLINE]2.修复小镇也提供兵力的问题[NEWLINE]3.新增建城腐败预览：可建立城市时，建城按钮显示在该地块建立城市的预计腐败分数和市政厅等级[NEWLINE][NEWLINE]2023.10.25[NEWLINE]1.在建筑帮助信息UI上屏蔽ai特有政策加成[NEWLINE]2.优化亚述神庙UB的实现方式[NEWLINE]3.修复加载有精英路基飞机的模组后（例如大汉），可能导致舰载机无法购买的问题[NEWLINE][NEWLINE]2023.10.31[NEWLINE]1.修复亚述的UB效果可能意外触发的问题[NEWLINE]2.改善ai修建动物养殖和种植咖啡的倾向、增加ai修建其他UI的倾向，略降低ai修建贸易站的倾向[NEWLINE]3.在外交帮助信息中显示对方拥有的唯一工程[NEWLINE]4.在全球政治显示唯一工程和对方所有的合作研究[NEWLINE]5.修复AutoPlay中的一些显示问题</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V9_5">
+			<Text>SP 9.5 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V9_5_HELP">
+			<Text>2023.11.20[NEWLINE]1.贸易站默认提供1商品(无需市民工作)[NEWLINE]2.海关提供商品提高至20，制造中心提供10人力[NEWLINE]3.删除同业公会，汉萨同盟使用新接口实现[NEWLINE]4.建造花费减少的最大阈值改为30%（造纸坊）[NEWLINE][NEWLINE]5.中国UA基础科研阈值20%减少取消（仍然保留消除城市数量阈值）[NEWLINE]6.西班牙UA加强：城市临近2格有自然奇观时-50%管理成本[NEWLINE]7.瑞典：[NEWLINE]a)UA加强：盟友和瑞典获得对方10%的全局科研产出[NEWLINE]b)删除古斯塔夫炮，改成UW：诺贝尔奖，替代二级科研基金会，额外效果为[NEWLINE]①26人口即可建造[NEWLINE]②瑞典或盟友诞生一位大科学家时，为双方提供一次性科研产出，数值相当于该大科强度的20%[NEWLINE]8.更换玛雅祭坛的模型，玛雅祭坛基础科研调整为+2，不能相邻，临近山脉效果改为临近丛林，玛雅祭坛上的每一位大先知提供+1科研信仰黄金时代点数产出[NEWLINE][NEWLINE]9.神化君王一级城市+1文化改为+1信仰[NEWLINE]10.神灵之碑首都+1文化改为+2[NEWLINE]11.狩猎女神野牛野鹿加成改成文化[NEWLINE]12.商贾信使数值提高至+3金钱黄金时代点数[NEWLINE]13.宗教殖民用信仰购买的移民不消耗人口同时不能安置[NEWLINE]14.删除荣神益人假建筑，改用dll接口实现[NEWLINE]15.传统右三数值调整50%-&gt;34%[NEWLINE][NEWLINE]16.增加并解禁更多遗迹类型[NEWLINE]17.增加一些新开关：文明征服、全UC、精英工程获取[NEWLINE]18.开启军团模式时提示UI会显示建筑提供的军团、集团军名额和兵力数[NEWLINE][NEWLINE]19.修复矛兵升级后列阵晋升不会升级穿甲的问题[NEWLINE][NEWLINE]20.减少ai开局侦察兵数量[NEWLINE]21.增加ai对部分建筑的建造倾向[NEWLINE]22.略微改善ai攻城逻辑，现在ai在没有普通近战时也可以使用游猎、海远等下城[NEWLINE][NEWLINE]2023.11.21[NEWLINE]1.修复远程单位可以移动攻城的问题[NEWLINE]2.修复荣誉政策没有满足解锁时代背景图仍然高亮的问题[NEWLINE]3.弃用重置按钮[NEWLINE]4.遗迹第二回合后即可踩出信仰[NEWLINE]5.在城市横幅UI增加显示建造项目的帮助信息[NEWLINE]6.在城市UI中项目进度里面显示城市当前的溢出锤[NEWLINE]7.补全战斗面板的加成提示(如单位受伤减成)，并修复一些错误加成，在战斗面板显示城市血量[NEWLINE][NEWLINE]2023.11.24[NEWLINE]1.玛雅祭坛上停留的大仙增加产出改为+2[NEWLINE]2.修复军团合成后等级重置可能不正确的问题[NEWLINE]3.不允许单位可以选择晋升时合成军团</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_0">
+			<Text>SP 10.0 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_0_HELP">
+			<Text>2024.1.1[NEWLINE]1.玩家进入新时代后的部分加成改为ai进入新时代获取，降低或者延后部分加成，同时修复玩家一进新时代读档导致ai加成消失的问题，若开局时代不为远古，ai会直接获得对应时代加成[NEWLINE]2.更改ai资源加成，高难总量依旧保持充足，且和城市数量强关联，但不再是无限支持，同时提高ai对部分资源建筑的倾向、去除ai建造煤液化工厂的倾向，降低ai建造煤灰提取厂的倾向[NEWLINE]3.降低ai对自行榴弹炮的倾向，增加ai对航母的倾向[NEWLINE]4.ai补充舰载机不需要和人类处于战争[NEWLINE]5.更改部分只对Active Player生效的内容为ai自己回合生效[NEWLINE]6.删除ai辅助轰炸机和伞兵的作弊代码[NEWLINE]7.修复ai部分未生效的加成（主要在晋升加成和刷兵）[NEWLINE]8.部分AI逻辑修复[NEWLINE][NEWLINE]9.由于部分群友反馈初期渔船太强，删除鱼群的基础食物产出[NEWLINE][NEWLINE]10.冶铁坊改为不消耗商品，需要城市有铁资源，本地铁+1产能[NEWLINE]11.炼焦厂、回收中心提供资源量改为+3，不再消耗商品[NEWLINE]12.金属锻造厂对矿系战略资源直接加成改为+1，新增本地所有矿井+1锤[NEWLINE]13.核电扩容机组需要沿海或沿河[NEWLINE]14.风车不要求平地[NEWLINE]15.渔场对海洋食物加成改为对渔船和捕捞船加成，提高ai对渔场的倾向[NEWLINE]16.水磨坊只允许沿河且移除湖泊加成（阿兹特克水上园圃湖泊加成改为+2）[NEWLINE]17.引水渠和自来水系统新增湖泊+1食物[NEWLINE]18.新增建筑蓄水池：石工解锁，30锤，城市地块视为淡水，10%余粮，同时引水渠产能下调至60，余粮加成30%[NEWLINE]19.四五级腐败调整：[NEWLINE]a)四级市政厅基准政策阈值降低至20%，消耗商品数降低至8，城市科研产能金钱文化总产出-10%，城市训练的单位最大经验值为60，使用金钱购买花费+10%[NEWLINE]b)五级市政厅基准政策阈值降低至25%，消耗商品数降低至8，城市科研产能金钱文化总产出-15%，城市训练的单位最大经验值为30，使用金钱购买花费+20%[NEWLINE]c)警察局可将四级市政厅的阈值降低至15%，产出降低削弱至5%，城市训练单位最大经验值提高至90[NEWLINE]d)地检署可将五级市政厅的阈值降低至15%，产出降低削弱至10%，城市训练单位最大经验值提高至60[NEWLINE]e)修正所有市政厅的固定不满文本描述（实际为本地描述为全局）[NEWLINE][NEWLINE]20.企业号改为建造，大幅降低灰色幽灵计划要求产能，略微增加ai倾向，企业号和大黄蜂消耗铁改为消耗石油，且核聚变过时[NEWLINE]21.从数据中删除号角坦克[NEWLINE]22.轰炸机攻坚晋升对堡垒的攻击加成改为战斗力加成，且攻坚三级加成提升至200%[NEWLINE]23.特战技能晋升线重做：[NEWLINE]a)技能一级——破交：攻击目标单位如果处于友方地域之外，每回合会因为缺乏补给-20HP。境外作战+33%战斗力[NEWLINE]b)技能二级——袭扰：攻击敌方城市时使其陷入一回合混乱状态（可叠加），城市内的全部守军（包括飞机和核武器）下回合开始时无法行动。攻城加50%战斗力。攻占城市后恢复所有移动力和生命值[NEWLINE]c)技能三级——心战：一定几率俘虏击败的单位。俘虏单位概率上限+20%，俘虏单位概率+50%（不会超出上限）[NEWLINE]24.战斗机新增晋升线——侦察：一级二级+1移动力+1游猎地块揭示周围视野范围，2级后解锁航程拓展（+9攻击范围）[NEWLINE][NEWLINE]25.祖鲁扎伊卡参数调整为50%，数值向下取整，且直接作用于玩家全局文化，补全历史信息并更换图标[NEWLINE]26.瑞典产业实验室科研加成调整为+33%，诺贝尔奖调整为大科强度的15%[NEWLINE]27.删除日本UA中强化宗教获得神系的效果，新增单位死亡时临近单位获得10%攻击加成，该数值每回合减少10%[NEWLINE]28.西班牙征服者的额外海运移动里用晋升实现，且可以继承[NEWLINE]29.阿兹特克休伊神庙只允许正规军献祭[NEWLINE]30.易洛魁重做：[NEWLINE]a)UA:境内外森林均可视为道路，林地移动力翻倍改为林地战斗力+20%，移除林地可以建造农场，新增城市临近的每一个森林为城市+5%产能、丛林+5%粮食[NEWLINE]b)UU:易洛魁火枪手替换新图标和旗帜[NEWLINE]c)UU:莫霍克战士晋升林地隐形替换新图标[NEWLINE]d)UU:加拿大皇家空军删除[NEWLINE]e)UB:长屋森林+1产能、丛林+1食物，每一处工作的森林或丛林为城市+1%产能[NEWLINE]f)UI:恢复林地农田，成本略高于平地农场，且林地农田可以建在丛林上[NEWLINE]31.替换西北风的虎式直升机模型[NEWLINE]32.删除俄罗斯意识形态假建筑，改为DLL接口[NEWLINE]33.印加的山脉城市建造建筑时会被视为丘陵，同时修复无法判定为淡水的问题[NEWLINE]34.临近森林丛林都能使玛雅祭坛+1科研，玛雅祭坛基础瓶下调至1[NEWLINE]35.拜占庭地下水宫殿替代蓄水池，石工解锁，提供2食物2快乐20%余粮积累[NEWLINE][NEWLINE]36.赞助-炮舰外交：勒索城邦军事分数翻倍改为临近军事单位影响+100%，全局军事排名影响+34%[NEWLINE]37.赞助-军事援助新增：你的军事分数影响可以抵消其他文明对同盟城邦的军事分数影响[NEWLINE][NEWLINE]38.追随者信条-宗教裁判所：宗教裁判所变更为直接购买，花费与清真寺相同，城市每种宗教+2信仰金钱，不再拥有基础负产出。城市+1快乐，需要城市有异教才能购买。[NEWLINE]39.神系-神化君王：首都信仰削弱至2[NEWLINE]40.神系-商贾信使：毛皮松露象牙黄金时代点数加成提高至5[NEWLINE]41.神系-隧明天火：大工程师点数增加至2[NEWLINE]42.追随者信条-信仰宗师：城市有专家时文化增加至2[NEWLINE]43.改革信条-转化异教比率改为50%[NEWLINE]44.创立者信条-普世宗教：城市+2信仰，城市每个异教+1信仰[NEWLINE]45.创立者信条-世界教会：为圣城提供外国信徒数量20%的文化，外国信教城市+3文化[NEWLINE]46.创立者信条-朝圣制度：为圣城提供外国信徒数量20%的信仰，外国信教城市+3信仰[NEWLINE]47.改革信条-教会艺匠：移除未来时代限制[NEWLINE][NEWLINE]48.在科研进度中显示溢出瓶，科技研发完成的弹出窗口显示科技通向和解锁内容[NEWLINE]49.在城市建筑界面溢出锤显示中包含移除地貌得到的产能[NEWLINE]50.在开局设置面板底部新增提示信息UI，并加入少量文本[NEWLINE]51.单位攻击按钮在单位有攻击次数时常亮，不再判定附近是否有可攻击目标[NEWLINE]52.使用金钱和信仰购买项目后城市页面不再自动关闭[NEWLINE]53.在本体中删除集群操作和集群晋升，在单位面板更多选项中新增选项批量移动，启用后单位选择移动目的地可以模糊地让周围单位也跟随移动到目标地块[NEWLINE][NEWLINE]54.不允许对堡垒地块进行其他改良，以避免设施和单位的绑定失效[NEWLINE]55.修复海防可以在湖泊建造的问题、修复ai刷堡垒实际没有限制的问题[NEWLINE]56.在dll中修复考古学家导致不能结束回合的问题，并替代原有lua修复，极端情况下，发掘现场建造完毕后若风景地标/地块上唯一的考古学家因为某些原因消失，选择选项后将不会触发任何效果，禁止在已有考古学家的发掘现场上使用另一个考古学家的建造指令来直接建造风景地标，同时修正发掘遗迹消耗考古学家的描述[NEWLINE]57.恢复在森林建造农场立刻清除森林的设定[NEWLINE]58.修复除了文化和信仰外来自宗教人口的产出重复计算的问题[NEWLINE]59.修复文明征服/全UC下兵营建筑互斥导致只能建造一个的问题[NEWLINE]60.修复不能在外交面板查看队友信息的问题[NEWLINE]61.国际移民在相同队伍玩家间不生效[NEWLINE]62.默认开启国际移民[NEWLINE]63.其他文本补充/修复[NEWLINE][NEWLINE]2024.1.1[NEWLINE]1.修复易洛魁的林地农场可以建造再任意林地或者沿河地块的问题，现在林地农场的要求和农场类似，并强制要求林地[NEWLINE]2.修复建造联合国后城邦影响力可能溢出的问题[NEWLINE]3.修复阿波罗11号的免费科技没有弹出提示以及ai不会选择科技的问题[NEWLINE][NEWLINE]2024.1.2[NEWLINE]1.鱼群资源自带1金[NEWLINE]2.补充一个卫生设施相关的帮助信息[NEWLINE]3.优化/完善部分判定[NEWLINE]4.修复美国UA的国际移民加成在文化总览中显示为红色的问题[NEWLINE][NEWLINE]2024.1.5[NEWLINE]1.修正普世宗教的简体文本描述[NEWLINE]2.修复波利尼西亚海上城市可能有工作地块缺失的问题，同时限制海上城市必须临近陆地[NEWLINE]3.修复阿拉伯先知传教后不能烧文化的问题[NEWLINE][NEWLINE]2024.1.7[NEWLINE]1.修复军事建筑的部分相关描述，并添加兵营只能在直辖城市建筑以及卖出市政厅后失去军事建筑的说明[NEWLINE]2.为航母购买舰载机的按钮增加不能满足条件的详细提示，并提示购买舰载机需要的金钱[NEWLINE]3.在军事总览中若单位有自定义名字会显示自定义名字，并以此排序[NEWLINE]4.修复威尼斯的傀儡城不能购买兵营的问题[NEWLINE][NEWLINE]2024.1.9[NEWLINE]1.国际移民相关问题修复，人口移动不满足条件时会保留进度条[NEWLINE]2.修正代议制文本[NEWLINE]3.删除间谍卫星和GPS的无用假建筑[NEWLINE][NEWLINE]2024.1.12[NEWLINE]1.允许在开启政策保留的前提下取消免费政策提示（取消后可以自行在政策界面继续选择免费政策）[NEWLINE]2.整合显示所有黄金时代战斗力加成[NEWLINE][NEWLINE]2024.1.14[NEWLINE]1.修复战斗力侦察二级百科入口错误的问题[NEWLINE]2.技能二级——袭扰的下城移动力恢复减少至50%[NEWLINE]3.允许在自定义单位和城市名称中使用简略的指令改变名称颜色，详情可以查看文档《单位和城市自定义名称颜色》[NEWLINE]4.在单位列表中显示单位名字</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_5">
+			<Text>SP 10.5 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_5_HELP">
+			<Text>2024.3.15[NEWLINE]1.分离来自腐败的政策花费，并修复该项可能低于0的问题[NEWLINE]2.出售市政厅需要额外花费金钱扶持傀儡，花费与市政厅等级正相关，与时代负相关，时代减成为每时代-5%，市政厅初始花费参数：200 500 800 1500 2500[NEWLINE]3.仅杰作对基础文化和魅力提供加成[NEWLINE]4.删除文物和杰作对大文学家的加成[NEWLINE]5.拥有导航术后所有海军统帅立即移除不能进入大洋的晋升，且新生海军统帅可以立即进入大洋[NEWLINE]6.陆军统帅合成军团不再消耗，但仍然只能进行一次合成[NEWLINE]7.解除与ai交易战略资源的次数限制，战略资源单个交易时，买入基准提高至2，卖出基准降低至1，批量买卖不变[NEWLINE]8.平地城市额外+1食物产出，丘陵城市额外+1产能产出[NEWLINE]9.化肥的渔船加成提前至罗盘，渔场需要已开发的鱼群或海上奢侈，+1食物，降低造价20-&gt;10[NEWLINE]10.修建猎场需要时间和农场一致（800-&gt;600）[NEWLINE]11.风景地标自带1文化魅力，且新增每一时代+1魅力[NEWLINE][NEWLINE]12.解禁前期部分单位蛮族可以建造，具体列表如下（最后一个单位对蛮族不会过时）：[NEWLINE]a.民兵全线[NEWLINE]b.重步兵至现代步兵[NEWLINE]c.陆军远程至防空炮[NEWLINE]d.骑射单位至近代骑兵[NEWLINE]e.重骑兵至枪骑兵[NEWLINE]f.方阵步兵至反坦克炮[NEWLINE]g.海军民兵全线[NEWLINE][NEWLINE]13.修复采取领事制度后偶尔显示获得0文化的问题[NEWLINE]14.修复Boss AI资源加成的某个系数错误（会使其总体资源相比V10.0减少一半以上）[NEWLINE]15.修复民兵补充兵源按钮可能异常禁用的问题[NEWLINE]16.修复黑客可能在自己境内使用技能的问题[NEWLINE]17.修复神系效果对山脉有效的问题[NEWLINE]18.修正部分文本描述[NEWLINE][NEWLINE]19.间谍卫星：城防加成改为真·全局城防（和所有基础值乘算）[NEWLINE]20.修复太阳反射卫星带有防御效率加成的问题[NEWLINE]21.红堡：城防效率加成对新城市生效[NEWLINE]22.裁判所花费提高至与佛塔一致（200）[NEWLINE][NEWLINE]23.希腊：去除希腊竞技场的城邦基准关系加成上限[NEWLINE]24.中国：[NEWLINE]a.删除诸葛弩大军点和大军加成，额外移动力改为攻击消耗的移动力-33%，独有晋升替换新图标[NEWLINE]b.删除造纸坊对单位的全局产能减成[NEWLINE]25.奥地利：[NEWLINE]a.新增外交行动【政治联姻】：可大幅度提升同文明的关系和结盟倾向（30T），同一时间仅可同一家玩家联姻。[NEWLINE]b.新增外交行动【二元帝国协定】：[NEWLINE]i.前提：你比对方强大，人口和城市数量均大于等于对方的两倍[NEWLINE]ii.一局游戏仅能完成一次[NEWLINE]iii.历史上完成过两次及以上的联姻[NEWLINE]iv.对方确认后，可直接吞并对方所有城市，并且视为自建城市。对方当前首都被认为你的第二首都，全国城市的离心倾向将取按两个首都算的较低值。[NEWLINE]v.可获取对方的UU UB UI[NEWLINE]c.骠骑兵-新增晋升英勇无畏：受伤时不减力，每点损失HP+1%伤害[NEWLINE]26.丹麦：分离UA晋升和德曼卡晋升，修复丹麦UA晋升使骑兵攻城不消耗额外移动力的问题，德曼卡晋升数值恢复至300%[NEWLINE]27.玛雅掷矛兵新增晋升-掷矛化雨：穿透伤害50%[NEWLINE]28.巴比伦弓箭手新增晋升-战争工艺学：杀敌获得其战斗力50%的科研[NEWLINE]29.印加掷石手：修复滚滚落石晋升自带10%远程力的问题，溅射伤害增加至20%，替换独有图标[NEWLINE]30.蒙古怯薛：新增晋升破阵二级、机动能力[NEWLINE]31.奥地利骠骑兵-新增晋升英勇无畏：受伤时不减力，每点损失HP+1%伤害[NEWLINE]32.印度战象：降低造价、初始移动力降低为6，新增晋升咆哮战吼：攻击敌军使其受到士气低落效果、攻击骑射单位、重装骑兵+100%战斗力[NEWLINE]33.肖肖尼科曼切骑兵：满月突击替换图标[NEWLINE]34.凯尔特皮克特战士：单位自带杀敌50%信仰改为可继承的杀敌100%信仰晋升[NEWLINE]35.荷兰-海上乞丐：丐军晋升攻击加成改为近战+150%、攻城+50%，删除境外回血加成，新增劫掠回血+15[NEWLINE][NEWLINE]36.对所有骑射手需求的产能向下取对5的倍数，战车骑手以及相关UU基础近战力调整为18-22[NEWLINE]37.除喷火战船外的海上游猎单位允许近战[NEWLINE]38.齐柏林飞艇需求产能回调至725[NEWLINE]39.科曼奇直升机：去除伪装侦察晋升（不能攻占城市），新增晋升小股部队、隐形侦察：隐形反隐、能够在境外恢复、恢复时+99生命值[NEWLINE]40.取消海军近战面对空军单位的25%战斗力减成，空军单位对海领域加成由100%提高至125%[NEWLINE][NEWLINE]41.神系-极光之舞复活：冻土+1信仰（包括森林不包括山脉/奇观），冻土城市+2食物[NEWLINE]42.神系-风暴之神重做：雪原+1食物，雪原城市+4信仰，人口消耗的粮食-20%[NEWLINE]43.神系-纯洁女神重做：湖泊、维多利亚湖+1食物+2信仰[NEWLINE]44.新增神系-塞壬之歌：来自环礁的基础产出翻倍，沿海城市+2信仰[NEWLINE]45.改革信条-耶稣会教育：新增可以购买学院，加成对学院生效，建筑花费调整为80 120 180 240（原90 120 150）[NEWLINE][NEWLINE]46.美学-美学理论（右一）新增效果：每一个文物提供1%全局文化、魅力[NEWLINE]47.美学-艺术天才（右二）：删除奇观加成，新增每一个杰作使得大文大音产出+4%[NEWLINE]48.美学-文化渗透（中三）：新增其他国家向你移民的速度增加33%[NEWLINE]49.海事-海军传统：每处灯塔、港口、海运码头、码头、船坞+2文化[NEWLINE]50.海事-海事管理：删除灯塔、港口、海运码头、码头、船坞的金钱加成，改为+2产能[NEWLINE]51.独裁-威权政府：晋升只对正规军有效</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_6">
+			<Text>SP 10.6 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_6_HELP">
+			<Text>2024.6.9[NEWLINE]建筑[NEWLINE]1.降低ai对神祠、神庙倾向：45-&gt;35，80-&gt;60[NEWLINE]2.降低兵营、军械所造价：45-&gt;25，90-&gt;50[NEWLINE][NEWLINE]奇观[NEWLINE]1.摩索拉斯陵墓：建筑产能加成 -&gt; 建造建筑所需产能-10% （中国造纸坊的接口）[NEWLINE]2.太阳神巨像：新增本城发出的商路（不论内外）可提供+2科研+2文化[NEWLINE]3.宙斯神像：境外战斗战斗力加成 -&gt; 境外攻击固定伤害+5[NEWLINE]4.空中花园：全局粮食产出加成 -&gt; 所有城市涨人口阈值-10%[NEWLINE]5.大灯塔：赠送晋升新增属性：无视zoc[NEWLINE]6.帕特农神庙：本城每4人口+1魅力[NEWLINE]7.兵马俑：只赠送免费军事学院[NEWLINE]8.圣索菲亚：新增：全国圣地产出信仰+4，赠送神庙改成赠送大教堂[NEWLINE]9.杰内大清真寺：传教士和大仙获得晋升【布道者的远行】，+1移动力，实施传教行动时，每转换一个信徒，获得+5信仰+5黄金时代点。[NEWLINE]10.大图书馆：删除全国科研15%-&gt;所有图书馆+3科研，科研+2-&gt;+1新增本地大科学家、大文学家速率+15%[NEWLINE]11.国立研究院：删除合作研究加成，新增大科槽+2，本地大科+1科研，成本降低175-&gt;125，城市花费增加30-&gt;25[NEWLINE]12.教育基金会：科学家-1金钱+1科研[NEWLINE]13.国家图书馆：新增所有图书馆+3文化[NEWLINE][NEWLINE]文明[NEWLINE]1.葡萄牙-葡萄酒庄园：修正描述，沿河效果改为邻近淡水[NEWLINE]2.瑞典：UA削弱至4人口一科研，产业实验室百分比削弱至25%[NEWLINE]3.法国：幻影2000自由射击（实际也只相当于双击）替换为双击，与描述同步[NEWLINE][NEWLINE]单位&amp;晋升[NEWLINE]1.玄甲军势如破竹取消杀敌回血[NEWLINE]2.禁止斯巴达、玄甲军组建军团（升级后允许）[NEWLINE][NEWLINE]信条[NEWLINE]1.风暴之神：减少雪地城市40%粮食消耗[NEWLINE]2.苍天之神:牛+2信仰[NEWLINE][NEWLINE]政策[NEWLINE]1.自主调整[NEWLINE]a.左二 +4文化 -&gt; +2文化[NEWLINE]b.左三 移除全局金钱、市政厅维护费效果[NEWLINE]c.中二 +4食物 -&gt; +2 食物、+4金钱-&gt;+2[NEWLINE]2.自由：前卫艺术删除伟人一次性魅力，改为新诞生伟人+3%永久魅力加成[NEWLINE]3.理性开门：删除合作研究加成[NEWLINE]4.传统调整[NEWLINE]a.删除传统左一的一次性食物[NEWLINE]b.传统开门新增：首都出发的商路距离基数+3、+3金钱[NEWLINE][NEWLINE]AI[NEWLINE]1.新增人类骗钱惩罚（交易对方现金＞外交回合数的平方（900），人类主动宣战，人类会立刻扣除按回合折算后的现金，若现金不足，每外交回合数（30）金币增加一点全局永久红字，防御方（可包括其他人类）无论攻击方是否有现金都会得到补偿)[NEWLINE]2.为解放城邦增加计数器，解放城邦后15回合内重新解放只能消除较低的战狂惩罚，且解放后无论消除多少战狂惩罚都会重置计数器[NEWLINE]3.城邦宫殿：科研100%-&gt;50%[NEWLINE][NEWLINE]2024.6.10[NEWLINE]1.修复版本号没有更改的问题[NEWLINE]2.奥地利二元帝国协议新增前置条件：对方不与你处于敌对状态，吞并对方所有城市视为自建-&gt;吞并对方自建城市视为自建，占领其余城市且没有抵抗[NEWLINE][NEWLINE]2024.6.14-fb46aad[NEWLINE]1.太阳神巨像商路加成数值 2-&gt;1[NEWLINE]2.传统政策：寡头郡县制度城市规模加成 全4-&gt;446688[NEWLINE]3.略微削弱ai启蒙科研加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_7">
+			<Text>SP 10.7 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_7_HELP">
+			<Text>2024.7.12[NEWLINE]1.一级资本主义新增：所有商路+10金钱，商业家产出的商品数量额外+3（整合自由贸易）[NEWLINE]2.一级隐秘行动删除阻止间谍效果，新增：操纵选举成功后获得影响力翻倍并提升间谍等级。[NEWLINE]3.一级经济联盟删除[NEWLINE]4.新增一级联合研究：合作研究产出+50%(加算数值)，每一个签订的合作研究使你+10%科研（与总值乘算）[NEWLINE]5.二级政策经济新政新增：风景地标+4魅力，所有城市中的建筑维护费用-30%（整合经济联盟）[NEWLINE]6.三级和平演变新增：在不同意识形态国家外交官宣传效果翻倍(25%-&gt;50%)[NEWLINE]7.三级自由贸易删除[NEWLINE]8.恢复三级航天采购。且每购买一次价格翻倍（指数运算，标速初始平均价1w）[NEWLINE][NEWLINE]9.独裁一级工业间谍新增：获得一名额外间谍[NEWLINE]10.独裁一级精英部队新增：单位通过战斗获得经验+50%[NEWLINE]11.独裁三级权威政府调整：每占领一个文明的原始首都，正规军单位攻击陆军目标时伤害固定+4（对城市、海军和空军效果减半，城邦首都提供效果减半，即一个城邦首都对城市、海空军仅+1固伤）[NEWLINE][NEWLINE]12.荣誉中二效果：在首都附近出现一位陆军统帅。获得陆军统帅的速度+50%。移至荣誉左二[NEWLINE]13.荣誉中三：删除单位通过战斗获得经验+50%效果[NEWLINE][NEWLINE]14.部分引入TNL的经济总览，引入TNL的外交总览[NEWLINE]15.战斗面板新增额外固伤显示（仅完全适配SP出现的效果）[NEWLINE][NEWLINE]16.凯尔特UA调整：删除原有的未开发森林加成，新增邻近城市的森林为城市+1信仰，最多+3[NEWLINE]17.摩洛哥UB沙漠灌溉区对海洋和鱼群加成削弱至+1，新增对本城卡斯巴哈+1粮锤[NEWLINE]18.日本UB天守海洋资源加成改为海上设施加成[NEWLINE]19.波利尼西亚：UA删除市政厅最高三级以及石像群战斗力加成，UI石像群科技提前至帆船，UU毛利勇士晋升哈卡战舞新增在石像群周围2格+20%战斗力[NEWLINE][NEWLINE]20.AI完成星舰计划后，大幅提高放飞船倾向[NEWLINE]21.AI的胜利倾向对意识形态的选取的影响灵活化（有效与否未知？实验阶段）[NEWLINE]22.修复野蛮人不管寨子乱跑的问题[NEWLINE]23.缩短第二个野蛮人的最小生成回合以及野蛮人的生成间隔[NEWLINE][NEWLINE]24.删除资源天然气，海上平台产能统一为+4，石油精炼厂对石油加成对应由+3降至+2[NEWLINE]25.养殖鱼群不再生成鱼群资源，而只获得渔船设施（将现有鱼群资源加成转移至渔船设施加成，数值上总体不变），渔场产能要求增加至15且无需资源，恢复部分鱼群资源加成，且恢复鱼群图标显示[NEWLINE][NEWLINE]26.一级科研基金产能花费降低1/3（30-&gt;20），国立研究院基础产能降低125-&gt;75[NEWLINE][NEWLINE]2024.7.13[NEWLINE]1.获得城市后如果同时满足吞并、解放、傀儡、摧毁、查看五个按钮需求，合并吞并和摧毁，允许在UI中通过点击左右键选择不同功能（强权V48右键摧毁不可用，等待更新前先点吞并再到城市面板摧毁）[NEWLINE]2.修复某个可能存在的战斗UI问题[NEWLINE][NEWLINE]2024.7.18[NEWLINE]1.修复替换设施的弹窗无法点否的问题[NEWLINE]2.修复工人鱼群养殖按钮出现在已有渔船设施地块的问题[NEWLINE]3.由于鱼群养殖不创造鱼群资源，不再限制其建造在未知资源地块[NEWLINE]4.百科新增建筑对设施加成[NEWLINE]5.修复国际移民在对方无法接受移民的情况下仍然扣除本国人口的问题[NEWLINE][NEWLINE]2024.7.31[NEWLINE]1.修复游猎单位的猎杀晋升线的加成防御也有效的问题，目前所有对受伤单位战斗力加成晋升文本统一修正为攻击加成[NEWLINE]2.夷平中的城市不再计入国家奇观需求的前置建筑数量[NEWLINE]3.修复建立城市后资源链接不跟随地块转移的问题[NEWLINE][NEWLINE]2024.8.4[NEWLINE]1.修复ai续签玩家一的唯一资源交易不能成功的问题[NEWLINE][NEWLINE]2024.8.5[NEWLINE]1.鱼群养殖、天然气开采、林间农场等建造时会显示最终设施的产出，同时适用ai判定[NEWLINE]2.在科技树中显示改良设施更详细的信息[NEWLINE]3.为玩家额外新增UB后升级过时建筑的情况进行一些修复</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_8">
+			<Text>SP 10.8 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_8_HELP">
+			<Text>,2024.(*为单独DLL内容)[NEWLINE]1.奥地利：吞并城邦不再有抵抗时间，但仍然可以解放*[NEWLINE]2.匈人：骑射手杀敌近战力调整+2-&gt;+1[NEWLINE]3.迦太基：[NEWLINE]a)修复迦太基大集市的政策开门效果无法单回合立即生效的问题[NEWLINE]b)UA重做：删除专家产能以及海路金币，新增：海上商路+2锤，每过一个时代+1锤，航海获得一个移民[NEWLINE]4.葡萄牙：商站调整-过路金不对己方内运生效[NEWLINE]5.英国：修复不能买海鹞FA2的问题[NEWLINE]6.威尼斯：德商馆新增效果：国际移民进入城市不受城市规模影响[NEWLINE]7.日本：修复UA以及海事右二0战斗力单位也提示信息的问题[NEWLINE]8.荷兰：允许圩田修建在临近3块以上水域的平地[NEWLINE][NEWLINE]9.传统：开门增强，首都商路距离+3-&gt;+5，首都出发的商路额外金币+3-&gt;+5[NEWLINE]10.海事：商船舰队政策商船信仰购买价格降低500-&gt;300[NEWLINE]11.自由：联合研究数值调整总科研10%-&gt;5%[NEWLINE]12.虔信：[NEWLINE]a)左三宗教宽容删除神祠神庙增加快乐，新增城市中每种宗教+1快乐[NEWLINE]b)虔信中二数值调整为15%[NEWLINE]c)虔信中一名字回调为教会组织[NEWLINE][NEWLINE]13.杰内大清真寺：修正实际效果与描述一致*[NEWLINE]14.大铁厂不再作为海事政策国家奇观，删除原有属性，改为机械解锁，需要所有城市拥有工坊，建造城市拥有已开发铁且城市规模为中型以上（15人口），提供5人力5铁2工程师席位，本地矿井+1产能[NEWLINE]15.新增威尼斯军械所作为海事国家奇观，建造需要大型城市（26人口），建造海上单位+20%产能，每条海事政策为本城+2产能科研，关门+3产能科研[NEWLINE]16.西印度公司删除百分比金钱加成，新增每个傀儡城使本城+5金钱，全国所有金银铜烟草蔗糖+1产能金钱[NEWLINE][NEWLINE]17.玄甲军：去除不能组建军团的限制[NEWLINE]18.异端审判者新增效果：执行审判后城市每20人口使城市进入一回合审判狂热状态，该状态下城市无法进行任何传教[NEWLINE][NEWLINE]19.创立者信条：宗教殖民数值调整-自主160-&gt;200，传统320-&gt;300[NEWLINE]20.创立者信条：至高教皇新增效果-裁判官位于同盟城邦附近时禁止其他文明传教[NEWLINE]21.改革信条：共同先知新增效果-审判狂热时间减半（四舍五入）[NEWLINE][NEWLINE]22.核冬天重做：[NEWLINE]a)核弹爆炸会增加核冬天进程，当核冬天进程达到75、225、500时触发不同阶段，全球城市粮食产出或产能产出总值会受到影响，不同时期核武器增加核进程数值不同，暂定为10 8 5，沙皇炸弹为20[NEWLINE]b)核冬天产出随核冬天进程动态增加，且核冬天进程可以自然恢复（默认一回合减少1，下限为当前核冬天等级阈值）[NEWLINE]c)辐射清理卫星新增效果：一次性减少150点核冬天进程，且可以强制降低核冬天等级，全球核冬天恢复速度+200%[NEWLINE]d)清水巨型金字塔新增效果，本城免疫核冬天效果[NEWLINE]e)核冬天选项默认开启，原有机制完全废弃。[NEWLINE]23.城邦宫殿为城邦增加快乐度增加至30，同时新增-20%粮食总值修正[NEWLINE]24.部分修复军团下高难ai陆地单位不足的问题，同时ai不再作弊回血[NEWLINE]25.修复商路面板显示来自领袖特质0数值的问题[NEWLINE]26.部分修正在地貌上修建设施时单位面板建造时间和获得产能与实际不同步的问题[NEWLINE]27.在林地进行动物养殖的额外成本和建造其他非移除地貌设施的额外成本一致（700 、400）[NEWLINE]28.修复清除地貌即使产能产出为0也提示的问题[NEWLINE]29.提高勒索城邦得到的金钱基数50-&gt;100，降低役使工人花费的影响力50-&gt;25[NEWLINE]30.城市界面右侧显示城市拥有的其他规模建筑，以方便计算加成[NEWLINE]31.海军计算军评不再减半，将军评翻倍需要的金钱数量大幅上升，斯巴达计算军评总值时数值*500%，玄甲军*600%，火厢车*400%，民兵*25%[NEWLINE]32.略微增加ai追科研能力，ai追科技基于科技数量差而不再是时代差[NEWLINE][NEWLINE]2024.10.13[NEWLINE]1.为141特战队添加防爆部队晋升[NEWLINE]2.修复快速游戏开局单位移动力不满的问题[NEWLINE][NEWLINE]2024.10.16[NEWLINE]1.修复国立研究院和大铁厂在百科中分类出错的问题[NEWLINE]2.大铁厂在工业化后取消全国工坊的前置条件[NEWLINE]3.兵力不足时禁止升级单位[NEWLINE]4.修复神域所的考古学后获取魅力中文描述和实际不符的问题[NEWLINE][NEWLINE]2024.10.18[NEWLINE]1.修复韩国娱乐公司、水巷、国际自由港、悉尼歌剧院、防空洞、帝国军港描述文本[NEWLINE]2.修复奢侈品庄园、乡村俱乐部红酒加成未生效的问题[NEWLINE]3.修正对海洋地块产出加成的描述(大洋-&gt;海洋)[NEWLINE]4.修复金字塔神庙和龛邸没有维护费的问题[NEWLINE]5.修复城墙、城堡、天守提供魅力科技与描述文本不符的问题[NEWLINE]6.帝国军港文本增加对效果的描述[NEWLINE]7.建筑描述中的互联网统一替换为因特网，历史信息中的不变[NEWLINE]8.修复部分英文文本商品图标丢失的问题[NEWLINE]9.修复当巴西在场时，自主政策可能赠送巴西劳工的问题[NEWLINE][NEWLINE]2024.10.20[NEWLINE]1.修复部分文本图标错误的问题[NEWLINE]2.兵工厂和军事基地ui提示可以建立军团/集团军[NEWLINE][NEWLINE]2024.10.21[NEWLINE]1.修复ai的斯巴达可能出现军团的问题[NEWLINE][NEWLINE]2024.11.17[NEWLINE]1.添加一个DLL接口的UI[NEWLINE]2.修正单位消耗兵力的描述[NEWLINE][NEWLINE]2025.1.11[NEWLINE]1.修复乞力马扎罗山百科错误[NEWLINE]2.新近俘虏死亡不扣人口，修复新近俘虏可以攻击的bug[NEWLINE][NEWLINE]2025.1.17[NEWLINE]1.修复航母轰炸一级没有给debuff以及轰炸二级没有穿透城市伤害的问题[NEWLINE]2.所有穿透城市伤害的最大生效单位数量定为5（原定位晋升隐藏限制4），并增加描述[NEWLINE]3.修复战术二级-破交没有提示的问题[NEWLINE]4.修复破交二级、局部损伤提示信息/位置错误的问题</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_9">
+			<Text>SP 10.9 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_9_HELP">
+			<Text>2025.6.7 v10.94[NEWLINE]1.传统政策:[NEWLINE]a.贵族政治：恢复采用后所有城市粮槽立即充满效果[NEWLINE]b.律法统治：删除原效果，原郡县制度效果移至该政策[NEWLINE]c.郡县制度：删除原效果，新增新单位+15经验、所有城市每5人口+1快乐[NEWLINE]d.中央集权：删除经验效果，新增每一级城市规模+1快乐，城市数量为国家奇观带来的成本增加量-50%[NEWLINE]e.君主政体：删除国家奇观成本减少效果，关门效果开启黄金时代阈值减少移至该政策[NEWLINE]2.大图书馆删除图书馆加成，新增本城每2人口+1科研，本地大文学家、大科学家速率+15%-&gt;+20%[NEWLINE]3.削弱AI部分时代加成和神级加成[NEWLINE]4.石祭坛无需前置科技[NEWLINE]5.删除画廊、歌剧院的前置建筑，博物馆需要城市前置露天剧场、画廊、歌剧院，所有原版文明相关UB都同步变更[NEWLINE]6.易洛魁的莫霍克改为替代乡兵，基础力为18，过时科技仍然为国防动员[NEWLINE]7.凯尔特同乐会厅新增效果：本城每个音乐家为城市+1魅力并+5%魅力产出[NEWLINE]8.英雄史诗前置城市规模改为小型城市(6人口)[NEWLINE]9.民族史诗前置城市规模改为小型城市(6人口)，数值下调为20%，同时基础成本略微提高[NEWLINE]10.修复科曼奇直升机的火力引导可能对其他模组的免疫负面晋升生效的问题[NEWLINE]11.替换文学家、音乐家图标以与艺术家区别(素材来自强权)[NEWLINE]12.补全部分模组晋升的战斗面板描述、补全信条描述中的资源图标[NEWLINE][NEWLINE]2025.4.21[NEWLINE]1.外交提示信息新增承诺撤军剩余回合数[NEWLINE]2.修复极少情况下单位升级后免费晋升赋予异常的问题(MPDLL)[NEWLINE]3.修复火星车可以近战攻击的问题[NEWLINE][NEWLINE]2025.4.16[NEWLINE]1.隧道允许在雪地修建，但不提供产出[NEWLINE]2.优化部分代码效率[NEWLINE]3.提供一些拓展接口支持[NEWLINE][NEWLINE]2025.4.9 v10.93[NEWLINE]1.历法的商路上限移至渔业，历法改为制陶平行科技，即农业-&gt;（历法、制陶）-&gt;文字，渔业-&gt;帆船-&gt;光学[NEWLINE]2.农业科技的花费减低7-&gt;6[NEWLINE]3.大幅降低巨石阵的ai倾向[NEWLINE]4.所有类型的城邦首发和初次见面都将赠送额外礼物，文化城邦-文化(6)、商业城邦-额外金钱(20)、宗教城邦-信仰(4)、航海城邦-首都粮食(6)、军事城邦-影响力(20)，数值受到城邦友好、仇外、是否首发影响[NEWLINE]5.特战单位战术三级-救援：不再对增加的移动力进行向下取整[NEWLINE]6.修复蒙古/海事关门后大军/大提督建立军事学院后按钮不刷新的问题[NEWLINE]7.略微削弱/后移部分AI加成，对于难八以下难度，AI的时代加成数量按照难度梯度下降[NEWLINE]8.科技树UI中，电子学、原子理论、人造卫星的位置上移一格[NEWLINE]9.删除难度描述中的“你”[NEWLINE]10.所有速度的移民产能比率同步成和单位训练比率相同，大致比神域所略低（史诗：209-&gt;165，标速不变）[NEWLINE]11.修复战斗面板对方防御时造成固定伤害的颜色不为蓝色的问题[NEWLINE]12.领袖铜像、拉利贝拉教堂基础花费下调1/3[NEWLINE][NEWLINE]2025.3.28[NEWLINE]1.城市粮食产出UI新增余粮积累值显示[NEWLINE]2.传统左一新增：采用后所有城市的余粮积累立即充满[NEWLINE]3.传统中一的快乐加成取消小镇限制，即对所有城市规模+1快乐[NEWLINE]4.修复AI加成的一个错误[NEWLINE]5.修复近战单位攻击前的一轮远程攻击杀敌后不消耗攻击次数的问题(MPDLL)[NEWLINE][NEWLINE]2025.3.24[NEWLINE]1.删除境外设施修复速度不受道路加成机制，新增境外地块一回合仅能进行一次改良[NEWLINE]2.罗马UA新增随时代增加效果[NEWLINE]3.删除创建神系的递增花费[NEWLINE]4.修复元老院策略提示是法院的问题[NEWLINE]5.治安署提前至文官制度，且花费降低至与元老院一致（90-&gt;70）[NEWLINE]6.再次降低AI建造祭坛倾向[NEWLINE][NEWLINE]2025.3.23[NEWLINE]1.略微降低AI修建祭坛倾向以及部分AI选择刀耕火种信条的倾向[NEWLINE]2.易洛魁、玛雅AI不会主动砍伐无资源的森林、凯尔特AI不会主动砍伐临近城市一格的无资源森林[NEWLINE]3.传统律法统治删除国家奇观减成效果，新增小镇以上每一级城市规模+1快乐[NEWLINE]4.传统君主政体删除城市规模不满减成，新增城市数量为国家奇观带来的成本减半[NEWLINE]5.(测试)开启了平民单位无限堆叠以及能够正常通过非交战方单位地块的开关[NEWLINE]6.境外修复设施速度不再受到道路加成[NEWLINE][NEWLINE]2025.3.13 v10.92[NEWLINE]1.秩序三级国际主义：移除傀儡加成，合并原科学社会主义效果[NEWLINE]2.秩序三级科学社会主义：移除原效果，新增国际主义的傀儡城加成(数值不变)、城市每回合可完成的建造项目上限+1（需将项目添加至队列）[NEWLINE]3.修复单位打开拓展操作面板，移动后部分指令按钮消失的问题[NEWLINE]4.自来水同步引水渠保留粮食降低数值至30%，燃煤发电一级机组污染降低至2%，二级新增2%污染[NEWLINE]5.所有污染导致的食物积累，如城市规模、能源建筑、工业建筑等和普通的食物积累分离，根据原有描述，医院、医学实验室由通用接口改为减少此类减成，且该类上限为0%[NEWLINE]6.城市粮食产出面板新增最大保留粮食百分比提示[NEWLINE]7.取消城市建造建筑以及单位在建造中止后积累产能随时间减少的机制[NEWLINE]8.匈人的攻城锤仅需兵营即可建造、罗马的弩炮成本降低90-&gt;80，攻城塔产能需求变更50-&gt;60，替换攻城锤、攻城塔的帮助文本[NEWLINE]9.允许购买雪橇步兵，雪橇步兵的升级单位改为现代步兵[NEWLINE]10.陆地铁甲舰的成本降低400-&gt;350[NEWLINE]11.传统中一律法统治新增：城市数量为国家奇观带来的产能增加量-33%[NEWLINE]12.新增神系刀耕火种：砍伐林地时获取产能33%的一次性信仰和食物产出[NEWLINE]13.略微加速后期回合，效果未知[NEWLINE][NEWLINE]2025.3.3 v10.91[NEWLINE]1.修复通过晋升获取不可移动的属性的单位移动的时候会消失的问题[NEWLINE]2.通过晋升切换不可移动属性的单位会同步切换单位旗帜图标[NEWLINE]3.提示信息新增政策树解锁的单位[NEWLINE]4.AI沿海城市训练陆军单位强制转换成海军时新增最低删兵下限[NEWLINE]5.降低AI对激烈争夺城邦、同意和阻挠议案的态度影响[NEWLINE]6.修正3D打印车间消耗电力的文本描述[NEWLINE]7.修复大军没有移动力也显示建立军团按钮的问题[NEWLINE]8.修复印加和波利尼西亚死亡后读档占领山脉和海上城市时城市模型丢失的问题[NEWLINE]9.文庙私塾数值更改为每个信徒+2%科研，上限不变[NEWLINE]10.狼群战术晋升新增效果：回合内敌军每遭受一次攻击，对其+25%攻击力。[NEWLINE]11.替换所有生命值图标，旗帜面板新增单位视野显示(图标来自强权)[NEWLINE]12.战斗面板的俘虏概率文本和同类型文本风格统一[NEWLINE]13.商船舰队信仰购买商船的价格下调1/3[NEWLINE]14.修复原版兵马俑接口触发时如果有堡垒单位会导致复制中止的问题(MPDLL)[NEWLINE]15.向同一个AI购买大量资源后AI将提高价格，倍率梯度为0-50为1，而后每50提高1(MPDLL)[NEWLINE]16.修复部分情况下AI误判军队过境的问题(MPDLL)[NEWLINE]17.侦察兵、海螺信使、轻帆船、拿乌帆船不会再被ai视为威胁单位，无人飞机因力较高不做屏蔽[NEWLINE][NEWLINE]2025.2.19[NEWLINE]1.新增通用改良设施石祭坛(素材来自强权)，+1信仰+1黄金时代点数，制陶解锁，教育过期，可修建任意在无资源地块，两个石祭坛不能相邻[NEWLINE]2.部分位置的“创立者”文本描述改为“宗教领袖”[NEWLINE]3.新增机制：未创建宗教且占领其他宗教圣城时，若你的宗教信徒数量超过该宗教所有信徒数量的一半，且[NEWLINE]3/4的城市信仰该宗教，在圣城抵抗结束后（必须过回合），你将成为该宗教的宗教领袖，宗教收益视同创立者（部分即时效果不会触发，例如额外间谍以及大先知），原创立者变为无宗教状态。原创立者夺回圣城时无需额外判定，若城市没有抵抗，过回合即能重新成为宗教领袖。[NEWLINE]4.新增外交关系判定：争夺宗教正统——通过占领圣城成为宗教领袖后原创立者对你关系受到减成，数值同占领首都[NEWLINE]5.部分设置过高的AI倾向调整，避免数值过分溢出：全战、原子的意识形态对外交数值缩减至原有的1/10、占领首都、解放文明的关系影响缩减至原有的1/10，等等，若还有过高的倾向(除意识形态外&gt;1000)请反馈[NEWLINE]6.微调AI意识形态倾向[NEWLINE]7.难七开始ai合军团有概率不消耗单位[NEWLINE]8.码头、船坞最小水域限制降低到19，迦太基内港同步调整[NEWLINE][NEWLINE]2025.2.13[NEWLINE]1.优化部分代码效率[NEWLINE]2.修复种植咖啡不清除地貌的问题[NEWLINE][NEWLINE]2025.2.6[NEWLINE]1.优化部分代码[NEWLINE]2.去掉了一个浮桥上单位海运相关的奇怪代码，有问题请在群里@清音[NEWLINE]3.波利尼西亚的海上城市拥有浮桥属性，陆军可以直接攻击、允许陆地商队连通、训练单位不再自动转换为海运[NEWLINE]4.修复游猎防空单位时反伤的计算错误、造成伤害的显示错误[NEWLINE]5.修复大图书馆英文描述被覆盖的问题[NEWLINE]6.修复从高级开局设置面板进入游戏没有保存设置的问题[NEWLINE][NEWLINE]2025.2.3[NEWLINE]1.修复葡萄牙商站没有鱼群加成的问题[NEWLINE]2.略微优化后期点击单位的性能(效果待测试)[NEWLINE][NEWLINE]2025.2.1[NEWLINE]1.降低绿水海军的ai倾向[NEWLINE]2.修复圩田不移除林地的问题[NEWLINE]3.增加一些新的拓展支持(依托MPDLLv38.1)[NEWLINE]4.兼容10.9存档[NEWLINE][NEWLINE]2025.1.31[NEWLINE]1.香水开发后+1魅力[NEWLINE]2.祖鲁矛兵基础力38-&gt;42[NEWLINE]3.巴比伦螺旋水泵粮食产出+5%-&gt;10%[NEWLINE]4.丹麦诺曼营地攻占城市的产出改为和城市人口相关，摧毁城市仍然保持和时代相关[NEWLINE]5.造纸坊仅需10城即可达成上限，陵墓和造纸坊加成可以重叠[NEWLINE]6.替换桑海远征舰队图标（来自强权）[NEWLINE]7.新增上帝之杖模型以及打击音效（来自强权）[NEWLINE]8.修复部分属性重新开始游戏不刷新的问题[NEWLINE]9.丹麦UA补上单位登陆仅需1移动力的描述，玛雅UA补上不能迁都的描述[NEWLINE]10.新增保存开局选项的功能（待测试，有问题请及时反馈）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_FINAL">
+			<Text>SP 10 Final 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V10_FINAL_HELP">
+			<Text>2025.10.17[NEWLINE]0.本次更新版本为V10最终版，该版本稳定后不再进行内容更改，仅进行BUG修复[NEWLINE]1.AI会优先在临近首都的推荐地块铺城（首都临近城位较差时仍然会在远处铺城）(MPDLL)[NEWLINE]2.修复杰内、传教热情、福音神学对购买的大先知有效而对购买以外的传教士无效的问题(MPDLL)[NEWLINE]3.修复部分情况下瑞典诺贝尔奖的大科额外科研数值异常(MPDLL)[NEWLINE]4.修复AI的莫霍克移动后有概率隐形失效的问题(MPDLL)[NEWLINE]5.修复建筑过期后，部分政策的产出加成仍然生效的问题（如尚武精神、海事管理），魅力类仍然有效(MPDLL)[NEWLINE]6.修复商队单位异常死亡后商队数据还存在的问题(MPDLL)[NEWLINE]7.修复城邦赠送有数量限制的独特单位时会突破上限的问题(MPDLL)[NEWLINE]8.修复部分情况下交易面板资源数量显示不正常的问题(MPDLL)[NEWLINE]9.修复埃塞俄比亚UA对更多城市文明的战斗力加成远程无效的问题(MPDLL)[NEWLINE][NEWLINE]10.修复卢浮宫英文描述的错误以及一些其他文本错误[NEWLINE]11.调整并统一SP相关的开局选项文本颜色，并避免开关混淆[NEWLINE]12.统一了所有基础大类晋升的文本，并根据实际效果修复错误描述[NEWLINE]13.修复人力资源百科计算公式的描述错误[NEWLINE]14.修复部分情况下宗教裁判官面板显示“传教”而非“清除异教”的问题[NEWLINE]15.修复当文明UB无需前置建筑时，前置建筑UI面板上仍然显示解锁的问题(天守)[NEWLINE]16.修复城邦会建造侦察兵的问题[NEWLINE]17.所有余粮加成都将新增标注：（余粮），并统一繁体该类加成文本[NEWLINE]18.修正召回商队的文本描述[NEWLINE]19.调整了部分英文UA的描述，避免文明选择页面超出UI[NEWLINE][NEWLINE]20.传统开门：数值统一为3，修复英文描述错误问题[NEWLINE]21.商船舰队信仰购买商船的价格下调至120[NEWLINE]22.荣誉：[NEWLINE]a)尚武精神删除傀儡城金钱加成以及赠送法院，新增驻军可以消除占领城市不满（同法院效果）,同时对兵工厂和军事基地的产能加成增加至2[NEWLINE]b)军事传统新增：城市规模达到小型城市（6人口）时+5人力[NEWLINE]23.秩序-五年计划：新增相关加成设施+100%建造速度[NEWLINE]24.自由-资本主义：商路全国科研3%-&gt;2%[NEWLINE][NEWLINE]25.驿站新增属性：本城出发的陆地商路距离+20%[NEWLINE]26.内陆运河新增属性：本城河流对商路增益+20%(即25%-&gt;30%)[NEWLINE][NEWLINE]27.杰内大清真寺：晋升布道者的远行新增独有图标[NEWLINE]28.大图书馆的基础大科点数1-&gt;3[NEWLINE]29.太阳神巨像：删除基础金钱、文化产出、商路金钱加成、陆地商路距离加成[NEWLINE]30.摩索拉斯陵墓：删除全局快乐[NEWLINE][NEWLINE]31.朝鲜、亚述：UU龟船、攻城塔的重甲晋升删除，新增晋升：重型装甲，防御+50%，受到的最终伤害-2[NEWLINE]32.匈人：UU攻城锤攻击时额外获取4经验(不可继承)[NEWLINE]33.蒙古：UU怯薛统帅叠加晋升删除，新增晋升：黄金亲卫，两环内每个大军事家为自身+25%战斗力，上限50%[NEWLINE]34.中国：UA黄金时代来自城市数量的科研阈值(消除-&gt;减半)[NEWLINE]35.印度：UA主流宗教信徒+1%城市粮食产出(新增上限25%)[NEWLINE]36.瑞典：UB诺贝尔奖需要40人口才能建造，科研基数15%-&gt;20%[NEWLINE]37.暹罗：UB经院删除基础3信仰[NEWLINE]38.玛雅：UI删除原属性，更改为基础3科研，每临近一个伟人设施+2科研[NEWLINE]39.阿拉伯：[NEWLINE]a)UA新增信仰自己创立宗教的伊斯兰先知创作时文化翻倍[NEWLINE]b)UU伊斯兰先知创作文化回合基数4-&gt;2[NEWLINE]c)UB巴扎补上增加信仰产出的描述并同步驿站属性：本城出发的陆地商路距离+20%[NEWLINE]40.祖鲁：[NEWLINE]a)UA维护费减免由于接口无效删除，新增单位不会因为赤字被解散[NEWLINE]b)UB伊扎卡不再对民兵生效[NEWLINE]41.英国：UU主力舰不再减少花费和维护费[NEWLINE]42.埃塞俄比亚：UA改名为所罗门王，新增允许使用信仰购买露天剧场、画廊、歌剧院，[NEWLINE]43.葡萄牙：UU补充商品按钮新增右键作用于所有符合条件的单位[NEWLINE]44.荷兰：UB运河网新增属性：本城河流对商路增益+40%(即25%-&gt;35%)[NEWLINE]45.桑海：[NEWLINE]a)UA删除对贸易站加成[NEWLINE]b)UU远征舰队花费降低450-&gt;360，维护费降低24-&gt;18[NEWLINE][NEWLINE]46.新增神系：圣禋(yin)，临近城市的石祭坛+1信仰[NEWLINE]47.创立者信条：宗教殖民，移民价格上浮10%[NEWLINE]48.改革信条：耶稣会教育，对学院等建筑的信仰加成+2-&gt;+1[NEWLINE]49.新增改革：十字军，在圣城出现6个自带60点经验的圣殿骑士[NEWLINE][NEWLINE]50.创建神系信仰由6调整至8[NEWLINE]51.难六以上的AI发教阈值与单位训练加成独立，现为6（75%-&gt;100%)、7(66%-&gt;90%)、8(66%-&gt;80%)，同时神祠神庙的AI倾向回调[NEWLINE]52.降低了城邦任务间隔以及持续时间(减少1/3)[NEWLINE]53.大军事家升级军团/集团军不再占用相应名额[NEWLINE]54.将AI回滚部分被削弱的加成[NEWLINE]55.重新调整了国际移民UI[NEWLINE]56.部分战斗类型的晋升补全基础晋升前置以方便百科查看(除大黄蜂无法选择补给以外晋升外，有BUG请向管理员反馈)[NEWLINE][NEWLINE]2025.10.19[NEWLINE]1.修复远程海运单位被空袭时伤害异常问题，平民被空袭伤害与远程攻击同步(70点)，导弹保持秒杀平民设定 (MPDLL)[NEWLINE][NEWLINE]2025.10.24[NEWLINE]1.开局设置保存跳过快速移动和快速战斗，避免和游戏自动保存冲突[NEWLINE]2.修复类地行星地图巴林杰陨石坑、富士山、大平顶山奇观生成时周围山脉数量和原始设定可能不符的BUG[NEWLINE]3.将版本类型由Alpha变更为Beta[NEWLINE][NEWLINE]2025.10.26[NEWLINE]1.基于MPDLL修复类地行星、冰封世界、高原的地图脚本中山脉相关的计数错误[NEWLINE][NEWLINE]2025.10.31[NEWLINE]1.更改了英文集体统治的翻译[NEWLINE]2.缩小了作为隧道的堡垒模型，并新增战略视图下隧道图标[NEWLINE][NEWLINE]2025.12.16[NEWLINE]1.回合内获得舰载机科技时，允许航母立即购买新舰载机[NEWLINE]2.修复西北风可能补充普通导弹的BUG，虎式武装直升机不允许转场[NEWLINE]3.航母购买的舰载机将强制在当前单位上装载，避免购买舰载机后装载在其他航母上的问题[NEWLINE]4.法国UU大炮兵连需要架设但新增晋升：架设不消耗移动力[NEWLINE]5.略微提高AI太空船工厂倾向[NEWLINE]6.优化部分代码性能[NEWLINE]7.修复城市面板部分产能产出没有显示的问题[NEWLINE][NEWLINE]2026.1.17 FA[NEWLINE]1.军团、集团军以及部分精英的专属晋升会显示在单位旗帜上，以方便识别[NEWLINE]2.标准以及以下地图的城市间隔改为3[NEWLINE]3.使用标准以及以下地图进行难四以上游戏时，AI的初始移民数量(也包括侦察兵等)减少1[NEWLINE][NEWLINE]2026.2.5 FB[NEWLINE]1.自动化科技新增建筑：智能电解工厂，-5电力-6金+8铝，本城需要有工厂，金银铜铝+1产能[NEWLINE]2.诺贝尔奖的建造条件改为：本城需要为26人口，且全国拥有一座40人口城市，研发炸药后移除全国城市要求[NEWLINE]3.百科新增复杂晋升条件显示[NEWLINE][NEWLINE]2026.2.11[NEWLINE]1.修复火星车升级后无法选择专属晋升的问题[NEWLINE]2.更改部分晋升前置的实现方式[NEWLINE][NEWLINE]2026.4.7 FC[NEWLINE]1.在交易界面，城市交易被禁用的时候增加浮动提示[NEWLINE]2.修复AI的舰载机不传递晋升的问题[NEWLINE]3.舰载机列表和城市空军列表支持单位浮动UI[NEWLINE][NEWLINE]2026.5.15 FD[NEWLINE]1.修复了杰内大清真寺效果与文本说明不同的bug[NEWLINE]2.补足了部分文本的资源图标[NEWLINE]3.大先知自然诞生时不再清空所有信仰而是扣除所需信仰[NEWLINE][NEWLINE]2026.6.28 FE[NEWLINE]1.修复了数个文本错误[NEWLINE]2.新增信条：清心养性、圣邑繁衍、圣贤遗泽[NEWLINE][NEWLINE]2026.7.18 FF[NEWLINE]1.修复了从其他玩家处获得城市时卡顿的问题[NEWLINE]2.修复部分建筑在城市易手时效果不消失、光复后叠加的BUG[NEWLINE]3.军团/集团军合并时继承被合并单位的击杀数[NEWLINE]4.修复部分文本错误[NEWLINE]5.补全了部分UI显示[NEWLINE]6.重构了腐败相关不满，并修改了对应的内容与UI[NEWLINE]7.外交工具提示中显示扩张/边境承诺剩余回合数[NEWLINE]8.修复了右键百科时可能出现的错误跳转bug[NEWLINE]9.工程百科将显示该工程首个完成者和完成城市[NEWLINE]10.修复宗教殖民自动信仰购买忽略非首都圣城的问题[NEWLINE]11.百科新增晋升获取来源和被授予晋升的显示[NEWLINE]12.新增地块命名功能及UI[NEWLINE]SP现在支持在地图任意地块上添加自定义地名标签。[NEWLINE]【操作方式】将鼠标悬停在目标地块上，按下 Ctrl+N 快捷键，即可弹出命名对话框。输入名称后点击"确定"，该地块上方将显示浮动地名标签。[NEWLINE]【温馨提示】C5引擎显示，使用中文拼音输入法时无法显示选词栏，但是可以选到，也可以使用手写输入法。[NEWLINE]【颜色前缀】输入名称时以 .X 或 .XX 开头即可为标签染色。支持13种颜色：[NEWLINE].R 红色 .G 绿色 .BL 蓝色 .Y 黄色 .C 青色 .M 品红 .W 白色 .P 紫色 .N 藏青 .S 银色 .U 天蓝 .F 森林绿 .BR 棕色，不指定前缀时默认为红色。[NEWLINE]【清除命名】对已命名地块再次按 Ctrl+N，点击"清除"按钮即可删除。[NEWLINE]【存档兼容】地块命名数据会随存档保存，读档后可恢复。标签在进入城市界面时自动隐藏，可以通过小地图旁地块产出开关旁边选项开启/关闭地名显示。[NEWLINE][NEWLINE]2026.8.20 V10FinalG[NEWLINE][NEWLINE]一、新增内容[NEWLINE]1.为所有城邦新增了额外的基础盟友效果：[NEWLINE]a. 所有文化城邦新增基础效果：盟友政策阈值降低2%，接收移民阈值降低2%[NEWLINE]b. 所有军事城邦新增基础效果：盟友的陆军单位每回合获得1经验[NEWLINE]c. 所有海洋城邦新增基础效果：盟友的海上商路+1金钱（随时代增加）[NEWLINE]d. 所有宗教城邦新增基础效果：盟友信仰购买价格下降5%，盟友创立的宗教基础压力+10%[NEWLINE]e. 所有商业城邦新增基础效果：盟友奢侈品提供的幸福度总额增加5%，每回合获得1%国库结息（单次利息上限等同于时代数x100x游戏速度修正）[NEWLINE]2.新增世界奇观：万国宫，经济学解锁，+2外交威望（V11效果，未实装），+25%一次性影响力[NEWLINE]二、政策调整[NEWLINE]3. 对部分政策效果进行了修改：[NEWLINE]a. 传统右二（科举考试）修改为：全国每有3人口，最终科研+1，所有城市+3大科学家点数，学院+1科研[NEWLINE]b. 虔信左二（神权政治）修改为：每有一座城市信仰你为领袖的宗教，全国+2%文化。所有城市+3文学家点数。每处有市民工作的圣地+4本地快乐[NEWLINE]三、界面与UI[NEWLINE]4. 城邦界面新增捐赠额度:5000，现在可以查看城邦影响力排行前5的玩家各自的影响力和变化速率了[NEWLINE]5. 预埋了部分V11版本的UI（奖惩效果未实装）[NEWLINE]6. 补充了一些UI细节[NEWLINE]7. 修复了战略视图下部分UI丢失的bug[NEWLINE]四、Bug修复[NEWLINE]8. 修复了总督府没有降低新版腐败不满的bug[NEWLINE]9. 修复了道场和信条相关的文本错误[NEWLINE][NEWLINE]五、性能优化[NEWLINE]10. 尝试对一些卡顿点进行优化</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOURCE_TOOLTIP_ERA_DECAY">
+			<Text>過{1_Era}後，每時代快樂 -1（最低 +1）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_SYDNEY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每接受過一個國際移民，盟友全國+4%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]每次接收國際移民，獲得當前國庫1%的[ICON_GOLD]金錢（上限100×當前時代×遊戲速度修正）
+				[NEWLINE][ICON_BULLET]歌劇院與悉尼歌劇院提高城市33%[ICON_TOURISM]魅力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]每接受過一個國際移民，朋友全國+2%[ICON_CULTURE]文化
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SYDNEY_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每接受過一個國際移民，盟友全國+4%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]每次接收國際移民，獲得當前國庫1%的[ICON_GOLD]金錢（上限100×當前時代×遊戲速度修正）
+				[NEWLINE][ICON_BULLET]歌劇院與悉尼歌劇院提高城市33%[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SYDNEY_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]每接受過一個國際移民，朋友全國+2%[ICON_CULTURE]文化
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CSUA_HORMUZ_HELP">
+			<Text>額外提供20[ICON_RES_OIL]石油</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_HORMUZ_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友城市每處有人工作的海關提高20%[ICON_GOLD]金錢產出
+				[NEWLINE][ICON_BULLET]額外為盟友提供20[ICON_RES_OIL]石油
+				[NEWLINE][ICON_BULLET]每單位富餘[ICON_RES_OIL]石油提高1%國際商路[ICON_GOLD]金錢
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市每處有人工作的海關提高8%[ICON_GOLD]金錢產出
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HORMUZ_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友城市每處有人工作的海關提高20%[ICON_GOLD]金錢產出
+				[NEWLINE][ICON_BULLET]額外為盟友提供20[ICON_RES_OIL]石油
+				[NEWLINE][ICON_BULLET]每單位富餘[ICON_RES_OIL]石油提高1%國際商路[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HORMUZ_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市每處有人工作的海關提高8%[ICON_GOLD]金錢產出
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_FINAL_TOTAL">
+			<Text>總收益: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_VALUE">
+			<Text>基礎收益: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_BASE">
+			<Text>基礎產出: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_GPT_ORIGIN">
+			<Text>我方商路產出: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_GPT_DEST">
+			<Text>對方商路產出: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_RESOURCE">
+			<Text>資源: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_EXCLUSIVE">
+			<Text>專屬連接: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_POLICY">
+			<Text>政策: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_CITY_STATE">
+			<Text>城邦: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_YOUR_BUILDING">
+			<Text>我方建築: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_THEIR_BUILDING">
+			<Text>對方建築: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_TRAIT">
+			<Text>我方特性: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE_DETAIL_OTHER_TRAIT">
+			<Text>對方特性: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_PERCENT_SUM">
+			<Text>百分比加成總和: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_DOMAIN_SEA_MODIFIER">
+			<Text>海洋商路加成: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_DOMAIN_LAND_MODIFIER">
+			<Text>陸地商路加成: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_CS_UA">
+			<Text>城邦UA加成: +{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_EXTRA">
+			<Text>額外收益（城市產出/時代/海路/信條/CSUA: {1_Num} [ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_BOGOTA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友開發了[ICON_RES_GOLD]黃金、[ICON_RES_SILVER]白銀、[ICON_RES_PEARLS]珍珠、[ICON_RES_GEMS]寶石、[ICON_RES_AMBER]琥珀、[ICON_RES_JADE]玉石其一的城市，該城市+35%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]盟友每擁有一座此類城市，所有城市+5%[ICON_TOURISM]魅力
+				[NEWLINE][ICON_BULLET]盟友擁有黃金國的城市額外+100%[ICON_TOURISM]魅力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友開發了[ICON_RES_GOLD]黃金、[ICON_RES_SILVER]白銀、[ICON_RES_PEARLS]珍珠、[ICON_RES_GEMS]寶石、[ICON_RES_AMBER]琥珀、[ICON_RES_JADE]玉石其一的城市，該城市+15%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]朋友擁有黃金國的城市額外+40%[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BOGOTA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友開發了[ICON_RES_GOLD]黃金、[ICON_RES_SILVER]白銀、[ICON_RES_PEARLS]珍珠、[ICON_RES_GEMS]寶石、[ICON_RES_AMBER]琥珀、[ICON_RES_JADE]玉石其一的城市，該城市+35%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]盟友每擁有一座此類城市，所有城市+5%[ICON_TOURISM]魅力
+				[NEWLINE][ICON_BULLET]盟友擁有黃金國的城市額外+100%[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BOGOTA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友開發了[ICON_RES_GOLD]黃金、[ICON_RES_SILVER]白銀、[ICON_RES_PEARLS]珍珠、[ICON_RES_GEMS]寶石、[ICON_RES_AMBER]琥珀、[ICON_RES_JADE]玉石其一的城市，該城市+15%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]朋友擁有黃金國的城市額外+40%[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_BRATISLAVA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的首都以及第二首都+50%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]盟友每誕生過一位偉人，全國[ICON_RESEARCH]科研和[ICON_PRODUCTION]產能+1%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的首都以及第二首都+20%[ICON_CULTURE]文化
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRATISLAVA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的首都以及第二首都+50%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]盟友每誕生過一位偉人，全國[ICON_RESEARCH]科研和[ICON_PRODUCTION]產能+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BRATISLAVA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的首都以及第二首都+20%[ICON_CULTURE]文化
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_RIGA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的沿河城市+15%[ICON_GOLD]金錢和[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]盟友沿河且沿海的城市額外+15%[ICON_GOLD]金錢、[ICON_FOOD]食物、[ICON_CULTURE]文化、[ICON_PRODUCTION]產能
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的沿河城市+6%[ICON_GOLD]金錢和[ICON_FOOD]食物
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_RIGA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的沿河城市+15%[ICON_GOLD]金錢和[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]盟友沿河且沿海的城市額外+15%[ICON_GOLD]金錢、[ICON_FOOD]食物、[ICON_CULTURE]文化、[ICON_PRODUCTION]產能
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_RIGA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的沿河城市+6%[ICON_GOLD]金錢和[ICON_FOOD]食物
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MANILA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的國際[ICON_INTERNATIONAL_TRADE]商路[ICON_GOLD]金錢收益+25%
+				[NEWLINE][ICON_BULLET]盟友每有一條[ICON_INTERNATIONAL_TRADE]國際商路，所有國際商路[ICON_GOLD]金錢收益額外+2%
+				[NEWLINE][ICON_BULLET]盟友每一種提供[ICON_HAPPINESS_1]快樂的[ICON_GOLD]奢侈品，全國[ICON_FOOD]食物+2%（上限+50%）
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的國際[ICON_INTERNATIONAL_TRADE]商路[ICON_GOLD]金錢收益+10%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MANILA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的國際[ICON_INTERNATIONAL_TRADE]商路[ICON_GOLD]金錢收益+25%
+				[NEWLINE][ICON_BULLET]盟友每有一條[ICON_INTERNATIONAL_TRADE]國際商路，所有國際商路[ICON_GOLD]金錢收益額外+2%
+				[NEWLINE][ICON_BULLET]盟友每一種提供[ICON_HAPPINESS_1]快樂的[ICON_GOLD]奢侈品，全國[ICON_FOOD]食物+2%（上限+50%）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MANILA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的國際[ICON_INTERNATIONAL_TRADE]商路[ICON_GOLD]金錢收益+10%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_BUCHAREST_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每擁有一座世界奇觀，全國[ICON_CULTURE]文化與[ICON_TOURISM]魅力產出+4%
+				[NEWLINE][ICON_BULLET]盟友每[ICON_TEAM_4]接收一個國際移民，國際移民接收速率+5%（上限+100%）；每[ICON_TEAM_2]離開一個國際移民，國際移民離開速率-5%（上限-90%）
+				[NEWLINE][ICON_BULLET]盟友每有一個派駐他國的[ICON_SPY]外交官，全國[ICON_PRODUCTION]產能與[ICON_RESEARCH]科研+5%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每擁有一座世界奇觀，全國[ICON_CULTURE]文化與[ICON_TOURISM]魅力產出+2%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUCHAREST_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每擁有一座世界奇觀，全國[ICON_CULTURE]文化與[ICON_TOURISM]魅力產出+4%
+				[NEWLINE][ICON_BULLET]盟友每[ICON_TEAM_4]接收一個國際移民，國際移民接收速率+5%（上限+100%）；每[ICON_TEAM_2]離開一個國際移民，國際移民離開速率-5%（上限-90%）
+				[NEWLINE][ICON_BULLET]盟友每有一個派駐他國的[ICON_SPY]外交官，全國[ICON_PRODUCTION]產能與[ICON_RESEARCH]科研+5%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUCHAREST_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每擁有一座世界奇觀，全國[ICON_CULTURE]文化與[ICON_TOURISM]魅力產出+2%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_IN_CSUA_YOU">
+			<Text>
+				由於你的城邦盟友能力，增加[COLOR_POSITIVE_TEXT]{1_num}%[ENDCOLOR][ICON_TEAM_4]移民遷入速率。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_OUT_CSUA_YOU">
+			<Text>
+				由於你的城邦盟友能力，減少[COLOR_POSITIVE_TEXT]{1_num}%[ENDCOLOR][ICON_TEAM_2]移民移出速率。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_IN_CSUA_THEM">
+			<Text>
+				由於該國的城邦盟友能力，增加[COLOR_NEGATIVE_TEXT]{1_num}%[ENDCOLOR][ICON_TEAM_4]移民遷入速率。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CO_SP_MOVE_OUT_CSUA_THEM">
+			<Text>
+				由於該國的城邦盟友能力，減少[COLOR_NEGATIVE_TEXT]{1_num}%[ENDCOLOR][ICON_TEAM_2]移民移出速率。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_KIEV_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每完成一個國家奇觀，全國[ICON_GREAT_PEOPLE]偉人點數累積+2%
+				[NEWLINE][ICON_BULLET]盟友每與一個文明宣布友好，在世界議會獲得1張選票
+				[NEWLINE][ICON_BULLET]盟友每持有1張世界議會選票，全國[ICON_CULTURE]文化+1%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每完成一個國家奇觀，全國[ICON_GREAT_PEOPLE]偉人點數累積+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KIEV_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每完成一個國家奇觀，全國[ICON_GREAT_PEOPLE]偉人點數累積+2%
+				[NEWLINE][ICON_BULLET]盟友每與一個文明宣布友好，在世界議會獲得1張選票
+				[NEWLINE][ICON_BULLET]盟友每持有1張世界議會選票，全國[ICON_CULTURE]文化+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KIEV_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每完成一個國家奇觀，全國[ICON_GREAT_PEOPLE]偉人點數累積+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_KIEV_DOF_VOTES">
+			<Text>[NEWLINE][ICON_BULLET]{1_NumVotes} 來自宣布友好</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_KUALA_LUMPUR_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]傀儡城市不再提高新科技的[ICON_RESEARCH]科研成本
+				[NEWLINE][ICON_BULLET]傀儡城市中每5點[ICON_CITIZEN]人口，全國[ICON_CULTURE]文化+2%、[ICON_TOURISM]魅力+1%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]傀儡城市只提高一半的新科技[ICON_RESEARCH]科研成本
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KUALA_LUMPUR_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]傀儡城市不再提高新科技的[ICON_RESEARCH]科研成本
+				[NEWLINE][ICON_BULLET]傀儡城市中每5點[ICON_CITIZEN]人口，全國[ICON_CULTURE]文化+2%、[ICON_TOURISM]魅力+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KUALA_LUMPUR_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]傀儡城市只提高一半的新科技[ICON_RESEARCH]科研成本
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_SINGAPORE_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每座大型城市（26）使全國+10%[ICON_GOLD]金錢與[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]每座特大城市（40）使全國+20%[ICON_PRODUCTION]產能
+				[NEWLINE][ICON_BULLET]每座[ICON_CITYBANNER_CITY_LV1]一級城市使城市數帶來的額外[ICON_RESEARCH]科研成本降低2%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]每座大型城市（26）使全國+4%[ICON_GOLD]金錢與[ICON_RESEARCH]科研
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SINGAPORE_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每座大型城市（26）使全國+10%[ICON_GOLD]金錢與[ICON_RESEARCH]科研
+				[NEWLINE][ICON_BULLET]每座特大城市（40）使全國+20%[ICON_PRODUCTION]產能
+				[NEWLINE][ICON_BULLET]每座[ICON_CITYBANNER_CITY_LV1]一級城市使城市數帶來的額外[ICON_RESEARCH]科研成本降低2%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_SINGAPORE_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]每座大型城市（26）使全國+4%[ICON_GOLD]金錢與[ICON_RESEARCH]科研
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_TYRE_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每處碼頭、船塢使全國+10%[ICON_PRODUCTION]產能
+				[NEWLINE][ICON_BULLET]沿海城市受到的傷害降低40%
+				[NEWLINE][ICON_BULLET]每座與原始首都不同大陸的城市使全國+5%[ICON_GOLD]金錢
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]每處碼頭、船塢使全國+4%[ICON_PRODUCTION]產能
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_TYRE_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]每處碼頭、船塢使全國+10%[ICON_PRODUCTION]產能
+				[NEWLINE][ICON_BULLET]沿海城市受到的傷害降低40%
+				[NEWLINE][ICON_BULLET]每座與原始首都不同大陸的城市使全國+5%[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_TYRE_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]每處碼頭、船塢使全國+4%[ICON_PRODUCTION]產能
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CSUA_DAMAGE_REDUCTION_SP">
+			<Text>[COLOR_CYAN]城邦傷害減免[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CSUA_DAMAGE_REDUCTION_TT_SP">
+			<Text>該城市因其城邦的獨特能力而減免受到的傷害</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_TITLE">
+			<Text>[COLOR_POSITIVE_TEXT]科研閾值來源[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_BASE">
+			<Text>城市數量：每座城市 +{1_Num}% × {2_Num} 座有效城市 = +{3_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_PUPPET">
+			<Text>城邦效果（傀儡城市）：-{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_BUILDING">
+			<Text>城邦效果（建築折扣）：-{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_GOLDENAGE">
+			<Text>黃金時代修正：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_TECH_THRESHOLD_TOTAL">
+			<Text>[COLOR_POSITIVE_TEXT]科研閾值合計：+{1_Num}%[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_TITLE">
+			<Text>[COLOR_POSITIVE_TEXT]政策成本來源[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_BASE">
+			<Text>下一項[ICON_CULTURE]政策成本：{1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_POLICIES">
+			<Text>已推行政策：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_BUILDING">
+			<Text>建築：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_MINORCIV">
+			<Text>城邦：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_TRAITS">
+			<Text>文明特性：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_CULTURED_CS">
+			<Text>文化城邦盟友：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_CORRUPTION">
+			<Text>腐敗：{1_Num}%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_CAP">
+			<Text>受減免下限限制（{1_Num}%）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_TP_POLICY_COST_TOTAL">
+			<Text>[COLOR_POSITIVE_TEXT]政策成本修正合計：{1_Num}%[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_UR_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每擁有1座世界奇觀，全局[ICON_HAPPINESS_1]快樂+2
+				[NEWLINE][ICON_BULLET]盟友每擁有1件傑作或文物，全國[ICON_CULTURE]文化+2%
+				[NEWLINE][ICON_BULLET]盟友的國家奇觀將為所在城市提供5%[ICON_PRODUCTION]產能與[ICON_RESEARCH]科研加成
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每擁有1座世界奇觀，全局[ICON_HAPPINESS_1]快樂+1
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_UR_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每擁有1座世界奇觀，全局[ICON_HAPPINESS_1]快樂+2
+				[NEWLINE][ICON_BULLET]盟友每擁有1件傑作或文物，全國[ICON_CULTURE]文化+2%
+				[NEWLINE][ICON_BULLET]盟友的國家奇觀將為所在城市提供5%[ICON_PRODUCTION]產能與[ICON_RESEARCH]科研加成
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_UR_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每擁有1座世界奇觀，全局[ICON_HAPPINESS_1]快樂+1
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_UI_ALLY">
+			<Text>（盟友）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_UI_FRIEND">
+			<Text>（朋友）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_UI_GLOBAL">
+			<Text>（全國）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLOT_NAME_COLOR_LEGEND">
+			<Text>顏色前綴:</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MOMBASA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友同時發出陸路與海路[ICON_INTERNATIONAL_TRADE]國際商路的城市，+15%[ICON_GOLD]金錢、[ICON_CULTURE]文化、[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]盟友每座沿海城市，全國+5%[ICON_FOOD]食物和[ICON_PRODUCTION]產能
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友同時發出陸路與海路[ICON_INTERNATIONAL_TRADE]國際商路的城市，+6%[ICON_GOLD]金錢、[ICON_CULTURE]文化、[ICON_FOOD]食物
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MOMBASA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友同時發出陸路與海路[ICON_INTERNATIONAL_TRADE]國際商路的城市，+15%[ICON_GOLD]金錢、[ICON_CULTURE]文化、[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]盟友每座沿海城市，全國+5%[ICON_FOOD]食物和[ICON_PRODUCTION]產能
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MOMBASA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友同時發出陸路與海路[ICON_INTERNATIONAL_TRADE]國際商路的城市，+6%[ICON_GOLD]金錢、[ICON_CULTURE]文化、[ICON_FOOD]食物
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MOGADISHU_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有一條通往城邦的[ICON_INTERNATIONAL_TRADE]國際商路，全國+5%[ICON_GOLD]金錢
+				[NEWLINE][ICON_BULLET]盟友發出[ICON_INTERNATIONAL_TRADE]國際商路的城市，其20%的[ICON_GOLD]金錢將轉化為[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]盟友的科研協定若因對方宣戰而中斷，將按其已投入的科研量獲得2倍獎勵
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有一條通往城邦的[ICON_INTERNATIONAL_TRADE]國際商路，全國+2%[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MOGADISHU_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有一條通往城邦的[ICON_INTERNATIONAL_TRADE]國際商路，全國+5%[ICON_GOLD]金錢
+				[NEWLINE][ICON_BULLET]盟友發出[ICON_INTERNATIONAL_TRADE]國際商路的城市，其20%的[ICON_GOLD]金錢將轉化為[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]盟友的科研協定若因對方宣戰而中斷，將按其已投入的科研量獲得2倍獎勵
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MOGADISHU_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有一條通往城邦的[ICON_INTERNATIONAL_TRADE]國際商路，全國+2%[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_QUEBEC_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]其他文明計算對盟友的文化勝利進度時，盟友的累積[ICON_CULTURE]文化值額外+50%
+				[NEWLINE][ICON_BULLET]每有一個文明對盟友的影響程度為默默無聞，盟友全國+4%[ICON_PRODUCTION]產能和[ICON_FOOD]食物（上限+40%）
+				[NEWLINE][ICON_BULLET]盟友購買城牆、軍營、城堡、軍械所、兵工廠、軍事基地時，全部存活陸軍+10經驗
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]其他文明計算對朋友的文化勝利進度時，朋友的累積[ICON_CULTURE]文化值額外+20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_QUEBEC_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]其他文明計算對盟友的文化勝利進度時，盟友的累積[ICON_CULTURE]文化值額外+50%
+				[NEWLINE][ICON_BULLET]每有一個文明對盟友的影響程度為默默無聞，盟友全國+4%[ICON_PRODUCTION]產能和[ICON_FOOD]食物（上限+40%）
+				[NEWLINE][ICON_BULLET]盟友購買城牆、軍營、城堡、軍械所、兵工廠、軍事基地時，全部存活陸軍+10經驗
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_QUEBEC_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]其他文明計算對朋友的文化勝利進度時，朋友的累積[ICON_CULTURE]文化值額外+20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_VP_CULTURE_CS_UA_CULTURE_BONUS">
+			<Text>[NEWLINE]（來自城邦獨特能力：該文明累積文化值 +{1_Num}%）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_BELGRADE_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市建造的單位獲得額外30經驗（購買無效）
+				[NEWLINE][ICON_BULLET]盟友的單位控制區域（ZOC）範圍+1
+				[NEWLINE][ICON_BULLET]盟友單位為城市提供的[ICON_STRENGTH]城防+200%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的城市建造的單位獲得額外15經驗（購買無效）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BELGRADE_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市建造的單位獲得額外30經驗（購買無效）
+				[NEWLINE][ICON_BULLET]盟友的單位控制區域（ZOC）範圍+1
+				[NEWLINE][ICON_BULLET]盟友單位為城市提供的[ICON_STRENGTH]城防+200%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BELGRADE_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的城市建造的單位獲得額外15經驗（購買無效）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_BUDAPEST_HELP">
+			<Text>
+				[ICON_CITY_STATE]布達佩斯
+				[NEWLINE]
+				[NEWLINE]盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有一個重騎兵和騎射單位，單位維護費[ICON_GOLD]-8，至多降低為0
+				[NEWLINE][ICON_BULLET]盟友的單位對受傷單位造成的傷害固定+4（攻防都+4）
+				[NEWLINE][ICON_BULLET]盟友的陸軍免疫渡河作戰懲罰
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有一個重騎兵和騎射單位，單位維護費[ICON_GOLD]-3，至多降低為0
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUDAPEST_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有一個重騎兵和騎射單位，單位維護費[ICON_GOLD]-8，至多降低為0
+				[NEWLINE][ICON_BULLET]盟友的單位對受傷單位造成的傷害固定+4（攻防都+4）
+				[NEWLINE][ICON_BULLET]盟友的陸軍免疫渡河作戰懲罰
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUDAPEST_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有一個重騎兵和騎射單位，單位維護費[ICON_GOLD]-3，至多降低為0
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_HANOI_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]敵人在盟友境內時，其[ICON_WAR]固定傷害與固定免傷失效
+				[NEWLINE][ICON_BULLET]盟友每完成過一次戰爭和談，全國+5%[ICON_CULTURE]文化產出
+				[NEWLINE][ICON_BULLET]盟友每被宣戰過一次，全國境內敵軍-10%[ICON_STRENGTH]戰鬥力（最多-50%）
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]敵人在朋友境內時，其[ICON_WAR]固定傷害與固定免傷只能生效50%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HANOI_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]敵人在盟友境內時，其[ICON_WAR]固定傷害與固定免傷失效
+				[NEWLINE][ICON_BULLET]盟友每完成過一次戰爭和談，全國+5%[ICON_CULTURE]文化產出
+				[NEWLINE][ICON_BULLET]盟友每被宣戰過一次，全國境內敵軍-10%[ICON_STRENGTH]戰鬥力（最多-50%）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_HANOI_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]敵人在朋友境內時，其[ICON_WAR]固定傷害與固定免傷只能生效50%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MBANZA_KONGO_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有一座城市，全國[ICON_PRODUCTION]軍事單位組建速度+10%
+				[NEWLINE][ICON_BULLET]盟友每座城市額外提供4[ICON_RES_MANPOWER]人力
+				[NEWLINE][ICON_BULLET]盟友在對抗科技數量更多的文明時，每個科技數量差距+10%[ICON_STRENGTH]戰鬥力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有一座城市，全國[ICON_PRODUCTION]軍事單位組建速度+4%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MBANZA_KONGO_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有一座城市，全國[ICON_PRODUCTION]軍事單位組建速度+10%
+				[NEWLINE][ICON_BULLET]盟友每座城市額外提供4[ICON_RES_MANPOWER]人力
+				[NEWLINE][ICON_BULLET]盟友在對抗科技數量更多的文明時，每個科技數量差距+10%[ICON_STRENGTH]戰鬥力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MBANZA_KONGO_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有一座城市，全國[ICON_PRODUCTION]軍事單位組建速度+4%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_BONUS_CSUA_ALLY">
+			<Text>
+				城邦盟友加成
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_RAGUSA_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]蓄水池、引水渠、自來水系統、醫院、污水處理廠、醫學實驗室為城市+8%[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]這些建築各為城市額外+2[ICON_HAPPINESS_1]本地快樂
+				[NEWLINE][ICON_BULLET]城市可以獲得的[ICON_HAPPINESS_1]本地快樂上限+20%
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]蓄水池、引水渠、自來水系統、醫院、污水處理廠、醫學實驗室為城市+3%[ICON_FOOD]食物
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_RAGUSA_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]蓄水池、引水渠、自來水系統、醫院、污水處理廠、醫學實驗室為城市+8%[ICON_FOOD]食物
+				[NEWLINE][ICON_BULLET]這些建築各為城市額外+2[ICON_HAPPINESS_1]本地快樂
+				[NEWLINE][ICON_BULLET]城市可以獲得的[ICON_HAPPINESS_1]本地快樂上限+20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_RAGUSA_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]蓄水池、引水渠、自來水系統、醫院、污水處理廠、醫學實驗室為城市+3%[ICON_FOOD]食物
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_KABUL_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市發出的陸地商路[ICON_GOLD]金錢+50%，若坐落於丘陵則再+50%
+				[NEWLINE][ICON_BULLET]盟友每有一條通往其他文明的陸上國際商路，全國[ICON_CULTURE]文化和[ICON_PEACE]信仰+1%（隨時代提高）
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的城市發出的陸地商路[ICON_GOLD]金錢+20%，若坐落於丘陵則再+20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KABUL_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市發出的陸地商路[ICON_GOLD]金錢+50%，若坐落於丘陵則再+50%
+				[NEWLINE][ICON_BULLET]盟友每有一條通往其他文明的陸上國際商路，全國[ICON_CULTURE]文化和[ICON_PEACE]信仰+1%（隨時代提高）
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KABUL_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的城市發出的陸地商路[ICON_GOLD]金錢+20%，若坐落於丘陵則再+20%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MILAN_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有2點來自[ICON_GOLD]奢侈品的[ICON_HAPPINESS_1]快樂，全國[ICON_TOURISM]魅力和[ICON_GOLD]金錢+1%
+				[NEWLINE][ICON_BULLET]盟友的單位對抗沒有膛線科技的敵人時，受到傷害-25%
+				[NEWLINE][ICON_BULLET]盟友的工坊額外為城市提供+15%[ICON_GOLD]金錢
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有4點來自[ICON_GOLD]奢侈品的[ICON_HAPPINESS_1]快樂，全國[ICON_TOURISM]魅力和[ICON_GOLD]金錢+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MILAN_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有2點來自[ICON_GOLD]奢侈品的[ICON_HAPPINESS_1]快樂，全國[ICON_TOURISM]魅力和[ICON_GOLD]金錢+1%
+				[NEWLINE][ICON_BULLET]盟友的單位對抗沒有膛線科技的敵人時，受到傷害-25%
+				[NEWLINE][ICON_BULLET]盟友的工坊額外為城市提供+15%[ICON_GOLD]金錢
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MILAN_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有4點來自[ICON_GOLD]奢侈品的[ICON_HAPPINESS_1]快樂，全國[ICON_TOURISM]魅力和[ICON_GOLD]金錢+1%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_SP">
+			<Text>[COLOR_CYAN]城邦傷害減免[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_CSUA_UNIT_DAMAGE_REDUCTION_TT_SP">
+			<Text>該單位因其城邦的獨特能力而減免受到的傷害</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MONACO_HELP">
+			<Text>[ICON_CITY_STATE]摩納哥[NEWLINE][NEWLINE]盟友效果：[NEWLINE][ICON_BULLET]盟友城市100%的魅力將轉化為城市的[ICON_GOLD]金錢產出[NEWLINE][ICON_BULLET]盟友每回合對摩納哥的首次[ICON_GOLD]金錢饋贈視為下注——20% 無收益、25% 返還一半、35% 全額返還、15% 雙倍、4% 三倍返還、1% 十倍返還[NEWLINE][ICON_BULLET]盟友黃金時代內來自建築的維護費-50%[NEWLINE][NEWLINE]朋友效果：[NEWLINE][ICON_BULLET]朋友城市40%的魅力將轉化為城市的[ICON_GOLD]金錢產出</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MONACO_ALLY_HELP">
+			<Text>盟友效果：[NEWLINE][ICON_BULLET]盟友城市100%的魅力將轉化為城市的[ICON_GOLD]金錢產出[NEWLINE][ICON_BULLET]盟友每回合對摩納哥的首次[ICON_GOLD]金錢饋贈視為下注——20% 無收益、25% 返還一半、35% 全額返還、15% 雙倍、4% 三倍返還、1% 十倍返還[NEWLINE][ICON_BULLET]盟友黃金時代內來自建築的維護費-50%</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_MONACO_FRIEND_HELP">
+			<Text>朋友效果：[NEWLINE][ICON_BULLET]朋友城市40%的魅力將轉化為城市的[ICON_GOLD]金錢產出</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_MONACO_DONATION_TT">
+			<Text>[COLOR_POSITIVE_TEXT]下注：[ENDCOLOR]你每回合對摩納哥的首次[ICON_GOLD]金錢饋贈即為一注。[NEWLINE]20% 無收益、25% 返還一半、35% 全額返還、15% 雙倍、4% 三倍返還、1% 十倍返還。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_GOLD_GAMBLE_NOT_PLACED">
+			<Text>[COLOR_POSITIVE_TEXT]本回合下注：[ENDCOLOR]尚未下注。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_GOLD_GAMBLE_NO_PAYOUT">
+			<Text>[COLOR_POSITIVE_TEXT]本回合下注：[ENDCOLOR]已下注——無收益。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_GOLD_GAMBLE_REFUND">
+			<Text>[COLOR_POSITIVE_TEXT]本回合下注：[ENDCOLOR]已下注——返還饋贈金額的 {1_Num}%。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_KYZYL_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有1[ICON_INTERNATIONAL_TRADE]商路上限，陸地商路距離+10%
+				[NEWLINE][ICON_BULLET]盟友通往非鄰國的[ICON_INTERNATIONAL_TRADE]商路，+100%[ICON_GOLD]金錢
+				[NEWLINE][ICON_BULLET]盟友既未發出也未接收[ICON_INTERNATIONAL_TRADE]國際商路的城市，+20%[ICON_CULTURE]文化、[ICON_PEACE]信仰
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有1[ICON_INTERNATIONAL_TRADE]商路上限，陸地商路距離+4%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KYZYL_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友每有1[ICON_INTERNATIONAL_TRADE]商路上限，陸地商路距離+10%
+				[NEWLINE][ICON_BULLET]盟友通往非鄰國的[ICON_INTERNATIONAL_TRADE]商路，+100%[ICON_GOLD]金錢
+				[NEWLINE][ICON_BULLET]盟友既未發出也未接收[ICON_INTERNATIONAL_TRADE]國際商路的城市，+20%[ICON_CULTURE]文化、[ICON_PEACE]信仰
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_KYZYL_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友每有1[ICON_INTERNATIONAL_TRADE]商路上限，陸地商路距離+4%
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_BUENOS_AIRES_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市+1[ICON_GREAT_MUSICIAN]大音樂家點數，盟友城市的每個城市規模假建築各提供1[ICON_GREAT_MUSICIAN]大音樂家點數
+				[NEWLINE][ICON_BULLET]盟友的[ICON_GREAT_MUSICIAN]大音樂家在產出[ICON_GREAT_WORK]音樂傑作後不會立刻死亡，而是喪失傑作產出能力並保留50%的[ICON_TOURISM]演唱會魅力
+				[NEWLINE][ICON_BULLET]盟友每個[ICON_GREAT_WORK]音樂傑作提高全國5%[ICON_TOURISM]魅力
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市規模達到小型城市時+1[ICON_GREAT_MUSICIAN]大音樂家點數，達到中型城市時額外+1[ICON_GREAT_MUSICIAN]大音樂家點數
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUENOS_AIRES_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的城市+1[ICON_GREAT_MUSICIAN]大音樂家點數，盟友城市的每個城市規模假建築各提供1[ICON_GREAT_MUSICIAN]大音樂家點數
+				[NEWLINE][ICON_BULLET]盟友的[ICON_GREAT_MUSICIAN]大音樂家在產出[ICON_GREAT_WORK]音樂傑作後不會立刻死亡，而是喪失傑作產出能力並保留50%的[ICON_TOURISM]演唱會魅力
+				[NEWLINE][ICON_BULLET]盟友每個[ICON_GREAT_WORK]音樂傑作提高全國5%[ICON_TOURISM]魅力
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_BUENOS_AIRES_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友城市規模達到小型城市時+1[ICON_GREAT_MUSICIAN]大音樂家點數，達到中型城市時額外+1[ICON_GREAT_MUSICIAN]大音樂家點數
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CSUA_ALMATY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的騎射單位、重騎兵單位獲得 擊殺數 x 多餘馬匹數量 x 20% 的額外最大[ICON_HP_SP]生命值
+				[NEWLINE][ICON_BULLET]盟友的單位可以掠奪中立國家的商路；掠奪任意國家的商路時可獲得200[ICON_GOLD]金錢（隨時代提升）和15經驗
+				[NEWLINE][ICON_BULLET]掠奪中立國家（未交戰）會累積外交紅臉：每次-10，每回合減免1
+				[NEWLINE][ICON_BULLET]額外為盟友提供15[ICON_RES_HORSE]馬匹
+				[NEWLINE]
+				[NEWLINE]朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的騎射單位獲得 擊殺數 x 多餘馬匹數量 x 12% 的額外最大[ICON_HP_SP]生命值
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ALMATY_ALLY_HELP">
+			<Text>
+				盟友效果：
+				[NEWLINE][ICON_BULLET]盟友的騎射單位、重騎兵單位獲得 擊殺數 x 多餘馬匹數量 x 20% 的額外最大[ICON_HP_SP]生命值
+				[NEWLINE][ICON_BULLET]盟友的單位可以掠奪中立國家的商路；掠奪任意國家的商路時可獲得200[ICON_GOLD]金錢（隨時代提升）和15經驗
+				[NEWLINE][ICON_BULLET]掠奪中立國家（未交戰）會累積外交紅臉：每次-10，每回合減免1
+				[NEWLINE][ICON_BULLET]額外為盟友提供15[ICON_RES_HORSE]馬匹
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EFFECT_CSUA_ALMATY_FRIEND_HELP">
+			<Text>
+				朋友效果：
+				[NEWLINE][ICON_BULLET]朋友的騎射單位獲得 擊殺數 x 多餘馬匹數量 x 12% 的額外最大[ICON_HP_SP]生命值
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_CSUA_PLUNDERED_TRADE_ROUTE">
+			<Text>
+				掠奪商路
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EO_EX_ECONOMIC_AID_TT">
+			<Text>每回合向受援城邦支付的[ICON_GOLD]金錢。[NEWLINE][ICON_BULLET]直接從國庫扣除，不受金幣率影響[NEWLINE][ICON_BULLET]受援城邦每座每回合收取一次</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_SPEND">
+			<Text>援建點數：{1_Num}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_SPEND_TT">
+			<Text>你在該城邦累積了 {1_Num} 點援建點數。[NEWLINE]每個主要文明對城邦進行經濟援助期間，每回合為其累積 1 點援建點數。可消耗援建點數執行以下操作。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_REROLL">
+			<Text>刷新任務</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_REROLL_TT">
+			<Text>消耗 {1_Num} 點援建點數，立即放棄該城邦目前交給你的個人任務，並重新抽取新任務。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_BULLY">
+			<Text>以援建點勒索 {1_Num}[ICON_GOLD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_BULLY_TT">
+			<Text>消耗 {1_Num} 點援建點數，向城邦勒索[ICON_GOLD]金錢而不損失任何影響力，也不會引起其他文明的外交糾紛。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_GIFT_UNIT">
+			<Text>指定贈送單位</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_GIFT_UNIT_TT">
+			<Text>消耗 {1_Num} 點援建點數，指定該軍事城邦下次贈送給你的單位類型。[NEWLINE][ICON_BULLET]指定後可在城邦介面提前預覽[NEWLINE][ICON_BULLET]送來的單位額外獲得 +15 初始經驗</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_NEXT_GP">
+			<Text>指定下一個偉人</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_NEXT_GP_TT">
+			<Text>消耗 {1_Num} 點援建點數，指定贊助政策贈送的下一個偉人類型，援建點數從該城邦扣除。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS">
+			<Text>推動議會加速</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS_TT">
+			<Text>消耗 {1_Num} 點援建點數，使下一次世界議會/聯合國會議提前 {2_Num} 回合召開。[NEWLINE][ICON_BULLET]會議倒數為所有文明共有，加速對所有文明同時生效[NEWLINE][ICON_BULLET]會議進行期間無法加速；距下次會議剩餘 {2_Num} 回合或更少時無法使用</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE">
+			<Text>[NEWLINE]（另獲城邦金庫 {1_Num}[ICON_GOLD]）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_UNIT_TITLE">
+			<Text>選擇贈送單位</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_GP_TITLE">
+			<Text>選擇下一個偉人</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_COST">
+			<Text>將消耗 {1_Num} 點援建點數</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_SELECTED">
+			<Text>已選擇：{1_Str}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_CONFIRM">
+			<Text>確認</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_CANCEL">
+			<Text>取消</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_DECISION_CITY_CSD">
+			<Text>選擇一個城邦</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_INTERNATIONAL_LAW_PROTECTION">
+			<Text>國際法保護</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_INTERNATIONAL_LAW_PROTECTION_HELP">
+			<Text>將一個已會面的[ICON_CITY_STATE]城邦置於國際法保護之下。決議生效期間，任何文明均可攻擊該城邦領土內與其交戰的敵方單位，而無需宣戰。廢除該決議即可恢復正常交戰規則。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_RESEARCH_TECH">
+			<Text>{2_MinorCivName:textkey}的學者正卡在一道關鍵難題上，他們希望你盡快研發{1_TechName:textkey}，好讓兩地共享這份突破。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_RESEARCH_TECH">
+			<Text>{2_MinorCivName:textkey}希望研發{1_TechName:textkey}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_RESEARCH_TECH">
+			<Text>你研發出了{1_TechName:textkey}，{2_MinorCivName:textkey}的學者深受鼓舞。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_RESEARCH_TECH">
+			<Text>為{2_MinorCivName:textkey}研發了{1_TechName:textkey}！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_RESEARCH_TECH_FORMAL">
+			<Text>他們希望在這個領域取得關鍵突破，請你研發{1_TechName:textkey}。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CONSTRUCT_NATIONAL_WONDER">
+			<Text>{2_MinorCivName:textkey}的市民仰慕宏偉的公共建築，他們希望你建造{1_BuildingName:textkey}，讓兩國共享這份榮耀。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CONSTRUCT_NATIONAL_WONDER">
+			<Text>{2_MinorCivName:textkey}希望建造{1_BuildingName:textkey}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CONSTRUCT_NATIONAL_WONDER">
+			<Text>你建成了{1_BuildingName:textkey}，{2_MinorCivName:textkey}的市民為這份成就喝采。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CONSTRUCT_NATIONAL_WONDER">
+			<Text>為{2_MinorCivName:textkey}建造了{1_BuildingName:textkey}！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONSTRUCT_NATIONAL_WONDER_FORMAL">
+			<Text>他們希望你建造{1_BuildingName:textkey}，以此彰顯兩國的共同榮耀。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_SPREAD_BUILDING">
+			<Text>{3_MinorCivName:textkey}的市民認為，若你的{2_NumCities}座城市都擁有{1_BuildingName:textkey}，兩地之間的往來將更加繁榮。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_SPREAD_BUILDING">
+			<Text>在{2_NumCities}座城市中建造{1_BuildingName:textkey}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_SPREAD_BUILDING">
+			<Text>{1_BuildingName:textkey}已普及到足夠的城市，{2_MinorCivName:textkey}對此十分滿意。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_SPREAD_BUILDING">
+			<Text>為{2_MinorCivName:textkey}普及了{1_BuildingName:textkey}！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_SPREAD_BUILDING_FORMAL">
+			<Text>他們希望你在{2_NumCities}座城市中建造{1_BuildingName:textkey}。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_FIND_CITY_STATE">
+			<Text>{2_MinorCivName:textkey}的斥候聽說{1_CivName:textkey}的領地至今無人探明，他們希望你去揭開那片土地的面紗。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_FIND_CITY_STATE">
+			<Text>{2_MinorCivName:textkey}希望你去發現{1_CivName:textkey}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_FIND_CITY_STATE">
+			<Text>你探明了{1_CivName:textkey}的領地，{2_MinorCivName:textkey}對你的情報十分感激。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_FIND_CITY_STATE">
+			<Text>為{2_MinorCivName:textkey}發現了{1_CivName:textkey}！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_FIND_CITY_STATE_FORMAL">
+			<Text>他們希望你找到{1_CivName:textkey}的領地。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_DISCONNECT_TRADE_ROUTE">
+			<Text>{2_MinorCivName:textkey}的市民對你在{1_OtherCivName:textkey}的商路深感不安——他們與那個城邦素來不睦，不願看著你的商隊替對手輸血。他們請求你切斷這條商路。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_DISCONNECT_TRADE_ROUTE">
+			<Text>{2_MinorCivName:textkey}希望你切斷通往{1_OtherCivName:textkey}的商路</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_DISCONNECT_TRADE_ROUTE">
+			<Text>你切斷了通往{1_OtherCivName:textkey}的商路，{2_MinorCivName:textkey}的市民對此十分滿意。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_DISCONNECT_TRADE_ROUTE">
+			<Text>為{2_MinorCivName:textkey}切斷了通往{1_OtherCivName:textkey}的商路！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_DISCONNECT_TRADE_ROUTE_FORMAL">
+			<Text>他們與{1_OtherCivName:textkey}不睦，希望你不要用商路資助對方。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_BECOME_ALLY">
+			<Text>{2_MinorCivName:textkey}的市民認為，{1_CivName:textkey}對他們的影響已經太深，而你的聯盟才更值得依靠。他們希望你成為他們的盟友。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_BECOME_ALLY">
+			<Text>{2_MinorCivName:textkey}希望你成為他們的盟友</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_BECOME_ALLY">
+			<Text>你成為了{1_MinorCivName:textkey}的盟友。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_BECOME_ALLY">
+			<Text>與{1_MinorCivName:textkey}結為盟友！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_BECOME_ALLY_FORMAL">
+			<Text>他們認為你的聯盟更值得依靠，希望你成為他們的盟友。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_RIG_ELECTION">
+			<Text>{1_MinorCivName:textkey}的市民希望你能出手相助——他們境內的其他政黨勢力坐大，需要你派一名間諜去操弄選舉，讓他們失勢。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_RIG_ELECTION">
+			<Text>{1_MinorCivName:textkey}希望你在他們的選舉中動手腳</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_RIG_ELECTION">
+			<Text>你的間諜在{1_MinorCivName:textkey}的選舉中動了手腳，無論成敗，他們的市民都對這份援手心存感激。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_RIG_ELECTION">
+			<Text>在{1_MinorCivName:textkey}操弄了選舉！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_RIG_ELECTION_FORMAL">
+			<Text>他們希望你派間諜操弄境內的選舉，打擊其他政黨。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_DECLARE_WAR">
+			<Text>{2_MinorCivName:textkey}正與{1_CivName:textkey}交戰，他們希望你能加入這場戰爭，一同對抗共同的敵人。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_DECLARE_WAR">
+			<Text>{2_MinorCivName:textkey}希望你對{1_CivName:textkey}宣戰</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_DECLARE_WAR">
+			<Text>你向{1_CivName:textkey}宣戰，加入了{2_MinorCivName:textkey}的陣營。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_DECLARE_WAR">
+			<Text>為{2_MinorCivName:textkey}對{1_CivName:textkey}宣戰！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_DECLARE_WAR_FORMAL">
+			<Text>他們正與{1_CivName:textkey}交戰，希望你加入這場戰爭。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>{2_MinorCivName:textkey}的市民受夠了{1_CivName:textkey}的欺壓，他們希望你攻佔對方的原始首都，徹底擊垮這個宿敵。首位完成者將獲得一位王牌間諜的效忠，此機會全遊戲僅有一次。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>{2_MinorCivName:textkey}希望你攻佔{1_CivName:textkey}的原始首都</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>你攻佔了{1_CivName:textkey}的原始首都，{2_MinorCivName:textkey}的宿敵就此倒下。一位王牌間諜慕名前來效忠。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>為{2_MinorCivName:textkey}攻佔了{1_CivName:textkey}的原始首都！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CAPTURE_ORIGINAL_CAPITAL_FORMAL">
+			<Text>他們希望你攻佔{1_CivName:textkey}的原始首都，徹底擊敗這個宿敵。獎勵為一位王牌間諜，全遊戲僅此一次。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_LEAGUE_PROTECT_CITY_STATE">
+			<Text>{1_MinorCivName:textkey}的市民擔心戰火會燒到自己的家園，他們希望你在世界議會上通過決議，將他們置於國際法保護之下。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_LEAGUE_PROTECT_CITY_STATE">
+			<Text>{1_MinorCivName:textkey}希望被置於國際法保護之下</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_LEAGUE_PROTECT_CITY_STATE">
+			<Text>你將{1_MinorCivName:textkey}置於國際法保護之下，他們的國土從此免受戰火侵擾。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_LEAGUE_PROTECT_CITY_STATE">
+			<Text>{1_MinorCivName:textkey}已處於國際法保護之下！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_LEAGUE_PROTECT_CITY_STATE_FORMAL">
+			<Text>他們希望在世界議會上被置於國際法保護之下，免受戰火波及。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_LEAGUE_SANCTION">
+			<Text>{2_MinorCivName:textkey}的市民對{1_CivName:textkey}的橫行霸道忍無可忍，他們希望你在世界議會上提起貿易制裁，掐斷對方的經濟命脈。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_LEAGUE_SANCTION">
+			<Text>{2_MinorCivName:textkey}希望對{1_CivName:textkey}實施制裁</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_LEAGUE_SANCTION">
+			<Text>你推動世界議會對{1_CivName:textkey}實施了貿易制裁，{2_MinorCivName:textkey}承受的經濟壓力得以緩解。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_LEAGUE_SANCTION">
+			<Text>為{2_MinorCivName:textkey}制裁了{1_CivName:textkey}！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_LEAGUE_SANCTION_FORMAL">
+			<Text>他們希望對{1_CivName:textkey}實施貿易制裁，進行經濟施壓。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_LEAGUE_REPEAL_EMBARGO">
+			<Text>{1_MinorCivName:textkey}的商路被城邦禁運切斷，貨物堆積、生計維艱。他們希望你在世界議會上提倡廢除這項禁運。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_LEAGUE_REPEAL_EMBARGO">
+			<Text>{1_MinorCivName:textkey}希望廢除城邦禁運</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_LEAGUE_REPEAL_EMBARGO">
+			<Text>你推動世界議會廢除了城邦禁運，{1_MinorCivName:textkey}的商路重新暢通。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_LEAGUE_REPEAL_EMBARGO">
+			<Text>為{1_MinorCivName:textkey}廢除了城邦禁運！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_LEAGUE_REPEAL_EMBARGO_FORMAL">
+			<Text>他們的商路因城邦禁運受阻，希望你幫忙打通。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_DONATE_GOLD">
+			<Text>{2_MinorCivName:textkey}正陷入困境，國庫空虛、民生凋敝。他們希望你能伸出援手，在任務期限內累計捐贈{1_GoldAmount}[ICON_GOLD]金錢，幫他們渡過難關。（甘托克的盟友可用[ICON_PEACE]信仰替代金錢。）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_DONATE_GOLD">
+			<Text>{2_MinorCivName:textkey}希望你在任務期限內累計捐贈{1_GoldAmount}[ICON_GOLD]金錢</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_DONATE_GOLD">
+			<Text>你的慷慨捐贈幫{1_MinorCivName:textkey}渡過了難關。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_DONATE_GOLD">
+			<Text>向{1_MinorCivName:textkey}捐贈了金錢！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_DONATE_GOLD_FORMAL">
+			<Text>他們希望你累計捐贈{1_GoldAmount}[ICON_GOLD]金錢，助其渡過難關。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_RESEARCH_AGREEMENT">
+			<Text>{2_MinorCivName:textkey}的學者希望跟上最前沿的研究，他們希望你能與{1_CivName:textkey}簽訂科研協定，讓知識在兩國之間流動。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_RESEARCH_AGREEMENT">
+			<Text>{2_MinorCivName:textkey}希望與{1_CivName:textkey}簽訂科研協定</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_RESEARCH_AGREEMENT">
+			<Text>你與{1_CivName:textkey}簽訂了科研協定，{2_MinorCivName:textkey}的學者得以接觸前沿成果。你對他們的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{3_InfluenceReward}[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_RESEARCH_AGREEMENT">
+			<Text>為{2_MinorCivName:textkey}與{1_CivName:textkey}簽訂了科研協定！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_RESEARCH_AGREEMENT_FORMAL">
+			<Text>他們希望你與{1_CivName:textkey}簽訂科研協定，共同參與前沿研發。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_MASTER_SPY_BORN">
+			<Text>{1_CivName:textkey}獲得了一位[COLOR_POSITIVE_TEXT]王牌間諜[ENDCOLOR]的效忠——這位技藝超群的密探將再不會為其他國家所用。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_MASTER_SPY_BORN">
+			<Text>{1_CivName:textkey}獲得了一位[COLOR_POSITIVE_TEXT]王牌間諜[ENDCOLOR]！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_BONUS_AIR_SWEEP_STRENGTH">
+			<Text>遊獵[ICON_STRENGTH]戰鬥力修正</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_BONUS_INTERCEPTION_STRENGTH">
+			<Text>攔截[ICON_STRENGTH]戰鬥力修正</Text>
+		</Row>
+		<Replace Tag="TXT_KEY_UNIT_HELP_VENETIAN_MERCHANT">
+			<Text>威尼斯的特色單位，以取代大商業家。除可執行貿易任務外，威尼斯商人也可購買城邦統治權，使其成為威尼斯的傀儡城市。收購[ICON_CITY_STATE]城邦後，可永久獲得該城邦的盟友級獨特能力。</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_POP_CSTATE_BUYOUT_TT">
+			<Text>你可以花費{1_BuyoutCost}[ICON_GOLD]金錢和 {2_AidPoints} 點援建點數來和城邦聯姻，使城邦及其所有單位成為你文明的一部分。這不會像征服城邦那樣帶來外交和不滿度懲罰，但是會失去城邦的獎勵和城邦在聯合國投給你的選票。[NEWLINE][NEWLINE]吞併後，你將永久獲得該城邦的盟友級獨特能力。</Text>
+		</Replace>
+		<Row Tag="TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_AID_TT">
+			<Text>你可以花費{1_BuyoutCost}[ICON_GOLD]金錢和 {2_AidPoints} 點援建點數來和城邦聯姻，使城邦及其所有單位成為你文明的一部分。這不會像征服城邦那樣帶來外交和不滿度懲罰，但是會失去城邦的獎勵和城邦在聯合國投給你的選票。[NEWLINE][NEWLINE][COLOR_WARNING_TEXT]你需要在該城邦累積 {2_AidPoints} 點援建點數才能吞併該城邦，目前只有 {3_HavePoints} 點。[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_BUTTON">
+			<Text>完整排名</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_TITLE">
+			<Text>全球排名</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_CIV">
+			<Text>文明</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_YOU">
+			<Text>（你）</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DEMOGRAPHICS_FULL_RANK_TT">
+			<Text>檢視該項指標的完整全球排名</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_WORLD_BANK">
+			<Text>世界銀行</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_WORLD_BANK_HELP">
+			<Text>所有文明每10個回合獲得相當於其國庫[ICON_GOLD]金錢3%的結息，每擁有一條國際商路，該次結息比例額外+0.25%。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_WHO">
+			<Text>世界衛生組織</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_WHO_HELP">
+			<Text>所有文明的城市每人口消耗的[ICON_FOOD]食物降低10%。城市缺少相應規模的公共衛生醫療設施時，仍可保留相當於正常情況10%的[ICON_FOOD]餘糧積累。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_IMO">
+			<Text>國際海事組織</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOLUTION_IMO_HELP">
+			<Text>所有文明的海洋國際商路額外+20%[ICON_GOLD]金錢（與海運本身的加成疊加）。城邦、野蠻人以及分數低於平均值的文明不能劫掠商船，即使處於戰爭狀態。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_WORLD_BANK_INTEREST">
+			<Text>世界銀行支付了 [ICON_GOLD]+{1_Num} 的國庫利息。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_WORLD_BANK_INTEREST_S">
+			<Text>世界銀行結息</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHO_FOOD_KEPT_HELP">
+			<Text>世界衛生組織：城市缺少公共衛生醫療設施時，仍保留正常情況 {1_Num}% 的[ICON_FOOD]餘糧。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHO_FOOD_CONSUMPTION_HELP">
+			<Text>世界衛生組織：每人口消耗的[ICON_FOOD]食物減少 {1_Num}%。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V11">
+			<Text>v11 更新記錄</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V11_0">
+			<Text>SP 11.0 更新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_UPDATE_V11_0_HELP">
+			<Text>新版本完整名稱為Super Power V11 - Pillars of Sovereignty/超級大國V11 — 主權支柱[NEWLINE]本次更新內容較多，主要包含以下內容：[NEWLINE]一.大版本核心-城邦UA（CSUA）[NEWLINE]1.現在58個城邦全部擁有獨特UA，可以為其盟友或朋友在遊戲中提供強大助力；[NEWLINE]遊戲百科、懸停城邦城市條等各處新增了城邦UA的展示，城邦在遊戲中的重要性將大幅提高。[NEWLINE]2.單人遊戲開局設置-高級選項新增允許自選本局遊戲內必定會出現的城邦；[NEWLINE]3.由於城邦盟友的大幅加強，新增數個對城邦盟友數量的平衡機制：[NEWLINE]a.外交威望機制：[NEWLINE]玩家會根據自身時代獲得基礎外交威望(遠古0，此後每個時代1)[NEWLINE]部分政策、信條、奇觀、領袖特性、城邦UA、世界議會項目會提供額外的外交威望；[NEWLINE]當玩家擁有的盟邦數量超過其當前外交威望時，每超限一個，獲得懲罰：[NEWLINE]（1）從任何渠道獲得的影響力-10%（超限十個後無法提高對任何城邦的影響力）;[NEWLINE]（2）全國來自人口的不滿+15%；[NEWLINE]（3）城邦影響力自然衰減速度增加50%；[NEWLINE]b.經濟援助機制：[NEWLINE]從遊戲開局起，所有城邦會持續循環開啟經濟援助，每輪持續20回合（受遊戲速度修正），一輪結束後立即開啟下一輪；[NEWLINE]主要文明可在城邦外交界面宣佈參與城邦的經濟援助（類似宣佈保護），參與期間每回合支付回合金（數額隨世界時代提升，[NEWLINE]遠古時代為1，此後每個時代+1），如果沒有手動退出，經濟援助會默認自動續約，外交總覽——城邦界面可以通過勾選，哪些城邦援助中斷後下次開啟自動簽約；[NEWLINE]（1）非盟友參與：每回合對該城邦+1影響力，中途退出無懲罰；[NEWLINE]（2）盟友參與：每回合維持影響力不衰減，若盟友未參與援助則每回合-1影響力；[NEWLINE]（3）盟友中途退出：立刻-20影響力，此後每回合-1影響力，本輪結束前不可重新參與；[NEWLINE]（4）非盟友中途退出：無懲罰，本輪結束前不可重新參與；[NEWLINE]（5）與城邦開戰會自動終止援助並按退出結算；城邦或玩家被滅國則援助關係直接終止；[NEWLINE]（6）經濟援助的金錢會進入城邦國庫，城邦被勒索時將會額外上供15%國庫現金；[NEWLINE]（7）城邦宮殿新增效果：每擁有10現金，境內敵軍降低1%戰鬥力；[NEWLINE]c.動態影響力下限機制：[NEWLINE]（1）成為城邦盟友需要的影響力不再是固定60點，而是會隨時代提升；[NEWLINE]（2）當前門檻：遠古60，古典90，中古150，啟蒙240，工業300，電氣400，全戰500，原子600，信息750，未來900；[NEWLINE]（3）在所有影響力達到盟友門檻的文明中，影響力最高的文明會成為城邦盟友；[NEWLINE]（4）現在大商業家和威尼斯商人提供的影響力隨時代增加（40），鄭和寶船為10；[NEWLINE]（5）紫禁城現在會降低15%成為城邦盟友需要的影響力下限，作為平衡，其降低腐敗不滿的效果從50%削弱為25%；[NEWLINE]d.援建點數機制：[NEWLINE]（1）為城邦提供經濟援助期間，玩家可以每回合獲得1點援建點數；[NEWLINE]（2）援建點數約等於另類的影響力，但僅限於在該城邦消費；[NEWLINE]（3）完成城邦的現金需求任務，可以額外獲得大量援建點數；[NEWLINE]（4）援建點數的用途包括：刷新該城邦給予的任務、抵消勒索城邦帶來的不良影響、[NEWLINE]指定城邦下次贈送的單位、 推動世界議會/聯合國加速進行。[NEWLINE]e.新的城邦任務：[NEWLINE]（1）完成指定國家奇觀；無特殊獎勵[NEWLINE]（2）全國x個城市普及某個建築（不會隨機到需要沿海/沿河或者特殊資源的建築）；無特殊獎勵[NEWLINE]（3）發現指定城市/城邦（工業時代後不再觸發）；獎勵吃遊戲速度修正的現金[NEWLINE]（4）斷絕和某城邦的商路（有商路通往城邦時才可能觸發，且判定同索取貢禮）；無特殊獎勵[NEWLINE]模擬場景：發佈任務的城邦與我們建立商路的城邦關係不好，不希望我們的商路過去協助他們的敵對城邦發展；[NEWLINE]（5）希望玩家成為指定城邦的盟友(玩家外交威望餘量&gt;=2時才能觸發）；獎勵吃遊戲速度修正的現金[NEWLINE]模擬場景：發佈任務的城邦認為我們的聯盟不夠強大，需要吸納更多城邦加入；[NEWLINE]（6）在任務期限內研發某個指定科技（30x遊戲速度修正回合內，研發下一個時代的某個隨機科技）；獎勵吃遊戲速度修正的文化[NEWLINE]模擬場景：發佈任務的城邦希望我們在該領域取得關鍵突破；[NEWLINE]（7）派駐一位間諜到該城邦完成一次選舉操控任務（不必成功，失敗也算，啟蒙時代後才會發佈）；獎勵吃遊戲速度修正的現金[NEWLINE]模擬場景：發佈任務的城邦希望我們打擊它們境內的其他政黨；[NEWLINE]（8）對指定玩家宣戰（只有該玩家對該城邦宣戰時觸發，且對所有未與城邦和該文明宣戰的文明發佈）；獎勵吃遊戲速度修正的[NEWLINE]模擬場景：發佈任務的城邦希望我們加入他們對敵對文明的戰爭；[NEWLINE]（9）攻佔某個玩家的原始首都（對所有與該城邦不處於交戰且與該文明宣戰的文明發佈）；唯一獎勵-一個王牌間諜，[NEWLINE]當某個玩家完成該任務後此任務本局遊戲不會再被發佈，所有未完成該任務的玩家被回收該任務。[NEWLINE]模擬場景：發佈任務的城邦希望我們徹底擊敗他們的敵國；[NEWLINE]（10）在世界議會上宣佈該城邦受國際法保護（該城邦境內的他國敵軍可以被任何文明攻擊，而無需對軍隊所屬國宣戰），[NEWLINE]世界議會開啟後才能觸發，任務持續到下次提案結束。獎勵：2張額外世界議會選票；[NEWLINE]模擬場景：發佈任務的城邦希望我們保護他們的國土免遭戰火；[NEWLINE]（11）在世界議會上對某個文明提起貿易制裁（同8.）。獎勵吃遊戲速度修正的現金[NEWLINE]模擬場景：發佈任務的城邦希望我們對敵對文明進行經濟施壓；[NEWLINE]（12）在世界議會提議廢除城邦禁運（只在城邦禁運生效時觸發）。獎勵吃遊戲速度修正的現金[NEWLINE]模擬場景：發佈任務的城邦希望我們可以幫助他們打通外匯路徑；[NEWLINE]（13）在任務期限內對該城邦完成一次巨額捐贈（5000金錢或者甘托克盟友用信仰替代）。獎勵吃遊戲速度修正的文化和30援助點數[NEWLINE]模擬場景：發佈任務的城邦希望我們提供援助以幫助其度過難關。[NEWLINE]（14）與指定文明簽訂科研協定（雙方未開戰且對該城邦影響力均大於60時觸發）。獎勵吃遊戲速度修正的文化[NEWLINE]模擬場景：發佈任務的城邦希望我們更多參與前沿科技研發；[NEWLINE]f.城邦相關文明修正：[NEWLINE]（1）威尼斯商人收購城邦後，將永久獲得該城邦的盟友級獨特能力；[NEWLINE]（2）希臘UA新增外交威望+2，但獲得影響力的效果下調；[NEWLINE]（3）羅馬新增UA：征服城邦原始首都後永久獲得該城邦的盟友級獨特能力；[NEWLINE]（4）奧地利UA改動：吞併城邦現在需要額外花費50援建點數，[NEWLINE]吞併後將永久獲得該城邦的盟友級獨特能力；[NEWLINE]二.間諜系統擴充[NEWLINE]1.新增第4級間諜等級——王牌間諜：[NEWLINE]間諜等級現為「新進間諜→正式探員→高級特工→王牌間諜」;[NEWLINE]高級特工必須已經完成過以下三件事，才能晉升為王牌間諜：[NEWLINE]（1）成功竊取過一項科技；[NEWLINE]（2）擊殺過一名敵方間諜；[NEWLINE]（3）成功策划過一次城邦政變。[NEWLINE]每當有文明誕生王牌間諜時，都會向所有文明發出公告；除晉升外，也可通過城邦任務獎勵直接獲得王牌間諜；間諜總覽界面中，王牌間諜以最高等級的金色圖標顯示。[NEWLINE]2.王牌間諜的諜戰能力：[NEWLINE]a.政變強化：由王牌間諜發動的城邦政變，影響力赤字減半；[NEWLINE]b.政變防禦：盟友的王牌間諜在該城邦擔任反間諜時，敵方對該城邦的政變必定失敗；[NEWLINE]c.從容脫身：王牌間諜執行任務時，被發現的判定-100；[NEWLINE]d.反間諜：己方每有1名王牌間諜擔任反間諜，我方對敵方間諜的偵測判定+10。[NEWLINE]3.王牌間諜的跨領域能力：[NEWLINE]a.選票議價：駐在他國首都的王牌間諜外交官，使該國出售世界議會選票的價格降低80%；[NEWLINE]b.整肅吏治：己方每有1名王牌間諜擔任反間諜，全國城市腐敗-5%；[NEWLINE]c.移民引導：駐在移民來源國的王牌間諜外交官，使該國流向我國的移民速度+100%；[NEWLINE]d.外交威望：駐外的王牌間諜外交官每人提供+1外交威望；[NEWLINE]e.議會話語權：王牌間諜外交官在世界議會中價值3張選票（外交官選票未解鎖時不提供）。[NEWLINE]4.間諜點數機制：[NEWLINE]（1）新增間諜點數，類似大軍事家點數，由建築、政策、信條、領袖特性每回合提供；[NEWLINE]（2）累積達到閾值後自動獲得一名新間諜，每獲得一名間諜閾值都會提高，[NEWLINE]且提高幅度隨累計間諜數分段加大，第一個間諜閾值為100，後續每次需求+50；[NEWLINE]（3）間諜總覽界面新增間諜點數進度條，建築提示框中也會顯示間諜點數產出。[NEWLINE]5.諮詢外交官：[NEWLINE]與AI的交易界面新增【諮詢外交官】按鈕，可揭示該國對本交易的底線評估，詳細程度取決於駐紮在該國首都的外交官等級：[NEWLINE]正式探員顯示價值比值，高級特工顯示總評分與差額，王牌間諜顯示完整的逐項明細。[NEWLINE]6.外交談判：[NEWLINE]派駐外交官到某國首都後，可在交易界面發起【外交談判】，有概率觸發外交合作，使本回合我方回合金對該國的價值提升20%，觸發後進入冷卻；[NEWLINE]若通過外交談判達成的交易被判定為不正當獲利，駐該國的外交官將被降級為最低等級的新進間諜。[NEWLINE]7.選舉操控按間諜等級縮放：[NEWLINE]（1）贏得城邦選舉的影響力獎勵為「40 + 間諜等級²×5」（正式探員45、高級特工60、王牌間諜85）；[NEWLINE]（2）落敗方的影響力損失為「5 + 自身影響力×2%×獲勝間諜等級」；[NEWLINE]（3）永久盟友城邦不再參與選舉結算，勝負雙方均不受影響。[NEWLINE]8.情報搜集明細：[NEWLINE]間諜總覽界面重做，間諜在敵方城市搜集情報時，每回合產出的來源會逐項列出[NEWLINE]（基礎產出、該城市建築、該文明建築/奇觀、該文明政策、我方政策、城邦UA、間諜等級、間諜速度等）。[NEWLINE]三.功能整合[NEWLINE]1.專家槽位整合(MPDLL)[NEWLINE]同類建築可以同時提供專家槽了，現在專家槽不再綁定建築類；[NEWLINE]2.空戰整合[NEWLINE]現在點擊遊獵按鈕看到的是真實的遊獵VS攔截的戰鬥預覽，修復了沒有遠程攻擊能力的攔截單位，空戰傷害有誤的問題，[NEWLINE]修改了遊獵攔截的戰鬥力計算規則：[NEWLINE]（1）遊獵與攔截統一按「遠程攻擊」結算（原版攔截方按域使用防禦值，導致海上攔截單位被一擊秒殺、而遊獵飛機毫髮無損）；[NEWLINE]（2）沒有遠程攻擊力的單位，以自身基礎近戰力量的50%進行攔截；[NEWLINE]（3）遊獵與攔截的晉升加成改為與其它修正加法疊加（原先乘在最終力量上，會連帶放大域加成、戰略資源懲罰等修正）；[NEWLINE]（4）遊獵規則從Lua移入DLL，預覽給出雙向傷害，並列出遊獵/攔截力量修正的明細；[NEWLINE]（5）空優戰機、艦載戰機、攻擊機、戰略轟炸機新增：與空軍單位作戰時，射程每多1點+10%遠程壓制；[NEWLINE]（6）遊獵飛機從攔截單位受到的傷害降為正常的50%；遊獵方獲得4點攻擊經驗（對空中攔截、地面防空、地面目標三條路徑均適用）；[NEWLINE]（7）修復了地面單位的疊打會誤傷空襲方航母的問題；[NEWLINE]（8）修正了多項防空與空中作戰晉升的說明文本，使其與實際數值一致（如空優戰機每回合可攔截兩次、空中遊獵的+400%遊獵力量、反直升機對直升機的加成等）。[NEWLINE]（9）防空火力晉升新增：攔截時增加100%戰鬥力；[NEWLINE]3.國際移民整合[NEWLINE]現在國際移民已內置進入MPDLL實現，同時修改了國際移民的進度UI；[NEWLINE]4.建築升級整合[NEWLINE]現在建築升級改為MPDLL實現，且不再逐個城市逐個建築通知玩家，只會在右側統一通知有哪些建築升級了。[NEWLINE]測試：現在八級難度的AI也能自動觸發建築升級效果；[NEWLINE]四.新增UI[NEWLINE]1.懸浮頂部科研將展示科研閾值來源，懸浮文化將展示政策閾值來源，懸浮快樂中增加部分快樂UI；[NEWLINE]2.沒有人口位於專家槽位時，也能正確展示城市每回合偉人進度了；[NEWLINE]3.遊戲百科主頁內置超級大國更新日誌；[NEWLINE]4.預覽商路時將展示更詳細的金錢收益來源；[NEWLINE]5.信息報表可以查看各項數據的完整排名表了；[NEWLINE]五.奢侈品貶值[NEWLINE]部分奢侈品的快樂將隨時代推進降低，至多降低為1。此改動為後續奢侈品加工引入的前置1；[NEWLINE]六.平民通行規則修改[NEWLINE]1.平民無限堆疊維持不變；[NEWLINE]2.移民和威尼斯商人現在視為「擴張單位」；[NEWLINE]3.所有正規軍單位現在可以和以前一樣阻攔其他國家的「擴張單位」了；[NEWLINE]4.同隊玩家、城邦盟友、城邦朋友不會阻攔玩家的「擴張單位」；[NEWLINE]5.其他平民單位維持自由通行不變；[NEWLINE]6.海運時規則維持現狀；[NEWLINE]七.新增的其他內容[NEWLINE]1.新世界奇觀：阿帕達納宮，提供3間諜點數；[NEWLINE]2.新增信條：[NEWLINE]（1）德爾斐神諭（神系）：每座信仰該宗教的城市為其所屬玩家+1間諜點數，神廟+1文化；[NEWLINE]（2）告解聖事（創立者）：本宗教的創立者每回合+2間諜點數，信仰該宗教的城市管理成本-100；[NEWLINE]（3）宗座特使（創立者）：+1外交威望，對城邦的影響力恢復速度+50%、衰減速度-25%。[NEWLINE]3.虔信、榮譽的政策改動：[NEWLINE]（1）虔信開門新增：與你同主流宗教的城邦的基準影響力提高5；[NEWLINE]（2）虔信關門新增：與信奉自己所創宗教的城邦，每回合影響力+1；[NEWLINE]（3）榮譽開門新增：對軍事城邦的基準影響力提高10，城邦贈送的單位額外+10經驗；[NEWLINE]（4）榮譽關門新增：城邦贈送的單位獲得晉升【境外人力】。[NEWLINE]4.現在玩家創立的宗教對於本國城市宗教壓力+33%；[NEWLINE]5.AI不再浪費信仰購買大仙緩解宗教壓力，而是使用宗教裁判官；[NEWLINE]6.現在城邦會使用現金購買商路加成建築和城防建築了；[NEWLINE]7.現在允許正規軍阻撓他國類移民單位（移民、威尼斯商人）通行了；[NEWLINE]8.世界議會新增：世界銀行、世界衛生組織、世界海事組織議題。[NEWLINE][NEWLINE]八.bug修復：[NEWLINE]1.現在玩家簽訂的開放邊境條例由隊伍級修改為玩家級，隊友開邊自己不再跟著開邊；[NEWLINE]2.修復了自選遺蹟導致的聯機重載bug；[NEWLINE]3.修復了負數信仰產出的情況下，虔信中二改為降低快樂的bug；[NEWLINE]4.修復了城邦的建築不會對玩家商路產生收益的bug；[NEWLINE]5.修復了聯機讀檔會空過回合的bug；</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CONTEST_WORLD_WONDERS">
+			<Text>{3_MinorCivName:textkey}的民眾渴望親眼見證人類文明的宏偉造物，以此作為評斷一個民族智慧的標尺。誰能在{2_TurnsDuration}回合內建成最多的[ICON_GOLDEN_AGE]世界奇觀，便能獲得他們的[ICON_INFLUENCE]友誼與豐厚的賞金。[COLOR_POSITIVE_TEXT]剩餘{1_TurnsRemaining}回合。[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CONTEST_WORLD_WONDERS">
+			<Text>{1_MinorCivName:textkey}渴望偉大的世界奇觀！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CONTEST_WORLD_WONDERS">
+			<Text>你以一座座宏偉奇觀征服了{1_MinorCivName:textkey}的想像力！他們為你的成就獻上厚禮，你的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。成功的文明（允許並列）：[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CONTEST_WORLD_WONDERS">
+			<Text>{1_MinorCivName:textkey}為你的奇觀偉業傾倒！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_FORMAL">
+			<Text>他們在尋找最擅長建造世界奇觀的文明。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_WINNING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_FORMAL} 目前你以[ICON_GOLDEN_AGE][COLOR_POSITIVE_TEXT]{1_PlayerScore}[ENDCOLOR]座領先。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_LOSING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_FORMAL} 目前領先者已建成[ICON_GOLDEN_AGE]{1_LeaderScore}座，你建成了[ICON_GOLDEN_AGE][COLOR_POSITIVE_TEXT]{2_PlayerScore}[ENDCOLOR]座。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CONTEST_CONVERTS">
+			<Text>{3_MinorCivName:textkey}的民眾在信仰上陷入迷茫，渴望有傳道者指引方向。誰能在{2_TurnsDuration}回合內透過[ICON_MISSIONARY]傳教士或[ICON_PROPHET]大先知轉化最多的信徒，便能獲得他們的[ICON_INFLUENCE]友誼與[ICON_PEACE]信仰的饋贈。[COLOR_POSITIVE_TEXT]剩餘{1_TurnsRemaining}回合。[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CONTEST_CONVERTS">
+			<Text>{1_MinorCivName:textkey}渴望信仰的指引！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CONTEST_CONVERTS">
+			<Text>你傳播的福音令{1_MinorCivName:textkey}的民眾心悦誠服！他們以[ICON_PEACE]信仰回報你的傳道，你的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。成功的文明（允許並列）：[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CONTEST_CONVERTS">
+			<Text>{1_MinorCivName:textkey}為你的佈道感動！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_FORMAL">
+			<Text>他們在尋找最善於傳播信仰的文明。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_WINNING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_FORMAL} 目前你已轉化[ICON_PEACE][COLOR_POSITIVE_TEXT]{1_PlayerScore}[ENDCOLOR]名信徒，遙遙領先。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_LOSING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_FORMAL} 目前領先者已轉化[ICON_PEACE]{1_LeaderScore}名信徒，你轉化了[ICON_PEACE][COLOR_POSITIVE_TEXT]{2_PlayerScore}[ENDCOLOR]名。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CONTEST_GREAT_PEOPLE">
+			<Text>{3_MinorCivName:textkey}相信偉人的思想能讓整個民族受益，因此關注著各文明的才智之士。誰能在{2_TurnsDuration}回合內誕生最多的[ICON_GREAT_PEOPLE]偉人，便能獲得他們的[ICON_INFLUENCE]友誼，並換來一項免費科技。[COLOR_POSITIVE_TEXT]剩餘{1_TurnsRemaining}回合。[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CONTEST_GREAT_PEOPLE">
+			<Text>{1_MinorCivName:textkey}渴望偉大的頭腦！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CONTEST_GREAT_PEOPLE">
+			<Text>你境內人才輩出的盛況令{1_MinorCivName:textkey}讚歎不已！他們與你分享了一項免費科技，你的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。成功的文明（允許並列）：[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CONTEST_GREAT_PEOPLE">
+			<Text>{1_MinorCivName:textkey}為你的賢才輩出而讚歎！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_FORMAL">
+			<Text>他們在尋找最盛產偉人的文明。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_WINNING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_FORMAL} 目前你以[ICON_GREAT_PEOPLE][COLOR_POSITIVE_TEXT]{1_PlayerScore}[ENDCOLOR]位領先。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_LOSING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_FORMAL} 目前領先者已誕生[ICON_GREAT_PEOPLE]{1_LeaderScore}位，你誕生了[ICON_GREAT_PEOPLE][COLOR_POSITIVE_TEXT]{2_PlayerScore}[ENDCOLOR]位。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CONTEST_CITIES_FOUNDED">
+			<Text>{3_MinorCivName:textkey}的民眾擠在日漸擁擠的港口，渴望到遠方開拓新的家園。誰能在{2_TurnsDuration}回合內建立最多的新城市，便能獲得他們的[ICON_INFLUENCE]友誼，並讓他們傳授的航海技藝使你的每座城市增長[ICON_FOOD]1人口。[COLOR_POSITIVE_TEXT]剩餘{1_TurnsRemaining}回合。[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CONTEST_CITIES_FOUNDED">
+			<Text>{1_MinorCivName:textkey}的民眾渴望新的家園！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CONTEST_CITIES_FOUNDED">
+			<Text>你為無地者開闢家園的壯舉令{1_MinorCivName:textkey}深感欽佩！他們的移民湧入你的城市，每座城市增長1[ICON_FOOD]人口，你的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。成功的文明（允許並列）：[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CONTEST_CITIES_FOUNDED">
+			<Text>{1_MinorCivName:textkey}為你的開拓精神喝采！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_FORMAL">
+			<Text>他們在尋找最善於開拓新城市的文明。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_WINNING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_FORMAL} 目前你已建立[COLOR_POSITIVE_TEXT]{1_PlayerScore}[ENDCOLOR]座新城市，遙遙領先。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_LOSING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_FORMAL} 目前領先者已建立{1_LeaderScore}座新城市，你建立了[COLOR_POSITIVE_TEXT]{2_PlayerScore}[ENDCOLOR]座。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_CONTEST_CITIES_CAPTURED">
+			<Text>{3_MinorCivName:textkey}崇敬勇猛的征服者，並願意把他們的戰術傾囊相授。誰能在{2_TurnsDuration}回合內攻佔最多的他國城市，便能獲得他們的[ICON_INFLUENCE]友誼，並讓你的所有現存軍事單位獲得[COLOR_POSITIVE_TEXT]100[ENDCOLOR]經驗。[COLOR_POSITIVE_TEXT]剩餘{1_TurnsRemaining}回合。[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_CONTEST_CITIES_CAPTURED">
+			<Text>{1_MinorCivName:textkey}崇敬勇武的征服者！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_COMPLETE_CONTEST_CITIES_CAPTURED">
+			<Text>你的赫赫武功令{1_MinorCivName:textkey}心悦誠服！他們派出教官訓練你的軍隊，所有現存軍事單位獲得[COLOR_POSITIVE_TEXT]100[ENDCOLOR]經驗，你的[ICON_INFLUENCE]影響力提升了[COLOR_POSITIVE_TEXT]{2_InfluenceReward}[ENDCOLOR]。成功的文明（允許並列）：[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_COMPLETE_CONTEST_CITIES_CAPTURED">
+			<Text>{1_MinorCivName:textkey}為你的征服偉業臣服！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_FORMAL">
+			<Text>他們在尋找最勇猛的征服者。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_WINNING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_FORMAL} 目前你已攻佔[ICON_WAR][COLOR_POSITIVE_TEXT]{1_PlayerScore}[ENDCOLOR]座城市，遙遙領先。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_LOSING_FORMAL">
+			<Text>{TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_FORMAL} 目前領先者已攻佔[ICON_WAR]{1_LeaderScore}座城市，你攻佔了[ICON_WAR][COLOR_POSITIVE_TEXT]{2_PlayerScore}[ENDCOLOR]座。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_ENDED_CONTEST_WORLD_WONDERS">
+			<Text>另一個文明的奇觀建設成就令{1_MinorCivName:textkey}嘆服。你的奇觀建設進度不足，你的[ICON_INFLUENCE]影響力維持原狀。完成任務的文明（允許並列）:[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_WORLD_WONDERS">
+			<Text>{1_MinorCivName:textkey}把目光投向了別處</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_ENDED_CONTEST_CONVERTS">
+			<Text>另一個文明的傳教成果折服了{1_MinorCivName:textkey}。你的傳道努力不足，你的[ICON_INFLUENCE]影響力維持原狀。完成任務的文明（允許並列）:[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_CONVERTS">
+			<Text>{1_MinorCivName:textkey}把目光投向了別處</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_ENDED_CONTEST_GREAT_PEOPLE">
+			<Text>另一個文明的賢才輩出令{1_MinorCivName:textkey}讚歎。你的偉人成就不足，你的[ICON_INFLUENCE]影響力維持原狀。完成任務的文明（允許並列）:[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_GREAT_PEOPLE">
+			<Text>{1_MinorCivName:textkey}把目光投向了別處</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_ENDED_CONTEST_CITIES_FOUNDED">
+			<Text>另一個文明的開拓速度讓{1_MinorCivName:textkey}刮目相看。你建立的新城市不足，你的[ICON_INFLUENCE]影響力維持原狀。完成任務的文明（允許並列）:[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_CITIES_FOUNDED">
+			<Text>{1_MinorCivName:textkey}把目光投向了別處</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_ENDED_CONTEST_CITIES_CAPTURED">
+			<Text>另一個文明的赫赫武功令{1_MinorCivName:textkey}傾倒。你的攻城戰果不足，你的[ICON_INFLUENCE]影響力維持原狀。完成任務的文明（允許並列）:[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_CITIES_CAPTURED">
+			<Text>{1_MinorCivName:textkey}把目光投向了別處</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_QUEST_ENDED_CONTEST_NO_WINNER">
+			<Text>{1_MinorCivName:textkey}發起的競賽無人達標，沒有任何文明獲得獎勵。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_QUEST_ENDED_CONTEST_NO_WINNER">
+			<Text>{1_MinorCivName:textkey}的競賽無人達標</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUESTS">
+			<Text>城邦任務</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUESTS_HELP">
+			<Text>城邦會週期性向已與其接觸的文明發布任務。完成任務可獲得影響力，部分任務還會提供金幣、文化、信仰、科技、人口、單位經驗或特殊單位等額外獎勵。[NEWLINE][NEWLINE]任務按發布方式分為三類：個人任務只發布給你一人；全球任務對已接觸該城邦的所有文明發布，所有參與者共享同一進度與結果；緊急求援在城邦遇險時臨時發布，不佔用常規任務名額。金幣、文化與信仰獎勵會隨目前時代和遊戲速度提高；其他獎勵為固定值。競爭任務持續 30 回合，由成長或成果最多的一方獨得，允許並列。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_ROUTE">
+			<Text>建立道路連接</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_ROUTE_HELP">
+			<Text>要求：在該城邦附近（同區域且距離 8 格以內）擁有城市，並用道路將你的[ICON_CAPITAL]首都與該城邦的首都連接起來。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_KILL_CAMP">
+			<Text>清除蠻族營地</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_KILL_CAMP_HELP">
+			<Text>要求：摧毀該城邦附近的一處蠻族營地，任務會標記營地的位置。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONNECT_RESOURCE">
+			<Text>連接資源</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONNECT_RESOURCE_HELP">
+			<Text>要求：將該城邦指定的一種資源接入你的貿易網路。[NEWLINE]獎勵：影響力 +40[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONSTRUCT_WONDER">
+			<Text>建造世界奇觀</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONSTRUCT_WONDER_HELP">
+			<Text>要求：建造該城邦指定的世界奇觀（從你尚可建造的奇觀中選擇）。[NEWLINE]獎勵：影響力 +100[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_GREAT_PERSON">
+			<Text>培養偉人</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_GREAT_PERSON_HELP">
+			<Text>要求：培養該城邦指定類型的偉人。[NEWLINE]獎勵：影響力 +90[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_KILL_CITY_STATE">
+			<Text>摧毀城邦</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_KILL_CITY_STATE_HELP">
+			<Text>要求：摧毀該城邦指定的另一座城邦。[NEWLINE]備註：此任務在目前模組中已停用。[NEWLINE]獎勵：影響力 +80[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_PLAYER">
+			<Text>尋找文明</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_PLAYER_HELP">
+			<Text>要求：找到並接觸該城邦指定的主要文明。[NEWLINE]獎勵：影響力 +30[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_NATURAL_WONDER">
+			<Text>發現自然奇觀</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_NATURAL_WONDER_HELP">
+			<Text>要求：發現一處自然奇觀。[NEWLINE]獎勵：影響力 +40[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_GIVE_GOLD">
+			<Text>贈送金幣</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_GIVE_GOLD_HELP">
+			<Text>要求：在 30 回合內向該城邦贈送金幣，累計達到其要求的數額。[NEWLINE]獎勵：影響力 +20[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_PLEDGE_TO_PROTECT">
+			<Text>宣誓保護</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_PLEDGE_TO_PROTECT_HELP">
+			<Text>要求：在 30 回合內宣誓保護該城邦。[NEWLINE]獎勵：影響力 +20[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CULTURE">
+			<Text>文化競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CULTURE_HELP">
+			<Text>要求：在 30 回合內取得最多的文化成長。[NEWLINE]只有領先者獲得獎勵；若多人並列領先，則並列者均可獲獎。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_FAITH">
+			<Text>信仰競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_FAITH_HELP">
+			<Text>要求：在 30 回合內取得最多的信仰成長。只有領先者獲獎，允許並列。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_TECHS">
+			<Text>科技競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_TECHS_HELP">
+			<Text>要求：在 30 回合內研究最多的科技。只有領先者獲獎，允許並列。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_INVEST">
+			<Text>投資城邦</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_INVEST_HELP">
+			<Text>要求：在任務期間向該城邦贈送金幣進行投資，任務到期時自動結算。[NEWLINE]獎勵：任務期間金幣贈禮帶來的影響力收益暫時提高（無額外結算獎勵）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_BULLY_CITY_STATE">
+			<Text>勒索城邦</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_BULLY_CITY_STATE_HELP">
+			<Text>要求：在 30 回合內成功向該城邦指定的城邦索要貢禮。[NEWLINE]獎勵：影響力 +40[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DENOUNCE_MAJOR">
+			<Text>譴責文明</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DENOUNCE_MAJOR_HELP">
+			<Text>要求：在 30 回合內公開譴責該城邦指定的主要文明。[NEWLINE]獎勵：影響力 +80[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_SPREAD_RELIGION">
+			<Text>傳播宗教</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_SPREAD_RELIGION_HELP">
+			<Text>要求：讓你創立的宗教成為該城邦首都的主流宗教。[NEWLINE]獎勵：影響力 +80[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_TRADE_ROUTE">
+			<Text>建立商路</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_TRADE_ROUTE_HELP">
+			<Text>要求：建立一條通往該城邦的陸路或海路商路。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RESEARCH_TECH">
+			<Text>研發科技</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RESEARCH_TECH_HELP">
+			<Text>要求：在 30 回合內研發該城邦指定的科技。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，文化 +50[ICON_CULTURE]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONSTRUCT_NATIONAL_WONDER">
+			<Text>建造國家奇觀</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONSTRUCT_NATIONAL_WONDER_HELP">
+			<Text>要求：在 30 回合內建造該城邦指定的國家奇觀（從你尚可建造的國家奇觀中選擇）。[NEWLINE]獎勵：影響力 +100[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_SPREAD_BUILDING">
+			<Text>普及建築</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_SPREAD_BUILDING_HELP">
+			<Text>要求：在 30 回合內，於該城邦指定數量的城市中建造指定建築。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_CITY_STATE">
+			<Text>發現城邦</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_FIND_CITY_STATE_HELP">
+			<Text>要求：在工業時代之前找到該城邦指定城邦的領土。[NEWLINE]獎勵：影響力 +30[ICON_INFLUENCE]，金幣 +30[ICON_GOLD]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DISCONNECT_TRADE_ROUTE">
+			<Text>切斷商路</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DISCONNECT_TRADE_ROUTE_HELP">
+			<Text>要求：在 30 回合內切斷你與該城邦指定城邦之間的商路。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_BECOME_ALLY">
+			<Text>成為盟友</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_BECOME_ALLY_HELP">
+			<Text>要求：在 30 回合內成為該城邦的盟友。發布時你需擁有至少 2 點富餘外交威望，且該城邦目前已有其他盟友。[NEWLINE]獎勵：影響力 +80[ICON_INFLUENCE]，金幣 +50[ICON_GOLD]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RIG_ELECTION">
+			<Text>操縱選舉</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RIG_ELECTION_HELP">
+			<Text>要求：在 30 回合內派間諜對該城邦進行一次選舉操縱，成功或失敗均計入。需處於啟蒙時代或更晚。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，金幣 +40[ICON_GOLD]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DECLARE_WAR">
+			<Text>加入戰爭</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DECLARE_WAR_HELP">
+			<Text>要求：在 30 回合內向該城邦指定的敵國宣戰。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，金幣 +50[ICON_GOLD]（隨時代與遊戲速度提高），援建點數 +5。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CAPTURE_ORIGINAL_CAPITAL">
+			<Text>攻佔原始首都</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CAPTURE_ORIGINAL_CAPITAL_HELP">
+			<Text>要求：在 60 回合內攻佔該城邦指定文明的原始首都。[NEWLINE]王牌間諜獎勵全遊戲僅發放一次，任何文明率先完成即獨佔。[NEWLINE]獎勵：影響力 +120[ICON_INFLUENCE]，並獲得 1 名王牌間諜[ICON_SPY]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_PROTECT_CITY_STATE">
+			<Text>國際法保護</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_PROTECT_CITY_STATE_HELP">
+			<Text>要求：在世界議會通過決議，將該城邦置於國際法保護之下。你需為議會成員，且該城邦尚未受保護。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，世界議會額外 2 票。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_SANCTION">
+			<Text>貿易制裁</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_SANCTION_HELP">
+			<Text>要求：在世界議會通過針對該城邦指定文明的貿易制裁決議。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，金幣 +40[ICON_GOLD]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_REPEAL_EMBARGO">
+			<Text>廢除城邦禁運</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_LEAGUE_REPEAL_EMBARGO_HELP">
+			<Text>要求：在世界議會通過廢除城邦禁運的決議。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，金幣 +40[ICON_GOLD]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DONATE_GOLD">
+			<Text>巨額捐贈</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_DONATE_GOLD_HELP">
+			<Text>要求：在 30 回合內累計向該城邦捐贈 5000[ICON_GOLD]。發布時你需擁有至少 5000[ICON_GOLD]。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，文化 +50[ICON_CULTURE]（隨時代與遊戲速度提高），援建點數 +30。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RESEARCH_AGREEMENT">
+			<Text>簽訂科研協定</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_RESEARCH_AGREEMENT_HELP">
+			<Text>要求：在 30 回合內與該城邦指定的文明簽訂科研協定。[NEWLINE]獎勵：影響力 +60[ICON_INFLUENCE]，文化 +50[ICON_CULTURE]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_WORLD_WONDERS">
+			<Text>世界奇觀競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_WORLD_WONDERS_HELP">
+			<Text>要求：在 30 回合內建成世界奇觀數量最多（按任務期間新建成的數量計算）。[NEWLINE]只有領先者獲得獎勵；若多人並列領先，則並列者均可獲獎。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]，金幣 +100[ICON_GOLD]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CONVERTS">
+			<Text>傳教競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CONVERTS_HELP">
+			<Text>要求：在 30 回合內用傳教士或大先知轉化最多信徒（按本教信徒淨增數計算）。[NEWLINE]只有領先者獲得獎勵；允許並列。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]，信仰 +50[ICON_PEACE]（隨時代與遊戲速度提高）。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_GREAT_PEOPLE">
+			<Text>偉人競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_GREAT_PEOPLE_HELP">
+			<Text>要求：在 30 回合內誕生的偉人數量最多（生產、購買、免費獲得與城邦饋贈均計入）。[NEWLINE]只有領先者獲得獎勵；允許並列。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]，1 項免費科技[ICON_RESEARCH]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CITIES_FOUNDED">
+			<Text>建城競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CITIES_FOUNDED_HELP">
+			<Text>要求：在 30 回合內建立的新城市數量最多。[NEWLINE]只有航海型城邦在其首個全球任務中可能發布此競賽，錯過則本局不再出現。[NEWLINE]只有領先者獲得獎勵；允許並列。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]，你的每座城市 +1[ICON_FOOD]人口。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CITIES_CAPTURED">
+			<Text>攻城競賽</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_QUEST_CONTEST_CITIES_CAPTURED_HELP">
+			<Text>要求：在 30 回合內攻佔的他國城市數量最多（城邦城市計入；奪回自己的城市不計）。[NEWLINE]僅軍事型城邦會發布此競賽。[NEWLINE]只有領先者獲得獎勵；允許並列。[NEWLINE]獎勵：影響力 +50[ICON_INFLUENCE]，所有現存軍事單位獲得 +100 經驗。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUEST_GROUP_PERSONAL">
+			<Text>個人任務</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUEST_GROUP_GLOBAL">
+			<Text>全球任務</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUEST_GROUP_EMERGENCY">
+			<Text>緊急求援</Text>
 		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

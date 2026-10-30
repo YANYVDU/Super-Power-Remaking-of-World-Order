@@ -86,7 +86,7 @@ function NewUnitCreationRules(playerID)
 			print("UAV Removed!")
 			-- Help AI Lanuch Satellites!
 		elseif (unit:IsHasPromotion(SatelliteID) and player:GetCurrentEra() >= 6 and CapCity and not player:IsHuman()) then
-			SatelliteLaunchEffects(unit, CapCity, player);
+			SatelliteLaunchEffects(unit, CapCity, player, false);
 			unit:Kill();
 			print("AI has built a Satellite Unit!");
 		else
@@ -138,13 +138,13 @@ function NewUnitCreationRules(playerID)
 				and g_CargoSetList[playerID][4] and g_CargoSetList[playerID][4] ~= -1
 				and not player:IsHuman()
 				then
-					iCost = CarrierRestore(playerID, unit:GetID(), g_CargoSetList[playerID][1]);
+					iCost = CarrierRestore(playerID, unit:GetID(), g_CargoSetList[playerID][1], false);
 
 				elseif sSpecialCargo == "SPECIALUNIT_MISSILE"
 				and bAutoPurchase
 				and g_CargoSetList[playerID][2] and g_CargoSetList[playerID][2] ~= -1
 				then
-					iCost = CarrierRestore(playerID, unit:GetID(), g_CargoSetList[playerID][2]);
+					iCost = CarrierRestore(playerID, unit:GetID(), g_CargoSetList[playerID][2], false);
 				end
 				if iCost and iCost > 0 then
 					iTotalCost = iTotalCost + iCost
@@ -162,7 +162,7 @@ function NewUnitCreationRules(playerID)
 				if g_CargoSetList[playerID] == nil then
 					SPCargoListSetup(playerID);
 				end
-				local iCost = CarrierRestore(playerID, unit:GetID(), unit:GetUpgradeUnitType());
+				local iCost = CarrierRestore(playerID, unit:GetID(), unit:GetUpgradeUnitType(), false);
 				if iCost and iCost > 0 then
 					iTotalCost = iTotalCost + iCost
 				end

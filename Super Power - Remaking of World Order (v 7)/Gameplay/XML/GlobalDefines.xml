@@ -7,6 +7,14 @@
 			<Value>1</Value>
 		</Row>
 
+		<!-- Economic Aid (SP): while granting economic aid to a city-state, raise its friendship
+		     anchor by this much so influence climbs toward a higher resting point (and can make
+		     the ally approach "friend" quickly). DB-tunable. -->
+		<Row>
+			<Name>MINOR_FRIENDSHIP_ANCHOR_MOD_ECONOMIC_AID</Name>
+			<Value>20</Value>
+		</Row>
+
 		<Update>
 			<Where Name="RELIGION_BASE_CHANCE_PROPHET_SPAWN"/>
 			<Set Value="100"/>
@@ -408,6 +416,11 @@
 			<Set Value="4800"/>
 			<Where Name="INTERCEPTION_SAME_STRENGTH_POSSIBLE_EXTRA_DAMAGE" />
 		</Update>
+		<!-- Air sweep: a sweeping aircraft takes 50% of the normal damage from an interceptor -->
+		<Update>
+			<Set Value="50"/>
+			<Where Name="AIR_SWEEP_INTERCEPTION_DAMAGE_MOD" />
+		</Update>
 
 		<!-- City Combat Defines -->
 
@@ -461,6 +474,12 @@
 		<Update>
 			<Set Value="3"/>
 			<Where Name="EXPERIENCE_ATTACKING_CITY_AIR" />
+		</Update>
+		<!-- XP for the sweeping aircraft (attack side), covers all three air sweep paths:
+		     vs an air interceptor, vs ground AA, and vs a ground target. -->
+		<Update>
+			<Set Value="4"/>
+			<Where Name="EXPERIENCE_ATTACKING_AIR_SWEEP" />
 		</Update>
 		<Update>
 			<Set Value="6"/>
@@ -607,6 +626,15 @@
 		<Update>
 			<Set Value="5"/>
 			<Where Name="ESPIONAGE_INFLUENCE_LOST_FOR_RIGGED_ELECTION" />
+		</Update>
+		<!--Rigged election rank scaling: winner gain += rank^2 * this, loser loss += ownInfluence * this% * winnerRank-->
+		<Update>
+			<Set Value="5"/>
+			<Where Name="ESPIONAGE_RIGGED_ELECTION_WIN_RANK_SQUARE_BONUS" />
+		</Update>
+		<Update>
+			<Set Value="2"/>
+			<Where Name="ESPIONAGE_RIGGED_ELECTION_LOSS_PERCENT_PER_RANK" />
 		</Update>
 
 		<!--International Trade-->
@@ -794,6 +822,12 @@
 		<Update>
 			<Set Value="100"/>
 			<Where Name="MINOR_BULLY_GOLD" />
+		</Update>
+		<!-- Economic Aid (Super Power V11): base length of one global aid round, scaled by game speed.
+		     Default is provided by MPDLL (UNIQUE_CITYSTATES.sql); Update only adjusts it here -->
+		<Update>
+			<Set Value="20"/>
+			<Where Name="ECONOMIC_AID_ROUND_LENGTH" />
 		</Update>
 	</Defines>
 	

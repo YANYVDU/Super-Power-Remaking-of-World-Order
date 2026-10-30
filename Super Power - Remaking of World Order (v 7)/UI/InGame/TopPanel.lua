@@ -65,14 +65,15 @@ function UpdateData()
 			-----------------------------
 			local iTotalGold = pPlayer:GetGold();
 			local iGoldPerTurn = pPlayer:CalculateGoldRate();
-			-- 附庸金币税走 ChangeGold 即时结算、不经 CalculateGoldRate，这里补上收/缴税，
-			-- 使顶部每回合数字与实际国库变化一致。
 			if pPlayer.GetGoldFromVassals then
 				iGoldPerTurn = iGoldPerTurn + pPlayer:GetGoldFromVassals();
 			end
 			if pPlayer.GetGoldToOverlord then
 				iGoldPerTurn = iGoldPerTurn - pPlayer:GetGoldToOverlord();
 			end
+			-- Economic Aid expense: computed in C++ (CvPlayer::GetEconomicAidExpensePerTurn)
+			-- so the top bar, the breakdown tooltip and the trade screen all agree.
+			iGoldPerTurn = iGoldPerTurn - pPlayer:GetEconomicAidExpensePerTurn();
 			
 			-- Accounting for positive or negative GPT - there's obviously a better way to do this.  If you see this comment and know how, it's up to you ;)
 			-- Text is White when you can buy a Plot
@@ -133,8 +134,6 @@ function UpdateData()
 				strGoldenAgeStr = Locale.ConvertTextKey("TXT_KEY_TOP_PANEL_GOLDEN_AGES_OFF");
 			else
 				if (pPlayer:GetGoldenAgeTurns() > 0) then
-					-- 兼容性修复：GameInfo.Civilizations[...].SpecialGAText 在部分 UI 环境下会报 "Cannot find key"，
-					-- 改用 DB.Query 直接查询数据库（总是返回全部列），失败时回退默认文本。
 					local xmlGoldenAgeStr = "TXT_KEY_GOLDEN_AGE_ANNOUNCE";
 					for row in DB.Query("SELECT SpecialGAText FROM Civilizations WHERE ID=" .. pPlayer:GetCivilizationType()) do
 						if row.SpecialGAText ~= nil and row.SpecialGAText ~= "" then
@@ -658,6 +657,24 @@ function ScienceTipHandler( control )
 			strText = strText .. "[NEWLINE][NEWLINE]";
 			strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_TECH_CITY_COST", Game.GetNumCitiesTechCostMod());
 		end
+
+		-- Research threshold breakdown: list every source and its value
+		if pPlayer.GetResearchThresholdMod ~= nil then
+			local iModPerCity, iEffCities, iPuppetDiscount, iBCPercent, iGAPercent, iTotal = pPlayer:GetResearchThresholdMod();
+			strText = strText .. "[NEWLINE][NEWLINE]";
+			strText = strText .. Locale.ConvertTextKey("TXT_KEY_SP_TP_TECH_THRESHOLD_TITLE");
+			strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_TECH_THRESHOLD_BASE", iModPerCity, iEffCities, iModPerCity * iEffCities);
+			if iPuppetDiscount > 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_TECH_THRESHOLD_PUPPET", iPuppetDiscount);
+			end
+			if iBCPercent > 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_TECH_THRESHOLD_BUILDING", iBCPercent);
+			end
+			if iGAPercent ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_TECH_THRESHOLD_GOLDENAGE", iGAPercent);
+			end
+			strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_TECH_THRESHOLD_TOTAL", iTotal);
+		end
 	end
 	
 	tipControlTable.TooltipLabel:SetText( strText );
@@ -687,6 +704,16 @@ function GoldTipHandler( control )
 	end
 	
 	local iGoldPerTurnFromReligion = pPlayer:GetGoldPerTurnFromReligion();
+	-- Religion gold may be negative (e.g. GoldPerFollowingCity penalty); move it to expenses
+	local iGoldPerTurnToReligion = 0;
+	if (iGoldPerTurnFromReligion < 0) then
+		iGoldPerTurnToReligion = -iGoldPerTurnFromReligion;
+		iGoldPerTurnFromReligion = 0;
+	end
+
+	-- Economic Aid per-turn expense (Super Power V11): computed in C++ so the top bar
+	-- and this breakdown always report the same number.
+	local iEconomicAidExpense = pPlayer:GetEconomicAidExpensePerTurn();
 
 	local fTradeRouteGold = (pPlayer:GetGoldFromCitiesTimes100() - pPlayer:GetGoldFromCitiesMinusTradeRoutesTimes100()) / 100;
 	local fGoldPerTurnFromCities = pPlayer:GetGoldFromCitiesMinusTradeRoutesTimes100() / 100;
@@ -758,7 +785,7 @@ function GoldTipHandler( control )
 	if pPlayer.GetGoldToOverlord then
 		iGoldToOverlord = pPlayer:GetGoldToOverlord();
 	end
-	local iTotalExpenses = iUnitCost + iUnitSupply + iBuildingMaintenance + iImprovementMaintenance + iGoldPerTurnToOtherPlayers + iGoldToOverlord;
+	local iTotalExpenses = iUnitCost + iUnitSupply + iBuildingMaintenance + iImprovementMaintenance + iGoldPerTurnToOtherPlayers + iGoldToOverlord + iEconomicAidExpense + iGoldPerTurnToReligion;
 	
 	strText = strText .. "[NEWLINE]";
 	strText = strText .. "[COLOR:255:150:150:255]";
@@ -777,6 +804,12 @@ function GoldTipHandler( control )
 	end
 	if (iGoldPerTurnToOtherPlayers > 0) then
 		strText = strText .. "[NEWLINE]  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_TO_OTHERS", iGoldPerTurnToOtherPlayers);
+	end
+	if (iEconomicAidExpense > 0) then
+		strText = strText .. "[NEWLINE]  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_ECONOMIC_AID", iEconomicAidExpense);
+	end
+	if (iGoldPerTurnToReligion > 0) then
+		strText = strText .. "[NEWLINE]  [ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_TP_GOLD_TO_RELIGION", iGoldPerTurnToReligion);
 	end
 	if (iGoldToOverlord > 0) then
 		local iOverlord = pPlayer:GetOverlord();
@@ -1177,7 +1210,6 @@ function GoldenAgeTipHandler( control )
 		if (pPlayer:IsGoldenAgeCultureBonusDisabled()) then
 			strText = strText ..  Locale.ConvertTextKey("TXT_KEY_TP_GOLDEN_AGE_EFFECT_NO_CULTURE");
 		elseif pPlayer:GetGoldenAgeTurns() > 0 then
-			-- 兼容性修复：与 SpecialGAText 相同，GameInfo 列访问不可靠，改用 DB.Query。
 			local strGoldenAgeHelp = "TXT_KEY_TP_GOLDEN_AGE_EFFECT";
 			for row in DB.Query("SELECT SpecialGAHelpText FROM Civilizations WHERE ID=" .. pPlayer:GetCivilizationType()) do
 				if row.SpecialGAHelpText ~= nil and row.SpecialGAHelpText ~= "" then
@@ -1346,8 +1378,6 @@ function CultureTipHandler( control )
 		end
 		
 		-- Culture from Golden Age
-		-- 附庸文化税已计入 GetTotalJONSCulturePerTurn()（+FromVassals -ToOverlord），
-		-- 反推黄金时代文化前须剔除，否则会被税污染。
 		local iCultureFromVassals = 0;
 		local iCultureToOverlord = 0;
 		if pPlayer.GetCultureFromVassals then
@@ -1410,6 +1440,36 @@ function CultureTipHandler( control )
 			else
 				strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_CULTURE_CITY_COST");
 			end
+		end
+
+		-- Policy cost breakdown: list every source and its value
+		if pPlayer.GetPolicyCostModifierBreakdown ~= nil then
+			local iTotal, iPolicies, iBuildings, iMinorCivs, iTraits, iCulturedCS, iCorruption, iUncapped, iCap = pPlayer:GetPolicyCostModifierBreakdown();
+			strText = strText .. "[NEWLINE][NEWLINE]";
+			strText = strText .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_TITLE");
+			strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_BASE", pPlayer:GetNextPolicyCost());
+			if iPolicies ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_POLICIES", iPolicies);
+			end
+			if iBuildings ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_BUILDING", iBuildings);
+			end
+			if iMinorCivs ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_MINORCIV", iMinorCivs);
+			end
+			if iTraits ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_TRAITS", iTraits);
+			end
+			if iCulturedCS ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_CULTURED_CS", iCulturedCS);
+			end
+			if iCorruption ~= 0 then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_CORRUPTION", iCorruption);
+			end
+			if iTotal ~= iUncapped then
+				strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_CAP", iCap);
+			end
+			strText = strText .. "[NEWLINE][ICON_BULLET]" .. Locale.ConvertTextKey("TXT_KEY_SP_TP_POLICY_COST_TOTAL", iTotal);
 		end
 	end
 	

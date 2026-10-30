@@ -1180,6 +1180,12 @@
 			<Description>TXT_KEY_WONDER_PLACE_OF_NATIONS</Description>
 			<MaxGlobalInstances>1</MaxGlobalInstances>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_APADANA_PALACE</Type>
+			<DefaultBuilding>BUILDING_APADANA_PALACE</DefaultBuilding>
+			<Description>TXT_KEY_WONDER_APADANA_PALACE</Description>
+			<MaxGlobalInstances>1</MaxGlobalInstances>
+		</Row>
 
 
 	</BuildingClasses>
@@ -1222,6 +1228,11 @@
 			<Type>BUILDINGCLASS_CIV_S_P_ELE_RESOURCES</Type>
 			<DefaultBuilding>BUILDING_CIV_S_P_ELE_RESOURCES</DefaultBuilding>
 			<Description>TXT_KEY_BUILDING_CIV_S_P_ELE_RESOURCES</Description>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_EVEREST_CAMP</Type>
+			<DefaultBuilding>BUILDING_EVEREST_CAMP</DefaultBuilding>
+			<Description>TXT_KEY_BUILDING_EVEREST_CAMP</Description>
 		</Row>
 	</BuildingClasses>
 

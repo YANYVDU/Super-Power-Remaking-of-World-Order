@@ -310,6 +310,10 @@
 			<Set Value="1"/>
 		</Update>
 		<Update>
+			<Where Name="EVENTS_INTERNATIONAL_IMMIGRATION"/>
+			<Set Value="1"/>
+		</Update>
+		<Update>
 			<Where Name="IMPROVEMENTS_YIELD_CHANGE_PER_UNIT"/>
 			<Set Value="1"/>
 		</Update>
@@ -391,6 +395,10 @@
 			<Set Value="1"/>
 		</Update>
 		<Update>
+			<Where Name="GLOBAL_BREAK_CIVILIAN_EXPANSION_BLOCK"/>
+			<Set Value="1"/>
+		</Update>
+		<Update>
 			<Where Name="GLOBAL_CS_GIFTS"/>
 			<Set Value="1"/>
 		</Update>
@@ -401,6 +409,52 @@
 		<Update>
 			<Where Name="SP_CITYSTATE_BASIC"/>
 			<Set Value="1"/>
+		</Update>
+		<Update>
+			<Where Name="LUXURY_ERA_DECAY"/>
+			<Set Value="1"/>
+		</Update>
+		<Update>
+			<Where Name="SP_FAITH_BELIEF_PURCHASE_COST"/>
+			<Set Value="2500"/>
+		</Update>
+		<Update>
+			<Where Name="SP_PANTHEON_BELIEF_PURCHASE_BASE_COST"/>
+			<Set Value="500"/>
+		</Update>
+		<Update>
+			<Where Name="SP_AID_POINT_COST_REROLL_QUESTS"/>
+			<Set Value="20"/>
+		</Update>
+		<Update>
+			<Where Name="SP_AID_POINT_COST_NEXT_GREAT_PERSON"/>
+			<Set Value="50"/>
+		</Update>
+		<Update>
+			<Where Name="SP_AID_POINT_COST_PENDING_GIFT_UNIT"/>
+			<Set Value="10"/>
+		</Update>
+		<Update>
+			<Where Name="SP_AID_POINT_COST_HASTEN_CONGRESS"/>
+			<Set Value="20"/>
+		</Update>
+		<Update>
+			<Where Name="SP_AID_POINT_HASTEN_CONGRESS_TURNS"/>
+			<Set Value="3"/>
+		</Update>
+		<Update>
+			<Where Name="SP_BULLY_TREASURY_SHARE_PERCENT"/>
+			<Set Value="25"/>
+		</Update>
+		<!-- Austria UA: extra aid points (on top of the gold) paid to buy a city-state out.
+		     Keep this value identical to the MPDLL default in CustomModOptions.xml. -->
+		<Update>
+			<Where Name="SP_AID_POINT_COST_ANNEX_CITY_STATE"/>
+			<Set Value="50"/>
+		</Update>
+		<Update>
+			<Where Name="SP_RELIGION_PRESSURE_SELF_FOUNDER_MOD"/>
+			<Set Value="33"/>
 		</Update>
 	</CustomModOptions>
 

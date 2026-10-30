@@ -60,6 +60,22 @@ local g_bAIMakingOffer = false
 local g_iDealDuration = Game.GetDealDuration()
 local g_iPeaceDuration = Game.GetPeaceDuration and Game.GetPeaceDuration() or GameDefines.PEACE_TREATY_LENGTH or 10
 
+----------------------------------------------------------------
+-- Super Power V11: tradable GPT must exclude the Economic Aid expense.
+-- Economic Aid gold is withdrawn straight from the treasury at turn start
+-- (CvPlayer::doTurnPostDiplomacy()), so CalculateGoldRate() never reflects it.
+-- The formula and its floor at 0 live in C++ (CvPlayer::GetTradableGoldRate), which is the same
+-- value CvDeal::IsPossibleToTradeItem validates against. This wrapper only guards the player
+-- lookup, so the trade screen cannot drift apart from what the engine will actually accept.
+----------------------------------------------------------------
+local function GetTradableGoldRate( playerID )
+	local player = Players[ playerID ]
+	if player == nil then
+		return 0
+	end
+	return player:GetTradableGoldRate()
+end
+
 local g_iUs = -1 --Game.GetActivePlayer()
 local g_iThem = -1
 local g_UsPocketResources = {}
@@ -71,6 +87,39 @@ local g_PocketLeaderButtons = {}
 local g_LeagueVoteList = {}
 
 local g_OtherPlayersButtons = {}
+
+-- Refresh the "Diplomacy Bargain" button label: show the success chance, or the remaining cooldown.
+function UpdateDiplomacyBargainButton()
+	if g_iUs == -1 or g_iThem == -1 then
+		return
+	end
+	if Controls.DiplomacyBargainButton == nil then
+		return
+	end
+	local iRank = Players[g_iUs]:GetSpyRankVisitingThem(g_iThem, false)
+	if iRank < 0 then
+		return
+	end
+	local iCooldown = Players[g_iUs]:GetDiplomacyBargainCooldown(g_iThem)
+	if iCooldown > 0 then
+		-- On cooldown: keep the button label clean; the remaining turns are shown in the tooltip only.
+		Controls.DiplomacyBargainButton:SetToolTipString( Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_TT_CD", tostring(iCooldown) ) )
+	else
+		local iChance = Players[g_iUs]:GetDiplomacyBargainChance(g_iThem)
+		if iChance >= 0 then
+			Controls.DiplomacyBargainButton:SetToolTipString( Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_TT", tostring(iChance), tostring(iCooldown) ) )
+		end
+	end
+end
+
+-- SP: the advice gold frame appears only when there is some text to display.
+function UpdateDiplomatAdviceFrame()
+	if not Controls.SpyDiplomacyAdviceFrame or not Controls.DiplomatAdviceLabel then
+		return
+	end
+	local bShowFrame = (not Controls.DiplomatAdviceLabel:IsHidden()) or (not Controls.DiplomacyBargainLabel:IsHidden())
+	Controls.SpyDiplomacyAdviceFrame:SetHide( not bShowFrame )
+end
 
 local offsetOfString = 32
 local bonusPadding = 16
@@ -497,13 +546,37 @@ function DoUpdateButtons( diploMessage )
 		end
 
 		-- Depending on what's on the table we can ask the other player about what they think of the deal
-		Controls.WhatDoYouWantButton:SetHide( numItemsFromUs > 0 or numItemsFromThem == 0 )
 		Controls.WhatWillYouGiveMeButton:SetHide( numItemsFromUs == 0 or numItemsFromThem > 0 )
 		Controls.WhatWillMakeThisWorkButton:SetHide( numItemsFromUs == 0 or numItemsFromThem == 0 )
 		Controls.WhatWillEndThisWarButton:SetHide( not isAtWar )
 		Controls.WhatConcessionsButton:SetHide( not isAIRequestingConcessions )
 		Controls.CancelButton:SetHide( false )
 		Controls.ProposeButton:SetHide( false )
+
+		-- SP: ConsultDiplomat shows only when we have a spy stationed as a diplomat in their capital.
+		-- It shares the bottom button slot with "What do you want" (WhatDoYouWantButton).
+		-- These controls only exist in the leader-head DiploTrade context; skip entirely otherwise.
+		if Controls.ConsultDiplomatButton then
+		local iDiplomatRank = -1
+		if g_iUs ~= -1 and g_iThem ~= -1 and not g_bTradeReview then
+			iDiplomatRank = Players[g_iUs]:GetSpyRankVisitingThem( g_iThem, false )
+		end
+		local bShowConsultDiplomat = ( iDiplomatRank >= 0 )
+		Controls.ConsultDiplomatButton:SetHide( not bShowConsultDiplomat )
+		Controls.DiplomacyBargainButton:SetHide( not bShowConsultDiplomat )
+		UpdateDiplomacyBargainButton()
+		if bShowConsultDiplomat then
+			Controls.ConsultDiplomatButton:SetToolTipString( Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_TT", tostring(iDiplomatRank) ) )
+		end
+		-- "What do you want" is the less informative option; hide it when we can consult the diplomat instead.
+		Controls.WhatDoYouWantButton:SetHide( bShowConsultDiplomat or (numItemsFromUs > 0 or numItemsFromThem == 0) )
+		-- Clear any stale advice when it is no longer relevant.
+		if not bShowConsultDiplomat then
+			Controls.DiplomatAdviceLabel:SetHide( true )
+			Controls.DiplomacyBargainLabel:SetHide( true )
+		end
+		UpdateDiplomatAdviceFrame()
+		end
 	end
 
 end
@@ -761,14 +834,18 @@ function ResetDisplay( diploMessage )
 									IsCiv5BNW and not isEnabled and "[COLOR_WARNING_TEXT]"..L"TXT_KEY_DIPLO_NEED_DOF_TT_ONE_LINE".."[ENDCOLOR]" )
 
 		-- Us pocket Gold Per Turn
+		-- Gated on the same netted rate the pocket displays, so a player whose Economic Aid
+		-- expense exceeds their gold rate cannot open a pocket that would only offer 0.
+		local iUsTradableGPT = GetTradableGoldRate( ourPlayerID )
 		SetEnabledAndText( Controls.UsPocketGoldPerTurn,
-							deal:IsPossibleToTradeItem( ourPlayerID, theirPlayerID, TradeableItems.TRADE_ITEM_GOLD_PER_TURN, 1, g_iDealDuration ), -- 1 here is 1 GPT, which is the minimum possible
-							ourPlayer:CalculateGoldRate() .. " " .. L"TXT_KEY_DIPLO_GOLD_PER_TURN" )
+							iUsTradableGPT >= 1 and deal:IsPossibleToTradeItem( ourPlayerID, theirPlayerID, TradeableItems.TRADE_ITEM_GOLD_PER_TURN, 1, g_iDealDuration ), -- 1 here is 1 GPT, which is the minimum possible
+							iUsTradableGPT .. " " .. L"TXT_KEY_DIPLO_GOLD_PER_TURN" )
 
 		-- Them pocket Gold Per Turn
+		local iThemTradableGPT = GetTradableGoldRate( theirPlayerID )
 		SetEnabledAndText( Controls.ThemPocketGoldPerTurn,
-							deal:IsPossibleToTradeItem( theirPlayerID, ourPlayerID, TradeableItems.TRADE_ITEM_GOLD_PER_TURN, 1, g_iDealDuration ), -- 1 here is 1 GPT, which is the minimum possible
-							theirPlayer:CalculateGoldRate() .. " " .. L"TXT_KEY_DIPLO_GOLD_PER_TURN" )
+							iThemTradableGPT >= 1 and deal:IsPossibleToTradeItem( theirPlayerID, ourPlayerID, TradeableItems.TRADE_ITEM_GOLD_PER_TURN, 1, g_iDealDuration ), -- 1 here is 1 GPT, which is the minimum possible
+							iThemTradableGPT .. " " .. L"TXT_KEY_DIPLO_GOLD_PER_TURN" )
 
 
 		----------------------------------------------------------------------------------
@@ -806,7 +883,7 @@ function ResetDisplay( diploMessage )
 			toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_YOU_NEED_EMBASSY_TT" .. "[ENDCOLOR]"
 		end
 		SetEnabledAndToolTip( Controls.UsPocketOpenBorders, deal:IsPossibleToTradeItem( ourPlayerID, theirPlayerID, TradeableItems.TRADE_ITEM_OPEN_BORDERS, g_iDealDuration ), toolTip )
-		Controls.UsPocketOpenBorders:SetHide( isSameTeam or ourTeam:IsAllowsOpenBordersToTeam( theirTeamID ) )
+		Controls.UsPocketOpenBorders:SetHide( isSameTeam or Players[ourPlayerID]:IsAllowsOpenBordersToPlayer( theirPlayerID ) )
 
 		-- Are they not allowed to give OB?
 		toolTip = g_borderTooltip
@@ -817,7 +894,7 @@ function ResetDisplay( diploMessage )
 			toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_THEY_NEED_EMBASSY_TT" .. "[ENDCOLOR]"
 		end
 		SetEnabledAndToolTip( Controls.ThemPocketOpenBorders, deal:IsPossibleToTradeItem( theirPlayerID, ourPlayerID, TradeableItems.TRADE_ITEM_OPEN_BORDERS, g_iDealDuration ), toolTip )
-		Controls.ThemPocketOpenBorders:SetHide( isSameTeam or theirTeam:IsAllowsOpenBordersToTeam( ourTeamID ) )
+		Controls.ThemPocketOpenBorders:SetHide( isSameTeam or Players[theirPlayerID]:IsAllowsOpenBordersToPlayer( ourPlayerID ) )
 
 		----------------------------------------------------------------------------------
 		-- pocket Defensive Pact
@@ -1084,12 +1161,12 @@ function DisplayDeal(...)
 					Controls.UsTableGoldPerTurn:SetHide( false )
 					Controls.UsGoldPerTurnTurns:LocalizeAndSetText( "TXT_KEY_DIPLO_TURNS", duration )
 					Controls.UsGoldPerTurnAmount:SetText( data1 )
-					Controls.UsTableGoldPerTurn:LocalizeAndSetToolTip( "TXT_KEY_DIPLO_CURRENT_GPT", ourPlayer:CalculateGoldRate() - data1 )
+					Controls.UsTableGoldPerTurn:LocalizeAndSetToolTip( "TXT_KEY_DIPLO_CURRENT_GPT", GetTradableGoldRate( ourPlayer:GetID() ) - data1 )
 				else
 					Controls.ThemTableGoldPerTurn:SetHide( false )
 					Controls.ThemGoldPerTurnTurns:LocalizeAndSetText( "TXT_KEY_DIPLO_TURNS", duration )
 					Controls.ThemGoldPerTurnAmount:SetText( data1 )
-					Controls.ThemTableGoldPerTurn:LocalizeAndSetToolTip( "TXT_KEY_DIPLO_CURRENT_GPT", theirPlayer:CalculateGoldRate() - data1 )
+					Controls.ThemTableGoldPerTurn:LocalizeAndSetToolTip( "TXT_KEY_DIPLO_CURRENT_GPT", GetTradableGoldRate( theirPlayer:GetID() ) - data1 )
 				end
 
 			elseif TradeableItems.TRADE_ITEM_CITIES == itemType then
@@ -1655,6 +1732,107 @@ function OnWhatWillAIGive()
 
 end
 
+----------------------------------------------------------------
+----------------------------------------------------------------
+-- SP: ConsultDiplomat - reveals the AI's trade bottom line, gated by the rank
+-- of the spy we have stationed as a diplomat in their capital.
+function OnConsultDiplomat()
+
+	if g_PVPTrade or g_iThem < 0 or g_iUs < 0 then
+		return
+	end
+
+	-- Rank of our diplomat stationed in the AI's capital (-1 if none).
+	local iRank = Players[g_iUs]:GetSpyRankVisitingThem(g_iThem, false)
+
+	if iRank < 0 then
+		Controls.DiplomatAdviceLabel:SetText( Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_NO_DIPLOMAT" ) )
+		Controls.DiplomatAdviceLabel:SetHide( false )
+		UpdateDiplomatAdviceFrame()
+		return
+	end
+
+	-- The AI's evaluation of the current deal, computed from the AI's perspective.
+	local advice = Players[g_iThem]:GetDiplomatTradeAdvice( g_Deal )
+
+	if advice == nil then
+		Controls.DiplomatAdviceLabel:SetHide( true )
+		UpdateDiplomatAdviceFrame()
+		return
+	end
+
+	local iTotalValueToMe = advice.iTotalValueToMe or 0
+	local iValueImOffering = advice.iValueImOffering or 0
+	local iValueTheyreOffering = advice.iValueTheyreOffering or 0
+	local iAmountOverWeWillRequest = advice.iAmountOverWeWillRequest or 0
+	local iAmountUnderWeWillOffer = advice.iAmountUnderWeWillOffer or 0
+	-- Use the AI's own acceptance verdict: bCantMatchOffer only covers "the AI wants more than
+	-- we offer", so it reports "they accept" on any deal that shortchanges them (asking for a
+	-- city, for instance), which the AI in fact rejects.
+	local bAcceptable = advice.bAcceptable or false
+
+	local text
+
+	if iRank == 3 then
+		-- Master Spy: full itemized detail
+		local acceptable
+		if bAcceptable then
+			acceptable = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_ACCEPTABLE" )
+		else
+			acceptable = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_CANT_MATCH" )
+		end
+		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_MASTER",
+			tostring(iValueImOffering), tostring(iValueTheyreOffering),
+			tostring(iTotalValueToMe), tostring(iAmountOverWeWillRequest), tostring(iAmountUnderWeWillOffer),
+			acceptable )
+	elseif iRank == 2 then
+		-- Special Agent: total score
+		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_AGENT",
+			tostring(iTotalValueToMe), tostring(iAmountOverWeWillRequest), tostring(iAmountUnderWeWillOffer) )
+	else
+		-- Agent: rough value-difference ratio
+		local iSum = iValueImOffering + iValueTheyreOffering
+		local iRatio = (iSum > 0) and (iTotalValueToMe / iSum) or 0
+		local iPercent = math.floor( iRatio * 100 + 0.5 )
+		text = Locale.ConvertTextKey( "TXT_KEY_DIPLO_CONSULT_ROUGH", tostring(iPercent) )
+	end
+
+	Controls.DiplomatAdviceLabel:SetText( text )
+	Controls.DiplomatAdviceLabel:SetHide( false )
+	UpdateDiplomatAdviceFrame()
+
+end
+
+function OnDiplomacyBargain()
+
+	if g_PVPTrade or g_iThem < 0 or g_iUs < 0 then
+		return
+	end
+
+	-- Rank of our diplomat stationed in the AI's capital (-1 if none).
+	local iRank = Players[g_iUs]:GetSpyRankVisitingThem(g_iThem, false)
+
+	if iRank < 0 then
+		Controls.DiplomacyBargainLabel:SetText( Locale.ConvertTextKey( "TXT_KEY_DIPLO_BARGAIN_NO_DIPLOMAT" ) )
+		Controls.DiplomacyBargainLabel:SetHide( false )
+		UpdateDiplomatAdviceFrame()
+		return
+	end
+
+	-- Dispatch the bargain through the on-host authoritative command handler so the
+	-- RNG roll and the cooldown are applied in lock-step on every client (multiplayer-safe).
+	Game.DoDiplomacyBargain( g_iThem )
+
+	-- The DLL evaluates the roll and posts a success/failure notification to us. Hide the
+	-- button locally to prevent double-clicking while the authoritative cooldown syncs in.
+	Controls.DiplomacyBargainLabel:SetHide( true )
+	if not Controls.DiplomacyBargainButton:IsHidden() then
+		Controls.DiplomacyBargainButton:SetHide( true )
+	end
+	UpdateDiplomatAdviceFrame()
+
+end
+
 function RemoveByType( tradeType, playerID )
 	g_Deal:RemoveByType( tradeType, playerID )
 	return DoUIDealChangedByHuman( true )
@@ -1694,7 +1872,7 @@ do
 	local function AddGoldPerTurnTrade( control, playerID, goldPerTurn )
 		local player = Players[ playerID ]
 		if player then
-			g_Deal:AddGoldPerTurnTrade( playerID, min( goldPerTurn, player:CalculateGoldRate() ), g_iDealDuration )
+			g_Deal:AddGoldPerTurnTrade( playerID, min( goldPerTurn, GetTradableGoldRate( playerID ) ), g_iDealDuration )
 			control:TakeFocus()
 			return DoUIDealChangedByHuman()
 		end
@@ -1711,8 +1889,10 @@ do
 	local function ChangeGoldPerTurnTrade( string, control, playerID, parentControl )
 		local player = Players[ playerID ]
 		if player then
-			local goldRate = player:CalculateGoldRate()
-			local goldPerTurn = min( tonumber( string ) or 0, goldRate )
+			local goldRate = GetTradableGoldRate( playerID )
+			-- Clamp the typed value too: min() alone would keep a typed negative, which
+			-- CvDeal rejects (CvAssertMsg(iAmount >= 0)) and which reverses the GPT flow.
+			local goldPerTurn = math.max( 0, min( tonumber( string ) or 0, goldRate ) )
 			control:SetText( goldPerTurn )
 			g_Deal:ChangeGoldPerTurnTrade( playerID, goldPerTurn, g_iDealDuration )
 			parentControl:LocalizeAndSetToolTip( "TXT_KEY_DIPLO_CURRENT_GPT", goldRate - goldPerTurn )
@@ -2212,5 +2392,13 @@ Controls.ThemMakePeaceDuration:LocalizeAndSetText( "TXT_KEY_DIPLO_TURNS", g_iPea
 Controls.ThemDeclareWarDuration:LocalizeAndSetText( "TXT_KEY_DIPLO_TURNS", g_iPeaceDuration )
 Controls.UsTablePeaceTreaty:LocalizeAndSetText( "TXT_KEY_DIPLO_PEACE_TREATY", g_iPeaceDuration )
 Controls.ThemTablePeaceTreaty:LocalizeAndSetText( "TXT_KEY_DIPLO_PEACE_TREATY", g_iPeaceDuration )
+
+-- SP: ConsultDiplomat + DiplomacyBargain buttons. These controls only exist in the leader-head (DiploTrade) context,
+-- so guard them: this same TradeLogic.lua is also included by the vanilla WorldView SimpleDiploTrade,
+-- whose XML has neither control.
+if Controls.ConsultDiplomatButton and Controls.DiplomacyBargainButton then
+	Controls.ConsultDiplomatButton:RegisterCallback( Mouse.eLClick, OnConsultDiplomat )
+	Controls.DiplomacyBargainButton:RegisterCallback( Mouse.eLClick, OnDiplomacyBargain )
+end
 
 DisplayDeal()

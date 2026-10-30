@@ -88,6 +88,7 @@
 			<Description>TXT_KEY_TRAIT_CAPITAL_BUILDINGS_CHEAPER</Description>
 			<ShortDescription>TXT_KEY_TRAIT_CAPITAL_BUILDINGS_CHEAPER_SHORT</ShortDescription>
 			<FreeBuilding>BUILDING_TB_CAPITAL_BUILDINGS_CHEAPER</FreeBuilding>
+			<GainConqueredCityStateUA>true</GainConqueredCityStateUA>
 		</Row>
 		<Row>
 			<Type>TRAIT_ENHANCED_GOLDEN_AGES</Type>
@@ -173,10 +174,11 @@
 			<Description>TXT_KEY_TRAIT_CITY_STATE_FRIENDSHIP</Description>
 			<ShortDescription>TXT_KEY_TRAIT_CITY_STATE_FRIENDSHIP_SHORT</ShortDescription>
 			<CityStateFriendshipModifier>100</CityStateFriendshipModifier>
-			<AfraidMinorPerTurnInfluence>500</AfraidMinorPerTurnInfluence>
+			<AfraidMinorPerTurnInfluence>300</AfraidMinorPerTurnInfluence>
 			<AngerFreeIntrusionOfCityStates>true</AngerFreeIntrusionOfCityStates>
 			<AllyCityStateCombatModifier>3</AllyCityStateCombatModifier>
 			<AllyCityStateCombatModifierMax>30</AllyCityStateCombatModifierMax>
+			<DiplomaticPrestige>2</DiplomaticPrestige>
 		</Row>
 		<Row>
 			<Type>TRAIT_SLAYER_OF_TIAMAT</Type>
@@ -256,6 +258,7 @@
 			<Description>TXT_KEY_TRAIT_ANNEX_CITY_STATE</Description>
 			<ShortDescription>TXT_KEY_TRAIT_ANNEX_CITY_STATE_SHORT</ShortDescription>
 			<AbleToAnnexCityStates>true</AbleToAnnexCityStates>
+			<GainAnnexedCityStateUA>true</GainAnnexedCityStateUA>
 			<CanDiplomaticMarriage>true</CanDiplomaticMarriage>
 			<AbleToDualEmpire>true</AbleToDualEmpire>
 		</Row>

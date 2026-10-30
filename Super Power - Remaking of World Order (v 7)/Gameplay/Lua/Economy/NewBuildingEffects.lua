@@ -35,10 +35,12 @@ function NewBuildingEffects(iPlayer, iCity, iBuilding, bGold, bFaith)
 
 		if oCity ~= nil then
 			-- CityName Change
-			if oCity:GetName() == Locale.ConvertTextKey("TXT_KEY_CITY_NAME_SHENDU") then
+			-- Compare the raw name key, not GetName(): that one returns the localized text, so a
+			-- multiplayer game with clients in different languages would take different branches here.
+			if oCity:GetNameKey() == "TXT_KEY_CITY_NAME_SHENDU" then
 				oCity:SetName("TXT_KEY_CITY_NAME_LOYANG");
 			end
-			if pCity:GetName() == Locale.ConvertTextKey("TXT_KEY_CITY_NAME_LOYANG") then
+			if pCity:GetNameKey() == "TXT_KEY_CITY_NAME_LOYANG" then
 				pCity:SetName("TXT_KEY_CITY_NAME_SHENDU");
 			end
 
@@ -70,13 +72,6 @@ function NewBuildingEffects(iPlayer, iCity, iBuilding, bGold, bFaith)
 					pCity:SetNumRealBuilding(building.ID, 0);
 				end
 
-				-- Move Policy Buildings & Count Buildings
-				local policFreeBCCapital = GameInfo.Policy_FreeBuildingClassCapital { BuildingClassType = building.BuildingClass } ()
-				if oCity:IsHasBuilding(building.ID) and (policFreeBCCapital ~= nil) then
-					local i = oCity:GetNumBuilding(building.ID);
-					oCity:SetNumRealBuilding(building.ID, 0);
-					pCity:SetNumRealBuilding(building.ID, i);
-				end
 			end
 			print("Captial Moved!")
 		end
@@ -84,197 +79,6 @@ function NewBuildingEffects(iPlayer, iCity, iBuilding, bGold, bFaith)
 end ------Function End
 
 GameEvents.CityConstructed.Add(NewBuildingEffects)
-
--------Auto replacement for obsolete buildings, currently only for human player for stability issues
-function AutoBuildingReplace(ePlayer, iTech, bAdopted)
-
-	local player = Players[ePlayer]
-	if player == nil or not player:IsHuman() then return end
-
-	if player:GetNumCities() > 0 then
-		print("Auto Buildings Replacement!")
-
-		local text
-
-		local iOldBuilding = -1;
-		local iNewBuilding = -1;
-		local overrideBuilding = nil;
-		local bIsDoAddNBuilding = false;
-
-		if iTech == GameInfoTypes["TECH_DYNAMITE"] then
-			print("tech: DYNAMITE")
-			for city in player:Cities() do
-				bIsDoAddNBuilding = false;
-				iOldBuilding = GameInfoTypes["BUILDINGCLASS_STONE_WORKS"]
-				if city:IsHasBuildingClass(iOldBuilding) then
-					bIsDoAddNBuilding = true;
-					iOldBuilding = player:GetCivBuilding(iOldBuilding)
-				end
-				if not bIsDoAddNBuilding then
-					iOldBuilding = GameInfoTypes["BUILDINGCLASS_SAWMILL"]
-					if city:IsHasBuildingClass(iOldBuilding) then
-						bIsDoAddNBuilding = true;
-						iOldBuilding = player:GetCivBuilding(iOldBuilding)
-					end
-				end
-
-				if bIsDoAddNBuilding then
-					iNewBuilding = player:GetCivBuilding(GameInfoTypes["BUILDINGCLASS_MINGING_FACTORY"])
-					city:SetNumRealBuilding(iNewBuilding, 1);
-
-					text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_AUTO_BUILDING_REPLACEMENT", city:GetName(),
-						GameInfo.Buildings[iOldBuilding].Description)
-					text = text .. Locale.ConvertTextKey(GameInfo.Buildings[iNewBuilding].Description)
-					Events.GameplayAlertMessage(text)
-				end
-			end
-		elseif iTech == GameInfoTypes["TECH_INDUSTRIALIZATION"] then
-			print("tech: INDUSTRIALIZATION")
-			for city in player:Cities() do
-				bIsDoAddNBuilding = false;
-				iOldBuilding = GameInfoTypes["BUILDINGCLASS_WORKSHOP"]
-				if city:IsHasBuildingClass(iOldBuilding) then
-					bIsDoAddNBuilding = true;
-					iOldBuilding = player:GetCivBuilding(iOldBuilding)
-				end
-
-				if bIsDoAddNBuilding then
-					iNewBuilding = player:GetCivBuilding(GameInfoTypes["BUILDINGCLASS_FACTORY"])
-					city:SetNumRealBuilding(iNewBuilding, 1);
-
-					text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_AUTO_BUILDING_REPLACEMENT", city:GetName(),
-						GameInfo.Buildings[iOldBuilding].Description)
-					text = text .. Locale.ConvertTextKey(GameInfo.Buildings[iNewBuilding].Description)
-					Events.GameplayAlertMessage(text)
-				end
-
-				bIsDoAddNBuilding = false;
-				iOldBuilding = GameInfoTypes["BUILDINGCLASS_GRAIN_MILL"]
-				if city:IsHasBuildingClass(iOldBuilding) then
-					bIsDoAddNBuilding = true;
-					iOldBuilding = player:GetCivBuilding(iOldBuilding)
-				end
-				if not bIsDoAddNBuilding then
-					iOldBuilding = GameInfoTypes["BUILDINGCLASS_WATERMILL"]
-					if city:IsHasBuildingClass(iOldBuilding) then
-						bIsDoAddNBuilding = true;
-						iOldBuilding = player:GetCivBuilding(iOldBuilding)
-					end
-				end
-				if not bIsDoAddNBuilding then
-					iOldBuilding = GameInfoTypes["BUILDINGCLASS_STABLE"]
-					if city:IsHasBuildingClass(iOldBuilding) then
-						bIsDoAddNBuilding = true;
-						iOldBuilding = player:GetCivBuilding(iOldBuilding)
-					end
-				end
-				if not bIsDoAddNBuilding then
-					iOldBuilding = GameInfoTypes["BUILDINGCLASS_WINDMILL"]
-					if city:IsHasBuildingClass(iOldBuilding) then
-						bIsDoAddNBuilding = true;
-						iOldBuilding = player:GetCivBuilding(iOldBuilding)
-					end
-				end
-
-				if bIsDoAddNBuilding then
-					iNewBuilding = player:GetCivBuilding(GameInfoTypes["BUILDINGCLASS_MECHANIZED_FARM"])
-					city:SetNumRealBuilding(iNewBuilding, 1);
-
-					text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_AUTO_BUILDING_REPLACEMENT", city:GetName(),
-						GameInfo.Buildings[iOldBuilding].Description)
-					text = text .. Locale.ConvertTextKey(GameInfo.Buildings[iNewBuilding].Description)
-					Events.GameplayAlertMessage(text)
-				end
-			end
-		elseif iTech == GameInfoTypes["TECH_FERTILIZER"] then
-			print("tech: FERTILIZER")
-			for city in player:Cities() do
-				bIsDoAddNBuilding = false;
-				iOldBuilding = GameInfoTypes["BUILDINGCLASS_FISH_FARM"]
-				if city:IsHasBuildingClass(iOldBuilding) then
-					bIsDoAddNBuilding = true;
-					iOldBuilding = player:GetCivBuilding(iOldBuilding)
-				end
-				if not bIsDoAddNBuilding then
-					iOldBuilding = GameInfoTypes["BUILDINGCLASS_GRANARY"]
-					if city:IsHasBuildingClass(iOldBuilding) then
-						bIsDoAddNBuilding = true;
-						iOldBuilding = player:GetCivBuilding(iOldBuilding)
-					end
-				end
-
-				if bIsDoAddNBuilding then
-					iNewBuilding = player:GetCivBuilding(GameInfoTypes["BUILDINGCLASS_GRAIN_DEPOT"])
-					city:SetNumRealBuilding(iNewBuilding, 1);
-
-					text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_AUTO_BUILDING_REPLACEMENT", city:GetName(),
-						GameInfo.Buildings[iOldBuilding].Description)
-					text = text .. Locale.ConvertTextKey(GameInfo.Buildings[iNewBuilding].Description)
-					Events.GameplayAlertMessage(text)
-				end
-			end
-		elseif iTech == GameInfoTypes["TECH_URBANLIZATION"] then
-			print("tech: URBANLIZATION")
-			for city in player:Cities() do
-				bIsDoAddNBuilding = false;
-				iOldBuilding = GameInfoTypes["BUILDINGCLASS_AQUEDUCT"]
-				if city:IsHasBuildingClass(iOldBuilding) then
-					bIsDoAddNBuilding = true;
-					iOldBuilding = player:GetCivBuilding(iOldBuilding)
-				end
-
-				if bIsDoAddNBuilding then
-					iNewBuilding = player:GetCivBuilding(GameInfoTypes["BUILDINGCLASS_TAP_WATER_SUPPLY"])
-					city:SetNumRealBuilding(iNewBuilding, 1);
-
-					text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_AUTO_BUILDING_REPLACEMENT", city:GetName(),
-						GameInfo.Buildings[iOldBuilding].Description)
-					text = text .. Locale.ConvertTextKey(GameInfo.Buildings[iNewBuilding].Description)
-					Events.GameplayAlertMessage(text)
-				end
-			end
-		elseif iTech == GameInfoTypes["TECH_COMBUSTION"] then
-			print("tech: COMBUSTION")
-			for city in player:Cities() do
-				bIsDoAddNBuilding = false;
-				iOldBuilding = GameInfoTypes["BUILDINGCLASS_STAGECOACH"]
-				if city:IsHasBuildingClass(iOldBuilding) then
-					bIsDoAddNBuilding = true;
-					iOldBuilding = player:GetCivBuilding(iOldBuilding)
-				end
-
-				if bIsDoAddNBuilding then
-					iNewBuilding = player:GetCivBuilding(GameInfoTypes["BUILDINGCLASS_BUS_STATION"])
-					city:SetNumRealBuilding(iNewBuilding, 1);
-
-					text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_AUTO_BUILDING_REPLACEMENT", city:GetName(),
-						GameInfo.Buildings[iOldBuilding].Description)
-					text = text .. Locale.ConvertTextKey(GameInfo.Buildings[iNewBuilding].Description)
-					Events.GameplayAlertMessage(text)
-				end
-			end
-		elseif iTech == GameInfoTypes["TECH_RAILROAD"] then
-			print("tech: RAILROAD")
-
-			text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_AUTO_RAILROAD_REPLACEMENT")
-			Events.GameplayAlertMessage(text)
-
-			local iRoadID = GameInfoTypes.ROUTE_ROAD
-			local iRailID = GameInfoTypes.ROUTE_RAILROAD
-			for plotLoop = 0, Map.GetNumPlots() - 1, 1 do
-				local plot = Map.GetPlotByIndex(plotLoop)
-				--Update All route
-				if plot:GetRouteType() == iRoadID then
-					plot:SetRouteType(iRailID)
-				end
-			end
-		else
-
-		end
-	end
-end ------Function End
-
-GameEvents.PlayerSetHasTech.Add(AutoBuildingReplace)
 
 local ibRes_Man = GameInfoTypes["BUILDING_CIV_S_P_MAN_RESOURCES"]
 local ibRes_Con = GameInfoTypes["BUILDING_CIV_S_P_CON_RESOURCES"]

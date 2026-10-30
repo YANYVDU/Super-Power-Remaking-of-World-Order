@@ -459,6 +459,13 @@ function RefreshCityBanner(cityBanner, iActiveTeam, iActivePlayer)
 					sCityScaleIconTT = sCityScaleIconTT
 						.. "[NEWLINE][NEWLINE]"
 						.. Locale.ConvertTextKey("TXT_KEY_CITY_NO_UTILITY_HELP")
+					-- WHO resolution: the city keeps part of its surplus even without the building
+					local iWHOKept = (Game.GetLeagueWHOSanitationFoodKeptPercent and Game.GetLeagueWHOSanitationFoodKeptPercent()) or 0
+					if iWHOKept > 0 then
+						sCityScaleIconTT = sCityScaleIconTT
+							.. "[NEWLINE]"
+							.. Locale.ConvertTextKey("TXT_KEY_WHO_FOOD_KEPT_HELP", iWHOKept)
+					end
 				end
 				if sCityScaleIconTT ~= nil then
 					controls.CityScaleIcon:SetHide(false)
@@ -1641,4 +1648,28 @@ if ContextPtr:IsHotLoad() then
 		i = i + 1
 		player = Players[i]
 	end
+end
+
+-- SP: refresh every city-state banner's prestige tooltip immediately when a city-state's
+-- ally relation changes. Diplomatic Prestige + ally-count are shown in the hovered banner
+-- tooltip and were otherwise only rebuilt on the next turn's banner refresh.
+function RefreshCityStatePrestigeOnAllyChange()
+	local iActivePlayer = Game.GetActivePlayer()
+	local iActiveTeam = Game.GetActiveTeam()
+	for iPlayer, inst in pairs(Instances) do
+		if Players[iPlayer] and Players[iPlayer]:IsMinorCiv() then
+			for iCityID, cityBanner in pairs(inst) do
+				if cityBanner and cityBanner.Controls and cityBanner.Controls.BannerButton then
+					RefreshCityBanner(cityBanner, iActiveTeam, iActivePlayer)
+				end
+			end
+		end
+	end
+end
+
+if Events.MinorAlliesChanged then
+	Events.MinorAlliesChanged.Add(RefreshCityStatePrestigeOnAllyChange)
+end
+if GameEvents.MinorAlliesChanged then
+	GameEvents.MinorAlliesChanged.Add(RefreshCityStatePrestigeOnAllyChange)
 end

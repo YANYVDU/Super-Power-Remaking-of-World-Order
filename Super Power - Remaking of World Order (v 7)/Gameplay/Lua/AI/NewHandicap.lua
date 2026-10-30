@@ -214,8 +214,10 @@ function CheckHumanScore(playerID)
     end
 
     if Game.GetElapsedGameTurns() % 10 ~= 0 then
-        print("Check Human Score every 10 turns!");
         return;
+    end
+    if playerID == Game.GetActivePlayer() then
+        print("Check Human Score every 10 turns!");
     end
 
     local HumanScore = HumanPlayer:GetScore()
@@ -282,7 +284,7 @@ function PlayerIntoNewEra(playerID, era) -- AI will get bonus when Human Player 
     if not player:IsMajorCiv() or handicap < 3 then return end
     -- Force AI to build improvemnts on resources since they always forget
     if player:IsHuman() then 
-        ImproveTiles(false) 
+        ImproveTiles(false, false)
         return
     end
     

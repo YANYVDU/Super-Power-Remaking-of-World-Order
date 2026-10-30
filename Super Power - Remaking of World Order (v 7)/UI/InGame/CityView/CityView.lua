@@ -482,9 +482,12 @@ function AddBuildingButton( pCity, building )
 					end
 				end
 
-				BToolTipString =  ToolTipString .. "[NEWLINE]----------------[NEWLINE]";
-				BToolTipString = BToolTipString .. Locale.ConvertTextKey("TXT_KEY_CITYVIEW_SPECIALIST_TOOLTIP", GameInfo.Specialists[iSpecialistID].Description);
-				
+				-- MOD: the corner keeps its "click to add / right-click to remove a Specialist of this
+				-- type" behaviour, but the request no longer names this building: the slot belongs to the
+				-- City (see CvCity::GetMaxSpecialistCount) and the building merely supplies it. Handing
+				-- NO_BUILDING (-1) to the task is what drops the old per-building binding.
+				-- Old behaviour removed: SetVoid2( buildingID ) tied the click to this building.
+				local bKnownSpecialist = (iSpecialistID >= 1 and iSpecialistID <= 6);
 				if iSpecialistID == 1 then	-- SPECIALIST_WRITER
 					controlTable.SlotTexture:SetTexture(writerTexture);
 					controlTable.BuildingSpecialistSlot:SetTexture(writerTexture);
@@ -505,30 +508,37 @@ function AddBuildingButton( pCity, building )
 					controlTable.BuildingSpecialistSlot:SetTexture(engineerTexture);
 				end
 				
+				BToolTipString =  ToolTipString .. "[NEWLINE]----------------[NEWLINE]";
+				BToolTipString = BToolTipString .. Locale.ConvertTextKey("TXT_KEY_CITYVIEW_SPECIALIST_TOOLTIP", GameInfo.Specialists[iSpecialistID].Description);
+				
 				controlTable.SlotTexture:SetToolTipString( ToolTipString );
 				controlTable.BuildingSpecialistSlot:SetToolTipString( BToolTipString );
 				controlTable.BuildingSpecialistSlot:SetVoid1( iSpecialistID );
-				controlTable.BuildingSpecialistSlot:SetVoid2( buildingID );
+				controlTable.BuildingSpecialistSlot:SetVoid2( -1 );
 				controlTable.BuildingSpecialistSlot:RegisterCallback( Mouse.eLClick, AddSpecialist );
 				controlTable.BuildingSpecialistSlot:RegisterCallback( Mouse.eRClick, RemoveSpecialist );
 				
+				-- A type outside the six above would leave the previous instance icon behind, so show
+				-- nothing at all rather than a stale texture.
 				if (UI.IsCityScreenViewingMode()) then
-					controlTable.SlotTexture:SetHide( false );
+					controlTable.SlotTexture:SetHide( not bKnownSpecialist );
 					controlTable.BuildingSpecialistSlot:SetHide( true );
 				else
 					controlTable.SlotTexture:SetHide( true );
-					controlTable.BuildingSpecialistSlot:SetHide( false );
+					controlTable.BuildingSpecialistSlot:SetHide( not bKnownSpecialist );
 				end
 			
-				local iNumAssignedSpecialists = pCity:GetNumSpecialistsInBuilding(buildingID);
-				if (iNumAssignedSpecialists > 0) then
-					local strYield = table.concat(yields, " ");
-					local str = Locale.Lookup("TXT_KEY_CITYVIEW_BUILDING_SPECIALIST_YIELD", iNumAssignedSpecialists, pSpecialistInfo.Description, strYield);
-				
-					strToolTip = strToolTip .. "[NEWLINE][NEWLINE]" .. str;
-				end
+				-- MOD: a Specialist is no longer tied to the building it was assigned from, so the
+				-- tooltip advertises the slots this building supplies instead of how many
+				-- occupants happen to be booked against it (which is internal bookkeeping and
+				-- would read as "nothing happened" right after a click).
+				-- Old behaviour removed: read GetNumSpecialistsInBuilding(buildingID).
+				local strYield = table.concat(yields, " ");
+				local str = Locale.Lookup("TXT_KEY_CITYVIEW_BUILDING_SPECIALIST_YIELD", iNumSpecialistsAllowed, pSpecialistInfo.Description, strYield);
+
+				strToolTip = strToolTip .. "[NEWLINE][NEWLINE]" .. str;
+				controlTable.BuildingSpecialistSlotBox:SetHide(false);
 			end
-			controlTable.BuildingSpecialistSlotBox:SetHide(false);
 		else
 			controlTable.BuildingSpecialistSlotBox:SetHide(true);
 		end
@@ -1116,8 +1126,7 @@ function OnCityViewUpdate()
 		local iNumScientists = 0;
 		local iNumMerchants  = 0;
 		local iNumEngineers  = 0;
-		local iNumWorkers    = 0;
-		
+
 		local numWritersInThisCity    = pCity:GetSpecialistCount( 1 );
 		local numArtistsInThisCity    = pCity:GetSpecialistCount( 2 );
 		local numMusiciansInThisCity  = pCity:GetSpecialistCount( 3 );
@@ -1341,28 +1350,15 @@ function OnCityViewUpdate()
 		end
 			
 		-- specialists Allowed
-		for building in GameInfo.Buildings() do
-			local buildingID = building.ID;
-			if  pCity:IsHasBuilding(buildingID)
-			and pCity:GetNumSpecialistsAllowedByBuilding(buildingID) > 0
-			then
-				if     building.SpecialistType == "SPECIALIST_WRITER" then
-					iNumWriters    = iNumWriters    + pCity:GetNumSpecialistsAllowedByBuilding(buildingID);
-				elseif building.SpecialistType == "SPECIALIST_ARTIST" then
-					iNumArtists    = iNumArtists    + pCity:GetNumSpecialistsAllowedByBuilding(buildingID);
-				elseif building.SpecialistType == "SPECIALIST_MUSICIAN" then
-					iNumMusicians  = iNumMusicians  + pCity:GetNumSpecialistsAllowedByBuilding(buildingID);
-				elseif building.SpecialistType == "SPECIALIST_SCIENTIST" then
-					iNumScientists = iNumScientists + pCity:GetNumSpecialistsAllowedByBuilding(buildingID);
-				elseif building.SpecialistType == "SPECIALIST_MERCHANT" then
-					iNumMerchants  = iNumMerchants  + pCity:GetNumSpecialistsAllowedByBuilding(buildingID);
-				elseif building.SpecialistType == "SPECIALIST_ENGINEER" then
-					iNumEngineers  = iNumEngineers  + pCity:GetNumSpecialistsAllowedByBuilding(buildingID);
-				else
-					iNumWorkers    = iNumWorkers    + pCity:GetNumSpecialistsAllowedByBuilding(buildingID);
-				end
-			end
-		end
+		-- MOD: the number of slots of each specialist type is recorded directly on the City
+		-- (CvCity::GetMaxSpecialistCount) and is no longer computed by walking the buildings.
+		-- Old behaviour removed: looped GameInfo.Buildings() adding GetNumSpecialistsAllowedByBuilding(buildingID).
+		iNumWriters    = pCity:GetMaxSpecialistCount( 1 );
+		iNumArtists    = pCity:GetMaxSpecialistCount( 2 );
+		iNumMusicians  = pCity:GetMaxSpecialistCount( 3 );
+		iNumScientists = pCity:GetMaxSpecialistCount( 4 );
+		iNumMerchants  = pCity:GetMaxSpecialistCount( 5 );
+		iNumEngineers  = pCity:GetMaxSpecialistCount( 6 );
 		
 		local specialistSlotsSum = iNumWriters + iNumArtists + iNumMusicians + iNumScientists + iNumMerchants + iNumEngineers;
 		local specialistSum = numWritersInThisCity + numArtistsInThisCity + numMusiciansInThisCity + numScientistsInThisCity + numMerchantsInThisCity + numEngineersInThisCity;
@@ -2562,29 +2558,21 @@ function AddSpecialist( iSpecialist, iBuildingOriNum )
 					Controls.NoAutoSpecialistCheckbox:SetCheck(true);
 				end
 				
-				-- iBuildingOriNum >= 0 is iBuildingID | iBuildingOriNum < 0 is -TaskTime(s)
-				if iBuildingOriNum >= 0 then
-					local iBuilding = iBuildingOriNum;
-					-- If we can add something, add it
-					Game.SelectedCitiesGameNetMessage(GameMessageTypes.GAMEMESSAGE_DO_TASK, TaskTypes.TASK_ADD_SPECIALIST, iSpecialist, iBuilding);
-				else
-					local iNum = 0;
-					for building in GameInfo.Buildings{SpecialistType = GameInfo.Specialists[iSpecialist].Type} do
-						if iNum == - iBuildingOriNum then
-							break;
-						end
-						if (pCity:IsHasBuilding(building.ID) and pCity:IsCanAddSpecialistToBuilding(building.ID)) then
-						    local iDoTask = pCity:GetNumSpecialistsAllowedByBuilding(building.ID) - pCity:GetNumSpecialistsInBuilding(building.ID);
-						    for j = 1, iDoTask do
-							if iNum == - iBuildingOriNum then
-								break;
-							end
-							-- If we can add something, add it
-							Game.SelectedCitiesGameNetMessage(GameMessageTypes.GAMEMESSAGE_DO_TASK, TaskTypes.TASK_ADD_SPECIALIST, iSpecialist, building.ID);
-							iNum = iNum + 1;
-						    end
-						end
-					end
+				-- A slot is owned by the City, so only the specialist type is named; passing
+				-- NO_BUILDING (-1) as the building selects the city-wide slot pool in C++.
+				-- iBuildingOriNum is negative for a clicked slot position and says how many
+				-- citizens the click stands for (clicking the n-th slot asks for n), so the
+				-- request is repeated that often; the C++ side rejects the repeats that no
+				-- longer fit. The building-ID form is meaningless now and counts as one.
+				-- Old behaviour removed: walked GameInfo.Buildings{SpecialistType = ...} and
+				-- dispatched one task per building slot named by iBuildingOriNum.
+				local iNumToAdd = 1;
+				if iBuildingOriNum ~= nil and iBuildingOriNum < 0 then
+					iNumToAdd = -iBuildingOriNum;
+				end
+
+				for i = 1, iNumToAdd do
+					Game.SelectedCitiesGameNetMessage(GameMessageTypes.GAMEMESSAGE_DO_TASK, TaskTypes.TASK_ADD_SPECIALIST, iSpecialist, -1);
 				end
 			end
 		end
@@ -2601,30 +2589,16 @@ function RemoveSpecialist( iSpecialist, iBuildingOriNum )
 					Game.SelectedCitiesGameNetMessage(GameMessageTypes.GAMEMESSAGE_DO_TASK, TaskTypes.TASK_NO_AUTO_ASSIGN_SPECIALISTS, -1, -1, true);
 					Controls.NoAutoSpecialistCheckbox:SetCheck(true);
 				end
-				
-				-- iBuildingOriNum >= 0 is iBuildingID | iBuildingOriNum < 0 is -TaskTime(s)
-				if iBuildingOriNum >= 0 then
-					local iBuilding = iBuildingOriNum;
-					-- If we can remove something, remove it
-					Game.SelectedCitiesGameNetMessage(GameMessageTypes.GAMEMESSAGE_DO_TASK, TaskTypes.TASK_REMOVE_SPECIALIST, iSpecialist, iBuilding);
-				else
-					local iNum = 0;
-					for building in GameInfo.Buildings{SpecialistType = GameInfo.Specialists[iSpecialist].Type} do
-						if iNum == - iBuildingOriNum then
-							break;
-						end
-						if (pCity:IsHasBuilding(building.ID) and pCity:GetNumSpecialistsInBuilding(building.ID) > 0) then
-						    local iDoTask = pCity:GetNumSpecialistsInBuilding(building.ID);
-						    for i = 1, iDoTask do
-							if iNum == - iBuildingOriNum then
-								break;
-							end
-							-- If we can remove something, remove it
-							Game.SelectedCitiesGameNetMessage(GameMessageTypes.GAMEMESSAGE_DO_TASK, TaskTypes.TASK_REMOVE_SPECIALIST, iSpecialist, building.ID);
-							iNum = iNum + 1;
-						    end
-						end
-					end
+
+				-- See AddSpecialist above: the building is no longer part of the request, and
+				-- the (negative) slot position says how many citizens to take out.
+				local iNumToRemove = 1;
+				if iBuildingOriNum ~= nil and iBuildingOriNum < 0 then
+					iNumToRemove = -iBuildingOriNum;
+				end
+
+				for i = 1, iNumToRemove do
+					Game.SelectedCitiesGameNetMessage(GameMessageTypes.GAMEMESSAGE_DO_TASK, TaskTypes.TASK_REMOVE_SPECIALIST, iSpecialist, -1);
 				end
 			else
 				Network.SendDoTask(pCity:GetID(), TaskTypes.TASK_REMOVE_SLACKER, 0, -1, false, bAlt, bShift, bCtrl);
@@ -2966,7 +2940,7 @@ function OnYes( )
 		then
 			print("City Hall sold! Set Puppet!")
 			
-			pCity:SetNumRealBuilding(GameInfoTypes["BUILDING_PUPPET_GOVERNEMENT"],1);
+			pCity:SendAndExecuteLuaFunction(pCity.SetNumRealBuilding, GameInfoTypes["BUILDING_PUPPET_GOVERNEMENT"], 1)
 			--Policy United Front effect:if city has Military Base, donnot sell Military Buildings
 			local pPlayer = Players[pCity:GetOwner()]
 			if pPlayer == nil then return end
@@ -2992,16 +2966,16 @@ function OnYes( )
 				or  building.BuildingClass == "BUILDINGCLASS_ARSENAL"
 				or  building.BuildingClass == "BUILDINGCLASS_MILITARY_BASE") and not isHasUnitedFront))
 				then
-					pCity:SetNumRealBuilding(building.ID, 0);
+					pCity:SendAndExecuteLuaFunction(pCity.SetNumRealBuilding, building.ID, 0)
 				end
 			end
 			
-			pCity:SetPuppet(true)
-			pCity:SetProductionAutomated(true)
+			pCity:SendAndExecuteLuaFunction(pCity.SetPuppet, true)
+			pCity:SendAndExecuteLuaFunction(pCity.SetProductionAutomated, true)
 			
 			local CityPop = pCity:GetPopulation()
 			local CityResTime = CityPop * 0.5
-			pCity:ChangeResistanceTurns(CityResTime)
+			pCity:SendAndExecuteLuaFunction(pCity.ChangeResistanceTurns, CityResTime)
 		end
 		--SP Selling City Hall Create Puppet End
 	end

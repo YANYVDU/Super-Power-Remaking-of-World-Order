@@ -28,7 +28,6 @@ include("NewBuildingRule");
 include("TerrainTransform");
 include("UnitSpecialButtons");
 include("UnitSpecialButtons_SP8");
--- Utility
-include("Policy_FreeBuildingClass");
 -- CSD
 include("NewCityStateDiplomaticRule");
+include("CSUA_RefreshOnLoad");

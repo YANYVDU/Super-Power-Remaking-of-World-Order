@@ -432,13 +432,13 @@ function GetCivControl(im, iPlayer, bCanTrade)
 				pDeal:IsPossibleToTradeItem(iActivePlayer, iPlayer, TradeableItems.TRADE_ITEM_OPEN_BORDERS, Game.GetDealDuration())) then
 			sBordersIcon = "[ICON_TRADE]"
 			sBordersTip = "TXT_KEY_DO_TRADE_STATUS_BORDERS_YES_TT"
-		elseif (pTeam:IsAllowsOpenBordersToTeam(iActiveTeam) and pActiveTeam:IsAllowsOpenBordersToTeam(iTeam)) then
+		elseif (Players[iPlayer]:IsAllowsOpenBordersToPlayer(iActivePlayer) and Players[iActivePlayer]:IsAllowsOpenBordersToPlayer(iPlayer)) then
 			sBordersIcon = "[ICON_TRADE_WHITE]"
 			sBordersTip = "TXT_KEY_DO_TRADE_STATUS_BORDERS_NO_TT"
-		elseif (pTeam:IsAllowsOpenBordersToTeam(iActiveTeam)) then
+		elseif (Players[iPlayer]:IsAllowsOpenBordersToPlayer(iActivePlayer)) then
 			sBordersIcon = "[ICON_TRADE_WHITE]"
 			sBordersTip = "TXT_KEY_DO_TRADE_STATUS_BORDERS_US_TT"
-		elseif (pActiveTeam:IsAllowsOpenBordersToTeam(iTeam)) then
+		elseif (Players[iActivePlayer]:IsAllowsOpenBordersToPlayer(iPlayer)) then
 			sBordersIcon = "[ICON_TRADE_WHITE]"
 			sBordersTip = "TXT_KEY_DO_TRADE_STATUS_BORDERS_THEM_TT"
 		end
@@ -446,7 +446,9 @@ function GetCivControl(im, iPlayer, bCanTrade)
 	controlTable.BordersText:SetText(sBordersIcon)
 	controlTable.BordersText:SetToolTipString(Locale.ConvertTextKey(sBordersTip))
 
-	local sGoldText = string.format("[ICON_GOLD]%d / %d", pDeal:GetGoldAvailable(iPlayer, -1), pPlayer:CalculateGoldRate())
+	-- Economic Aid is not part of CalculateGoldRate(); the netted, floored figure comes from C++
+	-- (CvPlayer::GetTradableGoldRate) so this shows what the engine will actually accept.
+	local sGoldText = string.format("[ICON_GOLD]%d / %d", pDeal:GetGoldAvailable(iPlayer, -1), pPlayer:GetTradableGoldRate())
 	local sGoldTip = "TXT_KEY_DO_TRADE_STATUS_GOLD_TT"
 	controlTable.GoldText:SetText(sGoldText)
 	controlTable.GoldText:SetToolTipString(Locale.ConvertTextKey(sGoldTip))

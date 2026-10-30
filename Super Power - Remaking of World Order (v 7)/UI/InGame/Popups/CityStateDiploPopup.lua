@@ -27,6 +27,8 @@ local kiGiftedGold = 4;
 local kiPledgedToProtect = 5;
 local kiDeclaredWar = 6;
 local kiRevokedProtection = 7;
+local kiEconomicAid = 8;
+local kiRevokedEconomicAid = 9;
 local m_iLastAction = kiNoAction;
 local m_iPendingAction = kiNoAction; -- For bullying dialog popups
 
@@ -178,7 +180,7 @@ function OnDisplay()
 	local iGrowthThreshold = pActivePlayerCapital:GrowthThreshold();
 	local iFoodToBuy = iGrowthThreshold * iFoodGrowthRate / 100;
 	local iGoldToPay = iFoodToBuy * iFoodPrice;
-	local iLastBuyFoodTurn = load(pActivePlayer, "iLastBuyFoodTurn") or -1;
+	local iLastBuyFoodTurn = pActivePlayer:GetLastVeniceBuyFoodTurn();
 	local bIsVenice = pActivePlayer:GetCivilizationType() == GameInfoTypes.CIVILIZATION_VENICE;
 	local bShowBuyFood = bIsVenice and bAllies;
 	local bCanBuyFood = bAllies and 
@@ -560,7 +562,68 @@ function OnDisplay()
 		Controls.RevokePledgeLabel:SetText(strRevokeProtectButton);
 		Controls.RevokePledgeButton:SetToolTipString(strRevokeProtectTT);
 	end
-	
+
+	-- Economic Aid (Super Power V11)
+	local bShowAidButton = false;
+	local bEnableAidButton = false;
+	local bShowRevokeAidButton = false;
+	local bEnableRevokeAidButton = false;
+	local strAidButton = Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID");
+	local strAidTT = Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_TT", Game.GetEconomicAidWorldEra());
+	local strRevokeAidButton = Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_REVOKE");
+	local strRevokeAidTT = Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_REVOKE_TT");
+
+	if (not bWar and Game.IsEconomicAidActive()) then
+		-- Round status: all city-states share the same global round; show which round
+		-- we are in and how many turns remain before the next round starts.
+		local strRoundStatus = Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_ROUND_STATUS", Game.GetEconomicAidRound(), Game.GetEconomicAidRoundTurnsLeft());
+		Controls.EconomicAidRoundLabel:SetText(strRoundStatus);
+		Controls.EconomicAidRoundLabel:SetHide(false);
+		Controls.EconomicAidRoundLine:SetHide(false);
+		-- Already providing aid
+		if (pPlayer:IsEconomicAidFromMajor(iActivePlayer)) then
+			bShowRevokeAidButton = true;
+			if (pPlayer:CanMajorWithdrawEconomicAid(iActivePlayer)) then
+				bEnableRevokeAidButton = true;
+			else
+				bEnableRevokeAidButton = false;
+			end
+		-- Not providing aid
+		else
+			bShowAidButton = true;
+			if (pPlayer:CanMajorStartEconomicAid(iActivePlayer)) then
+				bEnableAidButton = true;
+			else
+				bEnableAidButton = false;
+				strAidButton = "[COLOR_WARNING_TEXT]" .. strAidButton .. "[ENDCOLOR]";
+				if (not pPlayer:IsEconomicAidOpenThisRound()) then
+					strAidTT = strAidTT .. Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_DISABLED_CLOSED_TT");
+				else
+					strAidTT = strAidTT .. Locale.Lookup("TXT_KEY_POP_CSTATE_ECONOMIC_AID_DISABLED_LOCKED_TT");
+				end
+			end
+		end
+	else
+		Controls.EconomicAidRoundLabel:SetHide(true);
+		Controls.EconomicAidRoundLine:SetHide(true);
+	end
+	Controls.AidAnim:SetHide(not bEnableAidButton);
+	Controls.AidButton:SetHide(not bShowAidButton);
+	if (bShowAidButton) then
+		Controls.AidLabel:SetText(strAidButton);
+		Controls.AidButton:SetToolTipString(strAidTT);
+	end
+	Controls.RevokeAidAnim:SetHide(not bEnableRevokeAidButton);
+	Controls.RevokeAidButton:SetHide(not bShowRevokeAidButton);
+	if (bShowRevokeAidButton) then
+		Controls.RevokeAidLabel:SetText(strRevokeAidButton);
+		Controls.RevokeAidButton:SetToolTipString(strRevokeAidTT);
+	end
+
+	-- Aid point spending (Super Power V11): entry point to the aid-point submenu, shown only
+	-- while the active player has aid points banked with this city-state.
+	RefreshAidPoints();
+
 	if (Game.IsOption(GameOptionTypes.GAMEOPTION_ALWAYS_WAR)) then
 		Controls.PeaceButton:SetHide(true);
 	end
@@ -572,20 +635,27 @@ function OnDisplay()
 		Controls.WarButton:SetHide(true);
 	end
 	
-	-- Buyout (Austria UA)
+	-- Buyout (Austria UA). Super Power V11: the buyout also burns aid points banked with this
+	-- city-state, and annexing permanently grants us its ally-tier unique ability.
 	local iBuyoutCost = pPlayer:GetBuyoutCost(iActivePlayer);
+	local iAnnexAidCost = Game.GetAidPointCostAnnexCityState();
+	local iAnnexAidPoints = pPlayer:GetEconomicAidPoints(iActivePlayer);
 	local strButtonLabel = Locale.ConvertTextKey( "TXT_KEY_POP_CSTATE_BUYOUT");
-	local strToolTip = Locale.ConvertTextKey( "TXT_KEY_POP_CSTATE_BUYOUT_TT", iBuyoutCost );
+	local strToolTip = Locale.ConvertTextKey( "TXT_KEY_POP_CSTATE_BUYOUT_TT", iBuyoutCost, iAnnexAidCost );
 	if (pPlayer:CanMajorBuyout(iActivePlayer) and not bWar) then
 		Controls.BuyoutButton:SetHide(false);
 		Controls.BuyoutAnim:SetHide(false);
 	elseif (pActivePlayer:IsAbleToAnnexCityStates() and not bWar) then
-		if (pPlayer:GetAlly() == iActivePlayer) then
-			local iAllianceTurns = pPlayer:GetAlliedTurns();
-			strButtonLabel = "[COLOR_WARNING_TEXT]" .. strButtonLabel .. "[ENDCOLOR]";
-			strToolTip = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_ALLY_TT", GameDefines.MINOR_CIV_BUYOUT_TURNS, iAllianceTurns, iBuyoutCost);
+		strButtonLabel = "[COLOR_WARNING_TEXT]" .. strButtonLabel .. "[ENDCOLOR]";
+		if (pPlayer:GetAlly() ~= iActivePlayer) then
+			strToolTip = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_TT", GameDefines.MINOR_CIV_BUYOUT_TURNS, iBuyoutCost);
+		elseif (pPlayer:GetAlliedTurns() < GameDefines.MINOR_CIV_BUYOUT_TURNS) then
+			strToolTip = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_ALLY_TT", GameDefines.MINOR_CIV_BUYOUT_TURNS, pPlayer:GetAlliedTurns(), iBuyoutCost);
+		elseif (iAnnexAidCost > 0 and iAnnexAidPoints < iAnnexAidCost) then
+			-- Everything else is satisfied and only the aid points are short: say exactly that,
+			-- instead of falling through to the generic "must be allied for N turns" text.
+			strToolTip = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_AID_TT", iBuyoutCost, iAnnexAidCost, iAnnexAidPoints);
 		else
-			strButtonLabel = "[COLOR_WARNING_TEXT]" .. strButtonLabel .. "[ENDCOLOR]";
 			strToolTip = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_BUYOUT_DISABLED_TT", GameDefines.MINOR_CIV_BUYOUT_TURNS, iBuyoutCost);
 		end
 		--antonjs: todo: disable button entirely, in case bWar doesn't update in time for the callback to disallow buyout in wartime
@@ -596,7 +666,39 @@ function OnDisplay()
 	end
 	Controls.BuyoutLabel:SetText( strButtonLabel )
 	Controls.BuyoutButton:SetToolTipString( strToolTip );
-	
+
+	-- Faith Belief Purchase (Wittenberg CS UA: buy a self-chosen belief to add to the ally-led religion)
+	local iBeliefPurchaseCost = Game.GetCityStateFaithBeliefPurchaseCost(g_iMinorCivID);
+	local bShowBeliefPurchaseButton = (iBeliefPurchaseCost > 0);
+	local bEnableBeliefPurchaseButton = bShowBeliefPurchaseButton and (pActivePlayer:GetFaith() >= iBeliefPurchaseCost);
+	local strBeliefPurchaseButton = Locale.Lookup("TXT_KEY_POP_CSTATE_BELIEF_PURCHASE") .. " (" .. iBeliefPurchaseCost .. "[ICON_FAITH])";
+	local strBeliefPurchaseTT = Locale.Lookup("TXT_KEY_POP_CSTATE_BELIEF_PURCHASE_TT", iBeliefPurchaseCost);
+	if (bShowBeliefPurchaseButton and not bEnableBeliefPurchaseButton) then
+		strBeliefPurchaseButton = "[COLOR_WARNING_TEXT]" .. strBeliefPurchaseButton .. "[ENDCOLOR]";
+	end
+	Controls.BeliefPurchaseAnim:SetHide(not bEnableBeliefPurchaseButton);
+	Controls.BeliefPurchaseButton:SetHide(not bShowBeliefPurchaseButton);
+	if (bShowBeliefPurchaseButton) then
+		Controls.BeliefPurchaseLabel:SetText(strBeliefPurchaseButton);
+		Controls.BeliefPurchaseButton:SetToolTipString(strBeliefPurchaseTT);
+	end
+
+	-- Faith Pantheon Purchase (La Venta CS UA: buy an idle pantheon belief to add to the ally-led religion)
+	local iPantheonPurchaseCost = Game.GetCityStateFaithPantheonPurchaseCost(g_iMinorCivID);
+	local bShowPantheonPurchaseButton = (iPantheonPurchaseCost > 0);
+	local bEnablePantheonPurchaseButton = bShowPantheonPurchaseButton and (pActivePlayer:GetFaith() >= iPantheonPurchaseCost);
+	local strPantheonPurchaseButton = Locale.Lookup("TXT_KEY_POP_CSTATE_PANTHEON_PURCHASE") .. " (" .. iPantheonPurchaseCost .. "[ICON_FAITH])";
+	local strPantheonPurchaseTT = Locale.Lookup("TXT_KEY_POP_CSTATE_PANTHEON_PURCHASE_TT", iPantheonPurchaseCost);
+	if (bShowPantheonPurchaseButton and not bEnablePantheonPurchaseButton) then
+		strPantheonPurchaseButton = "[COLOR_WARNING_TEXT]" .. strPantheonPurchaseButton .. "[ENDCOLOR]";
+	end
+	Controls.PantheonPurchaseAnim:SetHide(not bEnablePantheonPurchaseButton);
+	Controls.PantheonPurchaseButton:SetHide(not bShowPantheonPurchaseButton);
+	if (bShowPantheonPurchaseButton) then
+		Controls.PantheonPurchaseLabel:SetText(strPantheonPurchaseButton);
+		Controls.PantheonPurchaseButton:SetToolTipString(strPantheonPurchaseTT);
+	end
+
 	Controls.DescriptionLabel:SetText(strText);
 	
 	SetButtonSize(Controls.PeaceLabel, Controls.PeaceButton, Controls.PeaceAnim, Controls.PeaceButtonHL);
@@ -605,16 +707,22 @@ function OnDisplay()
 	SetButtonSize(Controls.WarLabel, Controls.WarButton, Controls.WarAnim, Controls.WarButtonHL);
 	SetButtonSize(Controls.PledgeLabel, Controls.PledgeButton, Controls.PledgeAnim, Controls.PledgeButtonHL);
 	SetButtonSize(Controls.RevokePledgeLabel, Controls.RevokePledgeButton, Controls.RevokePledgeAnim, Controls.RevokePledgeButtonHL);
+	SetButtonSize(Controls.AidLabel, Controls.AidButton, Controls.AidAnim, Controls.AidButtonHL);
+	SetButtonSize(Controls.RevokeAidLabel, Controls.RevokeAidButton, Controls.RevokeAidAnim, Controls.RevokeAidButtonHL);
 	SetButtonSize(Controls.VeniceBuyFoodLabel, Controls.VeniceBuyFoodButton, Controls.VeniceBuyFoodAnim, Controls.VeniceBuyFoodButtonHL);
 	SetButtonSize(Controls.NoUnitSpawningLabel, Controls.NoUnitSpawningButton, Controls.NoUnitSpawningAnim, Controls.NoUnitSpawningButtonHL);
 	SetButtonSize(Controls.BuyoutLabel, Controls.BuyoutButton, Controls.BuyoutAnim, Controls.BuyoutButtonHL);
+	SetButtonSize(Controls.BeliefPurchaseLabel, Controls.BeliefPurchaseButton, Controls.BeliefPurchaseAnim, Controls.BeliefPurchaseButtonHL);
+	SetButtonSize(Controls.PantheonPurchaseLabel, Controls.PantheonPurchaseButton, Controls.PantheonPurchaseAnim, Controls.PantheonPurchaseButtonHL);
 	SetButtonSize(Controls.InfluenceLabel, Controls.InfluenceButton, Controls.InfluenceAnim, Controls.InfluenceButtonHL);
+	SetButtonSize(Controls.AidSpendLabel, Controls.AidSpendButton, Controls.AidSpendAnim, Controls.AidSpendButtonHL);
 
 	Controls.GiveStack:SetHide(true);
 	Controls.TakeStack:SetHide(true);
 	Controls.InfluenceStack:SetHide(true);
+	Controls.AidSpendStack:SetHide(true);
 	Controls.ButtonStack:SetHide(false);
-	
+
 	UpdateButtonStack();
 end
 
@@ -674,16 +782,239 @@ Controls.PledgeButton:RegisterCallback( Mouse.eLClick, OnPledgeButtonClicked );
 -- Revoke Pledge
 ----------------------------------------------------------------
 function OnRevokePledgeButtonClicked ()
-	
+
 	local iActivePlayer = Game.GetActivePlayer();
 	local pPlayer = Players[g_iMinorCivID];
-	
+
 	if (pPlayer:CanMajorWithdrawProtection(iActivePlayer)) then
 		Game.DoMinorPledgeProtection(iActivePlayer, g_iMinorCivID, false);
 		m_iLastAction = kiRevokedProtection;
 	end
 end
 Controls.RevokePledgeButton:RegisterCallback( Mouse.eLClick, OnRevokePledgeButtonClicked );
+
+----------------------------------------------------------------
+-- Economic Aid (Super Power V11)
+----------------------------------------------------------------
+function OnAidButtonClicked ()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pPlayer = Players[g_iMinorCivID];
+
+	if (pPlayer:CanMajorStartEconomicAid(iActivePlayer)) then
+		Game.DoMinorEconomicAid(iActivePlayer, g_iMinorCivID, true);
+		m_iLastAction = kiEconomicAid;
+	end
+end
+Controls.AidButton:RegisterCallback( Mouse.eLClick, OnAidButtonClicked );
+
+function OnRevokeAidButtonClicked ()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pPlayer = Players[g_iMinorCivID];
+
+	if (pPlayer:CanMajorWithdrawEconomicAid(iActivePlayer)) then
+		local pMinor = Players[g_iMinorCivID];
+		local cityStateName = Locale.Lookup(pMinor:GetCivilizationShortDescriptionKey());
+		Controls.BullyConfirmLabel:SetText( Locale.ConvertTextKey("TXT_KEY_CONFIRM_REVOKE_ECONOMIC_AID", cityStateName) );
+		m_iPendingAction = kiRevokedEconomicAid;
+		Controls.BullyConfirm:SetHide(false);
+		Controls.BGBlock:SetHide(true);
+	end
+end
+Controls.RevokeAidButton:RegisterCallback( Mouse.eLClick, OnRevokeAidButtonClicked );
+
+----------------------------------------------------------------
+-- Aid Point Spending submenu (Super Power V11)
+----------------------------------------------------------------
+-- Refresh the banked aid-point total shown on the main menu button.
+function RefreshAidPoints()
+	local pPlayer = Players[g_iMinorCivID];
+	local iActivePlayer = Game.GetActivePlayer();
+	local iPoints = pPlayer:GetEconomicAidPoints(iActivePlayer);
+	local bShow = (iPoints > 0);
+	Controls.AidSpendButton:SetHide(not bShow);
+	if (bShow) then
+		Controls.AidSpendLabel:SetText(Locale.Lookup("TXT_KEY_POP_CSTATE_AID_SPEND", iPoints));
+		Controls.AidSpendButton:SetToolTipString(Locale.Lookup("TXT_KEY_POP_CSTATE_AID_SPEND_TT", iPoints));
+	end
+	return iPoints;
+end
+
+function OnAidSpendButtonClicked()
+	Controls.ButtonStack:SetHide(true);
+	Controls.AidSpendStack:SetHide(false);
+	UpdateAidSpendChoices();
+end
+Controls.AidSpendButton:RegisterCallback( Mouse.eLClick, OnAidSpendButtonClicked );
+
+function OnCloseAidSpend()
+	Controls.AidSpendStack:SetHide(true);
+	Controls.ButtonStack:SetHide(false);
+	UpdateButtonStack();
+end
+Controls.ExitAidSpendButton:RegisterCallback( Mouse.eLClick, OnCloseAidSpend );
+
+-- One aid-point action row: hidden when not applicable, warning-colored when unaffordable.
+function SetupAidSpendButton(label, button, anim, hl, text, tt, bEnabled, bVisible)
+	button:SetHide(not bVisible);
+	anim:SetHide(not bEnabled);
+	if (bVisible) then
+		if (not bEnabled) then
+			text = "[COLOR_WARNING_TEXT]" .. text .. "[ENDCOLOR]";
+		end
+		label:SetText(text);
+		button:SetToolTipString(tt);
+		SetButtonSize(label, button, anim, hl);
+	end
+end
+
+function UpdateAidSpendChoices()
+	local pPlayer = Players[g_iMinorCivID];
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	local iPoints = pPlayer:GetEconomicAidPoints(iActivePlayer);
+
+	-- Reroll quests (available at any city-state)
+	local iRerollCost = Game.GetAidPointCostRerollQuests();
+	SetupAidSpendButton(Controls.RerollQuestLabel, Controls.RerollQuestButton, Controls.RerollQuestAnim, Controls.RerollQuestButtonHL,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_REROLL") .. " (" .. iRerollCost .. ")",
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_REROLL_TT", iRerollCost),
+		(iPoints >= iRerollCost), (iRerollCost > 0));
+
+	-- Bully gold with aid points (needs a bully we can currently pull off)
+	local iBullyCost = Game.GetBullyGoldAidPointCost(g_iMinorCivID, iActivePlayer);
+	local iBullyGold = pPlayer:GetMinorCivBullyGoldAmount(iActivePlayer);
+	local bCanBully = pPlayer:CanMajorBullyGold(iActivePlayer);
+	-- Super Power V11: the aid-point bully also seizes a share of the city-state treasury (see PopulateTakeChoices)
+	local iAidTreasurySharePercent = Game.GetBullyTreasurySharePercent();
+	local iAidTreasuryShare = 0;
+	if (iAidTreasurySharePercent > 0) then
+		iAidTreasuryShare = math.floor(pPlayer:GetGold() * iAidTreasurySharePercent / 100);
+	end
+	-- Keep the point cost on the first line, the treasury share (which starts with a newline) below it
+	local sBullyAidText = Locale.Lookup("TXT_KEY_POP_CSTATE_AID_BULLY", iBullyGold) .. " (" .. iBullyCost .. ")";
+	if (iAidTreasuryShare > 0) then
+		sBullyAidText = sBullyAidText .. Locale.Lookup("TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE", iAidTreasuryShare);
+	end
+	SetupAidSpendButton(Controls.BullyAidLabel, Controls.BullyAidButton, Controls.BullyAidAnim, Controls.BullyAidButtonHL,
+		sBullyAidText,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_BULLY_TT", iBullyCost),
+		(iPoints >= iBullyCost), (bCanBully and iBullyCost > 0));
+
+	-- Preselect the gifted military unit (military city-states only)
+	local iUnitCost = Game.GetAidPointCostPendingGiftUnit();
+	local bMilitaristic = (pPlayer:GetMinorCivTrait() == MinorCivTraitTypes.MINOR_CIV_TRAIT_MILITARISTIC);
+	local sGiftUnitText = Locale.Lookup("TXT_KEY_POP_CSTATE_AID_GIFT_UNIT") .. " (" .. iUnitCost .. ")";
+	-- Preview the already preselected gift unit, so the player knows what is coming
+	local ePendingGift = pPlayer:GetPendingGiftUnit(iActivePlayer);
+	if (ePendingGift and ePendingGift >= 0 and GameInfo.Units[ePendingGift] ~= nil) then
+		sGiftUnitText = sGiftUnitText .. " - " .. Locale.Lookup(GameInfo.Units[ePendingGift].Description);
+	end
+	SetupAidSpendButton(Controls.GiftUnitAidLabel, Controls.GiftUnitAidButton, Controls.GiftUnitAidAnim, Controls.GiftUnitAidButtonHL,
+		sGiftUnitText,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_GIFT_UNIT_TT", iUnitCost),
+		(iPoints >= iUnitCost), (bMilitaristic and iUnitCost > 0));
+
+	-- Preselect the next gifted Great Person (patronage finisher only). Only one pick can be
+	-- pending at a time (CvPlayer::m_eNextGreatPersonChoice), so the button is disabled until the
+	-- finisher releases it - picking again would silently overwrite the pending one and charge
+	-- another 50 aid points with nothing to show for it.
+	local iGPCost = Game.GetAidPointCostNextGreatPerson();
+	local bHasFinisher = pActivePlayer:HasPolicy(GameInfoTypes["POLICY_PATRONAGE_FINISHER"]);
+	local ePendingGP = pActivePlayer:GetNextGreatPersonChoice();
+	local bHasPendingGP = (ePendingGP ~= nil and ePendingGP >= 0);
+	local strGPText = Locale.Lookup("TXT_KEY_POP_CSTATE_AID_NEXT_GP") .. " (" .. iGPCost .. ")";
+	-- Preview the pending pick, so the player can see what the button is holding
+	if (bHasPendingGP and GameInfo.Units[ePendingGP] ~= nil) then
+		strGPText = strGPText .. " - " .. Locale.Lookup(GameInfo.Units[ePendingGP].Description);
+	end
+	SetupAidSpendButton(Controls.NextGPLabel, Controls.NextGPButton, Controls.NextGPAnim, Controls.NextGPButtonHL,
+		strGPText,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_NEXT_GP_TT", iGPCost),
+		(iPoints >= iGPCost and not bHasPendingGP), (bHasFinisher and iGPCost > 0));
+
+	-- Hasten the next World Congress / United Nations session (only between sessions, and only when
+	-- the remaining turns can absorb the whole pull - the DLL refuses a partial one and charges nothing)
+	local iHastenCost = Game.GetAidPointCostHastenCongress();
+	local iHastenTurns = Game.GetAidPointHastenCongressTurns();
+	local pLeague = Game.GetActiveLeague();
+	local bHasten = (pLeague ~= nil) and (iHastenCost > 0) and (iHastenTurns > 0)
+		and (not pLeague:IsInSession()) and (pLeague:GetTurnsUntilSession() > iHastenTurns);
+	SetupAidSpendButton(Controls.HastenCongressLabel, Controls.HastenCongressButton, Controls.HastenCongressAnim, Controls.HastenCongressButtonHL,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS") .. " (" .. iHastenCost .. ")",
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS_TT", iHastenCost, iHastenTurns),
+		(iPoints >= iHastenCost), bHasten);
+
+	UpdateButtonStack();
+	-- Rows hidden above stay in the stack's layout unless it is recalculated by hand.
+	Controls.AidSpendStack:CalculateSize();
+	Controls.AidSpendStack:ReprocessAnchoring();
+end
+
+----------------------------------------------------------------
+-- Aid Point Spending actions (Super Power V11)
+----------------------------------------------------------------
+-- Reroll this city-state's personal quests
+function OnRerollQuestClicked()
+	local iActivePlayer = Game.GetActivePlayer();
+	local bSuccess = Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorRerollQuestsFromMajor", iActivePlayer, g_iMinorCivID);
+	if (bSuccess) then
+		UpdateActiveQuests();
+		RefreshAidPoints();
+		OnCloseAidSpend();
+	end
+end
+Controls.RerollQuestButton:RegisterCallback( Mouse.eLClick, OnRerollQuestClicked );
+
+-- Bully gold paying with aid points (no influence loss, no diplomatic penalty)
+function OnBullyAidClicked()
+	local iActivePlayer = Game.GetActivePlayer();
+	-- The gold amount is looked up inside the DLL from synced state. Passing a value computed here
+	-- would make the broadcast arguments differ between clients whenever they are a moment apart,
+	-- which breaks the dedup key and lets the call run (and the gold land) on more than one client.
+	Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorBullyGoldWithAidPointsFromMajor", iActivePlayer, g_iMinorCivID);
+	RefreshAidPoints();
+	OnCloseAidSpend();
+end
+Controls.BullyAidButton:RegisterCallback( Mouse.eLClick, OnBullyAidClicked );
+
+-- Preselect the gifted military unit
+function OnGiftUnitAidClicked()
+	local iCost = Game.GetAidPointCostPendingGiftUnit();
+	local unitContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
+	LuaEvents.AidPointChoicePopupOpen("unit", g_iMinorCivID, iCost);
+	UIManager:QueuePopup( unitContext, PopupPriority.SocialPolicy );
+	UIManager:DequeuePopup( ContextPtr );
+end
+Controls.GiftUnitAidButton:RegisterCallback( Mouse.eLClick, OnGiftUnitAidClicked );
+
+-- Preselect the next gifted Great Person (aid points are charged to this city-state)
+function OnNextGPClicked()
+	-- SetupAidSpendButton only greys the button out, so refuse here too: a second pick would
+	-- overwrite the pending one and burn another 50 aid points.
+	local ePendingGP = Players[Game.GetActivePlayer()]:GetNextGreatPersonChoice();
+	if (ePendingGP ~= nil and ePendingGP >= 0) then
+		return;
+	end
+
+	local iCost = Game.GetAidPointCostNextGreatPerson();
+	local gpContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
+	LuaEvents.AidPointChoicePopupOpen("greatperson", g_iMinorCivID, iCost);
+	UIManager:QueuePopup( gpContext, PopupPriority.SocialPolicy );
+	UIManager:DequeuePopup( ContextPtr );
+end
+Controls.NextGPButton:RegisterCallback( Mouse.eLClick, OnNextGPClicked );
+
+-- Pull the next World Congress / United Nations session forward (the countdown is global, so
+-- every player's session moves up - it is broadcast so all clients stay in sync)
+function OnHastenCongressClicked()
+	local iActivePlayer = Game.GetActivePlayer();
+	local bSuccess = Game.SendAndExecuteLuaFunction("CvLuaGame::lDoHastenCongressWithAidPointsFromMajor", iActivePlayer, g_iMinorCivID);
+	if (bSuccess) then
+		RefreshAidPoints();
+		OnCloseAidSpend();
+	end
+end
+Controls.HastenCongressButton:RegisterCallback( Mouse.eLClick, OnHastenCongressClicked );
 
 ----------------------------------------------------------------
 -- Buyout
@@ -698,6 +1029,48 @@ function OnBuyoutButtonClicked()
 	end
 end
 Controls.BuyoutButton:RegisterCallback( Mouse.eLClick, OnBuyoutButtonClicked );
+
+----------------------------------------------------------------
+-- Faith Belief Purchase (Wittenberg CS UA)
+----------------------------------------------------------------
+function OnBeliefPurchaseButtonClicked()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	local iCost = Game.GetCityStateFaithBeliefPurchaseCost(g_iMinorCivID);
+	if (iCost > 0 and pActivePlayer:GetFaith() >= iCost) then
+		local religionID = pActivePlayer:GetReligionCreatedByPlayer();
+		local religionName = "";
+		if (religionID ~= -1) then
+			religionName = Locale.Lookup(GameInfo.Religions[religionID].Description);
+		end
+		local beliefContext = ContextPtr:LoadNewContext("InGame/Popups/ChooseBeliefPopup");
+		LuaEvents.CSUABeliefPopupOpen( g_iMinorCivID, iCost, religionName );
+		UIManager:QueuePopup( beliefContext, PopupPriority.SocialPolicy );
+		UIManager:DequeuePopup( ContextPtr );
+	end
+end
+Controls.BeliefPurchaseButton:RegisterCallback( Mouse.eLClick, OnBeliefPurchaseButtonClicked );
+
+----------------------------------------------------------------
+-- Faith Pantheon Purchase (La Venta CS UA)
+----------------------------------------------------------------
+function OnPantheonPurchaseButtonClicked()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	local iCost = Game.GetCityStateFaithPantheonPurchaseCost(g_iMinorCivID);
+	if (iCost > 0 and pActivePlayer:GetFaith() >= iCost) then
+		local religionID = pActivePlayer:GetReligionCreatedByPlayer();
+		local religionName = "";
+		if (religionID ~= -1) then
+			religionName = Locale.Lookup(GameInfo.Religions[religionID].Description);
+		end
+		local pantheonContext = ContextPtr:LoadNewContext("InGame/Popups/ChooseBeliefPopup");
+		LuaEvents.CSUABeliefPopupOpen( g_iMinorCivID, iCost, religionName, "pantheon" );
+		UIManager:QueuePopup( pantheonContext, PopupPriority.SocialPolicy );
+		UIManager:DequeuePopup( ContextPtr );
+	end
+end
+Controls.PantheonPurchaseButton:RegisterCallback( Mouse.eLClick, OnPantheonPurchaseButtonClicked );
 
 
 ----------------------------------------------------------------
@@ -748,9 +1121,12 @@ function onBuyFood()
 
 	local pCapitalCity = pActivePlayer:GetCapitalCity();
 	local iFood = pCapitalCity:GrowthThreshold() * iFoodGrowthRate / 100;
-	pCapitalCity:ChangeFood(iFood);
-	pActivePlayer:ChangeGold(-iFood * iFoodPrice);
-	save(pActivePlayer, "iLastBuyFoodTurn", Game.GetGameTurn());
+	local iGoldToPay = iFood * iFoodPrice;
+
+	-- Broadcast the whole exchange (per-player cooldown, gold and food) so it runs in
+	-- lock-step on every client. The authoritative DLL cooldown replaces the old
+	-- client-local save/load that could be bypassed in multiplayer.
+	pActivePlayer:SendAndExecuteLuaFunction("CvLuaPlayer::lTryBuyFoodFromVenice", iFood, iGoldToPay);
 	Controls.VeniceBuyFoodButton:SetHide(true);
 
 	if pActivePlayer:IsHuman() then
@@ -817,6 +1193,86 @@ local iGoldGiftHuge = GameDefines["MINOR_GOLD_GIFT_HUGE"] or 5000;
 local iGoldGiftLarge = GameDefines["MINOR_GOLD_GIFT_LARGE"];
 local iGoldGiftMedium = GameDefines["MINOR_GOLD_GIFT_MEDIUM"];
 local iGoldGiftSmall = GameDefines["MINOR_GOLD_GIFT_SMALL"];
+
+-- Resolve the UA effect currently granting to iMajor from this city-state (ally takes priority over
+-- friend). Returns the effect type string, or nil if the city-state grants nothing to iMajor.
+local function ResolveCityStateUAEffect(iMinor, iMajor)
+	if (GameInfo.CityStateUAs == nil) then
+		return nil;
+	end
+	local pMinor = Players[iMinor];
+	if (pMinor == nil or not pMinor:IsMinorCiv()) then
+		return nil;
+	end
+	local kMinor = GameInfo.MinorCivilizations[pMinor:GetMinorCivType()];
+	if (kMinor == nil or kMinor.UAType == nil or kMinor.UAType == "") then
+		return nil;
+	end
+	local kUA = GameInfo.CityStateUAs[kMinor.UAType];
+	if (kUA == nil) then
+		return nil;
+	end
+	local sEffect = nil;
+	if (pMinor:IsAllies(iMajor)) then
+		sEffect = kUA.AllyEffectType;
+	elseif (pMinor:IsFriends(iMajor)) then
+		sEffect = kUA.FriendEffectType;
+	end
+	if (sEffect == nil or sEffect == "") then
+		return nil;
+	end
+	return sEffect;
+end
+
+-- City-State UA gold-gift note: keyed to THIS city-state's UA effect (ally/friend), so it is shown only
+-- on the panel of a city-state that actually grants one (e.g. Kathmandu faith refund, Monaco wager),
+-- instead of keying off the active player's aggregated CSUA state. Returns the text, or nil if none.
+local function GetCityStateUADonationTT(iMinor, iMajor)
+	if (GameInfo.CityStateUAEffects == nil) then
+		return nil;
+	end
+	local sEffect = ResolveCityStateUAEffect(iMinor, iMajor);
+	if (sEffect == nil) then
+		return nil;
+	end
+	local kEffect = GameInfo.CityStateUAEffects[sEffect];
+	if (kEffect == nil or kEffect.GoldGiftTooltip == nil or kEffect.GoldGiftTooltip == "") then
+		return nil;
+	end
+	return Locale.ConvertTextKey(kEffect.GoldGiftTooltip);
+end
+
+-- City-State UA gold-gift wager status (Monaco): tells whether this turn's first donation to THIS
+-- city-state has been wagered and, if so, its result. Shown only for city-states whose UA effect
+-- defines a GoldDonationGamble row. Returns the text, or nil if none.
+local function GetCityStateUAGambleStatusTT(iMinor, iMajor)
+	if (GameInfo.CityStateUAEffect_GoldDonationGamble == nil) then
+		return nil;
+	end
+	local sEffect = ResolveCityStateUAEffect(iMinor, iMajor);
+	if (sEffect == nil) then
+		return nil;
+	end
+	local bHasGamble = false;
+	for row in GameInfo.CityStateUAEffect_GoldDonationGamble() do
+		if (row.EffectType == sEffect) then
+			bHasGamble = true;
+			break;
+		end
+	end
+	if (not bHasGamble) then
+		return nil;
+	end
+	local pMinor = Players[iMinor];
+	if (not pMinor:GetMinorCivGoldGambleUsedThisTurn(iMajor)) then
+		return Locale.ConvertTextKey("TXT_KEY_CSUA_GOLD_GAMBLE_NOT_PLACED");
+	end
+	local iMultiplier = pMinor:GetMinorCivGoldGambleLastMultiplier(iMajor);
+	if (iMultiplier <= 0) then
+		return Locale.ConvertTextKey("TXT_KEY_CSUA_GOLD_GAMBLE_NO_PAYOUT");
+	end
+	return Locale.ConvertTextKey("TXT_KEY_CSUA_GOLD_GAMBLE_REFUND", iMultiplier);
+end
 
 function PopulateGiftChoices()
 	local pPlayer = Players[g_iMinorCivID];
@@ -897,6 +1353,37 @@ function PopulateGiftChoices()
 	Controls.HugeGift:SetText(buttonText);
 	SetButtonSize(Controls.HugeGift, Controls.HugeGiftButton, Controls.HugeGiftAnim, Controls.HugeGiftButtonHL);
 
+	-- Faith Gifts (Gangtok CS UA: buy influence with faith at (gold price / divisor) faith, once per turn)
+	local iFaithCostDivisor = pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor();
+	local bFaithGiftEnabled = (iFaithCostDivisor > 0);
+	Controls.FaithGiftSeparator:SetHide(not bFaithGiftEnabled);
+	local iFaithGiftRemaining = pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining();
+	local iFaithPlayerHas = pActivePlayer:GetFaith();
+
+	local faithGiftButtons = {
+		{ Button = Controls.FaithGiftSmallButton, Label = Controls.FaithGiftSmall, Anim = Controls.FaithGiftSmallAnim, HL = Controls.FaithGiftSmallButtonHL, Gold = iGoldGiftSmall },
+		{ Button = Controls.FaithGiftMediumButton, Label = Controls.FaithGiftMedium, Anim = Controls.FaithGiftMediumAnim, HL = Controls.FaithGiftMediumButtonHL, Gold = iGoldGiftMedium },
+		{ Button = Controls.FaithGiftLargeButton, Label = Controls.FaithGiftLarge, Anim = Controls.FaithGiftLargeAnim, HL = Controls.FaithGiftLargeButtonHL, Gold = iGoldGiftLarge },
+		{ Button = Controls.FaithGiftHugeButton, Label = Controls.FaithGiftHuge, Anim = Controls.FaithGiftHugeAnim, HL = Controls.FaithGiftHugeButtonHL, Gold = iGoldGiftHuge },
+	};
+
+	for _, gift in ipairs(faithGiftButtons) do
+		gift.Button:SetHide(not bFaithGiftEnabled);
+		if bFaithGiftEnabled then
+			local iFaithCost = math.floor(gift.Gold / iFaithCostDivisor);
+			local iFriendship = applyOverextension(pPlayer:GetFriendshipFromGoldGift(iActivePlayer, gift.Gold));
+			local sText = Locale.ConvertTextKey("TXT_KEY_POPUP_MINOR_FAITH_GIFT_AMOUNT", iFaithCost, iFriendship);
+			if (iFaithGiftRemaining <= 0 or iFaithPlayerHas < iFaithCost) then
+				sText = "[COLOR_WARNING_TEXT]" .. sText .. "[ENDCOLOR]";
+				gift.Anim:SetHide(true);
+			else
+				gift.Anim:SetHide(false);
+			end
+			gift.Label:SetText(sText);
+			SetButtonSize(gift.Label, gift.Button, gift.Anim, gift.HL);
+		end
+	end
+
 	-- Unit
 	local iInfluence = applyOverextension(pPlayer:GetFriendshipFromUnitGift(iActivePlayer, false, true));
 	local iTravelTurns = GameDefines.MINOR_UNIT_GIFT_TRAVEL_TURNS;
@@ -938,6 +1425,19 @@ function PopulateGiftChoices()
 	if (iPermanentAlly ~= -1 and iPermanentAlly ~= iActivePlayer) then
 		strInfoTT = strInfoTT .. "[NEWLINE][NEWLINE]";
 		strInfoTT = strInfoTT .. Locale.ConvertTextKey("TXT_KEY_CITY_STATE_PERMANENT_ALLY_GIFT_WARNING", Players[iPermanentAlly]:GetCivilizationShortDescriptionKey());
+	end
+	-- City-State UA gold-gift note (Kathmandu refund, Monaco wager, ...): shown only for the city-state
+	-- being viewed, not for every city-state while the active player happens to be allied with one.
+	local sDonationTT = GetCityStateUADonationTT(g_iMinorCivID, iActivePlayer);
+	if (sDonationTT ~= nil) then
+		strInfoTT = strInfoTT .. "[NEWLINE][NEWLINE]";
+		strInfoTT = strInfoTT .. sDonationTT;
+	end
+	-- Monaco wager: report this turn's first-donation outcome on this city-state's own panel.
+	local sGambleTT = GetCityStateUAGambleStatusTT(g_iMinorCivID, iActivePlayer);
+	if (sGambleTT ~= nil) then
+		strInfoTT = strInfoTT .. "[NEWLINE][NEWLINE]";
+		strInfoTT = strInfoTT .. sGambleTT;
 	end
 	Controls.SmallGiftButton:SetToolTipString(strInfoTT);
 	Controls.MediumGiftButton:SetToolTipString(strInfoTT);
@@ -1001,6 +1501,65 @@ function OnHugeGold ()
 	end
 end
 Controls.HugeGiftButton:RegisterCallback( Mouse.eLClick, OnHugeGold );
+
+----------------------------------------------------------------
+-- Faith Gifts (Gangtok CS UA)
+----------------------------------------------------------------
+function OnFaithGiftSmall ()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	if (pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining() > 0) then
+		local iFaithCost = math.floor(iGoldGiftSmall / pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor());
+		if (pActivePlayer:GetFaith() >= iFaithCost) then
+			--Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftSmall);
+			Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorFaithGiftFromMajor", iActivePlayer, g_iMinorCivID, iGoldGiftSmall);
+			OnCloseGive();
+		end
+	end
+end
+Controls.FaithGiftSmallButton:RegisterCallback( Mouse.eLClick, OnFaithGiftSmall );
+
+function OnFaithGiftMedium ()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	if (pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining() > 0) then
+		local iFaithCost = math.floor(iGoldGiftMedium / pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor());
+		if (pActivePlayer:GetFaith() >= iFaithCost) then
+			--Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftMedium);
+			Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorFaithGiftFromMajor", iActivePlayer, g_iMinorCivID, iGoldGiftMedium);
+			OnCloseGive();
+		end
+	end
+end
+Controls.FaithGiftMediumButton:RegisterCallback( Mouse.eLClick, OnFaithGiftMedium );
+
+function OnFaithGiftLarge ()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	if (pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining() > 0) then
+		local iFaithCost = math.floor(iGoldGiftLarge / pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor());
+		if (pActivePlayer:GetFaith() >= iFaithCost) then
+			--Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftLarge);
+			Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorFaithGiftFromMajor", iActivePlayer, g_iMinorCivID, iGoldGiftLarge);
+			OnCloseGive();
+		end
+	end
+end
+Controls.FaithGiftLargeButton:RegisterCallback( Mouse.eLClick, OnFaithGiftLarge );
+
+function OnFaithGiftHuge ()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	if (pActivePlayer:GetCSUAFaithInfluencePurchaseRemaining() > 0) then
+		local iFaithCost = math.floor(iGoldGiftHuge / pActivePlayer:GetCSUAFaithInfluencePurchaseCostDivisor());
+		if (pActivePlayer:GetFaith() >= iFaithCost) then
+			--Game.DoMinorFaithGift(g_iMinorCivID, iGoldGiftHuge);
+			Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorFaithGiftFromMajor", iActivePlayer, g_iMinorCivID, iGoldGiftHuge);
+			OnCloseGive();
+		end
+	end
+end
+Controls.FaithGiftHugeButton:RegisterCallback( Mouse.eLClick, OnFaithGiftHuge );
 
 ----------------------------------------------------------------
 -- Gift Unit
@@ -1144,7 +1703,16 @@ function PopulateTakeChoices()
 	iBullyUnitInfluenceLost = pPlayer:GetMinorBullyInfluenceLoss(iActivePlayer, iBullyUnitInfluenceLost);
 	
 	local iBullyGold = pPlayer:GetMinorCivBullyGoldAmount(iActivePlayer);
+	-- Super Power V11: bullying gold also seizes a share of the city-state's own treasury
+	local iTreasurySharePercent = Game.GetBullyTreasurySharePercent();
+	local iTreasuryShare = 0;
+	if (iTreasurySharePercent > 0) then
+		iTreasuryShare = math.floor(pPlayer:GetGold() * iTreasurySharePercent / 100);
+	end
 	buttonText = Locale.Lookup("TXT_KEY_POPUP_MINOR_BULLY_GOLD_AMOUNT", iBullyGold, iBullyGoldInfluenceLost);
+	if (iTreasuryShare > 0) then
+		buttonText = buttonText .. Locale.Lookup("TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE", iTreasuryShare);
+	end
 	ttText = pPlayer:GetMajorBullyGoldDetails(iActivePlayer);
 	if (not pPlayer:CanMajorBullyGold(iActivePlayer)) then
 		buttonText = "[COLOR_WARNING_TEXT]" .. buttonText .. "[ENDCOLOR]";
@@ -1271,6 +1839,10 @@ function OnYesBully( )
 		Game.DoMinorBullyUnit(iActivePlayer, g_iMinorCivID);
 		m_iPendingAction = kiNoAction;
 		m_iLastAction = kiBulliedUnit;
+	elseif (m_iPendingAction == kiRevokedEconomicAid) then
+		Game.DoMinorEconomicAid(iActivePlayer, g_iMinorCivID, false);
+		m_iPendingAction = kiNoAction;
+		m_iLastAction = kiRevokedEconomicAid;
 	else
 		print("Scripting error - Selected Yes for bully confrirmation dialog, but invalid PendingAction type");
 	end
@@ -1291,3 +1863,19 @@ Controls.NoBully:RegisterCallback( Mouse.eLClick, OnNoBully );
 -- 'Active' (local human) player has changed
 -------------------------------------------------
 Events.GameplaySetActivePlayer.Add(OnCloseButtonClicked);
+
+-------------------------------------------------
+-- Aid Point Spending choice result (Super Power V11)
+-------------------------------------------------
+-- Raised by AidPointChoicePopup once the player confirms a unit / Great Person choice.
+LuaEvents.AidPointChoiceSelected.Add(function(mode, minorID, unitType)
+	if (minorID ~= g_iMinorCivID) then
+		return;
+	end
+	local iActivePlayer = Game.GetActivePlayer();
+	if (mode == "unit") then
+		Game.SendAndExecuteLuaFunction("CvLuaGame::lDoSetPendingGiftUnitFromMajor", iActivePlayer, minorID, unitType);
+	elseif (mode == "greatperson") then
+		Game.SendAndExecuteLuaFunction("CvLuaGame::lDoSetNextGreatPersonChoiceFromMajor", iActivePlayer, unitType, minorID);
+	end
+end);

@@ -125,7 +125,6 @@ function GetCsControl(im, iCs, iPlayer)
 	local iInfluence, sInfluenceText, iNeededInfluence, sInfluenceToolTip = getInfluence(pCs, pPlayer)
 	controlTable.CsInfluence:SetText(sInfluenceText)
 
-	-- SP: 追加城邦独特 UA 描述到影响力 tooltip（基于 MinorCivilizations.UAType -> CityStateUAs.Help）
 	sInfluenceToolTip = sInfluenceToolTip or "";
 	local strUAHelp = GetCityStateUAHelpText(iPlayer, iCs);
 	if (strUAHelp ~= "") then
@@ -185,6 +184,17 @@ function GetCsControl(im, iCs, iPlayer)
 
 	-- Gold gifts
 	setGoldGiftIcons(controlTable, pCs, pPlayer, false)
+
+	-- Economic Aid auto-renew (Super Power V11)
+	local bAidAutoRenew = pCs:IsEconomicAidAutoRenew(iPlayer)
+	controlTable.CsAidAutoRenew:SetCheck(bAidAutoRenew)
+	controlTable.CsAidAutoRenew:RegisterCallback( Mouse.eLClick,
+	function()
+		local bNew = not pCs:IsEconomicAidAutoRenew(iPlayer)
+		-- pCs:SetEconomicAidAutoRenew(iPlayer, bNew)
+		pCs:SendAndExecuteLuaFunction("CvLuaPlayer::lSetEconomicAidAutoRenew", iPlayer, bNew)
+		controlTable.CsAidAutoRenew:SetCheck(bNew)
+	end )
 
 	return controlTable
 end

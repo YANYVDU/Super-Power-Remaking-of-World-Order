@@ -520,13 +520,13 @@ function politicalView()
             -- mutual or not but the tooltips should show who is opening borders to whom.
 
             if (isKeySelected(keyType.borders)) then
-              if (thisTeam:IsAllowsOpenBordersToTeam(targetTid)) then
+              if (Players[thisPid]:IsAllowsOpenBordersToPlayer(targetPid)) then
                 if (isCivSelected(thisPid) or isCivSelected(targetPid)) then
                   tooltipData["borders"][thisPid] = tooltipData["borders"][thisPid] .. tooltipPad .. targetName;
                 end;
               end;
 
-              if (targetTeam:IsAllowsOpenBordersToTeam(thisTid)) then
+              if (Players[targetPid]:IsAllowsOpenBordersToPlayer(thisPid)) then
                 if (isCivSelected(thisPid) or isCivSelected(targetPid)) then
                   tooltipData["borders"][targetPid] = tooltipData["borders"][targetPid] .. tooltipPad .. thisName;
                 end;
@@ -541,7 +541,7 @@ function politicalView()
 
               local bordercheck = firstPid .. "-" .. secondPid;
 
-              if ((thisTeam:IsAllowsOpenBordersToTeam(targetTid) or targetTeam:IsAllowsOpenBordersToTeam(thisTid)) and
+              if ((Players[thisPid]:IsAllowsOpenBordersToPlayer(targetPid) or Players[targetPid]:IsAllowsOpenBordersToPlayer(thisPid)) and
                    openBordersDrawn[bordercheck] == nil)
               then
                 showConnector(thisPid, targetPid, openBorders_color);

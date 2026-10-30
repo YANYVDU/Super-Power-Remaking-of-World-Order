@@ -926,6 +926,7 @@
 			<PediaEntry>TXT_KEY_PROMOTION_MILITIA_COMBAT</PediaEntry>
 			<CannotBeChosen>true</CannotBeChosen>
 			<MilitaryMightMod>-75</MilitaryMightMod>
+			<IrregularForce>1</IrregularForce>
 		</Row>
 
 		<Row>
@@ -1041,6 +1042,7 @@
 			<PediaType>PEDIA_UNIT_CATEGORY</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_RECON_UNIT</PediaEntry>
 			<CannotBeChosen>true</CannotBeChosen>
+			<IrregularForce>1</IrregularForce>
 		</Row>
 
 		
@@ -2194,6 +2196,7 @@
 			<OrderPriority>11</OrderPriority>
 			<PortraitIndex>63</PortraitIndex>
 			<InterceptChanceChange>100</InterceptChanceChange>
+			<InterceptionCombatModifier>100</InterceptionCombatModifier>
 			<IconAtlas>SP_PROMOTION_ATLAS</IconAtlas>
 			<PediaType>PEDIA_UNIT_CATEGORY</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_ANTI_AIR</PediaEntry>
@@ -3836,6 +3839,7 @@
 			<PediaEntry>TXT_KEY_PROMOTION_CARRIER_FIGHTER</PediaEntry>
 			<CannotBeChosen>true</CannotBeChosen>
 			<CarrierEXPGivenModifier>100</CarrierEXPGivenModifier>
+			<RangeSuppressModifier>10</RangeSuppressModifier>
 		</Row>
 
 		<Row>
@@ -4053,6 +4057,7 @@
 			<AirSweepCapable>true</AirSweepCapable>
 			<AirSweepCombatModifier>75</AirSweepCombatModifier>
 			<CanMoveAfterAttacking>true</CanMoveAfterAttacking>
+			<RangeSuppressModifier>10</RangeSuppressModifier>
 			<IconAtlas>SP_PROMOTION_ATLAS</IconAtlas>
 			<PediaType>PEDIA_UNIT_CATEGORY</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_ANTI_AIR_II</PediaEntry>
@@ -4243,6 +4248,7 @@
 			<CannotBeChosen>true</CannotBeChosen>
 			<CanMoveAfterAttacking>true</CanMoveAfterAttacking>
 			<ExtraAttacks>1</ExtraAttacks>
+			<RangeSuppressModifier>10</RangeSuppressModifier>
 		</Row>
 
 		<Row>
@@ -4392,6 +4398,7 @@
 			<IconAtlas>SP_PROMOTION_ATLAS</IconAtlas>
 			<PediaType>PEDIA_UNIT_CATEGORY</PediaType>
 			<CityAttack>50</CityAttack>
+			<RangeSuppressModifier>10</RangeSuppressModifier>
 			<PediaEntry>TXT_KEY_PROMOTION_STRATEGIC_BOMBER</PediaEntry>
 			<CannotBeChosen>true</CannotBeChosen>
 		</Row>

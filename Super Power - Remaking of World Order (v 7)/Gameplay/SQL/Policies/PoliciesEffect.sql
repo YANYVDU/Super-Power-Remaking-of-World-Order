@@ -195,3 +195,21 @@ VALUES  ('POLICY_THEOCRACY','SPECIALIST_WRITER',3),
 
 INSERT INTO Policy_ImprovementHappinessWhenWorked (PolicyType, ImprovementType, Happiness)
 SELECT 'POLICY_THEOCRACY','IMPROVEMENT_HOLY_SITE',4;
+
+--******************** City-State Influence Policies ********************--
+-- POLICY_PIETY (opener): friendship anchor bonus with city-states sharing the player's majority religion
+UPDATE Policies SET SameReligionMinorFriendshipMinimum = 5 WHERE Type = 'POLICY_PIETY';
+
+-- POLICY_HONOR (opener): friendship anchor bonus with militaristic city-states
+INSERT INTO Policy_MinorCivTraitFriendshipMinimum (PolicyType, MinorCivTraitType, Minimum) VALUES
+('POLICY_HONOR', 'MINOR_TRAIT_MILITARISTIC', 10);
+
+-- POLICY_HONOR (opener): extra experience for military units gifted by a city-state
+UPDATE Policies SET CityStateGiftUnitExperience = 10 WHERE Type = 'POLICY_HONOR';
+
+-- POLICY_HONOR_FINISHER: free promotion for military units gifted by a city-state
+INSERT INTO Policy_CityStateGiftUnitFreePromotion (PolicyType, UnitCombatType, PromotionType)
+SELECT 'POLICY_HONOR_FINISHER', Type, 'PROMOTION_NO_CASUALTIES' FROM UnitCombatInfos;
+
+-- POLICY_PIETY_FINISHER: per-turn influence with city-states following the player's founded religion (Times100)
+UPDATE Policies SET FoundedReligionMinorPerTurnInfluence = 100 WHERE Type = 'POLICY_PIETY_FINISHER';

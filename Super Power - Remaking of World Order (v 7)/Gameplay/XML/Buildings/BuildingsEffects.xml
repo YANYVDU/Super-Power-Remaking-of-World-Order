@@ -1722,6 +1722,12 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>8</Yield>
 		</Row>
+
+		<Row>
+			<BuildingType>BUILDING_APADANA_PALACE</BuildingType>
+			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
+			<Yield>11</Yield>
+		</Row>
 	</Building_YieldChanges>
 
 
@@ -7486,6 +7492,21 @@
 		<Row>
 			<BuildingType>BUILDING_PLACE_OF_NATIONS</BuildingType>
 			<FlavorType>FLAVOR_HAPPINESS</FlavorType>
+			<Flavor>5</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_APADANA_PALACE</BuildingType>
+			<FlavorType>FLAVOR_HAPPINESS</FlavorType>
+			<Flavor>5</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_APADANA_PALACE</BuildingType>
+			<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+			<Flavor>10</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_APADANA_PALACE</BuildingType>
+			<FlavorType>FLAVOR_WONDER</FlavorType>
 			<Flavor>5</Flavor>
 		</Row>
 	</Building_Flavors>

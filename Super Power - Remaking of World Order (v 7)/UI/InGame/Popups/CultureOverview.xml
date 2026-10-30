@@ -606,6 +606,16 @@
         <Box Anchor="L,C" Color="255.255.255.0" Offset="0,0" Size="100,34">
           <Grid Anchor="C,C" Size="54,28" Offset="0,0" Padding="0,0" Style="Grid9Frame27" Hidden="1"/>
           <Label Anchor="C,C" Offset="0,0" String="" Font="TwCenMT20" FontStyle="Stroke" ID="ExcessHappiness"/>
+          <!-- SP International Immigration meter (shown instead of the label while the immigration rule is on).
+               ImmigrationBarHit only carries the tooltip so the whole cell is hoverable. -->
+          <Box Anchor="C,C" Offset="0,0" Size="100,34" Color="0,0,0,0" ID="ImmigrationBarHit" Hidden="1">
+            <Box Anchor="C,C" Offset="0,0" Size="88,16" Color="196,186,156,230" ID="ImmigrationBarBorder">
+              <Box Anchor="C,C" Offset="0,0" Size="84,12" Color="30,30,30,230" ID="ImmigrationBarFrame">
+                <Box Anchor="L,C" Offset="0,0" Size="0,12" Color="46,180,84,255" ID="ImmigrationBarIn" Hidden="1"/>
+                <Box Anchor="R,C" Offset="0,0" Size="0,12" Color="214,69,65,255" ID="ImmigrationBarOut" Hidden="1"/>
+              </Box>
+            </Box>
+          </Box>
         </Box>
       </Stack>
       <Image Anchor="C,B" Offset="150,0" TextureOffset="0.0" Texture="bar900x2.dds" Size="1000.1"/>

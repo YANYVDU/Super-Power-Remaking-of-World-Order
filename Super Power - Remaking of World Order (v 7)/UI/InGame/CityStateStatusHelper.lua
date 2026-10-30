@@ -1,10 +1,5 @@
 ------------------------------------------------------
 -- CityStateStatusHelper.lua (SP override)
--- 基于原版 Expansion2 版本，覆盖目的：
---   将影响力计量条与状态判定从固定 FRIENDSHIP_THRESHOLD_ALLIES(=60)
---   改为按玩家动态计算的 GetMinorCivAlliesThreshold()，
---   以同步 commit 437c0e3 引入的 MinorCivAlliesThresholdExtra 机制
---   (时代加成 / 政策 / 特性 / 建筑修正)。
 ------------------------------------------------------
 
 include( "IconSupport" );
@@ -24,6 +19,11 @@ ktQuestsDisplayOrder = {
 	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CULTURE,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_FAITH,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_TECHS,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_WORLD_WONDERS,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CONVERTS,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_GREAT_PEOPLE,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_FOUNDED,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_INVEST,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_KILL_CAMP,
 	-- Then personal support quests
@@ -41,12 +41,25 @@ ktQuestsDisplayOrder = {
 	MinorCivQuestTypes.MINOR_CIV_QUEST_CONSTRUCT_WONDER,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_CONNECT_RESOURCE,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_ROUTE,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_TECH,
+	-- SP extended quests
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CONSTRUCT_NATIONAL_WONDER,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_SPREAD_BUILDING,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_FIND_CITY_STATE,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_DISCONNECT_TRADE_ROUTE,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_BECOME_ALLY,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_RIG_ELECTION,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_DECLARE_WAR,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_CAPTURE_ORIGINAL_CAPITAL,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_PROTECT_CITY_STATE,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_SANCTION,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_REPEAL_EMBARGO,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_DONATE_GOLD,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_AGREEMENT,
 }
 
 ------------------------------------------------------
 
--- SP: 动态获取 iMajor 对该城邦的盟友影响力阈值
--- 退回到固定 GameDefines 值以兼容旧 DLL（无 GetMinorCivAlliesThreshold 方法时）
 local function GetPosInfRange(iMajor)
 	local pMajor = Players[iMajor];
 	if pMajor and pMajor.GetMinorCivAlliesThreshold then
@@ -55,9 +68,6 @@ local function GetPosInfRange(iMajor)
 	return math.abs(GameDefines["FRIENDSHIP_THRESHOLD_ALLIES"] - GameDefines["FRIENDSHIP_THRESHOLD_NEUTRAL"]);
 end
 
--- SP: 获取城邦 UA Help 文本（基于 MinorCivilizations.UAType -> CityStateUAs 拆分 Ally/Friend Help）
--- 查询当前影响力等级，将当前关系对应的 effect help 用 [COLOR_POSITIVE_TEXT] 包裹
--- 无 UA / 表未加载 / 任何异常均返回空字符串
 function GetCityStateUAHelpText(iMajor, iMinor)
 	local pMinor = Players[iMinor];
 	if pMinor == nil or not pMinor:IsMinorCiv() then
@@ -303,7 +313,6 @@ function GetCityStateStatusToolTip(iMajor, iMinor, bFullInfo)
 	local strShortDescKey = pMinor:GetCivilizationShortDescriptionKey();
 	local iInfluence = pMinor:GetMinorCivFriendshipWithMajor(iMajor);
 	local iInfluenceChangeThisTurn = pMinor:GetFriendshipChangePerTurnTimes100(iMajor) / 100;
-	-- SP: 超限时正增长（含负影响力恢复）同样被 RisePenalty 打折，与实际结算(ChangeFriendshipWithMajorTimes100)保持一致
 	if (iInfluenceChangeThisTurn > 0 and pMajor.GetDiplomaticOverextensionRisePenalty) then
 		local iRisePenalty = pMajor:GetDiplomaticOverextensionRisePenalty();
 		if (iRisePenalty ~= 0) then
@@ -312,10 +321,8 @@ function GetCityStateStatusToolTip(iMajor, iMinor, bFullInfo)
 	end
 	local iInfluenceAnchor = pMinor:GetMinorCivFriendshipAnchorWithMajor(iMajor);
 
-	-- SP: 动态盟友阈值
 	local iAlliesThreshold = pMajor:GetMinorCivAlliesThreshold();
 
-	-- SP: 城邦 UA Help 文本（拆分为 Ally/Friend Help，高亮当前关系，拼接到影响力状态文本之后）
 	local strUAHelp = GetCityStateUAHelpText(iMajor, iMinor);
 
 	local strStatusTT = "";
@@ -378,7 +385,6 @@ function GetCityStateStatusToolTip(iMajor, iMinor, bFullInfo)
 		strStatusTT = strStatusTT .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_NEUTRAL_CSTATE_TT", strShortDescKey);
 	end
 
-	-- SP: 追加城邦 UA Help 文本（基于 MinorCivilizations.UAType -> CityStateUAs.Help）
 	if (strUAHelp ~= "") then
 		strStatusTT = strStatusTT .. "[NEWLINE][NEWLINE]" .. strUAHelp;
 	end
@@ -594,7 +600,6 @@ function GetAllyToolTip(iActivePlayer, iMinor)
 			end
 		-- No ally
 		else
-			-- SP: 动态盟友阈值
 			local iAlliesThreshold = pActivePlayer:GetMinorCivAlliesThreshold();
 			local iInfUntilAllied = iAlliesThreshold - iActivePlayerInf;
 			sToolTip = Locale.ConvertTextKey("TXT_KEY_CITY_STATE_ALLY_NOBODY_TT", iInfUntilAllied);
@@ -654,6 +659,16 @@ function GetActiveQuestText(iMajor, iMinor)
 				sIconText = sIconText .. "[ICON_PEACE]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_TECHS) then
 				sIconText = sIconText .. "[ICON_RESEARCH]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_WORLD_WONDERS) then
+				sIconText = sIconText .. "[ICON_GOLDEN_AGE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CONVERTS) then
+				sIconText = sIconText .. "[ICON_PEACE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_GREAT_PEOPLE) then
+				sIconText = sIconText .. "[ICON_GREAT_PEOPLE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_FOUNDED) then
+				sIconText = sIconText .. "[ICON_FOOD]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED) then
+				sIconText = sIconText .. "[ICON_WAR]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_INVEST) then
 				sIconText = sIconText .. "[ICON_INVEST]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_BULLY_CITY_STATE) then
@@ -664,6 +679,35 @@ function GetActiveQuestText(iMajor, iMinor)
 				sIconText = sIconText .. GameInfo.Religions[iQuestData1].IconString;
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_TRADE_ROUTE) then
 				sIconText = sIconText .. "[ICON_INTERNATIONAL_TRADE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_TECH) then
+				sIconText = sIconText .. "[ICON_RESEARCH]";
+			-- SP extended quests
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONSTRUCT_NATIONAL_WONDER) then
+				sIconText = sIconText .. "[ICON_GOLDEN_AGE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_SPREAD_BUILDING) then
+				sIconText = sIconText .. "[ICON_INVEST]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_FIND_CITY_STATE) then
+				sIconText = sIconText .. "[ICON_CITY_STATE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DISCONNECT_TRADE_ROUTE) then
+				sIconText = sIconText .. "[ICON_TRADE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_BECOME_ALLY) then
+				sIconText = sIconText .. "[ICON_INFLUENCE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RIG_ELECTION) then
+				sIconText = sIconText .. "[ICON_SPY]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DECLARE_WAR) then
+				sIconText = sIconText .. "[ICON_WAR]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CAPTURE_ORIGINAL_CAPITAL) then
+				sIconText = sIconText .. "[ICON_CAPITAL]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_PROTECT_CITY_STATE) then
+				sIconText = sIconText .. "[ICON_PEACE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_SANCTION) then
+				sIconText = sIconText .. "[ICON_DENOUNCE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_REPEAL_EMBARGO) then
+				sIconText = sIconText .. "[ICON_INTERNATIONAL_TRADE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DONATE_GOLD) then
+				sIconText = sIconText .. "[ICON_GOLD]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_AGREEMENT) then
+				sIconText = sIconText .. "[ICON_DIPLOMAT]";
 			end
 		end
 	end
@@ -782,6 +826,46 @@ function GetActiveQuestToolTip(iMajor, iMinor)
 				else
 					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_TECHS_LOSING_FORMAL", iLeaderScore, iMajorScore );
 				end
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_WORLD_WONDERS) then
+				local iLeaderScore = pMinor:GetMinorCivContestValueForLeader(MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_WORLD_WONDERS);
+				local iMajorScore = pMinor:GetMinorCivContestValueForPlayer(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_WORLD_WONDERS);
+				if (pMinor:IsMinorCivContestLeader(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_WORLD_WONDERS)) then
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_WINNING_FORMAL", iMajorScore );
+				else
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_WORLD_WONDERS_LOSING_FORMAL", iLeaderScore, iMajorScore );
+				end
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CONVERTS) then
+				local iLeaderScore = pMinor:GetMinorCivContestValueForLeader(MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CONVERTS);
+				local iMajorScore = pMinor:GetMinorCivContestValueForPlayer(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CONVERTS);
+				if (pMinor:IsMinorCivContestLeader(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CONVERTS)) then
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_WINNING_FORMAL", iMajorScore );
+				else
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_CONVERTS_LOSING_FORMAL", iLeaderScore, iMajorScore );
+				end
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_GREAT_PEOPLE) then
+				local iLeaderScore = pMinor:GetMinorCivContestValueForLeader(MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_GREAT_PEOPLE);
+				local iMajorScore = pMinor:GetMinorCivContestValueForPlayer(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_GREAT_PEOPLE);
+				if (pMinor:IsMinorCivContestLeader(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_GREAT_PEOPLE)) then
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_WINNING_FORMAL", iMajorScore );
+				else
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_GREAT_PEOPLE_LOSING_FORMAL", iLeaderScore, iMajorScore );
+				end
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_FOUNDED) then
+				local iLeaderScore = pMinor:GetMinorCivContestValueForLeader(MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_FOUNDED);
+				local iMajorScore = pMinor:GetMinorCivContestValueForPlayer(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_FOUNDED);
+				if (pMinor:IsMinorCivContestLeader(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_FOUNDED)) then
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_WINNING_FORMAL", iMajorScore );
+				else
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_FOUNDED_LOSING_FORMAL", iLeaderScore, iMajorScore );
+				end
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED) then
+				local iLeaderScore = pMinor:GetMinorCivContestValueForLeader(MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED);
+				local iMajorScore = pMinor:GetMinorCivContestValueForPlayer(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED);
+				if (pMinor:IsMinorCivContestLeader(iMajor, MinorCivQuestTypes.MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED)) then
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_WINNING_FORMAL", iMajorScore );
+				else
+					sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_CONTEST_CITIES_CAPTURED_LOSING_FORMAL", iLeaderScore, iMajorScore );
+				end
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_INVEST) then
 				sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_INVEST_FORMAL" );
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_BULLY_CITY_STATE) then
@@ -792,6 +876,35 @@ function GetActiveQuestToolTip(iMajor, iMinor)
 				sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_SPREAD_RELIGION_FORMAL", Game.GetReligionName(iQuestData1) );
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_TRADE_ROUTE) then
 				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_TRADE_ROUTE_FORMAL");
+			-- SP extended quests
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_TECH) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_RESEARCH_TECH_FORMAL", GameInfo.Technologies[iQuestData1].Description);
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CONSTRUCT_NATIONAL_WONDER) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_CONSTRUCT_NATIONAL_WONDER_FORMAL", GameInfo.Buildings[iQuestData1].Description);
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_SPREAD_BUILDING) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_SPREAD_BUILDING_FORMAL", GameInfo.Buildings[iQuestData1].Description, iQuestData2);
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_FIND_CITY_STATE) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_FIND_CITY_STATE_FORMAL", Players[iQuestData1]:GetNameKey());
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DISCONNECT_TRADE_ROUTE) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_DISCONNECT_TRADE_ROUTE_FORMAL", Players[iQuestData1]:GetNameKey());
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_BECOME_ALLY) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_BECOME_ALLY_FORMAL");
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RIG_ELECTION) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_RIG_ELECTION_FORMAL");
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DECLARE_WAR) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_DECLARE_WAR_FORMAL", Players[iQuestData1]:GetCivilizationShortDescriptionKey());
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CAPTURE_ORIGINAL_CAPITAL) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_CAPTURE_ORIGINAL_CAPITAL_FORMAL", Players[iQuestData1]:GetCivilizationShortDescriptionKey());
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_PROTECT_CITY_STATE) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_LEAGUE_PROTECT_CITY_STATE_FORMAL");
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_SANCTION) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_LEAGUE_SANCTION_FORMAL", Players[iQuestData1]:GetCivilizationShortDescriptionKey());
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_REPEAL_EMBARGO) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_LEAGUE_REPEAL_EMBARGO_FORMAL");
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DONATE_GOLD) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_DONATE_GOLD_FORMAL", iQuestData1);
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_AGREEMENT) then
+				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_RESEARCH_AGREEMENT_FORMAL", Players[iQuestData1]:GetCivilizationShortDescriptionKey());
 			end
 
 			if (iTurnsRemaining >= 0) then
