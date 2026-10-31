@@ -3105,6 +3105,9 @@ if Game then
 			[ TradeableItems.TRADE_ITEM_DEFENSIVE_PACT or-1] = function( from, item )
 				return ScratchDeal:AddDefensivePact( from, item[2] )
 			end,
+			[ TradeableItems.TRADE_ITEM_NON_AGGRESSION_PACT or-1] = function( from, item )
+				return ScratchDeal:AddNonAggressionPact( from, item[2] )
+			end,
 			[ TradeableItems.TRADE_ITEM_RESEARCH_AGREEMENT or-1] = function( from, item )
 				return ScratchDeal:AddResearchAgreement( from, item[2] )
 			end,

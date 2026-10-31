@@ -176,6 +176,8 @@ if not EUI then
 						g_deal:AddGoldPerTurnTrade( fromPlayerID, item[4], item[2] )
 					elseif id == TradeableItems.TRADE_ITEM_DEFENSIVE_PACT then
 						g_deal:AddDefensivePact( fromPlayerID, item[2] )
+					elseif id == TradeableItems.TRADE_ITEM_NON_AGGRESSION_PACT then
+						g_deal:AddNonAggressionPact( fromPlayerID, item[2] )
 					elseif id == TradeableItems.TRADE_ITEM_RESEARCH_AGREEMENT then
 						g_deal:AddResearchAgreement( fromPlayerID, item[2] )
 					elseif gk_mode and id == TradeableItems.TRADE_ITEM_ALLOW_EMBASSY then

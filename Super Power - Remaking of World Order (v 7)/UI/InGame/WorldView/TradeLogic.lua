@@ -210,6 +210,7 @@ local g_itemControls = {
 [ TradeableItems.TRADE_ITEM_ALLOW_EMBASSY or false ] = { Controls.UsPocketAllowEmbassy, Controls.UsTableAllowEmbassy, Controls.ThemPocketAllowEmbassy, Controls.ThemTableAllowEmbassy },
 [ TradeableItems.TRADE_ITEM_OPEN_BORDERS or false ] = { Controls.UsPocketOpenBorders, Controls.UsTableOpenBorders, Controls.ThemPocketOpenBorders, Controls.ThemTableOpenBorders },
 [ TradeableItems.TRADE_ITEM_DEFENSIVE_PACT or false ] = { Controls.UsPocketDefensivePact, Controls.UsTableDefensivePact, Controls.ThemPocketDefensivePact, Controls.ThemTableDefensivePact },
+[ TradeableItems.TRADE_ITEM_NON_AGGRESSION_PACT or false ] = { Controls.UsPocketNonAggressionPact, Controls.UsTableNonAggressionPact, Controls.ThemPocketNonAggressionPact, Controls.ThemTableNonAggressionPact },
 [ TradeableItems.TRADE_ITEM_RESEARCH_AGREEMENT or false ] = { Controls.UsPocketResearchAgreement, Controls.UsTableResearchAgreement, Controls.ThemPocketResearchAgreement, Controls.ThemTableResearchAgreement },
 [ TradeableItems.TRADE_ITEM_DIPLOMATIC_MARRIAGE or false ] = { Controls.UsPocketMarriage, Controls.UsTableMarriage, Controls.ThemPocketMarriage, Controls.ThemTableMarriage },
 [ TradeableItems.TRADE_ITEM_DUAL_EMPIRE_TREATY or false ] = { Controls.UsPocketDualEmpire, Controls.UsTableDualEmpire, Controls.ThemPocketDualEmpire, Controls.ThemTableDualEmpire },
@@ -229,6 +230,8 @@ local g_pocketControls = {
 	Controls.ThemPocketOpenBorders,
 	Controls.UsPocketDefensivePact,
 	Controls.ThemPocketDefensivePact,
+	Controls.UsPocketNonAggressionPact,
+	Controls.ThemPocketNonAggressionPact,
 	Controls.UsPocketResearchAgreement,
 	Controls.ThemPocketResearchAgreement,
 	Controls.UsPocketMarriage,
@@ -914,6 +917,66 @@ function ResetDisplay( diploMessage )
 		SetEnabledAndToolTip( Controls.ThemPocketDefensivePact, deal:IsPossibleToTradeItem( theirPlayerID, ourPlayerID, TradeableItems.TRADE_ITEM_DEFENSIVE_PACT, g_iDealDuration ), toolTip )
 		Controls.UsPocketDefensivePact:SetHide( isSameTeam or ourTeam:IsDefensivePact( theirTeamID ) )
 		Controls.ThemPocketDefensivePact:SetHide( isSameTeam or theirTeam:IsDefensivePact( ourTeamID ) )
+
+		----------------------------------------------------------------------------------
+		-- pocket Non-Aggression Pact
+		----------------------------------------------------------------------------------
+		-- Conditions (see CvDeal::IsPossibleToTradeItem): both sides have an embassy, the
+		-- initiator has a spy working as a diplomat in the other capital, no war and no
+		-- defensive pact. While active neither side may declare war on the other.
+		local iOurPactTurns = ourTeam:GetNonAggressionPactTurnsLeft( theirTeamID )
+		local iOurPactCooldown = ourTeam:GetNonAggressionPactCooldown( theirTeamID )
+		local iTheirPactCooldown = theirTeam:GetNonAggressionPactCooldown( ourTeamID )
+		local bOurDiplomat = ourPlayer:IsMyDiplomatVisitingThem( theirPlayerID )
+		local bTheirDiplomat = theirPlayer:IsMyDiplomatVisitingThem( ourPlayerID )
+		local bBothEmbassies = ourTeam:HasEmbassyAtTeam( theirTeamID ) and theirTeam:HasEmbassyAtTeam( ourTeamID )
+		local bHasDefensivePact = ourTeam:IsDefensivePact( theirTeamID )
+
+		-- Our side (we would be the initiator)
+		toolTip = L"TXT_KEY_DIPLO_NON_AGGRESSION_PACT_TT"
+		if iOurPactTurns > 0 then
+			toolTip = toolTip .. "[COLOR_POSITIVE_TEXT]" .. L( "TXT_KEY_DIPLO_NON_AGGRESSION_PACT_EXISTS", iOurPactTurns ) .. "[ENDCOLOR]"
+		elseif iOurPactCooldown > 0 then
+			toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L( "TXT_KEY_DIPLO_NON_AGGRESSION_PACT_COOLDOWN", iOurPactCooldown ) .. "[ENDCOLOR]"
+		else
+			if ourTeam:IsAtWar( theirTeamID ) then
+				toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_NAP_AT_WAR_TT" .. "[ENDCOLOR]"
+			end
+			if not bBothEmbassies then
+				toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_BOTH_NEED_EMBASSY_TT" .. "[ENDCOLOR]"
+			end
+			if not bOurDiplomat then
+				toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_NAP_NEED_DIPLOMAT_TT" .. "[ENDCOLOR]"
+			end
+			if bHasDefensivePact then
+				toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_NAP_DEFENSIVE_PACT_TT" .. "[ENDCOLOR]"
+			end
+		end
+		SetEnabledAndToolTip( Controls.UsPocketNonAggressionPact, deal:IsPossibleToTradeItem( ourPlayerID, theirPlayerID, TradeableItems.TRADE_ITEM_NON_AGGRESSION_PACT, g_iDealDuration ), toolTip )
+		Controls.UsPocketNonAggressionPact:SetHide( isSameTeam or iOurPactTurns > 0 )
+
+		-- Their side (they would be the initiator)
+		toolTip = L"TXT_KEY_DIPLO_NON_AGGRESSION_PACT_TT"
+		if iOurPactTurns > 0 then
+			toolTip = toolTip .. "[COLOR_POSITIVE_TEXT]" .. L( "TXT_KEY_DIPLO_NON_AGGRESSION_PACT_EXISTS", iOurPactTurns ) .. "[ENDCOLOR]"
+		elseif iTheirPactCooldown > 0 then
+			toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L( "TXT_KEY_DIPLO_NON_AGGRESSION_PACT_COOLDOWN", iTheirPactCooldown ) .. "[ENDCOLOR]"
+		else
+			if ourTeam:IsAtWar( theirTeamID ) then
+				toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_NAP_AT_WAR_TT" .. "[ENDCOLOR]"
+			end
+			if not bBothEmbassies then
+				toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_BOTH_NEED_EMBASSY_TT" .. "[ENDCOLOR]"
+			end
+			if not bTheirDiplomat then
+				toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_NAP_NEED_DIPLOMAT_TT" .. "[ENDCOLOR]"
+			end
+			if bHasDefensivePact then
+				toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_NAP_DEFENSIVE_PACT_TT" .. "[ENDCOLOR]"
+			end
+		end
+		SetEnabledAndToolTip( Controls.ThemPocketNonAggressionPact, deal:IsPossibleToTradeItem( theirPlayerID, ourPlayerID, TradeableItems.TRADE_ITEM_NON_AGGRESSION_PACT, g_iDealDuration ), toolTip )
+		Controls.ThemPocketNonAggressionPact:SetHide( isSameTeam or iOurPactTurns > 0 )
 
 		----------------------------------------------------------------------------------
 		-- pocket Research Agreement
@@ -2012,6 +2075,32 @@ do
 	end
 	Controls.UsTableResearchAgreement:RegisterCallback( Mouse.eLClick, RemoveResearchAgreement )
 	Controls.ThemTableResearchAgreement:RegisterCallback( Mouse.eLClick, RemoveResearchAgreement )
+end
+
+-----------------------------------------------------------------------------------------------------------------------
+-- Non-Aggression Pact Handlers
+-----------------------------------------------------------------------------------------------------------------------
+do
+	local function AddNonAggressionPactFromUs()
+		-- Only the initiator offers the item; the other side is bound by it
+		g_Deal:AddNonAggressionPact( g_iUs, g_iDealDuration )
+		return DoUIDealChangedByHuman()
+	end
+	local function AddNonAggressionPactFromThem()
+		g_Deal:AddNonAggressionPact( g_iThem, g_iDealDuration )
+		return DoUIDealChangedByHuman()
+	end
+	Controls.UsPocketNonAggressionPact:RegisterCallback( Mouse.eLClick, AddNonAggressionPactFromUs )
+	Controls.ThemPocketNonAggressionPact:RegisterCallback( Mouse.eLClick, AddNonAggressionPactFromThem )
+
+	local function RemoveNonAggressionPact()
+		-- Only one side ever holds this item, but clear both to be safe
+		g_Deal:RemoveByType( TradeableItems.TRADE_ITEM_NON_AGGRESSION_PACT, g_iUs )
+		g_Deal:RemoveByType( TradeableItems.TRADE_ITEM_NON_AGGRESSION_PACT, g_iThem )
+		return DoUIDealChangedByHuman( true )
+	end
+	Controls.UsTableNonAggressionPact:RegisterCallback( Mouse.eLClick, RemoveNonAggressionPact )
+	Controls.ThemTableNonAggressionPact:RegisterCallback( Mouse.eLClick, RemoveNonAggressionPact )
 end
 
 -----------------------------------------------------------------------------------------------------------------------

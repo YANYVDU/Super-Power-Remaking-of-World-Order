@@ -18054,6 +18054,40 @@
 		<Row Tag="TXT_KEY_DIPLOMACY_DUAL_EMPIRE_TREATY_ADV_QUEST">
 			<Text>How to build a dual empire with other major civilizations? </Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT">
+			<Text>Non-Aggression Pact</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT_TT">
+			<Text>
+				Sign a Non-Aggression Pact with this player.
+				[NEWLINE][NEWLINE]Requirements:
+				[NEWLINE][ICON_BULLET]Neither side is at war with the other
+				[NEWLINE][ICON_BULLET]Both sides have an embassy in the other's capital
+				[NEWLINE][ICON_BULLET]The initiator has a spy working as a diplomat in the other's capital
+				[NEWLINE][ICON_BULLET]No defensive pact exists between the two sides
+				[NEWLINE][NEWLINE]The pact lasts 10 turns, during which neither side may declare war on the other.
+				[NEWLINE]Another pact may be signed only after a 15 turn cooldown.
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT_EXISTS">
+			<Text>[NEWLINE][NEWLINE]The Non-Aggression Pact is in force for {1_Num} more turns.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT_COOLDOWN">
+			<Text>[NEWLINE][NEWLINE]Non-Aggression Pact on cooldown, {1_Num} more turns until it can be signed again.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NAP_AT_WAR_TT">
+			<Text>[NEWLINE][NEWLINE]The two sides are at war and cannot sign a Non-Aggression Pact.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NAP_NEED_DIPLOMAT_TT">
+			<Text>[NEWLINE][NEWLINE]The initiator needs a spy working as a diplomat in the other's capital.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NAP_DEFENSIVE_PACT_TT">
+			<Text>[NEWLINE][NEWLINE]A defensive pact already exists between the two sides, so no Non-Aggression Pact can be signed.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESPONSE_NON_AGGRESSION_PACT_OFFER">
+			<Text>Let us sign a Non-Aggression Pact and secure our borders.</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_SPECIALISTSANDGP_LANDMARK_HEADING4_BODY">
 			<Text>A Landmark Improvement provides loads of culture and tourism to the city.</Text>
 		</Replace>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <GameData>
 	<Language_zh_Hant_HK>
 		<!--Civilopedias-->
@@ -16324,6 +16324,40 @@
 		</Row>
 		<Row Tag="TXT_KEY_DIPLOMACY_DUAL_EMPIRE_TREATY_ADV_QUEST">
 			<Text>如何與其他主要文明建立二元帝國？ </Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT">
+			<Text>互不侵犯協定</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT_TT">
+			<Text>
+				與對方簽訂互不侵犯協定。
+				[NEWLINE][NEWLINE]簽訂條件：
+				[NEWLINE][ICON_BULLET]雙方不處於戰爭狀態
+				[NEWLINE][ICON_BULLET]雙方互設大使館
+				[NEWLINE][ICON_BULLET]發起方在對方首都駐有擔任外交官的間諜
+				[NEWLINE][ICON_BULLET]雙方沒有共同防禦協定
+				[NEWLINE][NEWLINE]協定持續10回合，期間雙方不能互相宣戰。
+				[NEWLINE]再次簽訂需間隔15回合。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT_EXISTS">
+			<Text>[NEWLINE][NEWLINE]互不侵犯協定生效中，剩餘{1_Num}回合。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT_COOLDOWN">
+			<Text>[NEWLINE][NEWLINE]互不侵犯協定冷卻中，還需等待{1_Num}回合才能再次簽訂。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NAP_AT_WAR_TT">
+			<Text>[NEWLINE][NEWLINE]雙方處於戰爭狀態，無法簽訂互不侵犯協定。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NAP_NEED_DIPLOMAT_TT">
+			<Text>[NEWLINE][NEWLINE]發起方需要在對方首都駐有擔任外交官的間諜。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NAP_DEFENSIVE_PACT_TT">
+			<Text>[NEWLINE][NEWLINE]雙方已存在共同防禦協定，無法簽訂互不侵犯協定。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESPONSE_NON_AGGRESSION_PACT_OFFER">
+			<Text>我們不妨簽訂一份互不侵犯協定，以換取邊境的安寧。</Text>
 		</Row>
 		<Replace Tag="TXT_KEY_SPECIALISTSANDGP_LANDMARK_HEADING4_BODY">
 			<Text>風景地標為城市產生大量文化和魅力。</Text>

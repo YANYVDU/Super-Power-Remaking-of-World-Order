@@ -16521,6 +16521,40 @@
 			<Text>如何同其他主要文明建立二元帝国？</Text>
 		</Row>
 
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT">
+			<Text>互不侵犯协定</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT_TT">
+			<Text>
+				与对方签订互不侵犯协定。
+				[NEWLINE][NEWLINE]签订条件：
+				[NEWLINE][ICON_BULLET]双方不处于战争状态
+				[NEWLINE][ICON_BULLET]双方互设大使馆
+				[NEWLINE][ICON_BULLET]发起方在对方首都驻有担任外交官的间谍
+				[NEWLINE][ICON_BULLET]双方没有共同防御协定
+				[NEWLINE][NEWLINE]协定持续10回合，期间双方不能互相宣战。
+				[NEWLINE]再次签订需间隔15回合。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT_EXISTS">
+			<Text>[NEWLINE][NEWLINE]互不侵犯协定生效中，剩余{1_Num}回合。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT_COOLDOWN">
+			<Text>[NEWLINE][NEWLINE]互不侵犯协定冷却中，还需等待{1_Num}回合才能再次签订。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NAP_AT_WAR_TT">
+			<Text>[NEWLINE][NEWLINE]双方处于战争状态，无法签订互不侵犯协定。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NAP_NEED_DIPLOMAT_TT">
+			<Text>[NEWLINE][NEWLINE]发起方需要在对方首都驻有担任外交官的间谍。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NAP_DEFENSIVE_PACT_TT">
+			<Text>[NEWLINE][NEWLINE]双方已存在共同防御协定，无法签订互不侵犯协定。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESPONSE_NON_AGGRESSION_PACT_OFFER">
+			<Text>我们不妨签订一份互不侵犯协定，以换取边境的安宁。</Text>
+		</Row>
+
 		<Replace Tag="TXT_KEY_SPECIALISTSANDGP_LANDMARK_HEADING4_BODY">
 			<Text>风景地标为城市产生大量文化和魅力。</Text>
 		</Replace>
