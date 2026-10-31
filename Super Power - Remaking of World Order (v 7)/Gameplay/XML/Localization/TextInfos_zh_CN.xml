@@ -16554,6 +16554,21 @@
 		<Row Tag="TXT_KEY_RESPONSE_NON_AGGRESSION_PACT_OFFER">
 			<Text>我们不妨签订一份互不侵犯协定，以换取边境的安宁。</Text>
 		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_DEAL_EXPIRED_NON_AGGRESSION_PACT_FROM_US">
+			<Text>我们与{1_CivName:textkey}签订的互不侵犯协定已到期。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_DEAL_EXPIRED_NON_AGGRESSION_PACT_FROM_US">
+			<Text>与{1_CivName:textkey}的互不侵犯协定已到期</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_DEAL_EXPIRED_NON_AGGRESSION_PACT_TO_US">
+			<Text>{1_CivName:textkey}与我们的互不侵犯协定已到期。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_DEAL_EXPIRED_NON_AGGRESSION_PACT_TO_US">
+			<Text>与{1_CivName:textkey}的互不侵犯协定已到期</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT_BLOCK_WAR_TT">
+			<Text>互不侵犯协定仍在生效，剩余{1_Num}回合，无法向其宣战。</Text>
+		</Row>
 
 		<Replace Tag="TXT_KEY_SPECIALISTSANDGP_LANDMARK_HEADING4_BODY">
 			<Text>风景地标为城市产生大量文化和魅力。</Text>

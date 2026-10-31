@@ -328,6 +328,25 @@ local function SetEnabledAndText( control, isEnabled, text )
 	SetEnabled( control, isEnabled )
 end
 
+-- SP: a deal may hold at most one Non-Aggression Pact item (the initiator offers it,
+-- both sides are bound), so both pockets hide as soon as the deal contains one
+local function DealHasNonAggressionPact( deal )
+	if not deal then
+		return false
+	end
+	-- Walk the whole deal so the shared CvLuaDeal iterator is not left mid-list
+	local bFound = false
+	deal:ResetIterator()
+	local itemType = deal:GetNextItem()
+	while itemType ~= nil do
+		if itemType == TradeableItems.TRADE_ITEM_NON_AGGRESSION_PACT then
+			bFound = true
+		end
+		itemType = deal:GetNextItem()
+	end
+	return bFound
+end
+
 function ResizeStacks()
 	for k, stack in pairs( g_stacks ) do
 		stack:CalculateSize()
@@ -931,6 +950,7 @@ function ResetDisplay( diploMessage )
 		local bTheirDiplomat = theirPlayer:IsMyDiplomatVisitingThem( ourPlayerID )
 		local bBothEmbassies = ourTeam:HasEmbassyAtTeam( theirTeamID ) and theirTeam:HasEmbassyAtTeam( ourTeamID )
 		local bHasDefensivePact = ourTeam:IsDefensivePact( theirTeamID )
+		local bDealHasPact = DealHasNonAggressionPact( deal )
 
 		-- Our side (we would be the initiator)
 		toolTip = L"TXT_KEY_DIPLO_NON_AGGRESSION_PACT_TT"
@@ -953,7 +973,7 @@ function ResetDisplay( diploMessage )
 			end
 		end
 		SetEnabledAndToolTip( Controls.UsPocketNonAggressionPact, deal:IsPossibleToTradeItem( ourPlayerID, theirPlayerID, TradeableItems.TRADE_ITEM_NON_AGGRESSION_PACT, g_iDealDuration ), toolTip )
-		Controls.UsPocketNonAggressionPact:SetHide( isSameTeam or iOurPactTurns > 0 )
+		Controls.UsPocketNonAggressionPact:SetHide( isSameTeam or iOurPactTurns > 0 or bDealHasPact )
 
 		-- Their side (they would be the initiator)
 		toolTip = L"TXT_KEY_DIPLO_NON_AGGRESSION_PACT_TT"
@@ -976,7 +996,7 @@ function ResetDisplay( diploMessage )
 			end
 		end
 		SetEnabledAndToolTip( Controls.ThemPocketNonAggressionPact, deal:IsPossibleToTradeItem( theirPlayerID, ourPlayerID, TradeableItems.TRADE_ITEM_NON_AGGRESSION_PACT, g_iDealDuration ), toolTip )
-		Controls.ThemPocketNonAggressionPact:SetHide( isSameTeam or iOurPactTurns > 0 )
+		Controls.ThemPocketNonAggressionPact:SetHide( isSameTeam or iOurPactTurns > 0 or bDealHasPact )
 
 		----------------------------------------------------------------------------------
 		-- pocket Research Agreement

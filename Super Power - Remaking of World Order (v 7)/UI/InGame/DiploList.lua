@@ -470,12 +470,23 @@ function UpdateDisplay()
                     
     				-- Show or hide war button if it's a human
     				if( not g_bAlwaysWar and not g_bAlwaysPeace and not g_bNoChangeWar and
-    				    not g_pTeam:IsAtWar( pOtherPlayer:GetTeam()) and g_pTeam:CanDeclareWar(pOtherPlayer:GetTeam()) and
+    				    not g_pTeam:IsAtWar( pOtherPlayer:GetTeam()) and
     				    g_iTeam ~= iOtherTeam ) then
+    					local iPactTurns = g_pTeam:GetNonAggressionPactTurnsLeft( iOtherTeam );
     					controlTable.WarButton:SetHide(false);
-    					
+
         				controlTable.WarButton:SetVoid1( iPlayerLoop ); -- indicates type
         				controlTable.WarButton:RegisterCallback( Mouse.eLClick, OnWarButton );
+        				if( g_pTeam:CanDeclareWar(pOtherPlayer:GetTeam()) ) then
+        					controlTable.WarButton:SetDisabled(false);
+        					controlTable.WarButton:SetToolTipString("");
+        				elseif( iPactTurns > 0 ) then
+        					-- SP: keep the button visible but explain the Non-Aggression Pact blocking it
+        					controlTable.WarButton:SetDisabled(true);
+        					controlTable.WarButton:SetToolTipString( Locale.ConvertTextKey( "TXT_KEY_DIPLO_NON_AGGRESSION_PACT_BLOCK_WAR_TT", iPactTurns ));
+        				else
+        					controlTable.WarButton:SetHide(true);
+        				end
     				else
     					controlTable.WarButton:SetHide(true);
     				end

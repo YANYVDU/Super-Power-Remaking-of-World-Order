@@ -18088,6 +18088,21 @@
 		<Row Tag="TXT_KEY_RESPONSE_NON_AGGRESSION_PACT_OFFER">
 			<Text>Let us sign a Non-Aggression Pact and secure our borders.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_DEAL_EXPIRED_NON_AGGRESSION_PACT_FROM_US">
+			<Text>Our Non-Aggression Pact with {1_CivName:textkey} has expired.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_DEAL_EXPIRED_NON_AGGRESSION_PACT_FROM_US">
+			<Text>Non-Aggression Pact with {1_CivName:textkey} expired</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_DEAL_EXPIRED_NON_AGGRESSION_PACT_TO_US">
+			<Text>A deal where {1_CivName:textkey} had a Non-Aggression Pact with us has expired.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_DEAL_EXPIRED_NON_AGGRESSION_PACT_TO_US">
+			<Text>Non-Aggression Pact with {1_CivName:textkey} expired</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_NON_AGGRESSION_PACT_BLOCK_WAR_TT">
+			<Text>You cannot declare war while the Non-Aggression Pact is in effect ({1_Num} turn(s) left).</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_SPECIALISTSANDGP_LANDMARK_HEADING4_BODY">
 			<Text>A Landmark Improvement provides loads of culture and tourism to the city.</Text>
 		</Replace>
