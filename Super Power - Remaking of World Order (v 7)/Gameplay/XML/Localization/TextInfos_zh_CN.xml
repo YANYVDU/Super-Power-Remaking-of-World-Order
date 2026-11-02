@@ -18836,18 +18836,18 @@
 		<Row Tag="TXT_KEY_CSUA_TYRE_HELP">
 			<Text>
 				盟友效果：
-				[NEWLINE][ICON_BULLET]每处码头、船坞使全国+10%[ICON_PRODUCTION]产能
+				[NEWLINE][ICON_BULLET]每处码头、船坞使全国+4%[ICON_PRODUCTION]产能
 				[NEWLINE][ICON_BULLET]沿海城市受到的伤害降低40%
 				[NEWLINE][ICON_BULLET]每座与原始首都不同大陆的城市使全国+5%[ICON_GOLD]金钱
 				[NEWLINE]
 				[NEWLINE]朋友效果：
-				[NEWLINE][ICON_BULLET]每处码头、船坞使全国+4%[ICON_PRODUCTION]产能
+				[NEWLINE][ICON_BULLET]每处码头、船坞使全国+2%[ICON_PRODUCTION]产能
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_TYRE_ALLY_HELP">
 			<Text>
 				盟友效果：
-				[NEWLINE][ICON_BULLET]每处码头、船坞使全国+10%[ICON_PRODUCTION]产能
+				[NEWLINE][ICON_BULLET]每处码头、船坞使全国+4%[ICON_PRODUCTION]产能
 				[NEWLINE][ICON_BULLET]沿海城市受到的伤害降低40%
 				[NEWLINE][ICON_BULLET]每座与原始首都不同大陆的城市使全国+5%[ICON_GOLD]金钱
 			</Text>
@@ -18855,7 +18855,7 @@
 		<Row Tag="TXT_KEY_EFFECT_CSUA_TYRE_FRIEND_HELP">
 			<Text>
 				朋友效果：
-				[NEWLINE][ICON_BULLET]每处码头、船坞使全国+4%[ICON_PRODUCTION]产能
+				[NEWLINE][ICON_BULLET]每处码头、船坞使全国+2%[ICON_PRODUCTION]产能
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EUPANEL_CSUA_DAMAGE_REDUCTION_SP">

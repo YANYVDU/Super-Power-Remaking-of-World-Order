@@ -2767,25 +2767,25 @@
 			<EffectType>EFFECT_CSUA_TYRE_ALLY</EffectType>
 			<BuildingClassType>BUILDINGCLASS_WOOD_DOCK</BuildingClassType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
-			<YieldMod>10</YieldMod>
+			<YieldMod>4</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_TYRE_ALLY</EffectType>
 			<BuildingClassType>BUILDINGCLASS_SHIPYARD</BuildingClassType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
-			<YieldMod>10</YieldMod>
+			<YieldMod>4</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_TYRE_FRIEND</EffectType>
 			<BuildingClassType>BUILDINGCLASS_WOOD_DOCK</BuildingClassType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
-			<YieldMod>4</YieldMod>
+			<YieldMod>2</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_TYRE_FRIEND</EffectType>
 			<BuildingClassType>BUILDINGCLASS_SHIPYARD</BuildingClassType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
-			<YieldMod>4</YieldMod>
+			<YieldMod>2</YieldMod>
 		</Row>
 	 </CityStateUAEffect_BuildingClassGlobalYieldModifiers>
 	 <CityStateUAEffect_BuildingClassTechCostModifiers>
