@@ -2529,37 +2529,37 @@
 			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER</SpecialCityType>
 			<YieldType>YIELD_GOLD</YieldType>
-			<YieldMod>15</YieldMod>
+			<YieldMod>12</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER</SpecialCityType>
 			<YieldType>YIELD_FOOD</YieldType>
-			<YieldMod>15</YieldMod>
+			<YieldMod>12</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
 			<YieldType>YIELD_GOLD</YieldType>
-			<YieldMod>15</YieldMod>
+			<YieldMod>12</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
 			<YieldType>YIELD_FOOD</YieldType>
-			<YieldMod>15</YieldMod>
+			<YieldMod>12</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
 			<YieldType>YIELD_CULTURE</YieldType>
-			<YieldMod>15</YieldMod>
+			<YieldMod>12</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_RIGA_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_RIGA_RIVER_COASTAL</SpecialCityType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
-			<YieldMod>15</YieldMod>
+			<YieldMod>12</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_RIGA_FRIEND</EffectType>
