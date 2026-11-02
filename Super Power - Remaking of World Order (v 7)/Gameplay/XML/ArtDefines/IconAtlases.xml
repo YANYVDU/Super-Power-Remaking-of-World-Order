@@ -1848,6 +1848,11 @@
 			<IconMapping>10</IconMapping>
 		</Row>
 		<Row>
+			<IconName>ICON_AID_POINT</IconName>
+			<IconFontTexture>ICON_FONT_TEXTURE_SPCITYBANNERS</IconFontTexture>
+			<IconMapping>11</IconMapping>
+		</Row>
+		<Row>
 			<IconName>ICON_CITYBANNER_CITY_TOWN</IconName>
 			<IconFontTexture>ICON_FONT_TEXTURE_SPCITYBANNERS</IconFontTexture>
 			<IconMapping>12</IconMapping>

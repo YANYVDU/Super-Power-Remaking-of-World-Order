@@ -596,7 +596,13 @@ function InitMinorCivList()
 				sTraitTip = Locale.ConvertTextKey( "TXT_KEY_CITY_STATE_RELIGIOUS_ADJECTIVE" )
         	end
 			local iFriendshipWithUs = pOtherPlayer:GetMinorCivFriendshipWithMajor(g_iPlayer)
-			if iFriendshipWithUs ~= 0 then sTraitTip = sTraitTip .. "(" .. iFriendshipWithUs .. ")" end
+			local iAidPoints = 0
+			if (pOtherPlayer.GetEconomicAidPoints ~= nil) then
+				iAidPoints = pOtherPlayer:GetEconomicAidPoints(g_iPlayer)
+			end
+			if iFriendshipWithUs ~= 0 or iAidPoints ~= 0 then
+				sTraitTip = sTraitTip .. "(" .. iFriendshipWithUs .. "[ICON_INFLUENCE]|" .. iAidPoints .. "[ICON_AID_POINT])"
+			end
 			controlTable.MinorType:SetText(sTraitTip);
 
 			civInfo = GameInfo.Civilizations[pOtherPlayer:GetCivilizationType()];
