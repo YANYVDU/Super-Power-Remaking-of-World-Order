@@ -18309,7 +18309,7 @@
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]为领袖的宗教获得「世界认可」：每有2个主要文明的主流宗教为该宗教，盟友+1[ICON_DIPLOMATIC_PRESTIGE]外交威望
-				[NEWLINE][ICON_BULLET]每有3座城市信仰该宗教，盟友每回合对所有已见面城邦+1[ICON_INFLUENCE]影响力
+				[NEWLINE][ICON_BULLET]每有5座城市信仰该宗教，盟友每回合对所有已见面城邦+1[ICON_INFLUENCE]影响力
 				[NEWLINE][ICON_BULLET]盟友每次诞生[ICON_PROPHET]大先知，获得等同于其对日内瓦影响力×2的[ICON_GOLD]金钱
 				[NEWLINE]
 				[NEWLINE]朋友效果：
@@ -18320,7 +18320,7 @@
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]为领袖的宗教获得「世界认可」：每有2个主要文明的主流宗教为该宗教，盟友+1[ICON_DIPLOMATIC_PRESTIGE]外交威望
-				[NEWLINE][ICON_BULLET]每有3座城市信仰该宗教，盟友每回合对所有已见面城邦+1[ICON_INFLUENCE]影响力
+				[NEWLINE][ICON_BULLET]每有5座城市信仰该宗教，盟友每回合对所有已见面城邦+1[ICON_INFLUENCE]影响力
 				[NEWLINE][ICON_BULLET]盟友每次诞生[ICON_PROPHET]大先知，获得等同于其对日内瓦影响力×2的[ICON_GOLD]金钱
 			</Text>
 		</Row>

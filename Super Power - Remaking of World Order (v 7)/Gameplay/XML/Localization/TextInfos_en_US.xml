@@ -19839,7 +19839,7 @@
 			<Text>
 				Ally effect:
 				[NEWLINE][ICON_BULLET]Gain "World Recognition" for the religion the ally leads: +1 [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige per 2 major civilizations whose majority religion is that religion
-				[NEWLINE][ICON_BULLET]+1 [ICON_INFLUENCE] Influence per turn with every met city-state for every 3 cities following that religion
+				[NEWLINE][ICON_BULLET]+1 [ICON_INFLUENCE] Influence per turn with every met city-state for every 5 cities following that religion
 				[NEWLINE][ICON_BULLET]Whenever the ally spawns a [ICON_PROPHET] Great Prophet, gain [ICON_GOLD] Gold equal to twice their Influence with Geneva
 				[NEWLINE]
 				[NEWLINE]Friend effect:
@@ -19850,7 +19850,7 @@
 			<Text>
 				Ally effect:
 				[NEWLINE][ICON_BULLET]Gain "World Recognition" for the religion the ally leads: +1 [ICON_DIPLOMATIC_PRESTIGE] Diplomatic Prestige per 2 major civilizations whose majority religion is that religion
-				[NEWLINE][ICON_BULLET]+1 [ICON_INFLUENCE] Influence per turn with every met city-state for every 3 cities following that religion
+				[NEWLINE][ICON_BULLET]+1 [ICON_INFLUENCE] Influence per turn with every met city-state for every 5 cities following that religion
 				[NEWLINE][ICON_BULLET]Whenever the ally spawns a [ICON_PROPHET] Great Prophet, gain [ICON_GOLD] Gold equal to twice their Influence with Geneva
 			</Text>
 		</Row>

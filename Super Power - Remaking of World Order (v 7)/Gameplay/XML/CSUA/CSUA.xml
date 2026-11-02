@@ -285,7 +285,7 @@
 			<Type>EFFECT_CSUA_GENEVA_ALLY</Type>
 			<DiplomaticPrestigePerMajorityCiv>50</DiplomaticPrestigePerMajorityCiv>
 			<InfluencePerTurnPerFollowCityMod>100</InfluencePerTurnPerFollowCityMod>
-			<FollowingCityDivisor>3</FollowingCityDivisor>
+			<FollowingCityDivisor>5</FollowingCityDivisor>
 			<Help>TXT_KEY_EFFECT_CSUA_GENEVA_ALLY_HELP</Help>
 		</Row>
 		<Row>
