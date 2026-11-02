@@ -2577,19 +2577,19 @@
 			<EffectType>EFFECT_CSUA_MOMBASA_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</SpecialCityType>
 			<YieldType>YIELD_GOLD</YieldType>
-			<YieldMod>15</YieldMod>
+			<YieldMod>12</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_MOMBASA_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</SpecialCityType>
 			<YieldType>YIELD_CULTURE</YieldType>
-			<YieldMod>15</YieldMod>
+			<YieldMod>12</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_MOMBASA_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_MOMBASA_LAND_SEA_TR</SpecialCityType>
 			<YieldType>YIELD_FOOD</YieldType>
-			<YieldMod>15</YieldMod>
+			<YieldMod>12</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_MOMBASA_FRIEND</EffectType>
@@ -2639,13 +2639,13 @@
 			<EffectType>EFFECT_CSUA_MOMBASA_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_COASTAL</SpecialCityType>
 			<YieldType>YIELD_FOOD</YieldType>
-			<YieldMod>5</YieldMod>
+			<YieldMod>3</YieldMod>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_MOMBASA_ALLY</EffectType>
 			<SpecialCityType>SPECIAL_CITY_COASTAL</SpecialCityType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
-			<YieldMod>5</YieldMod>
+			<YieldMod>3</YieldMod>
 		</Row>
 	 </CityStateUAEffect_SpecialCityCountYieldModifiers>
 	 <CityStateUAEffect_WorldWonderYieldModifiers>
