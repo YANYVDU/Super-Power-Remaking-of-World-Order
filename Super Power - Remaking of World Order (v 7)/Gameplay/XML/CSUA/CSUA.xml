@@ -253,6 +253,7 @@
 			<Type>EFFECT_CSUA_WITTENBERG_ALLY</Type>
 			<FaithBeliefPurchase>true</FaithBeliefPurchase>
 			<InquisitorRetentionPercent>40</InquisitorRetentionPercent>
+			<InquisitorCanUseOnCityState>true</InquisitorCanUseOnCityState>
 			<Help>TXT_KEY_EFFECT_CSUA_WITTENBERG_ALLY_HELP</Help>
 		</Row>
 		<Row>

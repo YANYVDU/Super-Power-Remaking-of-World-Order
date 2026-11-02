@@ -19693,7 +19693,7 @@
 				Ally effect:
 				[NEWLINE][ICON_BULLET]+1%[ICON_PEACE] Faith per city in the world following a religion led by the ally, added to the ally's capital
 				[NEWLINE][ICON_BULLET]The ally may spend a large amount of [ICON_PEACE] Faith to purchase one belief of their choice and add it to the religion led by the ally (once per ally)
-				[NEWLINE][ICON_BULLET]When this religion is cleansed from a city by an Inquisitor or Great Prophet, 40% of its followers are retained
+				[NEWLINE][ICON_BULLET]When this religion is cleansed from a city by an Inquisitor or Great Prophet, 40% of its followers are retained; the ally's [ICON_INQUISITOR]Inquisitors may also be used in any city-state city
 				[NEWLINE]
 				[NEWLINE]Friend effect:
 				[NEWLINE][ICON_BULLET]+1%[ICON_PEACE] Faith per 2 cities in the world following a religion led by the ally, added to the friend's capital
@@ -19704,7 +19704,7 @@
 				Ally effect:
 				[NEWLINE][ICON_BULLET]+1%[ICON_PEACE] Faith per city in the world following a religion led by the ally, added to the ally's capital
 				[NEWLINE][ICON_BULLET]The ally may spend a large amount of [ICON_PEACE] Faith to purchase one belief of their choice and add it to the religion led by the ally (once per ally)
-				[NEWLINE][ICON_BULLET]When this religion is cleansed from a city by an Inquisitor or Great Prophet, 40% of its followers are retained
+				[NEWLINE][ICON_BULLET]When this religion is cleansed from a city by an Inquisitor or Great Prophet, 40% of its followers are retained; the ally's [ICON_INQUISITOR]Inquisitors may also be used in any city-state city
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_WITTENBERG_FRIEND_HELP">

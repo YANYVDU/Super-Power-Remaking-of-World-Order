@@ -18163,7 +18163,7 @@
 				盟友效果：
 				[NEWLINE][ICON_BULLET]每有1座城市信仰盟友为领袖的宗教，盟友首都+1%[ICON_PEACE]信仰
 				[NEWLINE][ICON_BULLET]盟友可花费高额[ICON_PEACE]信仰，为其领导的宗教购买1个自选信条（每盟友限1次）
-				[NEWLINE][ICON_BULLET]该宗教的城市被审判官或大先知清除宗教时，保留40%信众
+				[NEWLINE][ICON_BULLET]该宗教的城市被审判官或大先知清除宗教时，保留40%信众，盟友的[ICON_INQUISITOR]宗教裁判官可以对任意城邦城市使用
 				[NEWLINE]
 				[NEWLINE]朋友效果：
 				[NEWLINE][ICON_BULLET]每有2座城市信仰盟友为领袖的宗教，朋友首都+1%[ICON_PEACE]信仰
@@ -18174,7 +18174,7 @@
 				盟友效果：
 				[NEWLINE][ICON_BULLET]每有1座城市信仰盟友为领袖的宗教，盟友首都+1%[ICON_PEACE]信仰
 				[NEWLINE][ICON_BULLET]盟友可花费高额[ICON_PEACE]信仰，为其领导的宗教购买1个自选信条（每盟友限1次）
-				[NEWLINE][ICON_BULLET]该宗教的城市被审判官或大先知清除宗教时，保留40%信众
+				[NEWLINE][ICON_BULLET]该宗教的城市被审判官或大先知清除宗教时，保留40%信众，盟友的[ICON_INQUISITOR]宗教裁判官可以对任意城邦城市使用
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_WITTENBERG_FRIEND_HELP">
