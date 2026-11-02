@@ -20790,7 +20790,7 @@
 		<Row Tag="TXT_KEY_CSUA_BUENOS_AIRES_HELP">
 			<Text>
 				Ally Effects:
-				[NEWLINE][ICON_BULLET]+1 [ICON_GREAT_MUSICIAN]Great Musician point in each of the ally's cities, and +1 more for each City Scale building in those cities
+				[NEWLINE][ICON_BULLET]+1 [ICON_GREAT_MUSICIAN]Great Musician point in each of the ally's cities, and +1 more for each City Scale level reached (1/6/15/26/40/60/80 pop)
 				[NEWLINE][ICON_BULLET]The ally's [ICON_GREAT_MUSICIAN]Great Musicians do not die after creating a [ICON_GREAT_WORK]Great Work of Music; they lose the ability to create another one and keep only 50% of their [ICON_TOURISM]Tourism from concerts
 				[NEWLINE][ICON_BULLET]Each [ICON_GREAT_WORK]Great Work of Music owned grants +5% national [ICON_TOURISM]Tourism
 				[NEWLINE]
@@ -20801,7 +20801,7 @@
 		<Row Tag="TXT_KEY_EFFECT_CSUA_BUENOS_AIRES_ALLY_HELP">
 			<Text>
 				Ally Effects:
-				[NEWLINE][ICON_BULLET]+1 [ICON_GREAT_MUSICIAN]Great Musician point in each of the ally's cities, and +1 more for each City Scale building in those cities
+				[NEWLINE][ICON_BULLET]+1 [ICON_GREAT_MUSICIAN]Great Musician point in each of the ally's cities, and +1 more for each City Scale level reached (1/6/15/26/40/60/80 pop)
 				[NEWLINE][ICON_BULLET]The ally's [ICON_GREAT_MUSICIAN]Great Musicians do not die after creating a [ICON_GREAT_WORK]Great Work of Music; they lose the ability to create another one and keep only 50% of their [ICON_TOURISM]Tourism from concerts
 				[NEWLINE][ICON_BULLET]Each [ICON_GREAT_WORK]Great Work of Music owned grants +5% national [ICON_TOURISM]Tourism
 			</Text>
