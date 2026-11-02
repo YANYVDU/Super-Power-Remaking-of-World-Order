@@ -2490,6 +2490,8 @@
 			<Civilopedia>TXT_KEY_BUILDING_NEW_PALACE_TEXT</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_NEW_PALACE_STRATEGY</Strategy>
 			<NukeImmune>true</NukeImmune>
+			<!-- Move Capital: destroyed on construction, so it can never satisfy a "construct this building" quest -->
+			<BannedCityStateQuest>true</BannedCityStateQuest>
 			<MinAreaSize>-1</MinAreaSize>
 			<NeverCapture>true</NeverCapture>
 			<NumCityCostMod>40</NumCityCostMod>
