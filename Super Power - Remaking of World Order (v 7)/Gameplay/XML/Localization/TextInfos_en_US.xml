@@ -19245,6 +19245,11 @@
 				[NEWLINE][ICON_BULLET]Each holy city you control grants +20% Religious Pressure to the religion you founded
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_DENOUNCE_IMMUNITY">
+			<Text>
+				Denunciations of this player have no effect due to the obstruction of their allied city-state.
+			</Text>
+		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_JERUSALEM_ALLY_HELP">
 			<Text>
 				Ally Effects:

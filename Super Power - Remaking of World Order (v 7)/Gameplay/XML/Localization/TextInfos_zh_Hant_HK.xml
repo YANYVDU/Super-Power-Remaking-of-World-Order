@@ -17521,6 +17521,11 @@
 				[NEWLINE][ICON_BULLET]你每掌控一座聖城，你創立的宗教+20%宗教壓力
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CSUA_DENOUNCE_IMMUNITY">
+			<Text>
+				由於對方的盟邦阻撓，所有對該玩家的譴責無效
+			</Text>
+		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_JERUSALEM_ALLY_HELP">
 			<Text>
 				盟友效果：
