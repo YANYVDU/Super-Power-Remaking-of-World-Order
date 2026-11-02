@@ -19392,18 +19392,18 @@
 		<Row Tag="TXT_KEY_CSUA_WELLINGTON_HELP">
 			<Text>
 				Ally Effects:
-				[NEWLINE][ICON_BULLET]The capital gains +20% [ICON_PRODUCTION]Production and [ICON_FOOD]Food (via the Palace)
+				[NEWLINE][ICON_BULLET]The capital gains +20% [ICON_PRODUCTION]Production and [ICON_FOOD]Food
 				[NEWLINE][ICON_BULLET]Cities at the first corruption level gain +10% [ICON_PRODUCTION]Production and [ICON_FOOD]Food
 				[NEWLINE][ICON_BULLET]Each worked Pasture grants the city +3% [ICON_FOOD]Food and [ICON_GOLD]Gold
 				[NEWLINE]
 				[NEWLINE]Friend Effects:
-				[NEWLINE][ICON_BULLET]The capital gains +8% [ICON_PRODUCTION]Production and [ICON_FOOD]Food (via the Palace)
+				[NEWLINE][ICON_BULLET]The capital gains +8% [ICON_PRODUCTION]Production and [ICON_FOOD]Food
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_WELLINGTON_ALLY_HELP">
 			<Text>
 				Ally Effects:
-				[NEWLINE][ICON_BULLET]The capital gains +20% [ICON_PRODUCTION]Production and [ICON_FOOD]Food (via the Palace)
+				[NEWLINE][ICON_BULLET]The capital gains +20% [ICON_PRODUCTION]Production and [ICON_FOOD]Food
 				[NEWLINE][ICON_BULLET]Cities at the first corruption level gain +10% [ICON_PRODUCTION]Production and [ICON_FOOD]Food
 				[NEWLINE][ICON_BULLET]Each worked Pasture grants the city +3% [ICON_FOOD]Food and [ICON_GOLD]Gold
 			</Text>
@@ -19411,7 +19411,7 @@
 		<Row Tag="TXT_KEY_EFFECT_CSUA_WELLINGTON_FRIEND_HELP">
 			<Text>
 				Friend Effects:
-				[NEWLINE][ICON_BULLET]The capital gains +8% [ICON_PRODUCTION]Production and [ICON_FOOD]Food (via the Palace)
+				[NEWLINE][ICON_BULLET]The capital gains +8% [ICON_PRODUCTION]Production and [ICON_FOOD]Food
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CSUA_CAPE_TOWN_HELP">
