@@ -20220,7 +20220,7 @@
 		<Row Tag="TXT_KEY_CSUA_MANILA_HELP">
 			<Text>
 				Ally Effects:
-				[NEWLINE][ICON_BULLET]Ally's international [ICON_INTERNATIONAL_TRADE]Trade Routes gain +25% [ICON_GOLD]Gold
+				[NEWLINE][ICON_BULLET]Ally's international [ICON_INTERNATIONAL_TRADE]Trade Routes gain +20% [ICON_GOLD]Gold
 				[NEWLINE][ICON_BULLET]For each international [ICON_INTERNATIONAL_TRADE]Trade Route the ally runs, all international Trade Routes gain an extra +2% [ICON_GOLD]Gold
 				[NEWLINE][ICON_BULLET]For each [ICON_GOLD]Luxury Resource providing [ICON_HAPPINESS_1]Happiness the ally owns, the nation gains +2% [ICON_FOOD]Food (up to +50%)
 				[NEWLINE]
@@ -20231,7 +20231,7 @@
 		<Row Tag="TXT_KEY_EFFECT_CSUA_MANILA_ALLY_HELP">
 			<Text>
 				Ally Effects:
-				[NEWLINE][ICON_BULLET]Ally's international [ICON_INTERNATIONAL_TRADE]Trade Routes gain +25% [ICON_GOLD]Gold
+				[NEWLINE][ICON_BULLET]Ally's international [ICON_INTERNATIONAL_TRADE]Trade Routes gain +20% [ICON_GOLD]Gold
 				[NEWLINE][ICON_BULLET]For each international [ICON_INTERNATIONAL_TRADE]Trade Route the ally runs, all international Trade Routes gain an extra +2% [ICON_GOLD]Gold
 				[NEWLINE][ICON_BULLET]For each [ICON_GOLD]Luxury Resource providing [ICON_HAPPINESS_1]Happiness the ally owns, the nation gains +2% [ICON_FOOD]Food (up to +50%)
 			</Text>

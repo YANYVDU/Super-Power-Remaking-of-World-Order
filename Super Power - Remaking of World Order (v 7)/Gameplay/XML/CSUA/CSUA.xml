@@ -362,7 +362,7 @@
 		</Row>
 		<Row>
 			<Type>EFFECT_CSUA_MANILA_ALLY</Type>
-			<TradeRouteGoldPercentInternational>25</TradeRouteGoldPercentInternational>
+			<TradeRouteGoldPercentInternational>20</TradeRouteGoldPercentInternational>
 			<TradeRouteGoldModifierPerInternationalRoute>2</TradeRouteGoldModifierPerInternationalRoute>
 			<FoodModifierPerHappyLuxuryType>2</FoodModifierPerHappyLuxuryType>
 			<FoodModifierPerHappyLuxuryCap>50</FoodModifierPerHappyLuxuryCap>
