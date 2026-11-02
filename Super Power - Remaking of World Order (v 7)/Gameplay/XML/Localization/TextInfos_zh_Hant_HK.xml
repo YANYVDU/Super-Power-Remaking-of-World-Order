@@ -17569,8 +17569,8 @@
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]城市每處有市民工作的農田+5%[ICON_FOOD]食物
-				[NEWLINE][ICON_BULLET]每個達到中型規模的城市+20%[ICON_CULTURE]文化
-				[NEWLINE][ICON_BULLET]每個達到大型規模的城市+30%[ICON_GOLD]金錢
+				[NEWLINE][ICON_BULLET]每個達到中型規模的城市（15人口）+20%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]每個達到大型規模的城市（26人口）+30%[ICON_GOLD]金錢
 				[NEWLINE]
 				[NEWLINE]朋友效果：
 				[NEWLINE][ICON_BULLET]城市每處有市民工作的農田+2%[ICON_FOOD]食物
@@ -17580,8 +17580,8 @@
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]城市每處有市民工作的農田+5%[ICON_FOOD]食物
-				[NEWLINE][ICON_BULLET]每個達到中型規模的城市+20%[ICON_CULTURE]文化
-				[NEWLINE][ICON_BULLET]每個達到大型規模的城市+30%[ICON_GOLD]金錢
+				[NEWLINE][ICON_BULLET]每個達到中型規模的城市（15人口）+20%[ICON_CULTURE]文化
+				[NEWLINE][ICON_BULLET]每個達到大型規模的城市（26人口）+30%[ICON_GOLD]金錢
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_CAHOKIA_FRIEND_HELP">

@@ -19293,8 +19293,8 @@
 			<Text>
 				Ally Effects:
 				[NEWLINE][ICON_BULLET]Each worked Farm grants the city +5% [ICON_FOOD]Food
-				[NEWLINE][ICON_BULLET]Each city that has reached Medium size grants +20% [ICON_CULTURE]Culture
-				[NEWLINE][ICON_BULLET]Each city that has reached Large size grants +30% [ICON_GOLD]Gold
+				[NEWLINE][ICON_BULLET]Every Medium City (15) grants +20% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]Every Large City (26) grants +30% [ICON_GOLD]Gold
 				[NEWLINE]
 				[NEWLINE]Friend Effects:
 				[NEWLINE][ICON_BULLET]Each worked Farm grants the city +2% [ICON_FOOD]Food
@@ -19304,8 +19304,8 @@
 			<Text>
 				Ally Effects:
 				[NEWLINE][ICON_BULLET]Each worked Farm grants the city +5% [ICON_FOOD]Food
-				[NEWLINE][ICON_BULLET]Each city that has reached Medium size grants +20% [ICON_CULTURE]Culture
-				[NEWLINE][ICON_BULLET]Each city that has reached Large size grants +30% [ICON_GOLD]Gold
+				[NEWLINE][ICON_BULLET]Every Medium City (15) grants +20% [ICON_CULTURE]Culture
+				[NEWLINE][ICON_BULLET]Every Large City (26) grants +30% [ICON_GOLD]Gold
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_CAHOKIA_FRIEND_HELP">
