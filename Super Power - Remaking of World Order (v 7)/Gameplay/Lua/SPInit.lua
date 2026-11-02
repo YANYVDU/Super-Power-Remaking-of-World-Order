@@ -30,4 +30,3 @@ include("UnitSpecialButtons");
 include("UnitSpecialButtons_SP8");
 -- CSD
 include("NewCityStateDiplomaticRule");
-include("CSUA_RefreshOnLoad");
