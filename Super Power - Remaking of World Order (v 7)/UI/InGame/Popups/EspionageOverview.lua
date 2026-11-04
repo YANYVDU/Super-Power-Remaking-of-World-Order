@@ -607,6 +607,12 @@ function RefreshAgents()
 	
 	local bHasAgents = #agents ~= 0;
 	Controls.NoMoreSpiesLabel:SetHide(bHasAgents);
+	-- Super Power V11: spies are recruited from accumulated Spy Points, so an empty agent
+	-- list means no spy has been earned yet. Killed spies stay in the list and show their
+	-- own KIA row, so the old "all spies are dead" message never applies here.
+	if (not bHasAgents) then
+		Controls.NoMoreSpiesLabel:LocalizeAndSetText("TXT_KEY_SP_NO_SPIES_YET");
+	end
 	
 	for i,v in ipairs(agents) do
 		if (v.State == "TXT_KEY_SPY_STATE_SURVEILLANCE" and v.TurnsLeft < 0) then
