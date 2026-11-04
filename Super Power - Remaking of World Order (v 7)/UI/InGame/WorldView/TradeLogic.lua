@@ -2110,8 +2110,13 @@ do
 		g_Deal:AddNonAggressionPact( g_iThem, g_iDealDuration )
 		return DoUIDealChangedByHuman()
 	end
-	Controls.UsPocketNonAggressionPact:RegisterCallback( Mouse.eLClick, AddNonAggressionPactFromUs )
-	Controls.ThemPocketNonAggressionPact:RegisterCallback( Mouse.eLClick, AddNonAggressionPactFromThem )
+	-- The current-deals screen reuses this file and may not carry these controls
+	if Controls.UsPocketNonAggressionPact then
+		Controls.UsPocketNonAggressionPact:RegisterCallback( Mouse.eLClick, AddNonAggressionPactFromUs )
+	end
+	if Controls.ThemPocketNonAggressionPact then
+		Controls.ThemPocketNonAggressionPact:RegisterCallback( Mouse.eLClick, AddNonAggressionPactFromThem )
+	end
 
 	local function RemoveNonAggressionPact()
 		-- Only one side ever holds this item, but clear both to be safe
@@ -2119,8 +2124,12 @@ do
 		g_Deal:RemoveByType( TradeableItems.TRADE_ITEM_NON_AGGRESSION_PACT, g_iThem )
 		return DoUIDealChangedByHuman( true )
 	end
-	Controls.UsTableNonAggressionPact:RegisterCallback( Mouse.eLClick, RemoveNonAggressionPact )
-	Controls.ThemTableNonAggressionPact:RegisterCallback( Mouse.eLClick, RemoveNonAggressionPact )
+	if Controls.UsTableNonAggressionPact then
+		Controls.UsTableNonAggressionPact:RegisterCallback( Mouse.eLClick, RemoveNonAggressionPact )
+	end
+	if Controls.ThemTableNonAggressionPact then
+		Controls.ThemTableNonAggressionPact:RegisterCallback( Mouse.eLClick, RemoveNonAggressionPact )
+	end
 end
 
 -----------------------------------------------------------------------------------------------------------------------
