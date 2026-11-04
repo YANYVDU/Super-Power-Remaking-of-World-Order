@@ -18052,7 +18052,7 @@
 			<Text>取消</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_SELECT_CITY_STATES_SELECTED">
-			<Text>[ICON_BULLET]已选 {1_num}</Text>
+			<Text>已选 {1_num}</Text>
 		</Row>
 		<Row Tag="TXT_KEY_SP_CITY_STATE_HAS_UA">
 			<Text>[COLOR_CYAN]专属UA[ENDCOLOR]</Text>
