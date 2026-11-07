@@ -17636,7 +17636,7 @@
 				盟友效果：
 				[NEWLINE][ICON_BULLET]城墙、城堡、兵工厂、军事基地为城市+10%[ICON_CULTURE]文化
 				[NEWLINE][ICON_BULLET]己方间谍驻守的城市+20%[ICON_RESEARCH]科研
-				[NEWLINE][ICON_BULLET]每击杀1个他国[ICON_SPY]间谍，自身获得1个[ICON_SPY]间谍
+				[NEWLINE][ICON_BULLET]每击杀1个他国[ICON_SPY]间谍，获得50[ICON_SPY]间谍点数
 				[NEWLINE]
 				[NEWLINE]朋友效果：
 				[NEWLINE][ICON_BULLET]城墙、城堡为城市+10%[ICON_CULTURE]文化
@@ -17647,7 +17647,7 @@
 				盟友效果：
 				[NEWLINE][ICON_BULLET]城墙、城堡、兵工厂、军事基地为城市+10%[ICON_CULTURE]文化
 				[NEWLINE][ICON_BULLET]己方间谍驻守的城市+20%[ICON_RESEARCH]科研
-				[NEWLINE][ICON_BULLET]每击杀1个他国[ICON_SPY]间谍，自身获得1个[ICON_SPY]间谍
+				[NEWLINE][ICON_BULLET]每击杀1个他国[ICON_SPY]间谍，获得50[ICON_SPY]间谍点数
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_PRAGUE_FRIEND_HELP">

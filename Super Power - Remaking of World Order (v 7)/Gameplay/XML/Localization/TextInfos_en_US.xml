@@ -19166,7 +19166,7 @@
 				Ally Effects:
 				[NEWLINE][ICON_BULLET]Walls, Castle, Arsenal and Military Base grant the city +10% [ICON_CULTURE]Culture
 				[NEWLINE][ICON_BULLET]Cities with your own [ICON_SPY]Spy garrisoned gain +20% [ICON_RESEARCH]Science
-				[NEWLINE][ICON_BULLET]Each enemy [ICON_SPY]Spy you kill grants you a [ICON_SPY]Spy
+				[NEWLINE][ICON_BULLET]Each enemy [ICON_SPY]Spy you kill grants 50 [ICON_SPY]Spy Points
 				[NEWLINE]
 				[NEWLINE]Friend Effects:
 				[NEWLINE][ICON_BULLET]Walls and Castle grant the city +10% [ICON_CULTURE]Culture
@@ -19177,7 +19177,7 @@
 				Ally Effects:
 				[NEWLINE][ICON_BULLET]Walls, Castle, Arsenal and Military Base grant the city +10% [ICON_CULTURE]Culture
 				[NEWLINE][ICON_BULLET]Cities with your own [ICON_SPY]Spy garrisoned gain +20% [ICON_RESEARCH]Science
-				[NEWLINE][ICON_BULLET]Each enemy [ICON_SPY]Spy you kill grants you a [ICON_SPY]Spy
+				[NEWLINE][ICON_BULLET]Each enemy [ICON_SPY]Spy you kill grants 50 [ICON_SPY]Spy Points
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EFFECT_CSUA_PRAGUE_FRIEND_HELP">

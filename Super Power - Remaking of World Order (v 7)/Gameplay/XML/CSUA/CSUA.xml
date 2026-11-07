@@ -116,7 +116,7 @@
 		</Row>
 		<Row>
 			<Type>EFFECT_CSUA_PRAGUE_ALLY</Type>
-			<SpyKillGainSpyProgress>100</SpyKillGainSpyProgress>
+			<SpyKillGainSpyPoints>50</SpyKillGainSpyPoints>
 			<Help>TXT_KEY_EFFECT_CSUA_PRAGUE_ALLY_HELP</Help>
 		</Row>
 		<Row>
