@@ -19009,7 +19009,7 @@
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]其他文明计算对盟友的文化胜利进度时，盟友的累积[ICON_CULTURE]文化值额外+50%
-				[NEWLINE][ICON_BULLET]每有一个文明对盟友的影响程度为默默无闻，盟友全国+4%[ICON_PRODUCTION]产能和[ICON_FOOD]食物（上限+40%）
+				[NEWLINE][ICON_BULLET]每有一个文明对盟友的影响程度为默默无闻，盟友全国+3%[ICON_PRODUCTION]产能和[ICON_FOOD]食物（上限+40%）
 				[NEWLINE][ICON_BULLET]盟友购买城墙、军营、城堡、军械所、兵工厂、军事基地时，全部存活陆军+10经验
 				[NEWLINE]
 				[NEWLINE]朋友效果：
@@ -19020,7 +19020,7 @@
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]其他文明计算对盟友的文化胜利进度时，盟友的累积[ICON_CULTURE]文化值额外+50%
-				[NEWLINE][ICON_BULLET]每有一个文明对盟友的影响程度为默默无闻，盟友全国+4%[ICON_PRODUCTION]产能和[ICON_FOOD]食物（上限+40%）
+				[NEWLINE][ICON_BULLET]每有一个文明对盟友的影响程度为默默无闻，盟友全国+3%[ICON_PRODUCTION]产能和[ICON_FOOD]食物（上限+40%）
 				[NEWLINE][ICON_BULLET]盟友购买城墙、军营、城堡、军械所、兵工厂、军事基地时，全部存活陆军+10经验
 			</Text>
 		</Row>

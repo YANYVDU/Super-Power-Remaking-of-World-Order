@@ -18815,7 +18815,7 @@
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]其他文明計算對盟友的文化勝利進度時，盟友的累積[ICON_CULTURE]文化值額外+50%
-				[NEWLINE][ICON_BULLET]每有一個文明對盟友的影響程度為默默無聞，盟友全國+4%[ICON_PRODUCTION]產能和[ICON_FOOD]食物（上限+40%）
+				[NEWLINE][ICON_BULLET]每有一個文明對盟友的影響程度為默默無聞，盟友全國+3%[ICON_PRODUCTION]產能和[ICON_FOOD]食物（上限+40%）
 				[NEWLINE][ICON_BULLET]盟友購買城牆、軍營、城堡、軍械所、兵工廠、軍事基地時，全部存活陸軍+10經驗
 				[NEWLINE]
 				[NEWLINE]朋友效果：
@@ -18826,7 +18826,7 @@
 			<Text>
 				盟友效果：
 				[NEWLINE][ICON_BULLET]其他文明計算對盟友的文化勝利進度時，盟友的累積[ICON_CULTURE]文化值額外+50%
-				[NEWLINE][ICON_BULLET]每有一個文明對盟友的影響程度為默默無聞，盟友全國+4%[ICON_PRODUCTION]產能和[ICON_FOOD]食物（上限+40%）
+				[NEWLINE][ICON_BULLET]每有一個文明對盟友的影響程度為默默無聞，盟友全國+3%[ICON_PRODUCTION]產能和[ICON_FOOD]食物（上限+40%）
 				[NEWLINE][ICON_BULLET]盟友購買城牆、軍營、城堡、軍械所、兵工廠、軍事基地時，全部存活陸軍+10經驗
 			</Text>
 		</Row>

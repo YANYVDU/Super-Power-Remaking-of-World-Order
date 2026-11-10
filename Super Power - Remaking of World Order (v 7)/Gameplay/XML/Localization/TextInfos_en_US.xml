@@ -20539,7 +20539,7 @@
 			<Text>
 				Ally Effects:
 				[NEWLINE][ICON_BULLET]When another civilization calculates its Culture Victory progress against the ally, the ally's accumulated [ICON_CULTURE]Culture is increased by an extra 50%
-				[NEWLINE][ICON_BULLET]For each civilization whose influence level toward the ally is Unknown, the ally gains +4% [ICON_PRODUCTION]Production and [ICON_FOOD]Food nation-wide (maximum +40%)
+				[NEWLINE][ICON_BULLET]For each civilization whose influence level toward the ally is Unknown, the ally gains +3% [ICON_PRODUCTION]Production and [ICON_FOOD]Food nation-wide (maximum +40%)
 				[NEWLINE][ICON_BULLET]When the ally purchases Walls, Barracks, Castle, Armory, Arsenal or Military Base, all living Land units gain +10 XP
 				[NEWLINE]
 				[NEWLINE]Friend Effects:
@@ -20550,7 +20550,7 @@
 			<Text>
 				Ally Effects:
 				[NEWLINE][ICON_BULLET]When another civilization calculates its Culture Victory progress against the ally, the ally's accumulated [ICON_CULTURE]Culture is increased by an extra 50%
-				[NEWLINE][ICON_BULLET]For each civilization whose influence level toward the ally is Unknown, the ally gains +4% [ICON_PRODUCTION]Production and [ICON_FOOD]Food nation-wide (maximum +40%)
+				[NEWLINE][ICON_BULLET]For each civilization whose influence level toward the ally is Unknown, the ally gains +3% [ICON_PRODUCTION]Production and [ICON_FOOD]Food nation-wide (maximum +40%)
 				[NEWLINE][ICON_BULLET]When the ally purchases Walls, Barracks, Castle, Armory, Arsenal or Military Base, all living Land units gain +10 XP
 			</Text>
 		</Row>

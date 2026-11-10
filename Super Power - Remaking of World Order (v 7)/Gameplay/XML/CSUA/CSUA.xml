@@ -2693,13 +2693,13 @@
 		<Row>
 			<EffectType>EFFECT_CSUA_QUEBEC_ALLY</EffectType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
-			<YieldMod>4</YieldMod>
+			<YieldMod>3</YieldMod>
 			<Cap>40</Cap>
 		</Row>
 		<Row>
 			<EffectType>EFFECT_CSUA_QUEBEC_ALLY</EffectType>
 			<YieldType>YIELD_FOOD</YieldType>
-			<YieldMod>4</YieldMod>
+			<YieldMod>3</YieldMod>
 			<Cap>40</Cap>
 		</Row>
 	 </CityStateUAEffect_UnknownInfluenceYieldModifiers>
