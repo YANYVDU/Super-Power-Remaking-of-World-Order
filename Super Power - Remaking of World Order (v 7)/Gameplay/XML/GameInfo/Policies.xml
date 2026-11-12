@@ -261,7 +261,7 @@
 			<Where Type="POLICY_PATRONAGE"/>
 		</Update>
 		<Update>
-			<Set MinorResourceBonus="true" MinorGoldFriendshipMod="100" CityStateTradeChange="200" GridY="3" PortraitIndex="40"/>
+			<Set MinorResourceBonus="true" MinorGoldFriendshipMod="50" CityStateTradeChange="200" GridY="3" PortraitIndex="40"/>
 			<Where Type="POLICY_PHILANTHROPY"/>
 		</Update>
 		<Update>

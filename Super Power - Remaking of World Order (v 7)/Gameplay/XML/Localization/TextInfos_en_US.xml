@@ -7887,7 +7887,7 @@
 		<Replace Tag="TXT_KEY_POLICY_PHILANTHROPY_HELP" >
 			<Text>
 				[COLOR_POSITIVE_TEXT]Philanthropy[ENDCOLOR]
-				[NEWLINE][ICON_BULLET][ICON_GOLD] Gold gifts to City-States produce 100% more [ICON_INFLUENCE] Influence.
+				[NEWLINE][ICON_BULLET][ICON_GOLD] Gold gifts to City-States produce 50% more [ICON_INFLUENCE] Influence.
 				[NEWLINE][ICON_BULLET]+4 [ICON_GOLD] Gold for trade routes with City-States.
 				[NEWLINE][ICON_BULLET]The City-States doubles the resources for you.
 			</Text>
