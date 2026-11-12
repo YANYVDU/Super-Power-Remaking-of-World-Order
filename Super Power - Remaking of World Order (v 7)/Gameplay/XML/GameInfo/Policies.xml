@@ -248,7 +248,8 @@
 			<PortraitIndex>37</PortraitIndex>
 			<IconAtlas>POLICY_ATLAS</IconAtlas>
 			<IconAtlasAchieved>POLICY_A_ATLAS</IconAtlasAchieved>
-			<GlobalHappinessFromFaithPercent>15</GlobalHappinessFromFaithPercent>
+			<GlobalHappinessFromFaithPercent>5</GlobalHappinessFromFaithPercent>
+			<LocalHappinessFromFaithPercent>10</LocalHappinessFromFaithPercent>
 		</Row>
 	</Policies>
 

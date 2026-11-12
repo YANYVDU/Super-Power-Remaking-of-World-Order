@@ -7858,7 +7858,8 @@
 		<Row Tag="TXT_KEY_POLICY_RELIGIOUS_POLITICS_HELP">
 			<Text>
 				[COLOR_POSITIVE_TEXT]Dependent Origination[ENDCOLOR]
-				[NEWLINE][ICON_BULLET]15% of the total [ICON_PEACE] Faith output each turn added to the amount of Global [ICON_HAPPINESS_1] Happiness. (At least +2 [ICON_HAPPINESS_1] Happiness, no upper limit)
+				[NEWLINE][ICON_BULLET]5% of the total [ICON_PEACE] Faith output each turn is added to Global [ICON_HAPPINESS_1] Happiness.
+				[NEWLINE][ICON_BULLET]+1 Local [ICON_HAPPINESS_1] Happiness per 10 [ICON_PEACE] Faith output in a city; Faith converted from Local Happiness does not count.
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POLICY_RELIGIOUS_POLITICS_TEXT">
