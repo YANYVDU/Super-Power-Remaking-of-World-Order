@@ -111,7 +111,7 @@
 			<ProtectedMinorPerTurnInfluence>400</ProtectedMinorPerTurnInfluence>
 			<AfraidMinorPerTurnInfluence>400</AfraidMinorPerTurnInfluence>
 			<MinorFriendshipDecayMod>-25</MinorFriendshipDecayMod>
-			<MinorFriendshipGrowthMod>25</MinorFriendshipGrowthMod>
+			<MinorQuestFriendshipMod>25</MinorQuestFriendshipMod>
 			<HappinessToCulture>20</HappinessToCulture>
 			<UnhappinessMod>-10</UnhappinessMod>
 			<MilitaryProductionModifier>50</MilitaryProductionModifier>
