@@ -238,8 +238,8 @@ local g_pocketControls = {
 	Controls.ThemPocketMarriage,
 	Controls.UsPocketDualEmpire,
 	Controls.ThemPocketDualEmpire,
---	Controls.UsPocketTradeAgreement, --Trade agreement disabled for now
---	Controls.ThemPocketTradeAgreement, --Trade agreement disabled for now
+	Controls.UsPocketTradeAgreement,
+	Controls.ThemPocketTradeAgreement,
 	Controls.UsPocketAllowEmbassy,
 	Controls.ThemPocketAllowEmbassy,
 	Controls.UsPocketDoF,
@@ -1019,10 +1019,10 @@ function ResetDisplay( diploMessage )
 			end
 			if IsCiv5notVanilla then
 				if not ourTeam:HasEmbassyAtTeam( theirTeamID ) or not theirTeam:HasEmbassyAtTeam( ourTeamID ) then
-					toolTip = toolTip .. L"TXT_KEY_DIPLO_BOTH_NEED_EMBASSY_TT"
+					toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_BOTH_NEED_EMBASSY_TT" .. "[ENDCOLOR]"
 				end
 				if not ourPlayer:IsDoF(theirPlayerID) or not theirPlayer:IsDoF(ourPlayerID) then
-					toolTip = toolTip .. L"TXT_KEY_DIPLO_NEED_DOF_TT"
+					toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_NEED_DOF_TT" .. "[ENDCOLOR]"
 				end
 			end
 			local ourCash = ourPlayer:GetGold() - researchAgreementCost
@@ -1075,15 +1075,23 @@ function ResetDisplay( diploMessage )
 		toolTip = L"TXT_KEY_DIPLO_TRADE_AGREEMENT_TT"
 		if ourTeam:IsHasTradeAgreement( theirTeamID ) then
 			toolTip = toolTip .. "[COLOR_POSITIVE_TEXT]" .. L"TXT_KEY_DIPLO_TRADE_AGREEMENT_EXISTS" .. "[ENDCOLOR]"
-		elseif not ourTeam:IsTradeAgreementTradingAllowed() and not theirTeam:IsTradeAgreementTradingAllowed() then
-			toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_TRADE_AGREEMENT_NO_TECH" .. "[ENDCOLOR]"
 		else
-			toolTip = L"TXT_KEY_DIPLO_TRADE_AGREEMENT_NO_AGREEMENT"
+			if not ourTeam:IsTradeAgreementTradingAllowed() and not theirTeam:IsTradeAgreementTradingAllowed() then
+				toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_TRADE_AGREEMENT_NO_TECH" .. "[ENDCOLOR]"
+			end
+			if IsCiv5notVanilla then
+				if not ourTeam:HasEmbassyAtTeam( theirTeamID ) or not theirTeam:HasEmbassyAtTeam( ourTeamID ) then
+					toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_BOTH_NEED_EMBASSY_TT" .. "[ENDCOLOR]"
+				end
+				if not ourPlayer:IsDoF(theirPlayerID) or not theirPlayer:IsDoF(ourPlayerID) then
+					toolTip = toolTip .. "[COLOR_WARNING_TEXT]" .. L"TXT_KEY_DIPLO_NEED_DOF_TT" .. "[ENDCOLOR]"
+				end
+			end
 		end
 		SetEnabledAndToolTip( Controls.UsPocketTradeAgreement, deal:IsPossibleToTradeItem( ourPlayerID, theirPlayerID, TradeableItems.TRADE_ITEM_TRADE_AGREEMENT, g_iDealDuration ), toolTip )
 		SetEnabledAndToolTip( Controls.ThemPocketTradeAgreement, deal:IsPossibleToTradeItem( theirPlayerID, ourPlayerID, TradeableItems.TRADE_ITEM_TRADE_AGREEMENT, g_iDealDuration ), toolTip )
-		--Controls.UsPocketTradeAgreement:SetHide( isSameTeam or ourTeam:IsHasTradeAgreement( theirTeamID ) )
-		--Controls.ThemPocketTradeAgreement:SetHide( isSameTeam or theirTeam:IsHasTradeAgreement( ourTeamID ) )
+		Controls.UsPocketTradeAgreement:SetHide( isSameTeam or ourTeam:IsHasTradeAgreement( theirTeamID ) )
+		Controls.ThemPocketTradeAgreement:SetHide( isSameTeam or theirTeam:IsHasTradeAgreement( ourTeamID ) )
 
 		----------------------------------------------------------------------------------
 		-- Pocket Declaration of Friendship

@@ -19861,5 +19861,20 @@
 		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUEST_GROUP_EMERGENCY">
 			<Text>緊急求援</Text>
 		</Row>
+		<Replace Tag="TXT_KEY_DIPLO_TRADE_AGREEMENT_TT">
+			<Text>協定雙方互通的[ICON_INTERNATIONAL_TRADE]國際商路[ICON_GOLD]金錢收益+20%。</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_DIPLO_TRADE_AGREEMENT_NO_TECH">
+			<Text>[NEWLINE][NEWLINE]雙方均未獲得達成這項交易所需的科技（貨幣）。</Text>
+		</Replace>
+		<Row Tag="TXT_KEY_RESPONSE_TRADE_AGREEMENT_OFFER">
+			<Text>我們兩國之間的貿易還有很大潛力。簽下這份貿易協定，雙方的國際商路都能獲得更多金錢。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MISC_PLAYERS_SIGN_TRADE_AGREEMENT">
+			<Text>{1}與{2}簽訂了貿易協定！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_TRADE_AGREEMENT">
+			<Text>貿易協定加成: +{1_Num}%</Text>
+		</Row>
 	</Language_zh_Hant_HK>
 </GameData>

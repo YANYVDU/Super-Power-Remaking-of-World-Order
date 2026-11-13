@@ -22,6 +22,12 @@ function BuildTradeRouteGoldToolTipString (pOriginCity, pTargetCity, eDomain)
 	local iDomainMod = pPlayer:GetInternationalTradeRouteDomainModifier(eDomain);
 	local iRiverMod = pPlayer:GetInternationalTradeRouteRiverModifier(pOriginCity, pTargetCity, eDomain, true);
 	local iCSUAMod = pPlayer:GetCSUATradeRouteGoldModifier(pOriginCity, pTargetCity, eDomain) or 0;
+	local iTradeAgreementMod = 0;
+	local iOriginTeam = pPlayer:GetTeam();
+	local iDestTeam = pOtherPlayer:GetTeam();
+	if (iOriginTeam ~= iDestTeam and (Teams[iOriginTeam]:IsHasTradeAgreement(iDestTeam) or Teams[iDestTeam]:IsHasTradeAgreement(iOriginTeam))) then
+		iTradeAgreementMod = 20;
+	end
 	local iTotalX100 = pPlayer:GetInternationalTradeRouteTotal(pOriginCity, pTargetCity, eDomain, true);
 
 	-- strDomainModifier kept for reuse in the tradee (their) revenue section
@@ -59,6 +65,11 @@ function BuildTradeRouteGoldToolTipString (pOriginCity, pTargetCity, eDomain)
 		
 		if (strDomainModifier ~= "") then
 			strOtherTotal = strOtherTotal .. strDomainModifier;
+			strOtherTotal = strOtherTotal .. "[NEWLINE]";
+		end
+
+		if (iTradeAgreementMod ~= 0) then
+			strOtherTotal = strOtherTotal .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_TRADE_AGREEMENT", iTradeAgreementMod);
 			strOtherTotal = strOtherTotal .. "[NEWLINE]";
 		end
 		
@@ -108,7 +119,7 @@ function BuildTradeRouteGoldToolTipString (pOriginCity, pTargetCity, eDomain)
 	strResult = strResult .. "[NEWLINE]";
 
 	-- Percentage block: sum on top, then each non-zero source
-	local iPctSum = iDomainMod + iRiverMod + iCSUAMod;
+	local iPctSum = iDomainMod + iRiverMod + iCSUAMod + iTradeAgreementMod;
 	strResult = strResult .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_PERCENT_SUM", iPctSum);
 	strResult = strResult .. "[NEWLINE]";
 	if (iDomainMod ~= 0) then
@@ -125,6 +136,10 @@ function BuildTradeRouteGoldToolTipString (pOriginCity, pTargetCity, eDomain)
 	end
 	if (iCSUAMod ~= 0) then
 		strResult = strResult .. "  · " .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_CS_UA", iCSUAMod);
+		strResult = strResult .. "[NEWLINE]";
+	end
+	if (iTradeAgreementMod ~= 0) then
+		strResult = strResult .. "  · " .. Locale.ConvertTextKey("TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_TRADE_AGREEMENT", iTradeAgreementMod);
 		strResult = strResult .. "[NEWLINE]";
 	end
 	strResult = strResult .. "[NEWLINE]";

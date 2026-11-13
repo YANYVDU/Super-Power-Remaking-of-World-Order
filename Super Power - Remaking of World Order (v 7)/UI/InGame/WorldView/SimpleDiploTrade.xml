@@ -90,7 +90,7 @@
 							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_NON_AGGRESSION_PACT" ID="UsPocketNonAggressionPact"/>
 							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_MARRIAGE" ID="UsPocketMarriage"/>
 							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DUAL_EMPIRE_TREATY" ID="UsPocketDualEmpire"/>
-							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_TRADE_AGREEMENT" ID="UsPocketTradeAgreement" Hidden="1"/>
+							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_TRADE_AGREEMENT" ID="UsPocketTradeAgreement" Hidden="0"/>
 							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_DECLARATION_OF_FRIENDSHIP" ID="UsPocketDoF"/>
 							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_CITIES" ID="UsPocketCities"/>
 							<Button Style="TradeItemButton" Anchor="L,C" String="[ICON_MINUS] TXT_KEY_DIPLO_OTHER_PLAYERS" ID="UsPocketOtherPlayer"/>
@@ -135,7 +135,7 @@
 							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_NON_AGGRESSION_PACT" ID="ThemPocketNonAggressionPact"/>
 							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_MARRIAGE" ID="ThemPocketMarriage"/>
 							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DUAL_EMPIRE_TREATY" ID="ThemPocketDualEmpire"/>
-							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_TRADE_AGREEMENT" ID="ThemPocketTradeAgreement" Hidden="1"/>
+							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_TRADE_AGREEMENT" ID="ThemPocketTradeAgreement" Hidden="0"/>
 							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_DECLARATION_OF_FRIENDSHIP" ID="ThemPocketDoF"/>
 							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_CITIES" ID="ThemPocketCities"/>
 							<Button Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_OTHER_PLAYERS" ID="ThemPocketOtherPlayer"/>

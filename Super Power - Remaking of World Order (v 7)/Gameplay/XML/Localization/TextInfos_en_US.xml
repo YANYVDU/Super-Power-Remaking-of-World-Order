@@ -21585,5 +21585,20 @@
 		<Row Tag="TXT_KEY_PEDIA_EXTRA_SP_QUEST_GROUP_EMERGENCY">
 			<Text>Emergency Requests</Text>
 		</Row>
+		<Replace Tag="TXT_KEY_DIPLO_TRADE_AGREEMENT_TT">
+			<Text>The two parties' international [ICON_INTERNATIONAL_TRADE] Trade Routes to each other gain +20% [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_DIPLO_TRADE_AGREEMENT_NO_TECH">
+			<Text>[NEWLINE][NEWLINE]Neither player yet has the Technology to trade this item (Currency).</Text>
+		</Replace>
+		<Row Tag="TXT_KEY_RESPONSE_TRADE_AGREEMENT_OFFER">
+			<Text>There is more to be gained from our trade. Let us sign a Trade Agreement, and both our international routes will earn more Gold.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MISC_PLAYERS_SIGN_TRADE_AGREEMENT">
+			<Text>{1} and {2} signed a Trade Agreement!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_TRADE_AGREEMENT">
+			<Text>Trade Agreement: +{1_Num}%</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
