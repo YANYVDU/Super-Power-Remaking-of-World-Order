@@ -1198,6 +1198,10 @@
 			<Set Enabled="1" Friendship="50" RewardUnitXP="100"/>
 			<Where Type="MINOR_CIV_QUEST_CONTEST_CITIES_CAPTURED"/>
 		</Update>
+		<Update>
+			<Set Enabled="1" Friendship="25" RewardGold="50"/>
+			<Where Type="MINOR_CIV_QUEST_TRADE_ROUTE_TO_CITY"/>
+		</Update>
 	</Quests>
 
 </GameData>

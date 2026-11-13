@@ -876,6 +876,12 @@ function GetActiveQuestToolTip(iMajor, iMinor)
 				sToolTipText = sToolTipText .. Locale.Lookup( "TXT_KEY_CITY_STATE_QUEST_SPREAD_RELIGION_FORMAL", Game.GetReligionName(iQuestData1) );
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_TRADE_ROUTE) then
 				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_TRADE_ROUTE_FORMAL");
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_TRADE_ROUTE_TO_CITY) then
+				local pTargetPlot = Map.GetPlot(iQuestData1, iQuestData2);
+				local pTargetCity = pTargetPlot and pTargetPlot:GetPlotCity();
+				if pTargetCity then
+					sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_TRADE_ROUTE_TO_CITY_FORMAL", pTargetCity:GetName());
+				end
 			-- SP extended quests
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_TECH) then
 				sToolTipText = sToolTipText .. Locale.Lookup("TXT_KEY_CITY_STATE_QUEST_RESEARCH_TECH_FORMAL", GameInfo.Technologies[iQuestData1].Description);

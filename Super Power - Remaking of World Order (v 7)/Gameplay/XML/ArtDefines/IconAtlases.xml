@@ -1853,6 +1853,36 @@
 			<IconMapping>11</IconMapping>
 		</Row>
 		<Row>
+			<IconName>ICON_QUEST_TRADE_ROUTE_TO_CITY</IconName>
+			<IconFontTexture>ICON_FONT_TEXTURE_SPCITYBANNERS</IconFontTexture>
+			<IconMapping>19</IconMapping>
+		</Row>
+		<Row>
+			<IconName>ICON_QUEST_RESEARCH_AGREEMENT</IconName>
+			<IconFontTexture>ICON_FONT_TEXTURE_SPCITYBANNERS</IconFontTexture>
+			<IconMapping>20</IconMapping>
+		</Row>
+		<Row>
+			<IconName>ICON_QUEST_BECOME_ALLY</IconName>
+			<IconFontTexture>ICON_FONT_TEXTURE_SPCITYBANNERS</IconFontTexture>
+			<IconMapping>21</IconMapping>
+		</Row>
+		<Row>
+			<IconName>ICON_QUEST_LEAGUE_PROTECT</IconName>
+			<IconFontTexture>ICON_FONT_TEXTURE_SPCITYBANNERS</IconFontTexture>
+			<IconMapping>22</IconMapping>
+		</Row>
+		<Row>
+			<IconName>ICON_QUEST_LEAGUE_REPEAL_EMBARGO</IconName>
+			<IconFontTexture>ICON_FONT_TEXTURE_SPCITYBANNERS</IconFontTexture>
+			<IconMapping>27</IconMapping>
+		</Row>
+		<Row>
+			<IconName>ICON_QUEST_DONATE_GOLD</IconName>
+			<IconFontTexture>ICON_FONT_TEXTURE_SPCITYBANNERS</IconFontTexture>
+			<IconMapping>28</IconMapping>
+		</Row>
+		<Row>
 			<IconName>ICON_CITYBANNER_CITY_TOWN</IconName>
 			<IconFontTexture>ICON_FONT_TEXTURE_SPCITYBANNERS</IconFontTexture>
 			<IconMapping>12</IconMapping>
