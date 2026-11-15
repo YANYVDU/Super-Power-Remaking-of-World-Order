@@ -32,6 +32,7 @@ ktQuestsDisplayOrder = {
 	MinorCivQuestTypes.MINOR_CIV_QUEST_DENOUNCE_MAJOR,
 	-- Then other pesonal quests
 	MinorCivQuestTypes.MINOR_CIV_QUEST_TRADE_ROUTE,
+	MinorCivQuestTypes.MINOR_CIV_QUEST_TRADE_ROUTE_TO_CITY,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_SPREAD_RELIGION,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_BULLY_CITY_STATE,
 	MinorCivQuestTypes.MINOR_CIV_QUEST_FIND_NATURAL_WONDER,
@@ -679,6 +680,8 @@ function GetActiveQuestText(iMajor, iMinor)
 				sIconText = sIconText .. GameInfo.Religions[iQuestData1].IconString;
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_TRADE_ROUTE) then
 				sIconText = sIconText .. "[ICON_INTERNATIONAL_TRADE]";
+			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_TRADE_ROUTE_TO_CITY) then
+				sIconText = sIconText .. "[ICON_QUEST_TRADE_ROUTE_TO_CITY]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_TECH) then
 				sIconText = sIconText .. "[ICON_RESEARCH]";
 			-- SP extended quests
@@ -691,7 +694,7 @@ function GetActiveQuestText(iMajor, iMinor)
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DISCONNECT_TRADE_ROUTE) then
 				sIconText = sIconText .. "[ICON_TRADE]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_BECOME_ALLY) then
-				sIconText = sIconText .. "[ICON_INFLUENCE]";
+				sIconText = sIconText .. "[ICON_QUEST_BECOME_ALLY]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RIG_ELECTION) then
 				sIconText = sIconText .. "[ICON_SPY]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DECLARE_WAR) then
@@ -699,15 +702,15 @@ function GetActiveQuestText(iMajor, iMinor)
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_CAPTURE_ORIGINAL_CAPITAL) then
 				sIconText = sIconText .. "[ICON_CAPITAL]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_PROTECT_CITY_STATE) then
-				sIconText = sIconText .. "[ICON_PEACE]";
+				sIconText = sIconText .. "[ICON_QUEST_LEAGUE_PROTECT]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_SANCTION) then
 				sIconText = sIconText .. "[ICON_DENOUNCE]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_REPEAL_EMBARGO) then
-				sIconText = sIconText .. "[ICON_INTERNATIONAL_TRADE]";
+				sIconText = sIconText .. "[ICON_QUEST_LEAGUE_REPEAL_EMBARGO]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DONATE_GOLD) then
-				sIconText = sIconText .. "[ICON_GOLD]";
+				sIconText = sIconText .. "[ICON_QUEST_DONATE_GOLD]";
 			elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_AGREEMENT) then
-				sIconText = sIconText .. "[ICON_DIPLOMAT]";
+				sIconText = sIconText .. "[ICON_QUEST_RESEARCH_AGREEMENT]";
 			end
 		end
 	end
@@ -729,6 +732,25 @@ function GetActiveQuestText(iMajor, iMinor)
 	end
 
 	return sIconText;
+end
+
+-- 自定义任务图标（FontIcons_SPCityBanners.dds），用作任务提示框每行的项目符号
+function GetQuestIconText(eType)
+	if (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_TRADE_ROUTE_TO_CITY) then
+		return "[ICON_QUEST_TRADE_ROUTE_TO_CITY]";
+	elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_RESEARCH_AGREEMENT) then
+		return "[ICON_QUEST_RESEARCH_AGREEMENT]";
+	elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_BECOME_ALLY) then
+		return "[ICON_QUEST_BECOME_ALLY]";
+	elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_PROTECT_CITY_STATE) then
+		return "[ICON_QUEST_LEAGUE_PROTECT]";
+	elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_LEAGUE_REPEAL_EMBARGO) then
+		return "[ICON_QUEST_LEAGUE_REPEAL_EMBARGO]";
+	elseif (eType == MinorCivQuestTypes.MINOR_CIV_QUEST_DONATE_GOLD) then
+		return "[ICON_QUEST_DONATE_GOLD]";
+	end
+
+	return "[ICON_BULLET]";
 end
 
 function GetGreatPersonQuestIconText(iUnitType)
@@ -775,7 +797,7 @@ function GetActiveQuestToolTip(iMajor, iMinor)
 			if (sToolTipText ~= "") then
 				sToolTipText = sToolTipText .. "[NEWLINE]"
 			end
-			sToolTipText = sToolTipText .. "[ICON_BULLET]";
+			sToolTipText = sToolTipText .. GetQuestIconText(eType);
 
 			-- This data is not pertinent for all quest types, but grab it here for readability
 			local iQuestData1 = pMinor:GetQuestData1(iMajor, eType);
