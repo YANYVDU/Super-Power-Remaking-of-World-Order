@@ -19180,6 +19180,18 @@
 		<Row Tag="TXT_KEY_POP_CSTATE_AID_PEACE_TT">
 			<Text>消耗 {1_Num} [ICON_AID_POINT]援建點數，讓該中立城邦促成你與一個交戰文明的停戰。[NEWLINE][ICON_BULLET]該城邦必須未與你或目標交戰[NEWLINE][ICON_BULLET]停戰立刻生效</Text>
 		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE">
+			<Text>購買永久選票</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE_TT">
+			<Text>消耗 {1_Num} [ICON_AID_POINT]援建點數，在世界議會/聯合國永久獲得 +1 票。[NEWLINE][ICON_BULLET]每個城邦只能購買一次[NEWLINE][ICON_BULLET]城邦復國後購買記錄也不會刷新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_EMERGENCY_PROPOSAL">
+			<Text>要求應急提案</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_EMERGENCY_PROPOSAL_TT">
+			<Text>消耗 {1_Num} [ICON_AID_POINT]援建點數，在本次大會獲得一個額外提案位。[NEWLINE][ICON_BULLET]只能在大會召開前3回合內使用[NEWLINE][ICON_BULLET]使用者必須沒有提案權；每次大會只有一個應急提案位，先到先得</Text>
+		</Row>
 		<Row Tag="TXT_KEY_AID_CHOICE_DENOUNCE_TITLE">
 			<Text>選擇譴責目標</Text>
 		</Row>
@@ -19206,6 +19218,18 @@
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_DENOUNCED_SPY">
 			<Text>[NEWLINE]根據情報分析，此次譴責是受了{1}的脅迫。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_PERMANENT_VOTE">
+			<Text>你在{1}購買了一個永久世界議會席位，聯合國投票永久 +1。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_STATE_PERMANENT_VOTE">
+			<Text>永久選票</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_EMERGENCY_PROPOSAL">
+			<Text>你透過{1}獲得了一個應急提案位。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_STATE_EMERGENCY_PROPOSAL">
+			<Text>應急提案</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE">
 			<Text>[NEWLINE]（另獲城邦金庫 {1_Num}[ICON_GOLD]）</Text>

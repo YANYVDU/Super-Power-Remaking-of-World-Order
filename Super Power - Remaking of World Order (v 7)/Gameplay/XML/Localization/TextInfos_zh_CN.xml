@@ -19374,6 +19374,18 @@
 		<Row Tag="TXT_KEY_POP_CSTATE_AID_PEACE_TT">
 			<Text>消耗 {1_Num} [ICON_AID_POINT]援建点数，让该中立城邦促成你与一个交战文明的停战。[NEWLINE][ICON_BULLET]该城邦必须未与你或目标交战[NEWLINE][ICON_BULLET]停战立刻生效</Text>
 		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE">
+			<Text>购买永久选票</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE_TT">
+			<Text>消耗 {1_Num} [ICON_AID_POINT]援建点数，在世界议会/联合国永久获得 +1 票。[NEWLINE][ICON_BULLET]每个城邦只能购买一次[NEWLINE][ICON_BULLET]城邦复国后购买记录也不会刷新</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_EMERGENCY_PROPOSAL">
+			<Text>要求应急提案</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_EMERGENCY_PROPOSAL_TT">
+			<Text>消耗 {1_Num} [ICON_AID_POINT]援建点数，在本次大会获得一个额外提案位。[NEWLINE][ICON_BULLET]只能在大会召开前3回合内使用[NEWLINE][ICON_BULLET]使用者必须没有提案权；每次大会只有一个应急提案位，先到先得</Text>
+		</Row>
 		<Row Tag="TXT_KEY_AID_CHOICE_DENOUNCE_TITLE">
 			<Text>选择谴责目标</Text>
 		</Row>
@@ -19400,6 +19412,18 @@
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_DENOUNCED_SPY">
 			<Text>[NEWLINE]根据情报分析，此次谴责是受了{1}的胁迫。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_PERMANENT_VOTE">
+			<Text>你在{1}购买了一个永久世界议会席位，联合国投票永久 +1。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_STATE_PERMANENT_VOTE">
+			<Text>永久选票</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_EMERGENCY_PROPOSAL">
+			<Text>你通过{1}获得了一个应急提案位。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_STATE_EMERGENCY_PROPOSAL">
+			<Text>应急提案</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE">
 			<Text>[NEWLINE]（另获城邦金库 {1_Num}[ICON_GOLD]）</Text>

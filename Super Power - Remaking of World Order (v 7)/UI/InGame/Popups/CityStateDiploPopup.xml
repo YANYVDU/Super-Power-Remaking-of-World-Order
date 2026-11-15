@@ -312,6 +312,26 @@
               </AlphaAnim>
             </ShowOnMouseOver>
           </Button>
+          <!-- PERMANENT WORLD CONGRESS VOTE (Super Power V11) -->
+          <Button Size="500,32" Hidden="1" Anchor="C,C" Offset="0,0" ID="PermanentVoteAidButton" ToolTip="TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE_TT">
+            <Label Anchor="C,C" Offset="0,0" ID="PermanentVoteAidLabel" String="TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE"/>
+            <Image Anchor="C,B" Offset="0,0" Texture="bar500x2.dds" Size="500.1"/>
+            <ShowOnMouseOver>
+              <AlphaAnim ID="PermanentVoteAidAnim" Anchor="C,C" Offset="0,0" Size="500,35" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+                <Grid ID="PermanentVoteAidButtonHL" Size="500,35" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL"/>
+              </AlphaAnim>
+            </ShowOnMouseOver>
+          </Button>
+          <!-- EMERGENCY PROPOSAL SLOT (Super Power V11) -->
+          <Button Size="500,32" Hidden="1" Anchor="C,C" Offset="0,0" ID="EmergencyProposalAidButton" ToolTip="TXT_KEY_POP_CSTATE_AID_EMERGENCY_PROPOSAL_TT">
+            <Label Anchor="C,C" Offset="0,0" ID="EmergencyProposalAidLabel" String="TXT_KEY_POP_CSTATE_AID_EMERGENCY_PROPOSAL"/>
+            <Image Anchor="C,B" Offset="0,0" Texture="bar500x2.dds" Size="500.1"/>
+            <ShowOnMouseOver>
+              <AlphaAnim ID="EmergencyProposalAidAnim" Anchor="C,C" Offset="0,0" Size="500,35" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+                <Grid ID="EmergencyProposalAidButtonHL" Size="500,35" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL"/>
+              </AlphaAnim>
+            </ShowOnMouseOver>
+          </Button>
           <!-- EXIT AID SPEND BUTTON (Back to Main Menu)-->
           <Button Size="500,32" Hidden="0" Anchor="C,C" Offset="0,0" ID="ExitAidSpendButton">
             <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_BACK_BUTTON"/>

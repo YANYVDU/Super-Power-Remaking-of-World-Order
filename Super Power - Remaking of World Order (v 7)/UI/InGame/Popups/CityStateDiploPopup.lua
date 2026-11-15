@@ -982,6 +982,23 @@ function UpdateAidSpendChoices()
 		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_PEACE_TT", iPeaceCost),
 		(iPoints >= iPeaceCost), (bAnyPeace and iPeaceCost > 0));
 
+	-- Permanent World Congress vote: one purchase per city-state, kept across resurrection.
+	local iPermanentVoteCost = Game.GetAidPointCostPermanentVote();
+	local bVoteBought = Game.HasAidPointPermanentVote(iActivePlayer, g_iMinorCivID);
+	local bVoteVisible = (pLeague ~= nil) and pLeague:IsMember(iActivePlayer) and (not bVoteBought);
+	SetupAidSpendButton(Controls.PermanentVoteAidLabel, Controls.PermanentVoteAidButton, Controls.PermanentVoteAidAnim, Controls.PermanentVoteAidButtonHL,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE") .. " (" .. iPermanentVoteCost .. ")",
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE_TT", iPermanentVoteCost),
+		(iPoints >= iPermanentVoteCost), (bVoteVisible and iPermanentVoteCost > 0));
+
+	-- Emergency proposal: only in the last three turns before a session and without a proposal right.
+	local iEmergencyCost = Game.GetAidPointCostEmergencyProposal();
+	local bEmergency = (pLeague ~= nil) and Game.CanRequestEmergencyProposal(iActivePlayer);
+	SetupAidSpendButton(Controls.EmergencyProposalAidLabel, Controls.EmergencyProposalAidButton, Controls.EmergencyProposalAidAnim, Controls.EmergencyProposalAidButtonHL,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_EMERGENCY_PROPOSAL") .. " (" .. iEmergencyCost .. ")",
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_EMERGENCY_PROPOSAL_TT", iEmergencyCost),
+		(iPoints >= iEmergencyCost), (bEmergency and iEmergencyCost > 0));
+
 	UpdateButtonStack();
 	-- Rows hidden above stay in the stack's layout unless it is recalculated by hand.
 	Controls.AidSpendStack:CalculateSize();
@@ -1073,6 +1090,28 @@ function OnPeaceAidClicked()
 	UIManager:DequeuePopup( ContextPtr );
 end
 Controls.PeaceAidButton:RegisterCallback( Mouse.eLClick, OnPeaceAidClicked );
+
+-- Buy one permanent World Congress vote at this city-state
+function OnPermanentVoteAidClicked()
+	local iActivePlayer = Game.GetActivePlayer();
+	local bSuccess = Game.SendAndExecuteLuaFunction("CvLuaGame::lDoBuyPermanentVoteWithAidPoints", iActivePlayer, g_iMinorCivID);
+	if (bSuccess) then
+		RefreshAidPoints();
+		OnCloseAidSpend();
+	end
+end
+Controls.PermanentVoteAidButton:RegisterCallback( Mouse.eLClick, OnPermanentVoteAidClicked );
+
+-- Claim the single emergency proposal slot for the next session
+function OnEmergencyProposalAidClicked()
+	local iActivePlayer = Game.GetActivePlayer();
+	local bSuccess = Game.SendAndExecuteLuaFunction("CvLuaGame::lDoRequestEmergencyProposalWithAidPoints", iActivePlayer, g_iMinorCivID);
+	if (bSuccess) then
+		RefreshAidPoints();
+		OnCloseAidSpend();
+	end
+end
+Controls.EmergencyProposalAidButton:RegisterCallback( Mouse.eLClick, OnEmergencyProposalAidClicked );
 
 ----------------------------------------------------------------
 -- Buyout

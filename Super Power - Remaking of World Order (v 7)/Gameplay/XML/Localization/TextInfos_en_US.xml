@@ -20904,6 +20904,18 @@
 		<Row Tag="TXT_KEY_POP_CSTATE_AID_PEACE_TT">
 			<Text>Spend {1_Num} [ICON_AID_POINT]Aid Points to have this neutral city-state broker peace between you and a civilization you are at war with.[NEWLINE][ICON_BULLET]The city-state must not be at war with either side[NEWLINE][ICON_BULLET]Peace takes effect immediately</Text>
 		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE">
+			<Text>Buy a Permanent Vote</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE_TT">
+			<Text>Spend {1_Num} [ICON_AID_POINT]Aid Points for a permanent +1 vote in the World Congress / United Nations.[NEWLINE][ICON_BULLET]Can only be bought once per city-state[NEWLINE][ICON_BULLET]The purchase is not reset if the city-state is resurrected</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_EMERGENCY_PROPOSAL">
+			<Text>Request an Emergency Proposal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_EMERGENCY_PROPOSAL_TT">
+			<Text>Spend {1_Num} [ICON_AID_POINT]Aid Points for an extra proposal slot in the next session.[NEWLINE][ICON_BULLET]Only usable within 3 turns before a session[NEWLINE][ICON_BULLET]You must have no proposal right; each session has only one emergency slot, first come first served</Text>
+		</Row>
 		<Row Tag="TXT_KEY_AID_CHOICE_DENOUNCE_TITLE">
 			<Text>Choose a Denouncement Target</Text>
 		</Row>
@@ -20930,6 +20942,18 @@
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_DENOUNCED_SPY">
 			<Text>[NEWLINE]Intelligence analysis indicates that {1} forced this denouncement.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_PERMANENT_VOTE">
+			<Text>You bought a permanent World Congress seat at {1}; your United Nations vote is permanently +1.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_STATE_PERMANENT_VOTE">
+			<Text>Permanent Vote</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_EMERGENCY_PROPOSAL">
+			<Text>You gained an emergency proposal slot through {1}.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_STATE_EMERGENCY_PROPOSAL">
+			<Text>Emergency Proposal</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE">
 			<Text>[NEWLINE](+{1_Num}[ICON_GOLD] seized from their treasury)</Text>
