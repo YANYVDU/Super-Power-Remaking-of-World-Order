@@ -638,7 +638,7 @@ function OnDisplay()
 	-- Buyout (Austria UA). Super Power V11: the buyout also burns aid points banked with this
 	-- city-state, and annexing permanently grants us its ally-tier unique ability.
 	local iBuyoutCost = pPlayer:GetBuyoutCost(iActivePlayer);
-	local iAnnexAidCost = Game.GetAidPointCostAnnexCityState();
+	local iAnnexAidCost = pActivePlayer:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_ANNEX_CITY_STATE);
 	local iAnnexAidPoints = pPlayer:GetEconomicAidPoints(iActivePlayer);
 	local strButtonLabel = Locale.ConvertTextKey( "TXT_KEY_POP_CSTATE_BUYOUT");
 	local strToolTip = Locale.ConvertTextKey( "TXT_KEY_POP_CSTATE_BUYOUT_TT", iBuyoutCost, iAnnexAidCost );
@@ -874,7 +874,7 @@ function UpdateAidSpendChoices()
 	local iPoints = pPlayer:GetEconomicAidPoints(iActivePlayer);
 
 	-- Reroll quests (available at any city-state)
-	local iRerollCost = Game.GetAidPointCostRerollQuests();
+	local iRerollCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_REROLL_QUESTS);
 	SetupAidSpendButton(Controls.RerollQuestLabel, Controls.RerollQuestButton, Controls.RerollQuestAnim, Controls.RerollQuestButtonHL,
 		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_REROLL") .. " (" .. iRerollCost .. ")",
 		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_REROLL_TT", iRerollCost),
@@ -901,7 +901,7 @@ function UpdateAidSpendChoices()
 		(iPoints >= iBullyCost), (bCanBully and iBullyCost > 0));
 
 	-- Preselect the gifted military unit (military city-states only)
-	local iUnitCost = Game.GetAidPointCostPendingGiftUnit();
+	local iUnitCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_PENDING_GIFT_UNIT);
 	local bMilitaristic = (pPlayer:GetMinorCivTrait() == MinorCivTraitTypes.MINOR_CIV_TRAIT_MILITARISTIC);
 	local sGiftUnitText = Locale.Lookup("TXT_KEY_POP_CSTATE_AID_GIFT_UNIT") .. " (" .. iUnitCost .. ")";
 	-- Preview the already preselected gift unit, so the player knows what is coming
@@ -918,7 +918,7 @@ function UpdateAidSpendChoices()
 	-- pending at a time (CvPlayer::m_eNextGreatPersonChoice), so the button is disabled until the
 	-- finisher releases it - picking again would silently overwrite the pending one and charge
 	-- another 50 aid points with nothing to show for it.
-	local iGPCost = Game.GetAidPointCostNextGreatPerson();
+	local iGPCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_NEXT_GREAT_PERSON);
 	local bHasFinisher = pActivePlayer:HasPolicy(GameInfoTypes["POLICY_PATRONAGE_FINISHER"]);
 	local ePendingGP = pActivePlayer:GetNextGreatPersonChoice();
 	local bHasPendingGP = (ePendingGP ~= nil and ePendingGP >= 0);
@@ -934,7 +934,7 @@ function UpdateAidSpendChoices()
 
 	-- Hasten the next World Congress / United Nations session (only between sessions, and only when
 	-- the remaining turns can absorb the whole pull - the DLL refuses a partial one and charges nothing)
-	local iHastenCost = Game.GetAidPointCostHastenCongress();
+	local iHastenCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_HASTEN_CONGRESS);
 	local iHastenTurns = Game.GetAidPointHastenCongressTurns();
 	local pLeague = Game.GetActiveLeague();
 	local bHasten = (pLeague ~= nil) and (iHastenCost > 0) and (iHastenTurns > 0)
@@ -946,7 +946,7 @@ function UpdateAidSpendChoices()
 
 	-- Denounce a civilization the active player has already denounced. Require at least
 	-- one valid target so the row is not shown as a dead option.
-	local iDenounceCost = Game.GetAidPointCostDenounce();
+	local iDenounceCost = pActivePlayer:GetAidPointCostDenounce();
 	local bAnyDenounce = false;
 	local iMinorTeam = pPlayer:GetTeam();
 	for iLoop = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
@@ -963,7 +963,7 @@ function UpdateAidSpendChoices()
 		(iPoints >= iDenounceCost), (bAnyDenounce and iDenounceCost > 0));
 
 	-- A neutral city-state can broker peace with a civ we are at war with.
-	local iPeaceCost = Game.GetAidPointCostPeace();
+	local iPeaceCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_PEACE);
 	local bAnyPeace = false;
 	local iActiveTeam = pActivePlayer:GetTeam();
 	for iLoop = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
@@ -983,7 +983,7 @@ function UpdateAidSpendChoices()
 		(iPoints >= iPeaceCost), (bAnyPeace and iPeaceCost > 0));
 
 	-- Permanent World Congress vote: one purchase per city-state, kept across resurrection.
-	local iPermanentVoteCost = Game.GetAidPointCostPermanentVote();
+	local iPermanentVoteCost = pActivePlayer:GetAidPointCostPermanentVote();
 	local bVoteBought = Game.HasAidPointPermanentVote(iActivePlayer, g_iMinorCivID);
 	local bVoteVisible = (pLeague ~= nil) and pLeague:IsMember(iActivePlayer) and (not bVoteBought);
 	SetupAidSpendButton(Controls.PermanentVoteAidLabel, Controls.PermanentVoteAidButton, Controls.PermanentVoteAidAnim, Controls.PermanentVoteAidButtonHL,
@@ -992,7 +992,7 @@ function UpdateAidSpendChoices()
 		(iPoints >= iPermanentVoteCost), (bVoteVisible and iPermanentVoteCost > 0));
 
 	-- Emergency proposal: only in the last three turns before a session and without a proposal right.
-	local iEmergencyCost = Game.GetAidPointCostEmergencyProposal();
+	local iEmergencyCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_EMERGENCY_PROPOSAL);
 	local bEmergency = (pLeague ~= nil) and Game.CanRequestEmergencyProposal(iActivePlayer);
 	SetupAidSpendButton(Controls.EmergencyProposalAidLabel, Controls.EmergencyProposalAidButton, Controls.EmergencyProposalAidAnim, Controls.EmergencyProposalAidButtonHL,
 		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_EMERGENCY_PROPOSAL") .. " (" .. iEmergencyCost .. ")",
@@ -1034,7 +1034,7 @@ Controls.BullyAidButton:RegisterCallback( Mouse.eLClick, OnBullyAidClicked );
 
 -- Preselect the gifted military unit
 function OnGiftUnitAidClicked()
-	local iCost = Game.GetAidPointCostPendingGiftUnit();
+	local iCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_PENDING_GIFT_UNIT);
 	local unitContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
 	LuaEvents.AidPointChoicePopupOpen("unit", g_iMinorCivID, iCost);
 	UIManager:QueuePopup( unitContext, PopupPriority.SocialPolicy );
@@ -1051,7 +1051,7 @@ function OnNextGPClicked()
 		return;
 	end
 
-	local iCost = Game.GetAidPointCostNextGreatPerson();
+	local iCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_NEXT_GREAT_PERSON);
 	local gpContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
 	LuaEvents.AidPointChoicePopupOpen("greatperson", g_iMinorCivID, iCost);
 	UIManager:QueuePopup( gpContext, PopupPriority.SocialPolicy );
@@ -1073,7 +1073,8 @@ Controls.HastenCongressButton:RegisterCallback( Mouse.eLClick, OnHastenCongressC
 
 -- Denounce a target the active player has already denounced, through this city-state
 function OnDenounceAidClicked()
-	local iCost = Game.GetAidPointCostDenounce();
+	local iActivePlayer = Game.GetActivePlayer();
+	local iCost = Players[iActivePlayer]:GetAidPointCostDenounce();
 	local denounceContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
 	LuaEvents.AidPointChoicePopupOpen("denounce", g_iMinorCivID, iCost);
 	UIManager:QueuePopup( denounceContext, PopupPriority.SocialPolicy );
@@ -1083,7 +1084,7 @@ Controls.DenounceAidButton:RegisterCallback( Mouse.eLClick, OnDenounceAidClicked
 
 -- Ask a neutral city-state to broker peace with a civ we are at war with
 function OnPeaceAidClicked()
-	local iCost = Game.GetAidPointCostPeace();
+	local iCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_PEACE);
 	local peaceContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
 	LuaEvents.AidPointChoicePopupOpen("peace", g_iMinorCivID, iCost);
 	UIManager:QueuePopup( peaceContext, PopupPriority.SocialPolicy );
