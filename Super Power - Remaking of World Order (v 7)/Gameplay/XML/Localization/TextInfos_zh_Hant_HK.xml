@@ -19172,10 +19172,10 @@
 			<Text>消耗 {1_Num} [ICON_AID_POINT]援建點數，讓該城邦譴責一個你已經譴責的文明。[NEWLINE][ICON_BULLET]目標對所有城邦的影響力下降5%[NEWLINE][ICON_BULLET]只能用在你已經公開譴責的文明上</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POP_CSTATE_AID_PEACE">
-			<Text>請城邦斡旋停戰</Text>
+			<Text>請城邦斡旋協議停戰</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POP_CSTATE_AID_PEACE_TT">
-			<Text>消耗 {1_Num} [ICON_AID_POINT]援建點數，讓該中立城邦促成你與一個交戰文明的停戰。[NEWLINE][ICON_BULLET]該城邦必須未與你或目標交戰[NEWLINE][ICON_BULLET]停戰立刻生效</Text>
+			<Text>消耗 {1_Num} [ICON_AID_POINT]援建點數，讓該中立城邦促成你與一個交戰文明的協議停戰。[NEWLINE][ICON_BULLET]該城邦必須未與你或目標交戰[NEWLINE][ICON_BULLET]停戰立刻生效，雙方的盟邦城邦也會跟隨停戰[NEWLINE][ICON_BULLET]這只是協議停戰，不等同於正式和平條約；停戰期滿後仍可能復戰</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE">
 			<Text>購買永久選票</Text>
@@ -19193,7 +19193,7 @@
 			<Text>選擇譴責目標</Text>
 		</Row>
 		<Row Tag="TXT_KEY_AID_CHOICE_PEACE_TITLE">
-			<Text>選擇停戰對象</Text>
+			<Text>選擇協議停戰對象</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_DENOUNCED">
 			<Text>{1}對你進行了譴責，你的國際影響力大幅下降了。</Text>

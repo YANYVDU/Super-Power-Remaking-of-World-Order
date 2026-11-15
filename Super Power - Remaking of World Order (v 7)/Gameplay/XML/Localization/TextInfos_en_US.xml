@@ -20896,10 +20896,10 @@
 			<Text>Spend {1_Num} [ICON_AID_POINT]Aid Points to have this city-state denounce a civilization you have already denounced.[NEWLINE][ICON_BULLET]The target loses 5% of its influence with every city-state[NEWLINE][ICON_BULLET]Only available for a civilization you have publicly denounced</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POP_CSTATE_AID_PEACE">
-			<Text>Ask the City-State to Broker Peace</Text>
+			<Text>Ask the City-State to Broker a Ceasefire</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POP_CSTATE_AID_PEACE_TT">
-			<Text>Spend {1_Num} [ICON_AID_POINT]Aid Points to have this neutral city-state broker peace between you and a civilization you are at war with.[NEWLINE][ICON_BULLET]The city-state must not be at war with either side[NEWLINE][ICON_BULLET]Peace takes effect immediately</Text>
+			<Text>Spend {1_Num} [ICON_AID_POINT]Aid Points to have this neutral city-state broker a ceasefire between you and a civilization you are at war with.[NEWLINE][ICON_BULLET]The city-state must not be at war with either side[NEWLINE][ICON_BULLET]The ceasefire takes effect immediately, and allied city-states on both sides follow it[NEWLINE][ICON_BULLET]This is only a ceasefire, not a formal peace treaty; war may resume after the truce</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE">
 			<Text>Buy a Permanent Vote</Text>
@@ -20917,7 +20917,7 @@
 			<Text>Choose a Denouncement Target</Text>
 		</Row>
 		<Row Tag="TXT_KEY_AID_CHOICE_PEACE_TITLE">
-			<Text>Choose a Peace Target</Text>
+			<Text>Choose a Ceasefire Target</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_DENOUNCED">
 			<Text>{1} has denounced you. Your international influence has fallen sharply.</Text>
