@@ -64,8 +64,13 @@ UPDATE SPTriggerControler SET Enabled = 1 WHERE TriggerType = 'Policy_Bill_Of_Ri
 
 -- POLICY_MERCHANT_CONFEDERACY
 insert into Policy_MinorsTradeRouteYieldRate (PolicyType, YieldType, Rate) values
-('POLICY_MERCHANT_CONFEDERACY', 'YIELD_SCIENCE', 10),
-('POLICY_MERCHANT_CONFEDERACY', 'YIELD_CULTURE', 10);
+('POLICY_MERCHANT_CONFEDERACY', 'YIELD_SCIENCE', 15),
+('POLICY_MERCHANT_CONFEDERACY', 'YIELD_CULTURE', 15);
+
+-- POLICY_PATRONAGE_FINISHER: cheaper aid-point denounce and permanent World Congress vote
+insert into Policy_AidPointCostModifiers (PolicyType, ActionType, Modifier) values
+('POLICY_PATRONAGE_FINISHER', 'AID_POINT_ACTION_DENOUNCE', -20),
+('POLICY_PATRONAGE_FINISHER', 'AID_POINT_ACTION_PERMANENT_VOTE', -20);
 
 -- POLICY_PROTECTIONISM
 insert into Policy_InternalTradeRouteDestYieldRate (PolicyType, YieldType, Rate) values

@@ -257,7 +257,7 @@
 	<Policies>
 	
 		<Update>
-			<Set MinorFriendshipMinimum="20" MinorFriendshipDecayMod="0"/>
+			<Set MinorFriendshipMinimum="5" MinorFriendshipDecayMod="0" DiplomaticPrestige="1"/>
 			<Where Type="POLICY_PATRONAGE"/>
 		</Update>
 		<Update>
@@ -265,7 +265,7 @@
 			<Where Type="POLICY_PHILANTHROPY"/>
 		</Update>
 		<Update>
-			<Set MinorFriendshipMinimum="0" MinorFriendshipDecayMod="-25" MinorQuestFriendshipMod="25" GridX="3"/>
+			<Set MinorFriendshipMinimum="0" MinorFriendshipDecayMod="-25" MinorQuestFriendshipMod="25" GridX="3" AidPointQuestReward="4" AidPointContestReward="8"/>
 			<Where Type="POLICY_CONSULATES"/>
 		</Update>	
 		<Update>
@@ -277,11 +277,11 @@
 			<Where Type="POLICY_CULTURAL_DIPLOMACY"/>
 		</Update>
 		<Update>
-			<Set CityStateTradeChange="0" ProtectedMinorPerTurnInfluence="400" NumTradeRouteBonus="1" GridX="5" GridY="1" PortraitIndex="17"/>
+			<Set CityStateTradeChange="0" ProtectedMinorPerTurnInfluence="200" NumTradeRouteBonus="1" GridX="5" GridY="1" PortraitIndex="17"/>
 			<Where Type="POLICY_MERCHANT_CONFEDERACY"/>
 		</Update>
 		<Update>
-			<Set DiplomaticPrestige="2"/>
+			<Set DiplomaticPrestige="1"/>
 			<Where Type="POLICY_PATRONAGE_FINISHER"/>
 		</Update>
 

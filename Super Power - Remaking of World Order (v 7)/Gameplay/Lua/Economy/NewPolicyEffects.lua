@@ -164,25 +164,4 @@ function SPEPlayerBulliedMinorCiv(iCS, iPlayer, iGold, iUnitType, iPlotX, iPlotY
 end
 GameEvents.PlayerBullied.Add(SPEPlayerBulliedMinorCiv)
 
---POLICY_CONSULATES
-function SPEPlayerCompletedMinorCivQuest(iMajor, iMinor, iQuestType, iStartTurn, iOldInfluence, iNewInfluence) 
-	local pPlayer = Players[iMajor]
-	local civPlayer = Players[iMinor]
-	if pPlayer == nil or civPlayer == nil or pPlayer:IsMinorCiv() or pPlayer:IsBarbarian() then
-	 	return
-	end
-	if pPlayer:HasPolicy(GameInfoTypes["POLICY_CONSULATES"])
-	and iNewInfluence - iOldInfluence > 0
-	then
-		local eEra = pPlayer:GetCurrentEra()
-		local bonus =( (iNewInfluence - iOldInfluence) * (2 + eEra) /200 )
-		pPlayer:ChangeJONSCulture(bonus)
-		print("MajorCiv gains Culture from completed MinorCiv quest:",bonus)
-		if pPlayer:IsHuman() then
-			Events.GameplayAlertMessage(Locale.ConvertTextKey("TXT_KEY_MESSAGE_POLICY_CONSULATES_ALERT", civPlayer:GetName(), bonus ) )
-		end
-	end
-end
-GameEvents.PlayerCompletedQuest.Add(SPEPlayerCompletedMinorCivQuest);
-
 print("New Policy Effects Check Pass!")
