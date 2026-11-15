@@ -9,7 +9,9 @@
 include( "IconSupport" );
 include( "InfoTooltipInclude" );
 include( "CityStateStatusHelper" );
-include( "SaveUtils" );  MY_MOD_NAME = "Super Power";
+include( "SaveUtils" );
+include( "InstanceManager" );
+MY_MOD_NAME = "Super Power";
 
 local g_iMinorCivID = -1;
 local g_iMinorCivTeamID = -1;
@@ -867,148 +869,150 @@ function SetupAidSpendButton(label, button, anim, hl, text, tt, bEnabled, bVisib
 	end
 end
 
-function UpdateAidSpendChoices()
-	local pPlayer = Players[g_iMinorCivID];
-	local iActivePlayer = Game.GetActivePlayer();
-	local pActivePlayer = Players[iActivePlayer];
-	local iPoints = pPlayer:GetEconomicAidPoints(iActivePlayer);
+local g_AidSpendManager = nil
 
-	-- Reroll quests (available at any city-state)
-	local iRerollCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_REROLL_QUESTS);
-	SetupAidSpendButton(Controls.RerollQuestLabel, Controls.RerollQuestButton, Controls.RerollQuestAnim, Controls.RerollQuestButtonHL,
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_REROLL") .. " (" .. iRerollCost .. ")",
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_REROLL_TT", iRerollCost),
-		(iPoints >= iRerollCost), (iRerollCost > 0));
+local function GetAidSpendHandler(szType)
+	local tHandlers = {
+		["AID_POINT_ACTION_REROLL_QUESTS"] = OnRerollQuestClicked,
+		["AID_POINT_ACTION_BULLY_GOLD"] = OnBullyAidClicked,
+		["AID_POINT_ACTION_PENDING_GIFT_UNIT"] = OnGiftUnitAidClicked,
+		["AID_POINT_ACTION_NEXT_GREAT_PERSON"] = OnNextGPClicked,
+		["AID_POINT_ACTION_HASTEN_CONGRESS"] = OnHastenCongressClicked,
+		["AID_POINT_ACTION_DENOUNCE"] = OnDenounceAidClicked,
+		["AID_POINT_ACTION_PEACE"] = OnPeaceAidClicked,
+		["AID_POINT_ACTION_PERMANENT_VOTE"] = OnPermanentVoteAidClicked,
+		["AID_POINT_ACTION_EMERGENCY_PROPOSAL"] = OnEmergencyProposalAidClicked,
+	}
+	return tHandlers[szType]
+end
 
-	-- Bully gold with aid points (needs a bully we can currently pull off)
-	local iBullyCost = Game.GetBullyGoldAidPointCost(g_iMinorCivID, iActivePlayer);
-	local iBullyGold = pPlayer:GetMinorCivBullyGoldAmount(iActivePlayer);
-	local bCanBully = pPlayer:CanMajorBullyGold(iActivePlayer);
-	-- Super Power V11: the aid-point bully also seizes a share of the city-state treasury (see PopulateTakeChoices)
-	local iAidTreasurySharePercent = Game.GetBullyTreasurySharePercent();
-	local iAidTreasuryShare = 0;
-	if (iAidTreasurySharePercent > 0) then
-		iAidTreasuryShare = math.floor(pPlayer:GetGold() * iAidTreasurySharePercent / 100);
+local function SetupAidSpendInstance(instance, action, sText, sTT, bEnabled)
+	if (not bEnabled) then
+		sText = "[COLOR_WARNING_TEXT]" .. sText .. "[ENDCOLOR]"
 	end
-	-- Keep the point cost on the first line, the treasury share (which starts with a newline) below it
-	local sBullyAidText = Locale.Lookup("TXT_KEY_POP_CSTATE_AID_BULLY", iBullyGold) .. " (" .. iBullyCost .. ")";
-	if (iAidTreasuryShare > 0) then
-		sBullyAidText = sBullyAidText .. Locale.Lookup("TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE", iAidTreasuryShare);
-	end
-	SetupAidSpendButton(Controls.BullyAidLabel, Controls.BullyAidButton, Controls.BullyAidAnim, Controls.BullyAidButtonHL,
-		sBullyAidText,
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_BULLY_TT", iBullyCost),
-		(iPoints >= iBullyCost), (bCanBully and iBullyCost > 0));
-
-	-- Preselect the gifted military unit (military city-states only)
-	local iUnitCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_PENDING_GIFT_UNIT);
-	local bMilitaristic = (pPlayer:GetMinorCivTrait() == MinorCivTraitTypes.MINOR_CIV_TRAIT_MILITARISTIC);
-	local sGiftUnitText = Locale.Lookup("TXT_KEY_POP_CSTATE_AID_GIFT_UNIT") .. " (" .. iUnitCost .. ")";
-	-- Preview the already preselected gift unit, so the player knows what is coming
-	local ePendingGift = pPlayer:GetPendingGiftUnit(iActivePlayer);
-	if (ePendingGift and ePendingGift >= 0 and GameInfo.Units[ePendingGift] ~= nil) then
-		sGiftUnitText = sGiftUnitText .. " - " .. Locale.Lookup(GameInfo.Units[ePendingGift].Description);
-	end
-	SetupAidSpendButton(Controls.GiftUnitAidLabel, Controls.GiftUnitAidButton, Controls.GiftUnitAidAnim, Controls.GiftUnitAidButtonHL,
-		sGiftUnitText,
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_GIFT_UNIT_TT", iUnitCost),
-		(iPoints >= iUnitCost), (bMilitaristic and iUnitCost > 0));
-
-	-- Preselect the next gifted Great Person (patronage finisher only). Only one pick can be
-	-- pending at a time (CvPlayer::m_eNextGreatPersonChoice), so the button is disabled until the
-	-- finisher releases it - picking again would silently overwrite the pending one and charge
-	-- another 50 aid points with nothing to show for it.
-	local iGPCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_NEXT_GREAT_PERSON);
-	local bHasFinisher = pActivePlayer:HasPolicy(GameInfoTypes["POLICY_PATRONAGE_FINISHER"]);
-	local ePendingGP = pActivePlayer:GetNextGreatPersonChoice();
-	local bHasPendingGP = (ePendingGP ~= nil and ePendingGP >= 0);
-	local strGPText = Locale.Lookup("TXT_KEY_POP_CSTATE_AID_NEXT_GP") .. " (" .. iGPCost .. ")";
-	-- Preview the pending pick, so the player can see what the button is holding
-	if (bHasPendingGP and GameInfo.Units[ePendingGP] ~= nil) then
-		strGPText = strGPText .. " - " .. Locale.Lookup(GameInfo.Units[ePendingGP].Description);
-	end
-	SetupAidSpendButton(Controls.NextGPLabel, Controls.NextGPButton, Controls.NextGPAnim, Controls.NextGPButtonHL,
-		strGPText,
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_NEXT_GP_TT", iGPCost),
-		(iPoints >= iGPCost and not bHasPendingGP), (bHasFinisher and iGPCost > 0));
-
-	-- Hasten the next World Congress / United Nations session (only between sessions, and only when
-	-- the remaining turns can absorb the whole pull - the DLL refuses a partial one and charges nothing)
-	local iHastenCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_HASTEN_CONGRESS);
-	local iHastenTurns = Game.GetAidPointHastenCongressTurns();
-	local pLeague = Game.GetActiveLeague();
-	local bHasten = (pLeague ~= nil) and (iHastenCost > 0) and (iHastenTurns > 0)
-		and (not pLeague:IsInSession()) and (pLeague:GetTurnsUntilSession() > iHastenTurns);
-	SetupAidSpendButton(Controls.HastenCongressLabel, Controls.HastenCongressButton, Controls.HastenCongressAnim, Controls.HastenCongressButtonHL,
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS") .. " (" .. iHastenCost .. ")",
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS_TT", iHastenCost, iHastenTurns),
-		(iPoints >= iHastenCost), bHasten);
-
-	-- Denounce a civilization the active player has already denounced. Require at least
-	-- one valid target so the row is not shown as a dead option.
-	local iDenounceCost = pActivePlayer:GetAidPointCostDenounce();
-	local bAnyDenounce = false;
-	local iMinorTeam = pPlayer:GetTeam();
-	for iLoop = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
-		if (iLoop ~= iActivePlayer and Players[iLoop]:IsAlive() and pActivePlayer:IsDenouncedPlayer(iLoop)
-			and Teams[iMinorTeam]:IsHasMet(Players[iLoop]:GetTeam())
-			and not Teams[iMinorTeam]:IsAtWar(Players[iLoop]:GetTeam())) then
-			bAnyDenounce = true;
-			break;
+	instance.ActionLabel:SetText(sText)
+	instance.ActionButton:SetToolTipString(sTT)
+	instance.ActionButton:SetDisabled(not bEnabled)
+	instance.ActionAnim:SetHide(not bEnabled)
+	SetButtonSize(instance.ActionLabel, instance.ActionButton, instance.ActionAnim, instance.ActionHL)
+	instance.ActionButton:RegisterCallback(Mouse.eLClick, function()
+		local handler = GetAidSpendHandler(action.Type)
+		if (handler ~= nil) then
+			handler()
 		end
-	end
-	SetupAidSpendButton(Controls.DenounceAidLabel, Controls.DenounceAidButton, Controls.DenounceAidAnim, Controls.DenounceAidButtonHL,
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_DENOUNCE") .. " (" .. iDenounceCost .. ")",
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_DENOUNCE_TT", iDenounceCost),
-		(iPoints >= iDenounceCost), (bAnyDenounce and iDenounceCost > 0));
+	end)
+end
 
-	-- A neutral city-state can broker peace with a civ we are at war with.
-	local iPeaceCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_PEACE);
-	local bAnyPeace = false;
-	local iActiveTeam = pActivePlayer:GetTeam();
-	for iLoop = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
-		if (iLoop ~= iActivePlayer and Players[iLoop]:IsAlive()) then
-			local iOtherTeam = Players[iLoop]:GetTeam();
-			if (Teams[iActiveTeam]:IsAtWar(iOtherTeam)
-				and not Teams[iMinorTeam]:IsAtWar(iActiveTeam)
-				and not Teams[iMinorTeam]:IsAtWar(iOtherTeam)) then
-				bAnyPeace = true;
-				break;
+local function GetAidSpendRow(action, pPlayer, pActivePlayer, iActivePlayer, iPoints, pLeague)
+	local iCost = action.Cost or 0
+	local sType = action.Type
+	local sText = Locale.Lookup(action.TextTag) .. " (" .. iCost .. ")"
+	local sTT = Locale.Lookup(action.HelpTag, iCost)
+	local bVisible = (iCost > 0)
+	local bEnabled = (iPoints >= iCost)
+
+	if (sType == "AID_POINT_ACTION_BULLY_GOLD") then
+		local iBullyCost = Game.GetBullyGoldAidPointCost(g_iMinorCivID, iActivePlayer)
+		local iBullyGold = pPlayer:GetMinorCivBullyGoldAmount(iActivePlayer)
+		local bCanBully = pPlayer:CanMajorBullyGold(iActivePlayer)
+		sText = Locale.Lookup(action.TextTag, iBullyGold) .. " (" .. iBullyCost .. ")"
+		local iSharePercent = Game.GetBullyTreasurySharePercent()
+		if (iSharePercent > 0) then
+			local iShare = math.floor(pPlayer:GetGold() * iSharePercent / 100)
+			if (iShare > 0) then
+				sText = sText .. Locale.Lookup("TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE", iShare)
+			end
+		end
+		sTT = Locale.Lookup(action.HelpTag, iBullyCost)
+		bVisible = (bCanBully and iBullyCost > 0)
+		bEnabled = (iPoints >= iBullyCost)
+	elseif (sType == "AID_POINT_ACTION_PENDING_GIFT_UNIT") then
+		local bMilitaristic = (pPlayer:GetMinorCivTrait() == MinorCivTraitTypes.MINOR_CIV_TRAIT_MILITARISTIC)
+		local ePending = pPlayer:GetPendingGiftUnit(iActivePlayer)
+		if (ePending ~= nil and ePending >= 0 and GameInfo.Units[ePending] ~= nil) then
+			sText = sText .. " - " .. Locale.Lookup(GameInfo.Units[ePending].Description)
+		end
+		bVisible = (bVisible and bMilitaristic)
+	elseif (sType == "AID_POINT_ACTION_NEXT_GREAT_PERSON") then
+		local bHasFinisher = pActivePlayer:HasPolicy(GameInfoTypes["POLICY_PATRONAGE_FINISHER"])
+		local ePending = pActivePlayer:GetNextGreatPersonChoice()
+		local bHasPending = (ePending ~= nil and ePending >= 0)
+		if (bHasPending and GameInfo.Units[ePending] ~= nil) then
+			sText = sText .. " - " .. Locale.Lookup(GameInfo.Units[ePending].Description)
+		end
+		bVisible = (bVisible and bHasFinisher)
+		bEnabled = (bEnabled and not bHasPending)
+	elseif (sType == "AID_POINT_ACTION_HASTEN_CONGRESS") then
+		local iTurns = Game.GetAidPointHastenCongressTurns()
+		bVisible = (bVisible and iTurns > 0 and pLeague ~= nil and not pLeague:IsInSession() and pLeague:GetTurnsUntilSession() > iTurns)
+		sTT = Locale.Lookup(action.HelpTag, iCost, iTurns)
+	elseif (sType == "AID_POINT_ACTION_DENOUNCE") then
+		local bAny = false
+		local iMinorTeam = pPlayer:GetTeam()
+		for i = 0, GameDefines.MAX_MAJOR_CIVS - 1 do
+			if (i ~= iActivePlayer and Players[i]:IsAlive() and pActivePlayer:IsDenouncedPlayer(i)
+				and Teams[iMinorTeam]:IsHasMet(Players[i]:GetTeam())
+				and not Teams[iMinorTeam]:IsAtWar(Players[i]:GetTeam())) then
+				bAny = true
+				break
+			end
+		end
+		bVisible = (bVisible and bAny)
+	elseif (sType == "AID_POINT_ACTION_PEACE") then
+		local bAny = false
+		local iMinorTeam = pPlayer:GetTeam()
+		local iActiveTeam = pActivePlayer:GetTeam()
+		for i = 0, GameDefines.MAX_MAJOR_CIVS - 1 do
+			if (i ~= iActivePlayer and Players[i]:IsAlive()) then
+				local iOtherTeam = Players[i]:GetTeam()
+				if (Teams[iActiveTeam]:IsAtWar(iOtherTeam)
+					and not Teams[iMinorTeam]:IsAtWar(iActiveTeam)
+					and not Teams[iMinorTeam]:IsAtWar(iOtherTeam)) then
+					bAny = true
+					break
+				end
+			end
+		end
+		bVisible = (bVisible and bAny)
+	elseif (sType == "AID_POINT_ACTION_PERMANENT_VOTE") then
+		local bBought = Game.HasAidPointPermanentVote(iActivePlayer, g_iMinorCivID)
+		bVisible = (bVisible and pLeague ~= nil and pLeague:IsMember(iActivePlayer) and not bBought)
+	elseif (sType == "AID_POINT_ACTION_EMERGENCY_PROPOSAL") then
+		bVisible = (bVisible and pLeague ~= nil and Game.CanRequestEmergencyProposal(iActivePlayer))
+	end
+
+	return sText, sTT, bEnabled, bVisible
+end
+
+function UpdateAidSpendChoices()
+	local pPlayer = Players[g_iMinorCivID]
+	local iActivePlayer = Game.GetActivePlayer()
+	local pActivePlayer = Players[iActivePlayer]
+	local iPoints = pPlayer:GetEconomicAidPoints(iActivePlayer)
+	local pLeague = Game.GetActiveLeague()
+
+	if (g_AidSpendManager == nil) then
+		g_AidSpendManager = InstanceManager:new("AidSpendInstance", "ActionButton", Controls.AidSpendRows)
+	end
+	g_AidSpendManager:ResetInstances()
+
+	local tActions = Game.GetAidPointActions(iActivePlayer)
+	for _, action in ipairs(tActions) do
+		if (action.InSpendList) then
+			local sText, sTT, bEnabled, bVisible = GetAidSpendRow(action, pPlayer, pActivePlayer, iActivePlayer, iPoints, pLeague)
+			if (bVisible) then
+				local instance = g_AidSpendManager:GetInstance()
+				SetupAidSpendInstance(instance, action, sText, sTT, bEnabled)
 			end
 		end
 	end
-	SetupAidSpendButton(Controls.PeaceAidLabel, Controls.PeaceAidButton, Controls.PeaceAidAnim, Controls.PeaceAidButtonHL,
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_PEACE") .. " (" .. iPeaceCost .. ")",
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_PEACE_TT", iPeaceCost),
-		(iPoints >= iPeaceCost), (bAnyPeace and iPeaceCost > 0));
 
-	-- Permanent World Congress vote: one purchase per city-state, kept across resurrection.
-	local iPermanentVoteCost = pActivePlayer:GetAidPointCostPermanentVote();
-	local bVoteBought = Game.HasAidPointPermanentVote(iActivePlayer, g_iMinorCivID);
-	local bVoteVisible = (pLeague ~= nil) and pLeague:IsMember(iActivePlayer) and (not bVoteBought);
-	SetupAidSpendButton(Controls.PermanentVoteAidLabel, Controls.PermanentVoteAidButton, Controls.PermanentVoteAidAnim, Controls.PermanentVoteAidButtonHL,
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE") .. " (" .. iPermanentVoteCost .. ")",
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_PERMANENT_VOTE_TT", iPermanentVoteCost),
-		(iPoints >= iPermanentVoteCost), (bVoteVisible and iPermanentVoteCost > 0));
-
-	-- Emergency proposal: only in the last three turns before a session and without a proposal right.
-	local iEmergencyCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_EMERGENCY_PROPOSAL);
-	local bEmergency = (pLeague ~= nil) and Game.CanRequestEmergencyProposal(iActivePlayer);
-	SetupAidSpendButton(Controls.EmergencyProposalAidLabel, Controls.EmergencyProposalAidButton, Controls.EmergencyProposalAidAnim, Controls.EmergencyProposalAidButtonHL,
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_EMERGENCY_PROPOSAL") .. " (" .. iEmergencyCost .. ")",
-		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_EMERGENCY_PROPOSAL_TT", iEmergencyCost),
-		(iPoints >= iEmergencyCost), (bEmergency and iEmergencyCost > 0));
-
-	UpdateButtonStack();
-	-- Rows hidden above stay in the stack's layout unless it is recalculated by hand.
-	Controls.AidSpendStack:CalculateSize();
-	Controls.AidSpendStack:ReprocessAnchoring();
+	UpdateButtonStack()
+	Controls.AidSpendRows:CalculateSize()
+	Controls.AidSpendStack:CalculateSize()
+	Controls.AidSpendStack:ReprocessAnchoring()
 end
 
-----------------------------------------------------------------
--- Aid Point Spending actions (Super Power V11)
-----------------------------------------------------------------
--- Reroll this city-state's personal quests
 function OnRerollQuestClicked()
 	local iActivePlayer = Game.GetActivePlayer();
 	local bSuccess = Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorRerollQuestsFromMajor", iActivePlayer, g_iMinorCivID);
@@ -1018,7 +1022,6 @@ function OnRerollQuestClicked()
 		OnCloseAidSpend();
 	end
 end
-Controls.RerollQuestButton:RegisterCallback( Mouse.eLClick, OnRerollQuestClicked );
 
 -- Bully gold paying with aid points (no influence loss, no diplomatic penalty)
 function OnBullyAidClicked()
@@ -1030,34 +1033,35 @@ function OnBullyAidClicked()
 	RefreshAidPoints();
 	OnCloseAidSpend();
 end
-Controls.BullyAidButton:RegisterCallback( Mouse.eLClick, OnBullyAidClicked );
 
 -- Preselect the gifted military unit
 function OnGiftUnitAidClicked()
-	local iCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_PENDING_GIFT_UNIT);
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	local iCost = pActivePlayer:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_PENDING_GIFT_UNIT);
 	local unitContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
 	LuaEvents.AidPointChoicePopupOpen("unit", g_iMinorCivID, iCost);
 	UIManager:QueuePopup( unitContext, PopupPriority.SocialPolicy );
 	UIManager:DequeuePopup( ContextPtr );
 end
-Controls.GiftUnitAidButton:RegisterCallback( Mouse.eLClick, OnGiftUnitAidClicked );
 
 -- Preselect the next gifted Great Person (aid points are charged to this city-state)
 function OnNextGPClicked()
-	-- SetupAidSpendButton only greys the button out, so refuse here too: a second pick would
-	-- overwrite the pending one and burn another 50 aid points.
-	local ePendingGP = Players[Game.GetActivePlayer()]:GetNextGreatPersonChoice();
+	-- The aid-point row is disabled while a pick is pending, so refuse here too: a second pick
+	-- would overwrite the pending one and burn another 50 aid points with nothing to show for it.
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	local ePendingGP = pActivePlayer:GetNextGreatPersonChoice();
 	if (ePendingGP ~= nil and ePendingGP >= 0) then
 		return;
 	end
 
-	local iCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_NEXT_GREAT_PERSON);
+	local iCost = pActivePlayer:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_NEXT_GREAT_PERSON);
 	local gpContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
 	LuaEvents.AidPointChoicePopupOpen("greatperson", g_iMinorCivID, iCost);
 	UIManager:QueuePopup( gpContext, PopupPriority.SocialPolicy );
 	UIManager:DequeuePopup( ContextPtr );
 end
-Controls.NextGPButton:RegisterCallback( Mouse.eLClick, OnNextGPClicked );
 
 -- Pull the next World Congress / United Nations session forward (the countdown is global, so
 -- every player's session moves up - it is broadcast so all clients stay in sync)
@@ -1069,7 +1073,6 @@ function OnHastenCongressClicked()
 		OnCloseAidSpend();
 	end
 end
-Controls.HastenCongressButton:RegisterCallback( Mouse.eLClick, OnHastenCongressClicked );
 
 -- Denounce a target the active player has already denounced, through this city-state
 function OnDenounceAidClicked()
@@ -1080,17 +1083,17 @@ function OnDenounceAidClicked()
 	UIManager:QueuePopup( denounceContext, PopupPriority.SocialPolicy );
 	UIManager:DequeuePopup( ContextPtr );
 end
-Controls.DenounceAidButton:RegisterCallback( Mouse.eLClick, OnDenounceAidClicked );
 
 -- Ask a neutral city-state to broker peace with a civ we are at war with
 function OnPeaceAidClicked()
-	local iCost = Players[Game.GetActivePlayer()]:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_PEACE);
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	local iCost = pActivePlayer:GetAidPointCost(AidPointActionTypes.AID_POINT_ACTION_PEACE);
 	local peaceContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
 	LuaEvents.AidPointChoicePopupOpen("peace", g_iMinorCivID, iCost);
 	UIManager:QueuePopup( peaceContext, PopupPriority.SocialPolicy );
 	UIManager:DequeuePopup( ContextPtr );
 end
-Controls.PeaceAidButton:RegisterCallback( Mouse.eLClick, OnPeaceAidClicked );
 
 -- Buy one permanent World Congress vote at this city-state
 function OnPermanentVoteAidClicked()
@@ -1101,7 +1104,6 @@ function OnPermanentVoteAidClicked()
 		OnCloseAidSpend();
 	end
 end
-Controls.PermanentVoteAidButton:RegisterCallback( Mouse.eLClick, OnPermanentVoteAidClicked );
 
 -- Claim the single emergency proposal slot for the next session
 function OnEmergencyProposalAidClicked()
@@ -1112,7 +1114,6 @@ function OnEmergencyProposalAidClicked()
 		OnCloseAidSpend();
 	end
 end
-Controls.EmergencyProposalAidButton:RegisterCallback( Mouse.eLClick, OnEmergencyProposalAidClicked );
 
 ----------------------------------------------------------------
 -- Buyout
