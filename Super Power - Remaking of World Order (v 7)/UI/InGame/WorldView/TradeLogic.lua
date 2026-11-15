@@ -1223,13 +1223,24 @@ function DisplayDeal(...)
 
 			local itemControls = g_itemControls[ itemType ]
 			if itemControls then
-				local pocketControl = itemControls[ isFromUs and 1 or 3 ]
-				local tableControl = itemControls[ isFromUs and 2 or 4 ]
-				if pocketControl then
-					pocketControl:SetHide( true )
-				end
-				if tableControl then
-					tableControl:SetHide( false )
+				if itemType == TradeableItems.TRADE_ITEM_NON_AGGRESSION_PACT then
+					-- SP: a Non-Aggression Pact is a mutual pact even though only the
+					-- initiator puts the item on the table. Draw it on both halves so the
+					-- recipient also sees what he is asked to accept (previously only the
+					-- initiator's trade panel showed the proposal).
+					if Controls.UsPocketNonAggressionPact then Controls.UsPocketNonAggressionPact:SetHide( true ) end
+					if Controls.ThemPocketNonAggressionPact then Controls.ThemPocketNonAggressionPact:SetHide( true ) end
+					if Controls.UsTableNonAggressionPact then Controls.UsTableNonAggressionPact:SetHide( false ) end
+					if Controls.ThemTableNonAggressionPact then Controls.ThemTableNonAggressionPact:SetHide( false ) end
+				else
+					local pocketControl = itemControls[ isFromUs and 1 or 3 ]
+					local tableControl = itemControls[ isFromUs and 2 or 4 ]
+					if pocketControl then
+						pocketControl:SetHide( true )
+					end
+					if tableControl then
+						tableControl:SetHide( false )
+					end
 				end
 
 			elseif TradeableItems.TRADE_ITEM_GOLD == itemType then
