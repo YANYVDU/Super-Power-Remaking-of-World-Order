@@ -944,6 +944,44 @@ function UpdateAidSpendChoices()
 		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS_TT", iHastenCost, iHastenTurns),
 		(iPoints >= iHastenCost), bHasten);
 
+	-- Denounce a civilization the active player has already denounced. Require at least
+	-- one valid target so the row is not shown as a dead option.
+	local iDenounceCost = Game.GetAidPointCostDenounce();
+	local bAnyDenounce = false;
+	local iMinorTeam = pPlayer:GetTeam();
+	for iLoop = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
+		if (iLoop ~= iActivePlayer and Players[iLoop]:IsAlive() and pActivePlayer:IsDenouncedPlayer(iLoop)
+			and Teams[iMinorTeam]:IsHasMet(Players[iLoop]:GetTeam())
+			and not Teams[iMinorTeam]:IsAtWar(Players[iLoop]:GetTeam())) then
+			bAnyDenounce = true;
+			break;
+		end
+	end
+	SetupAidSpendButton(Controls.DenounceAidLabel, Controls.DenounceAidButton, Controls.DenounceAidAnim, Controls.DenounceAidButtonHL,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_DENOUNCE") .. " (" .. iDenounceCost .. ")",
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_DENOUNCE_TT", iDenounceCost),
+		(iPoints >= iDenounceCost), (bAnyDenounce and iDenounceCost > 0));
+
+	-- A neutral city-state can broker peace with a civ we are at war with.
+	local iPeaceCost = Game.GetAidPointCostPeace();
+	local bAnyPeace = false;
+	local iActiveTeam = pActivePlayer:GetTeam();
+	for iLoop = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
+		if (iLoop ~= iActivePlayer and Players[iLoop]:IsAlive()) then
+			local iOtherTeam = Players[iLoop]:GetTeam();
+			if (Teams[iActiveTeam]:IsAtWar(iOtherTeam)
+				and not Teams[iMinorTeam]:IsAtWar(iActiveTeam)
+				and not Teams[iMinorTeam]:IsAtWar(iOtherTeam)) then
+				bAnyPeace = true;
+				break;
+			end
+		end
+	end
+	SetupAidSpendButton(Controls.PeaceAidLabel, Controls.PeaceAidButton, Controls.PeaceAidAnim, Controls.PeaceAidButtonHL,
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_PEACE") .. " (" .. iPeaceCost .. ")",
+		Locale.Lookup("TXT_KEY_POP_CSTATE_AID_PEACE_TT", iPeaceCost),
+		(iPoints >= iPeaceCost), (bAnyPeace and iPeaceCost > 0));
+
 	UpdateButtonStack();
 	-- Rows hidden above stay in the stack's layout unless it is recalculated by hand.
 	Controls.AidSpendStack:CalculateSize();
@@ -1015,6 +1053,26 @@ function OnHastenCongressClicked()
 	end
 end
 Controls.HastenCongressButton:RegisterCallback( Mouse.eLClick, OnHastenCongressClicked );
+
+-- Denounce a target the active player has already denounced, through this city-state
+function OnDenounceAidClicked()
+	local iCost = Game.GetAidPointCostDenounce();
+	local denounceContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
+	LuaEvents.AidPointChoicePopupOpen("denounce", g_iMinorCivID, iCost);
+	UIManager:QueuePopup( denounceContext, PopupPriority.SocialPolicy );
+	UIManager:DequeuePopup( ContextPtr );
+end
+Controls.DenounceAidButton:RegisterCallback( Mouse.eLClick, OnDenounceAidClicked );
+
+-- Ask a neutral city-state to broker peace with a civ we are at war with
+function OnPeaceAidClicked()
+	local iCost = Game.GetAidPointCostPeace();
+	local peaceContext = ContextPtr:LoadNewContext("InGame/Popups/AidPointChoicePopup");
+	LuaEvents.AidPointChoicePopupOpen("peace", g_iMinorCivID, iCost);
+	UIManager:QueuePopup( peaceContext, PopupPriority.SocialPolicy );
+	UIManager:DequeuePopup( ContextPtr );
+end
+Controls.PeaceAidButton:RegisterCallback( Mouse.eLClick, OnPeaceAidClicked );
 
 ----------------------------------------------------------------
 -- Buyout
@@ -1877,5 +1935,9 @@ LuaEvents.AidPointChoiceSelected.Add(function(mode, minorID, unitType)
 		Game.SendAndExecuteLuaFunction("CvLuaGame::lDoSetPendingGiftUnitFromMajor", iActivePlayer, minorID, unitType);
 	elseif (mode == "greatperson") then
 		Game.SendAndExecuteLuaFunction("CvLuaGame::lDoSetNextGreatPersonChoiceFromMajor", iActivePlayer, unitType, minorID);
+	elseif (mode == "denounce") then
+		Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorCivDenounceWithAidPoints", iActivePlayer, minorID, unitType);
+	elseif (mode == "peace") then
+		Game.SendAndExecuteLuaFunction("CvLuaGame::lDoMinorCivPeaceWithAidPoints", iActivePlayer, minorID, unitType);
 	end
 end);

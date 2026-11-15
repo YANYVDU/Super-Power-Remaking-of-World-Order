@@ -19168,6 +19168,45 @@
 		<Row Tag="TXT_KEY_POP_CSTATE_AID_HASTEN_CONGRESS_TT">
 			<Text>消耗 {1_Num} [ICON_AID_POINT]援建點數，使下一次世界議會/聯合國會議提前 {2_Num} 回合召開。[NEWLINE][ICON_BULLET]會議倒數為所有文明共有，加速對所有文明同時生效[NEWLINE][ICON_BULLET]會議進行期間無法加速；距下次會議剩餘 {2_Num} 回合或更少時無法使用</Text>
 		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_DENOUNCE">
+			<Text>以城邦名義譴責</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_DENOUNCE_TT">
+			<Text>消耗 {1_Num} [ICON_AID_POINT]援建點數，讓該城邦譴責一個你已經譴責的文明。[NEWLINE][ICON_BULLET]目標對所有城邦的影響力下降5%[NEWLINE][ICON_BULLET]只能用在你已經公開譴責的文明上</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_PEACE">
+			<Text>請城邦斡旋停戰</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AID_PEACE_TT">
+			<Text>消耗 {1_Num} [ICON_AID_POINT]援建點數，讓該中立城邦促成你與一個交戰文明的停戰。[NEWLINE][ICON_BULLET]該城邦必須未與你或目標交戰[NEWLINE][ICON_BULLET]停戰立刻生效</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_DENOUNCE_TITLE">
+			<Text>選擇譴責目標</Text>
+		</Row>
+		<Row Tag="TXT_KEY_AID_CHOICE_PEACE_TITLE">
+			<Text>選擇停戰對象</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_DENOUNCED">
+			<Text>{1}對你進行了譴責，你的國際影響力大幅下降了。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_STATE_DENOUNCED">
+			<Text>被城邦譴責</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_DENOUNCED_ACTOR">
+			<Text>你讓{1}譴責了{2}，{2}對所有城邦的影響力下降了5%。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_STATE_DENOUNCED_ACTOR">
+			<Text>城邦譴責</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_DENOUNCED_THIRD">
+			<Text>{1}譴責了{2}，{2}對所有城邦的影響力下降了5%。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_STATE_DENOUNCED_THIRD">
+			<Text>城邦譴責</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_DENOUNCED_SPY">
+			<Text>[NEWLINE]根據情報分析，此次譴責是受了{1}的脅迫。</Text>
+		</Row>
 		<Row Tag="TXT_KEY_POPUP_MINOR_BULLY_TREASURY_SHARE">
 			<Text>[NEWLINE]（另獲城邦金庫 {1_Num}[ICON_GOLD]）</Text>
 		</Row>

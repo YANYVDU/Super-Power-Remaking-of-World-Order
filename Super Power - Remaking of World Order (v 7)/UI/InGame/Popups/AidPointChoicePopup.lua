@@ -49,7 +49,37 @@ function RefreshList()
 	CivIconHookup( iActivePlayer, 64, Controls.CivIcon, Controls.CivIconBG, Controls.CivIconShadow, false, true );
 
 	local tUnits = {};
-	if (params.Mode == "unit") then
+	local tCivs = {};
+	local bCivMode = (params.Mode == "denounce" or params.Mode == "peace");
+
+	if (bCivMode) then
+		local pActivePlayer = Players[iActivePlayer];
+		local iActiveTeam = pActivePlayer:GetTeam();
+		local iMinorTeam = Players[params.MinorID]:GetTeam();
+
+		if (params.Mode == "denounce") then
+			Controls.TitleLabel:SetText(Locale.Lookup("TXT_KEY_AID_CHOICE_DENOUNCE_TITLE"));
+			for iPlayer = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
+				if (iPlayer ~= iActivePlayer and Players[iPlayer]:IsAlive() and pActivePlayer:IsDenouncedPlayer(iPlayer)
+					and Teams[iMinorTeam]:IsHasMet(Players[iPlayer]:GetTeam())
+					and not Teams[iMinorTeam]:IsAtWar(Players[iPlayer]:GetTeam())) then
+					table.insert(tCivs, iPlayer);
+				end
+			end
+		else
+			Controls.TitleLabel:SetText(Locale.Lookup("TXT_KEY_AID_CHOICE_PEACE_TITLE"));
+			for iPlayer = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
+				if (iPlayer ~= iActivePlayer and Players[iPlayer]:IsAlive()) then
+					local iOtherTeam = Players[iPlayer]:GetTeam();
+					if (Teams[iActiveTeam]:IsAtWar(iOtherTeam)
+						and not Teams[iMinorTeam]:IsAtWar(iActiveTeam)
+						and not Teams[iMinorTeam]:IsAtWar(iOtherTeam)) then
+						table.insert(tCivs, iPlayer);
+					end
+				end
+			end
+		end
+	elseif (params.Mode == "unit") then
 		Controls.TitleLabel:SetText(Locale.Lookup("TXT_KEY_AID_CHOICE_UNIT_TITLE"));
 		tUnits = Game.GetMinorGiftUnitChoices(iActivePlayer);
 	else
@@ -62,22 +92,32 @@ function RefreshList()
 	end
 	Controls.CostLabel:SetText(Locale.Lookup("TXT_KEY_AID_CHOICE_COST", params.Cost));
 
-	-- Strongest first so the better picks are visible without scrolling
-	table.sort(tUnits, function(a, b)
-		local pa = GameInfo.Units[a];
-		local pb = GameInfo.Units[b];
-		if (pa.Power ~= pb.Power) then
-			return pa.Power > pb.Power;
+	if (bCivMode) then
+		for _, iPlayer in ipairs(tCivs) do
+			local iSelectedPlayer = iPlayer;
+			local sName = Locale.ConvertTextKey(Players[iSelectedPlayer]:GetCivilizationShortDescriptionKey());
+			local item = g_ItemManager:GetInstance();
+			item.Name:SetText(sName);
+			item.Button:RegisterCallback( Mouse.eLClick, function() OnItemClicked(iSelectedPlayer, sName); end );
 		end
-		return a < b;
-	end);
+	else
+		-- Strongest first so the better picks are visible without scrolling
+		table.sort(tUnits, function(a, b)
+			local pa = GameInfo.Units[a];
+			local pb = GameInfo.Units[b];
+			if (pa.Power ~= pb.Power) then
+				return pa.Power > pb.Power;
+			end
+			return a < b;
+		end);
 
-	for _, unitType in ipairs(tUnits) do
-		local pInfo = GameInfo.Units[unitType];
-		local sName = Locale.Lookup(pInfo.Description);
-		local item = g_ItemManager:GetInstance();
-		item.Name:SetText(sName);
-		item.Button:RegisterCallback( Mouse.eLClick, function() OnItemClicked(unitType, sName); end );
+		for _, unitType in ipairs(tUnits) do
+			local pInfo = GameInfo.Units[unitType];
+			local sName = Locale.Lookup(pInfo.Description);
+			local item = g_ItemManager:GetInstance();
+			item.Name:SetText(sName);
+			item.Button:RegisterCallback( Mouse.eLClick, function() OnItemClicked(unitType, sName); end );
+		end
 	end
 
 	Controls.ItemStack:CalculateSize();
