@@ -81,7 +81,7 @@ function RefreshList()
 		end
 	elseif (params.Mode == "unit") then
 		Controls.TitleLabel:SetText(Locale.Lookup("TXT_KEY_AID_CHOICE_UNIT_TITLE"));
-		tUnits = Game.GetMinorGiftUnitChoices(iActivePlayer);
+		tUnits = Game.GetMinorGiftUnitChoices(iActivePlayer, params.MinorID);
 	else
 		Controls.TitleLabel:SetText(Locale.Lookup("TXT_KEY_AID_CHOICE_GP_TITLE"));
 		for row in GameInfo.Units() do
