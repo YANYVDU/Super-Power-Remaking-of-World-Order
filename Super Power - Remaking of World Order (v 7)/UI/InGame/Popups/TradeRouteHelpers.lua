@@ -26,7 +26,7 @@ function BuildTradeRouteGoldToolTipString (pOriginCity, pTargetCity, eDomain)
 	local iOriginTeam = pPlayer:GetTeam();
 	local iDestTeam = pOtherPlayer:GetTeam();
 	if (iOriginTeam ~= iDestTeam and (Teams[iOriginTeam]:IsHasTradeAgreement(iDestTeam) or Teams[iDestTeam]:IsHasTradeAgreement(iOriginTeam))) then
-		iTradeAgreementMod = 20;
+		iTradeAgreementMod = Game.GetTradeAgreementRouteGoldPercent();
 	end
 	local iTotalX100 = pPlayer:GetInternationalTradeRouteTotal(pOriginCity, pTargetCity, eDomain, true);
 
