@@ -230,7 +230,9 @@ function SatelliteLaunchEffects(unit, city, player, bBroadcast)
 end -----------function END
 
 
-local function SatelliteEffectsGlobal_Base(unit)
+-- Assign to the forward-declared local above; `local function` here would create a new
+-- shadowing local and leave the forward declaration nil.
+SatelliteEffectsGlobal_Base = function(unit)
 	if unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_WEATHER then
 		print("Satellite Effects Global:Weather Control!")
 		for plotLoop = 0, Map.GetNumPlots() - 1, 1 do
@@ -334,7 +336,8 @@ local function SatelliteEffectsGlobal_Base(unit)
 
 end -----------function END
 
-local function SatelliteEffectsGlobal_MP(unit)
+-- Assign to the forward-declared local above (see note on the _Base definition).
+SatelliteEffectsGlobal_MP = function(unit)
 	if unit:GetUnitClassType() == GameInfoTypes.UNITCLASS_SATELLITE_WEATHER then
 		print("Satellite Effects Global:Weather Control!")
 		for plotLoop = 0, Map.GetNumPlots() - 1, 1 do
