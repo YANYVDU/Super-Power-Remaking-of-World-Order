@@ -19416,6 +19416,9 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_STATE_PERMANENT_VOTE">
 			<Text>永久选票</Text>
 		</Row>
+		<Row Tag="TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_PERMANENT_VOTE">
+			<Text>[NEWLINE][ICON_BULLET]在城邦购买的永久席位：+{1_NumVotes}</Text>
+		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_EMERGENCY_PROPOSAL">
 			<Text>你通过{1}获得了一个应急提案位。</Text>
 		</Row>

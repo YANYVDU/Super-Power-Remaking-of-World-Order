@@ -19222,6 +19222,9 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_STATE_PERMANENT_VOTE">
 			<Text>永久選票</Text>
 		</Row>
+		<Row Tag="TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_PERMANENT_VOTE">
+			<Text>[NEWLINE][ICON_BULLET]在城邦購買的永久席位：+{1_NumVotes}</Text>
+		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_EMERGENCY_PROPOSAL">
 			<Text>你透過{1}獲得了一個應急提案位。</Text>
 		</Row>

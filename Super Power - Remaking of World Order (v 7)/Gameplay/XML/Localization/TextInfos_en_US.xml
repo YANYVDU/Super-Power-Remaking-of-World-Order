@@ -20946,6 +20946,9 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_STATE_PERMANENT_VOTE">
 			<Text>Permanent Vote</Text>
 		</Row>
+		<Row Tag="TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_PERMANENT_VOTE">
+			<Text>[NEWLINE][ICON_BULLET]Permanent seats bought at city-states: +{1_NumVotes}</Text>
+		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STATE_EMERGENCY_PROPOSAL">
 			<Text>You gained an emergency proposal slot through {1}.</Text>
 		</Row>
