@@ -597,7 +597,10 @@ function InitMinorCivList()
         	end
 			local iFriendshipWithUs = pOtherPlayer:GetMinorCivFriendshipWithMajor(g_iPlayer)
 			local iAidPoints = 0
-			if (pOtherPlayer.GetEconomicAidPoints ~= nil) then
+			-- Aid points are suspended during a war with this city-state (economic aid is
+			-- auto-terminated on war), so do not advertise them in the war-time row either.
+			if (pOtherPlayer.GetEconomicAidPoints ~= nil
+				and not Teams[Game.GetActiveTeam()]:IsAtWar(pOtherPlayer:GetTeam())) then
 				iAidPoints = pOtherPlayer:GetEconomicAidPoints(g_iPlayer)
 			end
 			if iFriendshipWithUs ~= 0 or iAidPoints ~= 0 then

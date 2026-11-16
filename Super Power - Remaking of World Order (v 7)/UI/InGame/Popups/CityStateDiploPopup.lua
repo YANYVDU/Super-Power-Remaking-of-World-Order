@@ -827,12 +827,24 @@ Controls.RevokeAidButton:RegisterCallback( Mouse.eLClick, OnRevokeAidButtonClick
 ----------------------------------------------------------------
 -- Aid Point Spending submenu (Super Power V11)
 ----------------------------------------------------------------
+-- Economic aid is terminated automatically on war with this city-state, so while at war the
+-- banked aid points must not stay visible or spendable. They are kept, and become available
+-- again once peace is restored.
+local function IsAtWarWithMinorCiv()
+	local iActivePlayer = Game.GetActivePlayer();
+	local pActivePlayer = Players[iActivePlayer];
+	if (pActivePlayer == nil or g_iMinorCivTeamID < 0) then
+		return false;
+	end
+	return Teams[pActivePlayer:GetTeam()]:IsAtWar(g_iMinorCivTeamID);
+end
+
 -- Refresh the banked aid-point total shown on the main menu button.
 function RefreshAidPoints()
 	local pPlayer = Players[g_iMinorCivID];
 	local iActivePlayer = Game.GetActivePlayer();
 	local iPoints = pPlayer:GetEconomicAidPoints(iActivePlayer);
-	local bShow = (iPoints > 0);
+	local bShow = (iPoints > 0 and not IsAtWarWithMinorCiv());
 	Controls.AidSpendButton:SetHide(not bShow);
 	if (bShow) then
 		Controls.AidSpendLabel:SetText(Locale.Lookup("TXT_KEY_POP_CSTATE_AID_SPEND", iPoints));
@@ -842,6 +854,9 @@ function RefreshAidPoints()
 end
 
 function OnAidSpendButtonClicked()
+	if (IsAtWarWithMinorCiv()) then
+		return;
+	end
 	Controls.ButtonStack:SetHide(true);
 	Controls.AidSpendStack:SetHide(false);
 	UpdateAidSpendChoices();
@@ -985,6 +1000,15 @@ local function GetAidSpendRow(action, pPlayer, pActivePlayer, iActivePlayer, iPo
 end
 
 function UpdateAidSpendChoices()
+	if (IsAtWarWithMinorCiv()) then
+		-- War terminated the aid: no spend rows while at war.
+		if (g_AidSpendManager ~= nil) then
+			g_AidSpendManager:ResetInstances()
+		end
+		OnCloseAidSpend()
+		return
+	end
+
 	local pPlayer = Players[g_iMinorCivID]
 	local iActivePlayer = Game.GetActivePlayer()
 	local pActivePlayer = Players[iActivePlayer]
