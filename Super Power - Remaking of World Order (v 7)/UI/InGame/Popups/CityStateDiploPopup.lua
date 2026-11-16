@@ -967,7 +967,9 @@ local function GetAidSpendRow(action, pPlayer, pActivePlayer, iActivePlayer, iPo
 		for i = 0, GameDefines.MAX_MAJOR_CIVS - 1 do
 			if (i ~= iActivePlayer and Players[i]:IsAlive() and pActivePlayer:IsDenouncedPlayer(i)
 				and Teams[iMinorTeam]:IsHasMet(Players[i]:GetTeam())
-				and not Teams[iMinorTeam]:IsAtWar(Players[i]:GetTeam())) then
+				and not Teams[iMinorTeam]:IsAtWar(Players[i]:GetTeam())
+				-- Skip targets still on the (target, city-state) cooldown
+				and Game.CanMinorCivDenounceWithAidPoints(iActivePlayer, g_iMinorCivID, i)) then
 				bAny = true
 				break
 			end
@@ -991,7 +993,8 @@ local function GetAidSpendRow(action, pPlayer, pActivePlayer, iActivePlayer, iPo
 		bVisible = (bVisible and bAny)
 	elseif (sType == "AID_POINT_ACTION_PERMANENT_VOTE") then
 		local bBought = Game.HasAidPointPermanentVote(iActivePlayer, g_iMinorCivID)
-		bVisible = (bVisible and pLeague ~= nil and pLeague:IsMember(iActivePlayer) and not bBought)
+		-- Hidden during a League session: the running session's votes are already allocated
+		bVisible = (bVisible and Game.CanBuyPermanentVoteWithAidPoints(iActivePlayer, g_iMinorCivID) and not bBought)
 	elseif (sType == "AID_POINT_ACTION_EMERGENCY_PROPOSAL") then
 		bVisible = (bVisible and pLeague ~= nil and Game.CanRequestEmergencyProposal(iActivePlayer))
 	end

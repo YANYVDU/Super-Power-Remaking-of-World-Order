@@ -62,7 +62,9 @@ function RefreshList()
 			for iPlayer = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
 				if (iPlayer ~= iActivePlayer and Players[iPlayer]:IsAlive() and pActivePlayer:IsDenouncedPlayer(iPlayer)
 					and Teams[iMinorTeam]:IsHasMet(Players[iPlayer]:GetTeam())
-					and not Teams[iMinorTeam]:IsAtWar(Players[iPlayer]:GetTeam())) then
+					and not Teams[iMinorTeam]:IsAtWar(Players[iPlayer]:GetTeam())
+					-- This (target, city-state) pair may be on cooldown, in which case it cannot be bought
+					and Game.CanMinorCivDenounceWithAidPoints(iActivePlayer, params.MinorID, iPlayer)) then
 					table.insert(tCivs, iPlayer);
 				end
 			end
